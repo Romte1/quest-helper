@@ -114,10 +114,10 @@ public class VampyreSlayer extends BasicQuestHelper
 		varrockTeleport = new ItemRequirement("Teleport to Varrock", ItemID.POH_TABLET_VARROCKTELEPORT);
 		draynorManorTeleport = new ItemRequirement("Draynor manor teleport", ItemID.TELETAB_DRAYNOR);
 		stake = new ItemRequirement("Stake", ItemID.STAKE);
-		stake.setTooltip("You can get another from Dr. Harlow in the Blue Moon Inn in Varrock.");
+		stake.setTooltip(t("You can get another from Dr. Harlow in the Blue Moon Inn in Varrock."));
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed();
 		garlic = new ItemRequirement("Garlic", ItemID.GARLIC);
-		garlic.setTooltip("Weakens Count Draynor");
+		garlic.setTooltip(t("Weakens Count Draynor"));
 		beer = new ItemRequirement("Beer", ItemID.BEER);
 		twoCoins = new ItemRequirement("Coins", ItemID.COINS, 2);
 		beerOrTwoCoins = new ItemRequirements(LogicType.OR, "A beer, or 2 coins to buy one", beer, twoCoins);
@@ -141,28 +141,28 @@ public class VampyreSlayer extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToMorgan = new NpcStep(this, NpcID.MORGAN, new WorldPoint(3098, 3268, 0), "Talk to Morgan in the north of Draynor Village.");
+		talkToMorgan = new NpcStep(this, NpcID.MORGAN, new WorldPoint(3098, 3268, 0), t("Talk to Morgan in the north of Draynor Village."));
 		talkToMorgan.addDialogStep("Yes.");
 
-		goUpstairsMorgan = new ObjectStep(this, ObjectID.STAIRS, new WorldPoint(3100, 3267, 0), "Climb the stairs.");
-		getGarlic = new ObjectStep(this, ObjectID.GARLICCUPBOARDOPEN, new WorldPoint(3096, 3270, 1), "Search the cupboard.");
+		goUpstairsMorgan = new ObjectStep(this, ObjectID.STAIRS, new WorldPoint(3100, 3267, 0), t("Climb the stairs."));
+		getGarlic = new ObjectStep(this, ObjectID.GARLICCUPBOARDOPEN, new WorldPoint(3096, 3270, 1), t("Search the cupboard."));
 		getGarlic.addAlternateObjects(ObjectID.GARLICCUPBOARDSHUT);
 		cGetGarlic = new ConditionalStep(this, goUpstairsMorgan, "Get garlic from the cupboard upstairs in Morgan's house.\n\nYou can tick off this section in the sidebar to skip the garlic acquisition.");
 		cGetGarlic.addStep(isUpstairsInMorgans, getGarlic);
 
-		talkToHarlow = new NpcStep(this, NpcID.DR_HARLOW, new WorldPoint(3222, 3399, 0), "Talk to Dr. Harlow in the Blue Moon Inn in Varrock.", beerOrTwoCoins);
+		talkToHarlow = new NpcStep(this, NpcID.DR_HARLOW, new WorldPoint(3222, 3399, 0), t("Talk to Dr. Harlow in the Blue Moon Inn in Varrock."), beerOrTwoCoins);
 		talkToHarlow.addDialogStep("Morgan needs your help!");
-		buyBeer = new NpcStep(this, NpcID.BLUEMOON_BARTENDER, "Buy a beer from the bartender in the Blue Moon Inn in Varrock.", twoCoins);
+		buyBeer = new NpcStep(this, NpcID.BLUEMOON_BARTENDER, t("Buy a beer from the bartender in the Blue Moon Inn in Varrock."), twoCoins);
 		buyBeer.addDialogStep("A glass of your finest ale please.");
-		talkToHarlowAgain = new NpcStep(this, NpcID.DR_HARLOW, new WorldPoint(3222, 3399, 0), "Talk to Dr. Harlow again with a beer.", beer);
+		talkToHarlowAgain = new NpcStep(this, NpcID.DR_HARLOW, new WorldPoint(3222, 3399, 0), t("Talk to Dr. Harlow again with a beer."), beer);
 		talkToHarlowAgain.addDialogStep("Yes. Here you go.");
 
 		List<Requirement> countDraynorReqs = List.of(hammer, stake, combatGear);
 		List<Requirement> countDraynorRecommended = List.of(garlic);
-		enterDraynorManor = new ObjectStep(this, ObjectID.HAUNTEDDOORL, new WorldPoint(3108, 3353, 0), "Prepare to fight Count Draynor (level 34), and enter Draynor Manor.", countDraynorReqs, countDraynorRecommended);
-		goDownToBasement = new ObjectStep(this, ObjectID.CRYPTSTAIRSDOWN, new WorldPoint(3116, 3358, 0), "Enter Draynor Manor's basement.", countDraynorReqs, countDraynorRecommended);
-		openCoffin = new ObjectStep(this, ObjectID.VAMPCOFFIN, new WorldPoint(3078, 9776, 0), "Open the coffin and kill Count Draynor.", countDraynorReqs, countDraynorRecommended);
-		killDraynor = new NpcStep(this, NpcID.COUNT_DRAYNOR, new WorldPoint(3077, 9769, 0), "Kill Count Draynor.", countDraynorReqs, countDraynorRecommended);
+		enterDraynorManor = new ObjectStep(this, ObjectID.HAUNTEDDOORL, new WorldPoint(3108, 3353, 0), t("Prepare to fight Count Draynor (level 34), and enter Draynor Manor."), countDraynorReqs, countDraynorRecommended);
+		goDownToBasement = new ObjectStep(this, ObjectID.CRYPTSTAIRSDOWN, new WorldPoint(3116, 3358, 0), t("Enter Draynor Manor's basement."), countDraynorReqs, countDraynorRecommended);
+		openCoffin = new ObjectStep(this, ObjectID.VAMPCOFFIN, new WorldPoint(3078, 9776, 0), t("Open the coffin and kill Count Draynor."), countDraynorReqs, countDraynorRecommended);
+		killDraynor = new NpcStep(this, NpcID.COUNT_DRAYNOR, new WorldPoint(3077, 9769, 0), t("Kill Count Draynor."), countDraynorReqs, countDraynorRecommended);
 		openCoffin.addSubSteps(killDraynor);
 	}
 
@@ -218,7 +218,7 @@ public class VampyreSlayer extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"Count Draynor (level 34)"
+			t("Count Draynor (level 34)")
 		);
 	}
 
@@ -241,17 +241,17 @@ public class VampyreSlayer extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Starting off", List.of(
+		sections.add(new PanelDetails(t("Starting off"), List.of(
 			talkToMorgan
 		)));
 
-		var garlicSection = new PanelDetails("Get garlic", List.of(
+		var garlicSection = new PanelDetails(t("Get garlic"), List.of(
 			cGetGarlic
 		));
 		garlicSection.setLockingStep(cGetGarlic);
 		sections.add(garlicSection);
 
-		sections.add(new PanelDetails("Get a stake", List.of(
+		sections.add(new PanelDetails(t("Get a stake"), List.of(
 			talkToHarlow,
 			buyBeer,
 			talkToHarlowAgain
@@ -259,7 +259,7 @@ public class VampyreSlayer extends BasicQuestHelper
 			beerOrTwoCoins
 		)));
 
-		sections.add(new PanelDetails("Kill Count Draynor", List.of(
+		sections.add(new PanelDetails(t("Kill Count Draynor"), List.of(
 			enterDraynorManor,
 			goDownToBasement,
 			openCoffin

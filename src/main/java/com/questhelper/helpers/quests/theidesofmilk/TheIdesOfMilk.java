@@ -104,11 +104,11 @@ public class TheIdesOfMilk extends BasicQuestHelper
 
 		milkSample1 = new ItemRequirement("Milk sample", ItemID.COWQUEST_MILK_SAMPLE_1);
 		milkSample1.canBeObtainedDuringQuest();
-		milkSample1.setTooltip("You can get another from Cassius");
+		milkSample1.setTooltip(t("You can get another from Cassius"));
 
 		milkSample2 = new ItemRequirement("Milk sample", ItemID.COWQUEST_MILK_SAMPLE_2);
 		milkSample2.canBeObtainedDuringQuest();
-		milkSample2.setTooltip("You can get another from Cassius");
+		milkSample2.setTooltip(t("You can get another from Cassius"));
 
 		gillieInformed = new VarbitRequirement(VarbitID.COWQUEST_GILLIE_INFORMATION, 1);
 		inLumbridgeCastleF1 = new ZoneRequirement(lumbridgeCastleF1);
@@ -124,79 +124,79 @@ public class TheIdesOfMilk extends BasicQuestHelper
 	{
 		talkToCassius = new NpcStep(this, NpcID.COWBOSS_FARMER,
 			new WorldPoint(3171, 3277, 0),
-			"Speak to Cassius by the pond north-west of Lumbridge to start the quest.", true);
+			t("Speak to Cassius by the pond north-west of Lumbridge to start the quest."), true);
 		talkToCassius.addDialogStep("Yes.");
 
 		talkToGillie = new NpcStep(this, NpcID.GILLIE_THE_MILKMAID,
 			new WorldPoint(3253, 3270, 0),
-			"Speak to Gillie Groats at the cow field east of Lumbridge.");
+			t("Speak to Gillie Groats at the cow field east of Lumbridge."));
 		talkToGillie.addDialogStep("Can you share what makes your cows so productive?");
 
 		talkToSeth = new NpcStep(this, NpcID.FAVOUR_SETH_GROATS,
 			new WorldPoint(3228, 3291, 0),
-			"Speak to Seth Groats at his farmhouse east of the River Lum.");
+			t("Speak to Seth Groats at his farmhouse east of the River Lum."));
 
 		searchShelves = new ObjectStep(this, ObjectID.COWQUEST_SETH_SHELF,
 			new WorldPoint(3227, 3287, 0),
-			"Search the shelves in Seth's farmhouse for 'The groats principles'.");
+			t("Search the shelves in Seth's farmhouse for 'The groats principles'."));
 
 		returnToCassiusWithBook = new NpcStep(this, NpcID.COWBOSS_FARMER,
 			new WorldPoint(3171, 3277, 0),
-			"Return to Cassius with the book.", true, husbandryBook);
+			t("Return to Cassius with the book."), true, husbandryBook);
 
 		talkToCassiusAboutBook = new NpcStep(this, NpcID.COWBOSS_FARMER,
 			new WorldPoint(3171, 3277, 0),
-			"Talk to Cassius.", true);
+			t("Talk to Cassius."), true);
 		returnToCassiusWithBook.addSubSteps(talkToCassiusAboutBook);
 
 		drinkMilkSample1 = new DetailedQuestStep(this,
-			"Drink the milk sample near Cassius.", milkSample1.highlighted());
+			t("Drink the milk sample near Cassius."), milkSample1.highlighted());
 
 		talkToCassiusAfterDrink = new NpcStep(this, NpcID.COWBOSS_FARMER,
 			new WorldPoint(3171, 3277, 0),
-			"Talk to Cassius after drinking the milk sample.", true);
+			t("Talk to Cassius after drinking the milk sample."), true);
 
 		goUpToLumbridgeCastleF1 = new ObjectStep(this, QHObjectID.LUMBRIDGE_CASTLE_F0_SOUTH_STAIRCASE,
 			new WorldPoint(3205, 3208, 0),
-			"Speak to Duke Horacio on the first floor of Lumbridge Castle.", milkSample2);
+			t("Speak to Duke Horacio on the first floor of Lumbridge Castle."), milkSample2);
 
 		talkToDuke = new NpcStep(this, NpcID.DUKE_OF_LUMBRIDGE,
 			new WorldPoint(3210, 3220, 1),
-			"Speak to Duke Horacio on the first floor of Lumbridge Castle.", milkSample2);
+			t("Speak to Duke Horacio on the first floor of Lumbridge Castle."), milkSample2);
 		talkToDuke.addSubSteps(goUpToLumbridgeCastleF1);
 
 		talkToGillieAgain = new NpcStep(this, NpcID.GILLIE_THE_MILKMAID,
 			new WorldPoint(3253, 3270, 0),
-			"Speak to Gillie Groats at the cow field.");
+			t("Speak to Gillie Groats at the cow field."));
 
 		drinkMilkSample2 = new DetailedQuestStep(this,
-			"Drink the milk sample near Gillie.", milkSample2.highlighted());
+			t("Drink the milk sample near Gillie."), milkSample2.highlighted());
 
 		talkToGillieAfterDrink = new NpcStep(this, NpcID.GILLIE_THE_MILKMAID,
 			new WorldPoint(3253, 3270, 0),
-			"Talk to Gillie Groats after drinking the milk sample.");
+			t("Talk to Gillie Groats after drinking the milk sample."));
 
 		brutusNearby = new NpcCondition(NpcID.COWBOSS);
 
 		openBullPen = new ObjectStep(this, ObjectID.FENCEGATE_L_COWBOSS_START,
 			new WorldPoint(3262, 3294, 0),
-			"Open the bull pen gate in the north-east corner of the cow field to fight the Bull (level 30).",
+			t("Open the bull pen gate in the north-east corner of the cow field to fight the Bull (level 30)."),
 			combatGear, food);
 		openBullPen.addDialogStep("Yes.");
 
 		killBrutus = new NpcStep(this, NpcID.COWBOSS,
 			new WorldPoint(3262, 3294, 0),
-			"Kill the Bull (level 30). Protect from Melee blocks his basic attacks (max hit 3). Dodge his ground slam ('snorts') and charge ('growls') by walking through him. Special attacks can hit over 15.",
+			t("Kill the Bull (level 30). Protect from Melee blocks his basic attacks (max hit 3). Dodge his ground slam ('snorts') and charge ('growls') by walking through him. Special attacks can hit over 15."),
 			combatGear, food);
 		openBullPen.addSubSteps(killBrutus);
 
 		talkToGillieAfterFight = new NpcStep(this, NpcID.GILLIE_THE_MILKMAID,
 			new WorldPoint(3253, 3270, 0),
-			"Speak to Gillie Groats after defeating the Bull.");
+			t("Speak to Gillie Groats after defeating the Bull."));
 
 		finishQuest = new NpcStep(this, NpcID.COWBOSS_FARMER,
 			new WorldPoint(3171, 3277, 0),
-			"Return to Cassius to complete the quest. You can then speak to Gillie Groats for a cow bell amulet and magic lamp (1,000 XP combat/Prayer).", true);
+			t("Return to Cassius to complete the quest. You can then speak to Gillie Groats for a cow bell amulet and magic lamp (1,000 XP combat/Prayer)."), true);
 	}
 
 	@Override
@@ -256,7 +256,7 @@ public class TheIdesOfMilk extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return List.of("Bull (level 30)");
+		return List.of(t("Bull (level 30)"));
 	}
 
 	@Override
@@ -269,8 +269,8 @@ public class TheIdesOfMilk extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Access to the cow boss"),
-			new UnlockReward("Cow bell amulet and magic lamp (1,000 XP combat/Prayer) from Gillie Groats")
+			new UnlockReward(t("Access to the cow boss")),
+			new UnlockReward(t("Cow bell amulet and magic lamp (1,000 XP combat/Prayer) from Gillie Groats"))
 		);
 	}
 
@@ -279,35 +279,35 @@ public class TheIdesOfMilk extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Starting off", List.of(
+		sections.add(new PanelDetails(t("Starting off"), List.of(
 			talkToCassius
 		)));
 
-		sections.add(new PanelDetails("Investigation", List.of(
+		sections.add(new PanelDetails(t("Investigation"), List.of(
 			talkToGillie,
 			talkToSeth,
 			searchShelves
 		)));
 
-		sections.add(new PanelDetails("Milk tasting", List.of(
+		sections.add(new PanelDetails(t("Milk tasting"), List.of(
 			returnToCassiusWithBook,
 			drinkMilkSample1,
 			talkToCassiusAfterDrink
 		)));
 
-		sections.add(new PanelDetails("The Duke's opinion", List.of(
+		sections.add(new PanelDetails(t("The Duke's opinion"), List.of(
 			talkToDuke,
 			talkToGillieAgain,
 			drinkMilkSample2,
 			talkToGillieAfterDrink
 		)));
 
-		sections.add(new PanelDetails("The bull fight", List.of(
+		sections.add(new PanelDetails(t("The bull fight"), List.of(
 			openBullPen,
 			talkToGillieAfterFight
 		), combatGear, food));
 
-		sections.add(new PanelDetails("Finishing up", List.of(
+		sections.add(new PanelDetails(t("Finishing up"), List.of(
 			finishQuest
 		)));
 

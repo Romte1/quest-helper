@@ -181,14 +181,14 @@ public class DemonSlayer extends BasicQuestHelper
 	public void setupSteps()
 	{
 		// -- Starting off
-		talkToAris = new NpcStep(this, NpcID.ARIS, new WorldPoint(3204, 3424, 0), "Talk to Aris in her tent in Varrock Square.", coin);
+		talkToAris = new NpcStep(this, NpcID.ARIS, new WorldPoint(3204, 3424, 0), t("Talk to Aris in her tent in Varrock Square."), coin);
 		talkToAris.addDialogStep("The Demon Slayer Quest");
 		talkToAris.addDialogStep("Yes.");
 		talkToAris.addDialogStep("Ok, here you go.");
 		talkToAris.addDialogStep("Okay, where is he? I'll kill him for you!");
 		talkToAris.addDialogStep("So how did Wally kill Delrith?");
 
-		talkToPrysin = new NpcStep(this, NpcID.SIR_PRYSIN, new WorldPoint(3203, 3472, 0), "Talk to Sir Prysin in the south west corner of Varrock Castle.");
+		talkToPrysin = new NpcStep(this, NpcID.SIR_PRYSIN, new WorldPoint(3203, 3472, 0), t("Talk to Sir Prysin in the south west corner of Varrock Castle."));
 		talkToPrysin.addDialogStep("Aris said I should come and talk to you.");
 		talkToPrysin.addDialogStep("I need to find Silverlight.");
 		talkToPrysin.addDialogStep("He's back and unfortunately I've got to deal with him.");
@@ -196,10 +196,10 @@ public class DemonSlayer extends BasicQuestHelper
 		talkToPrysin.addDialogStep("Can you give me your key?");
 
 		// -- Get Rovin's key
-		goUpToRovin = new ObjectStep(this, ObjectID.VARROCK_SPIRALSTAIRS_TALLER, new WorldPoint(3203, 3498, 0), "Talk to Captain Rovin upstairs in the north west of Varrock Castle.");
-		goUpToRovin2 = new ObjectStep(this, ObjectID.VARROCK_SPIRALSTAIRS_MIDDLE_TALLER, new WorldPoint(3203, 3498, 1), "Talk to Captain Rovin upstairs in the north west of Varrock Castle.");
+		goUpToRovin = new ObjectStep(this, ObjectID.VARROCK_SPIRALSTAIRS_TALLER, new WorldPoint(3203, 3498, 0), t("Talk to Captain Rovin upstairs in the north west of Varrock Castle."));
+		goUpToRovin2 = new ObjectStep(this, ObjectID.VARROCK_SPIRALSTAIRS_MIDDLE_TALLER, new WorldPoint(3203, 3498, 1), t("Talk to Captain Rovin upstairs in the north west of Varrock Castle."));
 		goUpToRovin2.addDialogStep("Climb up");
-		talkToRovin = new NpcStep(this, NpcID.CAPTAIN_ROVIN, new WorldPoint(3205, 3498, 2), "Talk to Captain Rovin upstairs in the north west of Varrock Castle.");
+		talkToRovin = new NpcStep(this, NpcID.CAPTAIN_ROVIN, new WorldPoint(3205, 3498, 2), t("Talk to Captain Rovin upstairs in the north west of Varrock Castle."));
 		talkToRovin.addDialogStep("Yes I know, but this is important.");
 		talkToRovin.addDialogStep("There's a demon who wants to invade this city.");
 		talkToRovin.addDialogStep("Yes, very.");
@@ -209,28 +209,28 @@ public class DemonSlayer extends BasicQuestHelper
 		talkToRovin.addSubSteps(goUpToRovin, goUpToRovin2);
 
 		// -- Get Prysin's key
-		goDownstairsFromRovin = new ObjectStep(this, ObjectID.VARROCK_SPIRALSTAIRSTOP, new WorldPoint(3203, 3498, 2), "Go to the Varrock Castle kitchen.");
-		goDownstairsFromRovin2 = new ObjectStep(this, ObjectID.VARROCK_SPIRALSTAIRS_MIDDLE_TALLER, new WorldPoint(3203, 3498, 1), "Go to the Varrock Castle kitchen.");
+		goDownstairsFromRovin = new ObjectStep(this, ObjectID.VARROCK_SPIRALSTAIRSTOP, new WorldPoint(3203, 3498, 2), t("Go to the Varrock Castle kitchen."));
+		goDownstairsFromRovin2 = new ObjectStep(this, ObjectID.VARROCK_SPIRALSTAIRS_MIDDLE_TALLER, new WorldPoint(3203, 3498, 1), t("Go to the Varrock Castle kitchen."));
 
-		goUpToBucket = new ObjectStep(this, ObjectID.VARROCK_SPIRALSTAIRS, new WorldPoint(3219, 3497, 0), "Get a bucket from above the Varrock Castle kitchen.");
-		pickupBucket = new ItemStep(this, new WorldPoint(3221, 3497, 1), "Pick up the bucket nearby.", bucket);
-		goDownFromBucket = new ObjectStep(this, ObjectID.VARROCK_SPIRALSTAIRSTOP, new WorldPoint(3219, 3497, 1), "Go back down to the kitchen.");
-		fillBucket = new ObjectStep(this, ObjectID.FAI_VARROCK_POSH_SINK, new WorldPoint(3224, 3495, 0), "Use the bucket on the sink.", bucket);
+		goUpToBucket = new ObjectStep(this, ObjectID.VARROCK_SPIRALSTAIRS, new WorldPoint(3219, 3497, 0), t("Get a bucket from above the Varrock Castle kitchen."));
+		pickupBucket = new ItemStep(this, new WorldPoint(3221, 3497, 1), t("Pick up the bucket nearby."), bucket);
+		goDownFromBucket = new ObjectStep(this, ObjectID.VARROCK_SPIRALSTAIRSTOP, new WorldPoint(3219, 3497, 1), t("Go back down to the kitchen."));
+		fillBucket = new ObjectStep(this, ObjectID.FAI_VARROCK_POSH_SINK, new WorldPoint(3224, 3495, 0), t("Use the bucket on the sink."), bucket);
 		fillBucket.addIcon(ItemID.BUCKET_EMPTY);
 
-		useFilledBucketOnDrain = new ObjectStep(this, ObjectID.QIP_DS_QUESTDRAIN_KEY, new WorldPoint(3225, 3496, 0), "Use the bucket of water on the drain outside the kitchen.", bucketOfWater);
+		useFilledBucketOnDrain = new ObjectStep(this, ObjectID.QIP_DS_QUESTDRAIN_KEY, new WorldPoint(3225, 3496, 0), t("Use the bucket of water on the drain outside the kitchen."), bucketOfWater);
 		useFilledBucketOnDrain.addAlternateObjects(ObjectID.QIP_DS_QUESTDRAIN_NOKEY);
 		useFilledBucketOnDrain.addIcon(ItemID.BUCKET_WATER);
 		useFilledBucketOnDrain.addSubSteps(goDownstairsFromRovin, goDownstairsFromRovin2, goUpToBucket, pickupBucket, goDownFromBucket, fillBucket);
-		goDownManhole = new ObjectStep(this, ObjectID.MANHOLEOPEN, new WorldPoint(3237, 3458, 0), "Go down into Varrock Sewer via the Manhole south east of Varrock Castle.");
+		goDownManhole = new ObjectStep(this, ObjectID.MANHOLEOPEN, new WorldPoint(3237, 3458, 0), t("Go down into Varrock Sewer via the Manhole south east of Varrock Castle."));
 		goDownManhole.addAlternateObjects(ObjectID.MANHOLECLOSED);
-		pickupSecondKey = new ObjectStep(this, ObjectID.QIP_DS_SEWER_KEY, new WorldPoint(3225, 9897, 0), "Pick up the Rusty Key north of the Sewer entrance.");
+		pickupSecondKey = new ObjectStep(this, ObjectID.QIP_DS_SEWER_KEY, new WorldPoint(3225, 9897, 0), t("Pick up the Rusty Key north of the Sewer entrance."));
 
 		// -- Get Traiborn's key
-		goUpManhole = new ObjectStep(this, ObjectID.FAI_VARROCK_MANHOLE_LADDER, new WorldPoint(3237, 9858, 0), "Bring Wizard Traiborn 25 bones in the Wizards' Tower.", bones);
-		goUpstairsWizard = new ObjectStep(this, ObjectID.FAI_WIZTOWER_SPIRALSTAIRS, new WorldPoint(3104, 3160, 0), "Bring Wizard Traiborn 25 bones in the Wizards' Tower.", bones);
+		goUpManhole = new ObjectStep(this, ObjectID.FAI_VARROCK_MANHOLE_LADDER, new WorldPoint(3237, 9858, 0), t("Bring Wizard Traiborn 25 bones in the Wizards' Tower."), bones);
+		goUpstairsWizard = new ObjectStep(this, ObjectID.FAI_WIZTOWER_SPIRALSTAIRS, new WorldPoint(3104, 3160, 0), t("Bring Wizard Traiborn 25 bones in the Wizards' Tower."), bones);
 
-		talkToTraiborn = new NpcStep(this, NpcID.TRAIBORN, new WorldPoint(3114, 3163, 1), "Bring Wizard Traiborn 25 bones in the Wizards' Tower. You don't need to bring them all at once.", bones);
+		talkToTraiborn = new NpcStep(this, NpcID.TRAIBORN, new WorldPoint(3114, 3163, 1), t("Bring Wizard Traiborn 25 bones in the Wizards' Tower. You don't need to bring them all at once."), bones);
 		talkToTraiborn.addDialogStep("Talk about Demon Slayer.");
 		talkToTraiborn.addDialogStep("I need to get a key given to you by Sir Prysin.");
 		talkToTraiborn.addDialogStep("Well, have you got any keys knocking around?");
@@ -238,11 +238,11 @@ public class DemonSlayer extends BasicQuestHelper
 		talkToTraiborn.addSubSteps(goUpManhole, goUpstairsWizard);
 
 		// -- Kill Delrith
-		returnToPrysin = new NpcStep(this, NpcID.SIR_PRYSIN, new WorldPoint(3203, 3472, 0), "Return to Sir Prysin in the south west of Varrock Castle.", key1, key2, key3);
-		getSilverlightBack = new NpcStep(this, NpcID.SIR_PRYSIN, new WorldPoint(3203, 3472, 0), "Get Silverlight back from Sir Prysin in the south west of Varrock Castle.");
+		returnToPrysin = new NpcStep(this, NpcID.SIR_PRYSIN, new WorldPoint(3203, 3472, 0), t("Return to Sir Prysin in the south west of Varrock Castle."), key1, key2, key3);
+		getSilverlightBack = new NpcStep(this, NpcID.SIR_PRYSIN, new WorldPoint(3203, 3472, 0), t("Get Silverlight back from Sir Prysin in the south west of Varrock Castle."));
 		returnToPrysin.addSubSteps(getSilverlightBack);
 
-		killDelrithStep = new NpcStep(this, NpcID.DELRITH, new WorldPoint(3227, 3370, 0), "Kill Delrith (level 27) using Silverlight at the dark wizards south of Varrock. Once defeated, you'll need to say the magic words to banish him.", silverlightEquipped, combatGear);
+		killDelrithStep = new NpcStep(this, NpcID.DELRITH, new WorldPoint(3227, 3370, 0), t("Kill Delrith (level 27) using Silverlight at the dark wizards south of Varrock. Once defeated, you'll need to say the magic words to banish him."), silverlightEquipped, combatGear);
 		killDelrith = new IncantationStep(this, killDelrithStep);
 	}
 
@@ -317,7 +317,7 @@ public class DemonSlayer extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"Delrith (level 27)"
+			t("Delrith (level 27)")
 		);
 	}
 
@@ -340,7 +340,7 @@ public class DemonSlayer extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Starting off", List.of(
+		sections.add(new PanelDetails(t("Starting off"), List.of(
 			talkToAris,
 			talkToPrysin
 		), List.of(
@@ -348,7 +348,7 @@ public class DemonSlayer extends BasicQuestHelper
 			bucketOfWaterOptional
 		)));
 
-		var rovinPanel = new PanelDetails("Get Rovin's key", List.of(
+		var rovinPanel = new PanelDetails(t("Get Rovin's key"), List.of(
 			talkToRovin
 		), List.of(
 			bucketOfWaterOptional
@@ -356,7 +356,7 @@ public class DemonSlayer extends BasicQuestHelper
 		rovinPanel.setLockingStep(getFirstKey);
 		sections.add(rovinPanel);
 
-		var prysinPanel = new PanelDetails("Get Prysin's key", List.of(
+		var prysinPanel = new PanelDetails(t("Get Prysin's key"), List.of(
 			useFilledBucketOnDrain,
 			goDownManhole,
 			pickupSecondKey
@@ -364,7 +364,7 @@ public class DemonSlayer extends BasicQuestHelper
 		prysinPanel.setLockingStep(getSecondKey);
 		sections.add(prysinPanel);
 
-		var traibornPanel = new PanelDetails("Get Traiborn's key", List.of(
+		var traibornPanel = new PanelDetails(t("Get Traiborn's key"), List.of(
 			talkToTraiborn
 		), List.of(
 			bones
@@ -372,7 +372,7 @@ public class DemonSlayer extends BasicQuestHelper
 		traibornPanel.setLockingStep(getThirdKey);
 		sections.add(traibornPanel);
 
-		sections.add(new PanelDetails("Kill Delrith", List.of(
+		sections.add(new PanelDetails(t("Kill Delrith"), List.of(
 			returnToPrysin,
 			killDelrithStep
 		), List.of(

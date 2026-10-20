@@ -69,7 +69,7 @@ public class XMarksTheSpot extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		spade = new ItemRequirement("Spade", ItemID.SPADE).isNotConsumed();
-		spade.setTooltip("Can be bought from the Lumbridge General Store.");
+		spade.setTooltip(t("Can be bought from the Lumbridge General Store."));
 		glory = new ItemRequirement("Amulet of Glory for faster teleport to Draynor Village.", ItemCollections.AMULET_OF_GLORIES).isNotConsumed();
 
 		ancientCasket = new ItemRequirement("Ancient casket", ItemID.CLUEQUEST_CASKET);
@@ -79,42 +79,42 @@ public class XMarksTheSpot extends BasicQuestHelper
 	{
 		// TODO: Worth adding PuzzleWrapperStep at all given the Clue Plugin also does this?
 		startQuest = new NpcStep(this, NpcID.VEOS_VISIBLE, new WorldPoint(3228, 3242, 0),
-			"Talk to Veos in The Sheared Ram pub in Lumbridge to start the quest.");
+			t("Talk to Veos in The Sheared Ram pub in Lumbridge to start the quest."));
 		startQuest.addDialogStep("I'm looking for a quest.");
 		startQuest.addDialogStep("Sounds good, what should I do?");
 		startQuest.addDialogSteps("Can I help?", "Yes.");
 
 		digOutsideBob = DigStep.withCustomSpadeRequirement(this, new WorldPoint(3230, 3209, 0),
-			"Dig north of Bob's Brilliant Axes, on the west side of the plant against the wall of his house.", spade);
+			t("Dig north of Bob's Brilliant Axes, on the west side of the plant against the wall of his house."), spade);
 		digOutsideBob.addDialogStep("Okay, thanks Veos.");
 		digOutsideBob.setWhenToHighlight(DigStep.WhenToHighlight.OnTile);
 
 		digCastle = DigStep.withCustomSpadeRequirement(this, new WorldPoint(3203, 3212, 0),
-			"Dig behind Lumbridge Castle, just outside the kitchen door.", spade);
+			t("Dig behind Lumbridge Castle, just outside the kitchen door."), spade);
 		digCastle.setWhenToHighlight(DigStep.WhenToHighlight.OnTile);
 
 		digDraynor = DigStep.withCustomSpadeRequirement(this, new WorldPoint(3109, 3264, 0),
-			"Dig north-west of the Draynor Village jail, just by the wheat farm.", spade);
+			t("Dig north-west of the Draynor Village jail, just by the wheat farm."), spade);
 		digDraynor.addTeleport(glory);
 		digDraynor.setWhenToHighlight(DigStep.WhenToHighlight.OnTile);
 
 		digMartin = DigStep.withCustomSpadeRequirement(this, new WorldPoint(3078, 3259, 0),
-			"Dig just inside the pig pen in the Draynor Market.", spade);
+			t("Dig just inside the pig pen in the Draynor Market."), spade);
 		digMartin.setWhenToHighlight(DigStep.WhenToHighlight.OnTile);
 
 		speakVeosSarim = new NpcStep(this, NpcID.VEOS_VISIBLE, new WorldPoint(3054, 3245, 0),
-			"Talk to Veos directly south of the Rusty Anchor Inn in Port Sarim to finish the quest.",
+			t("Talk to Veos directly south of the Rusty Anchor Inn in Port Sarim to finish the quest."),
 			ancientCasket);
 		speakVeosSarim.addAlternateNpcs(NpcID.VEOS_VISIBLE_TRAVEL);
 
 		digMartinAgain = DigStep.withCustomSpadeRequirement(this, new WorldPoint(3078, 3259, 0),
-			"Dig just inside the pig pen in the Draynor Market to get the Ancient casket back.", spade, ancientCasket);
+			t("Dig just inside the pig pen in the Draynor Market to get the Ancient casket back."), spade, ancientCasket);
 		digMartinAgain.setWhenToHighlight(DigStep.WhenToHighlight.OnTile);
 
 		speakVeosSarim.addSubSteps(digMartinAgain);
 
 		speakVeosSarimWithoutCasket = new NpcStep(this, NpcID.VEOS_VISIBLE, new WorldPoint(3054, 3245, 0),
-			"Talk to Veos directly south of the Rusty Anchor Inn in Port Sarim to finish the quest.");
+			t("Talk to Veos directly south of the Rusty Anchor Inn in Port Sarim to finish the quest."));
 		speakVeosSarimWithoutCasket.addAlternateNpcs(NpcID.VEOS_VISIBLE_TRAVEL);
 
 		speakVeosSarim.addSubSteps(speakVeosSarimWithoutCasket);
@@ -180,13 +180,13 @@ public class XMarksTheSpot extends BasicQuestHelper
 	{
 		var steps = new ArrayList<PanelDetails>();
 
-		steps.add(new PanelDetails("Speak to Veos", List.of(
+		steps.add(new PanelDetails(t("Speak to Veos"), List.of(
 			startQuest
 		), List.of(
 			spade
 		)));
 
-		steps.add(new PanelDetails("Solve the clue scroll", List.of(
+		steps.add(new PanelDetails(t("Solve the clue scroll"), List.of(
 			digOutsideBob,
 			digCastle,
 			digDraynor,
@@ -195,7 +195,7 @@ public class XMarksTheSpot extends BasicQuestHelper
 			spade
 		)));
 
-		steps.add(new PanelDetails("Bring the casket to Veos", List.of(
+		steps.add(new PanelDetails(t("Bring the casket to Veos"), List.of(
 			speakVeosSarim
 		)));
 

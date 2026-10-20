@@ -86,38 +86,38 @@ public class RomeoAndJuliet extends BasicQuestHelper
 		inJulietRoom = new ZoneRequirement(julietRoom);
 
 		cadavaBerry = new ItemRequirement("Cadava berries", ItemID.CADAVABERRIES);
-		cadavaBerry.setTooltip("You can pick some from bushes south east of Varrock");
+		cadavaBerry.setTooltip(t("You can pick some from bushes south east of Varrock"));
 		letter = new ItemRequirement("Message", ItemID.JULIETMESSAGE);
-		letter.setTooltip("You can get another from Juliet");
+		letter.setTooltip(t("You can get another from Juliet"));
 		cadavaPotion = new ItemRequirement("Cadava potion", ItemID.CADAVA);
 	}
 
 	public void setupSteps()
 	{
-		talkToRomeo = new NpcStep(this, NpcID.ROMEO, new WorldPoint(3211, 3422, 0), "Talk to Romeo in Varrock Square.");
+		talkToRomeo = new NpcStep(this, NpcID.ROMEO, new WorldPoint(3211, 3422, 0), t("Talk to Romeo in Varrock Square."));
 		talkToRomeo.addDialogStep("Yes, I have seen her actually!");
 		talkToRomeo.addDialogStep("Yes, ok, I'll let her know.");
 		talkToRomeo.addDialogStep("Yes.");
-		goUpToJuliet = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS_TALLER, new WorldPoint(3157, 3436, 0), "Talk to Juliet in the house west of Varrock.");
+		goUpToJuliet = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS_TALLER, new WorldPoint(3157, 3436, 0), t("Talk to Juliet in the house west of Varrock."));
 		goUpToJuliet.addDialogStep("Ok, thanks.");
-		talkToJuliet = new NpcStep(this, NpcID.JULIET, new WorldPoint(3158, 3427, 1), "Talk to Juliet in the house west of Varrock.");
+		talkToJuliet = new NpcStep(this, NpcID.JULIET, new WorldPoint(3158, 3427, 1), t("Talk to Juliet in the house west of Varrock."));
 		talkToJuliet.addSubSteps(goUpToJuliet);
 
-		goDownstairsToGiveLetterToRomeo = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS_TOP, new WorldPoint(3156, 3435, 1), "Bring the letter to Romeo in Varrock Square.", letter);
-		giveLetterToRomeo = new NpcStep(this, NpcID.ROMEO, new WorldPoint(3211, 3422, 0), "Bring the letter to Romeo in Varrock Square.", letter);
+		goDownstairsToGiveLetterToRomeo = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS_TOP, new WorldPoint(3156, 3435, 1), t("Bring the letter to Romeo in Varrock Square."), letter);
+		giveLetterToRomeo = new NpcStep(this, NpcID.ROMEO, new WorldPoint(3211, 3422, 0), t("Bring the letter to Romeo in Varrock Square."), letter);
 		giveLetterToRomeo.addSubSteps(goDownstairsToGiveLetterToRomeo);
 
-		talkToLawrence = new NpcStep(this, NpcID.FATHER_LAWRENCE, new WorldPoint(3254, 3483, 0), "Talk to Father Lawrence in north east Varrock.");
+		talkToLawrence = new NpcStep(this, NpcID.FATHER_LAWRENCE, new WorldPoint(3254, 3483, 0), t("Talk to Father Lawrence in north east Varrock."));
 		talkToLawrence.addDialogStep("Ok, thanks.");
-		talkToApothecary = new NpcStep(this, NpcID.APOTHECARY, new WorldPoint(3195, 3405, 0), "Bring the cadava berries to the Apothecary in south west Varrock.", cadavaBerry);
+		talkToApothecary = new NpcStep(this, NpcID.APOTHECARY, new WorldPoint(3195, 3405, 0), t("Bring the cadava berries to the Apothecary in south west Varrock."), cadavaBerry);
 		talkToApothecary.addDialogStep("Talk about something else.");
 		talkToApothecary.addDialogStep("Talk about Romeo & Juliet.");
-		goUpToJuliet2 = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS_TALLER, new WorldPoint(3157, 3436, 0), "Bring the potion to Juliet in the house west of Varrock.", cadavaPotion);
-		givePotionToJuliet = new NpcStep(this, NpcID.JULIET, new WorldPoint(3158, 3427, 1), "Bring the potion to Juliet in the house west of Varrock.", cadavaPotion);
+		goUpToJuliet2 = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS_TALLER, new WorldPoint(3157, 3436, 0), t("Bring the potion to Juliet in the house west of Varrock."), cadavaPotion);
+		givePotionToJuliet = new NpcStep(this, NpcID.JULIET, new WorldPoint(3158, 3427, 1), t("Bring the potion to Juliet in the house west of Varrock."), cadavaPotion);
 		givePotionToJuliet.addSubSteps(goUpToJuliet2);
 
-		goDownstairsToFinishQuest = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS_TOP, new WorldPoint(3156, 3435, 1), "Talk to Romeo in Varrock Square to finish the quest.");
-		finishQuest = new NpcStep(this, NpcID.ROMEO, new WorldPoint(3211, 3422, 0), "Talk to Romeo in Varrock Square to finish the quest.");
+		goDownstairsToFinishQuest = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS_TOP, new WorldPoint(3156, 3435, 1), t("Talk to Romeo in Varrock Square to finish the quest."));
+		finishQuest = new NpcStep(this, NpcID.ROMEO, new WorldPoint(3211, 3422, 0), t("Talk to Romeo in Varrock Square to finish the quest."));
 		finishQuest.addSubSteps(goDownstairsToFinishQuest);
 	}
 
@@ -174,20 +174,20 @@ public class RomeoAndJuliet extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Helping Romeo", List.of(
+		sections.add(new PanelDetails(t("Helping Romeo"), List.of(
 			talkToRomeo,
 			talkToJuliet,
 			giveLetterToRomeo
 		)));
 
-		sections.add(new PanelDetails("Hatching a plan", List.of(
+		sections.add(new PanelDetails(t("Hatching a plan"), List.of(
 			talkToLawrence,
 			talkToApothecary
 		), List.of(
 			cadavaBerry
 		)));
 
-		sections.add(new PanelDetails("Enact the plan", List.of(
+		sections.add(new PanelDetails(t("Enact the plan"), List.of(
 			givePotionToJuliet,
 			finishQuest
 		)));

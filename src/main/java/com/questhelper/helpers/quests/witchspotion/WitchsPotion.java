@@ -62,25 +62,25 @@ public class WitchsPotion extends BasicQuestHelper
 	{
 		ratTail = new ItemRequirement("Rat's tail", ItemID.RATS_TAIL);
 		onion = new ItemRequirement("Onion", ItemID.ONION);
-		onion.setTooltip("You can pick one from the field north of Rimmington");
+		onion.setTooltip(t("You can pick one from the field north of Rimmington"));
 		burntMeat = new ItemRequirement("Burnt meat", ItemID.BURNT_MEAT);
-		burntMeat.setTooltip("You can use cooked meat on a fire/range to burn it");
+		burntMeat.setTooltip(t("You can use cooked meat on a fire/range to burn it"));
 		eyeOfNewt = new ItemRequirement("Eye of newt", ItemID.EYE_OF_NEWT);
-		eyeOfNewt.setTooltip("You can buy one from Betty in Port Sarim for 3gp");
+		eyeOfNewt.setTooltip(t("You can buy one from Betty in Port Sarim for 3gp"));
 	}
 
 	public void setupSteps()
 	{
 		talkToWitch = new NpcStep(this, NpcID.HETTY, new WorldPoint(2968, 3205, 0),
-			"Talk to Hetty in Rimmington.", onion, eyeOfNewt, burntMeat);
+			t("Talk to Hetty in Rimmington."), onion, eyeOfNewt, burntMeat);
 		talkToWitch.addDialogStep("I am in search of a quest.");
 		talkToWitch.addDialogStep("Yes.");
 
-		killRat = new NpcStep(this, NpcID.RAT_INDOORS, new WorldPoint(2956, 3203, 0), "Kill a rat in the house to the west for a rat tail.", ratTail);
+		killRat = new NpcStep(this, NpcID.RAT_INDOORS, new WorldPoint(2956, 3203, 0), t("Kill a rat in the house to the west for a rat tail."), ratTail);
 		returnToWitch = new NpcStep(this, NpcID.HETTY, new WorldPoint(2968, 3205, 0),
-			"Bring the ingredients to Hetty.", onion, eyeOfNewt, burntMeat, ratTail);
+			t("Bring the ingredients to Hetty."), onion, eyeOfNewt, burntMeat, ratTail);
 
-		drinkPotion = new ObjectStep(this, ObjectID.HETTYCAULDRON, new WorldPoint(2967, 3205, 0), "Drink from the cauldron to finish off the quest.");
+		drinkPotion = new ObjectStep(this, ObjectID.HETTYCAULDRON, new WorldPoint(2967, 3205, 0), t("Drink from the cauldron to finish off the quest."));
 	}
 
 	@Override
@@ -117,7 +117,7 @@ public class WitchsPotion extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"Rat (level 1)"
+			t("Rat (level 1)")
 		);
 	}
 
@@ -140,15 +140,15 @@ public class WitchsPotion extends BasicQuestHelper
 	{
 		var steps = new ArrayList<PanelDetails>();
 
-		steps.add(new PanelDetails("Starting off", List.of(
+		steps.add(new PanelDetails(t("Starting off"), List.of(
 			talkToWitch
 		)));
 
-		steps.add(new PanelDetails("Getting a rat's tail", List.of(
+		steps.add(new PanelDetails(t("Getting a rat's tail"), List.of(
 			killRat
 		)));
 
-		steps.add(new PanelDetails("Make the potion", List.of(
+		steps.add(new PanelDetails(t("Make the potion"), List.of(
 			returnToWitch
 		), List.of(
 			ratTail,

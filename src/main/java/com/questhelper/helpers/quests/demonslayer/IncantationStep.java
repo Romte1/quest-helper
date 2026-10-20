@@ -51,7 +51,7 @@ public class IncantationStep extends ConditionalStep
 	{
 		super(questHelper, incantationStep);
 		this.incantationStep = incantationStep;
-		this.steps.get(null).getText().add("Incantation is currently unknown.");
+		this.steps.get(null).getText().add(questHelper.t("Incantation is currently unknown."));
 	}
 
 	/**
@@ -145,7 +145,7 @@ public class IncantationStep extends ConditionalStep
 			words.get(client.getVarbitValue(VarbitID.DELRITH_INCANTATION_4)),
 			words.get(client.getVarbitValue(VarbitID.DELRITH_INCANTATION_5)),
 		};
-		var incantString = "Say the following in order: " + String.join(", ", incantationOrder);
+		var incantString = questHelper.t("Say the following in order:") + " " + String.join(", ", incantationOrder);
 		steps.get(null).getText().set(1, incantString);
 		startUpStep(incantationStep);
 	}

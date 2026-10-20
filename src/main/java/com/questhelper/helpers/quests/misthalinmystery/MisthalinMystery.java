@@ -214,91 +214,91 @@ public class MisthalinMystery extends BasicQuestHelper
 	public void setupSteps()
 	{
 		// TODO: Should this implement PuzzleWrapper?
-		talkToAbigale = new NpcStep(this, NpcID.MISTMYST_ABIGALE_LUM_VIS, new WorldPoint(3237, 3155, 0), "Talk to Abigale in the south east corner of Lumbridge Swamp.");
+		talkToAbigale = new NpcStep(this, NpcID.MISTMYST_ABIGALE_LUM_VIS, new WorldPoint(3237, 3155, 0), t("Talk to Abigale in the south east corner of Lumbridge Swamp."));
 		talkToAbigale.addDialogStep("Yes.");
-		takeTheBoat = new ObjectStep(this, ObjectID.MISTMYST_BOAT_LUMBRIDGE, new WorldPoint(3240, 3140, 0), "Board the rowboat south of Abigale.");
-		takeTheBucket = new ObjectStep(this, ObjectID.MISTMYST_EMPTY_BUCKET, new WorldPoint(1619, 4816, 0), "Pick up the bucket near the fountain.", bucket);
-		searchTheBarrel = new ObjectStep(this, ObjectID.MISTMYST_BARREL, new WorldPoint(1615, 4829, 0), "Search the barrel of rainwater north of the fountain to trigger a cutscene.", bucket);
-		useBucketOnBarrel = new ObjectStep(this, ObjectID.MISTMYST_BARREL, new WorldPoint(1615, 4829, 0), "Use the bucket on the barrel of rainwater.", bucket);
-		searchTheBarrelForKey = new ObjectStep(this, ObjectID.MISTMYST_BARREL, new WorldPoint(1615, 4829, 0), "Search the barrel of rainwater for the manor key.");
+		takeTheBoat = new ObjectStep(this, ObjectID.MISTMYST_BOAT_LUMBRIDGE, new WorldPoint(3240, 3140, 0), t("Board the rowboat south of Abigale."));
+		takeTheBucket = new ObjectStep(this, ObjectID.MISTMYST_EMPTY_BUCKET, new WorldPoint(1619, 4816, 0), t("Pick up the bucket near the fountain."), bucket);
+		searchTheBarrel = new ObjectStep(this, ObjectID.MISTMYST_BARREL, new WorldPoint(1615, 4829, 0), t("Search the barrel of rainwater north of the fountain to trigger a cutscene."), bucket);
+		useBucketOnBarrel = new ObjectStep(this, ObjectID.MISTMYST_BARREL, new WorldPoint(1615, 4829, 0), t("Use the bucket on the barrel of rainwater."), bucket);
+		searchTheBarrelForKey = new ObjectStep(this, ObjectID.MISTMYST_BARREL, new WorldPoint(1615, 4829, 0), t("Search the barrel of rainwater for the manor key."));
 		useBucketOnBarrel.addIcon(ItemID.BUCKET_EMPTY);
-		openManorDoor = new ObjectStep(this, ObjectID.MISTMYST_FRONT_DOORL, new WorldPoint(1636, 4824, 0), "Enter the manor.", true);
+		openManorDoor = new ObjectStep(this, ObjectID.MISTMYST_FRONT_DOORL, new WorldPoint(1636, 4824, 0), t("Enter the manor."), true);
 		openManorDoor.addAlternateObjects(ObjectID.MISTMYST_FRONT_DOORR);
-		takeKnife = new ObjectStep(this, ObjectID.MISTMYST_TABLE_KNIFE, new WorldPoint(1639, 4831, 0), "Take the knife from the table.", knife);
-		tryToOpenPinkKnobDoor = new ObjectStep(this, ObjectID.MISTMYST_DOOR_REDTOPAZ, new WorldPoint(1635, 4838, 0), "Try to open the door with the pink handle.");
-		takeNote1 = new ObjectStep(this, ObjectID.MISTMYST_CLUE_LIBRARY, new WorldPoint(1635, 4839, 0), "Pick up the note that appeared.");
-		readNotes1 = new DetailedQuestStep(this, "Read the notes.", notes1.highlighted());
-		useKnifeOnPainting = new ObjectStep(this, ObjectID.MISTMYST_PAINTING, new WorldPoint(1632, 4833, 0), "Use a knife on the marked painting.", knife.highlighted());
+		takeKnife = new ObjectStep(this, ObjectID.MISTMYST_TABLE_KNIFE, new WorldPoint(1639, 4831, 0), t("Take the knife from the table."), knife);
+		tryToOpenPinkKnobDoor = new ObjectStep(this, ObjectID.MISTMYST_DOOR_REDTOPAZ, new WorldPoint(1635, 4838, 0), t("Try to open the door with the pink handle."));
+		takeNote1 = new ObjectStep(this, ObjectID.MISTMYST_CLUE_LIBRARY, new WorldPoint(1635, 4839, 0), t("Pick up the note that appeared."));
+		readNotes1 = new DetailedQuestStep(this, t("Read the notes."), notes1.highlighted());
+		useKnifeOnPainting = new ObjectStep(this, ObjectID.MISTMYST_PAINTING, new WorldPoint(1632, 4833, 0), t("Use a knife on the marked painting."), knife.highlighted());
 		useKnifeOnPainting.addIcon(ItemID.KNIFE);
-		searchPainting = new ObjectStep(this, ObjectID.MISTMYST_PAINTING, new WorldPoint(1632, 4833, 0), "Search the painting for a ruby key.");
-		goThroughRubyDoor = new ObjectStep(this, ObjectID.MISTMYST_DOOR_RUBY, new WorldPoint(1640, 4828, 0), "Go through the door with the ruby handle.", rubyKey);
-		takeTinderbox = new ObjectStep(this, ObjectID.MISTMYST_SHELVES_TINDERBOX, new WorldPoint(1646, 4826, 0), "Search the shelves for a tinderbox.");
+		searchPainting = new ObjectStep(this, ObjectID.MISTMYST_PAINTING, new WorldPoint(1632, 4833, 0), t("Search the painting for a ruby key."));
+		goThroughRubyDoor = new ObjectStep(this, ObjectID.MISTMYST_DOOR_RUBY, new WorldPoint(1640, 4828, 0), t("Go through the door with the ruby handle."), rubyKey);
+		takeTinderbox = new ObjectStep(this, ObjectID.MISTMYST_SHELVES_TINDERBOX, new WorldPoint(1646, 4826, 0), t("Search the shelves for a tinderbox."));
 
-		lightCandle1 = new ObjectStep(this, ObjectID.MISTMYST_CANDLE4, new WorldPoint(1641, 4826, 0), "Light the unlit candles in the room.", tinderbox.highlighted());
+		lightCandle1 = new ObjectStep(this, ObjectID.MISTMYST_CANDLE4, new WorldPoint(1641, 4826, 0), t("Light the unlit candles in the room."), tinderbox.highlighted());
 		lightCandle1.addIcon(ItemID.TINDERBOX);
-		lightCandle2 = new ObjectStep(this, ObjectID.MISTMYST_CANDLE3, new WorldPoint(1647, 4827, 0), "Light the unlit candles in the room.", tinderbox.highlighted());
+		lightCandle2 = new ObjectStep(this, ObjectID.MISTMYST_CANDLE3, new WorldPoint(1647, 4827, 0), t("Light the unlit candles in the room."), tinderbox.highlighted());
 		lightCandle2.addIcon(ItemID.TINDERBOX);
-		lightCandle3 = new ObjectStep(this, ObjectID.MISTMYST_CANDLE1, new WorldPoint(1641, 4831, 0), "Light the unlit candles in the room.", tinderbox.highlighted());
+		lightCandle3 = new ObjectStep(this, ObjectID.MISTMYST_CANDLE1, new WorldPoint(1641, 4831, 0), t("Light the unlit candles in the room."), tinderbox.highlighted());
 		lightCandle3.addIcon(ItemID.TINDERBOX);
-		lightCandle4 = new ObjectStep(this, ObjectID.MISTMYST_CANDLE2, new WorldPoint(1646, 4832, 0), "Light the unlit candles in the room.", tinderbox.highlighted());
+		lightCandle4 = new ObjectStep(this, ObjectID.MISTMYST_CANDLE2, new WorldPoint(1646, 4832, 0), t("Light the unlit candles in the room."), tinderbox.highlighted());
 		lightCandle4.addIcon(ItemID.TINDERBOX);
-		lightBarrel = new ObjectStep(this, ObjectID.MISTMYST_EXPLOSIVE_BARREL, new WorldPoint(1647, 4830, 0), "Light the fuse on the barrel.", tinderbox.highlighted());
+		lightBarrel = new ObjectStep(this, ObjectID.MISTMYST_EXPLOSIVE_BARREL, new WorldPoint(1647, 4830, 0), t("Light the fuse on the barrel."), tinderbox.highlighted());
 		lightBarrel.addIcon(ItemID.TINDERBOX);
-		leaveExplosionRoom = new ObjectStep(this, ObjectID.MISTMYST_DOOR_RUBY, new WorldPoint(1640, 4828, 0), "Leave the room to trigger the explosion.");
+		leaveExplosionRoom = new ObjectStep(this, ObjectID.MISTMYST_DOOR_RUBY, new WorldPoint(1640, 4828, 0), t("Leave the room to trigger the explosion."));
 
 		lightCandle1.addSubSteps(lightCandle2, lightCandle3, lightCandle4);
 
-		climbWall = new ObjectStep(this, ObjectID.MISTMYST_DESTRUCTABLE_WALL_CLIMBABLE, new WorldPoint(1648, 4829, 0), "Climb over the damaged wall.");
-		observeThroughTree = new ObjectStep(this, ObjectID.MISTMYST_TREE, new WorldPoint(1630, 4849, 0), "Observe Lacey through the trees.");
+		climbWall = new ObjectStep(this, ObjectID.MISTMYST_DESTRUCTABLE_WALL_CLIMBABLE, new WorldPoint(1648, 4829, 0), t("Climb over the damaged wall."));
+		observeThroughTree = new ObjectStep(this, ObjectID.MISTMYST_TREE, new WorldPoint(1630, 4849, 0), t("Observe Lacey through the trees."));
 
-		takeNote2 = new ObjectStep(this, ObjectID.MISTMYST_CLUE_OUTSIDE, new WorldPoint(1632, 4850, 0), "Pick up the note that appeared by the fence.");
-		readNotes2 = new DetailedQuestStep(this, "Read the notes.", notes2.highlighted());
+		takeNote2 = new ObjectStep(this, ObjectID.MISTMYST_CLUE_OUTSIDE, new WorldPoint(1632, 4850, 0), t("Pick up the note that appeared by the fence."));
+		readNotes2 = new DetailedQuestStep(this, t("Read the notes."), notes2.highlighted());
 
 		playPiano = new ObjectStep(this, ObjectID.MISTMYST_PIANO, new WorldPoint(1647, 4841, 0), "");
-		playD = new WidgetStep(this, "Play the D key.", InterfaceID.MistmystPiano.LABEL_D1);
-		playE = new WidgetStep(this, "Play the E key.", InterfaceID.MistmystPiano.LABEL_E1);
-		playA = new WidgetStep(this, "Play the A key.", InterfaceID.MistmystPiano.LABEL_A2);
-		playDAgain = new WidgetStep(this, "Play the D key again.", InterfaceID.MistmystPiano.LABEL_D1);
-		restartPiano = new DetailedQuestStep(this, "Unfortunately you've played an incorrect key. Restart.");
+		playD = new WidgetStep(this, t("Play the D key."), InterfaceID.MistmystPiano.LABEL_D1);
+		playE = new WidgetStep(this, t("Play the E key."), InterfaceID.MistmystPiano.LABEL_E1);
+		playA = new WidgetStep(this, t("Play the A key."), InterfaceID.MistmystPiano.LABEL_A2);
+		playDAgain = new WidgetStep(this, t("Play the D key again."), InterfaceID.MistmystPiano.LABEL_D1);
+		restartPiano = new DetailedQuestStep(this, t("Unfortunately you've played an incorrect key. Restart."));
 		playPiano.addSubSteps(restartPiano);
 
-		cPlayPiano = new ConditionalStep(this, playPiano, "Play the piano in the room to the south for the emerald key.");
+		cPlayPiano = new ConditionalStep(this, playPiano, t("Play the piano in the room to the south for the emerald key."));
 		cPlayPiano.addStep(playedA, playDAgain);
 		cPlayPiano.addStep(playedE, playA);
 		cPlayPiano.addStep(playedD, playE);
 		cPlayPiano.addStep(and(playedAnyKey, inPianoWidget), restartPiano);
 		cPlayPiano.addStep(inPianoWidget, playD);
 
-		pwPlayPiano = cPlayPiano.puzzleWrapStepWithDefaultText("Find the emerald key in the room to the south.");
+		pwPlayPiano = cPlayPiano.puzzleWrapStepWithDefaultText(t("Find the emerald key in the room to the south."));
 
-		searchThePiano = new ObjectStep(this, ObjectID.MISTMYST_PIANO, new WorldPoint(1647, 4842, 0), "Right-click search the piano for the emerald key.").puzzleWrapStep(true);
+		searchThePiano = new ObjectStep(this, ObjectID.MISTMYST_PIANO, new WorldPoint(1647, 4842, 0), t("Right-click search the piano for the emerald key.")).puzzleWrapStep(true);
 
 		returnOverBrokenWall = new ObjectStep(this, ObjectID.MISTMYST_DESTRUCTABLE_WALL_CLIMBABLE, new WorldPoint(1648, 4829, 0),
-			"Climb back over the damaged wall into the manor.", emeraldKey);
-		openEmeraldDoor = new ObjectStep(this, ObjectID.MISTMYST_DOOR_EMERALD, new WorldPoint(1633, 4837, 0), "Go through the door with the green handle.", emeraldKey);
+			t("Climb back over the damaged wall into the manor."), emeraldKey);
+		openEmeraldDoor = new ObjectStep(this, ObjectID.MISTMYST_DOOR_EMERALD, new WorldPoint(1633, 4837, 0), t("Go through the door with the green handle."), emeraldKey);
 
 		enterBandosGodswordRoomStep = new ObjectStep(this, ObjectID.MISTMYST_DOOR_DIAMOND, new WorldPoint(1629, 4842, 0),
-			"Try to enter the room containing the Bandos godsword.");
+			t("Try to enter the room containing the Bandos godsword."));
 
-		takeNote3 = new ObjectStep(this, ObjectID.MISTMYST_CLUE_KITCHEN, new WorldPoint(1630, 4842, 0), "Pick up the note that appeared by the door.");
-		readNotes3 = new DetailedQuestStep(this, "Read the notes.", notes3.highlighted());
-		useKnifeOnFireplace = new ObjectStep(this, ObjectID.MISTMYST_FIREPLACE, new WorldPoint(1647, 4836, 0), "Use a knife on the unlit fireplace in the eastern room.", knife.highlighted());
+		takeNote3 = new ObjectStep(this, ObjectID.MISTMYST_CLUE_KITCHEN, new WorldPoint(1630, 4842, 0), t("Pick up the note that appeared by the door."));
+		readNotes3 = new DetailedQuestStep(this, t("Read the notes."), notes3.highlighted());
+		useKnifeOnFireplace = new ObjectStep(this, ObjectID.MISTMYST_FIREPLACE, new WorldPoint(1647, 4836, 0), t("Use a knife on the unlit fireplace in the eastern room."), knife.highlighted());
 		useKnifeOnFireplace.addIcon(ItemID.KNIFE);
 
 		searchFireplace = new ObjectStep(this, ObjectID.MISTMYST_FIREPLACE, new WorldPoint(1647, 4836, 0), "");
 
-		restartGems = new DetailedQuestStep(this, "You've clicked a gem in the wrong order. Try restarting.");
+		restartGems = new DetailedQuestStep(this, t("You've clicked a gem in the wrong order. Try restarting."));
 
-		clickSapphire = new WidgetStep(this, "Click the sapphire.", 555, 19);
-		clickDiamond = new WidgetStep(this, "Click the diamond.", 555, 4);
-		clickZenyte = new WidgetStep(this, "Click the zenyte.", 555, 11);
-		clickEmerald = new WidgetStep(this, "Click the emerald.", 555, 23);
-		clickOnyx = new WidgetStep(this, "Click the onyx.", 555, 7);
-		clickRuby = new WidgetStep(this, "Click the ruby.", 555, 15);
+		clickSapphire = new WidgetStep(this, t("Click the sapphire."), 555, 19);
+		clickDiamond = new WidgetStep(this, t("Click the diamond."), 555, 4);
+		clickZenyte = new WidgetStep(this, t("Click the zenyte."), 555, 11);
+		clickEmerald = new WidgetStep(this, t("Click the emerald."), 555, 23);
+		clickOnyx = new WidgetStep(this, t("Click the onyx."), 555, 7);
+		clickRuby = new WidgetStep(this, t("Click the ruby."), 555, 15);
 
-		searchFireplaceForSapphireKey = new ObjectStep(this, ObjectID.MISTMYST_FIREPLACE, new WorldPoint(1647, 4836, 0), "Search the fireplace again for the sapphire key.").puzzleWrapStep(true);
+		searchFireplaceForSapphireKey = new ObjectStep(this, ObjectID.MISTMYST_FIREPLACE, new WorldPoint(1647, 4836, 0), t("Search the fireplace again for the sapphire key.")).puzzleWrapStep(true);
 
-		solveFireplacePuzzle = new ConditionalStep(this, takeTheBoat, "Search the fireplace and solve the puzzle for the sapphire key.");
+		solveFireplacePuzzle = new ConditionalStep(this, takeTheBoat, t("Search the fireplace and solve the puzzle for the sapphire key."));
 		solveFireplacePuzzle.addStep(selectedOnyx, clickRuby);
 		solveFireplacePuzzle.addStep(selectedEmerald, clickOnyx);
 		solveFireplacePuzzle.addStep(selectedZenyte, clickEmerald);
@@ -308,29 +308,29 @@ public class MisthalinMystery extends BasicQuestHelper
 		solveFireplacePuzzle.addStep(inGemWidget, clickSapphire);
 		solveFireplacePuzzle.addStep(onIsland, searchFireplace);
 
-		pwSolveFireplacePuzzle = solveFireplacePuzzle.puzzleWrapStepWithDefaultText("Find the sapphire key in the room to the east.");
+		pwSolveFireplacePuzzle = solveFireplacePuzzle.puzzleWrapStepWithDefaultText(t("Find the sapphire key in the room to the east."));
 		pwSolveFireplacePuzzle.addSubSteps(searchFireplaceForSapphireKey);
 
 		goThroughSapphireDoor = new ObjectStep(this, ObjectID.MISTMYST_DOOR_SAPPHIRE, new WorldPoint(1628, 4829, 0),
-			"Go through the sapphire door.");
-		reflectKnives = new DetailedQuestStep(this, "This puzzle requires you to move the mirror to reflect the knives the murderer throws. You can tell which wardrobe the murderer will throw from by a black swirl that'll surround it.");
+			t("Go through the sapphire door."));
+		reflectKnives = new DetailedQuestStep(this, t("This puzzle requires you to move the mirror to reflect the knives the murderer throws. You can tell which wardrobe the murderer will throw from by a black swirl that'll surround it."));
 
 		continueThroughSapphireDoor = new ObjectStep(this, ObjectID.MISTMYST_DOOR_SAPPHIRE, new WorldPoint(1628, 4829, 0),
-			"Go through the sapphire door to continue.");
+			t("Go through the sapphire door to continue."));
 		goThroughSapphireDoor.addSubSteps(continueThroughSapphireDoor);
 
-		watchTheKillersReveal = new DetailedQuestStep(this, "Watch the killer's reveal cutscene.");
+		watchTheKillersReveal = new DetailedQuestStep(this, t("Watch the killer's reveal cutscene."));
 
-		pickUpKillersKnife = new DetailedQuestStep(this, "Pick up the killer's knife.", killersKnifeEquipped);
+		pickUpKillersKnife = new DetailedQuestStep(this, t("Pick up the killer's knife."), killersKnifeEquipped);
 
 		fightAbigale = new NpcStep(this, NpcID.MISTMYST_ABIGALE_KILLER_ATTACKABLE, new WorldPoint(1623, 4829, 0),
-			"Equip the killer's knife, then select Fight on Abigale (no actual combat will occur).", killersKnifeEquipped);
+			t("Equip the killer's knife, then select Fight on Abigale (no actual combat will occur)."), killersKnifeEquipped);
 
 		leaveSapphireRoom = new ObjectStep(this, ObjectID.MISTMYST_DOOR_SAPPHIRE, new WorldPoint(1628, 4829, 0),
-			"Attempt to go through the sapphire door.");
+			t("Attempt to go through the sapphire door."));
 
 		talkToMandy = new NpcStep(this, NpcID.MISTMYST_MANDY_POST_VIS, new WorldPoint(1636, 4817, 0),
-			"Talk to Mandy just outside the manor to complete the quest.");
+			t("Talk to Mandy just outside the manor to complete the quest."));
 	}
 
 	@Override
@@ -496,11 +496,11 @@ public class MisthalinMystery extends BasicQuestHelper
 	{
 		var steps = new ArrayList<PanelDetails>();
 
-		steps.add(new PanelDetails("Talk to Abigale", List.of(
+		steps.add(new PanelDetails(t("Talk to Abigale"), List.of(
 			talkToAbigale
 		)));
 
-		steps.add(new PanelDetails("Enter the manor", List.of(
+		steps.add(new PanelDetails(t("Enter the manor"), List.of(
 			takeTheBoat,
 			takeTheBucket,
 			searchTheBarrel,
@@ -509,7 +509,7 @@ public class MisthalinMystery extends BasicQuestHelper
 			openManorDoor
 		)));
 
-		steps.add(new PanelDetails("Solve the first puzzle", List.of(
+		steps.add(new PanelDetails(t("Solve the first puzzle"), List.of(
 			takeKnife,
 			tryToOpenPinkKnobDoor,
 			takeNote1,
@@ -519,7 +519,7 @@ public class MisthalinMystery extends BasicQuestHelper
 			goThroughRubyDoor
 		)));
 
-		steps.add(new PanelDetails("Solve the second puzzle", List.of(
+		steps.add(new PanelDetails(t("Solve the second puzzle"), List.of(
 			takeTinderbox,
 			lightCandle1,
 			lightBarrel,
@@ -527,7 +527,7 @@ public class MisthalinMystery extends BasicQuestHelper
 			climbWall
 		)));
 
-		steps.add(new PanelDetails("Solve the third puzzle", List.of(
+		steps.add(new PanelDetails(t("Solve the third puzzle"), List.of(
 			observeThroughTree,
 			takeNote2,
 			readNotes2,
@@ -535,13 +535,13 @@ public class MisthalinMystery extends BasicQuestHelper
 			searchThePiano
 		)));
 
-		steps.add(new PanelDetails("Witness another murder", List.of(
+		steps.add(new PanelDetails(t("Witness another murder"), List.of(
 			returnOverBrokenWall,
 			openEmeraldDoor,
 			enterBandosGodswordRoomStep
 		)));
 
-		steps.add(new PanelDetails("Solve the fourth puzzle", List.of(
+		steps.add(new PanelDetails(t("Solve the fourth puzzle"), List.of(
 			takeNote3,
 			readNotes3,
 			useKnifeOnFireplace,
@@ -549,7 +549,7 @@ public class MisthalinMystery extends BasicQuestHelper
 			searchFireplaceForSapphireKey
 		)));
 
-		steps.add(new PanelDetails("Confront the killer", List.of(
+		steps.add(new PanelDetails(t("Confront the killer"), List.of(
 			goThroughSapphireDoor,
 			reflectKnives,
 			watchTheKillersReveal,

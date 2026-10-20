@@ -98,10 +98,10 @@ public class GoblinDiplomacy extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		blueDye = new ItemRequirement("Blue dye", ItemID.BLUEDYE);
-		blueDye.setTooltip("You can have Aggie in Draynor Village make you some for 2 woad leaves (bought from Wyson in Falador Park for 20 coins) and 5 coins.");
+		blueDye.setTooltip(t("You can have Aggie in Draynor Village make you some for 2 woad leaves (bought from Wyson in Falador Park for 20 coins) and 5 coins."));
 		blueDye.setHighlightInInventory(true);
 		orangeDye = new ItemRequirement("Orange dye", ItemID.ORANGEDYE);
-		orangeDye.setTooltip("This is made from red dye and yellow dye. Bring Aggie in Draynor Village 3 redberries and 5 coins for red dye, then 2 onions and 5 coins for yellow dye.");
+		orangeDye.setTooltip(t("This is made from red dye and yellow dye. Bring Aggie in Draynor Village 3 redberries and 5 coins for red dye, then 2 onions and 5 coins for yellow dye."));
 		orangeDye.setHighlightInInventory(true);
 		goblinMailThree = new ItemRequirement("Goblin mail", ItemID.GOBLIN_ARMOUR, 3);
 		mailReq = new ItemRequirement("Goblin mail", ItemID.GOBLIN_ARMOUR, 3);
@@ -110,7 +110,7 @@ public class GoblinDiplomacy extends BasicQuestHelper
 
 		goblinMail = new ItemRequirement("Goblin mail", ItemID.GOBLIN_ARMOUR);
 		goblinMail.canBeObtainedDuringQuest();
-		goblinMail.setTooltip("You can get goblin mail by killing goblins around goblin village.");
+		goblinMail.setTooltip(t("You can get goblin mail by killing goblins around goblin village."));
 		goblinMail.setHighlightInInventory(true);
 
 		blueArmour = new ItemRequirement("Blue goblin mail", ItemID.GOBLIN_ARMOUR_DARKBLUE);
@@ -124,22 +124,22 @@ public class GoblinDiplomacy extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		goUpLadder = new ObjectStep(this, ObjectID.GOBLIN_LADDER_BOTTOM, new WorldPoint(2954, 3497, 0), "You need three goblin mails, which you can find around the Goblin Village. The first is up the ladder in a crate in the south of the village.");
-		searchUpLadder = new ObjectStep(this, ObjectID.GOBLIN_OUTPOST_LARGE_CRATE_ARMOUR3, new WorldPoint(2955, 3498, 2), "Search the crate up the ladder.");
+		goUpLadder = new ObjectStep(this, ObjectID.GOBLIN_LADDER_BOTTOM, new WorldPoint(2954, 3497, 0), t("You need three goblin mails, which you can find around the Goblin Village. The first is up the ladder in a crate in the south of the village."));
+		searchUpLadder = new ObjectStep(this, ObjectID.GOBLIN_OUTPOST_LARGE_CRATE_ARMOUR3, new WorldPoint(2955, 3498, 2), t("Search the crate up the ladder."));
 		goUpLadder.addSubSteps(searchUpLadder);
-		goDownLadder = new ObjectStep(this, ObjectID.GOBLIN_LADDER_TOP, new WorldPoint(2954, 3497, 2), "Go back down the ladder.");
-		searchWestHut = new ObjectStep(this, ObjectID.GOBLIN_OUTPOST_LARGE_CRATE_ARMOUR2, new WorldPoint(2951, 3508, 0), "Search the crate in the west of Goblin Village for Goblin Mail.");
-		getCrate2 = new DetailedQuestStep(this, "The second goblin mail can be found in the west hut in a crate.");
+		goDownLadder = new ObjectStep(this, ObjectID.GOBLIN_LADDER_TOP, new WorldPoint(2954, 3497, 2), t("Go back down the ladder."));
+		searchWestHut = new ObjectStep(this, ObjectID.GOBLIN_OUTPOST_LARGE_CRATE_ARMOUR2, new WorldPoint(2951, 3508, 0), t("Search the crate in the west of Goblin Village for Goblin Mail."));
+		getCrate2 = new DetailedQuestStep(this, t("The second goblin mail can be found in the west hut in a crate."));
 		getCrate2.addSubSteps(goDownLadder, searchWestHut);
 
-		searchBehindGenerals = new ObjectStep(this, ObjectID.GOBLIN_OUTPOST_LARGE_CRATE_ARMOUR1, new WorldPoint(2959, 3514, 0), "Search the crate north of the General's hut in Goblin Village.");
-		getCrate3 = new DetailedQuestStep(this, "The last goblin mail is north of the generals' hut in a crate.");
+		searchBehindGenerals = new ObjectStep(this, ObjectID.GOBLIN_OUTPOST_LARGE_CRATE_ARMOUR1, new WorldPoint(2959, 3514, 0), t("Search the crate north of the General's hut in Goblin Village."));
+		getCrate3 = new DetailedQuestStep(this, t("The last goblin mail is north of the generals' hut in a crate."));
 		getCrate3.addSubSteps(searchBehindGenerals);
 
-		dyeBlue = new DetailedQuestStep(this, "Use the blue dye on one of the goblin mail.", blueDye, goblinMail);
-		dyeOrange = new DetailedQuestStep(this, "Use the orange dye on one of the goblin mail.", orangeDye, goblinMail);
+		dyeBlue = new DetailedQuestStep(this, t("Use the blue dye on one of the goblin mail."), blueDye, goblinMail);
+		dyeOrange = new DetailedQuestStep(this, t("Use the orange dye on one of the goblin mail."), orangeDye, goblinMail);
 
-		talkToGeneral1 = new NpcStep(this, NpcID.GENERAL_BENTNOZE_RED, new WorldPoint(2958, 3512, 0), "Talk to one of the Goblin Generals in Goblin Village.", orangeArmour);
+		talkToGeneral1 = new NpcStep(this, NpcID.GENERAL_BENTNOZE_RED, new WorldPoint(2958, 3512, 0), t("Talk to one of the Goblin Generals in Goblin Village."), orangeArmour);
 		talkToGeneral1.addDialogStep("Do you want me to pick an armour colour for you?");
 		talkToGeneral1.addDialogStep("What about a different colour?");
 		talkToGeneral1.addDialogStep("Yes.");
@@ -147,11 +147,11 @@ public class GoblinDiplomacy extends BasicQuestHelper
 		talkToGeneral1.addDialogStep("Yes, Wartface looks fat");
 		talkToGeneral1.addDialogStep("I have some orange armour here.");
 
-		talkToGeneral2 = new NpcStep(this, NpcID.GENERAL_BENTNOZE_RED, new WorldPoint(2958, 3512, 0), "Talk to one of the Goblin Generals in Goblin Village again.", blueArmour);
+		talkToGeneral2 = new NpcStep(this, NpcID.GENERAL_BENTNOZE_RED, new WorldPoint(2958, 3512, 0), t("Talk to one of the Goblin Generals in Goblin Village again."), blueArmour);
 		talkToGeneral2.addDialogStep("So how is life for the goblins?");
 		talkToGeneral2.addDialogStep("I have some blue armour here.");
 
-		talkToGeneral3 = new NpcStep(this, NpcID.GENERAL_BENTNOZE_RED, new WorldPoint(2958, 3512, 0), "Talk to one of the Goblin Generals in Goblin Village once more.", goblinMail);
+		talkToGeneral3 = new NpcStep(this, NpcID.GENERAL_BENTNOZE_RED, new WorldPoint(2958, 3512, 0), t("Talk to one of the Goblin Generals in Goblin Village once more."), goblinMail);
 		talkToGeneral3.addDialogStep("So how is life for the goblins?");
 		talkToGeneral3.addDialogStep("Yes, Wartface looks fat");
 		talkToGeneral3.addDialogStep("I have some brown armour here.");
@@ -234,7 +234,7 @@ public class GoblinDiplomacy extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Prepare goblin mail", List.of(
+		sections.add(new PanelDetails(t("Prepare goblin mail"), List.of(
 			goUpLadder,
 			getCrate2,
 			getCrate3,
@@ -246,7 +246,7 @@ public class GoblinDiplomacy extends BasicQuestHelper
 			goblinMailThree
 		)));
 
-		sections.add(new PanelDetails("Present the armours", List.of(
+		sections.add(new PanelDetails(t("Present the armours"), List.of(
 			talkToGeneral1,
 			talkToGeneral2,
 			talkToGeneral3

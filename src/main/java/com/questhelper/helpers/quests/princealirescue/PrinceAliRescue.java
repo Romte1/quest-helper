@@ -149,7 +149,7 @@ public class PrinceAliRescue extends BasicQuestHelper
 		paste = new ItemRequirement("Paste", ItemID.SKINPASTE);
 		keyPrint = new ItemRequirement("Key print", ItemID.KEYPRINT);
 		key = new ItemRequirement("Bronze key", ItemID.PRINCESKEY);
-		key.setTooltip("You can get another from Leela for 15 coins");
+		key.setTooltip(t("You can get another from Leela for 15 coins"));
 
 		keyHighlighted = new ItemRequirement("Bronze key", ItemID.PRINCESKEY);
 		keyHighlighted.setHighlightInInventory(true);
@@ -180,38 +180,38 @@ public class PrinceAliRescue extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToHassan = new NpcStep(this, NpcID.HASSAN, new WorldPoint(3298, 3163, 0), "Talk to Hassan in the Al Kharid Palace.");
+		talkToHassan = new NpcStep(this, NpcID.HASSAN, new WorldPoint(3298, 3163, 0), t("Talk to Hassan in the Al Kharid Palace."));
 		talkToHassan.addDialogSteps("Is there anything I can help you with?", "Yes.");
-		talkToOsman = new NpcStep(this, NpcID.OSMAN, new WorldPoint(3286, 3180, 0), "Talk to Osman north of the Al Kharid Palace.");
+		talkToOsman = new NpcStep(this, NpcID.OSMAN, new WorldPoint(3286, 3180, 0), t("Talk to Osman north of the Al Kharid Palace."));
 
-		talkToNed = new NpcStep(this, NpcID.NED, new WorldPoint(3097, 3257, 0), "Have Ned in Draynor Village make you a wig from 3 balls of wool. He can also sell you a rope for 15 coins via dialogue (or bought from his shop for 18 coins) or 4 balls of wool.", ballsOfWool3);
+		talkToNed = new NpcStep(this, NpcID.NED, new WorldPoint(3097, 3257, 0), t("Have Ned in Draynor Village make you a wig from 3 balls of wool. He can also sell you a rope for 15 coins via dialogue (or bought from his shop for 18 coins) or 4 balls of wool."), ballsOfWool3);
 		talkToNed.addDialogStep("Could you make other things apart from rope?");
 		talkToNed.addDialogStep("How about some sort of wig?");
 		talkToNed.addDialogStep("I have them here. Please make me a wig.");
-		dyeWig = new DetailedQuestStep(this, "Dye the wig with yellow dye. Buy a yellow dye with two onions and 5 coins if you still need it from Aggie in Draynor Village.", yellowDye, wig);
-		talkToAggie = new NpcStep(this, NpcID.AGGIE_1OP, new WorldPoint(3086, 3257, 0), "Talk to Aggie in Draynor Village to get some paste.", redberries, ashes, potOfFlour, bucketOfWater);
+		dyeWig = new DetailedQuestStep(this, t("Dye the wig with yellow dye. Buy a yellow dye with two onions and 5 coins if you still need it from Aggie in Draynor Village."), yellowDye, wig);
+		talkToAggie = new NpcStep(this, NpcID.AGGIE_1OP, new WorldPoint(3086, 3257, 0), t("Talk to Aggie in Draynor Village to get some paste."), redberries, ashes, potOfFlour, bucketOfWater);
 		talkToAggie.addDialogStep("Can you make skin paste?");
 		talkToAggie.addDialogStep("Yes please. Mix me some skin paste.");
-		talkToKeli = new NpcStep(this, NpcID.LADY_KELI_VIS, new WorldPoint(3127, 3244, 0), "Talk to Keli in the jail east of Draynor Village. If you've already made the key print, open the quest journal to re-sync.", softClay);
+		talkToKeli = new NpcStep(this, NpcID.LADY_KELI_VIS, new WorldPoint(3127, 3244, 0), t("Talk to Keli in the jail east of Draynor Village. If you've already made the key print, open the quest journal to re-sync."), softClay);
 		talkToKeli.addDialogStep("Heard of you? You're famous in Gielinor!");
 		talkToKeli.addDialogStep("What's your latest plan then?");
 		talkToKeli.addDialogStep("How do you know someone won't try to free him?");
 		talkToKeli.addDialogStep("Could I see the key please?");
 		talkToKeli.addDialogStep("Could I touch the key for a moment please?");
-		makeKey = new ObjectStep(this, ObjectID.FAI_FALADOR_FURNACE, new WorldPoint(3227, 3256, 0), "Use the key print on any furnace with a bronze bar in your inventory to make a key.", keyPrint.highlighted(), bronzeBar);
-		talkToLeela = new NpcStep(this, NpcID.LEELA, new WorldPoint(3113, 3262, 0), "Talk to Leela east of Draynor Village.", beers3, dyedWig, paste, rope, pinkSkirt);
-		reobtainKey = new NpcStep(this, NpcID.LEELA, new WorldPoint(3113, 3262, 0), "Talk to Leela east of Draynor Village for another key. It'll cost 15gp.", coins100.quantity(15));
+		makeKey = new ObjectStep(this, ObjectID.FAI_FALADOR_FURNACE, new WorldPoint(3227, 3256, 0), t("Use the key print on any furnace with a bronze bar in your inventory to make a key."), keyPrint.highlighted(), bronzeBar);
+		talkToLeela = new NpcStep(this, NpcID.LEELA, new WorldPoint(3113, 3262, 0), t("Talk to Leela east of Draynor Village."), beers3, dyedWig, paste, rope, pinkSkirt);
+		reobtainKey = new NpcStep(this, NpcID.LEELA, new WorldPoint(3113, 3262, 0), t("Talk to Leela east of Draynor Village for another key. It'll cost 15gp."), coins100.quantity(15));
 		talkToLeela.addSubSteps(reobtainKey);
 
-		talkToJoe = new NpcStep(this, NpcID.JOE_VIS, new WorldPoint(3124, 3245, 0), "Bring everything to the jail and give Joe there three beers.", beers3, key, dyedWig, paste, rope, pinkSkirt);
+		talkToJoe = new NpcStep(this, NpcID.JOE_VIS, new WorldPoint(3124, 3245, 0), t("Bring everything to the jail and give Joe there three beers."), beers3, key, dyedWig, paste, rope, pinkSkirt);
 		talkToJoe.addDialogStep("I have some beer here. Fancy one?");
-		useRopeOnKeli = new NpcStep(this, NpcID.LADY_KELI_VIS, new WorldPoint(3127, 3244, 0), "Use rope on Keli.", ropeHighlighted);
+		useRopeOnKeli = new NpcStep(this, NpcID.LADY_KELI_VIS, new WorldPoint(3127, 3244, 0), t("Use rope on Keli."), ropeHighlighted);
 		useRopeOnKeli.addIcon(ItemID.ROPE);
-		useKeyOnDoor = new ObjectStep(this, ObjectID.ALIDOOR, new WorldPoint(3123, 3243, 0), "Use the key on the prison door. If Lady Keli respawned you'll need to tie her up again.", keyHighlighted, dyedWig, paste, pinkSkirt);
+		useKeyOnDoor = new ObjectStep(this, ObjectID.ALIDOOR, new WorldPoint(3123, 3243, 0), t("Use the key on the prison door. If Lady Keli respawned you'll need to tie her up again."), keyHighlighted, dyedWig, paste, pinkSkirt);
 		useKeyOnDoor.addIcon(ItemID.PRINCESKEY);
-		talkToAli = new NpcStep(this, NpcID.PRINCE_ALI_VIS_BLACKEYE, new WorldPoint(3123, 3240, 0), "Talk to Prince Ali and free him.", key, dyedWig, paste, pinkSkirt);
+		talkToAli = new NpcStep(this, NpcID.PRINCE_ALI_VIS_BLACKEYE, new WorldPoint(3123, 3240, 0), t("Talk to Prince Ali and free him."), key, dyedWig, paste, pinkSkirt);
 
-		returnToHassan = new NpcStep(this, NpcID.HASSAN, new WorldPoint(3298, 3163, 0), "Return to Hassan in the Al Kharid Palace to complete the quest.");
+		returnToHassan = new NpcStep(this, NpcID.HASSAN, new WorldPoint(3298, 3163, 0), t("Return to Hassan in the Al Kharid Palace to complete the quest."));
 	}
 
 	@Override
@@ -245,7 +245,7 @@ public class PrinceAliRescue extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		ArrayList<String> reqs = new ArrayList<>();
-		reqs.add("Able to survive jail guards (level 26) attacking you");
+		reqs.add(t("Able to survive jail guards (level 26) attacking you"));
 		return reqs;
 	}
 
@@ -265,8 +265,8 @@ public class PrinceAliRescue extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Free use of the Al Kharid toll gates."),
-				new UnlockReward("Access to Sorceress's Garden Minigame (Members)"));
+				new UnlockReward(t("Free use of the Al Kharid toll gates.")),
+				new UnlockReward(t("Access to Sorceress's Garden Minigame (Members)")));
 	}
 
 	@Override
@@ -274,29 +274,29 @@ public class PrinceAliRescue extends BasicQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		allSteps.add(new PanelDetails("Starting off", Arrays.asList(talkToHassan, talkToOsman)));
+		allSteps.add(new PanelDetails(t("Starting off"), Arrays.asList(talkToHassan, talkToOsman)));
 
-		PanelDetails makeWigPanel = new PanelDetails("Make a blonde wig", Arrays.asList(talkToNed, dyeWig), yellowDye, ballsOfWool3);
+		PanelDetails makeWigPanel = new PanelDetails(t("Make a blonde wig"), Arrays.asList(talkToNed, dyeWig), yellowDye, ballsOfWool3);
 		makeWigPanel.setLockingStep(makeDyedWig);
 		allSteps.add(makeWigPanel);
 
-		PanelDetails makePastePanel = new PanelDetails("Make paste", Collections.singletonList(talkToAggie), redberries, ashes, potOfFlour, bucketOfWater);
+		PanelDetails makePastePanel = new PanelDetails(t("Make paste"), Collections.singletonList(talkToAggie), redberries, ashes, potOfFlour, bucketOfWater);
 		makePastePanel.setLockingStep(makePaste);
 		allSteps.add(makePastePanel);
 
-		PanelDetails makeKeyPrintPanel = new PanelDetails("Make a key print", Collections.singletonList(talkToKeli), softClay);
+		PanelDetails makeKeyPrintPanel = new PanelDetails(t("Make a key print"), Collections.singletonList(talkToKeli), softClay);
 		makeKeyPrintPanel.setLockingStep(makeKeyPrint);
 		allSteps.add(makeKeyPrintPanel);
 
-		PanelDetails getKeyPanel = new PanelDetails("Make the key", Collections.singletonList(makeKey), bronzeBar, keyPrint);
+		PanelDetails getKeyPanel = new PanelDetails(t("Make the key"), Collections.singletonList(makeKey), bronzeBar, keyPrint);
 		getKeyPanel.setLockingStep(getKey);
 		allSteps.add(getKeyPanel);
 
-		allSteps.add(new PanelDetails("Return with the items", Collections.singletonList(talkToLeela), dyedWig, paste, rope, beers3, pinkSkirt));
+		allSteps.add(new PanelDetails(t("Return with the items"), Collections.singletonList(talkToLeela), dyedWig, paste, rope, beers3, pinkSkirt));
 
-		allSteps.add(new PanelDetails("Free Ali", Arrays.asList(talkToJoe, useRopeOnKeli, useKeyOnDoor, talkToAli), key, dyedWig, paste, rope, beers3, pinkSkirt));
+		allSteps.add(new PanelDetails(t("Free Ali"), Arrays.asList(talkToJoe, useRopeOnKeli, useKeyOnDoor, talkToAli), key, dyedWig, paste, rope, beers3, pinkSkirt));
 
-		allSteps.add(new PanelDetails("Return to Al Kharid", Collections.singletonList(returnToHassan)));
+		allSteps.add(new PanelDetails(t("Return to Al Kharid"), Collections.singletonList(returnToHassan)));
 		return allSteps;
 	}
 }

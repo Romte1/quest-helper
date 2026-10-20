@@ -136,20 +136,20 @@ public class ShieldOfArravBlackArmGang extends BasicQuestHelper
 	public void setupSteps()
 	{
 		startQuest = new NpcStep(this, NpcID.RELDO_NORMAL, new WorldPoint(3210, 3494, 0),
-			"Talk to Reldo in the Varrock Castle library.");
+			t("Talk to Reldo in the Varrock Castle library."));
 		startQuest.addDialogSteps("I'm in search of a quest.", "Yes.");
 		searchBookcase = new ObjectStep(this, ObjectID.QUESTBOOKCASE, new WorldPoint(3212, 3493, 0),
-			"Search the marked bookcase for a book, then read it.", book.highlighted());
+			t("Search the marked bookcase for a book, then read it."), book.highlighted());
 		talkToReldoAgain = new NpcStep(this, NpcID.RELDO_NORMAL, new WorldPoint(3210, 3494, 0),
-			"Talk to Reldo again.");
+			t("Talk to Reldo again."));
 		talkToReldoAgain.addDialogStep("Okay, I've read that book about the Shield of Arrav.");
 
-		talkToCharlie = new NpcStep(this, NpcID.TRAMPPG, new WorldPoint(3208, 3392, 0), "To start the quest as the Black Arm Gang, talk to Charlie the Tramp in south Varrock to start.");
+		talkToCharlie = new NpcStep(this, NpcID.TRAMPPG, new WorldPoint(3208, 3392, 0), t("To start the quest as the Black Arm Gang, talk to Charlie the Tramp in south Varrock to start."));
 		talkToCharlie.addDialogStep("Is there anything down this alleyway?");
 		talkToCharlie.addDialogStep("I'm looking for the Black Arm Gang.");
 		talkToCharlie.addDialogStep("Do you think they would let me join?");
 
-		talkToKatrine = new NpcStep(this, NpcID.KATRINE, new WorldPoint(3185, 3385, 0), "Talk to Katrine down the alley to the west.");
+		talkToKatrine = new NpcStep(this, NpcID.KATRINE, new WorldPoint(3185, 3385, 0), t("Talk to Katrine down the alley to the west."));
 		talkToKatrine.addDialogStep("I've heard you're the Black Arm Gang.");
 		talkToKatrine.addDialogStep("I'd rather not reveal my sources.");
 		talkToKatrine.addDialogStep("I want to become a member of your gang.");
@@ -157,35 +157,35 @@ public class ShieldOfArravBlackArmGang extends BasicQuestHelper
 		talkToKatrine.addDialogStep("Ok, no problem.");
 
 		// TODO: Convert info to initial step details
-		getWeaponStoreKey = new DetailedQuestStep(this, "Get the weapon storeroom key from another player.  If you cannot trade, have them use the key on you to drop it at your feet.");
+		getWeaponStoreKey = new DetailedQuestStep(this, t("Get the weapon storeroom key from another player.  If you cannot trade, have them use the key on you to drop it at your feet."));
 
-		goUpToWeaponStore = new ObjectStep(this, ObjectID.FAI_VARROCK_LADDER, new WorldPoint(3252, 3384, 0), "Go up the ladder in south east Varrock to the Phoenix Weapon Storeroom.", storeRoomKey);
+		goUpToWeaponStore = new ObjectStep(this, ObjectID.FAI_VARROCK_LADDER, new WorldPoint(3252, 3384, 0), t("Go up the ladder in south east Varrock to the Phoenix Weapon Storeroom."), storeRoomKey);
 
-		killWeaponsMaster = new NpcStep(this, NpcID.WEAPONSMASTER_VIS, new WorldPoint(3247, 3384, 1), "Kill the Weaponsmaster, or have someone else kill him.");
+		killWeaponsMaster = new NpcStep(this, NpcID.WEAPONSMASTER_VIS, new WorldPoint(3247, 3384, 1), t("Kill the Weaponsmaster, or have someone else kill him."));
 
 		// TODO: Issue with this step, as a crossbow upon killing the weaponsmaster dissappears/appears, the initial despawn doesn't effect the initial area check, so a blue marker remains on the floor
-		pickupTwoCrossbows = new DetailedQuestStep(this, "Pick up TWO phoenix crossbows", twoPhoenixCrossbow);
+		pickupTwoCrossbows = new DetailedQuestStep(this, t("Pick up TWO phoenix crossbows"), twoPhoenixCrossbow);
 
-		goDownFromWeaponStore = new ObjectStep(this, ObjectID.FAI_VARROCK_LADDER_TALLER_TOP, new WorldPoint(3252, 3384, 1), "Go back down from the storeroom.", twoPhoenixCrossbow);
+		goDownFromWeaponStore = new ObjectStep(this, ObjectID.FAI_VARROCK_LADDER_TALLER_TOP, new WorldPoint(3252, 3384, 1), t("Go back down from the storeroom."), twoPhoenixCrossbow);
 
-		returnToKatrine = new NpcStep(this, NpcID.KATRINE, new WorldPoint(3185, 3385, 0), "Return to Katrine with the crossbows.", twoPhoenixCrossbow);
+		returnToKatrine = new NpcStep(this, NpcID.KATRINE, new WorldPoint(3185, 3385, 0), t("Return to Katrine with the crossbows."), twoPhoenixCrossbow);
 		returnToKatrine.addSubSteps(goDownFromWeaponStore);
 
-		goUpstairsInBase = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS, new WorldPoint(3189, 3390, 0), "Go up the stairs in the Black Arm Gang base.");
+		goUpstairsInBase = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS, new WorldPoint(3189, 3390, 0), t("Go up the stairs in the Black Arm Gang base."));
 
-		getShieldFromCupboard = new ObjectStep(this, ObjectID.BLACKARMCUPBOARDSHUT, new WorldPoint(3189, 3386, 1), "Search the cupboard for half of the Shield of Arrav.");
-		getShieldFromCupboard1 = new ObjectStep(this, ObjectID.BLACKARMCUPBOARDOPEN, new WorldPoint(3189, 3386, 1), "Search the cupboard for half of the Shield of Arrav.");
+		getShieldFromCupboard = new ObjectStep(this, ObjectID.BLACKARMCUPBOARDSHUT, new WorldPoint(3189, 3386, 1), t("Search the cupboard for half of the Shield of Arrav."));
+		getShieldFromCupboard1 = new ObjectStep(this, ObjectID.BLACKARMCUPBOARDOPEN, new WorldPoint(3189, 3386, 1), t("Search the cupboard for half of the Shield of Arrav."));
 		getShieldFromCupboard.addSubSteps(getShieldFromCupboard1);
 
-		goDownstairsInBase = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS_TOP, new WorldPoint(3189, 3391, 1), "Go back downstairs.");
+		goDownstairsInBase = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS_TOP, new WorldPoint(3189, 3391, 1), t("Go back downstairs."));
 
-		tradeCertificateHalf = new DetailedQuestStep(this, "Trade one of your certificate halves for the other half with another player. If you cannot trade, use the certificate on them to drop it at their feet. They can do the same for you.");
-		combineCertificate = new DetailedQuestStep(this, "Use the two certificate halves together to create the certificate.", certificateHalf, phoenixCertificateHalf);
+		tradeCertificateHalf = new DetailedQuestStep(this, t("Trade one of your certificate halves for the other half with another player. If you cannot trade, use the certificate on them to drop it at their feet. They can do the same for you."));
+		combineCertificate = new DetailedQuestStep(this, t("Use the two certificate halves together to create the certificate."), certificateHalf, phoenixCertificateHalf);
 
-		talkToHaig = new NpcStep(this, NpcID.CURATOR, new WorldPoint(3255, 3449, 0), "Talk to Curator Haig in the Varrock Museum.", shieldHalf);
+		talkToHaig = new NpcStep(this, NpcID.CURATOR, new WorldPoint(3255, 3449, 0), t("Talk to Curator Haig in the Varrock Museum."), shieldHalf);
 		talkToHaig.addSubSteps(goDownstairsInBase);
 
-		talkToRoald = new NpcStep(this, NpcID.KING_ROALD, new WorldPoint(3222, 3473, 0), "Talk to King Roald in Varrock Castle to finish the quest.", certificate);
+		talkToRoald = new NpcStep(this, NpcID.KING_ROALD, new WorldPoint(3222, 3473, 0), t("Talk to King Roald in Varrock Castle to finish the quest."), certificate);
 
 	}
 
@@ -205,25 +205,25 @@ public class ShieldOfArravBlackArmGang extends BasicQuestHelper
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Start quest", Arrays.asList(startQuest, searchBookcase, talkToReldoAgain, talkToCharlie, talkToKatrine)));
-		allSteps.add(new PanelDetails("Get the phoenix crossbows", Arrays.asList(getWeaponStoreKey, goUpToWeaponStore, killWeaponsMaster, pickupTwoCrossbows, returnToKatrine)));
-		allSteps.add(new PanelDetails("Return the shield", Arrays.asList(goUpstairsInBase, getShieldFromCupboard, talkToHaig, tradeCertificateHalf, combineCertificate, talkToRoald)));
+		allSteps.add(new PanelDetails(t("Start quest"), Arrays.asList(startQuest, searchBookcase, talkToReldoAgain, talkToCharlie, talkToKatrine)));
+		allSteps.add(new PanelDetails(t("Get the phoenix crossbows"), Arrays.asList(getWeaponStoreKey, goUpToWeaponStore, killWeaponsMaster, pickupTwoCrossbows, returnToKatrine)));
+		allSteps.add(new PanelDetails(t("Return the shield"), Arrays.asList(goUpstairsInBase, getShieldFromCupboard, talkToHaig, tradeCertificateHalf, combineCertificate, talkToRoald)));
 		return allSteps;
 	}
 
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Weaponsmaster (level 23), or a friend to kill him for you");
+		return Collections.singletonList(t("Weaponsmaster (level 23), or a friend to kill him for you"));
 	}
 
 	@Override
 	public List<String> getNotes()
 	{
 		return
-			Arrays.asList("You can also do this quest by joining the Phoenix Gang, which instead requires you to kill Jonny the beard (level 2).",
-				"Once you're accepted into one of the gangs, you CANNOT change gang.",
-				"This quest requires you to swap items with another player who's in the other gang, so it's recommended to either find a friend to help you, or you can use the friend's chat 'OSRS SOA' and find someone to help there.");
+			Arrays.asList(t("You can also do this quest by joining the Phoenix Gang, which instead requires you to kill Jonny the beard (level 2)."),
+				t("Once you're accepted into one of the gangs, you CANNOT change gang."),
+				t("This quest requires you to swap items with another player who's in the other gang, so it's recommended to either find a friend to help you, or you can use the friend's chat 'OSRS SOA' and find someone to help there."));
 	}
 
 	@Override

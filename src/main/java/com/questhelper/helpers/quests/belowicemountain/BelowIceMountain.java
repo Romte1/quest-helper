@@ -161,61 +161,61 @@ public class BelowIceMountain extends BasicQuestHelper
 	public void setupSteps()
 	{
 		talkToWillowToStart = new NpcStep(this, NpcID.BIM_WILLOW, new WorldPoint(3003, 3435, 0),
-			"Talk to Willow outside Falador, south of the Ice Mountain dwarves.");
+			t("Talk to Willow outside Falador, south of the Ice Mountain dwarves."));
 		talkToWillowToStart.addDialogStep("Yes.");
 
 		recruitCheckal = new NpcStep(this, NpcID.BIM_CHECKAL, new WorldPoint(3087, 3415, 0),
-			"Attempt to recruit Checkal to your team in Barbarian Village.");
+			t("Attempt to recruit Checkal to your team in Barbarian Village."));
 
-		talkToAtlas = new NpcStep(this, NpcID.BIM_ATLAS, new WorldPoint(3076, 3440, 0), "Speak to Atlas in the Barbarian" +
-			" Village Inn to learn how to Flex. Pick up a cooked meat if you need one.", cookedMeat);
+		talkToAtlas = new NpcStep(this, NpcID.BIM_ATLAS, new WorldPoint(3076, 3440, 0), t("Speak to Atlas in the Barbarian" +
+			" Village Inn to learn how to Flex. Pick up a cooked meat if you need one."), cookedMeat);
 		talkToAtlas.addDialogStep("Yes.");
 
-		flexCheckal = new NpcEmoteStep(this, NpcID.BIM_CHECKAL, QuestEmote.FLEX, new WorldPoint(3087, 3415, 0), "Talk to Checkal and flex your muscles to prove your worth.");
+		flexCheckal = new NpcEmoteStep(this, NpcID.BIM_CHECKAL, QuestEmote.FLEX, new WorldPoint(3087, 3415, 0), t("Talk to Checkal and flex your muscles to prove your worth."));
 
-		talkToMarley = new NpcStep(this, NpcID.BIM_MARLEY, new WorldPoint(3088, 3470, 0), "Speak to Marley in the Edgeville" +
-			" Ruins. Pick up the cooked meat from the Barbarian longhall if you don't have it already.");
+		talkToMarley = new NpcStep(this, NpcID.BIM_MARLEY, new WorldPoint(3088, 3470, 0), t("Speak to Marley in the Edgeville" +
+			" Ruins. Pick up the cooked meat from the Barbarian longhall if you don't have it already."));
 
-		talkToCook = new NpcStep(this, NpcID.FAI_VARROCK_BLUEMOON_CHEF, new WorldPoint(3230, 3401, 0), "Ask the Cook at the Blue Moon Inn " +
-			"for a steak sandwich.");
+		talkToCook = new NpcStep(this, NpcID.FAI_VARROCK_BLUEMOON_CHEF, new WorldPoint(3230, 3401, 0), t("Ask the Cook at the Blue Moon Inn " +
+			"for a steak sandwich."));
 		talkToCook.addDialogStep("I was wondering if you'd be able to make me a Steak sandwich?");
 
-		getIngredients = new DetailedQuestStep(this, "Collect meat, bread and a knife to make a steak sandwich.", cookedMeat, bread, knife);
+		getIngredients = new DetailedQuestStep(this, t("Collect meat, bread and a knife to make a steak sandwich."), cookedMeat, bread, knife);
 
-		makeSandwich = new DetailedQuestStep(this, "Use the knife on the bread to make a steak sandwich. Be careful not to eat it!", knife.highlighted(), bread.highlighted());
+		makeSandwich = new DetailedQuestStep(this, t("Use the knife on the bread to make a steak sandwich. Be careful not to eat it!"), knife.highlighted(), bread.highlighted());
 
-		feedMarley = new NpcStep(this, NpcID.BIM_MARLEY, new WorldPoint(3088, 3470, 0), "Return to Marley and give him the steak sandwich. Be careful not to eat it!", steakSandwich);
+		feedMarley = new NpcStep(this, NpcID.BIM_MARLEY, new WorldPoint(3088, 3470, 0), t("Return to Marley and give him the steak sandwich. Be careful not to eat it!"), steakSandwich);
 
-		talkToMarleyAfterFeeding = new NpcStep(this, NpcID.BIM_MARLEY, new WorldPoint(3088, 3470, 0), "Talk to Marley to send him off to the excavation site.");
+		talkToMarleyAfterFeeding = new NpcStep(this, NpcID.BIM_MARLEY, new WorldPoint(3088, 3470, 0), t("Talk to Marley to send him off to the excavation site."));
 		feedMarley.addSubSteps(talkToMarleyAfterFeeding);
 
-		talkToBurntof = new NpcStep(this, NpcID.BIM_BURNTOF, new WorldPoint(2956, 3367, 0), "Talk to Burntof in the " +
-			"Falador Inn.");
+		talkToBurntof = new NpcStep(this, NpcID.BIM_BURNTOF, new WorldPoint(2956, 3367, 0), t("Talk to Burntof in the " +
+			"Falador Inn."));
 
-		buyBeer = new NpcStep(this, NpcID.RISINGSUN_BARMAID2, new WorldPoint(2954, 3368, 0), "Buy an Asgarnian Ale for Burntof.",
+		buyBeer = new NpcStep(this, NpcID.RISINGSUN_BARMAID2, new WorldPoint(2954, 3368, 0), t("Buy an Asgarnian Ale for Burntof."),
 			coins);
 		buyBeer.addDialogSteps("What ales are you serving?", "One Asgarnian Ale, please.");
 
-		giveBeer = new NpcStep(this, NpcID.BIM_BURNTOF, new WorldPoint(2956, 3367, 0), "Give Burntof the Asgarnian Ale.", beer);
+		giveBeer = new NpcStep(this, NpcID.BIM_BURNTOF, new WorldPoint(2956, 3367, 0), t("Give Burntof the Asgarnian Ale."), beer);
 
 		playRPS = new NpcStep(this, NpcID.BIM_BURNTOF, new WorldPoint(2956, 3367, 0),
-			"Beat Burntof in a match of Rock-Paper-Scissors. Your choices of Rock, Paper and Scissors do not matter.");
+			t("Beat Burntof in a match of Rock-Paper-Scissors. Your choices of Rock, Paper and Scissors do not matter."));
 		playRPS.addDialogStep("Rock.");
 
-		goToDungeon = new NpcStep(this, NpcID.BIM_WILLOW, new WorldPoint(2996, 3494, 0), "Talk with Willow at the " +
-			"dungeon entrance on the west side of Ice Mountain.");
+		goToDungeon = new NpcStep(this, NpcID.BIM_WILLOW, new WorldPoint(2996, 3494, 0), t("Talk with Willow at the " +
+			"dungeon entrance on the west side of Ice Mountain."));
 		goToDungeon.addDialogStep("Yes.");
 
-		reenterDungeon = new ObjectStep(this, ObjectID.BIM_ENTRANCE, new WorldPoint(3000, 3494, 0), "Re-enter the " +
-			"dungeon to finish the quest.");
+		reenterDungeon = new ObjectStep(this, ObjectID.BIM_ENTRANCE, new WorldPoint(3000, 3494, 0), t("Re-enter the " +
+			"dungeon to finish the quest."));
 		reenterDungeon.addDialogStep("Yes.");
 
-		defeatGuardian = new NpcStep(this, NpcID.BIM_GOLEM_BOSS, "Defeat the Lvl-25 Ancient Guardian. " +
-			"Alternatively, with Level 10 Mining, mine the 4 pillars in the corners.");
+		defeatGuardian = new NpcStep(this, NpcID.BIM_GOLEM_BOSS, t("Defeat the Lvl-25 Ancient Guardian. " +
+			"Alternatively, with Level 10 Mining, mine the 4 pillars in the corners."));
 		defeatGuardian.addSubSteps(reenterDungeon);
 
-		watchCutscene = new ObjectStep(this, ObjectID.BIM_ENTRANCE, new WorldPoint(3000, 3494, 0), "Watch the cutscene to " +
-			"finish the quest.");
+		watchCutscene = new ObjectStep(this, ObjectID.BIM_ENTRANCE, new WorldPoint(3000, 3494, 0), t("Watch the cutscene to " +
+			"finish the quest."));
 		watchCutscene.addDialogStep("Yes.");
 	}
 
@@ -302,7 +302,7 @@ public class BelowIceMountain extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"Ancient Guardian (level 25), or 10 mining + a pickaxe"
+			t("Ancient Guardian (level 25), or 10 mining + a pickaxe")
 		);
 	}
 
@@ -324,9 +324,9 @@ public class BelowIceMountain extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Access to the Ruins of Camdozaal."),
-			new UnlockReward("Flex Emote"),
-			new UnlockReward("The ability to make a steak sandwich")
+			new UnlockReward(t("Access to the Ruins of Camdozaal.")),
+			new UnlockReward(t("Flex Emote")),
+			new UnlockReward(t("The ability to make a steak sandwich"))
 		);
 	}
 
@@ -335,17 +335,17 @@ public class BelowIceMountain extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Starting Off", List.of(
+		sections.add(new PanelDetails(t("Starting Off"), List.of(
 			talkToWillowToStart
 		)));
 
-		sections.add(new PanelDetails("Recruit Checkal", List.of(
+		sections.add(new PanelDetails(t("Recruit Checkal"), List.of(
 			recruitCheckal,
 			talkToAtlas,
 			flexCheckal
 		)));
 
-		sections.add(new PanelDetails("Recruit Marley", List.of(
+		sections.add(new PanelDetails(t("Recruit Marley"), List.of(
 			talkToMarley,
 			talkToCook,
 			getIngredients,
@@ -357,7 +357,7 @@ public class BelowIceMountain extends BasicQuestHelper
 			knife
 		)));
 
-		sections.add(new PanelDetails("Recruit Burntof", List.of(
+		sections.add(new PanelDetails(t("Recruit Burntof"), List.of(
 			talkToBurntof,
 			buyBeer,
 			giveBeer,
@@ -366,7 +366,7 @@ public class BelowIceMountain extends BasicQuestHelper
 			coins
 		)));
 
-		sections.add(new PanelDetails("Excavation!", List.of(
+		sections.add(new PanelDetails(t("Excavation!"), List.of(
 			goToDungeon, defeatGuardian, watchCutscene
 		), List.of(
 			combatGearOrPickaxe

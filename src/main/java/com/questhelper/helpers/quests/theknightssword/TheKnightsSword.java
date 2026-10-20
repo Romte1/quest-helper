@@ -115,7 +115,7 @@ public class TheKnightsSword extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		redberryPie = new ItemRequirement("Redberry pie", ItemID.REDBERRY_PIE);
-		redberryPie.setTooltip("Purchasable from the grand exchange, or for ironmen: 10 cooking to cook one, or 32 cooking and a chef's hat to buy one from the Cooks' Guild.");
+		redberryPie.setTooltip(t("Purchasable from the grand exchange, or for ironmen: 10 cooking to cook one, or 32 cooking and a chef's hat to buy one from the Cooks' Guild."));
 		ironBars = new ItemRequirement("Iron bar", ItemID.IRON_BAR, 2);
 		bluriteOre = new ItemRequirement("Blurite ore", ItemID.BLURITE_ORE);
 		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
@@ -137,46 +137,46 @@ public class TheKnightsSword extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToSquire = new NpcStep(this, NpcID.SQUIRE, new WorldPoint(2978, 3341, 0), "Talk to the Squire in Falador Castle's courtyard.");
+		talkToSquire = new NpcStep(this, NpcID.SQUIRE, new WorldPoint(2978, 3341, 0), t("Talk to the Squire in Falador Castle's courtyard."));
 		talkToSquire.addDialogStep("And how is life as a squire?");
 		talkToSquire.addDialogStep("I can make a new sword if you like...");
 		talkToSquire.addDialogStep("So would these dwarves make another one?");
 		talkToSquire.addDialogStep("Yes.");
 		talkToSquire.addTeleport(faladorTeleports.quantity(1));
 
-		talkToReldo = new NpcStep(this, NpcID.RELDO_NORMAL, new WorldPoint(3211, 3494, 0), "Talk to Reldo in Varrock Castle's library.");
+		talkToReldo = new NpcStep(this, NpcID.RELDO_NORMAL, new WorldPoint(3211, 3494, 0), t("Talk to Reldo in Varrock Castle's library."));
 		talkToReldo.addDialogStep("What do you know about the Imcando dwarves?");
 		talkToReldo.addTeleport(varrockTeleport.quantity(1));
 
-		talkToThurgo = new NpcStep(this, NpcID.THURGO, new WorldPoint(3000, 3145, 0), "Talk to Thurgo south of Port Sarim and give him a redberry pie.", redberryPie);
+		talkToThurgo = new NpcStep(this, NpcID.THURGO, new WorldPoint(3000, 3145, 0), t("Talk to Thurgo south of Port Sarim and give him a redberry pie."), redberryPie);
 		talkToThurgo.addDialogStep("Would you like a redberry pie?");
 		talkToThurgo.addTeleport(homeTele.quantity(1));
 
-		talkToThurgoAgain = new NpcStep(this, NpcID.THURGO, new WorldPoint(3000, 3145, 0), "Talk to Thurgo again.");
+		talkToThurgoAgain = new NpcStep(this, NpcID.THURGO, new WorldPoint(3000, 3145, 0), t("Talk to Thurgo again."));
 		talkToThurgoAgain.addDialogStep("Can you make a special sword for me?");
 
-		talkToSquire2 = new NpcStep(this, NpcID.SQUIRE, new WorldPoint(2978, 3341, 0), "Talk to the Squire in Falador Castle's courtyard.");
+		talkToSquire2 = new NpcStep(this, NpcID.SQUIRE, new WorldPoint(2978, 3341, 0), t("Talk to the Squire in Falador Castle's courtyard."));
 		talkToSquire2.addTeleport(faladorTeleports.quantity(1));
 
-		goUpCastle1 = new ObjectStep(this, ObjectID.FAI_FALADOR_CASTLE_LADDER_UP, new WorldPoint(2994, 3341, 0), "Climb up the east ladder in Falador Castle.");
+		goUpCastle1 = new ObjectStep(this, ObjectID.FAI_FALADOR_CASTLE_LADDER_UP, new WorldPoint(2994, 3341, 0), t("Climb up the east ladder in Falador Castle."));
 
-		goUpCastle2 = new ObjectStep(this, ObjectID.FAI_FALADOR_CASTLE_STAIRS, new WorldPoint(2985, 3338, 1), "Go up the staircase west of the ladder on the 1st floor.");
+		goUpCastle2 = new ObjectStep(this, ObjectID.FAI_FALADOR_CASTLE_STAIRS, new WorldPoint(2985, 3338, 1), t("Go up the staircase west of the ladder on the 1st floor."));
 
-		searchCupboard = new ObjectStep(this, ObjectID.VYVINCUPBOARDOPEN, new WorldPoint(2985, 3336, 2), "Search the cupboard in the room south of the staircase. You'll need Sir Vyvin to be in the other room.", sirVyvinNotInRoom);
+		searchCupboard = new ObjectStep(this, ObjectID.VYVINCUPBOARDOPEN, new WorldPoint(2985, 3336, 2), t("Search the cupboard in the room south of the staircase. You'll need Sir Vyvin to be in the other room."), sirVyvinNotInRoom);
 		searchCupboard.addAlternateObjects(ObjectID.VYVINCUPBOARDSHUT);
 
-		givePortraitToThurgo = new NpcStep(this, NpcID.THURGO, new WorldPoint(3000, 3145, 0), "Bring Thurgo the portrait.", pickaxe, ironBars, portrait);
+		givePortraitToThurgo = new NpcStep(this, NpcID.THURGO, new WorldPoint(3000, 3145, 0), t("Bring Thurgo the portrait."), pickaxe, ironBars, portrait);
 		givePortraitToThurgo.addDialogStep("About that sword...");
 		givePortraitToThurgo.addTeleport(homeTele.quantity(1));
 
-		enterDungeon = new ObjectStep(this, ObjectID.FAI_TRAPDOOR, new WorldPoint(3008, 3150, 0), "Go down the ladder south of Port Sarim. Be prepared for ice giants and ice warriors to attack you.", pickaxe, ironBars);
+		enterDungeon = new ObjectStep(this, ObjectID.FAI_TRAPDOOR, new WorldPoint(3008, 3150, 0), t("Go down the ladder south of Port Sarim. Be prepared for ice giants and ice warriors to attack you."), pickaxe, ironBars);
 
-		mineBlurite = new ObjectStep(this, ObjectID.BLURITE_ROCK_1, new WorldPoint(3049, 9566, 0), "Mine a blurite ore in the eastern cavern.", pickaxe);
+		mineBlurite = new ObjectStep(this, ObjectID.BLURITE_ROCK_1, new WorldPoint(3049, 9566, 0), t("Mine a blurite ore in the eastern cavern."), pickaxe);
 
-		bringThurgoOre = new NpcStep(this, NpcID.THURGO, new WorldPoint(3000, 3145, 0), "Return to Thurgo with a blurite ore and two iron bars.", bluriteOre, ironBars);
+		bringThurgoOre = new NpcStep(this, NpcID.THURGO, new WorldPoint(3000, 3145, 0), t("Return to Thurgo with a blurite ore and two iron bars."), bluriteOre, ironBars);
 		bringThurgoOre.addDialogStep("Can you make that replacement sword now?");
 
-		finishQuest = new NpcStep(this, NpcID.SQUIRE, new WorldPoint(2978, 3341, 0), "Return to the Squire with the sword to finish the quest.", bluriteSword);
+		finishQuest = new NpcStep(this, NpcID.SQUIRE, new WorldPoint(2978, 3341, 0), t("Return to the Squire with the sword to finish the quest."), bluriteSword);
 		finishQuest.addTeleport(faladorTeleports.quantity(1));
 	}
 
@@ -243,7 +243,7 @@ public class TheKnightsSword extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"Able to survive attacks from Ice Warriors (level 57) and Ice Giants (level 53)"
+			t("Able to survive attacks from Ice Warriors (level 57) and Ice Giants (level 53)")
 		);
 	}
 
@@ -251,7 +251,7 @@ public class TheKnightsSword extends BasicQuestHelper
 	public List<String> getNotes()
 	{
 		return List.of(
-			"You can make progress towards the Falador Easy Diary task by mining an additional Blurite ore and smelting another Blurite bar, it will be required for smithing Blurite limbs."
+			t("You can make progress towards the Falador Easy Diary task by mining an additional Blurite ore and smelting another Blurite bar, it will be required for smithing Blurite limbs.")
 		);
 	}
 
@@ -273,8 +273,8 @@ public class TheKnightsSword extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("The ability to smelt Blurite ore."),
-			new UnlockReward("The ability to smith Blurite bars.")
+			new UnlockReward(t("The ability to smelt Blurite ore.")),
+			new UnlockReward(t("The ability to smith Blurite bars."))
 		);
 	}
 
@@ -283,19 +283,19 @@ public class TheKnightsSword extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Starting off", List.of(
+		sections.add(new PanelDetails(t("Starting off"), List.of(
 			talkToSquire,
 			talkToReldo
 		)));
 
-		sections.add(new PanelDetails("Finding an Imcando", List.of(
+		sections.add(new PanelDetails(t("Finding an Imcando"), List.of(
 			talkToThurgo,
 			talkToThurgoAgain
 		), List.of(
 			redberryPie
 		)));
 
-		sections.add(new PanelDetails("Find the portrait", List.of(
+		sections.add(new PanelDetails(t("Find the portrait"), List.of(
 			talkToSquire2,
 			goUpCastle1,
 			goUpCastle2,
@@ -303,7 +303,7 @@ public class TheKnightsSword extends BasicQuestHelper
 			givePortraitToThurgo
 		)));
 
-		sections.add(new PanelDetails("Making the sword", List.of(enterDungeon,
+		sections.add(new PanelDetails(t("Making the sword"), List.of(enterDungeon,
 			mineBlurite,
 			bringThurgoOre
 		), List.of(
@@ -311,7 +311,7 @@ public class TheKnightsSword extends BasicQuestHelper
 			ironBars
 		)));
 
-		sections.add(new PanelDetails("Return the sword", List.of(
+		sections.add(new PanelDetails(t("Return the sword"), List.of(
 			finishQuest
 		)));
 

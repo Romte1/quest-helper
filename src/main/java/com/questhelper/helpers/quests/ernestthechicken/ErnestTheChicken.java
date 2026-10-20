@@ -192,55 +192,55 @@ public class ErnestTheChicken extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToVeronica = new NpcStep(this, NpcID.VERONICA, new WorldPoint(3109, 3329, 0), "Talk to Veronica outside of Draynor Manor.");
+		talkToVeronica = new NpcStep(this, NpcID.VERONICA, new WorldPoint(3109, 3329, 0), t("Talk to Veronica outside of Draynor Manor."));
 		talkToVeronica.addDialogStep("Aha, sounds like a quest. I'll help.");
-		enterManor = new ObjectStep(this, ObjectID.HAUNTEDDOORL, new WorldPoint(3108, 3353, 0), "Enter Draynor Manor's ground floor.");
-		goToFirstFloor = new ObjectStep(this, ObjectID.DRAYNOR_MANOR_STAIRS_UP, new WorldPoint(3109, 3364, 0), "Go upstairs and pick up the fish food.");
-		pickupFishFood = new DetailedQuestStep(this, new WorldPoint(3108, 3356, 1), "Pick up the fish food in the south room.", fishFood);
+		enterManor = new ObjectStep(this, ObjectID.HAUNTEDDOORL, new WorldPoint(3108, 3353, 0), t("Enter Draynor Manor's ground floor."));
+		goToFirstFloor = new ObjectStep(this, ObjectID.DRAYNOR_MANOR_STAIRS_UP, new WorldPoint(3109, 3364, 0), t("Go upstairs and pick up the fish food."));
+		pickupFishFood = new DetailedQuestStep(this, new WorldPoint(3108, 3356, 1), t("Pick up the fish food in the south room."), fishFood);
 		goDownToGroundFloor = new ObjectStep(this, ObjectID.DRAYNOR_MANOR_STAIRS_DOWN, new WorldPoint(3109, 3365, 1),
-			"Go back downstairs and pick up the poison from the north west room.");
+			t("Go back downstairs and pick up the poison from the north west room."));
 
-		pickupPoison = new DetailedQuestStep(this, new WorldPoint(3097, 3366, 0), "Pick up the poison from the north west room.", poison);
-		usePoisonOnFishFood = new DetailedQuestStep(this, "Use the poison on the fish food", poison, fishFood);
-		pickupSpade = new DetailedQuestStep(this, new WorldPoint(3120, 3359, 0), "Pick up the spade in the east room. Exit the manor through the door in the same room.", spade);
-		searchCompost = new ObjectStep(this, ObjectID.HAUNTEDCOMPOSTHEAP, new WorldPoint(3085, 3361, 0), "Search the compost heap west of the manor.", spade);
+		pickupPoison = new DetailedQuestStep(this, new WorldPoint(3097, 3366, 0), t("Pick up the poison from the north west room."), poison);
+		usePoisonOnFishFood = new DetailedQuestStep(this, t("Use the poison on the fish food"), poison, fishFood);
+		pickupSpade = new DetailedQuestStep(this, new WorldPoint(3120, 3359, 0), t("Pick up the spade in the east room. Exit the manor through the door in the same room."), spade);
+		searchCompost = new ObjectStep(this, ObjectID.HAUNTEDCOMPOSTHEAP, new WorldPoint(3085, 3361, 0), t("Search the compost heap west of the manor."), spade);
 		useFishFoodOnFountain = new ObjectStep(this, ObjectID.HAUNTEDFOUNTAIN, new WorldPoint(3088, 3335, 0),
-			"Use the poisoned fish food on the fountain south west of the manor.", poisonedFishFood);
-		searchFountain = new ObjectStep(this, ObjectID.HAUNTEDFOUNTAIN, new WorldPoint(3088, 3335, 0), "Search the fountain.");
-		enterManorWithKey = new ObjectStep(this, ObjectID.HAUNTEDDOORL, new WorldPoint(3108, 3353, 0), "Go back into the manor's ground floor.");
-		getTube = new DetailedQuestStep(this, new WorldPoint(3111, 3367, 0), "Enter the small room north of the staircase with the key and pick up the rubber tube.", rubberTube);
-		searchBookcase = new ObjectStep(this, ObjectID.HAUNTEDBOOKCASEL, new WorldPoint(3097, 3358, 0), "Search the bookcase in the west room to enter the secret room.");
-		goDownLadder = new ObjectStep(this, ObjectID.PUZZLE_LADDER_TOP, new WorldPoint(3092, 3362, 0), "Climb down the ladder into the basement.");
+			t("Use the poisoned fish food on the fountain south west of the manor."), poisonedFishFood);
+		searchFountain = new ObjectStep(this, ObjectID.HAUNTEDFOUNTAIN, new WorldPoint(3088, 3335, 0), t("Search the fountain."));
+		enterManorWithKey = new ObjectStep(this, ObjectID.HAUNTEDDOORL, new WorldPoint(3108, 3353, 0), t("Go back into the manor's ground floor."));
+		getTube = new DetailedQuestStep(this, new WorldPoint(3111, 3367, 0), t("Enter the small room north of the staircase with the key and pick up the rubber tube."), rubberTube);
+		searchBookcase = new ObjectStep(this, ObjectID.HAUNTEDBOOKCASEL, new WorldPoint(3097, 3358, 0), t("Search the bookcase in the west room to enter the secret room."));
+		goDownLadder = new ObjectStep(this, ObjectID.PUZZLE_LADDER_TOP, new WorldPoint(3092, 3362, 0), t("Climb down the ladder into the basement."));
 
-		pullDownLeverA = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERA, new WorldPoint(3108, 9745, 0), "Pull down lever A."));
-		pullDownLeverB = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERB, new WorldPoint(3118, 9752, 0), "Pull down lever B.")).withNoHelpHiddenInSidebar(true);
-		pullDownLeverC = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERC, new WorldPoint(3112, 9760, 0), "Pull down lever C.")).withNoHelpHiddenInSidebar(true);
-		pullDownLeverD = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERD, new WorldPoint(3108, 9767, 0), "Pull down lever D.")).withNoHelpHiddenInSidebar(true);
-		pullDownLeverE = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERE, new WorldPoint(3097, 9767, 0), "Pull down lever E.")).withNoHelpHiddenInSidebar(true);
-		pullDownLeverF = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERF, new WorldPoint(3096, 9765, 0), "Pull down lever F.")).withNoHelpHiddenInSidebar(true);
-		pullUpLeverA = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERA, new WorldPoint(3108, 9745, 0), "Pull up lever A.")).withNoHelpHiddenInSidebar(true);
-		pullUpLeverB = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERB, new WorldPoint(3118, 9752, 0), "Pull up lever B.")).withNoHelpHiddenInSidebar(true);
-		pullUpLeverC = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERC, new WorldPoint(3112, 9760, 0), "Pull up lever C.")).withNoHelpHiddenInSidebar(true);
-		pullUpLeverD = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERD, new WorldPoint(3108, 9767, 0), "Pull up lever D.")).withNoHelpHiddenInSidebar(true);
-		pullUpLeverE = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERE, new WorldPoint(3097, 9767, 0), "Pull up lever E.")).withNoHelpHiddenInSidebar(true);
-		pickupOilCan = new DetailedQuestStep(this, new WorldPoint(3092, 9755, 0), "Pick up the oil can in the west room.", oilCan);
+		pullDownLeverA = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERA, new WorldPoint(3108, 9745, 0), t("Pull down lever A.")));
+		pullDownLeverB = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERB, new WorldPoint(3118, 9752, 0), t("Pull down lever B."))).withNoHelpHiddenInSidebar(true);
+		pullDownLeverC = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERC, new WorldPoint(3112, 9760, 0), t("Pull down lever C."))).withNoHelpHiddenInSidebar(true);
+		pullDownLeverD = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERD, new WorldPoint(3108, 9767, 0), t("Pull down lever D."))).withNoHelpHiddenInSidebar(true);
+		pullDownLeverE = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERE, new WorldPoint(3097, 9767, 0), t("Pull down lever E."))).withNoHelpHiddenInSidebar(true);
+		pullDownLeverF = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERF, new WorldPoint(3096, 9765, 0), t("Pull down lever F."))).withNoHelpHiddenInSidebar(true);
+		pullUpLeverA = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERA, new WorldPoint(3108, 9745, 0), t("Pull up lever A."))).withNoHelpHiddenInSidebar(true);
+		pullUpLeverB = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERB, new WorldPoint(3118, 9752, 0), t("Pull up lever B."))).withNoHelpHiddenInSidebar(true);
+		pullUpLeverC = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERC, new WorldPoint(3112, 9760, 0), t("Pull up lever C."))).withNoHelpHiddenInSidebar(true);
+		pullUpLeverD = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERD, new WorldPoint(3108, 9767, 0), t("Pull up lever D."))).withNoHelpHiddenInSidebar(true);
+		pullUpLeverE = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.LEVERE, new WorldPoint(3097, 9767, 0), t("Pull up lever E."))).withNoHelpHiddenInSidebar(true);
+		pickupOilCan = new DetailedQuestStep(this, new WorldPoint(3092, 9755, 0), t("Pick up the oil can in the west room."), oilCan);
 
-		goUpFromBasement = new ObjectStep(this, ObjectID.PUZZLE_LADDER, new WorldPoint(3117, 9754, 0), "Climb out of the basement.");
-		pullLeverToLeave = new ObjectStep(this, ObjectID.HAUNTEDLEVERUP, new WorldPoint(3096, 3357, 0), "Pull the lever to leave the secret room");
-		goToFirstFloorToFinish = new ObjectStep(this, ObjectID.DRAYNOR_MANOR_STAIRS_UP, new WorldPoint(3109, 3364, 0), "Bring all the items to Oddenstein on the top floor.", oilCan, rubberTube, pressureGauge);
-		goToSecondFloor = new ObjectStep(this, ObjectID.DRAYNOR_SPIRALSTAIRS, new WorldPoint(3105, 3363, 1), "Bring all the items to Oddenstein on the top floor.", oilCan, rubberTube, pressureGauge);
-		talkToOddenstein = new NpcStep(this, NpcID.PROFESSOR_ODDENSTEIN, new WorldPoint(3116, 3364, 2), "Talk to Professor Oddenstein on the top floor.");
+		goUpFromBasement = new ObjectStep(this, ObjectID.PUZZLE_LADDER, new WorldPoint(3117, 9754, 0), t("Climb out of the basement."));
+		pullLeverToLeave = new ObjectStep(this, ObjectID.HAUNTEDLEVERUP, new WorldPoint(3096, 3357, 0), t("Pull the lever to leave the secret room"));
+		goToFirstFloorToFinish = new ObjectStep(this, ObjectID.DRAYNOR_MANOR_STAIRS_UP, new WorldPoint(3109, 3364, 0), t("Bring all the items to Oddenstein on the top floor."), oilCan, rubberTube, pressureGauge);
+		goToSecondFloor = new ObjectStep(this, ObjectID.DRAYNOR_SPIRALSTAIRS, new WorldPoint(3105, 3363, 1), t("Bring all the items to Oddenstein on the top floor."), oilCan, rubberTube, pressureGauge);
+		talkToOddenstein = new NpcStep(this, NpcID.PROFESSOR_ODDENSTEIN, new WorldPoint(3116, 3364, 2), t("Talk to Professor Oddenstein on the top floor."));
 		talkToOddenstein.addDialogStep("I'm looking for a guy called Ernest.");
 		talkToOddenstein.addDialogStep("Change him back this instant!");
 		talkToOddenstein.addSubSteps(goUpFromBasement, pullLeverToLeave, goToFirstFloorToFinish, goToSecondFloor);
-		talkToOddenteinAgain = new NpcStep(this, NpcID.PROFESSOR_ODDENSTEIN, new WorldPoint(3116, 3364, 2), "Give Professor Oddenstein the items to finish.", oilCan, rubberTube, pressureGauge);
+		talkToOddenteinAgain = new NpcStep(this, NpcID.PROFESSOR_ODDENSTEIN, new WorldPoint(3116, 3364, 2), t("Give Professor Oddenstein the items to finish."), oilCan, rubberTube, pressureGauge);
 	}
 
 	@Override
 	public List<String> getCombatRequirements()
 	{
 		ArrayList<String> reqs = new ArrayList<>();
-		reqs.add("Able to survive a skeleton (level 22) attacking you");
+		reqs.add(t("Able to survive a skeleton (level 22) attacking you"));
 		return reqs;
 	}
 
@@ -260,8 +260,8 @@ public class ErnestTheChicken extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Access to the Killerwatt plane (Members Only)."),
-				new UnlockReward("Ability to be assigned Killerwatts as a Slayer task."));
+				new UnlockReward(t("Access to the Killerwatt plane (Members Only).")),
+				new UnlockReward(t("Ability to be assigned Killerwatts as a Slayer task.")));
 	}
 
 	@Override
@@ -269,20 +269,20 @@ public class ErnestTheChicken extends BasicQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		allSteps.add(new PanelDetails("Starting off", Collections.singletonList(talkToVeronica)));
+		allSteps.add(new PanelDetails(t("Starting off"), Collections.singletonList(talkToVeronica)));
 
-		PanelDetails getGaugeAndTubePanel = new PanelDetails("Get the Gauge and Tube",
+		PanelDetails getGaugeAndTubePanel = new PanelDetails(t("Get the Gauge and Tube"),
 			Arrays.asList(enterManor, goToFirstFloor, pickupFishFood, goDownToGroundFloor, pickupPoison, usePoisonOnFishFood,
 				pickupSpade, searchCompost, useFishFoodOnFountain, searchFountain, enterManorWithKey, getTube));
 		getGaugeAndTubePanel.setLockingStep(getGaugeAndTube);
 		allSteps.add(getGaugeAndTubePanel);
 
-		PanelDetails getCanPanel = new PanelDetails("Get the oil can",
+		PanelDetails getCanPanel = new PanelDetails(t("Get the oil can"),
 			Arrays.asList(searchBookcase, goDownLadder, pullDownLeverA, pullDownLeverB, pullDownLeverD, pullUpLeverB, pullUpLeverA, pullDownLeverF, pullDownLeverE, pullDownLeverC, pullUpLeverE, pickupOilCan));
 		getCanPanel.setLockingStep(getCan);
 		allSteps.add(getCanPanel);
 
-		allSteps.add(new PanelDetails("Bring items to Oddenstein", Arrays.asList(talkToOddenstein, talkToOddenteinAgain)));
+		allSteps.add(new PanelDetails(t("Bring items to Oddenstein"), Arrays.asList(talkToOddenstein, talkToOddenteinAgain)));
 		return allSteps;
 	}
 }

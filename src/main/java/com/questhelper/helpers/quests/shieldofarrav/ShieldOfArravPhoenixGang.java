@@ -127,54 +127,54 @@ public class ShieldOfArravPhoenixGang extends BasicQuestHelper
 	public void setupSteps()
 	{
 		startQuest = new NpcStep(this, NpcID.RELDO_NORMAL, new WorldPoint(3210, 3494, 0),
-			"Talk to Reldo in the Varrock Castle library.");
+			t("Talk to Reldo in the Varrock Castle library."));
 		startQuest.addDialogSteps("I'm in search of a quest.", "Yes.");
 		searchBookcase = new ObjectStep(this, ObjectID.QUESTBOOKCASE, new WorldPoint(3212, 3493, 0),
-			"Search the marked bookcase for a book, then read it.", book.highlighted());
+			t("Search the marked bookcase for a book, then read it."), book.highlighted());
 		talkToReldoAgain = new NpcStep(this, NpcID.RELDO_NORMAL, new WorldPoint(3210, 3494, 0),
-			"Talk to Reldo again.");
+			t("Talk to Reldo again."));
 		talkToReldoAgain.addDialogStep("Okay, I've read that book about the Shield of Arrav.");
 		talkToBaraek = new NpcStep(this, NpcID.BARAEK, new WorldPoint(3218, 3435, 0),
-			"Talk to Baraek in the Varrock Square.", twentyCoins);
+			t("Talk to Baraek in the Varrock Square."), twentyCoins);
 		talkToBaraek.addDialogStep("Can you tell me where I can find the Phoenix Gang?");
 		talkToBaraek.addDialogStep("Okay. Have 20 gold coins.");
 		goDownToPhoenixGang = new ObjectStep(this, ObjectID.FAI_VARROCK_LADDER_DEEP, new WorldPoint(3244, 3383, 0),
-			"Head into the Phoenix Gang's base in south Varrock.");
+			t("Head into the Phoenix Gang's base in south Varrock."));
 		talkToStraven = new NpcStep(this, NpcID.STRAVEN, new WorldPoint(3247, 9781, 0),
-			"Talk to Straven.");
+			t("Talk to Straven."));
 		talkToStraven.addDialogStep("I know who you are!");
 		talkToStraven.addDialogStep("I'd like to offer you my services.");
 
 		goUpFromPhoenixGang = new ObjectStep(this, ObjectID.PHOENIXLADDER, new WorldPoint(3244, 9783, 0),
-			"Go back up to the surface.");
+			t("Go back up to the surface."));
 		killJonny = new NpcStep(this, NpcID.JONNY_THE_BEARD_2OP, new WorldPoint(3222, 3395, 0),
-			"Kill Jonny the Beard in the Blue Moon Inn in Varrock.");
-		pickupIntelReport = new DetailedQuestStep(this, "Pick up the Intel Report.", intelReport);
+			t("Kill Jonny the Beard in the Blue Moon Inn in Varrock."));
+		pickupIntelReport = new DetailedQuestStep(this, t("Pick up the Intel Report."), intelReport);
 		returnDownLadder = new ObjectStep(this, ObjectID.FAI_VARROCK_LADDER_DEEP, new WorldPoint(3244, 3383, 0),
-			"Return to the Phoenix Gang's base.");
+			t("Return to the Phoenix Gang's base."));
 		talkToStravenAgain = new NpcStep(this, NpcID.STRAVEN, new WorldPoint(3247, 9781, 0),
-			"Talk to Straven again.");
+			t("Talk to Straven again."));
 
 		getShieldHalf = new ObjectStep(this, ObjectID.PHOENIXSHUTCHEST, new WorldPoint(3235, 9761, 0),
-			"Search the chest in the Phoenix base for half of the Shield of Arrav.");
+			t("Search the chest in the Phoenix base for half of the Shield of Arrav."));
 		getShieldHalf1 = new ObjectStep(this, ObjectID.PHOENIXOPENCHEST, new WorldPoint(3235, 9761, 0),
-			"Search the chest in the Phoenix base for half of the Shield of Arrav.");
+			t("Search the chest in the Phoenix base for half of the Shield of Arrav."));
 		getShieldHalf.addSubSteps(getShieldHalf1);
 
 		leaveAfterGettingShieldHalf = new ObjectStep(this, ObjectID.PHOENIXLADDER, new WorldPoint(3244, 9783, 0),
-			"Go back up to the surface.");
+			t("Go back up to the surface."));
 		talkToHaig = new NpcStep(this, NpcID.CURATOR, new WorldPoint(3255, 3449, 0),
-			"Trade your weapon store key to your partner. If you can't trade, use the key on them to drop it at their feet. " +
-				"AFTERWARDS, talk to Curator Haig in the Varrock Museum.", shieldHalf);
+			t("Trade your weapon store key to your partner. If you can't trade, use the key on them to drop it at their feet. " +
+				"AFTERWARDS, talk to Curator Haig in the Varrock Museum."), shieldHalf);
 		talkToHaig.addSubSteps(leaveAfterGettingShieldHalf);
 		talkToRoald = new NpcStep(this, NpcID.KING_ROALD_CUTSCENE, new WorldPoint(3222, 3473, 0),
-			"Talk to King Roald in Varrock Castle to finish the quest.", certificate);
+			t("Talk to King Roald in Varrock Castle to finish the quest."), certificate);
 
 		tradeCertificateHalf = new DetailedQuestStep(this,
-			"Trade one of your certificate halves for the other half with another player.  If you cannot trade, use " +
-				"the certificate on them to drop it at their feet. They can do the same for you.");
+			t("Trade one of your certificate halves for the other half with another player.  If you cannot trade, use " +
+				"the certificate on them to drop it at their feet. They can do the same for you."));
 		combineCertificate = new DetailedQuestStep(this,
-			"Use the two certificate halves together to create the certificate.", certificateHalf, blackArmCertificateHalf);
+			t("Use the two certificate halves together to create the certificate."), certificateHalf, blackArmCertificateHalf);
 	}
 
 	@Override
@@ -201,25 +201,25 @@ public class ShieldOfArravPhoenixGang extends BasicQuestHelper
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Locating the Phoenix Gang", Arrays.asList(startQuest,
+		allSteps.add(new PanelDetails(t("Locating the Phoenix Gang"), Arrays.asList(startQuest,
 			searchBookcase, talkToReldoAgain, talkToBaraek, goDownToPhoenixGang, talkToStraven)));
-		allSteps.add(new PanelDetails("Joining the gang", Arrays.asList(goUpFromPhoenixGang, killJonny, pickupIntelReport, returnDownLadder, talkToStravenAgain)));
-		allSteps.add(new PanelDetails("Returning the shield", Arrays.asList(getShieldHalf, talkToHaig, tradeCertificateHalf, combineCertificate, talkToRoald)));
+		allSteps.add(new PanelDetails(t("Joining the gang"), Arrays.asList(goUpFromPhoenixGang, killJonny, pickupIntelReport, returnDownLadder, talkToStravenAgain)));
+		allSteps.add(new PanelDetails(t("Returning the shield"), Arrays.asList(getShieldHalf, talkToHaig, tradeCertificateHalf, combineCertificate, talkToRoald)));
 		return allSteps;
 	}
 
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Jonny the beard (level 2)");
+		return Collections.singletonList(t("Jonny the beard (level 2)"));
 	}
 
 	@Override
 	public List<String> getNotes()
 	{
-		return Arrays.asList("You can also do this quest by joining the Black Arm Gang, which instead requires you to kill the weaponsmaster (level 23), or have another player kill them for you.",
-			"Once you're accepted into one of the gangs, you CANNOT change gang.",
-			"This quest requires you to swap items with another player who's in the other gang, so it's recommended to either find a friend to help you, or you can use the friend's chat 'OSRS SOA' and find someone to help there.");
+		return Arrays.asList(t("You can also do this quest by joining the Black Arm Gang, which instead requires you to kill the weaponsmaster (level 23), or have another player kill them for you."),
+			t("Once you're accepted into one of the gangs, you CANNOT change gang."),
+			t("This quest requires you to swap items with another player who's in the other gang, so it's recommended to either find a friend to help you, or you can use the friend's chat 'OSRS SOA' and find someone to help there."));
 
 	}
 
