@@ -43,7 +43,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Resolves quest string translations using the English-as-key pattern: the
  * English text lives in the code and translations live per quest in
- * {@code messages/<lang>/<quest>.properties}, loaded on first use.
+ * {@code translations/<lang>/<quest>.properties}, loaded on first use.
  * <p>
  * Never translate quest names, game entity names (items, NPCs, locations) or
  * dialog choices that match live game text.
@@ -68,7 +68,7 @@ public class TranslationService
 	 * {@code namespace}, or {@code text} itself when the language is native,
 	 * the file does not exist, or the file has no entry for {@code text}.
 	 *
-	 * @param namespace per-quest file name under {@code messages/<lang>/},
+	 * @param namespace per-quest file name under {@code translations/<lang>/},
 	 *                  or {@code null} to get the native string
 	 * @param text      the English string as it appears in the code
 	 */
@@ -83,7 +83,7 @@ public class TranslationService
 		}
 
 		Map<String, String> messages = loadedMessages.computeIfAbsent(
-			"/messages/" + folder + "/" + namespace + ".properties", TranslationService::loadMessages);
+			"/translations/" + folder + "/" + namespace + ".properties", TranslationService::loadMessages);
 		String translated = messages.get(text);
 		return translated != null ? translated : text;
 	}

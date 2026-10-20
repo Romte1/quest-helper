@@ -42,7 +42,7 @@ public enum Language
 	}
 
 	/**
-	 * Folder under {@code messages/} holding this language's per-quest files,
+	 * Folder under {@code translations/} holding this language's per-quest files,
 	 * or {@code null} for the native language, which reads no files at all.
 	 */
 	public String getMessagesFolder()

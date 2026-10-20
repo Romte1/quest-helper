@@ -133,7 +133,6 @@ public abstract class QuestHelper implements Module, QuestDebugRenderer
 	 */
 	public String t(@Nonnull String text)
 	{
-		assert text != null;
 		String namespace = quest != null ? quest.name().toLowerCase(Locale.ROOT) : null;
 		return translationService.t(namespace, text);
 	}
