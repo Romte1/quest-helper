@@ -1,29 +1,48 @@
 package com.questhelper.util;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 
-// Tests for TranslationService, focused on the fallback chain
-// (current language bundle -> English bundle -> input text as-is).
+// Tests for TranslationService: native language passes through with no files,
+// other languages resolve per-quest files, missing entries fall back to the
+// English input text itself.
 public class TranslationServiceTest
 {
-	// English mode passes the input through unchanged (English-as-key pattern).
+	// English is native: no namespace and no files, input passes through unchanged.
 	@Test
 	public void englishModePassesInputThrough()
 	{
 		var service = new TranslationService();
-		assertEquals("Get a bucket", service.t("Get a bucket"));
+		assertEquals("Get a bucket", service.t("cooks_assistant", "Get a bucket"));
 	}
 
-	// Spanish mode resolves a translated quest string.
+	// Native language ignores any namespace.
+	@Test
+	public void englishModeIgnoresNamespace()
+	{
+		var service = new TranslationService();
+		assertEquals("Starting off", service.t("cooks_assistant", "Starting off"));
+	}
+
+	// Spanish resolves the quest's own file.
 	@Test
 	public void spanishModeResolvesTranslatedQuestString()
 	{
 		var service = new TranslationService();
 		service.setLanguage(Language.SPANISH);
 		assertEquals("Compra un Bucket en la General Store de Lumbridge.",
-			service.t("Purchase a bucket from the Lumbridge General Store."));
+			service.t("cooks_assistant", "Purchase a bucket from the Lumbridge General Store."));
+	}
+
+	// The same key in a different quest's file resolves from that file.
+	@Test
+	public void spanishModeResolvesPerQuestNamespace()
+	{
+		var service = new TranslationService();
+		service.setLanguage(Language.SPANISH);
+		assertEquals("Empezando", service.t("cooks_assistant", "Starting off"));
+		assertEquals("Empezando", service.t("rune_mysteries", "Starting off"));
 	}
 
 	// An untranslated quest string falls back to the English input text itself,
@@ -34,7 +53,34 @@ public class TranslationServiceTest
 		var service = new TranslationService();
 		service.setLanguage(Language.SPANISH);
 		assertEquals("A future quest step not yet translated",
-			service.t("A future quest step not yet translated"));
+			service.t("cooks_assistant", "A future quest step not yet translated"));
+	}
+
+	// A missing file for a quest with no translations falls back to the input.
+	@Test
+	public void missingNamespaceFileFallsBackToInputText()
+	{
+		var service = new TranslationService();
+		service.setLanguage(Language.SPANISH);
+		assertEquals("Some string of a quest not yet translated",
+			service.t("dragon_slayer_i", "Some string of a quest not yet translated"));
+	}
+
+	// Null namespace returns the native string even in Spanish mode.
+	@Test
+	public void nullNamespaceReturnsNativeString()
+	{
+		var service = new TranslationService();
+		service.setLanguage(Language.SPANISH);
+		assertEquals("Cook's Assistant", service.t(null, "Cook's Assistant"));
+	}
+
+	// Null text is a programming error, caught by the assert.
+	@Test
+	public void nullTextThrows()
+	{
+		var service = new TranslationService();
+		assertThrows(AssertionError.class, () -> service.t("cooks_assistant", null));
 	}
 
 	// Changing language at runtime takes effect immediately on the next call.
@@ -42,32 +88,10 @@ public class TranslationServiceTest
 	public void languageChangeAppliesImmediately()
 	{
 		var service = new TranslationService();
-		assertEquals("Starting off", service.t("Starting off"));
+		assertEquals("Starting off", service.t("cooks_assistant", "Starting off"));
 		service.setLanguage(Language.SPANISH);
-		assertEquals("Empezando", service.t("Starting off"));
+		assertEquals("Empezando", service.t("cooks_assistant", "Starting off"));
 		service.setLanguage(Language.ENGLISH);
-		assertEquals("Starting off", service.t("Starting off"));
-	}
-
-	// Quest names must never be translated: no entry exists for them in any
-	// bundle, so they pass through unchanged even in Spanish mode.
-	@Test
-	public void questNamesAreNeverTranslated()
-	{
-		var service = new TranslationService();
-		service.setLanguage(Language.SPANISH);
-		assertEquals("Cook's Assistant", service.t("Cook's Assistant"));
-		assertEquals("Imp Catcher", service.t("Imp Catcher"));
-		assertEquals("The Restless Ghost", service.t("The Restless Ghost"));
-		assertEquals("Pirate's Treasure", service.t("Pirate's Treasure"));
-		assertEquals("Rune Mysteries", service.t("Rune Mysteries"));
-	}
-
-	// Null input stays null instead of throwing.
-	@Test
-	public void nullInputReturnsNull()
-	{
-		var service = new TranslationService();
-		assertNull(service.t((String) null));
+		assertEquals("Starting off", service.t("cooks_assistant", "Starting off"));
 	}
 }

@@ -42,7 +42,6 @@ import com.questhelper.runeliteobjects.GlobalFakeObjects;
 import com.questhelper.runeliteobjects.extendedruneliteobjects.RuneliteObjectManager;
 import com.questhelper.statemanagement.PlayerStateManager;
 import com.questhelper.tools.Icon;
-import com.questhelper.util.Language;
 import com.questhelper.util.TranslationService;
 import com.questhelper.util.worldmap.WorldMapAreaManager;
 import lombok.Getter;
@@ -411,8 +410,6 @@ public class QuestHelperPlugin extends Plugin
 			QuestHelper currentQuest = questManager.getSelectedQuest();
 			if (currentQuest != null)
 			{
-				// Restart the current quest so its steps and panels are rebuilt
-				// in the new language. Does not force the sidebar open.
 				questManager.startUpQuest(currentQuest, false);
 			}
 			return;

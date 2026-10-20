@@ -56,11 +56,13 @@ import net.runelite.client.ui.overlay.components.LineComponent;
 import net.runelite.client.ui.overlay.components.PanelComponent;
 
 import javax.inject.Inject;
+import javax.annotation.Nonnull;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
 
@@ -75,7 +77,6 @@ public abstract class QuestHelper implements Module, QuestDebugRenderer
 	protected ConfigManager configManager;
 
 	@Inject
-	@Getter
 	protected TranslationService translationService;
 
 	@Inject
@@ -124,6 +125,17 @@ public abstract class QuestHelper implements Module, QuestDebugRenderer
 	@Override
 	public void configure(Binder binder)
 	{
+	}
+
+	/**
+	 * Translates a user-facing string using this quest's messages file.
+	 * Never used for quest names, game entity names or dialog choices.
+	 */
+	public String t(@Nonnull String text)
+	{
+		assert text != null;
+		String namespace = quest != null ? quest.name().toLowerCase(Locale.ROOT) : null;
+		return translationService.t(namespace, text);
 	}
 
 	public abstract void init();

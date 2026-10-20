@@ -27,123 +27,69 @@ package com.questhelper.util;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.inject.Singleton;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Provides translations for quest helper strings using the "English-as-key" pattern.
+ * Resolves quest string translations using the English-as-key pattern: the
+ * English text lives in the code and translations live per quest in
+ * {@code messages/<lang>/<quest>.properties}, loaded on first use.
  * <p>
- * The English text lives in the code: {@code translationService.t("Get a bucket")}.
- * Translations are looked up in {@code messages_<lang>.properties} (e.g.
- * {@code messages_es.properties}); {@code messages.properties} holds optional
- * English entries. When no translation exists, the English input text is
- * returned, so untranslated quests work out of the box and a missing entry
- * never shows a raw internal key.
- * <p>
- * The message files use a simple {@code key=value} format parsed as UTF-8,
- * where the key is everything before the first {@code =}. Unlike
- * {@link java.util.Properties}, spaces in keys do not need escaping, so keys
- * can be the exact English strings from the code. Blank lines and lines
- * starting with {@code #} or {@code !} are ignored.
- * <p>
- * Translation conventions:
- * <ul>
- * <li>Quest names are never translated; do not wrap them in {@link #t(String)}.</li>
- * <li>Game entity names (items, NPCs, locations) are never translated; keep them
- * in English inside both the source string and the translation.</li>
- * <li>Dialog choices ({@code addDialogStep}) and requirement checks that match
- * live game text are never translated, as they assume an English game client.</li>
- * <li>Only translate user-facing instructional text: step texts, tooltips,
- * panel section titles, combat requirements and unlock rewards.</li>
- * </ul>
- * <p>
- * To translate a quest: wrap its user-facing strings with {@link #t(String)} and
- * add the matching entries to each {@code messages_<lang>.properties} file.
- * To add a new language: add a constant to {@link Language} and create its
- * {@code messages_<lang>.properties} file.
- * <p>
- * Injected via Guice as a {@code @Singleton}; changing the language at runtime
- * applies to strings resolved from that point on.
+ * Never translate quest names, game entity names (items, NPCs, locations) or
+ * dialog choices that match live game text.
  */
 @Slf4j
 @Singleton
 public class TranslationService
 {
-	/**
-	 * English messages. Also acts as the fallback for languages that have no
-	 * entry for a given key.
-	 */
-	private final Map<String, String> englishMessages = loadMessages(Language.ENGLISH);
-
-	/**
-	 * Messages for the currently selected language. Volatile because the
-	 * language may be changed from the config thread while other threads
-	 * translate.
-	 */
-	private volatile Map<String, String> currentMessages = englishMessages;
-
 	@Getter
 	private volatile Language language = Language.ENGLISH;
+
+	private final Map<String, Map<String, String>> loadedMessages = new ConcurrentHashMap<>();
 
 	public void setLanguage(Language language)
 	{
 		this.language = language;
-		if (language == Language.ENGLISH)
-		{
-			this.currentMessages = englishMessages;
-		}
-		else
-		{
-			this.currentMessages = loadMessages(language);
-		}
+		loadedMessages.clear();
 	}
 
 	/**
-	 * Translates the given text to the currently configured language.
-	 * <p>
-	 * Fallback chain: current language messages, then the English messages,
-	 * then the input text itself. With the English-as-key pattern the input is
-	 * already English, so a missing translation simply displays English.
+	 * Returns the translation of {@code text} from the messages file for
+	 * {@code namespace}, or {@code text} itself when the language is native,
+	 * the file does not exist, or the file has no entry for {@code text}.
 	 *
-	 * @param text English text (quest strings) or a UI label key
-	 * @return the translation, or {@code text} itself as a last resort
+	 * @param namespace per-quest file name under {@code messages/<lang>/},
+	 *                  or {@code null} to get the native string
+	 * @param text      the English string as it appears in the code
 	 */
-	public String t(String text)
+	public String t(@Nullable String namespace, @Nonnull String text)
 	{
-		if (text == null)
+		assert text != null;
+
+		String folder = language.getMessagesFolder();
+		if (folder == null || namespace == null)
 		{
-			return null;
+			return text;
 		}
 
-		String translated = currentMessages.get(text);
-		if (translated != null)
-		{
-			return translated;
-		}
-
-		if (currentMessages != englishMessages)
-		{
-			translated = englishMessages.get(text);
-			if (translated != null)
-			{
-				return translated;
-			}
-		}
-
-		return text;
+		Map<String, String> messages = loadedMessages.computeIfAbsent(
+			"/messages/" + folder + "/" + namespace + ".properties", TranslationService::loadMessages);
+		String translated = messages.get(text);
+		return translated != null ? translated : text;
 	}
 
-	private static Map<String, String> loadMessages(Language language)
+	private static Map<String, String> loadMessages(String resource)
 	{
-		String resource = language.getMessagesResource();
 		try (InputStream in = TranslationService.class.getResourceAsStream(resource))
 		{
 			if (in == null)
@@ -168,23 +114,14 @@ public class TranslationService
 						continue;
 					}
 
-					String key = line.substring(0, separator);
-					String value = line.substring(separator + 1);
-					// Strip leading whitespace from the value, as Properties does
-					value = value.stripLeading();
-					messages.put(key, value);
+					messages.put(line.substring(0, separator), line.substring(separator + 1).stripLeading());
 				}
 			}
 			return messages;
 		}
 		catch (IOException e)
 		{
-			log.warn("Failed to load {} messages from {}", language, resource, e);
-			return Collections.emptyMap();
-		}
-		catch (UncheckedIOException e)
-		{
-			log.warn("Failed to load {} messages from {}", language, resource, e.getCause());
+			log.warn("Failed to load translation file {}", resource, e);
 			return Collections.emptyMap();
 		}
 	}

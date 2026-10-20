@@ -26,30 +26,28 @@ package com.questhelper.util;
 
 /**
  * Languages supported by the Quest Helper plugin.
- * <p>
- * RuneLite and the game client provide no per-plugin language selection, so the
- * plugin offers its own, independent of the game client's language.
- * <p>
- * Adding a language requires a matching {@code messages_<lang>.properties} file
- * in {@code src/main/resources}.
  */
 public enum Language
 {
-	ENGLISH("English", "/messages.properties"),
-	SPANISH("Español", "/messages_es.properties");
+	ENGLISH("English", null),
+	SPANISH("Español", "es");
 
 	private final String displayName;
-	private final String messagesResource;
+	private final String messagesFolder;
 
-	Language(String displayName, String messagesResource)
+	Language(String displayName, String messagesFolder)
 	{
 		this.displayName = displayName;
-		this.messagesResource = messagesResource;
+		this.messagesFolder = messagesFolder;
 	}
 
-	String getMessagesResource()
+	/**
+	 * Folder under {@code messages/} holding this language's per-quest files,
+	 * or {@code null} for the native language, which reads no files at all.
+	 */
+	public String getMessagesFolder()
 	{
-		return messagesResource;
+		return messagesFolder;
 	}
 
 	@Override

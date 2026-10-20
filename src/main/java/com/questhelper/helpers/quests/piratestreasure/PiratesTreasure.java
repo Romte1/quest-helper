@@ -100,7 +100,7 @@ public class PiratesTreasure extends BasicQuestHelper
 
 		pirateMessage = new ItemRequirement("Pirate message", ItemID.PIRATEMESSAGE);
 		chestKey = new ItemRequirement("Chest key", ItemID.CHEST_KEY);
-		chestKey.setTooltip(translationService.t("You can get another one from Redbeard Frank"));
+		chestKey.setTooltip(t("You can get another one from Redbeard Frank"));
 
 		inBlueMoonFirst = new ZoneRequirement(blueMoonFirst);
 	}
@@ -108,25 +108,25 @@ public class PiratesTreasure extends BasicQuestHelper
 	private void setupSteps()
 	{
 		speakToRedbeard = new NpcStep(this, NpcID.REDBEARD_FRANK, new WorldPoint(3053, 3251, 0),
-			translationService.t("Talk to Redbeard Frank in Port Sarim."));
+			t("Talk to Redbeard Frank in Port Sarim."));
 		speakToRedbeard.addDialogSteps("I'm in search of treasure.", "Yes.");
 
 
-		readPirateMessage = new DetailedQuestStep(this, translationService.t("Read the Pirate message."), pirateMessage.highlighted());
+		readPirateMessage = new DetailedQuestStep(this, t("Read the Pirate message."), pirateMessage.highlighted());
 
 
-		climbStairs = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS, new WorldPoint(3228, 3393, 0), translationService.t("Climb up the stairs in The Blue Moon Inn in Varrock."), chestKey);
+		climbStairs = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS, new WorldPoint(3228, 3393, 0), t("Climb up the stairs in The Blue Moon Inn in Varrock."), chestKey);
 		climbStairs.addTeleport(teleportVarrock);
-		openChest = new ObjectStep(this, ObjectID.PIRATECHEST, new WorldPoint(3219, 3396, 1), translationService.t("Open the chest by using the key on it."), chestKey.highlighted());
+		openChest = new ObjectStep(this, ObjectID.PIRATECHEST, new WorldPoint(3219, 3396, 1), t("Open the chest by using the key on it."), chestKey.highlighted());
 		openChest.addDialogStep("Ok thanks, I'll go and get it.");
 		openChest.addIcon(ItemID.CHEST_KEY);
 
 		smuggleRum = new RumSmugglingStep(this);
 
-		digUpTreasure = new DigStep(this, new WorldPoint(2999, 3383, 0), translationService.t("Dig in the middle of the cross in Falador Park, and kill the Gardener (level 4) who appears. Once killed, dig again."));
+		digUpTreasure = new DigStep(this, new WorldPoint(2999, 3383, 0), t("Dig in the middle of the cross in Falador Park, and kill the Gardener (level 4) who appears. Once killed, dig again."));
 		// TODO: Add a teleport to DigStep
 
-		killGardener = new NpcStep(this, NpcID.PIRATE_IRATE_GARDENER, new WorldPoint(2999, 3383, 0), translationService.t("Kill the Gardener (level 4)."));
+		killGardener = new NpcStep(this, NpcID.PIRATE_IRATE_GARDENER, new WorldPoint(2999, 3383, 0), t("Kill the Gardener (level 4)."));
 		digUpTreasure.addSubSteps(killGardener);
 	}
 
@@ -178,7 +178,7 @@ public class PiratesTreasure extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			translationService.t("Gardener (level 4)")
+			t("Gardener (level 4)")
 		);
 	}
 
@@ -203,7 +203,7 @@ public class PiratesTreasure extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails(translationService.t("Talk to Redbeard Frank"), List.of(
+		sections.add(new PanelDetails(t("Talk to Redbeard Frank"), List.of(
 			speakToRedbeard
 		), List.of(
 			sixtyCoins
@@ -211,7 +211,7 @@ public class PiratesTreasure extends BasicQuestHelper
 
 		sections.addAll(smuggleRum.panelDetails());
 
-		sections.add(new PanelDetails(translationService.t("Discover the treasure"), List.of(
+		sections.add(new PanelDetails(t("Discover the treasure"), List.of(
 			climbStairs,
 			openChest,
 			readPirateMessage,
