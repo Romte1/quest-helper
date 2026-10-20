@@ -138,11 +138,11 @@ public class ElementalWorkshopI extends ComplexStateQuestHelper
 		knife.setHighlightInInventory(true);
 		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
 		needle = new ItemRequirement("Needle", ItemID.NEEDLE).isNotConsumed();
-		needle.setTooltip("Costume needle cannot be used as a substitute. You can obtain this during the quest");
+		needle.setTooltip(t("Costume needle cannot be used as a substitute. You can obtain this during the quest"));
 		thread = new ItemRequirement("Thread", ItemID.THREAD);
-		thread.setTooltip("Costume needle cannot be used as a substitute.");
+		thread.setTooltip(t("Costume needle cannot be used as a substitute."));
 		leather = new ItemRequirement("Leather", ItemID.LEATHER);
-		leather.setTooltip("You can obtain this during the quest");
+		leather.setTooltip(t("You can obtain this during the quest"));
 
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed();
 		coal4 = new ItemRequirement("Coal", ItemID.COAL, 4);
@@ -152,11 +152,9 @@ public class ElementalWorkshopI extends ComplexStateQuestHelper
 		batteredBook = new ItemRequirement("Battered book", ItemID.ELEMENTAL_WORKSHOP_SHIELD_BOOK);
 		batteredBook.setHighlightInInventory(true);
 		slashedBook = new ItemRequirement("Slashed book", ItemID.ELEMENTAL_WORKSHOP_SHIELD_BOOK_SLASHED);
-		slashedBook.setTooltip("If you've lost it you can get another by searching the bookcase in the building south of " +
-			"the odd wall");
+		slashedBook.setTooltip(t("If you've lost it you can get another by searching the bookcase in the building south of the odd wall"));
 		batteredKey = new KeyringRequirement("Battered Key", KeyringCollection.BATTERED_KEY);
-		batteredKey.setTooltip("If you've lost it you can get another by searching the bookcase in the building south of " +
-			"the odd wall");
+		batteredKey.setTooltip(t("If you've lost it you can get another by searching the bookcase in the building south of the odd wall"));
 		elementalOre = new ItemRequirement("Elemental ore", ItemID.ELEMENTAL_WORKSHOP_ORE);
 		elementalOre.setHighlightInInventory(true);
 		elementalBar = new ItemRequirement("Elemental bar", ItemID.ELEMENTAL_WORKSHOP_BAR);
@@ -170,49 +168,49 @@ public class ElementalWorkshopI extends ComplexStateQuestHelper
 
 	public void setupSteps()
 	{
-		searchBookcase = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_BOOKCASE, new WorldPoint(2716, 3482, 0), "Search the " +
-			"marked bookcase in Seers' Village.");
-		readBook = new DetailedQuestStep(this, "Read the battered book.", batteredBook);
+		searchBookcase = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_BOOKCASE, new WorldPoint(2716, 3482, 0),
+			t("Search the marked bookcase in Seers' Village."));
+		readBook = new DetailedQuestStep(this, t("Read the battered book."), batteredBook);
 		readBook.addDialogStep("Yes.");
-		useKnifeOnBook = new DetailedQuestStep(this, "Use a knife on the battered book.", knife, batteredBook);
+		useKnifeOnBook = new DetailedQuestStep(this, t("Use a knife on the battered book."), knife, batteredBook);
 		openOddWall = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_ODDWALL_L, new WorldPoint(2709, 3495, 0),
-			"Open the odd wall to the north of the bookcase.", batteredKey, slashedBook);
+			t("Open the odd wall to the north of the bookcase."), batteredKey, slashedBook);
 		goDownStairs = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_SPIRALSTAIRSTOP, new WorldPoint(2711, 3498, 0),
-			"Climb down the staircase.");
+			t("Climb down the staircase."));
 
 		turnEastControl = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_VALVE_1, new WorldPoint(2726, 9908, 0),
-			"Turn the marked water control in the north room.");
+			t("Turn the marked water control in the north room."));
 		turnWestControl = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_VALVE_2, new WorldPoint(2713, 9908, 0),
-			"Turn the other marked water control in the north room.");
+			t("Turn the other marked water control in the north room."));
 		pullLever = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_WATER_LEVER, new WorldPoint(2722, 9906, 0),
-			"Pull the lever in the north room.");
+			t("Pull the lever in the north room."));
 		searchLeatherCrate = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_BOX_1, new WorldPoint(2717, 9894, 0),
-			"Search the marked crate for some leather.");
+			t("Search the marked crate for some leather."));
 		searchNeedleCrate = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_BOX_2, new WorldPoint(2700, 9887, 0),
-			"Search the stacked crates in the west room for a needle.");
-		fixBellows = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_BELLOWS_MULTILOC, new WorldPoint(2735, 9884, 0), "" +
-			"Repair the bellows in the east room.", needle, thread, leather);
+			t("Search the stacked crates in the west room for a needle."));
+		fixBellows = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_BELLOWS_MULTILOC, new WorldPoint(2735, 9884, 0),
+			t("Repair the bellows in the east room."), needle, thread, leather);
 		fixBellows.addSubSteps(searchLeatherCrate, searchNeedleCrate);
 		pullBellowsLever = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_AIR_LEVER, new WorldPoint(2734, 9887, 0),
-			"Pull the lever next to the bellows.");
+			t("Pull the lever next to the bellows."));
 		getStoneBowl = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_BOX_4, new WorldPoint(2724, 9894, 0),
-			"Search the boxes in the north east of the central room.");
+			t("Search the boxes in the north east of the central room."));
 		useBowlOnLava = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_TROUGH_2, new WorldPoint(2717, 9871, 0),
-			"Use the stone bowl on the lava trough in the south room.", stoneBowlHighlighted);
+			t("Use the stone bowl on the lava trough in the south room."), stoneBowlHighlighted);
 		useBowlOnLava.addIcon(ItemID.ELEMENTAL_WORKSHOP_LAVA_BOWL);
 		useLavaOnFurnace = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_FURNACE, new WorldPoint(2726, 9875, 0),
-			"Use the lava-filled bowl on the furnace.", lavaBowlHighlighted);
+			t("Use the lava-filled bowl on the furnace."), lavaBowlHighlighted);
 		useLavaOnFurnace.addIcon(ItemID.ELEMENTAL_WORKSHOP_LAVA_BOWL_FULL);
 		mineRock = new NpcStep(this, NpcID.ELEM1_QIP_EARTH_ELEMENTAL_ROCK_VERSION_ROCK, new WorldPoint(2703, 9894, 0),
-			"Mine one of the elemental rocks in the west room, ready to fight a level 35.", true, pickaxe);
+			t("Mine one of the elemental rocks in the west room, ready to fight a level 35."), true, pickaxe);
 		killRock = new NpcStep(this, NpcID.ELEM1_QIP_EARTH_ELEMENTAL_ROCK_VERSION, new WorldPoint(2703, 9897, 0),
-			"Kill the rock elemental that appeared.");
-		pickUpOre = new ItemStep(this, "Pick up the elemental ore.", elementalOre);
+			t("Kill the rock elemental that appeared."));
+		pickUpOre = new ItemStep(this, t("Pick up the elemental ore."), elementalOre);
 		forgeBar = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_FURNACE, new WorldPoint(2726, 9875, 0),
-			"Use the elemental ore on the furnace in the south room.", elementalOre, coal4);
+			t("Use the elemental ore on the furnace in the south room."), elementalOre, coal4);
 		forgeBar.addIcon(ItemID.ELEMENTAL_WORKSHOP_ORE);
 		smithShield = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_WORKBENCH, new WorldPoint(2717, 9888, 0),
-			"Use the bar on one of the workbenches in the central room to complete the quest.", elementalBar,
+			t("Use the bar on one of the workbenches in the central room to complete the quest."), elementalBar,
 			hammer, slashedBook);
 		smithShield.addIcon(ItemID.ELEMENTAL_WORKSHOP_BAR);
 	}
@@ -307,7 +305,7 @@ public class ElementalWorkshopI extends ComplexStateQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Earth elemental (level 35)");
+		return Collections.singletonList(t("Earth elemental (level 35)"));
 	}
 
 	@Override
@@ -334,15 +332,15 @@ public class ElementalWorkshopI extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Access to the Elemental Workshop."),
-				new UnlockReward("Ability to craft and wield Elemental equipment."));
+				new UnlockReward(t("Access to the Elemental Workshop.")),
+				new UnlockReward(t("Ability to craft and wield Elemental equipment.")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Forging a Shield",
+		allSteps.add(new PanelDetails(t("Forging a Shield"),
 			Arrays.asList(searchBookcase, readBook, useKnifeOnBook, openOddWall, goDownStairs,
 				turnEastControl, turnWestControl, pullLever, fixBellows, pullBellowsLever, getStoneBowl,
 				useBowlOnLava, useLavaOnFurnace, mineRock, killRock, pickUpOre, forgeBar, smithShield),

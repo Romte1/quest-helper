@@ -134,44 +134,44 @@ public class LostCity extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToWarrior = new NpcStep(this, NpcID.WARRIORADVENTURERPG, new WorldPoint(3151, 3207, 0), "Talk to the Warrior south east of Draynor Village.");
+		talkToWarrior = new NpcStep(this, NpcID.WARRIORADVENTURERPG, new WorldPoint(3151, 3207, 0), t("Talk to the Warrior south east of Draynor Village."));
 		talkToWarrior.addDialogStep("What are you camped out here for?");
 		talkToWarrior.addDialogStep("What makes you think it's out here?");
 		talkToWarrior.addDialogStep("If it's hidden how are you planning to find it?");
 		talkToWarrior.addDialogStep("Looks like you don't know either.");
 		talkToWarrior.addDialogStep("Yes.");
 
-		chopTree = new ObjectStep(this, ObjectID.LEPRECHAUNTREE, new WorldPoint(3139, 3213, 0), "Try cutting the tree just to the west.", axe);
+		chopTree = new ObjectStep(this, ObjectID.LEPRECHAUNTREE, new WorldPoint(3139, 3213, 0), t("Try cutting the tree just to the west."), axe);
 		chopTree.addDialogStep("I've been in that shed, I didn't see a city.");
 
-		talkToShamus = new NpcStep(this, NpcID.ZANARISLEPRECHAUN, new WorldPoint(3138, 3212, 0), "Talk to Shamus.");
+		talkToShamus = new NpcStep(this, NpcID.ZANARISLEPRECHAUN, new WorldPoint(3138, 3212, 0), t("Talk to Shamus."));
 		talkToShamus.addDialogStep("I've been in that shed, I didn't see a city.");
 
-		goToEntrana = new NpcStep(this, NpcID.SHIPMONK1_C, new WorldPoint(3047, 3236, 0), "Bank all weapons and armour you have (including the axe), and go to Port Sarim to get a boat to Entrana.", combatGear);
+		goToEntrana = new NpcStep(this, NpcID.SHIPMONK1_C, new WorldPoint(3047, 3236, 0), t("Bank all weapons and armour you have (including the axe), and go to Port Sarim to get a boat to Entrana."), combatGear);
 
-		goDownHole = new ObjectStep(this, ObjectID.ENTRANALADDERTOP, new WorldPoint(2820, 3374, 0), "Climb down the ladder on the north side of the island. Once you go down, you can only escape via teleport.");
+		goDownHole = new ObjectStep(this, ObjectID.ENTRANALADDERTOP, new WorldPoint(2820, 3374, 0), t("Climb down the ladder on the north side of the island. Once you go down, you can only escape via teleport."));
 		goDownHole.addDialogStep("Well that is a risk I will have to take.");
 
-		getAxe = new DetailedQuestStep(this, new WorldPoint(2843, 9760, 0), "Kill zombies until one drops an axe.");
-		pickupAxe = new DetailedQuestStep(this, "Pick up the axe", bronzeOrIronAxe);
+		getAxe = new DetailedQuestStep(this, new WorldPoint(2843, 9760, 0), t("Kill zombies until one drops an axe."));
+		pickupAxe = new DetailedQuestStep(this, t("Pick up the axe"), bronzeOrIronAxe);
 		getAxe.addSubSteps(pickupAxe);
 
-		attemptToCutDramen = new ObjectStep(this, ObjectID.DRAMENTREE, new WorldPoint(2861, 9735, 0), "Attempt to cut a branch from the Dramen tree. Be prepared for a Tree Spirit (level 101) to appear, which you can safespot behind nearby fungus.", bronzeOrIronAxe);
+		attemptToCutDramen = new ObjectStep(this, ObjectID.DRAMENTREE, new WorldPoint(2861, 9735, 0), t("Attempt to cut a branch from the Dramen tree. Be prepared for a Tree Spirit (level 101) to appear, which you can safespot behind nearby fungus."), bronzeOrIronAxe);
 
-		killDramenSpirit = new NpcStep(this, NpcID.TREE_SPIRIT, new WorldPoint(2859, 9734, 0), "Kill the Tree Spirit. They can be safespotted behind nearby fungi to the east.");
+		killDramenSpirit = new NpcStep(this, NpcID.TREE_SPIRIT, new WorldPoint(2859, 9734, 0), t("Kill the Tree Spirit. They can be safespotted behind nearby fungi to the east."));
 		killDramenSpirit.addSafeSpots(new WorldPoint(2856, 9730, 0));
 
-		cutDramenBranch = new ObjectStep(this, ObjectID.DRAMENTREE, new WorldPoint(2861, 9735, 0), "Cut at least one branch from the Dramen tree. It's recommended you cut at least 4 branches so you don't have to return in future quests.");
+		cutDramenBranch = new ObjectStep(this, ObjectID.DRAMENTREE, new WorldPoint(2861, 9735, 0), t("Cut at least one branch from the Dramen tree. It's recommended you cut at least 4 branches so you don't have to return in future quests."));
 
-		teleportAway = new DetailedQuestStep(this, "Teleport away with the branches, preferably to Lumbridge.", dramenBranch);
+		teleportAway = new DetailedQuestStep(this, t("Teleport away with the branches, preferably to Lumbridge."), dramenBranch);
 		teleportAway.addTeleport(teleport);
 
-		getAnotherBranch = new DetailedQuestStep(this, "If you've lost your Dramen branch/staff, you will need to return to Entrana and cut another. You will not need to defeat the Tree Spirit again.", dramenBranch);
+		getAnotherBranch = new DetailedQuestStep(this, t("If you've lost your Dramen branch/staff, you will need to return to Entrana and cut another. You will not need to defeat the Tree Spirit again."), dramenBranch);
 		goToEntrana.addSubSteps(getAnotherBranch);
 
-		craftBranch = new DetailedQuestStep(this, "Use a knife on the dramen branch to craft a dramen staff.", knife.highlighted(), dramenBranch.highlighted());
+		craftBranch = new DetailedQuestStep(this, t("Use a knife on the dramen branch to craft a dramen staff."), knife.highlighted(), dramenBranch.highlighted());
 
-		enterZanaris = new ObjectStep(this, ObjectID.ZANARISDOOR, new WorldPoint(3202, 3169, 0), "Enter the shed south of Lumbridge with your Dramen Staff equipped.", dramenStaffEquipped.highlighted());
+		enterZanaris = new ObjectStep(this, ObjectID.ZANARISDOOR, new WorldPoint(3202, 3169, 0), t("Enter the shed south of Lumbridge with your Dramen Staff equipped."), dramenStaffEquipped.highlighted());
 	}
 
 	@Override
@@ -248,8 +248,8 @@ public class LostCity extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"Multiple zombies (level 25) (can be safespotted)",
-			"Dramen Tree Spirit (level 101) (can be safespotted)"
+			t("Multiple zombies (level 25) (can be safespotted)"),
+			t("Dramen Tree Spirit (level 101) (can be safespotted)")
 		);
 	}
 
@@ -263,9 +263,9 @@ public class LostCity extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Access to Zanaris."),
-			new UnlockReward("Ability to craft Cosmic Runes"),
-			new UnlockReward("Ability to buy and wield Dragon Daggers & Longswords")
+			new UnlockReward(t("Access to Zanaris.")),
+			new UnlockReward(t("Ability to craft Cosmic Runes")),
+			new UnlockReward(t("Ability to buy and wield Dragon Daggers & Longswords"))
 		);
 	}
 
@@ -274,18 +274,18 @@ public class LostCity extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Starting off", List.of(
+		sections.add(new PanelDetails(t("Starting off"), List.of(
 			talkToWarrior
 		), List.of(
 			axe
 		)));
 
-		sections.add(new PanelDetails("Finding Shamus", List.of(
+		sections.add(new PanelDetails(t("Finding Shamus"), List.of(
 			chopTree,
 			talkToShamus
 		)));
 
-		sections.add(new PanelDetails("Getting a Dramen branch", List.of(
+		sections.add(new PanelDetails(t("Getting a Dramen branch"), List.of(
 			goToEntrana,
 			goDownHole,
 			getAxe,
@@ -300,7 +300,7 @@ public class LostCity extends BasicQuestHelper
 			teleport
 		)));
 
-		sections.add(new PanelDetails("Entering Zanaris", List.of(
+		sections.add(new PanelDetails(t("Entering Zanaris"), List.of(
 			craftBranch,
 			enterZanaris
 		), List.of(

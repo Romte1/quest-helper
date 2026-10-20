@@ -56,7 +56,7 @@ public class LadyTableStep extends ObjectStep
 
 	public LadyTableStep(QuestHelper questHelper, Requirement... requirements)
 	{
-		super(questHelper, ObjectID.RD_1G, new WorldPoint(0, 0, 0), "Click the missing statue.", requirements);
+		super(questHelper, ObjectID.RD_1G, new WorldPoint(0, 0, 0), questHelper.t("Click the missing statue."), requirements);
 
 		addAlternateObjects(ObjectID.RD_1S, ObjectID.RD_1B,
 			ObjectID.RD_2G, ObjectID.RD_2S, ObjectID.RD_2B, ObjectID.RD_3G,
@@ -72,7 +72,7 @@ public class LadyTableStep extends ObjectStep
 		if (answerIndex < statues.length)
 		{
 			var answerStatue = statues[answerIndex];
-			setText("Click the " + answerStatue.text + " once it appears.");
+			setText(questHelper.t("Click the") + " " + answerStatue.text + " " + questHelper.t("once it appears."));
 			setWorldPoint(answerStatue.point);
 		}
 	}
@@ -86,7 +86,7 @@ public class LadyTableStep extends ObjectStep
 		{
 			var answerIndex = varbitChanged.getValue();
 			var answerStatue = statues[answerIndex];
-			setText("Click the " + answerStatue.text + " once it appears.");
+			setText(questHelper.t("Click the") + " " + answerStatue.text + " " + questHelper.t("once it appears."));
 			setWorldPoint(answerStatue.point);
 		}
 	}

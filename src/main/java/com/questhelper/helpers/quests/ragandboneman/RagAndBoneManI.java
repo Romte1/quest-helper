@@ -99,7 +99,7 @@ public class RagAndBoneManI extends BasicQuestHelper
 		steps.put(0, talkToOddOldMan);
 		steps.put(1, talkToOddOldMan);
 
-		collectBonesSteps = new ConditionalStep(this, new DetailedQuestStep(this, "Unknown state."));
+		collectBonesSteps = new ConditionalStep(this, new DetailedQuestStep(this, t("Unknown state.")));
 		collectBonesSteps.addStep(boneNearby, pickupBone);
 		stepsForRagAndBoneManI.forEach((RagBoneState state, QuestStep step) -> collectBonesSteps.addStep(nor(state.hadBoneItem()), step));
 		collectBonesSteps.setLockingCondition(hadAllBones);
@@ -223,25 +223,25 @@ public class RagAndBoneManI extends BasicQuestHelper
 	public void setupSteps()
 	{
 		talkToOddOldMan = new NpcStep(this, NpcID.RAG_ODD_OLD_MAN, new WorldPoint(3362, 3502, 0),
-			"Talk to the Odd Old Man east of Varrock.");
+			t("Talk to the Odd Old Man east of Varrock."));
 		talkToOddOldMan.addDialogSteps("Anything I can do to help?", "Yes.");
 
 		killGiantRat = new NpcStep(this, NpcID.GIANTRAT, new WorldPoint(3289, 3373, 0),
-			"Kill a giant rat south east of Varrock.", true);
+			t("Kill a giant rat south east of Varrock."), true);
 		((NpcStep) killGiantRat).addAlternateNpcs(NpcID.GIANTRAT2, NpcID.GIANTRAT3, NpcID.GIANTRAT_GREY,
 			NpcID.GIANTRAT_GREY2, NpcID.GIANTRAT_GREY3, NpcID.GIANTRAT1, NpcID.GIANTRAT1_2,
 			NpcID.GIANTRAT1_3);
 
 		killUnicorn = new NpcStep(this, NpcID.UNICORN, new WorldPoint(3285, 3351, 0),
-			"Kill the unicorn south east of Varrock.", true);
+			t("Kill the unicorn south east of Varrock."), true);
 		killBear = new NpcStep(this, NpcID.DARKBEAR, new WorldPoint(3295, 3354, 0),
-			"Kill the bear south east of Varrock.", true);
+			t("Kill the bear south east of Varrock."), true);
 		killRam = new NpcStep(this, NpcID.RAMSHEERED, new WorldPoint(3253, 3350, 0),
-			"Kill a ram south of Varrock.", true);
+			t("Kill a ram south of Varrock."), true);
 		((NpcStep) killRam).addAlternateNpcs(NpcID.RAMUNSHEERED, NpcID.RAMUNSHEERED2, NpcID.RAMUNSHEERED3, NpcID.RAMUNSHEEREDSHAGGY);
 
 		killGoblin = new NpcStep(this, NpcID.GOBLIN_RED_SOLDIER_2, new WorldPoint(3252, 3251, 0),
-			"Kill a goblin east of Lumbridge.", true);
+			t("Kill a goblin east of Lumbridge."), true);
 		((NpcStep) killGoblin).addAlternateNpcs(NpcID.GOBLIN_UNARMED_MELEE_1, NpcID.GOBLIN_UNARMED_MELEE_2, NpcID.GOBLIN_UNARMED_MELEE_3,
 			NpcID.GOBLIN_UNARMED_MELEE_4, NpcID.GOBLIN_UNARMED_MELEE_5, NpcID.GOBLIN_UNARMED_MELEE_6, NpcID.GOBLIN_UNARMED_MELEE_7, NpcID.GOBLIN_UNARMED_MELEE_8,
 			NpcID.GOBLIN_UNARMED_MELEE_IN_1, NpcID.GOBLIN_UNARMED_MELEE_IN_2, NpcID.GOBLIN_UNARMED_MELEE_IN_3, NpcID.GOBLIN_UNARMED_MELEE_IN_4, NpcID.GOBLIN_UNARMED_MELEE_IN_5,
@@ -249,15 +249,15 @@ public class RagAndBoneManI extends BasicQuestHelper
 			NpcID.GOBLIN_RED_SOLDIER_1, NpcID.GOBLIN_GREEN_SOLDIER_1);
 
 		killFrog = new NpcStep(this, NpcID.MEDIUM_FROG_NODROPS, new WorldPoint(3216, 3182, 0),
-			"Kill a big frog in the Lumbridge Swamp.", true);
+			t("Kill a big frog in the Lumbridge Swamp."), true);
 
 		killMonkey = new NpcStep(this, NpcID.MONKEY, new WorldPoint(2886, 3167, 0),
-			"Kill a monkey on Karamja.", true);
+			t("Kill a monkey on Karamja."), true);
 
 		enterKaramjaDungeon = new ObjectStep(this, ObjectID.VOLCANO_ENTRANCE, new WorldPoint(2857, 3169, 0),
-			"Kill a giant bat in the Karamja Volcano Dungeon.");
+			t("Kill a giant bat in the Karamja Volcano Dungeon."));
 		killBat = new NpcStep(this, NpcID.SMALL_BAT, new WorldPoint(2858, 9572, 0),
-			"Kill a giant bat in the Karamja Volcano Dungeon.", true);
+			t("Kill a giant bat in the Karamja Volcano Dungeon."), true);
 		killBat.addSubSteps(enterKaramjaDungeon);
 
 		ConditionalStep killBatSteps = new ConditionalStep(this, enterKaramjaDungeon);
@@ -273,53 +273,53 @@ public class RagAndBoneManI extends BasicQuestHelper
 		stepsForRagAndBoneManI.put(RagBoneState.MONKEY_PAW, killMonkey);
 		stepsForRagAndBoneManI.put(RagBoneState.GIANT_BAT_WING, killBatSteps);
 
-		pickupBone = new ItemStep(this, "Pickup the bone.");
+		pickupBone = new ItemStep(this, t("Pickup the bone."));
 		pickupBone.addItemRequirements(RagBoneGroups.pickupBones(RagBoneGroups.getRagBoneIStates()));
 		pickupBone.setShowInSidebar(false);
 
 		talkToFortunato = new NpcStep(this, NpcID.RAG_WINE_MERCHANT, new WorldPoint(3085, 3251, 0),
-			"Talk to Fortunato in Draynor Village, and then buy 8 jugs of vinegar from him.", coins.quantity(8));
+			t("Talk to Fortunato in Draynor Village, and then buy 8 jugs of vinegar from him."), coins.quantity(8));
 
-		makePotOfVinegar = new DetailedQuestStep(this, "Use the vinegar on pots for 8 pots of vinegar.",
+		makePotOfVinegar = new DetailedQuestStep(this, t("Use the vinegar on pots for 8 pots of vinegar."),
 			jugOfVinegarNeeded, potNeeded);
 
-		useBonesOnVinegar = new DetailedQuestStep(this, "Use the bones on the pots of vinegar.", potOfVinegar.highlighted());
+		useBonesOnVinegar = new DetailedQuestStep(this, t("Use the bones on the pots of vinegar."), potOfVinegar.highlighted());
 		useBonesOnVinegar.addItemRequirements(RagBoneGroups.bonesToAddToVinegar(RagBoneGroups.getRagBoneIStates()));
 
 		placeLogs = new ObjectStep(this, ObjectID.RAG_MULTI_POTBOILER, new WorldPoint(3360, 3505, 0),
-			"Place logs under the pot-boiler near the Odd Old Man. If you've already polished all the bones, hand " +
-				"them in to the Odd Old Man.", logs.highlighted());
+			t("Place logs under the pot-boiler near the Odd Old Man. If you've already polished all the bones, hand " +
+				"them in to the Odd Old Man."), logs.highlighted());
 		placeLogs.addIcon(ItemID.LOGS);
 
 		useBoneOnBoiler = new ObjectStep(this, ObjectID.RAG_MULTI_POTBOILER, new WorldPoint(3360, 3505, 0),
-			"Add a bone to the pot boiler.");
+			t("Add a bone to the pot boiler."));
 		useBoneOnBoiler.addIcon(ItemID.RAG_POT_GOBLIN_BONE);
 		useBoneOnBoiler.addItemRequirements(RagBoneGroups.bonesToAddToBoiler(RagBoneGroups.getRagBoneIStates()));
 
 		lightLogs = new ObjectStep(this, ObjectID.RAG_MULTI_POTBOILER, new WorldPoint(3360, 3505, 0),
-			"Light the logs under the pot-boiler.", tinderbox.highlighted());
+			t("Light the logs under the pot-boiler."), tinderbox.highlighted());
 		lightLogs.addIcon(ItemID.TINDERBOX);
 
-		waitForCooking = new DetailedQuestStep(this, "Wait for the bones to be cleaned. You can hop worlds to make this happen instantly.");
+		waitForCooking = new DetailedQuestStep(this, t("Wait for the bones to be cleaned. You can hop worlds to make this happen instantly."));
 
 		removePot = new ObjectStep(this, ObjectID.RAG_MULTI_POTBOILER, new WorldPoint(3360, 3505, 0),
-			"Take the pot from the pot-boiler.");
+			t("Take the pot from the pot-boiler."));
 
 		giveBones = new NpcStep(this, NpcID.RAG_ODD_OLD_MAN, new WorldPoint(3362, 3502, 0),
-		"Give the Odd Old Man the bones.");
+		t("Give the Odd Old Man the bones."));
 		giveBones.addItemRequirements(RagBoneGroups.cleanBonesNotHandedIn(RagBoneGroups.getRagBoneIStates()));
 
 		talkToFinish = new NpcStep(this, NpcID.RAG_ODD_OLD_MAN, new WorldPoint(3362, 3502, 0),
-			"Talk to the Odd Old Man to finish.");
+			t("Talk to the Odd Old Man to finish."));
 		giveBones.addSubSteps(talkToFinish);
 
-		repeatSteps = new DetailedQuestStep(this, "Repeat the steps until all the bones are cleaned.");
+		repeatSteps = new DetailedQuestStep(this, t("Repeat the steps until all the bones are cleaned."));
 	}
 
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("8 low leveled monsters for their bones");
+		return Collections.singletonList(t("8 low leveled monsters for their bones"));
 	}
 
 	@Override
@@ -338,8 +338,8 @@ public class RagAndBoneManI extends BasicQuestHelper
 	@Override
 	public List<String> getNotes()
 	{
-		return Collections.singletonList("If you've handed in any bones to the Odd Old Man, open the quest journal to" +
-			" sync up the helper's state");
+		return Collections.singletonList(t("If you've handed in any bones to the Odd Old Man, open the quest journal to" +
+			" sync up the helper's state"));
 	}
 
 	@Override
@@ -360,29 +360,29 @@ public class RagAndBoneManI extends BasicQuestHelper
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting out", Collections.singletonList(talkToOddOldMan)));
+		allSteps.add(new PanelDetails(t("Starting out"), Collections.singletonList(talkToOddOldMan)));
 
-		PanelDetails collectingPanel = new PanelDetails("Collecting bones", Arrays.asList(killGiantRat, killUnicorn, killBear, killRam,
+		PanelDetails collectingPanel = new PanelDetails(t("Collecting bones"), Arrays.asList(killGiantRat, killUnicorn, killBear, killRam,
 			killGoblin, killFrog, killMonkey, killBat, pickupBone), List.of(), List.of(combatGear));
 		collectingPanel.setLockingStep(collectBonesSteps);
 		allSteps.add(collectingPanel);
 
 		List<Requirement> dirtyBones = new ArrayList<>(Arrays.asList(coins.quantity(8), pots.quantity(8)));
 		dirtyBones.addAll(RagBoneGroups.dirtyBonesNotHandedIn(RagBoneGroups.getRagBoneIStates()));
-		PanelDetails preparingPanel = new PanelDetails("Preparing the bones", Arrays.asList(talkToFortunato, makePotOfVinegar, useBonesOnVinegar),
+		PanelDetails preparingPanel = new PanelDetails(t("Preparing the bones"), Arrays.asList(talkToFortunato, makePotOfVinegar, useBonesOnVinegar),
 			dirtyBones);
 		preparingPanel.setLockingStep(preparingBonesSteps);
 		allSteps.add(preparingPanel);
 
 		List<Requirement> cleaningBones = new ArrayList<>(Arrays.asList(logs.quantity(8), tinderbox));
 		cleaningBones.addAll(RagBoneGroups.vinegarBonesNotHandedIn(RagBoneGroups.getRagBoneIStates()));
-		PanelDetails cookingPanel = new PanelDetails("Cleaning the bones", Arrays.asList(placeLogs, useBoneOnBoiler, lightLogs,
+		PanelDetails cookingPanel = new PanelDetails(t("Cleaning the bones"), Arrays.asList(placeLogs, useBoneOnBoiler, lightLogs,
 			waitForCooking, removePot, repeatSteps), cleaningBones);
 		cookingPanel.setLockingStep(cookingSteps);
 		allSteps.add(cookingPanel);
 
 		List<Requirement> cleanedBones = new ArrayList<>(RagBoneGroups.cleanBonesNotHandedIn(RagBoneGroups.getRagBoneIStates()));
-		allSteps.add(new PanelDetails("Handing the bones in", Collections.singletonList(giveBones),
+		allSteps.add(new PanelDetails(t("Handing the bones in"), Collections.singletonList(giveBones),
 			cleanedBones));
 
 		return allSteps;

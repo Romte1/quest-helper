@@ -177,10 +177,10 @@ public class TheLostTribe extends BasicQuestHelper
 		book.setHighlightInInventory(true);
 		key = new ItemRequirement("Key", ItemID.LOST_TRIBE_CHEST_KEY);
 		silverware = new ItemRequirement("Silverware", ItemID.LOST_TRIBE_SILVERWARE);
-		silverware.setTooltip("You can get another from the crate in the entrance of the H.A.M. hideout");
+		silverware.setTooltip(t("You can get another from the crate in the entrance of the H.A.M. hideout"));
 
 		treaty = new ItemRequirement("Peace treaty", ItemID.LOST_TRIBE_TREATY);
-		treaty.setTooltip("You can get another from Duke Horacio");
+		treaty.setTooltip(t("You can get another from Duke Horacio"));
 
 		varrockTeleport = new ItemRequirement("Varrock teleport", ItemID.POH_TABLET_VARROCKTELEPORT);
 		lumbridgeTeleports = new ItemRequirement("Lumbridge teleports", ItemID.POH_TABLET_LUMBRIDGETELEPORT, 3);
@@ -206,13 +206,13 @@ public class TheLostTribe extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		goDownIntoBasement = new ObjectStep(this, ObjectID.QIP_COOK_TRAPDOOR_OPEN, new WorldPoint(3209, 3216, 0), "Enter the Lumbridge Castle basement.");
-		goDownFromF1 = new ObjectStep(this, ObjectID.SPIRALSTAIRSMIDDLE, new WorldPoint(3205, 3208, 1), "Go down the staircase.");
+		goDownIntoBasement = new ObjectStep(this, ObjectID.QIP_COOK_TRAPDOOR_OPEN, new WorldPoint(3209, 3216, 0), t("Enter the Lumbridge Castle basement."));
+		goDownFromF1 = new ObjectStep(this, ObjectID.SPIRALSTAIRSMIDDLE, new WorldPoint(3205, 3208, 1), t("Go down the staircase."));
 		goDownFromF1.addDialogStep("Climb down the stairs.");
-		goUpToF1 = new ObjectStep(this, ObjectID.SPIRALSTAIRSBOTTOM_3, new WorldPoint(3205, 3208, 0), "Go up to the first floor of Lumbridge Castle.");
+		goUpToF1 = new ObjectStep(this, ObjectID.SPIRALSTAIRSBOTTOM_3, new WorldPoint(3205, 3208, 0), t("Go up to the first floor of Lumbridge Castle."));
 		goUpToF1.addDialogStep("Can you show me the way out of the mines?");
-		goUpFromBasement = new ObjectStep(this, ObjectID.LADDER_FROM_CELLAR, new WorldPoint(3209, 9616, 0), "Go up to the surface.");
-		goDownFromF2 = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP_3, new WorldPoint(3205, 3208, 2), "Go downstairs.");
+		goUpFromBasement = new ObjectStep(this, ObjectID.LADDER_FROM_CELLAR, new WorldPoint(3209, 9616, 0), t("Go up to the surface."));
+		goDownFromF2 = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP_3, new WorldPoint(3205, 3208, 2), t("Go downstairs."));
 		climbOutThroughHole = new ObjectStep(this, ObjectID.LOST_TRIBE_CAVEWALL_HOLE_WALLDECOR, new WorldPoint(3221, 9618, 0), "");
 		climbOutThroughHole.setForceClickboxHighlight(true);
 
@@ -224,14 +224,14 @@ public class TheLostTribe extends BasicQuestHelper
 		talkToSigmund = new NpcStep(this, NpcID.LOST_TRIBE_SIGMUND_THERE, new WorldPoint(3210, 3222, 1), "");
 		talkToSigmund.addDialogSteps("Do you have any quests for me?", "Yes.");
 
-		goTalkToSigmundToStart = new ConditionalStep(this, goToF1Steps, "Talk to Sigmund in Lumbridge Castle.");
+		goTalkToSigmundToStart = new ConditionalStep(this, goToF1Steps, t("Talk to Sigmund in Lumbridge Castle."));
 		goTalkToSigmundToStart.addStep(inLumbridgeF1, talkToSigmund);
 
 		// This isn't just talk to Hans, it's a random one of the NPCs to chat to
-		talkToHans = new NpcStep(this, NpcID.HANS, new WorldPoint(3222, 3218, 0), "Talk to Hans who is roaming around the castle.");
+		talkToHans = new NpcStep(this, NpcID.HANS, new WorldPoint(3222, 3218, 0), t("Talk to Hans who is roaming around the castle."));
 		talkToHans.addDialogStep("Do you know what happened in the cellar?");
 
-		talkToBob = new NpcStep(this, NpcID.BOB, new WorldPoint(3231, 3203, 0), "Talk to Bob in the south of Lumbridge.");
+		talkToBob = new NpcStep(this, NpcID.BOB, new WorldPoint(3231, 3203, 0), t("Talk to Bob in the south of Lumbridge."));
 		talkToBob.addDialogStep("Do you know what happened in the castle cellar?");
 
 		talkToAllAboutCellar = new NpcStep(this, NpcID.COOK, "");
@@ -239,7 +239,7 @@ public class TheLostTribe extends BasicQuestHelper
 		talkToAllAboutCellar.addDialogSteps("Do you know what happened in the castle cellar?");
 		talkToAllAboutCellar.addSubSteps(talkToHans, talkToBob);
 
-		findGoblinWitnessSteps = new ConditionalStep(this, talkToAllAboutCellar, "Talk to the Cook, Hans, Father Aereck, and Bob in Lumbridge until one tells you about seeing a goblin.");
+		findGoblinWitnessSteps = new ConditionalStep(this, talkToAllAboutCellar, t("Talk to the Cook, Hans, Father Aereck, and Bob in Lumbridge until one tells you about seeing a goblin."));
 		findGoblinWitnessSteps.addStep(inLumbridgeF2, goDownFromF2);
 		findGoblinWitnessSteps.addStep(inLumbridgeF1, goDownFromF1);
 		findGoblinWitnessSteps.addStep(inBasement, goUpFromBasement);
@@ -248,7 +248,7 @@ public class TheLostTribe extends BasicQuestHelper
 
 		talkToDuke = new NpcStep(this, NpcID.DUKE_OF_LUMBRIDGE, new WorldPoint(3210, 3222, 1), "");
 
-		goTalkToDukeAfterHans = new ConditionalStep(this, goToF1Steps, "Talk to Duke Horacio in Lumbridge Castle.");
+		goTalkToDukeAfterHans = new ConditionalStep(this, goToF1Steps, t("Talk to Duke Horacio in Lumbridge Castle."));
 		goTalkToDukeAfterHans.addDialogSteps("Hans says he saw something in the cellar", "Bob says he saw something in the cellar", "Father Aereck says he saw something in the cellar", "The cook says he saw something in the cellar");
 		goTalkToDukeAfterHans.addStep(inLumbridgeF1, talkToDuke);
 
@@ -260,30 +260,30 @@ public class TheLostTribe extends BasicQuestHelper
 		usePickaxeOnRubble = new ObjectStep(this, ObjectID.LOST_TRIBE_CELLAR_WALL, new WorldPoint(3219, 9618, 0), "");
 		usePickaxeOnRubble.addIcon(ItemID.BRONZE_PICKAXE);
 
-		goMineRubble = new ConditionalStep(this, goDownToBasement, "Use a pickaxe on the rubble in the Lumbridge Castle basement.", pickaxe.highlighted(), lightSource);
+		goMineRubble = new ConditionalStep(this, goDownToBasement, t("Use a pickaxe on the rubble in the Lumbridge Castle basement."), pickaxe.highlighted(), lightSource);
 		goMineRubble.addStep(inBasement, usePickaxeOnRubble);
 
 		climbThroughHole = new ObjectStep(this, ObjectID.LOST_TRIBE_CELLAR_WALL, new WorldPoint(3219, 9618, 0), "");
 		climbThroughHole.setForceClickboxHighlight(true);
 
-		enterTunnels = new ConditionalStep(this, goDownToBasement, "Enter the hole in Lumbridge Castle's basement.", lightSource);
+		enterTunnels = new ConditionalStep(this, goDownToBasement, t("Enter the hole in Lumbridge Castle's basement."), lightSource);
 		enterTunnels.addStep(inBasement, climbThroughHole);
 
-		grabBrooch = new DetailedQuestStep(this, new WorldPoint(3230, 9610, 0), "Pick up the brooch on the floor.", brooch);
+		grabBrooch = new DetailedQuestStep(this, new WorldPoint(3230, 9610, 0), t("Pick up the brooch on the floor."), brooch);
 
 		showBroochToDuke = new NpcStep(this, NpcID.DUKE_OF_LUMBRIDGE, new WorldPoint(3210, 3222, 1), "");
 		showBroochToDuke.addDialogStep("I dug through the rubble...");
 
-		goShowBroochToDuke = new ConditionalStep(this, goToF1Steps, "Show the brooch to Duke Horacio in Lumbridge Castle.", brooch);
+		goShowBroochToDuke = new ConditionalStep(this, goToF1Steps, t("Show the brooch to Duke Horacio in Lumbridge Castle."), brooch);
 		goShowBroochToDuke.addStep(inLumbridgeF1, showBroochToDuke);
 
-		searchBookcase = new ObjectStep(this, ObjectID.LOST_TRIBE_BOOKCASE, new WorldPoint(3207, 3496, 0), "Search the north west bookcase in the Varrock Castle Library.");
+		searchBookcase = new ObjectStep(this, ObjectID.LOST_TRIBE_BOOKCASE, new WorldPoint(3207, 3496, 0), t("Search the north west bookcase in the Varrock Castle Library."));
 		searchBookcase.addTeleport(varrockTeleport);
 
-		readBook = new DetailedQuestStep(this, "Read the entire goblin symbol book.", book);
+		readBook = new DetailedQuestStep(this, t("Read the entire goblin symbol book."), book);
 		readBook.addWidgetHighlight(InterfaceID.LostTribeSymbolBook.LOST_TRIBE_RIGHT_ARROW);
 
-		talkToGenerals = new NpcStep(this, NpcID.GENERAL_WARTFACE_GREEN, new WorldPoint(2957, 3512, 0), "Talk to the Goblin Generals in the Goblin Village.");
+		talkToGenerals = new NpcStep(this, NpcID.GENERAL_WARTFACE_GREEN, new WorldPoint(2957, 3512, 0), t("Talk to the Goblin Generals in the Goblin Village."));
 		talkToGenerals.addTeleport(faladorTeleport);
 		talkToGenerals.addDialogSteps("Have you ever heard of the Dorgeshuun?", "It doesn't really matter", "Well either way they refused to fight", "Well I found a brooch underground...", "Well why not show me both greetings?");
 
@@ -326,48 +326,48 @@ public class TheLostTribe extends BasicQuestHelper
 			new WorldPoint(3317, 9612, 0)
 		);
 
-		walkToMistag = new NpcEmoteStep(this, NpcID.LOST_TRIBE_MISTAG_1OP, QuestEmote.GOBLIN_BOW, new WorldPoint(3319, 9615, 0), "Travel through the tunnels. Make sure you follow the marked path, or you'll be dropped into a hole and your light source extinguished!", lightSource);
+		walkToMistag = new NpcEmoteStep(this, NpcID.LOST_TRIBE_MISTAG_1OP, QuestEmote.GOBLIN_BOW, new WorldPoint(3319, 9615, 0), t("Travel through the tunnels. Make sure you follow the marked path, or you'll be dropped into a hole and your light source extinguished!"), lightSource);
 		walkToMistag.setLinePoints(travelLine);
 
-		emoteAtMistag = new NpcEmoteStep(this, NpcID.LOST_TRIBE_MISTAG_1OP, QuestEmote.GOBLIN_BOW, new WorldPoint(3319, 9615, 0), "Perform the Goblin Bow emote next to Mistag and talk to him.", lightSource);
+		emoteAtMistag = new NpcEmoteStep(this, NpcID.LOST_TRIBE_MISTAG_1OP, QuestEmote.GOBLIN_BOW, new WorldPoint(3319, 9615, 0), t("Perform the Goblin Bow emote next to Mistag and talk to him."), lightSource);
 
-		goTravelToMistag = new ConditionalStep(this, goDownToBasement, "Travel through the tunnels under Lumbridge until you reach Mistag.", lightSource);
+		goTravelToMistag = new ConditionalStep(this, goDownToBasement, t("Travel through the tunnels under Lumbridge until you reach Mistag."), lightSource);
 		goTravelToMistag.addStep(inBasement, climbThroughHole);
 		goTravelToMistag.addSubSteps(walkToMistag);
 
-		goTalkToDukeAfterEmote = new ConditionalStep(this, goToF1Steps, "Talk to Duke Horacio in Lumbridge Castle. You can fast-travel with Mistag back to Lumbridge.");
+		goTalkToDukeAfterEmote = new ConditionalStep(this, goToF1Steps, t("Talk to Duke Horacio in Lumbridge Castle. You can fast-travel with Mistag back to Lumbridge."));
 		goTalkToDukeAfterEmote.addDialogSteps("I've made contact with the cave goblins...");
 		goTalkToDukeAfterEmote.addStep(inLumbridgeF1, talkToDuke);
 
 		pickpocketSigmund = new NpcStep(this, NpcID.LOST_TRIBE_SIGMUND_THERE, new WorldPoint(3210, 3222, 1), "");
 
-		goGetKey = new ConditionalStep(this, goToF1Steps, "Pickpocket Sigmund for a key.");
+		goGetKey = new ConditionalStep(this, goToF1Steps, t("Pickpocket Sigmund for a key."));
 		goGetKey.addStep(inLumbridgeF1, pickpocketSigmund);
 
 		unlockChest = new ObjectStep(this, ObjectID.LOST_TRIBE_CHEST, new WorldPoint(3209, 3217, 1), "");
 
-		goOpenRobeChest = new ConditionalStep(this, goToF1Steps, "Open the chest in the room next to the Duke's room.", key);
+		goOpenRobeChest = new ConditionalStep(this, goToF1Steps, t("Open the chest in the room next to the Duke's room."), key);
 		goOpenRobeChest.addStep(inLumbridgeF1, unlockChest);
 
 		enterHamLair = new ObjectStep(this, ObjectID.HAM_MULTI_TRAPDOOR, new WorldPoint(3166, 3252, 0), "");
 
 		searchHamCrates = new ObjectStep(this, ObjectID.LOST_TRIBE_CRATE, new WorldPoint(3152, 9645, 0), "");
 
-		goIntoHamLair = new ConditionalStep(this, enterHamLair, "Enter the H.A.M lair west of Lumbridge and search a crate in its entrance for the silverware.");
+		goIntoHamLair = new ConditionalStep(this, enterHamLair, t("Enter the H.A.M lair west of Lumbridge and search a crate in its entrance for the silverware."));
 		goIntoHamLair.addStep(inHamBase, searchHamCrates);
 		goIntoHamLair.addStep(inLumbridgeF2, goDownFromF2);
 		goIntoHamLair.addStep(inLumbridgeF1, goDownFromF1);
 		goIntoHamLair.addStep(inBasement, goUpFromBasement);
 
-		goToDukeWithSilverware = new ConditionalStep(this, goToF1Steps, "Take the silverware to Duke Horacio.", silverware);
+		goToDukeWithSilverware = new ConditionalStep(this, goToF1Steps, t("Take the silverware to Duke Horacio."), silverware);
 		goToDukeWithSilverware.addDialogStep("I found the missing silverware in the HAM cave!");
 		goToDukeWithSilverware.addStep(inLumbridgeF1, talkToDuke);
 
-		talkToKazgar = new NpcStep(this, NpcID.LOST_TRIBE_GUIDE_2OPS, new WorldPoint(3230, 9610, 0), "Travel with Kazgar to shortcut to Mistag.");
+		talkToKazgar = new NpcStep(this, NpcID.LOST_TRIBE_GUIDE_2OPS, new WorldPoint(3230, 9610, 0), t("Travel with Kazgar to shortcut to Mistag."));
 		talkToKazgar.addDialogStep("Can you show me the way to the mines?");
 		talkToMistagForEnd = new NpcStep(this, NpcID.LOST_TRIBE_MISTAG_2OPS, new WorldPoint(3319, 9615, 0), "");
 
-		travelToMakePeace = new ConditionalStep(this, goDownToBasement, "Travel through the tunnels until you reach Mistag, and give him the treaty.", lightSource, treaty);
+		travelToMakePeace = new ConditionalStep(this, goDownToBasement, t("Travel through the tunnels until you reach Mistag, and give him the treaty."), lightSource, treaty);
 		travelToMakePeace.addDialogStep("What was I doing again?");
 		travelToMakePeace.addStep(inMines, talkToMistagForEnd);
 		travelToMakePeace.addStep(inTunnels, talkToKazgar);
@@ -476,9 +476,9 @@ public class TheLostTribe extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Access to the Dorgesh-Kaan mine."),
-			new UnlockReward("Access to Nardok's Bone Weapon Store"),
-			new UnlockReward("2 new goblin emotes.")
+			new UnlockReward(t("Access to the Dorgesh-Kaan mine.")),
+			new UnlockReward(t("Access to Nardok's Bone Weapon Store")),
+			new UnlockReward(t("2 new goblin emotes."))
 		);
 	}
 
@@ -487,13 +487,13 @@ public class TheLostTribe extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Starting off", List.of(
+		sections.add(new PanelDetails(t("Starting off"), List.of(
 			goTalkToSigmundToStart,
 			findGoblinWitnessSteps,
 			goTalkToDukeAfterHans
 		)));
 
-		sections.add(new PanelDetails("Investigating", List.of(
+		sections.add(new PanelDetails(t("Investigating"), List.of(
 			goMineRubble,
 			enterTunnels,
 			grabBrooch,
@@ -503,13 +503,13 @@ public class TheLostTribe extends BasicQuestHelper
 			lightSource
 		)));
 
-		sections.add(new PanelDetails("Learning about goblins", List.of(
+		sections.add(new PanelDetails(t("Learning about goblins"), List.of(
 			searchBookcase,
 			readBook,
 			talkToGenerals
 		)));
 
-		sections.add(new PanelDetails("Making contact", List.of(
+		sections.add(new PanelDetails(t("Making contact"), List.of(
 			goTravelToMistag,
 			emoteAtMistag,
 			goTalkToDukeAfterEmote
@@ -517,7 +517,7 @@ public class TheLostTribe extends BasicQuestHelper
 			lightSource
 		)));
 
-		sections.add(new PanelDetails("Resolving tensions", List.of(
+		sections.add(new PanelDetails(t("Resolving tensions"), List.of(
 			goGetKey,
 			goOpenRobeChest,
 			goIntoHamLair,

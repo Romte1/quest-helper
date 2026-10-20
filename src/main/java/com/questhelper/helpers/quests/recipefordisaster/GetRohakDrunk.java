@@ -41,8 +41,8 @@ public class GetRohakDrunk extends NpcStep
 
 	public GetRohakDrunk(QuestHelper questHelper, ItemRequirement asgoldianAle4)
 	{
-		super(questHelper, NpcID.HUNDRED_DWARF_DAD, new WorldPoint(2865, 9877, 0), "Keep giving the dwarf drinks until " +
-			"he's drunk.", asgoldianAle4);
+		super(questHelper, NpcID.HUNDRED_DWARF_DAD, new WorldPoint(2865, 9877, 0), questHelper.t("Keep giving the dwarf drinks until " +
+			"he's drunk."), asgoldianAle4);
 		addAlternateNpcs(NpcID.HUNDRED_DWARF_DAD_ROHAK, NpcID.HUNDRED_DWARF_DAD_DRUNK);
 		asgoldianAle = asgoldianAle4;
 	}
@@ -65,6 +65,6 @@ public class GetRohakDrunk extends NpcStep
 		{
 			this.setRequirements(Collections.singletonList(asgoldianAle));
 		}
-		this.setText("Keep talking to the dwarf until he's drunk and agrees to make the rock cake.");
+		this.setText(questHelper.t("Keep talking to the dwarf until he's drunk and agrees to make the rock cake."));
 	}
 }

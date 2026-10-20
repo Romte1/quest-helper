@@ -94,10 +94,10 @@ public class SirRenItchoodStep extends ConditionalStep
 	{
 		var finishedRoomCondition = new VarbitRequirement(VarbitID.RD_ROOM5_COMPLETE, 1);
 		var answerWidgetOpen = new WidgetTextRequirement(InterfaceID.RdCombolock.RDCOMBOLOCK, "Combination Lock Door");
-		tryOpenDoor = new ObjectStep(questHelper, ObjectID.RD_ROOM5_EXITDOOR, "Open the door to be prompted to enter a code.");
+		tryOpenDoor = new ObjectStep(questHelper, ObjectID.RD_ROOM5_EXITDOOR, questHelper.t("Open the door to be prompted to enter a code."));
 		enterDoorCode = new DoorPuzzle(questHelper, "NONE");
-		pwEnterDoorCode = enterDoorCode.puzzleWrapStepWithDefaultText("Solve the door combination lock using the hints from Sir Ren Itchood.");
-		leaveRoom = new ObjectStep(questHelper, ObjectID.RD_ROOM5_EXITDOOR, "Leave through the door to enter the portal and continue.");
+		pwEnterDoorCode = enterDoorCode.puzzleWrapStepWithDefaultText(questHelper.t("Solve the door combination lock using the hints from Sir Ren Itchood."));
+		leaveRoom = new ObjectStep(questHelper, ObjectID.RD_ROOM5_EXITDOOR, questHelper.t("Leave through the door to enter the portal and continue."));
 
 		addStep(finishedRoomCondition, leaveRoom);
 		addStep(answerWidgetOpen, pwEnterDoorCode);

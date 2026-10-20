@@ -145,14 +145,14 @@ public class DyeShipSteps extends DetailedOwnerStep
 		{
 			coloursKnown = true;
 			dyeTop.setRequirements(Arrays.asList(topColour.getItem(), modelShip));
-			dyeTop.setText("Dye the top of the model ship's flag " + topColour.getColourText() + " If you already have, inspect the ship.");
+			dyeTop.setText(getQuestHelper().t("Dye the top of the model ship's flag") + " " + topColour.getColourText() + " " + getQuestHelper().t("If you already have, inspect the ship."));
 			dyeTop.addDialogStep("Top half");
 			dyeBottom.setRequirements(Arrays.asList(bottomColour.getItem(), modelShip));
-			dyeBottom.setText("Dye the bottom of the model ship's flag " + bottomColour.getColourText() + " If you already have, inspect the ship.");
+			dyeBottom.setText(getQuestHelper().t("Dye the bottom of the model ship's flag") + " " + bottomColour.getColourText() + " " + getQuestHelper().t("If you already have, inspect the ship."));
 			dyeBottom.addDialogStep("Bottom half");
 			dyeSkull.setRequirements(Arrays.asList(skullColour.getItem(), modelShip));
 			dyeSkull.addDialogStep("Skull emblem");
-			dyeSkull.setText("Dye the skull on the model ship's flag " + skullColour.getColourText() + " If you already have, inspect the ship.");
+			dyeSkull.setText(getQuestHelper().t("Dye the skull on the model ship's flag") + " " + skullColour.getColourText() + " " + getQuestHelper().t("If you already have, inspect the ship."));
 		}
 		if (!coloursKnown)
 		{
@@ -235,20 +235,20 @@ public class DyeShipSteps extends DetailedOwnerStep
 		modelShip = new ItemRequirement("Model ship", ItemID.AHOY_TOY_BOAT_REPAIRED);
 		modelShip.setHighlightInInventory(true);
 
-		searchMast = new ObjectStep(getQuestHelper(), ObjectID.AHOY_MAST, new WorldPoint(3619, 3543, 2), "Search the Mast repeatedly until you've found out all the colours for the toy boat.");
-		dyeTop = new DetailedQuestStep(getQuestHelper(), "Dye the top of the model ship's flag to match the real ship.", modelShip);
-		dyeBottom = new DetailedQuestStep(getQuestHelper(), "Dye the bottom of the model ship's flag to match the real ship.", modelShip);
-		dyeSkull = new DetailedQuestStep(getQuestHelper(), "Dye the skull of the model ship's flag to match the real ship.", modelShip);
-		talkToMan = new NpcStep(getQuestHelper(), NpcID.AHOY_OLDMAN, new WorldPoint(3616, 3543, 1), "Talk to the Old Man with the model ship to get a key.");
+		searchMast = new ObjectStep(getQuestHelper(), ObjectID.AHOY_MAST, new WorldPoint(3619, 3543, 2), getQuestHelper().t("Search the Mast repeatedly until you've found out all the colours for the toy boat."));
+		dyeTop = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Dye the top of the model ship's flag to match the real ship."), modelShip);
+		dyeBottom = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Dye the bottom of the model ship's flag to match the real ship."), modelShip);
+		dyeSkull = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Dye the skull of the model ship's flag to match the real ship."), modelShip);
+		talkToMan = new NpcStep(getQuestHelper(), NpcID.AHOY_OLDMAN, new WorldPoint(3616, 3543, 1), getQuestHelper().t("Talk to the Old Man with the model ship to get a key."));
 		talkToMan.addDialogStep("Is this your toy boat?");
-		goDownToMan = new ObjectStep(getQuestHelper(), ObjectID.AHOY_GHOSTSHIP_LADDERTOP, new WorldPoint(3615, 3541, 2), "Go to the main deck of the ship.");
-		goUpToMan = new ObjectStep(getQuestHelper(), ObjectID.AHOY_GHOSTSHIP_LADDER, new WorldPoint(3613, 3543, 0), "Go up the ladder in the ship west of Port Phasmatys.");
+		goDownToMan = new ObjectStep(getQuestHelper(), ObjectID.AHOY_GHOSTSHIP_LADDERTOP, new WorldPoint(3615, 3541, 2), getQuestHelper().t("Go to the main deck of the ship."));
+		goUpToMan = new ObjectStep(getQuestHelper(), ObjectID.AHOY_GHOSTSHIP_LADDER, new WorldPoint(3613, 3543, 0), getQuestHelper().t("Go up the ladder in the ship west of Port Phasmatys."));
 		goDownToMan.addSubSteps(goUpToMan);
 
 		goUpToDeckForMast = new ObjectStep(getQuestHelper(), ObjectID.AHOY_GHOSTSHIP_LADDER, new WorldPoint(3613, 3543, 0),
-			"Go up the ladder in the ship west of Port Phasmatys.");
+			getQuestHelper().t("Go up the ladder in the ship west of Port Phasmatys."));
 		goUpToMast = new ObjectStep(getQuestHelper(), ObjectID.AHOY_GHOSTSHIP_LADDER, new WorldPoint(3615, 3541, 1),
-			"Go up to the mast of the ship.");
+			getQuestHelper().t("Go up to the mast of the ship."));
 	}
 
 	@Override

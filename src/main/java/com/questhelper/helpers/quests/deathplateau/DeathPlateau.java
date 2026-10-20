@@ -173,7 +173,7 @@ public class DeathPlateau extends BasicQuestHelper
 
 		premadeBlurb = new ItemRequirement("Premade blurb' sp.", ItemID.PREMADE_BLURBERRY_SPECIAL);
 		premadeBlurb.addAlternates(ItemID.BLURBERRY_SPECIAL);
-		premadeBlurb.setTooltip("You can buy one from bar on the east side of the Grand Tree on the 1st floor");
+		premadeBlurb.setTooltip(t("You can buy one from bar on the east side of the Grand Tree on the 1st floor"));
 		coins = new ItemRequirement("Coins", ItemCollections.COINS, 60);
 		bread = new ItemRequirement("Bread (UNNOTED)", ItemID.BREAD, 10);
 		trout = new ItemRequirement("Trout (UNNOTED)", ItemID.TROUT, 10);
@@ -195,9 +195,9 @@ public class DeathPlateau extends BasicQuestHelper
 		climbingBoots = new ItemRequirement("Climbing boots", ItemCollections.CLIMBING_BOOTS);
 		spikedBoots = new ItemRequirement("Spiked boots", ItemID.DEATH_SPIKEDBOOTS);
 		secretMap = new ItemRequirement("Secret way map", ItemID.DEATH_SECRETWAYMAP);
-		secretMap.setTooltip("You can get another by talking to Tenzing");
+		secretMap.setTooltip(t("You can get another by talking to Tenzing"));
 		combination = new ItemRequirement("Combination", ItemID.DEATH_COMBINATION);
-		combination.setTooltip("You can get another by talking to Harold upstairs in Burthorpe's Pub");
+		combination.setTooltip(t("You can get another by talking to Harold upstairs in Burthorpe's Pub"));
 		gamesNecklace = new ItemRequirement("Games necklace", ItemCollections.GAMES_NECKLACES);
 
 		inCastleDownstairs = new ZoneRequirement(castleDownstairs);
@@ -243,81 +243,81 @@ public class DeathPlateau extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToDenulth1 = new NpcStep(this, NpcID.DEATH_IG_COMMANDER, new WorldPoint(2896, 3529, 0), "Talk to Denulth in Burthorpe. You can get there with the Burthorpe minigame teleport or a games necklace.");
+		talkToDenulth1 = new NpcStep(this, NpcID.DEATH_IG_COMMANDER, new WorldPoint(2896, 3529, 0), t("Talk to Denulth in Burthorpe. You can get there with the Burthorpe minigame teleport or a games necklace."));
 		talkToDenulth1.addDialogStep(1, "Do you have any quests for me?");
 		talkToDenulth1.addDialogStep(1, "Yes.");
 
-		goToEohric1 = new ObjectStep(this, ObjectID.BOARD_GAME_STAIRS_GREY_BASE, new WorldPoint(2898, 3567, 0), "Ask Eohric, upstairs in Burthorpe castle, about the guard that was on duty last night.");
-		talkToEohric1 = new NpcStep(this, NpcID.DEATH_HEADSERVANT, new WorldPoint(2900, 3566, 1), "Ask Eohric, upstairs in Burthorpe castle, about the guard that was on duty last night.");
+		goToEohric1 = new ObjectStep(this, ObjectID.BOARD_GAME_STAIRS_GREY_BASE, new WorldPoint(2898, 3567, 0), t("Ask Eohric, upstairs in Burthorpe castle, about the guard that was on duty last night."));
+		talkToEohric1 = new NpcStep(this, NpcID.DEATH_HEADSERVANT, new WorldPoint(2900, 3566, 1), t("Ask Eohric, upstairs in Burthorpe castle, about the guard that was on duty last night."));
 		talkToEohric1.addDialogStep(1, "I'm looking for the guard that was on last night.");
 		talkToEohric1.addSubSteps(goToEohric1);
 
-		goToHaroldStairs1 = new ObjectStep(this, ObjectID.STAIRS, new WorldPoint(2915, 3540, 0), "Talk to Harold, upstairs in the bar in Burthorpe.");
-		goToHaroldDoor1 = new ObjectStep(this, ObjectID.DEATH_HAROLD_DOOR, new WorldPoint(2906, 3543, 1), "Talk to Harold, upstairs in the bar in Burthorpe.");
-		talkToHarold1 = new NpcStep(this, NpcID.DEATH_GUARD_EQUIPROOM, new WorldPoint(2906, 3540, 1), "Talk to Harold, upstairs in the bar in Burthorpe.");
+		goToHaroldStairs1 = new ObjectStep(this, ObjectID.STAIRS, new WorldPoint(2915, 3540, 0), t("Talk to Harold, upstairs in the bar in Burthorpe."));
+		goToHaroldDoor1 = new ObjectStep(this, ObjectID.DEATH_HAROLD_DOOR, new WorldPoint(2906, 3543, 1), t("Talk to Harold, upstairs in the bar in Burthorpe."));
+		talkToHarold1 = new NpcStep(this, NpcID.DEATH_GUARD_EQUIPROOM, new WorldPoint(2906, 3540, 1), t("Talk to Harold, upstairs in the bar in Burthorpe."));
 		talkToHarold1.addDialogStep(1, "You're the guard that was on duty last night?");
 		talkToHarold1.addSubSteps(goToHaroldStairs1, goToHaroldDoor1);
 
-		goToEohric2 = new ObjectStep(this, ObjectID.BOARD_GAME_STAIRS_GREY_BASE, new WorldPoint(2898, 3567, 0), "Talk to Eohric.");
-		talkToEohric2 = new NpcStep(this, NpcID.DEATH_HEADSERVANT, new WorldPoint(2900, 3566, 1), "Talk to Eohric.");
+		goToEohric2 = new ObjectStep(this, ObjectID.BOARD_GAME_STAIRS_GREY_BASE, new WorldPoint(2898, 3567, 0), t("Talk to Eohric."));
+		talkToEohric2 = new NpcStep(this, NpcID.DEATH_HEADSERVANT, new WorldPoint(2900, 3566, 1), t("Talk to Eohric."));
 		talkToEohric2.addSubSteps(goToEohric2);
 
-		takeAsgarnianAle = new DetailedQuestStep(this, new WorldPoint(2906, 3538, 0), "Take an Asgarnian ale from the bar.", coins, asgarnianAle, premadeBlurb);
+		takeAsgarnianAle = new DetailedQuestStep(this, new WorldPoint(2906, 3538, 0), t("Take an Asgarnian ale from the bar."), coins, asgarnianAle, premadeBlurb);
 
-		goToHaroldStairs2 = new ObjectStep(this, ObjectID.STAIRS, new WorldPoint(2915, 3540, 0), "Talk to Harold.", coins, asgarnianAle, premadeBlurb);
-		goToHaroldDoor2 = new ObjectStep(this, ObjectID.DEATH_HAROLD_DOOR, new WorldPoint(2906, 3543, 1), "Talk to Harold.", coins, asgarnianAle, premadeBlurb);
-		talkToHarold2 = new NpcStep(this, NpcID.DEATH_GUARD_EQUIPROOM, new WorldPoint(2906, 3540, 1), "Talk to Harold.", coins, asgarnianAle, premadeBlurb);
+		goToHaroldStairs2 = new ObjectStep(this, ObjectID.STAIRS, new WorldPoint(2915, 3540, 0), t("Talk to Harold."), coins, asgarnianAle, premadeBlurb);
+		goToHaroldDoor2 = new ObjectStep(this, ObjectID.DEATH_HAROLD_DOOR, new WorldPoint(2906, 3543, 1), t("Talk to Harold."), coins, asgarnianAle, premadeBlurb);
+		talkToHarold2 = new NpcStep(this, NpcID.DEATH_GUARD_EQUIPROOM, new WorldPoint(2906, 3540, 1), t("Talk to Harold."), coins, asgarnianAle, premadeBlurb);
 		talkToHarold2.addSubSteps(goToHaroldStairs2, goToHaroldDoor2);
 
-		giveHaroldBlurberry = new NpcStep(this, NpcID.DEATH_GUARD_EQUIPROOM, new WorldPoint(2906, 3540, 1), "Talk to Harold to give him a Blurberry Special.", coins, premadeBlurb);
+		giveHaroldBlurberry = new NpcStep(this, NpcID.DEATH_GUARD_EQUIPROOM, new WorldPoint(2906, 3540, 1), t("Talk to Harold to give him a Blurberry Special."), coins, premadeBlurb);
 		giveHaroldBlurberry.addDialogStep(3, "Can I buy you a drink?");
 
-		gambleWithHarold = new NpcStep(this, NpcID.DEATH_GUARD_EQUIPROOM, new WorldPoint(2906, 3540, 1), "Gamble with Harold (101 coins to immediately bankrupt him).", coins);
+		gambleWithHarold = new NpcStep(this, NpcID.DEATH_GUARD_EQUIPROOM, new WorldPoint(2906, 3540, 1), t("Gamble with Harold (101 coins to immediately bankrupt him)."), coins);
 		gambleWithHarold.addDialogStep(2, "Would you like to gamble?");
 
-		readIou = new DetailedQuestStep(this, "Read the IOU, and then keep the Combination for the end of the quest.", iouHighlight);
+		readIou = new DetailedQuestStep(this, t("Read the IOU, and then keep the Combination for the end of the quest."), iouHighlight);
 
 		placeRedStone = new PuzzleWrapperStep(this,
-			new ObjectStep(this, ObjectID.DEATH_STONE_MECHANISM_SIDE, new WorldPoint(2894, 3563, 0), "Use the red stone on the mechanism.", redStone),
-			"Work out where to place the red stone on the mechanism.");
+			new ObjectStep(this, ObjectID.DEATH_STONE_MECHANISM_SIDE, new WorldPoint(2894, 3563, 0), t("Use the red stone on the mechanism."), redStone),
+			t("Work out where to place the red stone on the mechanism."));
 		placeBlueStone = new PuzzleWrapperStep(this,
-			new ObjectStep(this, ObjectID.DEATH_STONE_MECHANISM_CORNER, new WorldPoint(2894, 3562, 0), "Use the blue stone on the mechanism.", blueStone),
-			"Work out where to place the red stone on the mechanism.");
+			new ObjectStep(this, ObjectID.DEATH_STONE_MECHANISM_CORNER, new WorldPoint(2894, 3562, 0), t("Use the blue stone on the mechanism."), blueStone),
+			t("Work out where to place the red stone on the mechanism."));
 		placeYellowStone = new PuzzleWrapperStep(this,
-			new ObjectStep(this, ObjectID.DEATH_STONE_MECHANISM_CORNER, new WorldPoint(2895, 3562, 0), "Use the yellow stone on the mechanism.", yellowStone),
-			"Work out where to place the red stone on the mechanism.");
+			new ObjectStep(this, ObjectID.DEATH_STONE_MECHANISM_CORNER, new WorldPoint(2895, 3562, 0), t("Use the yellow stone on the mechanism."), yellowStone),
+			t("Work out where to place the red stone on the mechanism."));
 		placePinkStone = new PuzzleWrapperStep(this,
-			new ObjectStep(this, ObjectID.DEATH_STONE_MECHANISM_SIDE, new WorldPoint(2895, 3563, 0), "Use the pink stone on the mechanism.", pinkStone),
-			"Work out where to place the red stone on the mechanism.");
+			new ObjectStep(this, ObjectID.DEATH_STONE_MECHANISM_SIDE, new WorldPoint(2895, 3563, 0), t("Use the pink stone on the mechanism."), pinkStone),
+			t("Work out where to place the red stone on the mechanism."));
 		placeGreenStone = new PuzzleWrapperStep(this,
-			new ObjectStep(this, ObjectID.DEATH_STONE_MECHANISM_CORNER, new WorldPoint(2895, 3564, 0), "Use the green stone on the mechanism.", greenStone),
-			"Work out where to place the red stone on the mechanism.");
-		placeStones = new DetailedQuestStep(this, new WorldPoint(2896, 3563, 0), "Go back to Burthorpe castle, and place the coloured stone balls in the correct spots on the mechanism.");
+			new ObjectStep(this, ObjectID.DEATH_STONE_MECHANISM_CORNER, new WorldPoint(2895, 3564, 0), t("Use the green stone on the mechanism."), greenStone),
+			t("Work out where to place the red stone on the mechanism."));
+		placeStones = new DetailedQuestStep(this, new WorldPoint(2896, 3563, 0), t("Go back to Burthorpe castle, and place the coloured stone balls in the correct spots on the mechanism."));
 		placeStones.addSubSteps(placeRedStone, placeBlueStone, placeYellowStone, placePinkStone, placeGreenStone);
 
-		syncStep = new QuestSyncStep(this, getQuest(), "Open the quest's journal to sync your current quest state.");
+		syncStep = new QuestSyncStep(this, getQuest(), t("Open the quest's journal to sync your current quest state."));
 
-		enterSabaCave = new ObjectStep(this, ObjectID.DEATH_HERMITCAVE_ENTRANCE, new WorldPoint(2858, 3579, 0), "Enter the cave north west of Burthorpe.");
+		enterSabaCave = new ObjectStep(this, ObjectID.DEATH_HERMITCAVE_ENTRANCE, new WorldPoint(2858, 3579, 0), t("Enter the cave north west of Burthorpe."));
 
-		talkToSaba = new NpcStep(this, NpcID.DEATH_HERMIT, new WorldPoint(2270, 4757, 0), "Talk to Saba.");
+		talkToSaba = new NpcStep(this, NpcID.DEATH_HERMIT, new WorldPoint(2270, 4757, 0), t("Talk to Saba."));
 		talkToSaba.addDialogStep("Do you know of another way up Death Plateau?");
 
-		leaveSabaCave = new ObjectStep(this, ObjectID.DEATH_HERMITCAVE_EXIT, new WorldPoint(2269, 4751, 0), "Leave Saba's cave.");
+		leaveSabaCave = new ObjectStep(this, ObjectID.DEATH_HERMITCAVE_EXIT, new WorldPoint(2269, 4751, 0), t("Leave Saba's cave."));
 
-		talkToTenzing1 = new NpcStep(this, NpcID.DEATH_SHERPA, new WorldPoint(2820, 3555, 0), "Go northwest of Burthorpe, then south at the fork, and talk to Tenzing.");
+		talkToTenzing1 = new NpcStep(this, NpcID.DEATH_SHERPA, new WorldPoint(2820, 3555, 0), t("Go northwest of Burthorpe, then south at the fork, and talk to Tenzing."));
 		talkToTenzing1.addDialogStep("OK, I'll get those for you.");
 		talkToTenzing1.addSubSteps(leaveSabaCave);
 
-		talkToDenulthForDunstan = new NpcStep(this, NpcID.DEATH_IG_COMMANDER, new WorldPoint(2896, 3529, 0), "Ask Denulth about Dunstan's son.");
-		talkToDunstan1 = new NpcStep(this, NpcID.DEATH_SMITHY, new WorldPoint(2920, 3573, 0), "Talk to Dunstan at the anvil in Burthorpe, then talk to Denulth, where you started the quest.", climbingBoots);
+		talkToDenulthForDunstan = new NpcStep(this, NpcID.DEATH_IG_COMMANDER, new WorldPoint(2896, 3529, 0), t("Ask Denulth about Dunstan's son."));
+		talkToDunstan1 = new NpcStep(this, NpcID.DEATH_SMITHY, new WorldPoint(2920, 3573, 0), t("Talk to Dunstan at the anvil in Burthorpe, then talk to Denulth, where you started the quest."), climbingBoots);
 		talkToDunstan1.addSubSteps(talkToDenulthForDunstan);
-		talkToDunstan2 = new NpcStep(this, NpcID.DEATH_SMITHY, new WorldPoint(2920, 3573, 0), "Talk to Dunstan to exchange the climbing boots for spiked boots.", climbingBoots, certificate, ironBar);
+		talkToDunstan2 = new NpcStep(this, NpcID.DEATH_SMITHY, new WorldPoint(2920, 3573, 0), t("Talk to Dunstan to exchange the climbing boots for spiked boots."), climbingBoots, certificate, ironBar);
 
-		talkToTenzing2 = new NpcStep(this, NpcID.DEATH_SHERPA, new WorldPoint(2820, 3555, 0), "Bring the spiked boots, along with (unnoted) 10 bread and 10 trout to Tenzing.", spikedBoots, bread, trout);
+		talkToTenzing2 = new NpcStep(this, NpcID.DEATH_SHERPA, new WorldPoint(2820, 3555, 0), t("Bring the spiked boots, along with (unnoted) 10 bread and 10 trout to Tenzing."), spikedBoots, bread, trout);
 
-		goNorth = new DetailedQuestStep(this, new WorldPoint(2865, 3609, 0), "Exit Tenzing's house into the backyard THROUGH THE NORTH DOOR and OVER THE STILE. Continue north past the Death Plateau warning, and around to the east until you stop and say you've gone far enough.", secretMap);
+		goNorth = new DetailedQuestStep(this, new WorldPoint(2865, 3609, 0), t("Exit Tenzing's house into the backyard THROUGH THE NORTH DOOR and OVER THE STILE. Continue north past the Death Plateau warning, and around to the east until you stop and say you've gone far enough."), secretMap);
 
-		talkToDenulth3 = new NpcStep(this, NpcID.DEATH_IG_COMMANDER, new WorldPoint(2896, 3529, 0), "Go back and talk to Denulth, giving him the secret map and Combination.", secretMap, combination);
+		talkToDenulth3 = new NpcStep(this, NpcID.DEATH_IG_COMMANDER, new WorldPoint(2896, 3529, 0), t("Go back and talk to Denulth, giving him the secret map and Combination."), secretMap, combination);
 	}
 
 	@Override
@@ -426,8 +426,8 @@ public class DeathPlateau extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("The ability to craft claws."),
-			new UnlockReward("The ability to purchase and equip Climbing Boots.")
+			new UnlockReward(t("The ability to craft claws.")),
+			new UnlockReward(t("The ability to purchase and equip Climbing Boots."))
 		);
 	}
 
@@ -436,7 +436,7 @@ public class DeathPlateau extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("The equipment room", List.of(
+		sections.add(new PanelDetails(t("The equipment room"), List.of(
 			talkToDenulth1,
 			talkToEohric1,
 			talkToHarold1,
@@ -452,7 +452,7 @@ public class DeathPlateau extends BasicQuestHelper
 			premadeBlurb
 		)));
 
-		sections.add(new PanelDetails("Get spiked boots", List.of(
+		sections.add(new PanelDetails(t("Get spiked boots"), List.of(
 			syncStep,
 			enterSabaCave,
 			talkToSaba,
@@ -463,7 +463,7 @@ public class DeathPlateau extends BasicQuestHelper
 			ironBar
 		)));
 
-		sections.add(new PanelDetails("The secret path", List.of(
+		sections.add(new PanelDetails(t("The secret path"), List.of(
 			talkToTenzing2,
 			goNorth,
 			talkToDenulth3

@@ -190,16 +190,16 @@ public class Biohazard extends BasicQuestHelper
 		isUpstairsArdougneCastle = new ZoneRequirement(upstairsArdougneCastle);
 
 		gasMask = new ItemRequirement("Gas mask", ItemID.GASMASK, 1, true).isNotConsumed();
-		gasMask.setTooltip("You can get another from the cupboard in Edmond's house west of Elena's house.");
+		gasMask.setTooltip(t("You can get another from the cupboard in Edmond's house west of Elena's house."));
 
 		teleportVarrock = new ItemRequirement("Teleport to Varrock", ItemID.POH_TABLET_VARROCKTELEPORT);
 		teleportArdougne = new ItemRequirement("Teleport to Ardougne", ItemID.POH_TABLET_ARDOUGNETELEPORT, 3);
 		teleportRimmington = new ItemRequirement("Teleport to Rimmington", ItemID.NZONE_TELETAB_RIMMINGTON);
 		coins = new ItemRequirement("Coins", ItemCollections.COINS, 30);
-		coins.setTooltip("For travelling from Ardougne to Rimmington.");
+		coins.setTooltip(t("For travelling from Ardougne to Rimmington."));
 
 		coinsForPriestSet = new ItemRequirement("Coins", ItemCollections.COINS, 12);
-		coinsForPriestSet.setTooltip("For buying the Priest Gown set");
+		coinsForPriestSet.setTooltip(t("For buying the Priest Gown set"));
 
 		birdFeed = new ItemRequirement("Bird feed", ItemID.BIRDFEED);
 		birdCage = new ItemRequirement("Pigeon cage", ItemID.PIGEONS);
@@ -212,15 +212,15 @@ public class Biohazard extends BasicQuestHelper
 		key = new ItemRequirement("Key", ItemID.MOURNERKEYTW);
 		distillator = new ItemRequirement("Distillator", ItemID.DISTILLATOR);
 		plagueSample = new ItemRequirement("Plague sample", ItemID.PLAGUESAMPLE);
-		plagueSample.setTooltip("You can get another from Elena in East Ardougne.");
+		plagueSample.setTooltip(t("You can get another from Elena in East Ardougne."));
 		ethenea = new ItemRequirement("Ethenea", ItemID.ETHENEA);
-		ethenea.setTooltip("You can get another from Elena in East Ardougne.");
+		ethenea.setTooltip(t("You can get another from Elena in East Ardougne."));
 		liquidHoney = new ItemRequirement("Liquid honey", ItemID.LIQUID_HONEY);
-		liquidHoney.setTooltip("You can get another from Elena in East Ardougne.");
+		liquidHoney.setTooltip(t("You can get another from Elena in East Ardougne."));
 		sulphuricBroline = new ItemRequirement("Sulphuric broline", ItemID.SULPHURIC_BROLINE);
-		sulphuricBroline.setTooltip("You can get another from Elena in East Ardougne.");
+		sulphuricBroline.setTooltip(t("You can get another from Elena in East Ardougne."));
 		touchPaper = new ItemRequirement("Touch paper", ItemID.TOUCH_PAPER);
-		touchPaper.setTooltip("You can get more from the Chemist in Rimmington.");
+		touchPaper.setTooltip(t("You can get more from the Chemist in Rimmington."));
 
 		priestGownBottom = new ItemRequirement("Priest gown (bottom)", ItemID.PRIEST_ROBE).isNotConsumed();
 		priestGownTop = new ItemRequirement("Priest gown (top)", ItemID.PRIEST_GOWN).isNotConsumed();
@@ -236,78 +236,78 @@ public class Biohazard extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToElena = new NpcStep(this, NpcID.ELENA2_VIS, new WorldPoint(2592, 3336, 0), "Talk to Elena in her house west of the northern Ardougne bank.");
+		talkToElena = new NpcStep(this, NpcID.ELENA2_VIS, new WorldPoint(2592, 3336, 0), t("Talk to Elena in her house west of the northern Ardougne bank."));
 		talkToElena.addDialogStep("Yes.");
 
-		talkToJerico = new NpcStep(this, NpcID.JERICO, new WorldPoint(2612, 3324, 0), "Talk to Jerico in his house south of the northern Ardougne bank");
+		talkToJerico = new NpcStep(this, NpcID.JERICO, new WorldPoint(2612, 3324, 0), t("Talk to Jerico in his house south of the northern Ardougne bank"));
 
-		getBirdFeed = new ObjectStep(this, ObjectID.JERICOSCUPBOARDSHUT, new WorldPoint(2612, 3326, 0), "Get bird feed from the cupboard in Jerico's house.");
+		getBirdFeed = new ObjectStep(this, ObjectID.JERICOSCUPBOARDSHUT, new WorldPoint(2612, 3326, 0), t("Get bird feed from the cupboard in Jerico's house."));
 		getBirdFeed.addAlternateObjects(ObjectID.JERICOSCUPBOARDOPEN);
 
-		getPigeonCage = new ItemStep(this, new WorldPoint(2618, 3325, 0), "Get a pigeon cage from behind Jerico's house.", birdCage);
+		getPigeonCage = new ItemStep(this, new WorldPoint(2618, 3325, 0), t("Get a pigeon cage from behind Jerico's house."), birdCage);
 
-		investigateWatchtower = new ObjectStep(this, ObjectID.BIOWATCHTOWER_OP, new WorldPoint(2562, 3301, 0), "Investigate the watchtower near the entrance to West Ardougne.", birdFeed, birdCage);
+		investigateWatchtower = new ObjectStep(this, ObjectID.BIOWATCHTOWER_OP, new WorldPoint(2562, 3301, 0), t("Investigate the watchtower near the entrance to West Ardougne."), birdFeed, birdCage);
 
-		clickPigeonCage = new DetailedQuestStep(this, new WorldPoint(2562, 3300, 0), "Open the Pigeon cage next to the watchtower.", birdCageHighlighted);
+		clickPigeonCage = new DetailedQuestStep(this, new WorldPoint(2562, 3300, 0), t("Open the Pigeon cage next to the watchtower."), birdCageHighlighted);
 
-		talkToOmartToEnterWestArdougne = new NpcStep(this, NpcID.OMART_VIS, new WorldPoint(2559, 3266, 0), "Talk to Omart, south of the watchtower, to enter West Ardougne.", gasMask);
+		talkToOmartToEnterWestArdougne = new NpcStep(this, NpcID.OMART_VIS, new WorldPoint(2559, 3266, 0), t("Talk to Omart, south of the watchtower, to enter West Ardougne."), gasMask);
 		talkToOmartToEnterWestArdougne.addDialogStep("Okay, lets do it.");
 		talkToOmartToEnterWestArdougne.addDialogStep("Okay, let's do it.");
 
-		enterBackyardOfHeadquarters = new ObjectStep(this, ObjectID.MOURNERSTEWFENCE, new WorldPoint(2541, 3331, 0), "Squeeze through the fence to enter the Mourner's Headquarters yard in the north east of West Ardougne.");
-		pickupRottenApple = new ItemStep(this, new WorldPoint(2549, 3332, 0), "Pick up the rotten apple in the yard.", rottenApple);
-		useRottenAppleOnCauldron = new ObjectStep(this, ObjectID.MOURNERCAULDRON, new WorldPoint(2543, 3332, 0), "Use the rotten apple on the cauldron.", rottenApple);
+		enterBackyardOfHeadquarters = new ObjectStep(this, ObjectID.MOURNERSTEWFENCE, new WorldPoint(2541, 3331, 0), t("Squeeze through the fence to enter the Mourner's Headquarters yard in the north east of West Ardougne."));
+		pickupRottenApple = new ItemStep(this, new WorldPoint(2549, 3332, 0), t("Pick up the rotten apple in the yard."), rottenApple);
+		useRottenAppleOnCauldron = new ObjectStep(this, ObjectID.MOURNERCAULDRON, new WorldPoint(2543, 3332, 0), t("Use the rotten apple on the cauldron."), rottenApple);
 		useRottenAppleOnCauldron.addIcon(ItemID.ROTTENAPPLES);
 
-		exitBackyardOfHeadquarters = new ObjectStep(this, ObjectID.MOURNERSTEWFENCE, new WorldPoint(2541, 3331, 0), "Search the cupboard in Sarah's house south-west of the West Ardougne church for a disguise.");
-		searchSarahsCupboard = new ObjectStep(this, ObjectID.BIONURSESCUPBOARDSHUT, new WorldPoint(2518, 3276, 0), "Search the cupboard in Sarah's house south-west of the West Ardougne church for a disguise.");
+		exitBackyardOfHeadquarters = new ObjectStep(this, ObjectID.MOURNERSTEWFENCE, new WorldPoint(2541, 3331, 0), t("Search the cupboard in Sarah's house south-west of the West Ardougne church for a disguise."));
+		searchSarahsCupboard = new ObjectStep(this, ObjectID.BIONURSESCUPBOARDSHUT, new WorldPoint(2518, 3276, 0), t("Search the cupboard in Sarah's house south-west of the West Ardougne church for a disguise."));
 		searchSarahsCupboard.addAlternateObjects(ObjectID.BIONURSESCUPBOARDOPEN);
 		searchSarahsCupboard.addSubSteps(exitBackyardOfHeadquarters);
-		enterMournerHeadquarters = new ObjectStep(this, ObjectID.MOURNERSTEWDOOR, new WorldPoint(2551, 3320, 0), "Enter the Mourners' Headquarters whilst wearing the medical gown.", medicalGownEquipped);
+		enterMournerHeadquarters = new ObjectStep(this, ObjectID.MOURNERSTEWDOOR, new WorldPoint(2551, 3320, 0), t("Enter the Mourners' Headquarters whilst wearing the medical gown."), medicalGownEquipped);
 
-		goUpstairsInMournerBuilding = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2543, 3325, 0), "Go upstairs and kill the mourner.");
-		killMourner = new NpcStep(this, NpcID.MOURNERSTEW2_VIS, new WorldPoint(2549, 3325, 1), "Kill the mourner here for a key to the caged area.");
+		goUpstairsInMournerBuilding = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2543, 3325, 0), t("Go upstairs and kill the mourner."));
+		killMourner = new NpcStep(this, NpcID.MOURNERSTEW2_VIS, new WorldPoint(2549, 3325, 1), t("Kill the mourner here for a key to the caged area."));
 		goUpstairsInMournerBuilding.addSubSteps(killMourner);
 
-		searchCrateForDistillator = new ObjectStep(this, ObjectID.MOURNERCRATEUP, new WorldPoint(2554, 3327, 1), "Search the crate in the caged area for Elena's Distillator.");
+		searchCrateForDistillator = new ObjectStep(this, ObjectID.MOURNERCRATEUP, new WorldPoint(2554, 3327, 1), t("Search the crate in the caged area for Elena's Distillator."));
 
-		goBackDownstairsInMournersHeadquarters = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(2543, 3325, 1), "Return to Elena. Go back downstairs or teleport out.", distillator);
+		goBackDownstairsInMournersHeadquarters = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(2543, 3325, 1), t("Return to Elena. Go back downstairs or teleport out."), distillator);
 
-		talkToKilron = new NpcStep(this, NpcID.KILRON_VIS, new WorldPoint(2556, 3266, 0), "Return to Elena. Talk to Kilron south-east of the West Ardougne church to return back to East Ardougne.", distillator);
+		talkToKilron = new NpcStep(this, NpcID.KILRON_VIS, new WorldPoint(2556, 3266, 0), t("Return to Elena. Talk to Kilron south-east of the West Ardougne church to return back to East Ardougne."), distillator);
 		talkToKilron.addDialogStep("Yes I do.");
 
-		talkToElenaWithDistillator = new NpcStep(this, NpcID.ELENA2_VIS, new WorldPoint(2592, 3336, 0), "Return to Elena.", distillator);
+		talkToElenaWithDistillator = new NpcStep(this, NpcID.ELENA2_VIS, new WorldPoint(2592, 3336, 0), t("Return to Elena."), distillator);
 		talkToElenaWithDistillator.addSubSteps(goBackDownstairsInMournersHeadquarters, talkToKilron);
 
 		talkToTheChemist = new NpcStep(this, NpcID.CHEMIST, new WorldPoint(2933, 3210, 0),
-			"Take the Plague Sample to the Chemist in Rimmington. You can take a boat from Ardougne Dock to Rimmington for 30gp.", plagueSample, liquidHoney, sulphuricBroline, ethenea);
+			t("Take the Plague Sample to the Chemist in Rimmington. You can take a boat from Ardougne Dock to Rimmington for 30gp."), plagueSample, liquidHoney, sulphuricBroline, ethenea);
 		talkToTheChemist.addDialogStep("Your quest.");
 
 		giveChemicals = new GiveIngredientsToHelpersStep(this);
-		goToVarrock = new DetailedQuestStep(this, new WorldPoint(3270, 3390, 0), "Go speak to Hops, Da Vinci and Chancy in the pub in the south east of Varrock. If you lost any of the chemicals, return to Elena to get more.", plagueSample, touchPaper);
-		vinciVarrock = new NpcStep(this, NpcID.ARTIST2, new WorldPoint(3270, 3390, 0), "Talk to Da Vinci for the Ethenea.");
-		hopsVarrock = new NpcStep(this, NpcID.DRUNK2, new WorldPoint(3270, 3390, 0), "Talk to Hops for the Sulphuric Broline.");
-		chancyVarrock = new NpcStep(this, NpcID.GAMBLER2, new WorldPoint(3270, 3390, 0), "Talk to Chancy for the Liquid honey.");
+		goToVarrock = new DetailedQuestStep(this, new WorldPoint(3270, 3390, 0), t("Go speak to Hops, Da Vinci and Chancy in the pub in the south east of Varrock. If you lost any of the chemicals, return to Elena to get more."), plagueSample, touchPaper);
+		vinciVarrock = new NpcStep(this, NpcID.ARTIST2, new WorldPoint(3270, 3390, 0), t("Talk to Da Vinci for the Ethenea."));
+		hopsVarrock = new NpcStep(this, NpcID.DRUNK2, new WorldPoint(3270, 3390, 0), t("Talk to Hops for the Sulphuric Broline."));
+		chancyVarrock = new NpcStep(this, NpcID.GAMBLER2, new WorldPoint(3270, 3390, 0), t("Talk to Chancy for the Liquid honey."));
 		goToVarrock.addSubSteps(vinciVarrock, hopsVarrock, chancyVarrock);
 
-		talkToAsyff = new NpcStep(this, NpcID.TAILORP, new WorldPoint(3277, 3397, 0), "Talk to Asyff to get a free priest gown. You can only get the free set once.");
+		talkToAsyff = new NpcStep(this, NpcID.TAILORP, new WorldPoint(3277, 3397, 0), t("Talk to Asyff to get a free priest gown. You can only get the free set once."));
 		talkToAsyff.addDialogStep("Do you have a spare Priest Gown?");
-		talkToAsyffBuy = new NpcStep(this, NpcID.TAILORP, new WorldPoint(3277, 3397, 0), "Talk to Asyff and buy a priest gown set.", coinsForPriestSet);
+		talkToAsyffBuy = new NpcStep(this, NpcID.TAILORP, new WorldPoint(3277, 3397, 0), t("Talk to Asyff and buy a priest gown set."), coinsForPriestSet);
 		talkToAsyffBuy.addDialogStep("Okay, let's see what you've got then.");
 		talkToAsyffBuy.addWidgetHighlight(WidgetHighlight.createShopItemHighlight(ItemID.PRIEST_GOWN));
 		talkToAsyffBuy.addWidgetHighlight(WidgetHighlight.createShopItemHighlight(ItemID.PRIEST_ROBE));
 		talkToAsyff.addSubSteps(talkToAsyffBuy);
 
 		talkToGuidor = new NpcStep(this, NpcID.GUIDOR, new WorldPoint(3284, 3382, 0),
-			"Talk to Guidor in his house to the south.",
+			t("Talk to Guidor in his house to the south."),
 			priestGownBottomEquipped, priestGownTopEquipped, plagueSample, sulphuricBroline, liquidHoney, ethenea, touchPaper);
 		talkToGuidor.addDialogStep("I've come to ask your assistance in stopping a plague.");
 
 		returnToElenaAfterSampling = new NpcStep(this, NpcID.ELENA2_VIS, new WorldPoint(2592, 3336, 0),
-			"Return to Elena and inform her that the plague is a hoax.");
+			t("Return to Elena and inform her that the plague is a hoax."));
 
-		informTheKing = new NpcStep(this, NpcID.KINGLATHAS_VIS, new WorldPoint(2578, 3293, 1), "Tell King Lathas that the Plague is a hoax.");
-		informTheKingGoUpstairs = new ObjectStep(this, ObjectID.STAIRS, new WorldPoint(2572, 3296, 0), "Tell King Lathas that the Plague is a hoax.");
+		informTheKing = new NpcStep(this, NpcID.KINGLATHAS_VIS, new WorldPoint(2578, 3293, 1), t("Tell King Lathas that the Plague is a hoax."));
+		informTheKingGoUpstairs = new ObjectStep(this, ObjectID.STAIRS, new WorldPoint(2572, 3296, 0), t("Tell King Lathas that the Plague is a hoax."));
 		informTheKing.addSubSteps(informTheKingGoUpstairs);
 	}
 
@@ -389,7 +389,7 @@ public class Biohazard extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"Mourner (level 13)"
+			t("Mourner (level 13)")
 		);
 	}
 
@@ -430,8 +430,8 @@ public class Biohazard extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Full West Ardougne Access"),
-			new UnlockReward("Combat Training Camp Access")
+			new UnlockReward(t("Full West Ardougne Access")),
+			new UnlockReward(t("Combat Training Camp Access"))
 		);
 	}
 
@@ -440,13 +440,13 @@ public class Biohazard extends BasicQuestHelper
 	{
 		List<PanelDetails> sections = new ArrayList<>();
 
-		sections.add(new PanelDetails("Start the quest", List.of(
+		sections.add(new PanelDetails(t("Start the quest"), List.of(
 			talkToElena
 		), List.of(
 			gasMask
 		)));
 
-		sections.add(new PanelDetails("Getting back into West Ardougne", List.of(
+		sections.add(new PanelDetails(t("Getting back into West Ardougne"), List.of(
 			talkToJerico,
 			getBirdFeed,
 			getPigeonCage,
@@ -455,7 +455,7 @@ public class Biohazard extends BasicQuestHelper
 			talkToOmartToEnterWestArdougne
 		)));
 
-		sections.add(new PanelDetails("Getting the Distillator", List.of(
+		sections.add(new PanelDetails(t("Getting the Distillator"), List.of(
 			enterBackyardOfHeadquarters,
 			pickupRottenApple,
 			useRottenAppleOnCauldron,
@@ -469,9 +469,9 @@ public class Biohazard extends BasicQuestHelper
 		List<QuestStep> testingSteps = QuestUtil.toArrayList(talkToTheChemist);
 		testingSteps.addAll(giveChemicals.getDisplaySteps());
 		testingSteps.addAll(Arrays.asList(goToVarrock, talkToAsyff, talkToGuidor));
-		sections.add(new PanelDetails("Testing the plague sample", testingSteps, plagueSample, liquidHoney, ethenea, sulphuricBroline, touchPaper));
+		sections.add(new PanelDetails(t("Testing the plague sample"), testingSteps, plagueSample, liquidHoney, ethenea, sulphuricBroline, touchPaper));
 
-		sections.add(new PanelDetails("Revealing the truth", List.of(
+		sections.add(new PanelDetails(t("Revealing the truth"), List.of(
 			returnToElenaAfterSampling,
 			informTheKing
 		)));

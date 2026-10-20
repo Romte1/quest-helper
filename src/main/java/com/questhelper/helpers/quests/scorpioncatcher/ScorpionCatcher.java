@@ -137,7 +137,7 @@ public class ScorpionCatcher extends BasicQuestHelper
 		has80Agility = new SkillRequirement(Skill.AGILITY, 80, true);
 
 		dustyKey = new KeyringRequirement("Dusty Key", KeyringCollection.DUSTY_KEY).isNotConsumed();
-		dustyKey.setTooltip("Not needed if you have level 70 Agility, can be obtained during the quest");
+		dustyKey.setTooltip(t("Not needed if you have level 70 Agility, can be obtained during the quest"));
 		dustyKey.setConditionToHide(has70Agility);
 
 		jailKey = new ItemRequirement("Jail Key", ItemID.JAIL_KEY);
@@ -145,7 +145,7 @@ public class ScorpionCatcher extends BasicQuestHelper
 		scorpionCageMissingTaverley = new ItemRequirement("Scorpion Cage", ItemID.SCORPIONCAGEEMPTY);
 		// The 3 below cages are combos of cages without the taverley scorpion
 		scorpionCageMissingTaverley.addAlternates(ItemID.SCORPIONCAGEB, ItemID.SCORPIONCAGEBC, ItemID.SCORPIONCAGEC);
-		scorpionCageMissingTaverley.setTooltip("You can get another from Thormac");
+		scorpionCageMissingTaverley.setTooltip(t("You can get another from Thormac"));
 
 		scorpionCageMissingMonastery = new ItemRequirement("Scorpion Cage", ItemID.SCORPIONCAGEA);
 		scorpionCageMissingMonastery.addAlternates(ItemID.SCORPIONCAGEAB);
@@ -185,9 +185,9 @@ public class ScorpionCatcher extends BasicQuestHelper
 
 	private void setupSteps()
 	{
-		sorcerersTowerLadder0 = new ObjectStep(this, ObjectID.LADDER, new WorldPoint(2701, 3408, 0), "Climb to the top of the Sorcerer's Tower south of Seers' Village.");
-		sorcerersTowerLadder1 = new ObjectStep(this, ObjectID.LADDER, new WorldPoint(2704, 3403, 1), "Climb to the top of the Sorcerer's Tower south of Seers' Village.");
-		sorcerersTowerLadder2 = new ObjectStep(this, ObjectID.LADDER, new WorldPoint(2699, 3405, 2), "Climb to the top of the Sorcerer's Tower south of Seers' Village.");
+		sorcerersTowerLadder0 = new ObjectStep(this, ObjectID.LADDER, new WorldPoint(2701, 3408, 0), t("Climb to the top of the Sorcerer's Tower south of Seers' Village."));
+		sorcerersTowerLadder1 = new ObjectStep(this, ObjectID.LADDER, new WorldPoint(2704, 3403, 1), t("Climb to the top of the Sorcerer's Tower south of Seers' Village."));
+		sorcerersTowerLadder2 = new ObjectStep(this, ObjectID.LADDER, new WorldPoint(2699, 3405, 2), t("Climb to the top of the Sorcerer's Tower south of Seers' Village."));
 
 		goToTopOfTower = new ConditionalStep(this, sorcerersTowerLadder0);
 		goToTopOfTower.addStep(inSorcerersTower1, sorcerersTowerLadder1);
@@ -197,45 +197,45 @@ public class ScorpionCatcher extends BasicQuestHelper
 		speakToThormac.addDialogStep("What do you need assistance with?");
 		speakToThormac.addDialogStep("Yes.");
 
-		beginQuest = new ConditionalStep(this, goToTopOfTower, "Speak to Thormac on the top floor of the Sorcerer's Tower south of Seer's Village.");
+		beginQuest = new ConditionalStep(this, goToTopOfTower, t("Speak to Thormac on the top floor of the Sorcerer's Tower south of Seer's Village."));
 		beginQuest.addStep(inSorcerersTower3, speakToThormac);
 
-		speakToSeer1 = new NpcStep(this, NpcID.SEER, new WorldPoint(2710, 3484, 0), "Speak to a seer in Seer's Village.");
+		speakToSeer1 = new NpcStep(this, NpcID.SEER, new WorldPoint(2710, 3484, 0), t("Speak to a seer in Seer's Village."));
 		speakToSeer1.addDialogStep("I need to locate some scorpions.");
 		speakToSeer1.addDialogStep("Your friend Thormac sent me to speak to you.");
 
-		enterTaverleyDungeon = new ObjectStep(this, ObjectID.LADDER_OUTSIDE_TO_UNDERGROUND, new WorldPoint(2884, 3397, 0), "Go to Taverley Dungeon.", scorpionCageMissingTaverley, dustyKey);
+		enterTaverleyDungeon = new ObjectStep(this, ObjectID.LADDER_OUTSIDE_TO_UNDERGROUND, new WorldPoint(2884, 3397, 0), t("Go to Taverley Dungeon."), scorpionCageMissingTaverley, dustyKey);
 
-		goOverStrangeFloor = new ObjectStep(this, ObjectID.TAVERLY_DUNGEON_FLOOR_SPIKES_SC, new WorldPoint(2879, 9813, 0), "Go over the strange floor.");
+		goOverStrangeFloor = new ObjectStep(this, ObjectID.TAVERLY_DUNGEON_FLOOR_SPIKES_SC, new WorldPoint(2879, 9813, 0), t("Go over the strange floor."));
 
 		goThroughPipe = new ObjectStep(this, ObjectID.TAVERLY_DUNGEON_PIPE_SC, new WorldPoint(2888, 9799, 0),
-			"Squeeze through the obstacle pipe.");
+			t("Squeeze through the obstacle pipe."));
 		killJailerForKey = new NpcStep(this, NpcID.JAILER, new WorldPoint(2930, 9692, 0),
-			"Travel through Taverley Dungeon until you reach the Black Knights' Base. Kill the Jailer in the east side of the base for a jail key.");
-		pickUpJailKey = new ItemStep(this, "Pick up the jail key.", jailKey);
+			t("Travel through Taverley Dungeon until you reach the Black Knights' Base. Kill the Jailer in the east side of the base for a jail key."));
+		pickUpJailKey = new ItemStep(this, t("Pick up the jail key."), jailKey);
 		getDustyFromAdventurer = new NpcStep(this, NpcID.VELRAK_THE_EXPLORER, new WorldPoint(2930, 9685, 0),
-			"Use the jail key on the south door and talk to Velrak for a dusty key.", jailKey);
+			t("Use the jail key on the south door and talk to Velrak for a dusty key."), jailKey);
 		getDustyFromAdventurer.addDialogStep("So... do you know anywhere good to explore?");
 		getDustyFromAdventurer.addDialogStep("Yes please!");
 		enterDeeperTaverley = new ObjectStep(this, ObjectID.DEEPDUNGEONDOOR, new WorldPoint(2924, 9803, 0),
-			"Enter the gate to the deeper Taverley dungeon.", dustyKey);
+			t("Enter the gate to the deeper Taverley dungeon."), dustyKey);
 		enterTaverleyDungeon.addSubSteps(goThroughPipe, goOverStrangeFloor, killJailerForKey, pickUpJailKey, getDustyFromAdventurer, enterDeeperTaverley);
-		searchOldWall = new ObjectStep(this, ObjectID.SCORPIONWALL, new WorldPoint(2875, 9799, 0), "Search the Old wall.");
-		catchTaverleyScorpion = new NpcStep(this, NpcID.QUESTSCORPIONA, "Use the scorpion cage on the scorpion.", scorpionCageMissingTaverley.highlighted());
+		searchOldWall = new ObjectStep(this, ObjectID.SCORPIONWALL, new WorldPoint(2875, 9799, 0), t("Search the Old wall."));
+		catchTaverleyScorpion = new NpcStep(this, NpcID.QUESTSCORPIONA, t("Use the scorpion cage on the scorpion."), scorpionCageMissingTaverley.highlighted());
 		catchTaverleyScorpion.addIcon(ItemID.SCORPIONCAGEEMPTY);
 
-		enterMonastery = new ObjectStep(this, ObjectID.MONASTERYLADDER, new WorldPoint(3057, 3483, 0), "Enter the Edgeville Monastery.");
+		enterMonastery = new ObjectStep(this, ObjectID.MONASTERYLADDER, new WorldPoint(3057, 3483, 0), t("Enter the Edgeville Monastery."));
 		enterMonastery.addDialogStep("Well can I join your order?");
-		catchMonasteryScorpion = new NpcStep(this, NpcID.QUESTSCORPIONC, "Use the scorpion cage on the scorpion.", scorpionCageMissingMonastery.highlighted());
+		catchMonasteryScorpion = new NpcStep(this, NpcID.QUESTSCORPIONC, t("Use the scorpion cage on the scorpion."), scorpionCageMissingMonastery.highlighted());
 		catchMonasteryScorpion.addIcon(ItemID.SCORPIONCAGEEMPTY);
 
-		enterOutpost = new ObjectStep(this, ObjectID.BARBARIANGATEL, new WorldPoint(2545, 3570, 0), "Enter the Barbarian Outpost.");
-		catchOutpostScorpion = new NpcStep(this, NpcID.QUESTSCORPIONB, new WorldPoint(2553, 3570, 0), "Use the scorpion cage on the scorpion.", scorpionCageTaverleyAndMonastery.highlighted());
+		enterOutpost = new ObjectStep(this, ObjectID.BARBARIANGATEL, new WorldPoint(2545, 3570, 0), t("Enter the Barbarian Outpost."));
+		catchOutpostScorpion = new NpcStep(this, NpcID.QUESTSCORPIONB, new WorldPoint(2553, 3570, 0), t("Use the scorpion cage on the scorpion."), scorpionCageTaverleyAndMonastery.highlighted());
 		catchOutpostScorpion.addIcon(ItemID.SCORPIONCAGEEMPTY);
 
 		returnToThormac = new NpcStep(this, NpcID.THORMAC, "", scorpionCageFull);
 
-		finishQuest = new ConditionalStep(this, goToTopOfTower, "Return to Thormac to finish the quest.", scorpionCageFull);
+		finishQuest = new ConditionalStep(this, goToTopOfTower, t("Return to Thormac to finish the quest."), scorpionCageFull);
 		finishQuest.addStep(inSorcerersTower3, returnToThormac);
 	}
 
@@ -310,7 +310,7 @@ public class ScorpionCatcher extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"The ability to run past level 172 black demons and level 64 poison spiders"
+			t("The ability to run past level 172 black demons and level 64 poison spiders")
 		);
 	}
 
@@ -332,7 +332,7 @@ public class ScorpionCatcher extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Ability to have Thormac turn a Battlestaff into a Mystic Staff for 40,000 Coins.")
+			new UnlockReward(t("Ability to have Thormac turn a Battlestaff into a Mystic Staff for 40,000 Coins."))
 		);
 	}
 
@@ -341,11 +341,11 @@ public class ScorpionCatcher extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Talk to Thormac", List.of(
+		sections.add(new PanelDetails(t("Talk to Thormac"), List.of(
 			beginQuest
 		)));
 
-		sections.add(new PanelDetails("The first scorpion", List.of(
+		sections.add(new PanelDetails(t("The first scorpion"), List.of(
 			speakToSeer1,
 			enterTaverleyDungeon,
 			searchOldWall,
@@ -354,17 +354,17 @@ public class ScorpionCatcher extends BasicQuestHelper
 			dustyKey
 		)));
 
-		sections.add(new PanelDetails("The second scorpion", List.of(
+		sections.add(new PanelDetails(t("The second scorpion"), List.of(
 			enterMonastery,
 			catchMonasteryScorpion
 		)));
 
-		sections.add(new PanelDetails("The third scorpion", List.of(
+		sections.add(new PanelDetails(t("The third scorpion"), List.of(
 			enterOutpost,
 			catchOutpostScorpion
 		)));
 
-		sections.add(new PanelDetails("Finishing up", List.of(
+		sections.add(new PanelDetails(t("Finishing up"), List.of(
 			finishQuest
 		)));
 

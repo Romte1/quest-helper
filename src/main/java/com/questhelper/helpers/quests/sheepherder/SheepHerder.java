@@ -137,11 +137,11 @@ public class SheepHerder extends BasicQuestHelper
 		energyRestore = new ItemRequirement("Energy restoring items", ItemCollections.RUN_RESTORE_ITEMS);
 
 		sheepFeed = new ItemRequirement("Sheep feed", ItemID.POISONED_FEED);
-		sheepFeed.setTooltip("You can get more from Halgrive");
+		sheepFeed.setTooltip(t("You can get more from Halgrive"));
 		plagueJacket = new ItemRequirement("Plague jacket", ItemID.PLAGUE_JACKET);
-		plagueJacket.setTooltip("You can buy another from Doctor Orbon for 100 coins");
+		plagueJacket.setTooltip(t("You can buy another from Doctor Orbon for 100 coins"));
 		plagueTrousers = new ItemRequirement("Plague trousers", ItemID.PLAGUE_TROUSERS);
-		plagueTrousers.setTooltip("You can buy another from Doctor Orbon for 100 coins");
+		plagueTrousers.setTooltip(t("You can buy another from Doctor Orbon for 100 coins"));
 		cattleprod = new ItemRequirement("Cattle prod", ItemID.CATTLEPROD);
 		redSheepBones = new ItemRequirement("Sheep bones 1", ItemID.SHEEPBONESA);
 		greenSheepBones = new ItemRequirement("Sheep bones 2", ItemID.SHEEPBONESB);
@@ -179,51 +179,51 @@ public class SheepHerder extends BasicQuestHelper
 	public void setupSteps()
 	{
 		talkToHalgrive = new NpcStep(this, NpcID.COUNCILLOR_HALGRIVE_VIS, new WorldPoint(2615, 3298, 0),
-			"Talk to Councillor Halgrive outside the East Ardougne church.");
+			t("Talk to Councillor Halgrive outside the East Ardougne church."));
 		talkToHalgrive.addDialogSteps("What's wrong?", "Yes.");
 
 		talkToOrbon = new NpcStep(this, NpcID.DOCTOR_ORBON, new WorldPoint(2616, 3306, 0),
-			"Talk to Doctor Orbon in the East Ardougne Church.", coins100);
+			t("Talk to Doctor Orbon in the East Ardougne Church."), coins100);
 		talkToOrbon.addDialogStep("Okay, I'll take it.");
 
 		enterEnclosure = new ObjectStep(this, ObjectID.PLAGUESHEEP_GATEL, new WorldPoint(2594, 3362, 0),
-			"Enter the enclosure north of Ardougne wearing the plague jacket and trousers.", plagueJacket.equipped(), plagueTrousers.equipped());
+			t("Enter the enclosure north of Ardougne wearing the plague jacket and trousers."), plagueJacket.equipped(), plagueTrousers.equipped());
 
-		pickupCattleprod = new ItemStep(this, new WorldPoint(2604, 3357, 0), "Pick up the nearby cattleprod.",
+		pickupCattleprod = new ItemStep(this, new WorldPoint(2604, 3357, 0), t("Pick up the nearby cattleprod."),
 			cattleprod);
 		prodBlueSheep = new NpcStep(this, NpcID.HERDER_PLAGUESHEEP_3, new WorldPoint(2562, 3389, 0),
-			"Prod one of the blue sheep north west of the enclosure to the enclosure gate.",
+			t("Prod one of the blue sheep north west of the enclosure to the enclosure gate."),
 			true, cattleprod.equipped(), plagueJacket.equipped(), plagueTrousers.equipped());
 		prodBlueSheep.addTileMarker(new QuestTile(new WorldPoint(2594, 3362, 0)));
 		prodYellowSheep = new NpcStep(this, NpcID.HERDER_PLAGUESHEEP_4, new WorldPoint(2610, 3389, 0),
-			"Prod one of the yellow sheep north of the enclosure to the enclosure gate.",
+			t("Prod one of the yellow sheep north of the enclosure to the enclosure gate."),
 			true, cattleprod.equipped(), plagueJacket.equipped(), plagueTrousers.equipped());
 		prodYellowSheep.addTileMarker(new QuestTile(new WorldPoint(2594, 3362, 0)));
 		prodGreenSheep = new NpcStep(this, NpcID.HERDER_PLAGUESHEEP_2, new WorldPoint(2621, 3367, 0),
-			"Prod one of the green sheep east of the enclosure to the enclosure gate.",
+			t("Prod one of the green sheep east of the enclosure to the enclosure gate."),
 			true, cattleprod.equipped(), plagueJacket.equipped(), plagueTrousers.equipped());
 		prodGreenSheep.addTileMarker(new QuestTile(new WorldPoint(2594, 3362, 0)));
 		prodRedSheep = new NpcStep(this, NpcID.HERDER_PLAGUESHEEP_1, new WorldPoint(2609, 3347, 0),
-			"Prod one of the red sheep south east of the enclosure to the enclosure gate.",
+			t("Prod one of the red sheep south east of the enclosure to the enclosure gate."),
 			true, cattleprod.equipped(), plagueJacket.equipped(), plagueTrousers.equipped());
 		prodRedSheep.addTileMarker(new QuestTile(new WorldPoint(2594, 3362, 0)));
 
-		pickupBones = new ItemStep(this, "Pick up the bones.", redSheepBones.hideConditioned(redSheepHasBones),
+		pickupBones = new ItemStep(this, t("Pick up the bones."), redSheepBones.hideConditioned(redSheepHasBones),
 			greenSheepBones.hideConditioned(greenSheepHasBones), blueSheepBones.hideConditioned(blueSheepHasBones),
 			yellowSheepBones.hideConditioned(yellowSheepHasBones));
 		feedSheep = new NpcStep(this, NpcID.HERDER_PLAGUESHEEP_3, new WorldPoint(2597, 3361, 0),
-			"Feed the sheep the sheep feed.", true, sheepFeed.highlighted());
+			t("Feed the sheep the sheep feed."), true, sheepFeed.highlighted());
 		feedSheep.addIcon(ItemID.POISONED_FEED);
 		feedSheep.setMaxRoamRange(3);
 		feedSheep.addAlternateNpcs(NpcID.HERDER_PLAGUESHEEP_2, NpcID.HERDER_PLAGUESHEEP_1, NpcID.HERDER_PLAGUESHEEP_4);
 
 		useBonesOnIncinerator = new ObjectStep(this, ObjectID.PLAGUESHEEP_FURNACE, new WorldPoint(2607, 3361, 0),
-			"Pick up the bones and incinerate them.", redSheepBones.highlighted().hideConditioned(redSheepBurned),
+			t("Pick up the bones and incinerate them."), redSheepBones.highlighted().hideConditioned(redSheepBurned),
 			greenSheepBones.highlighted().hideConditioned(greenSheepBurned), blueSheepBones.highlighted().hideConditioned(blueSheepBurned),
 			yellowSheepBones.highlighted().hideConditioned(yellowSheepBurned));
 		useBonesOnIncinerator.addIcon(ItemID.SHEEPBONESA);
 		talkToHalgriveToFinish = new NpcStep(this, NpcID.COUNCILLOR_HALGRIVE_VIS, new WorldPoint(2615, 3298, 0),
-			"Return to Councillor Halgrive.");
+			t("Return to Councillor Halgrive."));
 	}
 
 	@Override
@@ -289,14 +289,14 @@ public class SheepHerder extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Starting out", List.of(
+		sections.add(new PanelDetails(t("Starting out"), List.of(
 			talkToHalgrive,
 			talkToOrbon
 		), List.of(
 			coins100
 		)));
 
-		sections.add(new PanelDetails("Killing sheep", List.of(
+		sections.add(new PanelDetails(t("Killing sheep"), List.of(
 			enterEnclosure,
 			pickupCattleprod,
 			prodBlueSheep,

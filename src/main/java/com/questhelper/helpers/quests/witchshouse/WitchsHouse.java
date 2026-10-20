@@ -171,45 +171,45 @@ public class WitchsHouse extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToBoy = new NpcStep(this, NpcID.BALLBOY, new WorldPoint(2928, 3456, 0), "Talk to the Boy in Taverley to start the quest.");
+		talkToBoy = new NpcStep(this, NpcID.BALLBOY, new WorldPoint(2928, 3456, 0), t("Talk to the Boy in Taverley to start the quest."));
 		talkToBoy.addDialogSteps("What's the matter?", "Ok, I'll see what I can do.", "Yes.");
 
-		getKey = new ObjectStep(this, ObjectID.WITCHPOT, new WorldPoint(2900, 3474, 0), "Look under the potted plant just outside the witch's house for the house key.");
+		getKey = new ObjectStep(this, ObjectID.WITCHPOT, new WorldPoint(2900, 3474, 0), t("Look under the potted plant just outside the witch's house for the house key."));
 
-		enterHouse = new ObjectStep(this, ObjectID.WITCHHOUSEDOOR, new WorldPoint(2900, 3473, 0), "Enter the witch's house.", houseKey);
-		goDownstairsFromTop = new ObjectStep(this, ObjectID.GRIM_WITCH_HOUSE_SPOOKYSTAIRSTOP, new WorldPoint(2907, 3471, 1), "Go back downstairs.");
+		enterHouse = new ObjectStep(this, ObjectID.WITCHHOUSEDOOR, new WorldPoint(2900, 3473, 0), t("Enter the witch's house."), houseKey);
+		goDownstairsFromTop = new ObjectStep(this, ObjectID.GRIM_WITCH_HOUSE_SPOOKYSTAIRSTOP, new WorldPoint(2907, 3471, 1), t("Go back downstairs."));
 		enterHouse.addSubSteps(goDownstairsFromTop);
 
-		goDownstairs = new ObjectStep(this, ObjectID.GRIM_WITCH_LADDER_DOWN, new WorldPoint(2907, 3476, 0), "Go down the ladder to the basement.");
+		goDownstairs = new ObjectStep(this, ObjectID.GRIM_WITCH_LADDER_DOWN, new WorldPoint(2907, 3476, 0), t("Go down the ladder to the basement."));
 
-		enterGate = new ObjectStep(this, ObjectID.SHOCKGATER, new WorldPoint(2902, 9873, 0), "Go through the gate whilst wearing gloves. If you don't have gloves, search the nearby boxes until you get a pair.", leatherGloves);
+		enterGate = new ObjectStep(this, ObjectID.SHOCKGATER, new WorldPoint(2902, 9873, 0), t("Go through the gate whilst wearing gloves. If you don't have gloves, search the nearby boxes until you get a pair."), leatherGloves);
 
-		openCupboardAndLoot = new ObjectStep(this, ObjectID.MAGNETCBSHUT, new WorldPoint(2898, 9874, 0), "Open the cupboard and get a magnet from it");
-		openCupboardAndLoot2 = new ObjectStep(this, ObjectID.MAGNETCBOPEN, new WorldPoint(2898, 9874, 0), "Open the cupboard and get a magnet from it");
+		openCupboardAndLoot = new ObjectStep(this, ObjectID.MAGNETCBSHUT, new WorldPoint(2898, 9874, 0), t("Open the cupboard and get a magnet from it"));
+		openCupboardAndLoot2 = new ObjectStep(this, ObjectID.MAGNETCBOPEN, new WorldPoint(2898, 9874, 0), t("Open the cupboard and get a magnet from it"));
 		openCupboardAndLoot.addSubSteps(openCupboardAndLoot2);
 
-		goBackUpstairs = new ObjectStep(this, ObjectID.GRIM_WITCH_LADDER_UP, new WorldPoint(2907, 9876, 0), "Climb back up the ladder.");
-		useCheeseOnHole = new ObjectStep(this, ObjectID.WITCHMOUSEHOLE, new WorldPoint(2903, 3466, 0), "Use the cheese on the mouse hole in the south room, then use the magnet on the mouse which emerges.", cheese, magnet);
+		goBackUpstairs = new ObjectStep(this, ObjectID.GRIM_WITCH_LADDER_UP, new WorldPoint(2907, 9876, 0), t("Climb back up the ladder."));
+		useCheeseOnHole = new ObjectStep(this, ObjectID.WITCHMOUSEHOLE, new WorldPoint(2903, 3466, 0), t("Use the cheese on the mouse hole in the south room, then use the magnet on the mouse which emerges."), cheese, magnet);
 
 		witchesDiary = new ItemRequirement("Witch's diary", ItemID.WITCHES_DIARY);
 
-		readDiary = new ItemStep(this, "Pick up the witch's diary from the table and read it to ensure the door stays unlocked. Check the \"Checkpoint\" section if you want to skip this step.", witchesDiary);
+		readDiary = new ItemStep(this, t("Pick up the witch's diary from the table and read it to ensure the door stays unlocked. Check the \"Checkpoint\" section if you want to skip this step."), witchesDiary);
 
-		searchFountain = new ObjectStep(this, ObjectID.WITCHFOUNTAIN, new WorldPoint(2910, 3471, 0), "Enter the garden and sneak around the perimeter to search the fountain. If the witch spots you, you'll be teleported outside.");
-		enterShed = new ObjectStep(this, ObjectID.WITCHSHEDDOOR, new WorldPoint(2934, 3463, 0), "Use the shed key on the shed door to enter.", shedKey);
+		searchFountain = new ObjectStep(this, ObjectID.WITCHFOUNTAIN, new WorldPoint(2910, 3471, 0), t("Enter the garden and sneak around the perimeter to search the fountain. If the witch spots you, you'll be teleported outside."));
+		enterShed = new ObjectStep(this, ObjectID.WITCHSHEDDOOR, new WorldPoint(2934, 3463, 0), t("Use the shed key on the shed door to enter."), shedKey);
 		// NOTE: Testing 2025-09-20, it seems like the door does _not_ stay unlocked. I'm not sure if this is a temporary bug, so I'm leaving this state checking as is, and just adding text that makes sure the user knows to get the shed key from the fountain.
-		enterShedWithoutKey = new ObjectStep(this, ObjectID.WITCHSHEDDOOR, new WorldPoint(2934, 3463, 0), "Enter the shed. If the door doesn't open, you need to get the shed key from the fountain again.");
+		enterShedWithoutKey = new ObjectStep(this, ObjectID.WITCHSHEDDOOR, new WorldPoint(2934, 3463, 0), t("Enter the shed. If the door doesn't open, you need to get the shed key from the fountain again."));
 		enterShed.addSubSteps(enterShedWithoutKey);
 		enterShed.addIcon(ItemID.WITCHES_SHEDKEY);
 
-		grabBall = new DetailedQuestStep(this, new WorldPoint(2936, 3470, 0), "If an experiment hasn't spawned, attempt to pick up the ball once.", ball);
-		killWitchsExperiment = new NpcStep(this, NpcID.SHAPESHIFTERGLOB, new WorldPoint(2935, 3463, 0), "Kill all four forms of the Witch's experiment (levels 19, 30, 42, and 53). You can safe spot the last two forms from the crate in the south of the room.");
+		grabBall = new DetailedQuestStep(this, new WorldPoint(2936, 3470, 0), t("If an experiment hasn't spawned, attempt to pick up the ball once."), ball);
+		killWitchsExperiment = new NpcStep(this, NpcID.SHAPESHIFTERGLOB, new WorldPoint(2935, 3463, 0), t("Kill all four forms of the Witch's experiment (levels 19, 30, 42, and 53). You can safe spot the last two forms from the crate in the south of the room."));
 		killWitchsExperiment.addAlternateNpcs(NpcID.SHAPESHIFTERSPIDER, NpcID.SHAPESHIFTERBEAR, NpcID.SHAPESHIFTERWOLF);
 		killWitchsExperiment.addSubSteps(grabBall);
 		killWitchsExperiment.addSafeSpots(new WorldPoint(2936, 3459, 0));
 
-		pickupBall = new ItemStep(this, new WorldPoint(2935, 3460, 0), "Pick up the ball.", ball);
-		returnToBoy = new NpcStep(this, NpcID.BALLBOY, new WorldPoint(2928, 3456, 0), "Return the ball to the boy. Make sure the witch doesn't spot you or you'll have to get the ball back again..");
+		pickupBall = new ItemStep(this, new WorldPoint(2935, 3460, 0), t("Pick up the ball."), ball);
+		returnToBoy = new NpcStep(this, NpcID.BALLBOY, new WorldPoint(2928, 3456, 0), t("Return the ball to the boy. Make sure the witch doesn't spot you or you'll have to get the ball back again.."));
 	}
 
 	@Override
@@ -288,7 +288,7 @@ public class WitchsHouse extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"Witch's experiment (level 19, 30, 42 and 53)"
+			t("Witch's experiment (level 19, 30, 42 and 53)")
 		);
 	}
 
@@ -311,7 +311,7 @@ public class WitchsHouse extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Start the quest", List.of(
+		sections.add(new PanelDetails(t("Start the quest"), List.of(
 			talkToBoy
 		), List.of(
 			cheese,
@@ -319,7 +319,7 @@ public class WitchsHouse extends BasicQuestHelper
 			armourAndWeapon
 		)));
 
-		sections.add(new PanelDetails("Accessing the garden", List.of(
+		sections.add(new PanelDetails(t("Accessing the garden"), List.of(
 			getKey,
 			enterHouse,
 			goDownstairs,
@@ -329,7 +329,7 @@ public class WitchsHouse extends BasicQuestHelper
 			useCheeseOnHole
 		)));
 
-		var checkpoint = new PanelDetails("Checkpoint", List.of(
+		var checkpoint = new PanelDetails(t("Checkpoint"), List.of(
 			readDiary
 		));
 		checkpoint.setLockingStep(readDiary);
@@ -337,7 +337,7 @@ public class WitchsHouse extends BasicQuestHelper
 		checkpoint.setVars(0, 1, 2, 3, 4);
 		sections.add(checkpoint);
 
-		sections.add(new PanelDetails("Defeat the witch's experiment", List.of(
+		sections.add(new PanelDetails(t("Defeat the witch's experiment"), List.of(
 			searchFountain,
 			enterShed,
 			killWitchsExperiment,

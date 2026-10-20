@@ -111,22 +111,22 @@ public class RFDDwarf extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		coins320 = new ItemRequirement("Coins", ItemCollections.COINS, 320);
-		coins320.setTooltip("You only need 120 if you wear a Ring of Charos(a)");
+		coins320.setTooltip(t("You only need 120 if you wear a Ring of Charos(a)"));
 		coins100 = new ItemRequirement("Coins", ItemCollections.COINS, 100);
 		milk = new ItemRequirement("Bucket of milk", ItemID.BUCKET_MILK);
-		milk.setTooltip("You can buy this from the  Culinaromancer's Chest");
+		milk.setTooltip(t("You can buy this from the  Culinaromancer's Chest"));
 		flour = new ItemRequirement("Pot of flour", ItemID.POT_FLOUR);
-		flour.setTooltip("You can buy this from the  Culinaromancer's Chest");
+		flour.setTooltip(t("You can buy this from the  Culinaromancer's Chest"));
 		egg = new ItemRequirement("Egg", ItemID.EGG);
-		egg.setTooltip("You can buy this from the  Culinaromancer's Chest");
+		egg.setTooltip(t("You can buy this from the  Culinaromancer's Chest"));
 		bowlOfWater = new ItemRequirement("Bowl of water", ItemID.BOWL_WATER);
-		bowlOfWater.setTooltip("You can find a bowl in Lumbridge Castle's Basement and fill it in the nearby sink");
+		bowlOfWater.setTooltip(t("You can find a bowl in Lumbridge Castle's Basement and fill it in the nearby sink"));
 		asgarniaAle4 = new ItemRequirement("Asgarnian ale", ItemID.ASGARNIAN_ALE, 4);
-		asgarniaAle4.setTooltip("You can buy them for 3 coins each from Kaylee during the quest");
+		asgarniaAle4.setTooltip(t("You can buy them for 3 coins each from Kaylee during the quest"));
 		iceGloves = new ItemRequirement("Ice gloves/smiths gloves(i)/normal gloves/telekinetic grab", ItemID.ICE_GLOVES).isNotConsumed();
 		iceGloves.addAlternates(ItemID.LEATHER_GLOVES, ItemID.SMITHING_UNIFORM_GLOVES_ICE);
-		iceGloves.setTooltip("You can use normal gloves/telekenetic grab instead, but you'll then need to kill an Ice " +
-			"Fiend");
+		iceGloves.setTooltip(t("You can use normal gloves/telekenetic grab instead, but you'll then need to kill an Ice " +
+			"Fiend"));
 		rockCake = new ItemRequirement("Dwarven rock cake", ItemID.HUNDRED_DWARF_COOL_ROCKCAKE);
 		rockCakeHighlighted = new ItemRequirement("Dwarven rock cake", ItemID.HUNDRED_DWARF_COOL_ROCKCAKE);
 		rockCakeHighlighted.setHighlightInInventory(true);
@@ -169,44 +169,44 @@ public class RFDDwarf extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		enterDiningRoom = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOUBLEDOORL, new WorldPoint(3213, 3221, 0), "Go inspect " +
-			"the dwarf.");
-		inspectDwarf = new ObjectStep(this, ObjectID.HUNDRED_DWARF_AMBASSADOR_BASE, new WorldPoint(1862, 5321, 0), "Inspect the dwarf.");
+		enterDiningRoom = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOUBLEDOORL, new WorldPoint(3213, 3221, 0), t("Go inspect " +
+			"the dwarf."));
+		inspectDwarf = new ObjectStep(this, ObjectID.HUNDRED_DWARF_AMBASSADOR_BASE, new WorldPoint(1862, 5321, 0), t("Inspect the dwarf."));
 		inspectDwarf.addSubSteps(enterDiningRoom);
 
-		talkToKaylee = new NpcStep(this, NpcID.RISINGSUN_BARMAID2, new WorldPoint(2957, 3371, 0), "Talk to Kaylee in the pub in " +
-			"Falador.", coins320);
+		talkToKaylee = new NpcStep(this, NpcID.RISINGSUN_BARMAID2, new WorldPoint(2957, 3371, 0), t("Talk to Kaylee in the pub in " +
+			"Falador."), coins320);
 		talkToKaylee.addDialogSteps("What can you tell me about dwarves and ale?", "I could offer you some in return," +
 			" how about 200 gold?");
 		talkToKaylee.addTeleport(teleportFalador);
 
-		makeAle = new DetailedQuestStep(this, "Add coins to asgarnian ale to make 4 asgoldian ale. You can buy ale " +
-			"from Kaylee for 3gp each.", coin, asgarnianAle);
-		enterTunnels = new ObjectStep(this, ObjectID.TUNNELSTAIRSTOP2, new WorldPoint(2877, 3481, 0), "Enter the tunnel " +
-			"under White Wolf Mountain.", asgoldianAle4, milk, flour, egg, bowlOfWater, iceGloves);
+		makeAle = new DetailedQuestStep(this, t("Add coins to asgarnian ale to make 4 asgoldian ale. You can buy ale " +
+			"from Kaylee for 3gp each."), coin, asgarnianAle);
+		enterTunnels = new ObjectStep(this, ObjectID.TUNNELSTAIRSTOP2, new WorldPoint(2877, 3481, 0), t("Enter the tunnel " +
+			"under White Wolf Mountain."), asgoldianAle4, milk, flour, egg, bowlOfWater, iceGloves);
 		enterTunnels.addTeleport(taverleyTeleport);
 		talkToOldDwarf = new GetRohakDrunk(this, asgoldianAle4);
 		talkToOldDwarfMore = new NpcStep(this, NpcID.HUNDRED_DWARF_DAD_DRUNK, new WorldPoint(2865, 9876, 0),
-			"Talk to Rohak more.", coins100, milk, flour, egg, bowlOfWater);
+			t("Talk to Rohak more."), coins100, milk, flour, egg, bowlOfWater);
 
 		talkToOldDwarfWithIngredients = new NpcStep(this, NpcID.HUNDRED_DWARF_DAD_DRUNK, new WorldPoint(2865, 9876, 0),
-			"Talk to Rohak more.", milk, flour, egg, bowlOfWater);
+			t("Talk to Rohak more."), milk, flour, egg, bowlOfWater);
 		talkToOldDwarfMore.addSubSteps(talkToOldDwarfWithIngredients);
 
-		pickUpRockCake = new ItemStep(this, "Pick up the dwarven rock cake. If you have ice gloves, wear them to pick" +
+		pickUpRockCake = new ItemStep(this, t("Pick up the dwarven rock cake. If you have ice gloves, wear them to pick" +
 			" it up. Otherwise, wear other gloves or telegrab it. If it despawns you'll need to bring Rohak more " +
-			"ingredients.",	rockCakeHot);
+			"ingredients."),	rockCakeHot);
 		coolRockCake = new NpcStep(this, NpcID.GODWARS_ICEFIEND_1, new WorldPoint(3008, 3471, 0),
-			"Kill an icefiend to cool the rock cake.", rockCakeHot);
+			t("Kill an icefiend to cool the rock cake."), rockCakeHot);
 		coolRockCakeSidebar = new NpcStep(this, NpcID.GODWARS_ICEFIEND_1, new WorldPoint(3008, 3471, 0),
-			"If you didn't pick up the rock cake with ice gloves, kill an icefiend to cool the rock cake.",
+			t("If you didn't pick up the rock cake with ice gloves, kill an icefiend to cool the rock cake."),
 			rockCakeHot);
 		coolRockCakeSidebar.addSubSteps(coolRockCake);
 		enterDiningRoomAgain = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOUBLEDOORL, new WorldPoint(3213, 3221, 0),
-			"Go use the dwarven rock cake on the dwarf.");
+			t("Go use the dwarven rock cake on the dwarf."));
 		enterDiningRoomAgain.addTeleport(teleportLumbridge);
 		useRockCakeOnDwarf = new ObjectStep(this, ObjectID.HUNDRED_DWARF_AMBASSADOR_BASE, new WorldPoint(1862, 5321, 0),
-			"Use the dwarven rock cake on the dwarf.", rockCakeHighlighted);
+			t("Use the dwarven rock cake on the dwarf."), rockCakeHighlighted);
 		useRockCakeOnDwarf.addIcon(ItemID.HUNDRED_DWARF_COOL_ROCKCAKE);
 		useRockCakeOnDwarf.addSubSteps(enterDiningRoomAgain);
 	}
@@ -227,7 +227,7 @@ public class RFDDwarf extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Icefiend if you don't have Ice Gloves");
+		return Collections.singletonList(t("Icefiend if you don't have Ice Gloves"));
 	}
 
 	@Override
@@ -264,14 +264,14 @@ public class RFDDwarf extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("Increased access to the Culinaromancer's Chest"));
+		return Collections.singletonList(new UnlockReward(t("Increased access to the Culinaromancer's Chest")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Saving the Dwarf", Arrays.asList(inspectDwarf, talkToKaylee,
+		allSteps.add(new PanelDetails(t("Saving the Dwarf"), Arrays.asList(inspectDwarf, talkToKaylee,
 			makeAle, enterTunnels, talkToOldDwarf, talkToOldDwarfMore, pickUpRockCake, coolRockCakeSidebar,
 			useRockCakeOnDwarf),
 			coins320, milk, flour, egg, bowlOfWater, asgarniaAle4, iceGloves));

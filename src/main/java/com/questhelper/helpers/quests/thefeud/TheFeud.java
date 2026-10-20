@@ -305,36 +305,36 @@ public class TheFeud extends BasicQuestHelper
 	{
 		//Step 0-1
 		//Start Quest & Purchase Disguise
-		startQuest = new NpcStep(this, NpcID.FEUD_ALI_M, new WorldPoint(3304, 3211, 0), "Talk to Ali Morrisane in Al Kharid to start the quest.");
+		startQuest = new NpcStep(this, NpcID.FEUD_ALI_M, new WorldPoint(3304, 3211, 0), t("Talk to Ali Morrisane in Al Kharid to start the quest."));
 		startQuest.addDialogStep("Are you really the greatest salesman in the world?");
 		startQuest.addDialogStep("I'd like to help you, but...");
 		startQuest.addDialogStep("Yes.");
 
-		buyDisguiseGear = new NpcStep(this, NpcID.FEUD_ALI_M, new WorldPoint(3304, 3211, 0), "Buy a Kharidian Headpiece and a Fake Beard to create a disguise.", unspecifiedCoins);
+		buyDisguiseGear = new NpcStep(this, NpcID.FEUD_ALI_M, new WorldPoint(3304, 3211, 0), t("Buy a Kharidian Headpiece and a Fake Beard to create a disguise."), unspecifiedCoins);
 		buyDisguiseGear.addDialogStep("Okay.");
 
-		createDisguise = new DetailedQuestStep(this, "Create a disguise by using the Kharidian Headpiece on the Fake Beard.", headPiece, fakeBeard);
+		createDisguise = new DetailedQuestStep(this, t("Create a disguise by using the Kharidian Headpiece on the Fake Beard."), headPiece, fakeBeard);
 
 		//To Pollnivneach
-		goToShantay = new ObjectStep(this, ObjectID.SHANTAY_PASS_HENGE_DOORWAY, new WorldPoint(3304, 3116, 0), "Go through Shantay Pass.", shantayPass);
-		buyShantayPass = new NpcStep(this, NpcID.SHANTAY, new WorldPoint(3303, 3122, 0), "Buy a shantay pass from Shantay.", unspecifiedCoins);
+		goToShantay = new ObjectStep(this, ObjectID.SHANTAY_PASS_HENGE_DOORWAY, new WorldPoint(3304, 3116, 0), t("Go through Shantay Pass."), shantayPass);
+		buyShantayPass = new NpcStep(this, NpcID.SHANTAY, new WorldPoint(3303, 3122, 0), t("Buy a shantay pass from Shantay."), unspecifiedCoins);
 
-		talkToRugMerchant = new NpcStep(this, NpcID.MAGIC_CARPET_SELLER1, new WorldPoint(3311, 3109, 0),"Talk to the rug merchant and travel to Pollnivneach via magic carpet.", unspecifiedCoins);
+		talkToRugMerchant = new NpcStep(this, NpcID.MAGIC_CARPET_SELLER1, new WorldPoint(3311, 3109, 0),t("Talk to the rug merchant and travel to Pollnivneach via magic carpet."), unspecifiedCoins);
 		talkToRugMerchant.addDialogStep("Pollnivneach");
 
 
 		//Drunken Ali
-		drunkenAli = new NpcStep(this, NpcID.FEUD_DRUNKEN_ALI, new WorldPoint(3360, 2957, 0), "Buy 3 beers from the bartender and use them on Drunken Ali to get him to explain where his son is. Talk with him between beers", beer);
+		drunkenAli = new NpcStep(this, NpcID.FEUD_DRUNKEN_ALI, new WorldPoint(3360, 2957, 0), t("Buy 3 beers from the bartender and use them on Drunken Ali to get him to explain where his son is. Talk with him between beers"), beer);
 		drunkenAli.addIcon(ItemID.BEER);
 
 		//Step 2
 		//Find Beef
-		talkToThug = new NpcStep(this, NpcID.FEUD_EGYPTIAN_DOORMAN_1, new WorldPoint(3347, 2955, 0), "Talk to a Menaphite Thug to figure out how their dispute started with the bandits.", true);
-		talkToBandit = new NpcStep(this, NpcID.FEUD_ARABIAN_GUARD1_1, new WorldPoint(3362, 2993, 0),"Talk to a bandit to figure out their issues with the Menaphites.", true);
+		talkToThug = new NpcStep(this, NpcID.FEUD_EGYPTIAN_DOORMAN_1, new WorldPoint(3347, 2955, 0), t("Talk to a Menaphite Thug to figure out how their dispute started with the bandits."), true);
+		talkToBandit = new NpcStep(this, NpcID.FEUD_ARABIAN_GUARD1_1, new WorldPoint(3362, 2993, 0),t("Talk to a bandit to figure out their issues with the Menaphites."), true);
 
 		//Step 3
 		//Buy Camels
-		talkToCamelman = new NpcStep(this, NpcID.FEUD_ALI_THE_DISCOUNT_CAMEL_SELLER, new WorldPoint(3350, 2966, 0), "Talk to Ali the Camel Man to try and get two camels to solve the dispute");
+		talkToCamelman = new NpcStep(this, NpcID.FEUD_ALI_THE_DISCOUNT_CAMEL_SELLER, new WorldPoint(3350, 2966, 0), t("Talk to Ali the Camel Man to try and get two camels to solve the dispute"));
 		talkToCamelman.addDialogStep("Are those camels around the side for sale?");
 		talkToCamelman.addDialogStep("What price do you want for both of them?");
 		talkToCamelman.addDialogStep("Would 500 gold coins for the pair of them do?");
@@ -342,132 +342,132 @@ public class TheFeud extends BasicQuestHelper
 
 		//Step 4
 		//Return Camels
-		talkToBanditReturnedCamel = new NpcStep(this, NpcID.FEUD_ARABIAN_GUARD1_1, new WorldPoint(3362, 2993, 0),"Tell the bandits that the Menaphites have agreed to return the camel.", true);
-		talkToMenaphiteReturnedCamel = new NpcStep(this, NpcID.FEUD_EGYPTIAN_DOORMAN_1, new WorldPoint(3347, 2955, 0), "Tell the Menaphites that the bandits have agreed to return the camel.", true);
+		talkToBanditReturnedCamel = new NpcStep(this, NpcID.FEUD_ARABIAN_GUARD1_1, new WorldPoint(3362, 2993, 0),t("Tell the bandits that the Menaphites have agreed to return the camel."), true);
+		talkToMenaphiteReturnedCamel = new NpcStep(this, NpcID.FEUD_EGYPTIAN_DOORMAN_1, new WorldPoint(3347, 2955, 0), t("Tell the Menaphites that the bandits have agreed to return the camel."), true);
 
 		//Step 5
 		//Get First Job
-		talkToAliTheOperator = new NpcStep(this, NpcID.FEUD_EGYPTIAN_MINDER, new WorldPoint(3332, 2948, 0),"Talk to Ali the Operator to get a job from him.");
+		talkToAliTheOperator = new NpcStep(this, NpcID.FEUD_EGYPTIAN_MINDER, new WorldPoint(3332, 2948, 0),t("Talk to Ali the Operator to get a job from him."));
 		talkToAliTheOperator.addDialogStep("Yes, of course, those bandits should be taught a lesson.");
 
 		//Step 6
 		//Pickpocket Villager
-		pickpocketVillager = new NpcStep(this, NpcID.FEUD_VILLAGER_1_1, new WorldPoint(3356, 2962, 0), "Pickpocket a villager.", true);
+		pickpocketVillager = new NpcStep(this, NpcID.FEUD_VILLAGER_1_1, new WorldPoint(3356, 2962, 0), t("Pickpocket a villager."), true);
 		pickpocketVillager.setHideWorldArrow(true);
 		pickpocketVillager.addAlternateNpcs(NpcID.FEUD_VILLAGER_2_1, NpcID.FEUD_VILLAGER_3_1);
 
 		//Step 7 -> 8
 		//Pickpocket with Urchin
-		pickPocketVillagerWithUrchin = new NpcStep(this, NpcID.FEUD_STREET_URCHIN, "Lure a villager then talk to a street urchin and get them to distract a villager, once he has them distracted pickpocket them from behind.", true);
+		pickPocketVillagerWithUrchin = new NpcStep(this, NpcID.FEUD_STREET_URCHIN, t("Lure a villager then talk to a street urchin and get them to distract a villager, once he has them distracted pickpocket them from behind."), true);
 
 		//Step 9 -> 11
 		//Blackjack
-		getBlackjackFromAli = new NpcStep(this, NpcID.FEUD_EGYPTIAN_MINDER, new WorldPoint(3332, 2948, 0), ("Talk to Ali the Operator to get a blackjack."));
+		getBlackjackFromAli = new NpcStep(this, NpcID.FEUD_EGYPTIAN_MINDER, new WorldPoint(3332, 2948, 0), t("Talk to Ali the Operator to get a blackjack."));
 		getBlackjackFromAli.addDialogStep("Yeah, I could do with a bit of advice.");
 
-		equipBlackjack = new DetailedQuestStep(this, "Equip your oak blackjack in your inventory.", oakBlackjack);
+		equipBlackjack = new DetailedQuestStep(this, t("Equip your oak blackjack in your inventory."), oakBlackjack);
 
-		blackjackVillager = new NpcStep(this, NpcID.FEUD_VILLAGER_1_1, "Lure a villager to secluded place or an empty building, knock them out and then pickpocket them.", true);
+		blackjackVillager = new NpcStep(this, NpcID.FEUD_VILLAGER_1_1, t("Lure a villager to secluded place or an empty building, knock them out and then pickpocket them."), true);
 		blackjackVillager.addAlternateNpcs(NpcID.FEUD_VILLAGER_2_1, NpcID.FEUD_VILLAGER_2_3, NpcID.FEUD_VILLAGER_3_1, NpcID.FEUD_VILLAGER_3_3);
 
 
 		//Step 12
 		//Get Second Job
-		talkToAliToGetSecondJob = new NpcStep(this, NpcID.FEUD_EGYPTIAN_MINDER, new WorldPoint(3332, 2948, 0), "Talk to Ali the Operator to get the second job.");
+		talkToAliToGetSecondJob = new NpcStep(this, NpcID.FEUD_EGYPTIAN_MINDER, new WorldPoint(3332, 2948, 0), t("Talk to Ali the Operator to get the second job."));
 
 		//Step 13
 		//Hide Behind Cactus - Second Job
-		hideBehindCactus = new ObjectStep(this, ObjectID.FEUD_CACTUS_ROW, new WorldPoint(3364, 2968, 0), "Hide behind the cactus", gloves.equipped(), disguiseEquipped);
+		hideBehindCactus = new ObjectStep(this, ObjectID.FEUD_CACTUS_ROW, new WorldPoint(3364, 2968, 0), t("Hide behind the cactus"), gloves.equipped(), disguiseEquipped);
 
 		//Step 14
 		//Open the Door
-		openTheDoor = new ObjectStep(this, ObjectID.FEUD_CLOSED_DOOR_LEFT, "Open the door.", doorKeys);
+		openTheDoor = new ObjectStep(this, ObjectID.FEUD_CLOSED_DOOR_LEFT, t("Open the door."), doorKeys);
 		openTheDoor.addAlternateObjects(6240);
 		openTheDoor.addIcon(ItemID.FEUD_MAYORS_HOUSE_KEYS);
 
-		goUpStairs = new ObjectStep(this, ObjectID.FEUD_INSIDESTAIRS_BASE, "Go up the stairs.");
+		goUpStairs = new ObjectStep(this, ObjectID.FEUD_INSIDESTAIRS_BASE, t("Go up the stairs."));
 
-		crackTheSafe = new ObjectStep(this, ObjectID.FEUD_MAYORS_PICTURE, "Search the painting to reveal the safe. Enter the code 1, 1, 2, 3, 5, 8.");
+		crackTheSafe = new ObjectStep(this, ObjectID.FEUD_MAYORS_PICTURE, t("Search the painting to reveal the safe. Enter the code 1, 1, 2, 3, 5, 8."));
 
 		//Step 15
 		//Return the Jewels
-		goDownStairs = new ObjectStep(this, ObjectID.FEUD_INSIDESTAIRS_TOP, "Go down the stairs.");
+		goDownStairs = new ObjectStep(this, ObjectID.FEUD_INSIDESTAIRS_TOP, t("Go down the stairs."));
 
-		giveTheJewelsToAli = new NpcStep(this, NpcID.FEUD_EGYPTIAN_MINDER, new WorldPoint(3332, 2948, 0), "Give Ali the Operator the jewels to get your final task from him.");
+		giveTheJewelsToAli = new NpcStep(this, NpcID.FEUD_EGYPTIAN_MINDER, new WorldPoint(3332, 2948, 0), t("Give Ali the Operator the jewels to get your final task from him."));
 
 		//Step 16
 		//Find Traitor
-		talkMenaphiteToFindTraitor =  new NpcStep(this, NpcID.FEUD_EGYPTIAN_DOORMAN_1, new WorldPoint(3347, 2955, 0),"Talk to a Menaphite member to find the traitor.", true);
-		tellAliYouFoundTraitor = new NpcStep(this, NpcID.FEUD_EGYPTIAN_MINDER, new WorldPoint(3332, 2948, 0),"Talk to Ali and tell him you have found the traitor.");
+		talkMenaphiteToFindTraitor =  new NpcStep(this, NpcID.FEUD_EGYPTIAN_DOORMAN_1, new WorldPoint(3347, 2955, 0),t("Talk to a Menaphite member to find the traitor."), true);
+		tellAliYouFoundTraitor = new NpcStep(this, NpcID.FEUD_EGYPTIAN_MINDER, new WorldPoint(3332, 2948, 0),t("Talk to Ali and tell him you have found the traitor."));
 
 		//Step 17
 		//Get Snake & Talk to Barman
-		talkToAliTheBarman = new NpcStep(this, NpcID.FEUD_ALI_THE_BARMAN, new WorldPoint(3361, 2956, 0), "Talk to Ali the Barman to find out where Traitorous Ali is.");
+		talkToAliTheBarman = new NpcStep(this, NpcID.FEUD_ALI_THE_BARMAN, new WorldPoint(3361, 2956, 0), t("Talk to Ali the Barman to find out where Traitorous Ali is."));
 		talkToAliTheBarman.addDialogStep(("I'm looking for Traitorous Ali."));
 		talkToAliTheBarman.addDialogStep("No thanks I'm ok.");
 
-		talkToAliTheHag = new NpcStep(this, NpcID.FEUD_HAG, new WorldPoint(3345, 2986, 0), "Talk to Ali the Hag to ask her to make some poison for you.");
+		talkToAliTheHag = new NpcStep(this, NpcID.FEUD_HAG, new WorldPoint(3345, 2986, 0), t("Talk to Ali the Hag to ask her to make some poison for you."));
 
-		giveCoinToSnakeCharmer = new ObjectStep(this, ObjectID.FEUD_MONEY_BOWL, new WorldPoint(3355, 2953, 0), "Use coins on the snake charmer's money pot to get a snake charm and a snake basket.", highlightedCoins);
+		giveCoinToSnakeCharmer = new ObjectStep(this, ObjectID.FEUD_MONEY_BOWL, new WorldPoint(3355, 2953, 0), t("Use coins on the snake charmer's money pot to get a snake charm and a snake basket."), highlightedCoins);
 		giveCoinToSnakeCharmer.addIcon(ItemID.COINS);
 
-		catchSnake = new NpcStep(this, NpcID.FEUD_DESERT_SNAKE, new WorldPoint(3332, 2958, 0), "Use the Snake Charm on a snake to capture it.", true, snakeCharmHighlighted, snakeBasket);
+		catchSnake = new NpcStep(this, NpcID.FEUD_DESERT_SNAKE, new WorldPoint(3332, 2958, 0), t("Use the Snake Charm on a snake to capture it."), true, snakeCharmHighlighted, snakeBasket);
 		catchSnake.addIcon(ItemID.SNAKE_FLUTE);
 
-		giveSnakeToHag = new NpcStep(this, NpcID.FEUD_HAG, new WorldPoint(3345, 2986, 0), "Give the snake to Ali the Hag.", snakeBasketFull);
+		giveSnakeToHag = new NpcStep(this, NpcID.FEUD_HAG, new WorldPoint(3345, 2986, 0), t("Give the snake to Ali the Hag."), snakeBasketFull);
 
 		//Step 18
 		//Camel Dung - Get Dung
-		talkToAliTheKebabSalesman = new NpcStep(this, NpcID.FEUD_KEBABMAN, new WorldPoint(3352, 2975, 0), "Talk to Ali the Kebab Salesman to get a special sauce to use.");
+		talkToAliTheKebabSalesman = new NpcStep(this, NpcID.FEUD_KEBABMAN, new WorldPoint(3352, 2975, 0), t("Talk to Ali the Kebab Salesman to get a special sauce to use."));
 		talkToAliTheKebabSalesman.addDialogStep("Would you sell me that bottle of special kebab sauce?");
 		talkToAliTheKebabSalesman.addDialogStep("No thanks, I'm good.");
 
-		getBucket = new DetailedQuestStep(this, new WorldPoint(3346, 2966, 0), "Pick up a bucket to grab the dung");
+		getBucket = new DetailedQuestStep(this, new WorldPoint(3346, 2966, 0), t("Pick up a bucket to grab the dung"));
 
-		pickupDung = new ObjectStep(this, ObjectID.FEUD_UGTHANKI_POOH, "Use the bucket on the dung.", bucket.highlighted());
+		pickupDung = new ObjectStep(this, ObjectID.FEUD_UGTHANKI_POOH, t("Use the bucket on the dung."), bucket.highlighted());
 		pickupDung.addIcon(ItemID.BUCKET_EMPTY);
 
 		getDung = new ObjectStep(this, ObjectID.FEUD_FOODTROUGH2, new WorldPoint(3343, 2960, 0), "Use the Red Hot Sauce on the Trough and wait for a Camel to poop out the dung.\n Only pickup brown/Ugthanki dung, if you plan to do \"My Arm's Big Adventure\" or \"Forgettable Tale of a Drunken Dwarf\" then you may want to grab four more Ugthanki dung.", redHotSauce);
 		getDung.addIcon(ItemID.SUPERHOT_KEBAB_SAUCE);
 
-		givenDungToHag = new NpcStep(this, NpcID.FEUD_HAG, new WorldPoint(3345, 2986, 0), "Talk to Ali the Hag and give her the dung.", dung);
+		givenDungToHag = new NpcStep(this, NpcID.FEUD_HAG, new WorldPoint(3345, 2986, 0), t("Talk to Ali the Hag and give her the dung."), dung);
 
 		//Step 22
 		//Poison The Drink
-		poisonTheDrink = new ObjectStep(this, ObjectID.FEUD_POISON_BEER_TABLE, new WorldPoint(3356, 2957, 0), "Use the poison on the beer glass to kill Traitorous Ali.", poisonHighlighted);
+		poisonTheDrink = new ObjectStep(this, ObjectID.FEUD_POISON_BEER_TABLE, new WorldPoint(3356, 2957, 0), t("Use the poison on the beer glass to kill Traitorous Ali."), poisonHighlighted);
 		poisonTheDrink.addIcon(ItemID.POISON_FROM_HAG);
 
 		//Step 23
 		//Tell Ali The Operator Poisoned
-		tellAliOperatorPoisoned = new NpcStep(this, NpcID.FEUD_EGYPTIAN_MINDER, new WorldPoint(3332, 2948, 0), "Talk to Ali the Operator and tell him he is dead.");
+		tellAliOperatorPoisoned = new NpcStep(this, NpcID.FEUD_EGYPTIAN_MINDER, new WorldPoint(3332, 2948, 0), t("Talk to Ali the Operator and tell him he is dead."));
 
-		killMenaphiteThug = new DetailedQuestStep(this, "Kill the Menaphite Thug. You can safespot him inside the tent by using a chair, if he's not spawned then talk to the Menaphite Leader again.");
+		killMenaphiteThug = new DetailedQuestStep(this, t("Kill the Menaphite Thug. You can safespot him inside the tent by using a chair, if he's not spawned then talk to the Menaphite Leader again."));
 
 		//Step 24
 		//Kill Thug
-		talkToMenaphiteLeader = new NpcStep(this, NpcID.FEUD_MENAP_BOSS_VIS, "Talk to the Menaphite Leader and prepare for a fight against a tough guy. You can safespot him inside the tent by using a chair.");
+		talkToMenaphiteLeader = new NpcStep(this, NpcID.FEUD_MENAP_BOSS_VIS, t("Talk to the Menaphite Leader and prepare for a fight against a tough guy. You can safespot him inside the tent by using a chair."));
 		talkToMenaphiteLeader.addSubSteps(killMenaphiteThug);
 
 		//Step 25
 		//Kill Champion - Talk to Villager
-		talkToAVillager = new NpcStep(this, NpcID.FEUD_VILLAGER_1_1, "Talk to a villager and they will be angry you broke the balance of power.", true);
+		talkToAVillager = new NpcStep(this, NpcID.FEUD_VILLAGER_1_1, t("Talk to a villager and they will be angry you broke the balance of power."), true);
 		talkToAVillager.addAlternateNpcs(NpcID.FEUD_VILLAGER_1_3, NpcID.FEUD_VILLAGER_2_1, NpcID.FEUD_VILLAGER_2_3, NpcID.FEUD_VILLAGER_3_1, NpcID.FEUD_VILLAGER_3_3);
 
-		talkToBanditLeader = new NpcStep(this, NpcID.FEUD_BANDIT_BOSS_VIS, new WorldPoint(3353, 3002, 0), "Talk to the Bandit Leader and be prepared to fight a Bandit Champion. You can safe spot him with the stool.");
+		talkToBanditLeader = new NpcStep(this, NpcID.FEUD_BANDIT_BOSS_VIS, new WorldPoint(3353, 3002, 0), t("Talk to the Bandit Leader and be prepared to fight a Bandit Champion. You can safe spot him with the stool."));
 		talkToBanditLeader.addSubSteps(killBanditChampion);
 
 		killBanditChampion = new DetailedQuestStep(this, "Kill the Bandit Champion, you can safe spot him with the stool. \n If he's not spawned then talk to the Bandit Leader again.");
 
 		//Step 26
 		//Spawn Mayor
-		talkToAVillagerToSpawnMayor  = new NpcStep(this, NpcID.FEUD_VILLAGER_1_1, "Talk to a villager and they will be angry still.", true);
+		talkToAVillagerToSpawnMayor  = new NpcStep(this, NpcID.FEUD_VILLAGER_1_1, t("Talk to a villager and they will be angry still."), true);
 		talkToAVillagerToSpawnMayor.addAlternateNpcs(NpcID.FEUD_VILLAGER_1_3, NpcID.FEUD_VILLAGER_2_1, NpcID.FEUD_VILLAGER_2_3, NpcID.FEUD_VILLAGER_3_1, NpcID.FEUD_VILLAGER_3_3);
 
-		talkToMayor = new NpcStep(this, NpcID.FEUD_MAYOR_GEOM, new WorldPoint(3360, 2972, 0), "Talk to Ali the Mayor and get your due congratulations.");
+		talkToMayor = new NpcStep(this, NpcID.FEUD_MAYOR_GEOM, new WorldPoint(3360, 2972, 0), t("Talk to Ali the Mayor and get your due congratulations."));
 
 		//Step 27
 		//Finish Quest
-		finishQuest = new NpcStep(this, NpcID.FEUD_ALI_M, new WorldPoint(3304, 3211, 0), "Talk to  Ali Morrisane in Al Kharid to finish the quest.");
+		finishQuest = new NpcStep(this, NpcID.FEUD_ALI_M, new WorldPoint(3304, 3211, 0), t("Talk to  Ali Morrisane in Al Kharid to finish the quest."));
 	}
 
 	@Override
@@ -491,7 +491,7 @@ public class TheFeud extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Arrays.asList("Bandit Champion (level 70) - Safespottable", "Tough Guy (level 75) - Safespottable");
+		return Arrays.asList(t("Bandit Champion (level 70) - Safespottable"), t("Tough Guy (level 75) - Safespottable"));
 	}
 
 	@Override
@@ -521,28 +521,28 @@ public class TheFeud extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Ability to blackjack."),
-				new UnlockReward("Access to the Rogue Trader minigame"));
+				new UnlockReward(t("Ability to blackjack.")),
+				new UnlockReward(t("Access to the Rogue Trader minigame")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting out",
+		allSteps.add(new PanelDetails(t("Starting out"),
 				Collections.singletonList(startQuest), unspecifiedCoins));
 		allSteps.add(new PanelDetails("Pollnivneach",
 				Arrays.asList(buyDisguiseGear, createDisguise, goToShantay, talkToRugMerchant, drunkenAli), unspecifiedCoins));
-		allSteps.add(new PanelDetails("Find the beef between the two factions",
+		allSteps.add(new PanelDetails(t("Find the beef between the two factions"),
 				Arrays.asList(talkToThug, talkToBandit, talkToCamelman, talkToBanditReturnedCamel, talkToMenaphiteReturnedCamel), unspecifiedCoins));
-		allSteps.add(new PanelDetails("First job",
+		allSteps.add(new PanelDetails(t("First job"),
 			Arrays.asList(talkToAliTheOperator, pickpocketVillager, pickPocketVillagerWithUrchin,
 				getBlackjackFromAli, blackjackVillager), unspecifiedCoins));
-		allSteps.add(new PanelDetails("Second job",
+		allSteps.add(new PanelDetails(t("Second job"),
 				Arrays.asList(talkToAliToGetSecondJob, hideBehindCactus, openTheDoor, goUpStairs, crackTheSafe, giveTheJewelsToAli), desertDisguise, gloves));
-		allSteps.add(new PanelDetails("Rising up",
+		allSteps.add(new PanelDetails(t("Rising up"),
 				Arrays.asList(talkMenaphiteToFindTraitor, tellAliYouFoundTraitor, talkToAliTheBarman, talkToAliTheHag, giveCoinToSnakeCharmer, catchSnake, giveSnakeToHag, talkToAliTheKebabSalesman, getDung, givenDungToHag, poisonTheDrink, tellAliOperatorPoisoned), unspecifiedCoins));
-		allSteps.add(new PanelDetails("Finishing off",
+		allSteps.add(new PanelDetails(t("Finishing off"),
 				Arrays.asList(talkToMenaphiteLeader, talkToAVillager, talkToBanditLeader, talkToAVillagerToSpawnMayor, talkToMayor, finishQuest), combatGear));
 
 		return allSteps;

@@ -137,29 +137,29 @@ public class TribalTotem extends BasicQuestHelper
 
     public void setupSteps()
     {
-        talkToKangaiMau = new NpcStep(this, NpcID.KANGAI_MAU, new WorldPoint(2794, 3182, 0), "Talk to Kangai Mau in the Brimhaven food store.");
+        talkToKangaiMau = new NpcStep(this, NpcID.KANGAI_MAU, new WorldPoint(2794, 3182, 0), t("Talk to Kangai Mau in the Brimhaven food store."));
         talkToKangaiMau.addDialogSteps("I'm in search of adventure!", "Ok, I will get it back.", "Yes.");
 
-        investigateCrate = new ObjectStep(this, ObjectID.HORNCRATE, new WorldPoint(2650, 3273, 0), "Travel to the GPDT depot in Ardougne and investigate the most northeastern crate for a label.");
-        useLabel = new ObjectStep(this, ObjectID.TELEPORTCRATE, new WorldPoint(2650, 3271, 0), "Use the label on the highlighted crate.", addressLabel);
+        investigateCrate = new ObjectStep(this, ObjectID.HORNCRATE, new WorldPoint(2650, 3273, 0), t("Travel to the GPDT depot in Ardougne and investigate the most northeastern crate for a label."));
+        useLabel = new ObjectStep(this, ObjectID.TELEPORTCRATE, new WorldPoint(2650, 3271, 0), t("Use the label on the highlighted crate."), addressLabel);
         useLabel.addIcon(ItemID.TRIBAL_TOTEM_LABEL);
-        talkToEmployee = new NpcStep(this, NpcID.RPDT_EMPLOYEE, new WorldPoint(2647, 3272, 0), "Talk to a nearby GPDT employee.", true);
+        talkToEmployee = new NpcStep(this, NpcID.RPDT_EMPLOYEE, new WorldPoint(2647, 3272, 0), t("Talk to a nearby GPDT employee."), true);
         talkToEmployee.addDialogStep("So, when are you going to deliver this crate?");
 
-        talkToCromperty = new NpcStep(this, NpcID.CROMPERTY_PRE_DIARY, new WorldPoint(2683, 3326, 0), "Talk to Wizard Cromperty in north east Ardougne.");
+        talkToCromperty = new NpcStep(this, NpcID.CROMPERTY_PRE_DIARY, new WorldPoint(2683, 3326, 0), t("Talk to Wizard Cromperty in north east Ardougne."));
         talkToCromperty.addDialogSteps("Chat.", "So what have you invented?", "Can I be teleported please?", "Yes, that sounds good. Teleport me!");
 
         enterPassword = new PuzzleWrapperStep(this,
 			new ObjectStep(this, ObjectID.COMBODOOR, new WorldPoint(2634, 3323, 0), "Try and open the door to the west. The password is 'KURT', (K=10 right, U=6 left, R=9 left, T=7 left)"),
-			"Work out and enter the password for the door to the west.");
+			t("Work out and enter the password for the door to the west."));
         solvePassword = new PuzzleWrapperStep(this, new PuzzleStep(this)).withNoHelpHiddenInSidebar(true);
-        climbStairs = new ObjectStep(this, ObjectID.TOTEMTRAPSTAIRS, new WorldPoint(2632, 3323, 0), "FIRST Right-click 'Investigate' the stairs to disable a trap, then climb the stairs.");
+        climbStairs = new ObjectStep(this, ObjectID.TOTEMTRAPSTAIRS, new WorldPoint(2632, 3323, 0), t("FIRST Right-click 'Investigate' the stairs to disable a trap, then climb the stairs."));
 
-        searchChest = new ObjectStep(this, ObjectID.TOTEMSHUTCHEST, new WorldPoint(2638, 3324, 1), "Open the chest on the top floor and search it for the totem.");
+        searchChest = new ObjectStep(this, ObjectID.TOTEMSHUTCHEST, new WorldPoint(2638, 3324, 1), t("Open the chest on the top floor and search it for the totem."));
         ((ObjectStep)(searchChest)).addAlternateObjects(ObjectID.TOTEMOPENCHEST);
 
-        leaveHouse = new DetailedQuestStep(this, "Travel back to Brimhaven.");
-        talkToKangaiMauAgain = new NpcStep(this, NpcID.KANGAI_MAU, new WorldPoint(2794, 3182, 0), "Return to Kangai Mau in Brimhaven.", totem);
+        leaveHouse = new DetailedQuestStep(this, t("Travel back to Brimhaven."));
+        talkToKangaiMauAgain = new NpcStep(this, NpcID.KANGAI_MAU, new WorldPoint(2794, 3182, 0), t("Return to Kangai Mau in Brimhaven."), totem);
     }
 
 	@Override
@@ -190,7 +190,7 @@ public class TribalTotem extends BasicQuestHelper
     public List<PanelDetails> getPanels()
     {
         List<PanelDetails> allSteps = new ArrayList<>();
-        allSteps.add(new PanelDetails("Retrieving the totem",
+        allSteps.add(new PanelDetails(t("Retrieving the totem"),
                 Arrays.asList(talkToKangaiMau, investigateCrate, useLabel, talkToEmployee, talkToCromperty, enterPassword, solvePassword, climbStairs, searchChest, talkToKangaiMauAgain)));
         return allSteps;
     }

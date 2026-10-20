@@ -44,7 +44,7 @@ public class MsHynnAnswerDialogQuizStep extends NpcStep
 
 	public MsHynnAnswerDialogQuizStep(QuestHelper questHelper)
 	{
-		super(questHelper, NpcID.RD_OBSERVER_ROOM_7, "Talk to Ms Hynn Terprett and answer the riddle.");
+		super(questHelper, NpcID.RD_OBSERVER_ROOM_7, questHelper.t("Talk to Ms Hynn Terprett and answer the riddle."));
 
 		this.addDialogSteps(
 			"The wolves.",
@@ -58,11 +58,11 @@ public class MsHynnAnswerDialogQuizStep extends NpcStep
 	{
 		if (answerID == 0 || answerID > answers.length)
 		{
-			this.setText("Talk to Ms Hynn Terprett and answer the riddle.");
+			this.setText(questHelper.t("Talk to Ms Hynn Terprett and answer the riddle."));
 			return;
 		}
-		var answer = "The answer is " + answers[answerID] + ".";
-		this.setText("Talk to Ms Hynn Terprett and answer the riddle. " + answer);
+		var answer = questHelper.t("The answer is") + " " + answers[answerID] + ".";
+		this.setText(questHelper.t("Talk to Ms Hynn Terprett and answer the riddle.") + " " + answer);
 	}
 
 	@Override

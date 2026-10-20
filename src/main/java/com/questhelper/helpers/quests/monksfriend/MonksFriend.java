@@ -92,38 +92,38 @@ public class MonksFriend extends BasicQuestHelper
 
 		log = new ItemRequirement("Logs", ItemID.LOGS);
 		jugOfWater = new ItemRequirement("Jug of Water", ItemID.JUG_WATER);
-		jugOfWater.setTooltip("You can find one in the Yanille cooking shop");
+		jugOfWater.setTooltip(t("You can find one in the Yanille cooking shop"));
 		blanket = new ItemRequirement("Child's blanket", ItemID.CHILDS_BLANKET);
 		ardougneCloak = new ItemRequirement("Ardougne cloak 1 or higher for teleports to the monastery", ItemCollections.ARDOUGNE_CLOAK).isNotConsumed();
 	}
 
 	public void setupSteps()
 	{
-		talkToOmad = new NpcStep(this, NpcID.BROTHER_OMAD, new WorldPoint(2607, 3211, 0), "Talk to Brother Omad in the monastery south of East Ardougne.");
+		talkToOmad = new NpcStep(this, NpcID.BROTHER_OMAD, new WorldPoint(2607, 3211, 0), t("Talk to Brother Omad in the monastery south of East Ardougne."));
 		talkToOmad.addDialogStep("Why can't you sleep, what's wrong?");
 		talkToOmad.addDialogStep("Yes.");
 
-		goDownLadder = new ObjectStep(this, ObjectID.LADDER_OUTSIDE_TO_UNDERGROUND, new WorldPoint(2561, 3222, 0), "Go down the ladder in a circle of stones west of the monastery.");
-		grabBlanket = new DetailedQuestStep(this, new WorldPoint(2570, 9604, 0), "Pick up the Child's blanket in the room to the south.", blanket);
-		goUpLadder = new ObjectStep(this, ObjectID.LADDER_FROM_CELLAR, new WorldPoint(2561, 9622, 0), "Go back up the ladder.", blanket);
-		returnToOmadWithBlanket = new NpcStep(this, NpcID.BROTHER_OMAD, new WorldPoint(2607, 3211, 0), "Bring the blanket back to Brother Omad in the monastery.", blanket);
+		goDownLadder = new ObjectStep(this, ObjectID.LADDER_OUTSIDE_TO_UNDERGROUND, new WorldPoint(2561, 3222, 0), t("Go down the ladder in a circle of stones west of the monastery."));
+		grabBlanket = new DetailedQuestStep(this, new WorldPoint(2570, 9604, 0), t("Pick up the Child's blanket in the room to the south."), blanket);
+		goUpLadder = new ObjectStep(this, ObjectID.LADDER_FROM_CELLAR, new WorldPoint(2561, 9622, 0), t("Go back up the ladder."), blanket);
+		returnToOmadWithBlanket = new NpcStep(this, NpcID.BROTHER_OMAD, new WorldPoint(2607, 3211, 0), t("Bring the blanket back to Brother Omad in the monastery."), blanket);
 
-		talkToOmadAgain = new NpcStep(this, NpcID.BROTHER_OMAD, new WorldPoint(2607, 3211, 0), "Talk to Brother Omad again.");
+		talkToOmadAgain = new NpcStep(this, NpcID.BROTHER_OMAD, new WorldPoint(2607, 3211, 0), t("Talk to Brother Omad again."));
 		talkToOmadAgain.addDialogStep("Is there anything else I can help with?");
 		talkToOmadAgain.addDialogStep("Who's Brother Cedric?");
 		talkToOmadAgain.addDialogStep("Where should I look?");
 
-		talkToCedric = new NpcStep(this, NpcID.BROTHER_CEDRIC, new WorldPoint(2614, 3258, 0), "Talk to Brother Cedric north of the monastery.");
+		talkToCedric = new NpcStep(this, NpcID.BROTHER_CEDRIC, new WorldPoint(2614, 3258, 0), t("Talk to Brother Cedric north of the monastery."));
 
-		talkToCedricWithJug = new NpcStep(this, NpcID.BROTHER_CEDRIC, new WorldPoint(2614, 3258, 0), "Talk to Brother Cedric again.", jugOfWater);
+		talkToCedricWithJug = new NpcStep(this, NpcID.BROTHER_CEDRIC, new WorldPoint(2614, 3258, 0), t("Talk to Brother Cedric again."), jugOfWater);
 		talkToCedricWithJug.addDialogStep("Yes, I'd be happy to!");
-		continueTalkingToCedric = new NpcStep(this, NpcID.BROTHER_CEDRIC, new WorldPoint(2614, 3258, 0), "Talk to Brother Cedric again.");
+		continueTalkingToCedric = new NpcStep(this, NpcID.BROTHER_CEDRIC, new WorldPoint(2614, 3258, 0), t("Talk to Brother Cedric again."));
 		continueTalkingToCedric.addDialogStep("Yes, I'd be happy to!");
 		talkToCedricWithJug.addSubSteps(continueTalkingToCedric);
 
-		talkToCedricWithLog = new NpcStep(this, NpcID.BROTHER_CEDRIC, new WorldPoint(2614, 3258, 0), "Talk to Brother Cedric once again with logs.", log);
+		talkToCedricWithLog = new NpcStep(this, NpcID.BROTHER_CEDRIC, new WorldPoint(2614, 3258, 0), t("Talk to Brother Cedric once again with logs."), log);
 
-		finishQuest = new NpcStep(this, NpcID.BROTHER_OMAD, new WorldPoint(2607, 3211, 0), "Return to Brother Omad to finish the quest.");
+		finishQuest = new NpcStep(this, NpcID.BROTHER_OMAD, new WorldPoint(2607, 3211, 0), t("Return to Brother Omad to finish the quest."));
 	}
 
 	@Override
@@ -197,21 +197,21 @@ public class MonksFriend extends BasicQuestHelper
 	{
 		List<PanelDetails> sections = new ArrayList<>();
 
-		sections.add(new PanelDetails("Starting off", List.of(
+		sections.add(new PanelDetails(t("Starting off"), List.of(
 			talkToOmad
 		), List.of(
 			jugOfWater,
 			log
 		)));
 
-		sections.add(new PanelDetails("Finding the blanket", List.of(
+		sections.add(new PanelDetails(t("Finding the blanket"), List.of(
 			goDownLadder,
 			grabBlanket,
 			goUpLadder,
 			returnToOmadWithBlanket
 		)));
 
-		sections.add(new PanelDetails("Help Cedric", List.of(
+		sections.add(new PanelDetails(t("Help Cedric"), List.of(
 			talkToOmadAgain,
 			talkToCedric,
 			talkToCedricWithJug,

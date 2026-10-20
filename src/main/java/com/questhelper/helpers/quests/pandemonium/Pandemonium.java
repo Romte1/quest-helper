@@ -159,13 +159,13 @@ public class Pandemonium extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed().canBeObtainedDuringQuest();
-		hammer.setTooltip("You can pick this up at the shipyard.");
+		hammer.setTooltip(t("You can pick this up at the shipyard."));
 		saw = new ItemRequirement("Saw", ItemCollections.SAW).isNotConsumed().canBeObtainedDuringQuest();
-		saw.setTooltip("You can pick this up at the shipyard.");
+		saw.setTooltip(t("You can pick this up at the shipyard."));
 
 		// Quest items
 		cup = new ItemRequirement("Old cup", ItemID.SAILING_INTRO_CUP);
-		cup.setTooltip("You can get another from Steve Beanie behind the bar on Pandemonium");
+		cup.setTooltip(t("You can get another from Steve Beanie behind the bar on Pandemonium"));
 
 		atShipwreck = new VarbitRequirement(VarbitID.SAILING_INTRO_REACHED_WRECK, 1);
 		onPandemonium = new ZoneRequirement(pandemonium);
@@ -193,79 +193,79 @@ public class Pandemonium extends BasicQuestHelper
 	public void setupSteps()
 	{
 		//guardrails
-		getToPandemonium = new NpcStep(this, new int[]{NpcID.SEAMAN_LORRIS, NpcID.CAPTAIN_TOBIAS, NpcID.SEAMAN_THRESNOR}, new WorldPoint(3027, 3218, 0), "Get back to the Pandemonium. You can travel with Captain Tobias on Port Sarim dock for 30gp.", true);
+		getToPandemonium = new NpcStep(this, new int[]{NpcID.SEAMAN_LORRIS, NpcID.CAPTAIN_TOBIAS, NpcID.SEAMAN_THRESNOR}, new WorldPoint(3027, 3218, 0), t("Get back to the Pandemonium. You can travel with Captain Tobias on Port Sarim dock for 30gp."), true);
 		getToPandemonium.addDialogSteps("Yes please.", "I'd like to go to the Pandemonium.");
 		getToPandemonium.conditionToHideInSidebar(onPandemonium);
 		getToPandemonium.setHighlightZone(pandemonium);
 
 		//You got the Job!
-		talkToWill = new NpcStep(this, new int[]{NpcID.SAILING_INTRO_WILL_SARIM, NpcID.SAILING_INTRO_ANNE_SARIM}, new WorldPoint(3025, 3208, 0), "Talk to Will or Anne on the docks of Port Sarim to start the quest.", true);
+		talkToWill = new NpcStep(this, new int[]{NpcID.SAILING_INTRO_WILL_SARIM, NpcID.SAILING_INTRO_ANNE_SARIM}, new WorldPoint(3025, 3208, 0), t("Talk to Will or Anne on the docks of Port Sarim to start the quest."), true);
 		talkToWill.addDialogSteps("Yes.", "Okay.");
-		boardWAShip = new NpcStep(this, new int[]{NpcID.SAILING_INTRO_WILL_SARIM, NpcID.SAILING_INTRO_ANNE_SARIM}, new WorldPoint(3025, 3208, 0), "Talk to Will or Anne on the docks to board the ship.", true);
+		boardWAShip = new NpcStep(this, new int[]{NpcID.SAILING_INTRO_WILL_SARIM, NpcID.SAILING_INTRO_ANNE_SARIM}, new WorldPoint(3025, 3208, 0), t("Talk to Will or Anne on the docks to board the ship."), true);
 		boardWAShip.addDialogStep(Pattern.compile("(I guess I'm ready\\.\\.\\.)|(I guess so\\.\\.\\.)|(Okay\\.)"));
 
 		// What is the job?
-		explainJob = new NpcStep(this, new int[]{NpcID.SAILING_INTRO_WILL_BOAT, NpcID.SAILING_INTRO_ANNE_BOAT}, new WorldPoint(3056, 3190, 0), "Listen to the job explanation.", true);
-		takeHelm = new ObjectStep(this, ObjectID.SAILING_INTRO_NAVIGATING, "Navigate using the helm.");
-		raiseSails = new ObjectStep(this, ObjectID.SAILING_BOAT_SAILS_INTRO, "Raise your sails.");
-		navigateShip = new DetailedQuestStep(this, new WorldPoint(3031, 3039, 0), "Sail south to the wreck north of the Pandemonium!");
+		explainJob = new NpcStep(this, new int[]{NpcID.SAILING_INTRO_WILL_BOAT, NpcID.SAILING_INTRO_ANNE_BOAT}, new WorldPoint(3056, 3190, 0), t("Listen to the job explanation."), true);
+		takeHelm = new ObjectStep(this, ObjectID.SAILING_INTRO_NAVIGATING, t("Navigate using the helm."));
+		raiseSails = new ObjectStep(this, ObjectID.SAILING_BOAT_SAILS_INTRO, t("Raise your sails."));
+		navigateShip = new DetailedQuestStep(this, new WorldPoint(3031, 3039, 0), t("Sail south to the wreck north of the Pandemonium!"));
 		navigateShip.setHighlightZone(shipWreckZone);
-		explainJob2 = new NpcStep(this, new int[]{NpcID.SAILING_INTRO_WILL_BOAT, NpcID.SAILING_INTRO_ANNE_BOAT}, new WorldPoint(3027, 3048, 0), "Learn about the other part of your job.", true);
-		salvageShipwreck = new ObjectStep(this, ObjectID.SAILING_INTRO_SALVAGING_HOOK, new WorldPoint(3843, 6402, 1), "Deploy the Salvaging Hook.");
-		watchSalvageCutscene = new DetailedQuestStep(this, "Watch the salvaging cutscene.");
+		explainJob2 = new NpcStep(this, new int[]{NpcID.SAILING_INTRO_WILL_BOAT, NpcID.SAILING_INTRO_ANNE_BOAT}, new WorldPoint(3027, 3048, 0), t("Learn about the other part of your job."), true);
+		salvageShipwreck = new ObjectStep(this, ObjectID.SAILING_INTRO_SALVAGING_HOOK, new WorldPoint(3843, 6402, 1), t("Deploy the Salvaging Hook."));
+		watchSalvageCutscene = new DetailedQuestStep(this, t("Watch the salvaging cutscene."));
 		// You lost the Job!
-		learnWhereYouAre = new NpcStep(this, NpcID.STEVE_BEANIE, new WorldPoint(3050, 2966, 0), "Talk to 'Squawking' Steve Beanie behind the bar to learn about where you are.", true);
-		learnWhoWAare = new NpcStep(this, NpcID.STEVE_BEANIE, new WorldPoint(3050, 2966, 0), "Talk to 'Squawking' Steve Beanie about Will and Anne.", true);
-		talkToRibs = new NpcStep(this, NpcID.SAILING_INTRO_RIBS, new WorldPoint(3051, 2973, 0), "Talk to Ribs near the door to learn about the map.", true);
+		learnWhereYouAre = new NpcStep(this, NpcID.STEVE_BEANIE, new WorldPoint(3050, 2966, 0), t("Talk to 'Squawking' Steve Beanie behind the bar to learn about where you are."), true);
+		learnWhoWAare = new NpcStep(this, NpcID.STEVE_BEANIE, new WorldPoint(3050, 2966, 0), t("Talk to 'Squawking' Steve Beanie about Will and Anne."), true);
+		talkToRibs = new NpcStep(this, NpcID.SAILING_INTRO_RIBS, new WorldPoint(3051, 2973, 0), t("Talk to Ribs near the door to learn about the map."), true);
 		talkToRibs.addDialogSteps("No, tell me about him.", "Now's not really the time for tales.");
-		findLocationWA = new NpcStep(this, NpcID.STEVE_BEANIE, new WorldPoint(3050, 2966, 0), "Ask 'Squawking' Steve Beanie behind the bar about Will and Anne's location.", true);
+		findLocationWA = new NpcStep(this, NpcID.STEVE_BEANIE, new WorldPoint(3050, 2966, 0), t("Ask 'Squawking' Steve Beanie behind the bar about Will and Anne's location."), true);
 		findLocationWA.addDialogStep("About Will and Anne...");
 		findLocationWA.addDialogStep("Do you have any idea where Will and Anne might have gone?");
-		informAboutShip = new NpcStep(this, NpcID.JUNIOR_JIM, new WorldPoint(3059, 2979, 0), "Ask Junior Jim by the docks about getting a ship.", true, cup);
+		informAboutShip = new NpcStep(this, NpcID.JUNIOR_JIM, new WorldPoint(3059, 2979, 0), t("Ask Junior Jim by the docks about getting a ship."), true, cup);
 		informAboutShip.addDialogStep("I think I might have lost a cup here.");
-		showCup = new NpcStep(this, NpcID.JUNIOR_JIM, new WorldPoint(3059, 2979, 0), "Hand over the cup to Junior Jim and receive your mighty vessel!", true, cup);
+		showCup = new NpcStep(this, NpcID.JUNIOR_JIM, new WorldPoint(3059, 2979, 0), t("Hand over the cup to Junior Jim and receive your mighty vessel!"), true, cup);
 		showCup.addDialogStep("I think I might have lost a cup here.");
 
 		// Your mighty vessel
-		enterShipyard = new NpcStep(this, NpcID.JUNIOR_JIM, new WorldPoint(3059, 2979, 0), "Talk to Junior Jim to enter the shipyard.");
-		getHammer = new ObjectStep(this, ObjectID.CRATE_HAMMERS, "Pick up a hammer from the crate of hammers.");
-		getSaw = new ObjectStep(this, ObjectID.CRATE_SAWS, "Pick up a saw from the crate of saws.");
-		embarkShipSY = new ObjectStep(this, ObjectID.SAILING_GANGPLANK_PROXY_WIDE, "Board your vessel.");
-		buildCargoHold = new ObjectStep(this, ObjectID.SAILING_BOAT_FACILITY_PLACEHOLDER_RAFT_0, "Build the Cargo Hold.");
-		disembarkShipSY = new ObjectStep(this, ObjectID.SAILING_GANGPLANK_SHIPYARD_DISEMBARK, "Disembark your vessel.");
-		leaveShipyard = new ObjectStep(this, ObjectID.SAILING_SHIPYARD_PORTAL_EXIT, "Leave the shipyard using the portal.");
-		getLogBook = new NpcStep(this, NpcID.JUNIOR_JIM, new WorldPoint(3059, 2979, 0), "Talk to Junior Jim to get a log book.");
+		enterShipyard = new NpcStep(this, NpcID.JUNIOR_JIM, new WorldPoint(3059, 2979, 0), t("Talk to Junior Jim to enter the shipyard."));
+		getHammer = new ObjectStep(this, ObjectID.CRATE_HAMMERS, t("Pick up a hammer from the crate of hammers."));
+		getSaw = new ObjectStep(this, ObjectID.CRATE_SAWS, t("Pick up a saw from the crate of saws."));
+		embarkShipSY = new ObjectStep(this, ObjectID.SAILING_GANGPLANK_PROXY_WIDE, t("Board your vessel."));
+		buildCargoHold = new ObjectStep(this, ObjectID.SAILING_BOAT_FACILITY_PLACEHOLDER_RAFT_0, t("Build the Cargo Hold."));
+		disembarkShipSY = new ObjectStep(this, ObjectID.SAILING_GANGPLANK_SHIPYARD_DISEMBARK, t("Disembark your vessel."));
+		leaveShipyard = new ObjectStep(this, ObjectID.SAILING_SHIPYARD_PORTAL_EXIT, t("Leave the shipyard using the portal."));
+		getLogBook = new NpcStep(this, NpcID.JUNIOR_JIM, new WorldPoint(3059, 2979, 0), t("Talk to Junior Jim to get a log book."));
 
 		// You got the job!
-		getNewJob = new NpcStep(this, NpcID.JUNIOR_JIM, new WorldPoint(3059, 2979, 0), "Talk to Junior Jim for a new job.");
+		getNewJob = new NpcStep(this, NpcID.JUNIOR_JIM, new WorldPoint(3059, 2979, 0), t("Talk to Junior Jim for a new job."));
 		boardShip = new BoardShipStep(this);
-		takeHelm2 = new ObjectStep(this, ObjectID.SAILING_BOAT_STEERING_KANDARIN_1X3_WOOD_IDLE, new WorldPoint(3843, 6460, 1), "Navigate using the helm.");
-		raiseSails2 = new ObjectStep(this, ObjectID.SAILING_BOAT_SAIL_KANDARIN_1X3_WOOD, "Raise your sails.");
+		takeHelm2 = new ObjectStep(this, ObjectID.SAILING_BOAT_STEERING_KANDARIN_1X3_WOOD_IDLE, new WorldPoint(3843, 6460, 1), t("Navigate using the helm."));
+		raiseSails2 = new ObjectStep(this, ObjectID.SAILING_BOAT_SAIL_KANDARIN_1X3_WOOD, t("Raise your sails."));
 		raiseSails2.addWidgetHighlight(InterfaceID.SAILING_SIDEPANEL, InterfaceID.SailingSidepanel.FACILITIES_CONTENT_CLICKLAYER & 0xFFFF, 0);
 		sailToPortSarim = new SailStep(this, Port.PORT_SARIM);
-		letGoOfHelm = new ObjectStep(this, ObjectID.SAILING_BOAT_STEERING_KANDARIN_1X3_WOOD_IN_USE, new WorldPoint(3843, 6460, 1), "Let go of the helm.");
-		disembarkShipPS = new ObjectStep(this, ObjectID.SAILING_GANGPLANK_DISEMBARK, new WorldPoint(3051, 3193, 0), "Leave your ship.");
+		letGoOfHelm = new ObjectStep(this, ObjectID.SAILING_BOAT_STEERING_KANDARIN_1X3_WOOD_IN_USE, new WorldPoint(3843, 6460, 1), t("Let go of the helm."));
+		disembarkShipPS = new ObjectStep(this, ObjectID.SAILING_GANGPLANK_DISEMBARK, new WorldPoint(3051, 3193, 0), t("Leave your ship."));
 
-		pickupCargo = new ObjectStep(this, ObjectID.DOCK_LOADING_BAY_LEDGER_TABLE_WITHDRAW, new WorldPoint(3028, 3194, 0), "Pick up the cargo from the ledger table on the docks.", nothingInHands);
+		pickupCargo = new ObjectStep(this, ObjectID.DOCK_LOADING_BAY_LEDGER_TABLE_WITHDRAW, new WorldPoint(3028, 3194, 0), t("Pick up the cargo from the ledger table on the docks."), nothingInHands);
 		boardShip2 = new BoardShipStep(this);
-		dropCargoInCargoHold = new ObjectStep(this, ObjectID.SAILING_BOAT_CARGO_HOLD_REGULAR_RAFT, "Deposit the crate into your cargo hold.");
-		takeHelm3 = new ObjectStep(this, ObjectID.SAILING_BOAT_STEERING_KANDARIN_1X3_WOOD_IDLE, new WorldPoint(3843, 6460, 1), "Navigate using the helm.");
-		raiseSails3 = new ObjectStep(this, ObjectID.SAILING_BOAT_SAIL_KANDARIN_1X3_WOOD, "Raise your sails.");
+		dropCargoInCargoHold = new ObjectStep(this, ObjectID.SAILING_BOAT_CARGO_HOLD_REGULAR_RAFT, t("Deposit the crate into your cargo hold."));
+		takeHelm3 = new ObjectStep(this, ObjectID.SAILING_BOAT_STEERING_KANDARIN_1X3_WOOD_IDLE, new WorldPoint(3843, 6460, 1), t("Navigate using the helm."));
+		raiseSails3 = new ObjectStep(this, ObjectID.SAILING_BOAT_SAIL_KANDARIN_1X3_WOOD, t("Raise your sails."));
 		raiseSails3.addWidgetHighlight(InterfaceID.SAILING_SIDEPANEL, InterfaceID.SailingSidepanel.FACILITIES_CONTENT_CLICKLAYER & 0xFFFF, 0);
 		sailToPandemonium = new SailStep(this, Port.PANDEMONIUM);
-		letGoOfHelm2 = new ObjectStep(this, ObjectID.SAILING_BOAT_STEERING_KANDARIN_1X3_WOOD_IN_USE, new WorldPoint(3843, 6460, 1), "Let go of the helm.");
-		pickupCargoShip = new ObjectStep(this, ObjectID.SAILING_BOAT_CARGO_HOLD_REGULAR_RAFT, "Pick up the cargo from your ship's cargo hold.", nothingInHands);
+		letGoOfHelm2 = new ObjectStep(this, ObjectID.SAILING_BOAT_STEERING_KANDARIN_1X3_WOOD_IN_USE, new WorldPoint(3843, 6460, 1), t("Let go of the helm."));
+		pickupCargoShip = new ObjectStep(this, ObjectID.SAILING_BOAT_CARGO_HOLD_REGULAR_RAFT, t("Pick up the cargo from your ship's cargo hold."), nothingInHands);
 
 		// In case the user boards the Pandemonium without picking up the cargo from their ship
 		boardShip3 = new BoardShipStep(this);
 		pickupCargoShip.addSubSteps(boardShip3);
 
-		disembarkShipP = new ObjectStep(this, ObjectID.SAILING_GANGPLANK_DISEMBARK, new WorldPoint(3070, 2987, 0), "Leave your ship.");
-		deliverCargo = new ObjectStep(this, ObjectID.DOCK_LOADING_BAY_LEDGER_TABLE_DEPOSIT, new WorldPoint(3061, 2985, 0), "Deliver the cargo at the ledger table on the docks.");
+		disembarkShipP = new ObjectStep(this, ObjectID.SAILING_GANGPLANK_DISEMBARK, new WorldPoint(3070, 2987, 0), t("Leave your ship."));
+		deliverCargo = new ObjectStep(this, ObjectID.DOCK_LOADING_BAY_LEDGER_TABLE_DEPOSIT, new WorldPoint(3061, 2985, 0), t("Deliver the cargo at the ledger table on the docks."));
 		//Finish up
-		talkToJim = new NpcStep(this, NpcID.JUNIOR_JIM, new WorldPoint(3059, 2979, 0), "Tell Junior Jim about your delivery.");
-		meetGrog = new NpcStep(this, new int[]{NpcID.STEVE_BEANIE, NpcID.SAILING_INTRO_GROG_VIS}, new WorldPoint(3050, 2966, 0), "Meet 'Squawking' Steve Beanie and Old Grog at the bar.", true);
-		finishQuest = new NpcStep(this, NpcID.STEVE_BEANIE, new WorldPoint(3050, 2966, 0), "Talk to 'Squawking' Steve Beanie to finish the quest.");
+		talkToJim = new NpcStep(this, NpcID.JUNIOR_JIM, new WorldPoint(3059, 2979, 0), t("Tell Junior Jim about your delivery."));
+		meetGrog = new NpcStep(this, new int[]{NpcID.STEVE_BEANIE, NpcID.SAILING_INTRO_GROG_VIS}, new WorldPoint(3050, 2966, 0), t("Meet 'Squawking' Steve Beanie and Old Grog at the bar."), true);
+		finishQuest = new NpcStep(this, NpcID.STEVE_BEANIE, new WorldPoint(3050, 2966, 0), t("Talk to 'Squawking' Steve Beanie to finish the quest."));
 	}
 
 	@Override
@@ -404,9 +404,9 @@ public class Pandemonium extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Access to the Sailing Skill"),
-			new UnlockReward("Access to Pandemonium"),
-			new UnlockReward("Your very own mighty ship!")
+			new UnlockReward(t("Access to the Sailing Skill")),
+			new UnlockReward(t("Access to Pandemonium")),
+			new UnlockReward(t("Your very own mighty ship!"))
 		);
 	}
 
@@ -415,12 +415,12 @@ public class Pandemonium extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("You got the job!", List.of(
+		sections.add(new PanelDetails(t("You got the job!"), List.of(
 			talkToWill,
 			boardWAShip
 		)));
 
-		sections.add(new PanelDetails("What's the job?", List.of(
+		sections.add(new PanelDetails(t("What's the job?"), List.of(
 			explainJob,
 			takeHelm,
 			raiseSails,
@@ -430,7 +430,7 @@ public class Pandemonium extends BasicQuestHelper
 			watchSalvageCutscene
 		)));
 
-		sections.add(new PanelDetails("You lost the job!", List.of(
+		sections.add(new PanelDetails(t("You lost the job!"), List.of(
 			getToPandemonium,
 			learnWhereYouAre,
 			learnWhoWAare,
@@ -440,7 +440,7 @@ public class Pandemonium extends BasicQuestHelper
 			showCup
 		)));
 
-		sections.add(new PanelDetails("Your mighty vessel", List.of(
+		sections.add(new PanelDetails(t("Your mighty vessel"), List.of(
 			enterShipyard,
 			getSaw,
 			getHammer,
@@ -451,7 +451,7 @@ public class Pandemonium extends BasicQuestHelper
 			getLogBook
 		)));
 
-		sections.add(new PanelDetails("You got the job... again!", List.of(
+		sections.add(new PanelDetails(t("You got the job... again!"), List.of(
 			getNewJob,
 			boardShip,
 			takeHelm2,
@@ -463,7 +463,7 @@ public class Pandemonium extends BasicQuestHelper
 			boardShip2
 		)));
 
-		sections.add(new PanelDetails("Deliver the cargo.", List.of(
+		sections.add(new PanelDetails(t("Deliver the cargo."), List.of(
 			dropCargoInCargoHold,
 			takeHelm3,
 			raiseSails3,
@@ -474,7 +474,7 @@ public class Pandemonium extends BasicQuestHelper
 			deliverCargo
 		)));
 
-		sections.add(new PanelDetails("Finishing up", List.of(
+		sections.add(new PanelDetails(t("Finishing up"), List.of(
 			talkToJim,
 			meetGrog,
 			finishQuest

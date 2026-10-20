@@ -105,28 +105,28 @@ public class FishingContest extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		coins = new ItemRequirement("Coins", ItemCollections.COINS, 5);
-		coins.setTooltip("10 if you buy a fishing rod from Jack");
+		coins.setTooltip(t("10 if you buy a fishing rod from Jack"));
 		fishingPass = new ItemRequirement("Fishing Pass", ItemID.FISHING_COMPETITION_PASS);
 		fishingPass.setTooltip("This can be obtained during the quest\n\nIf you lose this you can get another from Vestri.");
 		garlic = new ItemRequirement("Garlic", ItemID.GARLIC);
-		garlic.setTooltip("This can be obtained during the quest.");
+		garlic.setTooltip(t("This can be obtained during the quest."));
 		garlic.setHighlightInInventory(true);
 		fishingRod = new ItemRequirement("Fishing Rod", ItemID.FISHING_ROD).isNotConsumed();
-		fishingRod.setTooltip("This can be obtained during the quest for 5gp.");
+		fishingRod.setTooltip(t("This can be obtained during the quest for 5gp."));
 		spade = new ItemRequirement("Spade", ItemID.SPADE).isNotConsumed();
 		redVineWorm = new ItemRequirement("Red Vine Worm", ItemID.RED_VINE_WORM, 1);
-		redVineWorm.setTooltip("This can be obtained during the quest.");
+		redVineWorm.setTooltip(t("This can be obtained during the quest."));
 		food = new ItemRequirement("Food for low levels", ItemCollections.GOOD_EATING_FOOD, -1);
 		winningFish = new ItemRequirement("Raw Giant Carp", ItemID.RAW_GIANT_CARP);
 		winningFish.setHighlightInInventory(true);
 		trophy = new ItemRequirement("Fishing Trophy", ItemID.HEMENSTER_FISHING_TROPHY);
 		trophy.setHighlightInInventory(true);
-		trophy.setTooltip("You can get another from Bonzo in Hemenster if you lost this.");
+		trophy.setTooltip(t("You can get another from Bonzo in Hemenster if you lost this."));
 
 		// Recommended
 		combatBracelet = new ItemRequirement("Combat Bracelet", ItemCollections.COMBAT_BRACELETS);
 		combatBracelet.setHighlightInInventory(true);
-		combatBracelet.setTooltip("Highly recommended!");
+		combatBracelet.setTooltip(t("Highly recommended!"));
 		camelotTeleport = new ItemRequirement("Camelot Teleport", ItemID.POH_TABLET_CAMELOTTELEPORT);
 		fairyRingAccess = new QuestRequirement(QuestHelperQuest.FAIRYTALE_II__CURE_A_QUEEN, QuestState.IN_PROGRESS,
 			"Fairy ring access");
@@ -135,7 +135,7 @@ public class FishingContest extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToVestriStep = new NpcStep(this, NpcID.TUNNEL_DWARF1, new WorldPoint(2821, 3486, 0), "Talk to Vestri just north of Catherby.");
+		talkToVestriStep = new NpcStep(this, NpcID.TUNNEL_DWARF1, new WorldPoint(2821, 3486, 0), t("Talk to Vestri just north of Catherby."));
 		talkToVestriStep.addDialogStep("I was wondering what was down those stairs?");
 		talkToVestriStep.addDialogStep("Why not?");
 		talkToVestriStep.addDialogStep("If you were my friend I wouldn't mind it.");
@@ -144,37 +144,37 @@ public class FishingContest extends BasicQuestHelper
 		talkToVestriStep.addDialogStep("Yes.");
 
 		getGarlic = new ObjectStep(this, ObjectID.KR_SEERS_TABLE2, new WorldPoint(2714, 3478, 0), "");
-		getGarlic.setText("Pick the garlic up on the table in Seers' Village.");
-		getGarlic.addText("If it is not there it spawns about every 30 seconds.");
+		getGarlic.setText(t("Pick the garlic up on the table in Seers' Village."));
+		getGarlic.addText(t("If it is not there it spawns about every 30 seconds."));
 
 		goToMcGruborWood = new ObjectStep(this, ObjectID.MCGRUBORLOOSERAILING, new WorldPoint(2662, 3500, 0), "", spade);
-		goToMcGruborWood.setText("Enter McGrubor's Woods via the northern entrance.");
+		goToMcGruborWood.setText(t("Enter McGrubor's Woods via the northern entrance."));
 		goToMcGruborWood.addDialogStep("Be careful of the Guard Dogs (level 44). They are aggressive!");
 
 		goToRedVine = new ObjectStep(this, ObjectID.RED_WORM_JUNCTION, new WorldPoint(2631, 3496, 0), "", spade);
-		goToRedVine.setText("Use your spade on the red vines to gather 1 Red Vine Worm.");
+		goToRedVine.setText(t("Use your spade on the red vines to gather 1 Red Vine Worm."));
 		goToRedVine.addIcon(ItemID.SPADE);
 		((ObjectStep)goToRedVine).addAlternateObjects(ObjectID.RED_WORM_CORNER, ObjectID.RED_WORM_DIAG1, ObjectID.RED_WORM_DIAG3, ObjectID.RED_WORM_END_DIAG);
 		((ObjectStep)goToRedVine).addAlternateObjects(ObjectID.RED_WORM_VINE, ObjectID.RED_WORM_DIAGFILLER, ObjectID.RED_WORM_END);
 
-		goToHemenster = new ObjectStep(this, ObjectID.FISHINGGATECLOSEDR, new WorldPoint(2642, 3441, 0), "Enter Hemenster with your fishing pass.");
+		goToHemenster = new ObjectStep(this, ObjectID.FISHINGGATECLOSEDR, new WorldPoint(2642, 3441, 0), t("Enter Hemenster with your fishing pass."));
 		((ObjectStep)goToHemenster).addAlternateObjects(ObjectID.FISHINGGATECLOSEDL);
-		grandpaJack = new NpcStep(this, NpcID.GRANDPA_JACK, new WorldPoint(2649, 3451, 0), "Talk to Grandpa Jack to get a fishing rod.");
+		grandpaJack = new NpcStep(this, NpcID.GRANDPA_JACK, new WorldPoint(2649, 3451, 0), t("Talk to Grandpa Jack to get a fishing rod."));
 		grandpaJack.addDialogStep("Can I buy one of your fishing rods?");
 		grandpaJack.addDialogStep("Very fair, I'll buy that rod!");
 
-		putGarlicInPipe = new ObjectStep(this, ObjectID.GARLICPIPE, new WorldPoint(2638, 3446, 0), "Put garlic in the pipes.", garlic);
+		putGarlicInPipe = new ObjectStep(this, ObjectID.GARLICPIPE, new WorldPoint(2638, 3446, 0), t("Put garlic in the pipes."), garlic);
 		putGarlicInPipe.addIcon(ItemID.GARLIC);
 
-		speakToBonzo = new NpcStep(this, NpcID.BONZO, new WorldPoint(2641, 3437, 0), "Speak to Bonzo to start the competition.", coins);
+		speakToBonzo = new NpcStep(this, NpcID.BONZO, new WorldPoint(2641, 3437, 0), t("Speak to Bonzo to start the competition."), coins);
 		speakToBonzo.addDialogStep("I'll enter the competition please.");
 
 		speakToBonzoWithFish = new NpcStep(this, NpcID.BONZO, new WorldPoint(2641, 3437, 0), "", winningFish);
-		speakToBonzoWithFish.setText("Speak to Bonzo again after you have caught the winning fish.");
+		speakToBonzoWithFish.setText(t("Speak to Bonzo again after you have caught the winning fish."));
 		speakToBonzoWithFish.addDialogStep("I have this big fish. Is it enough to win?");
 
 		fishForFish = new NpcStep(this, NpcID._0_41_53_SINISTERFISHSPOT, new WorldPoint(2637, 3444, 0),
-			"Catch the winning fish at the fishing spot near the pipes.", fishingRod, redVineWorm);
+			t("Catch the winning fish at the fishing spot near the pipes."), fishingRod, redVineWorm);
 		fishNearPipes = new ConditionalStep(this, fishForFish);
 		fishNearPipes.addStep(winningFish, speakToBonzoWithFish);
 
@@ -190,12 +190,12 @@ public class FishingContest extends BasicQuestHelper
 		runToJack.addDialogStep("Very fair, I'll buy that rod!");
 
 		speaktoVestri = new NpcStep(this, NpcID.TUNNEL_DWARF1, new WorldPoint(2821, 3486, 0),
-			"Bring Vestri just north of Catherby the trophy.", trophy);
+			t("Bring Vestri just north of Catherby the trophy."), trophy);
 
-		goToHemensterStep = new ConditionalStep(this, goToHemenster, "Enter Hemenster with your fishing pass.");
+		goToHemensterStep = new ConditionalStep(this, goToHemenster, t("Enter Hemenster with your fishing pass."));
 		goToHemensterStep.addDialogStep("Ranging Guild");
 
-		getWorms = new ConditionalStep(this, goToRedVine, "Gather 1 Red Vine Worm in McGrubor's Woods.");
+		getWorms = new ConditionalStep(this, goToRedVine, t("Gather 1 Red Vine Worm in McGrubor's Woods."));
 		getWorms.addStep(new Conditions(noWorms, notNearWorms, notInWoods), goToMcGruborWood);
 		getWorms.addStep(inWoods, goToRedVine);
 	}
@@ -261,8 +261,8 @@ public class FishingContest extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Access to the underground White Wolf Mountain passage"),
-				new UnlockReward("Ability to catch minnows in The Fishing Guild."));
+				new UnlockReward(t("Access to the underground White Wolf Mountain passage")),
+				new UnlockReward(t("Ability to catch minnows in The Fishing Guild.")));
 	}
 
 	@Override

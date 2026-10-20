@@ -135,7 +135,7 @@ public class FairytaleI extends BasicQuestHelper
 		skullOrSpade.addAlternates(ItemID.SPADE);
 		spade = new ItemRequirement("Spade", ItemID.SPADE).isNotConsumed();
 		ghostspeak = new ItemRequirement("Ghostspeak amulet", ItemCollections.GHOSTSPEAK, 1, true).isNotConsumed();
-		ghostspeak.setTooltip("You can get another from Father Urhney in the Lumbridge Swamp");
+		ghostspeak.setTooltip(t("You can get another from Father Urhney in the Lumbridge Swamp"));
 		dramenOrLunarStaff = new ItemRequirement("Dramen or lunar staff", ItemID.DRAMEN_STAFF, 1, true).isNotConsumed();
 		dramenOrLunarStaff.addAlternates(ItemID.LUNAR_MOONCLAN_LIMINAL_STAFF);
 		dramenOrLunarStaff.setDisplayMatchedItemName(true);
@@ -149,13 +149,13 @@ public class FairytaleI extends BasicQuestHelper
 		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
 
 		symptomsList = new ItemRequirement("Symptoms list", ItemID.FAIRY_SYMPTOMS_LIST);
-		symptomsList.setTooltip("You can get another from Fairy Nuff");
+		symptomsList.setTooltip(t("You can get another from Fairy Nuff"));
 		magicSecateurs = new ItemRequirement("Magic secateurs", ItemID.FAIRY_ENCHANTED_SECATEURS);
-		magicSecateurs.setTooltip("If you lost these you'll need to have the Nature Spirit enchant another secateur");
+		magicSecateurs.setTooltip(t("If you lost these you'll need to have the Nature Spirit enchant another secateur"));
 		magicSecateursEquipped = new ItemRequirement("Magic secateurs", ItemID.FAIRY_ENCHANTED_SECATEURS, 1, true);
-		magicSecateursEquipped.setTooltip("If you lost these you'll need to have the Nature Spirit enchant another secateur");
+		magicSecateursEquipped.setTooltip(t("If you lost these you'll need to have the Nature Spirit enchant another secateur"));
 		queensSecateurs = new ItemRequirement("Queen's secateurs", ItemID.FAIRY_QUEEN_SECATEURS);
-		queensSecateurs.setTooltip("You can get another by killing another Tanglefoot");
+		queensSecateurs.setTooltip(t("You can get another by killing another Tanglefoot"));
 		items3 = new ItemRequirement("3 items Mortifer told you to get", -1, -1);
 	}
 
@@ -211,70 +211,70 @@ public class FairytaleI extends BasicQuestHelper
 	public void setupSteps()
 	{
 		talkToMartin = new NpcStep(this, NpcID.MARTIN_THE_MASTER_FARMER, new WorldPoint(3078, 3256, 0),
-			"Talk to Martin in the Draynor Market.");
+			t("Talk to Martin in the Draynor Market."));
 		talkToMartin.addDialogSteps("Ask about the quest.", "Anything I can help with?", "Now that I think about it, " +
 			"you're right!");
 		talkToFarmers = new NpcStep(this, NpcID.ELSTAN,
-			"Talk to 5 farmers, then return to Martin in Draynor Village. The recommended 5 are:");
-		talkToFarmers.addText("If you don't already have one, a secateurs can be purchased from Sarah in South Falador Farm");
-		talkToFarmers.addText("Frizzy in Port Sarim.");
-		talkToFarmers.addText("Elstan north west of Draynor.");
-		talkToFarmers.addText("Heskel in Falador Park.");
-		talkToFarmers.addText("Treznor south of Varrock Castle.");
-		talkToFarmers.addText("Dreven south of Varrock, next to the Champions' Guild.");
+			t("Talk to 5 farmers, then return to Martin in Draynor Village. The recommended 5 are:"));
+		talkToFarmers.addText(t("If you don't already have one, a secateurs can be purchased from Sarah in South Falador Farm"));
+		talkToFarmers.addText(t("Frizzy in Port Sarim."));
+		talkToFarmers.addText(t("Elstan north west of Draynor."));
+		talkToFarmers.addText(t("Heskel in Falador Park."));
+		talkToFarmers.addText(t("Treznor south of Varrock Castle."));
+		talkToFarmers.addText(t("Dreven south of Varrock, next to the Champions' Guild."));
 		talkToFarmers.addDialogStep("Are you a member of the Group of Advanced Gardeners?");
 		((NpcStep) (talkToFarmers)).addAlternateNpcs(NpcID.FARMING_GARDENER_SPIRIT_TREE_1, NpcID.FARMING_GARDENER_TREE_2, NpcID.FARMING_GARDENER_BUSH_1, NpcID.FARMING_GARDENER_TREE_4,
 			NpcID.FARMING_GARDENER_TREE_3_02);
 
 		talkToMartinAgain = new NpcStep(this, NpcID.MARTIN_THE_MASTER_FARMER, new WorldPoint(3078, 3256, 0),
-			"Return to Martin in the Draynor Market.");
+			t("Return to Martin in the Draynor Market."));
 		talkToMartinAgain.addDialogStep("Ask about the quest.");
 		talkToFarmers.addSubSteps(talkToMartinAgain);
 
-		enterZanaris = new ObjectStep(this, ObjectID.ZANARISDOOR, new WorldPoint(3202, 3169, 0), "Travel to Zanaris.",
+		enterZanaris = new ObjectStep(this, ObjectID.ZANARISDOOR, new WorldPoint(3202, 3169, 0), t("Travel to Zanaris."),
 			dramenOrLunarStaff);
 
 		talkToGodfather = new NpcStep(this, NpcID.FAIRY_GODFATHER2, new WorldPoint(2447, 4430, 0),
-			"Talk to the Fairy Godfather in the Throne Room.");
+			t("Talk to the Fairy Godfather in the Throne Room."));
 		talkToGodfather.addDialogStep("Where's the Fairy Queen?");
 
 		talkToNuff = new NpcStep(this, NpcID.FAIRY_NUFF2, new WorldPoint(2386, 4472, 0),
-			"Talk to Fairy Nuff in north west Zanaris.");
+			t("Talk to Fairy Nuff in north west Zanaris."));
 		climbTowerF0ToF1 = new ObjectStep(this, ObjectID.FAI_DARKWIZTOWER_SPIRALSTAIRS, new WorldPoint(2908, 3335, 0),
-			"Talk to Zandar in the Dark Wizards' Tower west of Falador.", symptomsList);
+			t("Talk to Zandar in the Dark Wizards' Tower west of Falador."), symptomsList);
 		climbTowerF1ToF2 = new ObjectStep(this, ObjectID.FAI_DARKWIZTOWER_SPIRALSTAIRS_MIDDLE, new WorldPoint(2908, 3335, 1),
-			"Talk to Zandar in the Dark Wizards' Tower west of Falador.", symptomsList);
+			t("Talk to Zandar in the Dark Wizards' Tower west of Falador."), symptomsList);
 		climbTowerF1ToF2.addDialogStep("Climb up");
 		talkToZandar = new NpcStep(this, NpcID.ZANDAR_HORFYRE, new WorldPoint(2907, 3335, 2),
-			"Talk to Zandar in the Dark Wizards' Tower west of Falador.", symptomsList);
+			t("Talk to Zandar in the Dark Wizards' Tower west of Falador."), symptomsList);
 		talkToZandar.addSubSteps(climbTowerF1ToF2, climbTowerF0ToF1);
 
 		talkToMortifer = new NpcStep(this, NpcID.ELEMENTAL_WIZARD_BOSS, new WorldPoint(2991, 3270, 0),
-			"Talk to Malignius Mortifer west of Port Sarim.", draynorSkull);
+			t("Talk to Malignius Mortifer west of Port Sarim."), draynorSkull);
 		talkToMortifer.addDialogSteps("I need help with fighting a Tanglefoot.",
 			"I was asking you about fighting a Tanglefoot...");
-		getSkull = new DigStep(this, new WorldPoint(3106, 3383, 0), "Dig for a skull in the north of Draynor Manor.");
+		getSkull = new DigStep(this, new WorldPoint(3106, 3383, 0), t("Dig for a skull in the north of Draynor Manor."));
 		giveMortiferItems = new NpcStep(this, NpcID.ELEMENTAL_WIZARD_BOSS, new WorldPoint(2991, 3270, 0),
-			"Give Malignius Mortifer the items he wanted.");
+			t("Give Malignius Mortifer the items he wanted."));
 		enterGrotto = new ObjectStep(this, ObjectID.GROTTO_DOOR_DRUIDICSPIRIT, new WorldPoint(3440, 3337, 0),
-			"Get the items Mortifer tells you to get, and enter the Grotto in the south of Mort Myre.",
+			t("Get the items Mortifer tells you to get, and enter the Grotto in the south of Mort Myre."),
 			ghostspeak, secateurs, items3);
 		talkToSpirit = new NpcStep(this, NpcID.FILLIMAN_TARLOCK_NS, new WorldPoint(3441, 9738, 1),
-			"Talk to the Nature Spirit.", ghostspeak, secateurs, items3);
+			t("Talk to the Nature Spirit."), ghostspeak, secateurs, items3);
 
 		enterZanarisForFight = new ObjectStep(this, ObjectID.ZANARISDOOR, new WorldPoint(3202, 3169, 0),
-			"Travel to Zanaris, ready to fight the Tanglefoot.",
+			t("Travel to Zanaris, ready to fight the Tanglefoot."),
 					dramenOrLunarStaff, magicSecateurs);
 		enterTanglefootRoom = new ObjectStep(this, ObjectID.FAIRY_WALLS_MULTI, new WorldPoint(2399, 4379, 0),
-			"Enter the tanglefoot lair in the south of Zanaris, near the cosmic altar.", magicSecateursEquipped, food);
-		killTanglefoot = new NpcStep(this, NpcID.FAIRY_TANGLEFOOT, new WorldPoint(2375, 4385, 0), "Kill the large " +
-			"Tanglefoot with the Magic Secateurs. You can flinch it on a corner.", magicSecateursEquipped);
-		pickUpSecateurs = new ItemStep(this, "Pick up the queen's secateurs.", queensSecateurs);
+			t("Enter the tanglefoot lair in the south of Zanaris, near the cosmic altar."), magicSecateursEquipped, food);
+		killTanglefoot = new NpcStep(this, NpcID.FAIRY_TANGLEFOOT, new WorldPoint(2375, 4385, 0), t("Kill the large " +
+			"Tanglefoot with the Magic Secateurs. You can flinch it on a corner."), magicSecateursEquipped);
+		pickUpSecateurs = new ItemStep(this, t("Pick up the queen's secateurs."), queensSecateurs);
 
 		enterZanarisForEnd = new ObjectStep(this, ObjectID.ZANARISDOOR, new WorldPoint(3202, 3169, 0),
-			"Talk to the Fairy Godfather in Zanaris to finish the quest.", dramenOrLunarStaff, queensSecateurs);
+			t("Talk to the Fairy Godfather in Zanaris to finish the quest."), dramenOrLunarStaff, queensSecateurs);
 		talkToGodfatherToFinish = new NpcStep(this, NpcID.FAIRY_GODFATHER2, new WorldPoint(2447, 4430, 0),
-			"Talk to the Fairy Godfather to finish the quest.", queensSecateurs);
+			t("Talk to the Fairy Godfather to finish the quest."), queensSecateurs);
 		talkToGodfatherToFinish.addSubSteps(enterZanarisForEnd);
 	}
 
@@ -302,7 +302,7 @@ public class FairytaleI extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Tanglefoot (level 111)");
+		return Collections.singletonList(t("Tanglefoot (level 111)"));
 	}
 
 	@Override
@@ -331,14 +331,14 @@ public class FairytaleI extends BasicQuestHelper
 	{
 		ArrayList<PanelDetails> allSteps = new ArrayList<>();
 
-		allSteps.add(new PanelDetails("Investigating", Arrays.asList(talkToMartin, talkToFarmers, talkToMartinAgain)));
-		allSteps.add(new PanelDetails("Unnatural events", Arrays.asList(enterZanaris, talkToGodfather, talkToNuff,
+		allSteps.add(new PanelDetails(t("Investigating"), Arrays.asList(talkToMartin, talkToFarmers, talkToMartinAgain)));
+		allSteps.add(new PanelDetails(t("Unnatural events"), Arrays.asList(enterZanaris, talkToGodfather, talkToNuff,
 			talkToZandar), dramenOrLunarStaff));
-		allSteps.add(new PanelDetails("Finding a cure", Arrays.asList(getSkull, talkToMortifer),
+		allSteps.add(new PanelDetails(t("Finding a cure"), Arrays.asList(getSkull, talkToMortifer),
 			skullOrSpade));
-		allSteps.add(new PanelDetails("Enchanting secateurs", Arrays.asList(enterGrotto, talkToSpirit), ghostspeak, secateurs,
+		allSteps.add(new PanelDetails(t("Enchanting secateurs"), Arrays.asList(enterGrotto, talkToSpirit), ghostspeak, secateurs,
 			items3));
-		allSteps.add(new PanelDetails("Defeat the Tanglefoot", Arrays.asList(enterZanarisForFight,
+		allSteps.add(new PanelDetails(t("Defeat the Tanglefoot"), Arrays.asList(enterZanarisForFight,
 			enterTanglefootRoom, killTanglefoot, talkToGodfatherToFinish), dramenOrLunarStaff, magicSecateurs, food));
 
 		return allSteps;

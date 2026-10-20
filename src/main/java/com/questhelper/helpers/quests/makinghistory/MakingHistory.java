@@ -123,7 +123,7 @@ public class MakingHistory extends BasicQuestHelper
 		spade = new ItemRequirement("Spade", ItemID.SPADE).isNotConsumed();
 		saphAmulet = new ItemRequirement("Sapphire amulet", ItemID.STRUNG_SAPPHIRE_AMULET);
 		ghostSpeakAmulet = new ItemRequirement("Ghostspeak amulet", ItemCollections.GHOSTSPEAK).equipped().isNotConsumed();
-		ghostSpeakAmulet.setTooltip("You can also wear the Morytania Legs 2 or higher.");
+		ghostSpeakAmulet.setTooltip(t("You can also wear the Morytania Legs 2 or higher."));
 		ardougneTeleport = new ItemRequirement("Teleports to Ardougne", ItemID.POH_TABLET_ARDOUGNETELEPORT, 3);
 		ardougneTeleport.addAlternates(ItemID.ARDY_CAPE_EASY, ItemID.ARDY_CAPE_MEDIUM, ItemID.ARDY_CAPE_HARD, ItemID.ARDY_CAPE_ELITE);
 
@@ -131,15 +131,15 @@ public class MakingHistory extends BasicQuestHelper
 		ectophial.addAlternates(ItemID.TELETAB_FENK, ItemID.TABLET_KHARYLL);
 		ectophial.addAlternates(ItemCollections.SLAYER_RINGS); // Slayer Tower
 		ectophial.addAlternates(ItemID.MORYTANIA_LEGS_MEDIUM, ItemID.MORYTANIA_LEGS_HARD, ItemID.MORYTANIA_LEGS_ELITE);
-		ectophial.setTooltip("You will need 2 ecto-tokens if you have not completed Ghosts Ahoy.");
+		ectophial.setTooltip(t("You will need 2 ecto-tokens if you have not completed Ghosts Ahoy."));
 		ectophial.appendToTooltip("If you do not have 2 ecto-tokens bring 1 bone, 1 pot and 1 bucket to earn 5 ecto-tokens at the Ectofunctus.\n");
-		ectophial.appendToTooltip("You can use the Fairy Ring 'ALQ' or the Morytania Legs 2 or higher to get to Port Phasmatys.");
-		ectophial.appendToTooltip("Slayer rings and the Kharyrll teleport can also be used.");
+		ectophial.appendToTooltip(t("You can use the Fairy Ring 'ALQ' or the Morytania Legs 2 or higher to get to Port Phasmatys."));
+		ectophial.appendToTooltip(t("Slayer rings and the Kharyrll teleport can also be used."));
 
 		ectoTokens = new ItemRequirement("Ecto-tokens", ItemID.ECTOTOKEN, 2);
-		ectoTokens.setTooltip("You do not need two ecto-tokens if you have completed Ghosts Ahoy.");
-		ectoTokens.appendToTooltip("If you do not have 2 ecto-tokens bring 1 bone, 1 pot and 1 bucket to earn 5 ecto-tokens at the Ectofunctus.");
-		ectoTokens.appendToTooltip("Additionally, you can also enter Port Phasmatys via Charter ship, but that costs up to 4,100 coins.");
+		ectoTokens.setTooltip(t("You do not need two ecto-tokens if you have completed Ghosts Ahoy."));
+		ectoTokens.appendToTooltip(t("If you do not have 2 ecto-tokens bring 1 bone, 1 pot and 1 bucket to earn 5 ecto-tokens at the Ectofunctus."));
+		ectoTokens.appendToTooltip(t("Additionally, you can also enter Port Phasmatys via Charter ship, but that costs up to 4,100 coins."));
 
 		portPhasmatysEntry = ComplexRequirementBuilder.or("2 x Ecto-tokens, or 4100 coins to travel there via Charter" +
 			" Ship")
@@ -151,26 +151,26 @@ public class MakingHistory extends BasicQuestHelper
 
 		ringOfDueling = new ItemRequirement("Ring of Dueling", ItemCollections.RING_OF_DUELINGS);
 		enchantedKey = new KeyringRequirement("Enchanted key", KeyringCollection.ENCHANTED_KEY);
-		enchantedKey.setTooltip("You can get another from the silver merchant in East Ardougne's market");
+		enchantedKey.setTooltip(t("You can get another from the silver merchant in East Ardougne's market"));
 
 		enchantedKeyHighlighted = new ItemRequirement("Enchanted key", ItemID.MAKINGHISTORY_KEY);
-		enchantedKeyHighlighted.setTooltip("You can get another from the silver merchant in East Ardougne's market");
+		enchantedKeyHighlighted.setTooltip(t("You can get another from the silver merchant in East Ardougne's market"));
 		enchantedKeyHighlighted.setHighlightInInventory(true);
 
 		journal = new ItemRequirement("Journal", ItemID.MAKINGHISTORY_JOURNAL);
 		chest = new ItemRequirement("Chest", ItemID.MAKINGHISTORY_CHEST);
-		chest.setTooltip("You can dig up another from north of Castle Wars");
+		chest.setTooltip(t("You can dig up another from north of Castle Wars"));
 		chest.setHighlightInInventory(true);
 		scroll = new ItemRequirement("Scroll", ItemID.MAKINGHISTORY_SCROLL1);
-		scroll.setTooltip("You can get another from Droalak in Port Phasmatys");
+		scroll.setTooltip(t("You can get another from Droalak in Port Phasmatys"));
 		letter = new ItemRequirement("Letter", ItemID.MAKINGHISTORY_LETTER2);
-		letter.setTooltip("You can get another from King Lathas in East Ardougne castle");
+		letter.setTooltip(t("You can get another from King Lathas in East Ardougne castle"));
 		passage = new ItemRequirement("Necklace of passage", ItemCollections.NECKLACE_OF_PASSAGES);
 		rellekaTeleport = new ItemRequirement("Relleka Teleport", ItemID.NZONE_TELETAB_RELLEKKA);
 		rellekaTeleport.addAlternates(ItemCollections.ENCHANTED_LYRE);
 		rellekaTeleport.addAlternates(ItemID.FREMENNIK_BOOTS_MEDIUM, ItemID.FREMENNIK_BOOTS_HARD, ItemID.FREMENNIK_BOOTS_ELITE);
-		rellekaTeleport.setTooltip("You can also use Fairy Rings (DKS or AJR) if you have those unlocked.");
-		rellekaTeleport.appendToTooltip("You can also teleport to Camelot and run North.");
+		rellekaTeleport.setTooltip(t("You can also use Fairy Rings (DKS or AJR) if you have those unlocked."));
+		rellekaTeleport.appendToTooltip(t("You can also teleport to Camelot and run North."));
 		runRestoreItems = new ItemRequirement("Potions/Items to restore run energy", ItemCollections.RUN_RESTORE_ITEMS);
 
 	}
@@ -204,17 +204,17 @@ public class MakingHistory extends BasicQuestHelper
 	public void setupSteps()
 	{
 		talkToJorral = new NpcStep(this, NpcID.MAKINGHISTORY_JORRAL, new WorldPoint(2436, 3346, 0),
-			"Talk to Jorral at the outpost south of the Tree Gnome Stronghold. You can teleport there with a Necklace" +
-				" of Passage.");
+			t("Talk to Jorral at the outpost south of the Tree Gnome Stronghold. You can teleport there with a Necklace" +
+				" of Passage."));
 		talkToJorral.addDialogStep("The Outpost");
 		talkToJorral.addDialogStep("Tell me more.");
 		talkToJorral.addDialogStep("Ok, I'll make a stand for history!");
-		talkToSilverMerchant = new NpcStep(this, NpcID.SILVER_MERCHANT_ARDOUGNE, new WorldPoint(2658, 3316, 0), "Talk to the Silver Merchant in the East Ardougne Market.");
+		talkToSilverMerchant = new NpcStep(this, NpcID.SILVER_MERCHANT_ARDOUGNE, new WorldPoint(2658, 3316, 0), t("Talk to the Silver Merchant in the East Ardougne Market."));
 		talkToSilverMerchant.addDialogStep("Ask about the outpost.");
-		dig = new DigStep(this, new WorldPoint(2442, 3140, 0), "Dig at the marked spot north of Castle Wars.", enchantedKey);
-		openChest = new DetailedQuestStep(this, "Use the enchanted key on the chest.", enchantedKeyHighlighted, chest);
-		talkToBlanin = new NpcStep(this, NpcID.MAKINGHISTORY_BLANIN, new WorldPoint(2673, 3670, 0), "Talk to Blanin in south east Rellekka.");
-		talkToDron = new NpcStep(this, NpcID.MAKINGHISTORY_DRON, new WorldPoint(2661, 3698, 0), "Talk to Dron in north Rellekka.");
+		dig = new DigStep(this, new WorldPoint(2442, 3140, 0), t("Dig at the marked spot north of Castle Wars."), enchantedKey);
+		openChest = new DetailedQuestStep(this, t("Use the enchanted key on the chest."), enchantedKeyHighlighted, chest);
+		talkToBlanin = new NpcStep(this, NpcID.MAKINGHISTORY_BLANIN, new WorldPoint(2673, 3670, 0), t("Talk to Blanin in south east Rellekka."));
+		talkToDron = new NpcStep(this, NpcID.MAKINGHISTORY_DRON, new WorldPoint(2661, 3698, 0), t("Talk to Dron in north Rellekka."));
 		talkToDron.addDialogStep("I'm after important answers.");
 		talkToDron.addDialogStep("Why, you're the famous warrior Dron!");
 		talkToDron.addDialogStep("An iron mace");
@@ -231,17 +231,17 @@ public class MakingHistory extends BasicQuestHelper
 		talkToDron.addDialogStep("12, but what does that have to do with anything?");
 
 
-		talkToDroalak = new NpcStep(this, NpcID.MAKINGHISTORY_DROALAK, new WorldPoint(3659, 3468, 0), "Enter Port Phasmatys and talk to Droalak outside the general store.", ghostSpeakAmulet, portPhasmatysEntry);
-		talkToMelina = new NpcStep(this, NpcID.MAKINGHISTORY_MELINA, new WorldPoint(3674, 3479, 0), "Give Melina a sapphire amulet in the house north east of the general store.", saphAmulet, ghostSpeakAmulet);
-		returnToDroalak = new NpcStep(this, NpcID.MAKINGHISTORY_DROALAK, new WorldPoint(3659, 3468, 0), "Return to Droalak outside the general store.");
-		returnToJorral = new NpcStep(this, NpcID.MAKINGHISTORY_JORRAL, new WorldPoint(2436, 3346, 0), "Return to Jorral north of West Ardougne with the scroll and journal.", scroll, journal);
-		continueTalkingToJorral = new NpcStep(this, NpcID.MAKINGHISTORY_JORRAL, new WorldPoint(2436, 3346, 0), "Return to Jorral north of West Ardougne.");
+		talkToDroalak = new NpcStep(this, NpcID.MAKINGHISTORY_DROALAK, new WorldPoint(3659, 3468, 0), t("Enter Port Phasmatys and talk to Droalak outside the general store."), ghostSpeakAmulet, portPhasmatysEntry);
+		talkToMelina = new NpcStep(this, NpcID.MAKINGHISTORY_MELINA, new WorldPoint(3674, 3479, 0), t("Give Melina a sapphire amulet in the house north east of the general store."), saphAmulet, ghostSpeakAmulet);
+		returnToDroalak = new NpcStep(this, NpcID.MAKINGHISTORY_DROALAK, new WorldPoint(3659, 3468, 0), t("Return to Droalak outside the general store."));
+		returnToJorral = new NpcStep(this, NpcID.MAKINGHISTORY_JORRAL, new WorldPoint(2436, 3346, 0), t("Return to Jorral north of West Ardougne with the scroll and journal."), scroll, journal);
+		continueTalkingToJorral = new NpcStep(this, NpcID.MAKINGHISTORY_JORRAL, new WorldPoint(2436, 3346, 0), t("Return to Jorral north of West Ardougne."));
 		returnToJorral.addSubSteps(continueTalkingToJorral);
-		goUpToLathas = new ObjectStep(this, ObjectID.STAIRS, new WorldPoint(2572, 3296, 0), "Talk to King Lathas in East Ardougne castle.");
-		talkToLathas = new NpcStep(this, NpcID.KINGLATHAS_VIS, new WorldPoint(2578, 3293, 1), "Talk to King Lathas in East Ardougne castle.");
+		goUpToLathas = new ObjectStep(this, ObjectID.STAIRS, new WorldPoint(2572, 3296, 0), t("Talk to King Lathas in East Ardougne castle."));
+		talkToLathas = new NpcStep(this, NpcID.KINGLATHAS_VIS, new WorldPoint(2578, 3293, 1), t("Talk to King Lathas in East Ardougne castle."));
 		talkToLathas.addDialogStep("Talk about the outpost.");
 		talkToLathas.addSubSteps(goUpToLathas);
-		finishQuest = new NpcStep(this, NpcID.MAKINGHISTORY_JORRAL, new WorldPoint(2436, 3346, 0), "Return to Jorral north of West Ardougne with the letter to finish the quest.", letter);
+		finishQuest = new NpcStep(this, NpcID.MAKINGHISTORY_JORRAL, new WorldPoint(2436, 3346, 0), t("Return to Jorral north of West Ardougne with the letter to finish the quest."), letter);
 	}
 
 	@Override
@@ -293,15 +293,15 @@ public class MakingHistory extends BasicQuestHelper
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off", Collections.singletonList(talkToJorral)));
-		PanelDetails chestPanel = new PanelDetails("Find the book", Arrays.asList(talkToSilverMerchant, dig, openChest), spade);
+		allSteps.add(new PanelDetails(t("Starting off"), Collections.singletonList(talkToJorral)));
+		PanelDetails chestPanel = new PanelDetails(t("Find the book"), Arrays.asList(talkToSilverMerchant, dig, openChest), spade);
 		chestPanel.setLockingStep(keySteps);
-		PanelDetails fremPanel = new PanelDetails("Fremennik tale", Arrays.asList(talkToBlanin, talkToDron));
+		PanelDetails fremPanel = new PanelDetails(t("Fremennik tale"), Arrays.asList(talkToBlanin, talkToDron));
 		fremPanel.setLockingStep(dronSteps);
-		PanelDetails ghostPanel = new PanelDetails("Find the scroll", Arrays.asList(talkToDroalak, talkToMelina, returnToDroalak), saphAmulet, ghostSpeakAmulet, portPhasmatysEntry);
+		PanelDetails ghostPanel = new PanelDetails(t("Find the scroll"), Arrays.asList(talkToDroalak, talkToMelina, returnToDroalak), saphAmulet, ghostSpeakAmulet, portPhasmatysEntry);
 		ghostPanel.setLockingStep(ghostSteps);
 
-		PanelDetails finishingPanel = new PanelDetails("Finishing off", Arrays.asList(returnToJorral, talkToLathas, finishQuest));
+		PanelDetails finishingPanel = new PanelDetails(t("Finishing off"), Arrays.asList(returnToJorral, talkToLathas, finishQuest));
 
 		allSteps.add(chestPanel);
 		allSteps.add(fremPanel);

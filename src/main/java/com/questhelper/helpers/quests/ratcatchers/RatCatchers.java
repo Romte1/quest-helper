@@ -221,7 +221,7 @@ public class RatCatchers extends BasicQuestHelper
 		catspeakAmuletOrDS2 = new ItemRequirement("Catspeak amulet", ItemID.ICS_LITTLE_AMULET_OF_CATSPEAK);
 		catspeakAmuletOrDS2.addAlternates(ItemID.TWOCATS_AMULETOFCATSPEAK);
 		potOfWeeds = new ItemRequirement("Pot of weeds", ItemID.RATCATCHERS_WEEDPOT);
-		potOfWeeds.setTooltip("You can make this by using some weeds on a pot");
+		potOfWeeds.setTooltip(t("You can make this by using some weeds on a pot"));
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
 		coins101 = new ItemRequirement("Coins", ItemCollections.COINS, 101);
 		coin = new ItemRequirement("Coins", ItemCollections.COINS);
@@ -252,9 +252,9 @@ public class RatCatchers extends BasicQuestHelper
 		poisonedCheese4 = new ItemRequirement("Poisoned cheese", ItemID.RATCATCHERS_POISONEDCHEESE, 4);
 		smoulderingPot = new ItemRequirement("Smouldering pot", ItemID.RATCATCHERS_SMOKEY_WEEDPOT);
 		catantipoison = new ItemRequirement("Cat antipoison", ItemID.RATCATCHERS_CAT_ANTIPOISON);
-		catantipoison.setTooltip("You can get another from the Apothecary");
+		catantipoison.setTooltip(t("You can get another from the Apothecary"));
 		musicScroll = new ItemRequirement("Music scroll", ItemID.RATCATCHERS_MUSIC);
-		musicScroll.setTooltip("You can get another from the snake charmer");
+		musicScroll.setTooltip(t("You can get another from the snake charmer"));
 	}
 
 	@Override
@@ -308,30 +308,30 @@ public class RatCatchers extends BasicQuestHelper
 	public void setupSteps()
 	{
 		talkToGertrude = new NpcStep(this, NpcID.GERTRUDE_POST, new WorldPoint(3151, 3413, 0),
-			"Talk to Gertrude west of Varrock.", catspeakAmuletOrDS2.equipped());
+			t("Talk to Gertrude west of Varrock."), catspeakAmuletOrDS2.equipped());
 		talkToGertrude.addDialogStep("Yes.");
 
 		enterSewer = new ObjectStep(this, ObjectID.MANHOLEOPEN, new WorldPoint(3237, 3458, 0),
-			"Go down into Varrock Sewer via the Manhole south east of Varrock Castle.", cat);
+			t("Go down into Varrock Sewer via the Manhole south east of Varrock Castle."), cat);
 		((ObjectStep) enterSewer).addAlternateObjects(ObjectID.MANHOLECLOSED);
 
 		talkToPhingspet = new NpcStep(this, NpcID.VC_PHINGSPET, new WorldPoint(3243, 9867, 0),
-			"Talk to Phingspet in Varrock Sewer.", cat);
+			t("Talk to Phingspet in Varrock Sewer."), cat);
 
 		catch8Rats = new NpcStep(this, NpcID.PITRAT_SARIM_DEF, new WorldPoint(3243, 9867, 0),
-			"Have your cat catch 8 rats.", true, catFollower);
+			t("Have your cat catch 8 rats."), true, catFollower);
 		((NpcStep) catch8Rats).setHideWorldArrow(true);
 
 		talkToPhingspetAgain = new NpcStep(this, NpcID.VC_PHINGSPET, new WorldPoint(3243, 9867, 0),
-			"Talk to Phingspet in Varrock Sewer again.");
+			t("Talk to Phingspet in Varrock Sewer again."));
 
 		talkToJimmy = new NpcStep(this, NpcID.VC_JIMMY_DAZZLER, new WorldPoint(2563, 3320, 0),
-			"Talk to Jimmy Dazzler north of Ardougne Castle.", cat);
-		readDirections = new DetailedQuestStep(this, "Read the directions.", cat, directions.highlighted());
+			t("Talk to Jimmy Dazzler north of Ardougne Castle."), cat);
+		readDirections = new DetailedQuestStep(this, t("Read the directions."), cat, directions.highlighted());
 		readDirections.addDialogStep("Follow the directions to the house.");
 		climbTrellis = new ObjectStep(this, ObjectID.VC_TRELLIS_BASE, new WorldPoint(2844, 5105, 0),
-			"Climb the trellis around the back of the mansion, avoiding the guards. You may need to deviate from the " +
-				"marked path depending on what the guards are doing.");
+			t("Climb the trellis around the back of the mansion, avoiding the guards. You may need to deviate from the " +
+				"marked path depending on what the guards are doing."));
 		((ObjectStep) climbTrellis).setLinePoints(Arrays.asList(
 			new WorldPoint(2847, 5066, 0),
 			new WorldPoint(2840, 5066, 0),
@@ -352,110 +352,110 @@ public class RatCatchers extends BasicQuestHelper
 			new WorldPoint(2844, 5105, 0)
 		));
 		climbTrellisNoPath = new ObjectStep(this, ObjectID.VC_TRELLIS_BASE, new WorldPoint(2844, 5105, 0),
-			"Climb the trellis.");
+			t("Climb the trellis."));
 		climbTrellis.addSubSteps(climbTrellisNoPath);
 		catchRat1 = new NpcStep(this, NpcID.VC_PARTY_RAT, new WorldPoint(2835, 5098, 1),
-			"Catch the rat in the north west room with your cat.", catFollower);
+			t("Catch the rat in the north west room with your cat."), catFollower);
 		catchRat1.addTileMarker(new WorldPoint(2841, 5104, 1), SpriteID.Wornicons.SHIELD);
 		catchRat1.setMaxRoamRange(7);
 		catchRat2And3 = new NpcStep(this, NpcID.VC_PARTY_RAT, new WorldPoint(2859, 5091, 1),
-			"Hide in the north east room until it's safe to go to the south east room, then catch the rats there.",
+			t("Hide in the north east room until it's safe to go to the south east room, then catch the rats there."),
 			true);
 		catchRat2And3.addTileMarker(new WorldPoint(2857, 5098, 1), SpriteID.Wornicons.SHIELD);
 		climbDownLadderInMansion = new ObjectStep(this, ObjectID.LADDERTOP, new WorldPoint(2862, 5092, 1),
-			"Climb down the ladder.");
+			t("Climb down the ladder."));
 		catchRemainingRats = new NpcStep(this, NpcID.VC_PARTY_RAT, new WorldPoint(2860, 5093, 0),
-			"Catch the 3 rats down here.", true, catFollower);
+			t("Catch the 3 rats down here."), true, catFollower);
 		talkToJimmyAgain = new NpcStep(this, NpcID.VC_JIMMY_DAZZLER, new WorldPoint(2563, 3320, 0),
-			"Talk to Jimmy Dazzler again.", cat);
+			t("Talk to Jimmy Dazzler again."), cat);
 
 		talkToJack = new NpcStep(this, NpcID.VC_HOOKNOSED_JACK, new WorldPoint(3268, 3401, 0),
-			"Talk to Hooknosed Jack in south east Varrock.  You can give Jack your vial, kwuarm, and red spiders' eggs" + 
-			" for the rat poison", cat, kwuarm, vial, redEggs);
+			t("Talk to Hooknosed Jack in south east Varrock.  You can give Jack your vial, kwuarm, and red spiders' eggs" +
+			" for the rat poison"), cat, kwuarm, vial, redEggs);
 		climbJackLadder = new ObjectStep(this, ObjectID.FAI_VARROCK_LADDER, new WorldPoint(3268, 3379, 0),
-			"Climb up the ladder south of Jack.", cheese.quantity(4), ratPoison);
-		useRatPoisonOnCheese = new DetailedQuestStep(this, "Add rat poison to your cheese.",
+			t("Climb up the ladder south of Jack."), cheese.quantity(4), ratPoison);
+		useRatPoisonOnCheese = new DetailedQuestStep(this, t("Add rat poison to your cheese."),
 			ratPoison.highlighted(), cheese.highlighted());
 		useCheeseOnHole1 = new ObjectStep(this, ObjectID.RATCATCHERS_RATHOLE1, new WorldPoint(3265, 3378, 1),
-			"Use a poisoned cheese on the rat holes.", poisonedCheese1.highlighted());
+			t("Use a poisoned cheese on the rat holes."), poisonedCheese1.highlighted());
 		useCheeseOnHole2 = new ObjectStep(this, ObjectID.RATCATCHERS_RATHOLE2, new WorldPoint(3273, 3377, 1),
-			"Use a poisoned cheese on the rat holes.", poisonedCheese1.highlighted());
+			t("Use a poisoned cheese on the rat holes."), poisonedCheese1.highlighted());
 		useCheeseOnHole3 = new ObjectStep(this, ObjectID.RATCATCHERS_RATHOLE3, new WorldPoint(3273, 3381, 1),
-			"Use a poisoned cheese on the rat holes.", poisonedCheese1.highlighted());
+			t("Use a poisoned cheese on the rat holes."), poisonedCheese1.highlighted());
 		useCheeseOnHole4 = new ObjectStep(this, ObjectID.RATCATCHERS_RATHOLE4, new WorldPoint(3271, 3384, 1),
-			"Use a poisoned cheese on the rat holes.", poisonedCheese1.highlighted());
+			t("Use a poisoned cheese on the rat holes."), poisonedCheese1.highlighted());
 		useCheeseOnHole1.addSubSteps(useCheeseOnHole2, useCheeseOnHole3, useCheeseOnHole4);
 
 		goDownToJack = new ObjectStep(this, ObjectID.FAI_VARROCK_LADDERTOP, new WorldPoint(3268, 3379, 1),
-			"Return to Jack.");
+			t("Return to Jack."));
 		talkToJackAfterCheese = new NpcStep(this, NpcID.VC_HOOKNOSED_JACK, new WorldPoint(3268, 3401, 0),
-			"Return to Jack.", cat);
+			t("Return to Jack."), cat);
 		talkToJackAfterCheese.addSubSteps(goDownToJack);
 
 		talkToApoth = new NpcStep(this, NpcID.APOTHECARY, new WorldPoint(3196, 3404, 0),
-			"Talk to the Apothecary in west Varrock.", bucketOfMilk, unicornHornDust, marrentill);
+			t("Talk to the Apothecary in west Varrock."), bucketOfMilk, unicornHornDust, marrentill);
 		talkToApoth.addDialogSteps("Talk about something else.", "Talk about the Ratcatchers Quest.");
 		talkToJackAfterApoth = new NpcStep(this, NpcID.VC_HOOKNOSED_JACK, new WorldPoint(3268, 3401, 0),
-			"Talk to Jack again.", catantipoison, cat);
+			t("Talk to Jack again."), catantipoison, cat);
 		talkToJackAfterCure = new NpcStep(this, NpcID.VC_HOOKNOSED_JACK, new WorldPoint(3268, 3401, 0),
-			"Talk to Jack again.", catantipoison, cat);
+			t("Talk to Jack again."), catantipoison, cat);
 		talkToJackAfterApoth.addSubSteps(talkToJackAfterCure);
 
 		climbJackLadderAgain = new ObjectStep(this, ObjectID.FAI_VARROCK_LADDER, new WorldPoint(3268, 3379, 0),
-			"Climb up the ladder south of Jack.", cat, fish8);
+			t("Climb up the ladder south of Jack."), cat, fish8);
 		useCatOnHole = new ObjectStep(this, ObjectID.VC_BLANK_WALLDECOR, new WorldPoint(3270, 3379, 1),
-			"Use your cat on the hole in the wall. You'll need to feed it by using fish ON THE WALL whenever its " +
-				"health gets low.", cat.highlighted(), fish8);
+			t("Use your cat on the hole in the wall. You'll need to feed it by using fish ON THE WALL whenever its " +
+				"health gets low."), cat.highlighted(), fish8);
 		useCatOnHole.addDialogSteps("Yes", "Be careful in there, cat!");
 		feedCatAsItFights = new ObjectStep(this, ObjectID.VC_BLANK_WALLDECOR, new WorldPoint(3270, 3379, 1),
-			"Use fish on the wall whenever your cat's health gets low.", fish8.highlighted());
+			t("Use fish on the wall whenever your cat's health gets low."), fish8.highlighted());
 		goDownToJackAfterFight = new ObjectStep(this, ObjectID.FAI_VARROCK_LADDERTOP, new WorldPoint(3268, 3379, 1),
-			"Return to Jack.");
+			t("Return to Jack."));
 		talkToJackAfterFight = new NpcStep(this, NpcID.VC_HOOKNOSED_JACK, new WorldPoint(3268, 3401, 0),
-			"Return to Jack.");
+			t("Return to Jack."));
 		talkToJackAfterFight.addSubSteps(goDownToJackAfterFight);
 
 		travelToKeldagrim = new ObjectStep(this, ObjectID.GE_KELDAGRIM_TRAPDOOR, new WorldPoint(3140, 3504, 0),
-			"Travel to Keldagrim.", cat, potOfWeeds, tinderbox);
+			t("Travel to Keldagrim."), cat, potOfWeeds, tinderbox);
 		talkToSmokinJoe = new NpcStep(this, NpcID.VC_SMOKIN_JOE, new WorldPoint(2929, 10213, 0),
-			"Talk to Smokin' Joe in the north east of Keldagrim.", cat, potOfWeeds, tinderbox);
-		lightWeeds = new DetailedQuestStep(this, "Use a tinderbox on the pot of weeds.", potOfWeeds.highlighted(),
+			t("Talk to Smokin' Joe in the north east of Keldagrim."), cat, potOfWeeds, tinderbox);
+		lightWeeds = new DetailedQuestStep(this, t("Use a tinderbox on the pot of weeds."), potOfWeeds.highlighted(),
 			tinderbox.highlighted());
 		usePotOnHole = new ObjectStep(this, ObjectID.RATCATCHERS_RATHOLE5, new WorldPoint(2933, 10212, 0),
-			"Use the smouldering pot on the hole east of Joe with your cat following you and your catspeak amulet equipped.",
+			t("Use the smouldering pot on the hole east of Joe with your cat following you and your catspeak amulet equipped."),
 			smoulderingPot.highlighted(), catFollower, catspeakAmuletOrDS2.equipped());
 		usePotOnHole.addIcon(ItemID.RATCATCHERS_SMOKEY_WEEDPOT);
 		usePotOnHoleAgain = new ObjectStep(this, ObjectID.RATCATCHERS_RATHOLE5, new WorldPoint(2933, 10212, 0),
-			"Use the smouldering pot on the rat hole again.", smoulderingPot.highlighted(), catFollower, catspeakAmuletOrDS2.equipped());
+			t("Use the smouldering pot on the rat hole again."), smoulderingPot.highlighted(), catFollower, catspeakAmuletOrDS2.equipped());
 		usePotOnHoleAgain.addIcon(ItemID.RATCATCHERS_SMOKEY_WEEDPOT);
 		talkToJoeAgain = new NpcStep(this, NpcID.VC_SMOKIN_JOE, new WorldPoint(2929, 10213, 0),
-			"Talk to Smokin' Joe again.");
+			t("Talk to Smokin' Joe again."));
 
 		enterSarimRatPits = new ObjectStep(this, ObjectID.VC_MANHOLE_OPEN, new WorldPoint(3018, 3232, 0),
-			"Go down the manhole near The Face.");
+			t("Go down the manhole near The Face."));
 		talkToFelkrash = new NpcStep(this, NpcID.VC_FELKRASH_THE_BARD, new WorldPoint(2978, 9640, 0),
-			"Talk to Felkrash in the Port Sarim Rat Pits.");
+			t("Talk to Felkrash in the Port Sarim Rat Pits."));
 		leaveSarimRatPits = new ObjectStep(this, ObjectID.VC_LADDER, new WorldPoint(2962, 9651, 0),
-			"Leave the rat pits.");
+			t("Leave the rat pits."));
 		talkToTheFaceAgain = new NpcStep(this, NpcID.VC_FACE, new WorldPoint(3019, 3232, 0),
-			"Talk to The Face in Port Sarim again.", cat, catspeakAmuletOrDS2);
+			t("Talk to The Face in Port Sarim again."), cat, catspeakAmuletOrDS2);
 		talkToTheFaceAgain.addDialogStep(3, "I just don't think Felkrash was that impressive.");
 
 		useCoinOnPot = new ObjectStep(this, ObjectID.FEUD_MONEY_BOWL, new WorldPoint(3355, 2953, 0),
-		"Use a coin on the pot next to the Snake Charmer in Pollnivneach.", coin.quantity(101).highlighted());
+		t("Use a coin on the pot next to the Snake Charmer in Pollnivneach."), coin.quantity(101).highlighted());
 		useCoinOnPot.addDialogSteps("I want to talk to you about animal charming.", "What if I offered you some money?",
 			"Forget about it. I don't care that much.", "Walk away slowly", "Stop");
 		useCoinOnPot.addIcon(ItemID.COINS);
-		returnToSarim = new DetailedQuestStep(this, new WorldPoint(3019, 3232, 0), "Return to just outside the Port " +
-			"Sarim Rat Pits.", snakeCharm, musicScroll);
-		clickSnakeCharm = new DetailedQuestStep(this, "Click your snake charm and play it.", snakeCharm.highlighted());
+		returnToSarim = new DetailedQuestStep(this, new WorldPoint(3019, 3232, 0), t("Return to just outside the Port " +
+			"Sarim Rat Pits."), snakeCharm, musicScroll);
+		clickSnakeCharm = new DetailedQuestStep(this, t("Click your snake charm and play it."), snakeCharm.highlighted());
 
 		playSnakeCharm = new RatCharming(this);
 
 		enterPitsForEnd = new ObjectStep(this, ObjectID.VC_MANHOLE_OPEN, new WorldPoint(3018, 3232, 0),
-			"Return to Felkrash to finish.");
+			t("Return to Felkrash to finish."));
 		talkToFelkrashForEnd = new NpcStep(this, NpcID.VC_FELKRASH_THE_BARD, new WorldPoint(2978, 9640, 0),
-			"Return to Felkrash to finish.");
+			t("Return to Felkrash to finish."));
 		talkToFelkrashForEnd.addSubSteps(enterPitsForEnd);
 	}
 
@@ -506,33 +506,33 @@ public class RatCatchers extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Access to the Rat Pits"),
-				new UnlockReward("Ability to train Overgrown Cats into Wiley and Lazy Cats"));
+				new UnlockReward(t("Access to the Rat Pits")),
+				new UnlockReward(t("Ability to train Overgrown Cats into Wiley and Lazy Cats")));
 	}
 	
 	@Override
 	public List<String> getNotes()
 	{
-		return Collections.singletonList("Alternatively, rat poison could be obtained in the basement of the Clocktower south of East" +
-				" Ardougne. If you already have the rat poison it follows that you would not need the vial, red spiders' eggs, or kwuarm.");
+		return Collections.singletonList(t("Alternatively, rat poison could be obtained in the basement of the Clocktower south of East" +
+				" Ardougne. If you already have the rat poison it follows that you would not need the vial, red spiders' eggs, or kwuarm."));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off",
+		allSteps.add(new PanelDetails(t("Starting off"),
 			Arrays.asList(talkToGertrude, enterSewer, talkToPhingspet, catch8Rats, talkToPhingspetAgain), cat));
-		allSteps.add(new PanelDetails("Helping Jimmy", Arrays.asList(talkToJimmy, readDirections, climbTrellis,
+		allSteps.add(new PanelDetails(t("Helping Jimmy"), Arrays.asList(talkToJimmy, readDirections, climbTrellis,
 			catchRat1, catchRat2And3, climbDownLadderInMansion, catchRemainingRats, talkToJimmyAgain), cat));
-		allSteps.add(new PanelDetails("Helping Jack",
+		allSteps.add(new PanelDetails(t("Helping Jack"),
 			Arrays.asList(talkToJack, useRatPoisonOnCheese, climbJackLadder, useCheeseOnHole1, talkToJackAfterCheese,
 				talkToApoth, talkToJackAfterApoth, climbJackLadderAgain, useCatOnHole, feedCatAsItFights, talkToJackAfterFight),
 			cheese.quantity(4), bucketOfMilk, marrentill, unicornHornDust, cat, fish8, vial, kwuarm, redEggs, ratPoison));
-		allSteps.add(new PanelDetails("Helping Joe", Arrays.asList(travelToKeldagrim, talkToSmokinJoe, usePotOnHole,
+		allSteps.add(new PanelDetails(t("Helping Joe"), Arrays.asList(travelToKeldagrim, talkToSmokinJoe, usePotOnHole,
 			usePotOnHoleAgain, talkToJoeAgain), cat, catspeakAmuletOrDS2, potOfWeeds, tinderbox));
 
-		allSteps.add(new PanelDetails("Helping Felkrash", Arrays.asList(enterSarimRatPits,
+		allSteps.add(new PanelDetails(t("Helping Felkrash"), Arrays.asList(enterSarimRatPits,
 			talkToFelkrash, leaveSarimRatPits, talkToTheFaceAgain, useCoinOnPot, returnToSarim,
 			clickSnakeCharm, talkToFelkrashForEnd), snakeCharm, coins101));
 		return allSteps;

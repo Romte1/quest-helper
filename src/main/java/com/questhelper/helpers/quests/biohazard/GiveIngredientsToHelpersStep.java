@@ -112,23 +112,23 @@ public class GiveIngredientsToHelpersStep extends DetailedOwnerStep
 	protected void setupSteps()
 	{
 		ethenea = new ItemRequirement("Ethenea", ItemID.ETHENEA);
-		ethenea.setTooltip("You can get another from Elena in East Ardougne.");
+		ethenea.setTooltip(getQuestHelper().t("You can get another from Elena in East Ardougne."));
 		liquidHoney = new ItemRequirement("Liquid honey", ItemID.LIQUID_HONEY);
-		liquidHoney.setTooltip("You can get another from Elena in East Ardougne.");
+		liquidHoney.setTooltip(getQuestHelper().t("You can get another from Elena in East Ardougne."));
 		sulphuricBroline = new ItemRequirement("Sulphuric broline", ItemID.SULPHURIC_BROLINE);
-		sulphuricBroline.setTooltip("You can get another from Elena in East Ardougne.");
+		sulphuricBroline.setTooltip(getQuestHelper().t("You can get another from Elena in East Ardougne."));
 
 		giveHopsBroline = new PuzzleWrapperStep(getQuestHelper(),
-			new NpcStep(getQuestHelper(), NpcID.DRUNK1, new WorldPoint(2930, 3220, 0), "Give Hops the Sulphuric Broline.", sulphuricBroline),
-			"Work out what ingredient to give to Hops by talking to them.");
+			new NpcStep(getQuestHelper(), NpcID.DRUNK1, new WorldPoint(2930, 3220, 0), getQuestHelper().t("Give Hops the Sulphuric Broline."), sulphuricBroline),
+			getQuestHelper().t("Work out what ingredient to give to Hops by talking to them."));
 		giveHopsBroline.addDialogStep("You give him the vial of sulphuric broline...");
 		giveChancyHoney = new PuzzleWrapperStep(getQuestHelper(),
-			new NpcStep(getQuestHelper(), NpcID.GAMBLER1, new WorldPoint(2930, 3220, 0), "Give Chancy the Liquid honey.", liquidHoney),
-			"Work out what ingredient to give to Chancy by talking to them.");
+			new NpcStep(getQuestHelper(), NpcID.GAMBLER1, new WorldPoint(2930, 3220, 0), getQuestHelper().t("Give Chancy the Liquid honey."), liquidHoney),
+			getQuestHelper().t("Work out what ingredient to give to Chancy by talking to them."));
 		giveChancyHoney.addDialogStep("You give him the vial of liquid honey...");
 		giveVinciEthenea = new PuzzleWrapperStep(getQuestHelper(),
-			new NpcStep(getQuestHelper(), NpcID.ARTIST1, new WorldPoint(2930, 3220, 0), "Give Da Vinci the Ethenea.", ethenea),
-				"Work out what ingredient to give to Da Vinci by talking to them.");
+			new NpcStep(getQuestHelper(), NpcID.ARTIST1, new WorldPoint(2930, 3220, 0), getQuestHelper().t("Give Da Vinci the Ethenea."), ethenea),
+				getQuestHelper().t("Work out what ingredient to give to Da Vinci by talking to them."));
 		giveVinciEthenea.addDialogStep("You give him the vial of ethenea...");
 	}
 

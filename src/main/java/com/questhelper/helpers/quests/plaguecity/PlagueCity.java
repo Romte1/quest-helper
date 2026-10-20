@@ -157,18 +157,18 @@ public class PlagueCity extends BasicQuestHelper
 		manholeClosed = new ObjectCondition(ObjectID.PLAGUEMANHOLECLOSED);
 
 		dwellberries = new ItemRequirement("Dwellberries", ItemID.DWELLBERRIES);
-		dwellberries.setTooltip("You can get these from McGrubor's Wood west of Seers' Village");
+		dwellberries.setTooltip(t("You can get these from McGrubor's Wood west of Seers' Village"));
 		rope = new ItemRequirement("Rope", ItemID.ROPE);
 		rope.setHighlightInInventory(true);
 		spade = new ItemRequirement("Spade", ItemID.SPADE).isNotConsumed();
 		spade.canBeObtainedDuringQuest();
-		spade.setTooltip("A spawn is found in Edmond's garden at the start of the quest");
+		spade.setTooltip(t("A spawn is found in Edmond's garden at the start of the quest"));
 		spade.setHighlightInInventory(true);
 
 		fourBucketsOfWater = new ItemRequirement("Bucket of water", ItemID.BUCKET_WATER, 4);
 		fourBucketsOfWater.canBeObtainedDuringQuest();
 		fourBucketsOfWater.setHighlightInInventory(true);
-		fourBucketsOfWater.setTooltip("An empty bucket can be found next to Edmond's garden patch, which can be filled in the sink inside Edmond's house.");
+		fourBucketsOfWater.setTooltip(t("An empty bucket can be found next to Edmond's garden patch, which can be filled in the sink inside Edmond's house."));
 		threeBucketsOfWater = fourBucketsOfWater.quantity(3);
 		twoBucketsOfWater = fourBucketsOfWater.quantity(2);
 		bucketOfWater = fourBucketsOfWater.quantity(1);
@@ -182,7 +182,7 @@ public class PlagueCity extends BasicQuestHelper
 		snapeGrass.setHighlightInInventory(true);
 		pictureOfElena = new ItemRequirement("Picture", ItemID.ELENA_PICTURE);
 		gasMask = new ItemRequirement("Gas mask", ItemID.GASMASK, 1, true).isNotConsumed();
-		gasMask.setTooltip("You can get another from the cupboard in Edmond's house.");
+		gasMask.setTooltip(t("You can get another from the cupboard in Edmond's house."));
 		book = new ItemRequirement("Book", ItemID.TURNIP_BOOK);
 		bucketOfChocolateMilk = new ItemRequirement("Chocolatey milk", ItemID.CHOCOLATY_MILK);
 		bucketOfChocolateMilk.setHighlightInInventory(true);
@@ -195,102 +195,102 @@ public class PlagueCity extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToEdmond = new NpcStep(this, NpcID.EDMOND, new WorldPoint(2568, 3333, 0), "Talk to Edmond in the north-west corner of East Ardougne.");
+		talkToEdmond = new NpcStep(this, NpcID.EDMOND, new WorldPoint(2568, 3333, 0), t("Talk to Edmond in the north-west corner of East Ardougne."));
 		talkToEdmond.addDialogStep("What's happened to her?");
 		talkToEdmond.addDialogStep("Yes.");
 
-		talkToAlrena = new NpcStep(this, NpcID.ALRENA, new WorldPoint(2573, 3333, 0), "Talk to Alrena and give her the dwellberries.", dwellberries);
+		talkToAlrena = new NpcStep(this, NpcID.ALRENA, new WorldPoint(2573, 3333, 0), t("Talk to Alrena and give her the dwellberries."), dwellberries);
 
 		grabPictureOfElena = new DetailedQuestStep(this, new WorldPoint(2576, 3334, 0),
-			"Grab the Picture from Edmond's house.", pictureOfElena);
+			t("Grab the Picture from Edmond's house."), pictureOfElena);
 
-		talkToEdmondAgain = new NpcStep(this, NpcID.EDMOND, new WorldPoint(2568, 3332, 0), "Talk to Edmond again.");
+		talkToEdmondAgain = new NpcStep(this, NpcID.EDMOND, new WorldPoint(2568, 3332, 0), t("Talk to Edmond again."));
 
 		useWaterOnMudPatch1 = new ObjectStep(this, ObjectID.PLAGUEMUDPATCH2, new WorldPoint(2566, 3332, 0),
-			"Use four buckets of water on the mud patch in Edmond's garden patch.", fourBucketsOfWater);
+			t("Use four buckets of water on the mud patch in Edmond's garden patch."), fourBucketsOfWater);
 		useWaterOnMudPatch1.addIcon(ItemID.BUCKET_WATER);
 		useWaterOnMudPatch2 = new ObjectStep(this, ObjectID.PLAGUEMUDPATCH2, new WorldPoint(2566, 3332, 0),
-			"Use three more buckets of water on the mud patch in Edmond's garden patch.", threeBucketsOfWater);
+			t("Use three more buckets of water on the mud patch in Edmond's garden patch."), threeBucketsOfWater);
 		useWaterOnMudPatch2.addIcon(ItemID.BUCKET_WATER);
 		useWaterOnMudPatch3 = new ObjectStep(this, ObjectID.PLAGUEMUDPATCH2, new WorldPoint(2566, 3332, 0),
-			"Use two more buckets of water on the mud patch in Edmond's garden patch.", twoBucketsOfWater);
+			t("Use two more buckets of water on the mud patch in Edmond's garden patch."), twoBucketsOfWater);
 		useWaterOnMudPatch3.addIcon(ItemID.BUCKET_WATER);
 		useWaterOnMudPatch4 = new ObjectStep(this, ObjectID.PLAGUEMUDPATCH2, new WorldPoint(2566, 3332, 0),
-			"Use one more bucket of water on the mud patch in Edmond's garden patch.", bucketOfWater);
+			t("Use one more bucket of water on the mud patch in Edmond's garden patch."), bucketOfWater);
 		useWaterOnMudPatch4.addIcon(ItemID.BUCKET_WATER);
 
 		useWaterOnMudPatch1.addSubSteps(useWaterOnMudPatch2, useWaterOnMudPatch3, useWaterOnMudPatch4);
 
 		digHole = new ObjectStep(this, ObjectID.PLAGUEMUDPATCH2, new WorldPoint(2566, 3332, 0),
-			"Use a spade on the mud patch.", spade);
+			t("Use a spade on the mud patch."), spade);
 		digHole.addIcon(ItemID.SPADE);
 
 		goDownHole = new ObjectStep(this, ObjectID.PLAGUEMUDPATCH2, new WorldPoint(2566, 3332, 0),
-			"Go down the hole.");
+			t("Go down the hole."));
 
-		attemptToPullGrill = new ObjectStep(this, ObjectID.PLAGUE_GRILL, new WorldPoint(2514, 9739, 0), "Attempt to pull the grill in the south of the sewer.");
-		climbMudPile = new ObjectStep(this, ObjectID.PLAGUEMUDPILE, new WorldPoint(2519, 9760, 0), "Climb the mud pile.");
+		attemptToPullGrill = new ObjectStep(this, ObjectID.PLAGUE_GRILL, new WorldPoint(2514, 9739, 0), t("Attempt to pull the grill in the south of the sewer."));
+		climbMudPile = new ObjectStep(this, ObjectID.PLAGUEMUDPILE, new WorldPoint(2519, 9760, 0), t("Climb the mud pile."));
 
 		grabPictureOfElena.addSubSteps(climbMudPile);
 
-		useRopeOnGrill = new ObjectStep(this, ObjectID.PLAGUE_GRILL, new WorldPoint(2514, 9739, 0), "Use a rope on the grill.", rope);
+		useRopeOnGrill = new ObjectStep(this, ObjectID.PLAGUE_GRILL, new WorldPoint(2514, 9739, 0), t("Use a rope on the grill."), rope);
 		useRopeOnGrill.addIcon(ItemID.ROPE);
 
-		talkToEdmondUnderground = new NpcStep(this, NpcID.EDMOND, new WorldPoint(2517, 9753, 0), "Talk to Edmond and ask him to help you pull off the grill.");
+		talkToEdmondUnderground = new NpcStep(this, NpcID.EDMOND, new WorldPoint(2517, 9753, 0), t("Talk to Edmond and ask him to help you pull off the grill."));
 
-		climbThroughPipe = new ObjectStep(this, ObjectID.PLAGUESEWERPIPE_OPEN, new WorldPoint(2514, 9738, 0), "Equip the gas mask and climb through the pipe.", gasMask.highlighted());
+		climbThroughPipe = new ObjectStep(this, ObjectID.PLAGUESEWERPIPE_OPEN, new WorldPoint(2514, 9738, 0), t("Equip the gas mask and climb through the pipe."), gasMask.highlighted());
 
-		talkToJethick = new NpcStep(this, NpcID.JETHICK_VIS, new WorldPoint(2540, 3305, 0), "Talk to Jethick east of where you emerge.", gasMask, pictureOfElena);
+		talkToJethick = new NpcStep(this, NpcID.JETHICK_VIS, new WorldPoint(2540, 3305, 0), t("Talk to Jethick east of where you emerge."), gasMask, pictureOfElena);
 		talkToJethick.addDialogStep("Yes, I'll return it for you.");
 
-		enterMarthasHouse = new ObjectStep(this, ObjectID.REHNISONDOORSHUT, new WorldPoint(2531, 3328, 0), "Enter the tall house in north West Ardougne.");
+		enterMarthasHouse = new ObjectStep(this, ObjectID.REHNISONDOORSHUT, new WorldPoint(2531, 3328, 0), t("Enter the tall house in north West Ardougne."));
 
-		talkToMartha = new NpcStep(this, NpcID.MARTHA_REHNISON, new WorldPoint(2531, 3331, 0), "Talk to Martha or Ted Rehnison", true);
+		talkToMartha = new NpcStep(this, NpcID.MARTHA_REHNISON, new WorldPoint(2531, 3331, 0), t("Talk to Martha or Ted Rehnison"), true);
 		talkToMartha.addAlternateNpcs(NpcID.TED_REHNISON);
 
-		goUpstairsInMarthasHouse = new ObjectStep(this, ObjectID.REHNISONSTAIRS, new WorldPoint(2528, 3333, 0), "Talk to Milli upstairs.");
-		talkToMilli = new NpcStep(this, NpcID.MILLI, new WorldPoint(2531, 3331, 1), "Talk to Milli.");
+		goUpstairsInMarthasHouse = new ObjectStep(this, ObjectID.REHNISONSTAIRS, new WorldPoint(2528, 3333, 0), t("Talk to Milli upstairs."));
+		talkToMilli = new NpcStep(this, NpcID.MILLI, new WorldPoint(2531, 3331, 1), t("Talk to Milli."));
 		goUpstairsInMarthasHouse.addSubSteps(talkToMilli);
 
-		tryToEnterPlagueHouse = new ObjectStep(this, ObjectID.PLAGUEELENADOORSHUT, new WorldPoint(2540, 3273, 0), "Try to enter the house in the south-east corner of West Ardougne.");
+		tryToEnterPlagueHouse = new ObjectStep(this, ObjectID.PLAGUEELENADOORSHUT, new WorldPoint(2540, 3273, 0), t("Try to enter the house in the south-east corner of West Ardougne."));
 		tryToEnterPlagueHouse.addDialogStep("I fear not a mere plague.");
 		tryToEnterPlagueHouse.addDialogStep("I want to check anyway.");
 
-		talkToClerk = new NpcStep(this, NpcID.CLERK, new WorldPoint(2528, 3317, 0), "Talk to the Clerk in the large building north of the manhole.");
+		talkToClerk = new NpcStep(this, NpcID.CLERK, new WorldPoint(2528, 3317, 0), t("Talk to the Clerk in the large building north of the manhole."));
 		talkToClerk.addDialogStep("I need permission to enter a plague house.");
 		talkToClerk.addDialogStep("This is urgent though! Someone's been kidnapped!");
 
-		talkToBravek = new NpcStep(this, NpcID.BRAVEK, new WorldPoint(2534, 3314, 0), "Talk to Bravek in the room to the east.");
+		talkToBravek = new NpcStep(this, NpcID.BRAVEK, new WorldPoint(2534, 3314, 0), t("Talk to Bravek in the room to the east."));
 
 		talkToBravek.addDialogStep("This is really important though!");
 		talkToBravek.addDialogStep("Do you know what's in the cure?");
 
-		useDustOnMilk = new DetailedQuestStep(this, "Use your chocolate dust on the bucket of milk.", bucketOfMilk, chocolateDust);
-		useSnapeGrassOnChocolateMilk = new DetailedQuestStep(this, "Use the snape grass on the chocolatey milk", bucketOfChocolateMilk, snapeGrass);
+		useDustOnMilk = new DetailedQuestStep(this, t("Use your chocolate dust on the bucket of milk."), bucketOfMilk, chocolateDust);
+		useSnapeGrassOnChocolateMilk = new DetailedQuestStep(this, t("Use the snape grass on the chocolatey milk"), bucketOfChocolateMilk, snapeGrass);
 
-		giveHangoverCureToBravek = new NpcStep(this, NpcID.BRAVEK, new WorldPoint(2534, 3314, 0), "Give the hangover cure to Bravek.", hangoverCure);
+		giveHangoverCureToBravek = new NpcStep(this, NpcID.BRAVEK, new WorldPoint(2534, 3314, 0), t("Give the hangover cure to Bravek."), hangoverCure);
 
-		talkToBravekAgain = new NpcStep(this, NpcID.BRAVEK, new WorldPoint(2534, 3314, 0), "Talk to Bravek to receive the warrant you need to enter the plague house.");
+		talkToBravekAgain = new NpcStep(this, NpcID.BRAVEK, new WorldPoint(2534, 3314, 0), t("Talk to Bravek to receive the warrant you need to enter the plague house."));
 		talkToBravekAgain.addDialogStep("They won't listen to me!");
 
-		tryToEnterPlagueHouseAgain = new ObjectStep(this, ObjectID.PLAGUEELENADOORSHUT, new WorldPoint(2540, 3273, 0), "Try to enter the plague house again.", warrant);
+		tryToEnterPlagueHouseAgain = new ObjectStep(this, ObjectID.PLAGUEELENADOORSHUT, new WorldPoint(2540, 3273, 0), t("Try to enter the plague house again."), warrant);
 
-		searchBarrel = new ObjectStep(this, ObjectID.PLAGUEKEYBARREL, new WorldPoint(2534, 3268, 0), "Search the barrel in the room for a small key.");
+		searchBarrel = new ObjectStep(this, ObjectID.PLAGUEKEYBARREL, new WorldPoint(2534, 3268, 0), t("Search the barrel in the room for a small key."));
 
-		goDownstairsInPlagueHouse = new ObjectStep(this, ObjectID.PLAGUEHOUSESTAIRSDOWN, new WorldPoint(2537, 3269, 0), "Go downstairs in the plague house.", key);
-		goUpstairsInPlagueHouse = new ObjectStep(this, ObjectID.PLAGUEHOUSESTAIRSUP, new WorldPoint(2537, 9672, 0), "Go back upstairs to get the key for Elena's cell.");
+		goDownstairsInPlagueHouse = new ObjectStep(this, ObjectID.PLAGUEHOUSESTAIRSDOWN, new WorldPoint(2537, 3269, 0), t("Go downstairs in the plague house."), key);
+		goUpstairsInPlagueHouse = new ObjectStep(this, ObjectID.PLAGUEHOUSESTAIRSUP, new WorldPoint(2537, 9672, 0), t("Go back upstairs to get the key for Elena's cell."));
 		searchBarrel.addSubSteps(goUpstairsInPlagueHouse);
 
-		talkToElena = new NpcStep(this, NpcID.ELENAP_VIS, new WorldPoint(2541, 9671, 0), "Enter the jail and talk to Elena.", key);
+		talkToElena = new NpcStep(this, NpcID.ELENAP_VIS, new WorldPoint(2541, 9671, 0), t("Enter the jail and talk to Elena."), key);
 
-		goUpstairsInPlagueHouseToFinish = new ObjectStep(this, ObjectID.PLAGUEHOUSESTAIRSUP, new WorldPoint(2537, 9672, 0), "Go back upstairs and return to Edmond to finish the quest.");
+		goUpstairsInPlagueHouseToFinish = new ObjectStep(this, ObjectID.PLAGUEHOUSESTAIRSUP, new WorldPoint(2537, 9672, 0), t("Go back upstairs and return to Edmond to finish the quest."));
 
-		goDownManhole = new ObjectStep(this, ObjectID.PLAGUEMANHOLEOPEN, new WorldPoint(2529, 3303, 0), "Go back down the manhole to return to Edmond.");
-		goDownManhole2 = new ObjectStep(this, ObjectID.PLAGUEMANHOLECLOSED, new WorldPoint(2529, 3303, 0), "Go back down the manhole to return to Edmond.");
+		goDownManhole = new ObjectStep(this, ObjectID.PLAGUEMANHOLEOPEN, new WorldPoint(2529, 3303, 0), t("Go back down the manhole to return to Edmond."));
+		goDownManhole2 = new ObjectStep(this, ObjectID.PLAGUEMANHOLECLOSED, new WorldPoint(2529, 3303, 0), t("Go back down the manhole to return to Edmond."));
 
-		climbMudPileToFinish = new ObjectStep(this, ObjectID.PLAGUEMUDPILE, new WorldPoint(2519, 9760, 0), "Climb the mud pile to return to Edmond.");
+		climbMudPileToFinish = new ObjectStep(this, ObjectID.PLAGUEMUDPILE, new WorldPoint(2519, 9760, 0), t("Climb the mud pile to return to Edmond."));
 
-		talkToEdmondToFinish = new NpcStep(this, NpcID.EDMOND, new WorldPoint(2568, 3333, 0), "Return to Edmond to finish the quest.");
+		talkToEdmondToFinish = new NpcStep(this, NpcID.EDMOND, new WorldPoint(2568, 3333, 0), t("Return to Edmond to finish the quest."));
 		talkToEdmondToFinish.addSubSteps(goUpstairsInPlagueHouseToFinish, goDownManhole, goDownManhole2, climbMudPileToFinish);
 	}
 
@@ -452,7 +452,7 @@ public class PlagueCity extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Ability to use Ardougne teleport spell and tablets")
+			new UnlockReward(t("Ability to use Ardougne teleport spell and tablets"))
 		);
 	}
 
@@ -461,7 +461,7 @@ public class PlagueCity extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Start the quest", List.of(
+		sections.add(new PanelDetails(t("Start the quest"), List.of(
 			talkToEdmond
 		), List.of(
 			dwellberries,
@@ -472,7 +472,7 @@ public class PlagueCity extends BasicQuestHelper
 			snapeGrass
 		)));
 
-		sections.add(new PanelDetails("Infiltrate West Ardougne", List.of(
+		sections.add(new PanelDetails(t("Infiltrate West Ardougne"), List.of(
 			talkToAlrena,
 			grabPictureOfElena,
 			talkToEdmondAgain,
@@ -485,14 +485,14 @@ public class PlagueCity extends BasicQuestHelper
 			climbThroughPipe
 		)));
 
-		sections.add(new PanelDetails("Discover Elena's location", List.of(
+		sections.add(new PanelDetails(t("Discover Elena's location"), List.of(
 			talkToJethick,
 			enterMarthasHouse,
 			talkToMartha,
 			goUpstairsInMarthasHouse
 		)));
 
-		sections.add(new PanelDetails("Freeing Elena", List.of(
+		sections.add(new PanelDetails(t("Freeing Elena"), List.of(
 			tryToEnterPlagueHouse,
 			talkToClerk,
 			talkToBravek,
@@ -506,7 +506,7 @@ public class PlagueCity extends BasicQuestHelper
 			talkToElena
 		)));
 
-		sections.add(new PanelDetails("Finishing off", List.of(
+		sections.add(new PanelDetails(t("Finishing off"), List.of(
 			talkToEdmondToFinish
 		)));
 

@@ -17,7 +17,7 @@ public class BringDrezelPureEssenceStep extends NpcStep
 
 	public BringDrezelPureEssenceStep(QuestHelper questHelper)
 	{
-		super(questHelper, NpcID.PRIESTPERILTRAPPEDMONK_VIS, new WorldPoint(3439, 9896, 0), "Bring Drezel 50 UNNOTED rune/pure essence in the underground of the Salve Temple to finish the quest!");
+		super(questHelper, NpcID.PRIESTPERILTRAPPEDMONK_VIS, new WorldPoint(3439, 9896, 0), questHelper.t("Bring Drezel 50 UNNOTED rune/pure essence in the underground of the Salve Temple to finish the quest!"));
 		essence.addAlternates(ItemID.BLANKRUNE_HIGH);
 	}
 
@@ -32,6 +32,6 @@ public class BringDrezelPureEssenceStep extends NpcStep
 		int numEssence = 60 - client.getVarpValue(302);
 		essence.setQuantity(numEssence);
 		this.setRequirements(Collections.singletonList(essence));
-		this.setText("Bring Drezel " + numEssence  + " UNNOTED rune/pure essence in the underground of the Salve Temple.");
+		this.setText(questHelper.t("Bring Drezel") + " " + numEssence + " " + questHelper.t("UNNOTED rune/pure essence in the underground of the Salve Temple."));
 	}
 }

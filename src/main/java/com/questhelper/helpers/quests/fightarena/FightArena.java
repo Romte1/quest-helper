@@ -133,53 +133,53 @@ public class FightArena extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		startQuest = new NpcStep(this, NpcID.LADY_SERVIL_VIS, new WorldPoint(2565, 3199, 0), "Talk to Lady Servil, west-southwest of the Monastery south of Ardougne.");
+		startQuest = new NpcStep(this, NpcID.LADY_SERVIL_VIS, new WorldPoint(2565, 3199, 0), t("Talk to Lady Servil, west-southwest of the Monastery south of Ardougne."));
 		startQuest.addDialogStep("Yes.");
 
-		searchChest = new ObjectStep(this, ObjectID.ARENA_GUARD_CHEST_SHUT, new WorldPoint(2613, 3189, 0), "Search the chest to the east for some Khazard armour.");
+		searchChest = new ObjectStep(this, ObjectID.ARENA_GUARD_CHEST_SHUT, new WorldPoint(2613, 3189, 0), t("Search the chest to the east for some Khazard armour."));
 		searchChest.addAlternateObjects(ObjectID.ARENA_GUARD_CHEST_OPEN);
 
-		talkToGuard = new NpcStep(this, NpcID.ARENA_GUARD2, new WorldPoint(2615, 3143, 0), "Equip Khazard armour, talk to the Khazard Guard in the southeast of the prison.", khazardHelmetEquipped, khazardPlatebodyEquipped);
+		talkToGuard = new NpcStep(this, NpcID.ARENA_GUARD2, new WorldPoint(2615, 3143, 0), t("Equip Khazard armour, talk to the Khazard Guard in the southeast of the prison."), khazardHelmetEquipped, khazardPlatebodyEquipped);
 
-		buyKhaliBrew = new NpcStep(this, NpcID.KHAZARD_BARMAN, new WorldPoint(2567, 3140, 0), "Buy Khali brew from the nearby bar to the west for 5 coins.", coins);
+		buyKhaliBrew = new NpcStep(this, NpcID.KHAZARD_BARMAN, new WorldPoint(2567, 3140, 0), t("Buy Khali brew from the nearby bar to the west for 5 coins."), coins);
 		buyKhaliBrew.addDialogStep("I'd like a Khali Brew please.");
 
-		giveKhaliBrew = new NpcStep(this, NpcID.ARENA_GUARD2, new WorldPoint(2615, 3143, 0), "Take the brew back to the Khazard Guard.", khazardHelmetEquipped, khazardPlatebodyEquipped, khaliBrew);
+		giveKhaliBrew = new NpcStep(this, NpcID.ARENA_GUARD2, new WorldPoint(2615, 3143, 0), t("Take the brew back to the Khazard Guard."), khazardHelmetEquipped, khazardPlatebodyEquipped, khaliBrew);
 
 		getCellKeys = new NpcStep(this, NpcID.ARENA_GUARD2, new WorldPoint(2615, 3143, 0),
-			"Get another set of keys from the Khazard Guard", khazardHelmetEquipped, khazardPlatebodyEquipped);
+			t("Get another set of keys from the Khazard Guard"), khazardHelmetEquipped, khazardPlatebodyEquipped);
 		openCell = new ObjectStep(this, ObjectID.ARENA_JEREMYDOOR, new WorldPoint(2617, 3167, 0),
-			"Get ready to fight the monsters (all safespottable), starting with Khazard Ogre (level 63). Use the keys on Sammy's cell door to free him.", combatGear, cellKeys);
+			t("Get ready to fight the monsters (all safespottable), starting with Khazard Ogre (level 63). Use the keys on Sammy's cell door to free him."), combatGear, cellKeys);
 		openCell.addIcon(ItemID.KHAZARD_CELLKEYS);
-		talkToSammy = new NpcStep(this, NpcID.SAMMY_SERVIL_VIS_NOOP, new WorldPoint(2602, 3153, 0), "Talk to Sammy, then fight the ogre.");
+		talkToSammy = new NpcStep(this, NpcID.SAMMY_SERVIL_VIS_NOOP, new WorldPoint(2602, 3153, 0), t("Talk to Sammy, then fight the ogre."));
 
-		killOgre = new NpcStep(this, NpcID.ARENA_OGRE, new WorldPoint(2601, 3163, 0), "Kill the Ogre. You can lure it behind a skeleton to safespot it.", combatGear);
+		killOgre = new NpcStep(this, NpcID.ARENA_OGRE, new WorldPoint(2601, 3163, 0), t("Kill the Ogre. You can lure it behind a skeleton to safespot it."), combatGear);
 		killOgre.addSubSteps(talkToSammy);
 		killOgre.addSafeSpots(new WorldPoint(2598, 3162, 0));
 
-		talkToKhazard = new NpcStep(this, NpcID.SHADOW_MAJ_KHAZARD, new WorldPoint(2605, 3153, 0), "Talk to General Khazard.");
+		talkToKhazard = new NpcStep(this, NpcID.SHADOW_MAJ_KHAZARD, new WorldPoint(2605, 3153, 0), t("Talk to General Khazard."));
 		talkToHengrad = new NpcStep(this, NpcID.HENGRAD, new WorldPoint(2599, 3143, 0),
-			"Talk to Hengrad.");
+			t("Talk to Hengrad."));
 		talkToHengrad.addSubSteps(talkToKhazard);
 
-		talkToSammyForScorpion = new NpcStep(this, NpcID.SAMMY_SERVIL_VIS_NOOP, new WorldPoint(2602, 3153, 0), "Talk to Sammy, then fight the scorpion.");
+		talkToSammyForScorpion = new NpcStep(this, NpcID.SAMMY_SERVIL_VIS_NOOP, new WorldPoint(2602, 3153, 0), t("Talk to Sammy, then fight the scorpion."));
 
 		killScorpion = new NpcStep(this, NpcID.ARENA_SCORPION, new WorldPoint(2601, 3163, 0),
-			"Kill the Scorpion. You can lure it behind a skeleton to safespot it.", combatGear);
+			t("Kill the Scorpion. You can lure it behind a skeleton to safespot it."), combatGear);
 		killScorpion.addSafeSpots(new WorldPoint(2598, 3162, 0));
 		killScorpion.addSubSteps(talkToSammyForScorpion);
 
-		talkToSammyForBouncer = new NpcStep(this, NpcID.SAMMY_SERVIL_VIS_NOOP, new WorldPoint(2602, 3153, 0), "Talk to Sammy, then fight Bouncer.");
+		talkToSammyForBouncer = new NpcStep(this, NpcID.SAMMY_SERVIL_VIS_NOOP, new WorldPoint(2602, 3153, 0), t("Talk to Sammy, then fight Bouncer."));
 
-		killBouncer = new NpcStep(this, NpcID.ARENA_BOUNCER, new WorldPoint(2601, 3163, 0), "Kill Bouncer. You can lure it behind a skeleton to safespot it. Warning: After Bouncer is killed, you will be unable to re-enter the arena.", combatGear);
+		killBouncer = new NpcStep(this, NpcID.ARENA_BOUNCER, new WorldPoint(2601, 3163, 0), t("Kill Bouncer. You can lure it behind a skeleton to safespot it. Warning: After Bouncer is killed, you will be unable to re-enter the arena."), combatGear);
 		killBouncer.addSafeSpots(new WorldPoint(2598, 3162, 0));
 		killBouncer.addSubSteps(talkToSammyForBouncer);
 
-		leaveArena = new ObjectStep(this, ObjectID.FIGHTARENA_DOOR2, new WorldPoint(2606, 3152, 0), "Exit the arena (can ignore General Khazard). Warning: You will be unable to re-enter the arena.");
+		leaveArena = new ObjectStep(this, ObjectID.FIGHTARENA_DOOR2, new WorldPoint(2606, 3152, 0), t("Exit the arena (can ignore General Khazard). Warning: You will be unable to re-enter the arena."));
 		leaveArena.addDialogStep("Yes.");
 
 		endQuest = new NpcStep(this, NpcID.LADY_SERVIL_VIS, new WorldPoint(2565, 3199, 0),
-			"Go back to Lady Servil to end the quest.");
+			t("Go back to Lady Servil to end the quest."));
 	}
 
 	@Override
@@ -255,10 +255,10 @@ public class FightArena extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"Khazard Scorpion (level 44) (safespottable)",
-			"Khazard Ogre (level 63) (safespottable)",
-			"Bouncer (level 137) (safespottable)",
-			"General Khazard (level 142) (safespottable) (optional)"
+			t("Khazard Scorpion (level 44) (safespottable)"),
+			t("Khazard Ogre (level 63) (safespottable)"),
+			t("Bouncer (level 137) (safespottable)"),
+			t("General Khazard (level 142) (safespottable) (optional)")
 		);
 	}
 
@@ -291,7 +291,7 @@ public class FightArena extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Start quest", List.of(
+		sections.add(new PanelDetails(t("Start quest"), List.of(
 			startQuest,
 			searchChest,
 			talkToGuard,
@@ -301,7 +301,7 @@ public class FightArena extends BasicQuestHelper
 			coins
 		)));
 
-		sections.add(new PanelDetails("Fight!", List.of(
+		sections.add(new PanelDetails(t("Fight!"), List.of(
 			getCellKeys,
 			openCell,
 			killOgre,
@@ -312,7 +312,7 @@ public class FightArena extends BasicQuestHelper
 			combatGear
 		)));
 
-		sections.add(new PanelDetails("Finish quest", List.of(
+		sections.add(new PanelDetails(t("Finish quest"), List.of(
 			leaveArena,
 			endQuest
 		)));

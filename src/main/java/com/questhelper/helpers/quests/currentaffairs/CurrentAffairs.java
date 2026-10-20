@@ -142,25 +142,25 @@ public class CurrentAffairs extends BasicQuestHelper
 	{
 		//Quest Requirements
 		charcoalRequirement = new ItemRequirement("Charcoal", ItemID.CHARCOAL).isNotConsumed().canBeObtainedDuringQuest();
-		charcoalRequirement.setTooltip("You can pick this up in the cabinet near Councillor Catherine in the north-east of Catherby.");
+		charcoalRequirement.setTooltip(t("You can pick this up in the cabinet near Councillor Catherine in the north-east of Catherby."));
 		coinsRequirement = new ItemRequirement("Coins", ItemID.COINS, 50);
 
 		hasFormCr4p = new ItemRequirement("Form cr-4p", ItemID.CURRENT_AFFAIRS_FORM);
-		hasFormCr4p.setTooltip("You can receive a new one from Councillor Catherine in the north-east of Catherby.");
+		hasFormCr4p.setTooltip(t("You can receive a new one from Councillor Catherine in the north-east of Catherby."));
 		hasForm7r45h = new ItemRequirement("Form 7r4-5h", ItemID.CURRENT_AFFAIRS_FORM_2);
-		hasForm7r45h.setTooltip("You can receive a new one from Councillor Catherine in the north-east of Catherby.");
+		hasForm7r45h.setTooltip(t("You can receive a new one from Councillor Catherine in the north-east of Catherby."));
 		hasForm7r45hSigned = new ItemRequirement("Form 7r4-5h", ItemID.CURRENT_AFFAIRS_FORM_2_SIGNED);
-		hasForm7r45hSigned.setTooltip("You can receive a new one from Councillor Catherine in the north-east of Catherby.");
+		hasForm7r45hSigned.setTooltip(t("You can receive a new one from Councillor Catherine in the north-east of Catherby."));
 
 		hasTinyNet = new ItemRequirement("Tiny net", ItemID.TINY_NET).isNotConsumed().canBeObtainedDuringQuest();
-		hasTinyNet.setTooltip("You can receive a new one in the fish shop in the south-east of Catherby.");
+		hasTinyNet.setTooltip(t("You can receive a new one in the fish shop in the south-east of Catherby."));
 		hasMayoralFishbowl = new ItemRequirement("Mayoral fishbowl", ItemID.CURRENT_AFFAIRS_MAYORAL_FISHBOWL).canBeObtainedDuringQuest().isNotConsumed();
-		hasMayoralFishbowl.setTooltip("You can receive a new one in the fish shop in the south-east of Catherby.");
+		hasMayoralFishbowl.setTooltip(t("You can receive a new one in the fish shop in the south-east of Catherby."));
 		hasMayor = new ItemRequirement("Mayor of Catherby", ItemID.CURRENT_AFFAIRS_MAYOR_OF_CATHERBY).canBeObtainedDuringQuest().isNotConsumed();
-		hasMayor.setTooltip("You can receive a new one in the fish shop in the south-east of Catherby.");
+		hasMayor.setTooltip(t("You can receive a new one in the fish shop in the south-east of Catherby."));
 
 		hasDuck = new ItemRequirement("Current Duck", ItemID.SAILING_CHARTING_CURRENT_DUCK).canBeObtainedDuringQuest().isNotConsumed();
-		hasForm7r45hSigned.setTooltip("You can receive a new one from Arheim on the Catherby Docks.");
+		hasForm7r45hSigned.setTooltip(t("You can receive a new one from Arheim on the Catherby Docks."));
 
 		duckCanBeFollowed = new NpcRequirement(NpcID.SAILING_CHARTING_CURRENT_DUCK_MOVING);
 		duckHasStopped = new NpcCondition(NpcID.SAILING_CHARTING_CURRENT_DUCK_STOPPED, new WorldPoint(2802, 3322, 0));
@@ -189,14 +189,14 @@ public class CurrentAffairs extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		startQuest = new NpcStep(this, NpcID.ARHEIN, new WorldPoint(2803, 3430, 0), "Talk to Arhein on the northern part of the Catherby Docks to start the quest.", true);
+		startQuest = new NpcStep(this, NpcID.ARHEIN, new WorldPoint(2803, 3430, 0), t("Talk to Arhein on the northern part of the Catherby Docks to start the quest."), true);
 		startQuest.addDialogStep("What's with the duck?");
 		startQuest.addDialogStep("Yes.");
 
-		talkToCouncillor = new NpcStep(this, NpcID.CURRENT_AFFAIRS_COUNCILLOR, new WorldPoint(2825, 3454, 0), "Talk to Councillor Catherine in the north-east of Catherby.");
-		talkAfterFormHandedIn = new NpcStep(this, NpcID.CURRENT_AFFAIRS_COUNCILLOR, new WorldPoint(2825, 3454, 0), "Finish talking to Councillor Catherine in the north-east of Catherby.");
-		grabCharcoal = new ObjectStep(this, ObjectID.CURRENT_AFFAIRS_CABINET, new WorldPoint(2827, 3453, 0), "Grab a piece of charcoal from the cabinet.");
-		fillFormCr4p = new DetailedQuestStep(this, "Fill form cr-4p. The answers you provide do not matter.", hasFormCr4p.highlighted(), charcoalRequirement);
+		talkToCouncillor = new NpcStep(this, NpcID.CURRENT_AFFAIRS_COUNCILLOR, new WorldPoint(2825, 3454, 0), t("Talk to Councillor Catherine in the north-east of Catherby."));
+		talkAfterFormHandedIn = new NpcStep(this, NpcID.CURRENT_AFFAIRS_COUNCILLOR, new WorldPoint(2825, 3454, 0), t("Finish talking to Councillor Catherine in the north-east of Catherby."));
+		grabCharcoal = new ObjectStep(this, ObjectID.CURRENT_AFFAIRS_CABINET, new WorldPoint(2827, 3453, 0), t("Grab a piece of charcoal from the cabinet."));
+		fillFormCr4p = new DetailedQuestStep(this, t("Fill form cr-4p. The answers you provide do not matter."), hasFormCr4p.highlighted(), charcoalRequirement);
 		fillFormCr4p.addSubSteps(grabCharcoal);
 
 		//Answer values range from 1-3
@@ -209,28 +209,28 @@ public class CurrentAffairs extends BasicQuestHelper
 		fillFormCr4p.addDialogSteps("Less than a month.", "Less than a year.", "A year or more.");
 		fillFormCr4p.addDialogSteps("Varrock.", "Falador.", "Edgeville.");
 
-		handOverFormCr4p = new NpcStep(this, NpcID.CURRENT_AFFAIRS_COUNCILLOR, new WorldPoint(2825, 3454, 0), "Hand over the filled form to Councillor Catherine.", hasFormCr4p);
+		handOverFormCr4p = new NpcStep(this, NpcID.CURRENT_AFFAIRS_COUNCILLOR, new WorldPoint(2825, 3454, 0), t("Hand over the filled form to Councillor Catherine."), hasFormCr4p);
 		handOverFormCr4p.addDialogStep("Yes, I have it here.");
 
-		talkToArhein = new NpcStep(this, NpcID.ARHEIN, new WorldPoint(2803, 3430, 0), "Talk to Arhein on the docks about the mayor.", true);
+		talkToArhein = new NpcStep(this, NpcID.ARHEIN, new WorldPoint(2803, 3430, 0), t("Talk to Arhein on the docks about the mayor."), true);
 		talkToArhein.addDialogStep("I need to find the Mayor of Catherby.");
 
-		talkToHarry = new NpcStep(this, NpcID.HARRY, new WorldPoint(2831, 3444, 0), "Talk to Harry in the fish shop in south-east Catherby about a new mayor.", true, coinsRequirement, twoFreeInvSlots);
+		talkToHarry = new NpcStep(this, NpcID.HARRY, new WorldPoint(2831, 3444, 0), t("Talk to Harry in the fish shop in south-east Catherby about a new mayor."), true, coinsRequirement, twoFreeInvSlots);
 		talkToHarry.addDialogStep("I'm here about the mayor.");
 		talkToHarry.addDialogStep("Yes.");
-		fishInAquarium = new ObjectStep(this, ObjectID.AQUARIUM, new WorldPoint(2831, 3444, 0), "Fish a new mayor from the aquarium.", true, hasTinyNet, hasMayoralFishbowl);
-		getNewFishbowl = new NpcStep(this, NpcID.HARRY, new WorldPoint(2831, 3444, 0), "Talk to Harry in the fish shop in south-east Catherby about a new mayoral fishbowl.", true);
+		fishInAquarium = new ObjectStep(this, ObjectID.AQUARIUM, new WorldPoint(2831, 3444, 0), t("Fish a new mayor from the aquarium."), true, hasTinyNet, hasMayoralFishbowl);
+		getNewFishbowl = new NpcStep(this, NpcID.HARRY, new WorldPoint(2831, 3444, 0), t("Talk to Harry in the fish shop in south-east Catherby about a new mayoral fishbowl."), true);
 		getNewFishbowl.addDialogStep("I'm here about the mayor.");
 		talkToHarry.addSubSteps(getNewFishbowl);
-		showArheinMayor = new NpcStep(this, NpcID.ARHEIN, new WorldPoint(2803, 3430, 0), "Introduce Arhein on the Catherby docks to the new Mayor of Catherby.", true, hasMayor);
+		showArheinMayor = new NpcStep(this, NpcID.ARHEIN, new WorldPoint(2803, 3430, 0), t("Introduce Arhein on the Catherby docks to the new Mayor of Catherby."), true, hasMayor);
 		showArheinMayor.addDialogStep("About the mayor...");
-		showCatherineMayor = new NpcStep(this, NpcID.CURRENT_AFFAIRS_COUNCILLOR, new WorldPoint(2825, 3454, 0), "Talk to Councillor Catherine about changing the by-laws.", hasMayor);
+		showCatherineMayor = new NpcStep(this, NpcID.CURRENT_AFFAIRS_COUNCILLOR, new WorldPoint(2825, 3454, 0), t("Talk to Councillor Catherine about changing the by-laws."), hasMayor);
 		showCatherineMayor.addDialogStep("Yes, I have it here.");
-		getNewMayor = new NpcStep(this, NpcID.ARHEIN, new WorldPoint(2803, 3430, 0), "Talk to Arhein on the Catherby docks for a new mayor.", true);
+		getNewMayor = new NpcStep(this, NpcID.ARHEIN, new WorldPoint(2803, 3430, 0), t("Talk to Arhein on the Catherby docks for a new mayor."), true);
 		getNewMayor.addDialogStep("About the mayor...");
 		showCatherineMayor.addSubSteps(getNewMayor);
 
-		doAudit = new NpcStep(this, NpcID.CURRENT_AFFAIRS_COUNCILLOR, new WorldPoint(2825, 3454, 0), "Talk to Councillor Catherine to complete the audit.");
+		doAudit = new NpcStep(this, NpcID.CURRENT_AFFAIRS_COUNCILLOR, new WorldPoint(2825, 3454, 0), t("Talk to Councillor Catherine to complete the audit."));
 		doAudit.addDialogConsideringLastLineAndVarbit("What is your main reason for making port at Catherby?", VarbitID.CURRENT_AFFAIRS_FORM_Q1, q1Answers);
 		doAudit.addDialogConsideringLastLineAndVarbit("How many hulls does your ship have?", VarbitID.CURRENT_AFFAIRS_FORM_Q2, q2Answers);
 		doAudit.addDialogConsideringLastLineAndVarbit("Is your ship insured against cargo spillage and theft?", VarbitID.CURRENT_AFFAIRS_FORM_Q3, q3Answers);
@@ -240,26 +240,26 @@ public class CurrentAffairs extends BasicQuestHelper
 		doAudit.addDialogConsideringLastLineAndVarbit("How much experience do you have sailing?", VarbitID.CURRENT_AFFAIRS_FORM_Q7, q7Answers);
 		doAudit.addDialogConsideringLastLineAndVarbit("Where would you say your home port is?", VarbitID.CURRENT_AFFAIRS_FORM_Q8, q8Answers);
 
-		getForm7r45h = new NpcStep(this, NpcID.CURRENT_AFFAIRS_COUNCILLOR, new WorldPoint(2825, 3454, 0), "Talk to Councillor Catherine in the north-east of Catherby to receive a new form 7r4-5h.", oneFreeInvSlot);
-		signForm7r45h = new DetailedQuestStep(this, "Use form 7r4-5h on the Mayor of Catherby.", hasForm7r45h.highlighted(), hasMayor.highlighted());
-		showCatherineForm = new NpcStep(this, NpcID.CURRENT_AFFAIRS_COUNCILLOR, new WorldPoint(2825, 3454, 0), "Show Councillor Catherine the signed form.", hasForm7r45hSigned);
+		getForm7r45h = new NpcStep(this, NpcID.CURRENT_AFFAIRS_COUNCILLOR, new WorldPoint(2825, 3454, 0), t("Talk to Councillor Catherine in the north-east of Catherby to receive a new form 7r4-5h."), oneFreeInvSlot);
+		signForm7r45h = new DetailedQuestStep(this, t("Use form 7r4-5h on the Mayor of Catherby."), hasForm7r45h.highlighted(), hasMayor.highlighted());
+		showCatherineForm = new NpcStep(this, NpcID.CURRENT_AFFAIRS_COUNCILLOR, new WorldPoint(2825, 3454, 0), t("Show Councillor Catherine the signed form."), hasForm7r45hSigned);
 
-		giveArheimNews = new NpcStep(this, NpcID.ARHEIN, new WorldPoint(2803, 3430, 0), "Give Arhein on the Catherby docks the good news.", true);
+		giveArheimNews = new NpcStep(this, NpcID.ARHEIN, new WorldPoint(2803, 3430, 0), t("Give Arhein on the Catherby docks the good news."), true);
 		giveArheimNews.addDialogStep("The by-law has been changed!");
 
 		// TODO: We might be able to check if the duck is in the cargo hold and only recommend that?
-		getDuck = new NpcStep(this, NpcID.ARHEIN, new WorldPoint(2803, 3430, 0), "Get a new duck from Arhein on the Catherby docks, or from your ship's cargo hold.", true);
+		getDuck = new NpcStep(this, NpcID.ARHEIN, new WorldPoint(2803, 3430, 0), t("Get a new duck from Arhein on the Catherby docks, or from your ship's cargo hold."), true);
 		getDuck.addDialogStep("About that duck...");
 
 		boardShip = new BoardShipStep(this, hasDuck);
-		sailToStart = new SailStep(this, new WorldPoint(2835, 3418, 0), "Sail to the small island east of Catherby, then release the Current duck.", hasDuck);
-		releaseDuck = new DetailedQuestStep(this, "Release the Current duck.", hasDuck.highlighted());
+		sailToStart = new SailStep(this, new WorldPoint(2835, 3418, 0), t("Sail to the small island east of Catherby, then release the Current duck."), hasDuck);
+		releaseDuck = new DetailedQuestStep(this, t("Release the Current duck."), hasDuck.highlighted());
 
-		followThatDuck = new DetailedQuestStep(this, new WorldPoint(2802, 3322, 0), "Follow the Current duck! It'll end up south-west of Entrana."); //It ends up at (2802,3322,0)
+		followThatDuck = new DetailedQuestStep(this, new WorldPoint(2802, 3322, 0), t("Follow the Current duck! It'll end up south-west of Entrana.")); //It ends up at (2802,3322,0)
 
-		collectDuck = new NpcStep(this, NpcID.SAILING_CHARTING_CURRENT_DUCK_STOPPED, "Collect your Current duck.");
+		collectDuck = new NpcStep(this, NpcID.SAILING_CHARTING_CURRENT_DUCK_STOPPED, t("Collect your Current duck."));
 
-		showCurrentsArhein = new NpcStep(this, NpcID.ARHEIN, new WorldPoint(2803, 3430, 0), "Share what you've learned with Arhein on the Catherby docks.", true);
+		showCurrentsArhein = new NpcStep(this, NpcID.ARHEIN, new WorldPoint(2803, 3430, 0), t("Share what you've learned with Arhein on the Catherby docks."), true);
 		showCurrentsArhein.addDialogStep("I've charted the currents!");
 	}
 
@@ -357,7 +357,7 @@ public class CurrentAffairs extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Access to charting currents")
+			new UnlockReward(t("Access to charting currents"))
 		);
 	}
 
@@ -366,7 +366,7 @@ public class CurrentAffairs extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Arhein's employee", List.of(
+		sections.add(new PanelDetails(t("Arhein's employee"), List.of(
 			startQuest,
 			talkToCouncillor,
 			fillFormCr4p,
@@ -376,7 +376,7 @@ public class CurrentAffairs extends BasicQuestHelper
 			charcoalRequirement
 		)));
 
-		sections.add(new PanelDetails("A new mayor", List.of(
+		sections.add(new PanelDetails(t("A new mayor"), List.of(
 			talkToArhein,
 			talkToHarry,
 			fishInAquarium,
@@ -391,7 +391,7 @@ public class CurrentAffairs extends BasicQuestHelper
 			coinsRequirement
 		)));
 
-		sections.add(new PanelDetails("Map the currents!", List.of(
+		sections.add(new PanelDetails(t("Map the currents!"), List.of(
 			cBoardShip,
 			sailToStart,
 			releaseDuck,

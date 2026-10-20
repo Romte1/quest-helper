@@ -186,17 +186,17 @@ public class RecruitmentDrive extends BasicQuestHelper
 	public void setupSteps()
 	{
 		climbBottomSteps = new ObjectStep(this, ObjectID.FAI_FALADOR_CASTLE_SPIRALSTAIRS, new WorldPoint(2955, 3339, 0),
-			"Climb up the stairs to the first floor on the Falador Castle.");
+			t("Climb up the stairs to the first floor on the Falador Castle."));
 
 		climbSecondSteps = new ObjectStep(this, ObjectID.FAI_FALADOR_CASTLE_SPIRALSTAIRS, new WorldPoint(2961, 3339, 1),
-			"Climb up the stairs to talk to Sir Amik Varze.");
+			t("Climb up the stairs to talk to Sir Amik Varze."));
 		talkToSirAmikVarze = new NpcStep(this, NpcID.SIR_AMIK_VARZE, "");
 		talkToSirAmikVarze.addDialogStep("Yes.");
 
-		climbDownSecondFloorStaircase = new ObjectStep(this, ObjectID.FAI_FALADOR_CASTLE_SPIRALSTAIRSTOP, new WorldPoint(2960, 3339, 2), "Climb down the stairs from the second floor.");
-		climbDownfirstFloorStaircase = new ObjectStep(this, ObjectID.FAI_FALADOR_CASTLE_SPIRALSTAIRSTOP, new WorldPoint(2955, 3338, 1), "Climb down the stairs from the first floor.");
+		climbDownSecondFloorStaircase = new ObjectStep(this, ObjectID.FAI_FALADOR_CASTLE_SPIRALSTAIRSTOP, new WorldPoint(2960, 3339, 2), t("Climb down the stairs from the second floor."));
+		climbDownfirstFloorStaircase = new ObjectStep(this, ObjectID.FAI_FALADOR_CASTLE_SPIRALSTAIRSTOP, new WorldPoint(2955, 3338, 1), t("Climb down the stairs from the first floor."));
 
-		talkToSirTiffy = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, new WorldPoint(2997, 3373, 0), "Talk to Sir Tiffy Cashien in Falador Park.", noItemRequirement);
+		talkToSirTiffy = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, new WorldPoint(2997, 3373, 0), t("Talk to Sir Tiffy Cashien in Falador Park."), noItemRequirement);
 		talkToSirTiffy.addDialogStep("Yes, let's go!");
 		talkToSirTiffy.addSubSteps(climbDownfirstFloorStaircase, climbDownSecondFloorStaircase);
 
@@ -204,10 +204,10 @@ public class RecruitmentDrive extends BasicQuestHelper
 		// Miss Cheevers
 		{
 			missCheeversStep = new MissCheeversStep(this);
-			pwMissCheeversStep = missCheeversStep.puzzleWrapStepWithDefaultText("Solve Miss Cheevers' puzzle.");
+			pwMissCheeversStep = missCheeversStep.puzzleWrapStepWithDefaultText(t("Solve Miss Cheevers' puzzle."));
 			pwMissCheeversStep.conditionToHideInSidebar(new ConfigRequirement(this.getConfig()::solvePuzzles));
 
-			leaveMissCheeversRoom = new ObjectStep(this, ObjectID.RD_ROOM6_EXITDOOR, new WorldPoint(2478, 4940, 0), "Leave the room by the second door to enter the portal.");
+			leaveMissCheeversRoom = new ObjectStep(this, ObjectID.RD_ROOM6_EXITDOOR, new WorldPoint(2478, 4940, 0), t("Leave the room by the second door to enter the portal."));
 
 			var finishedRoom = new VarbitRequirement(VarbitID.RD_ROOM6_COMPLETE, 1);
 
@@ -217,9 +217,9 @@ public class RecruitmentDrive extends BasicQuestHelper
 
 		// Sir Tinley
 		{
-			talkToSirTinley = new NpcStep(this, NpcID.RD_OBSERVER_ROOM_4, "Talk to Sir Tinley. Once you have pressed continue do not do anything or you will fail.").puzzleWrapStepWithDefaultText("Talk to Sir Tinley and solve his puzzle.");
-			doNothingStep = new DetailedQuestStep(this, "Press Continue and do nothing. Sir Tinley will eventually talk to you and let you pass.").puzzleWrapStepWithDefaultText("Talk to Sir Tinley and solve his puzzle.").withNoHelpHiddenInSidebar(true);
-			leaveSirTinleyRoom = new ObjectStep(this, ObjectID.RD_ROOM4_EXITDOOR, "Leave through the portal to continue.");
+			talkToSirTinley = new NpcStep(this, NpcID.RD_OBSERVER_ROOM_4, t("Talk to Sir Tinley. Once you have pressed continue do not do anything or you will fail.")).puzzleWrapStepWithDefaultText(t("Talk to Sir Tinley and solve his puzzle."));
+			doNothingStep = new DetailedQuestStep(this, t("Press Continue and do nothing. Sir Tinley will eventually talk to you and let you pass.")).puzzleWrapStepWithDefaultText(t("Talk to Sir Tinley and solve his puzzle.")).withNoHelpHiddenInSidebar(true);
+			leaveSirTinleyRoom = new ObjectStep(this, ObjectID.RD_ROOM4_EXITDOOR, t("Leave through the portal to continue."));
 
 			var waitForCondition = new VarbitRequirement(VarbitID.RD_TEMPLOCK_2, 1, Operation.GREATER_EQUAL);
 			var finishedRoom = new VarbitRequirement(VarbitID.RD_ROOM4_COMPLETE, 1);
@@ -236,9 +236,9 @@ public class RecruitmentDrive extends BasicQuestHelper
 			var finishedRoom = new VarbitRequirement(VarbitID.RD_ROOM7_COMPLETE, 1);
 
 			msHynnDialogQuiz = new MsHynnAnswerDialogQuizStep(this);
-			pwMsHynnTerprett = msHynnDialogQuiz.puzzleWrapStepWithDefaultText("Talk to Ms Hynn Terprett and answer the riddle.");
+			pwMsHynnTerprett = msHynnDialogQuiz.puzzleWrapStepWithDefaultText(t("Talk to Ms Hynn Terprett and answer the riddle."));
 
-			leaveMsHynnTerprettRoom = new ObjectStep(this, ObjectID.RD_ROOM7_EXITDOOR, "Leave through the door to enter the portal and continue.");
+			leaveMsHynnTerprettRoom = new ObjectStep(this, ObjectID.RD_ROOM7_EXITDOOR, t("Leave through the door to enter the portal and continue."));
 
 			msHynnTerprettStep = new ConditionalStep(this, pwMsHynnTerprett);
 			msHynnTerprettStep.addStep(finishedRoom, leaveMsHynnTerprettRoom);
@@ -246,7 +246,7 @@ public class RecruitmentDrive extends BasicQuestHelper
 
 		// Sir Ren Itchood
 		{
-			var talkToSirRenItchood = new NpcStep(this, NpcID.RD_OBSERVER_ROOM_5, "Talk to Sir Ren Itchood to receive the clue.");
+			var talkToSirRenItchood = new NpcStep(this, NpcID.RD_OBSERVER_ROOM_5, t("Talk to Sir Ren Itchood to receive the clue."));
 			talkToSirRenItchood.addDialogSteps("Can I have the clue for the door?");
 
 			sirRenStep = new SirRenItchoodStep(this, talkToSirRenItchood);
@@ -255,9 +255,9 @@ public class RecruitmentDrive extends BasicQuestHelper
 		// Lady Table
 		{
 			ladyTableStep = new LadyTableStep(this);
-			pwLadyTableStep = ladyTableStep.puzzleWrapStepWithDefaultText("Solve Lady Table's puzzle.");
+			pwLadyTableStep = ladyTableStep.puzzleWrapStepWithDefaultText(t("Solve Lady Table's puzzle."));
 
-			leaveLadyTableRoom = new ObjectStep(this, ObjectID.RD_ROOM2_EXITDOOR, "Leave through the door to enter the portal and continue.");
+			leaveLadyTableRoom = new ObjectStep(this, ObjectID.RD_ROOM2_EXITDOOR, t("Leave through the door to enter the portal and continue."));
 
 			var finishedRoom = new VarbitRequirement(VarbitID.RD_ROOM2_COMPLETE, 1);
 
@@ -321,9 +321,9 @@ public class RecruitmentDrive extends BasicQuestHelper
 			moveChickenToLeftAgain.setForceClickboxHighlight(true);
 			((PuzzleWrapperStep) moveChickenOnRightToLeftAgain).getSolvingStep().addSubSteps(moveChickenToLeftAgain);
 
-			sirSpishyusPuzzle = new ConditionalStep(this, moveChickenOnRightToLeft, "Solve Sir Spishyus' riddle.");
+			sirSpishyusPuzzle = new ConditionalStep(this, moveChickenOnRightToLeft, t("Solve Sir Spishyus' riddle."));
 
-			var dropChickenWest = new DetailedQuestStep(this, "Drop the Chicken on the west side from your equipped items.");
+			var dropChickenWest = new DetailedQuestStep(this, t("Drop the Chicken on the west side from your equipped items."));
 			((PuzzleWrapperStep) moveChickenOnRightToLeft).getSolvingStep().addSubSteps(dropChickenWest);
 
 			// 1. Move Chicken from east to west
@@ -331,11 +331,11 @@ public class RecruitmentDrive extends BasicQuestHelper
 			sirSpishyusPuzzle.addStep(and(chickenPickedUp, foxOnRightSide, grainOnRightSide, playerOnEastSide), moveChickenToLeft);
 			sirSpishyusPuzzle.addStep(and(chickenPickedUp, foxOnRightSide, grainOnRightSide), dropChickenWest);
 
-			var moveToEastSide1 = new ObjectStep(this, ObjectID.RD_BRIDGE_RIGHT, new WorldPoint(2477, 4972, 0), "Cross the bridge to the east side.");
+			var moveToEastSide1 = new ObjectStep(this, ObjectID.RD_BRIDGE_RIGHT, new WorldPoint(2477, 4972, 0), t("Cross the bridge to the east side."));
 			moveToEastSide1.setForceClickboxHighlight(true);
 			((PuzzleWrapperStep) moveFoxOnRightToLeft).getSolvingStep().addSubSteps(moveToEastSide1);
 
-			var dropFoxWest = new DetailedQuestStep(this, "Drop the Fox on the west side from your equipped items.");
+			var dropFoxWest = new DetailedQuestStep(this, t("Drop the Fox on the west side from your equipped items."));
 			((PuzzleWrapperStep) moveFoxOnRightToLeft).getSolvingStep().addSubSteps(dropFoxWest);
 
 			// 2. Return to east side, then move Fox from east to west
@@ -344,7 +344,7 @@ public class RecruitmentDrive extends BasicQuestHelper
 			sirSpishyusPuzzle.addStep(and(chickenOnLeftSide, foxPickedUp, grainOnRightSide, playerOnEastSide), moveFoxToWest);
 			sirSpishyusPuzzle.addStep(and(chickenOnLeftSide, foxPickedUp, grainOnRightSide), dropFoxWest);
 
-			var dropChickenEast = new DetailedQuestStep(this, "Drop the Chicken on the east side from your equipped items.");
+			var dropChickenEast = new DetailedQuestStep(this, t("Drop the Chicken on the east side from your equipped items."));
 			((PuzzleWrapperStep) moveChickenOnLeftToRight).getSolvingStep().addSubSteps(dropChickenEast);
 
 			// 3. Move chicken from west to east
@@ -352,7 +352,7 @@ public class RecruitmentDrive extends BasicQuestHelper
 			sirSpishyusPuzzle.addStep(and(chickenPickedUp, foxOnLeftSide, grainOnRightSide, playerOnWestSide), moveChickenToRight);
 			sirSpishyusPuzzle.addStep(and(chickenPickedUp, foxOnLeftSide, grainOnRightSide), dropChickenEast);
 
-			var dropGrainWest = new DetailedQuestStep(this, "Drop the Grain on the west side from your equipped items.");
+			var dropGrainWest = new DetailedQuestStep(this, t("Drop the Grain on the west side from your equipped items."));
 			((PuzzleWrapperStep) moveGrainOnRightToLeft).getSolvingStep().addSubSteps(dropGrainWest);
 
 			// 4. Move grain from east to west
@@ -360,11 +360,11 @@ public class RecruitmentDrive extends BasicQuestHelper
 			sirSpishyusPuzzle.addStep(and(chickenOnRightSide, foxOnLeftSide, grainPickedUp, playerOnEastSide), moveGrainToLeft);
 			sirSpishyusPuzzle.addStep(and(chickenOnRightSide, foxOnLeftSide, grainPickedUp), dropGrainWest);
 
-			var moveToEastSide2 = new ObjectStep(this, ObjectID.RD_BRIDGE_RIGHT, new WorldPoint(2477, 4972, 0), "Cross the bridge to the east side.");
+			var moveToEastSide2 = new ObjectStep(this, ObjectID.RD_BRIDGE_RIGHT, new WorldPoint(2477, 4972, 0), t("Cross the bridge to the east side."));
 			moveToEastSide2.setForceClickboxHighlight(true);
 			((PuzzleWrapperStep) moveChickenOnRightToLeftAgain).getSolvingStep().addSubSteps(moveToEastSide2);
 
-			var dropChickenWest2 = new DetailedQuestStep(this, "Drop the Chicken on the west side from your equipped items.");
+			var dropChickenWest2 = new DetailedQuestStep(this, t("Drop the Chicken on the west side from your equipped items."));
 			((PuzzleWrapperStep) moveChickenOnRightToLeftAgain).getSolvingStep().addSubSteps(dropChickenWest2);
 
 			// 5. Cross the bridge to the east, then move the chicken from east to west
@@ -373,10 +373,10 @@ public class RecruitmentDrive extends BasicQuestHelper
 			sirSpishyusPuzzle.addStep(and(chickenPickedUp, foxOnLeftSide, grainOnLeftSide, playerOnEastSide), moveChickenToLeftAgain);
 			sirSpishyusPuzzle.addStep(and(chickenPickedUp, foxOnLeftSide, grainOnLeftSide), dropChickenWest2);
 
-			pwSirSpishyusStep = sirSpishyusPuzzle.puzzleWrapStepWithDefaultText("Solve Sir Spishyus' riddle.");
+			pwSirSpishyusStep = sirSpishyusPuzzle.puzzleWrapStepWithDefaultText(t("Solve Sir Spishyus' riddle."));
 			pwSirSpishyusStep.conditionToHideInSidebar(new ConfigRequirement(this.getConfig()::solvePuzzles));
 
-			leaveSirSpishyusRoom = new ObjectStep(this, ObjectID.RD_ROOM1_EXITDOOR, "Leave through the portal to continue.");
+			leaveSirSpishyusRoom = new ObjectStep(this, ObjectID.RD_ROOM1_EXITDOOR, t("Leave through the portal to continue."));
 
 			cSirSpishyus = new ConditionalStep(this, pwSirSpishyusStep);
 			cSirSpishyus.addStep(finishedSpishyus, leaveSirSpishyusRoom);
@@ -386,11 +386,11 @@ public class RecruitmentDrive extends BasicQuestHelper
 		{
 			var finishedRoom = new VarbitRequirement(VarbitID.RD_ROOM3_COMPLETE, 1);
 
-			talkToSirKuam = new NpcStep(this, NpcID.RD_OBSERVER_ROOM_3, "Talk to Sir Kuam Ferentse to have him spawn Sir Leye.");
-			killSirLeye = new NpcStep(this, NpcID.RD_COMBAT_NPC_ROOM_3, "Defeat Sir Leye to win this challenge. You must use the steel warhammer or your bare hands to deal the final hit on him.", true);
-			pwKillSirLeye = killSirLeye.puzzleWrapStepWithDefaultText("Defeat Sir Leye to win this challenge.");
+			talkToSirKuam = new NpcStep(this, NpcID.RD_OBSERVER_ROOM_3, t("Talk to Sir Kuam Ferentse to have him spawn Sir Leye."));
+			killSirLeye = new NpcStep(this, NpcID.RD_COMBAT_NPC_ROOM_3, t("Defeat Sir Leye to win this challenge. You must use the steel warhammer or your bare hands to deal the final hit on him."), true);
+			pwKillSirLeye = killSirLeye.puzzleWrapStepWithDefaultText(t("Defeat Sir Leye to win this challenge."));
 
-			leaveSirKuamRoom = new ObjectStep(this, ObjectID.RD_ROOM3_EXITDOOR, "Leave through the portal to continue.");
+			leaveSirKuamRoom = new ObjectStep(this, ObjectID.RD_ROOM3_EXITDOOR, t("Leave through the portal to continue."));
 			var npcCondition = new NpcCondition(NpcID.RD_COMBAT_NPC_ROOM_3);
 
 			sirKuamStep = new ConditionalStep(this, talkToSirKuam);
@@ -407,7 +407,7 @@ public class RecruitmentDrive extends BasicQuestHelper
 
 		var steps = new HashMap<Integer, QuestStep>();
 
-		cTalkToSirAmikVarze = new ConditionalStep(this, climbBottomSteps, "Talk to Sir Amik Varze.");
+		cTalkToSirAmikVarze = new ConditionalStep(this, climbBottomSteps, t("Talk to Sir Amik Varze."));
 		cTalkToSirAmikVarze.addStep(isFirstFloorCastle, climbSecondSteps);
 		cTalkToSirAmikVarze.addStep(isSecondFloorCastle, talkToSirAmikVarze);
 		steps.put(0, cTalkToSirAmikVarze);
@@ -434,14 +434,14 @@ public class RecruitmentDrive extends BasicQuestHelper
 	{
 		String firstSide = moveRightToLeft ? "east" : "west";
 		String secondSide = moveRightToLeft ? "west" : "east";
-		return "Pick up the " + itemName + " on the " + firstSide + " and move it to the "
-			+ secondSide + " side by crossing the bridge";
+		return t("Pick up the") + " " + itemName + " " + t("on the") + " " + firstSide + " " + t("and move it to the")
+			+ " " + secondSide + " " + t("side by crossing the bridge");
 	}
 
 	private String getSpishyusMoveText(String itemName, boolean rightSide)
 	{
 		String dropSide = rightSide ? "east" : "west";
-		return "Cross the bridge to the " + dropSide + " and drop the " + itemName + " from your equipped items.";
+		return t("Cross the bridge to the") + " " + dropSide + " " + t("and drop the") + " " + itemName + " " + t("from your equipped items.");
 	}
 
 	@Override
@@ -457,7 +457,7 @@ public class RecruitmentDrive extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"Sir Leye (level 20) with no items"
+			t("Sir Leye (level 20) with no items")
 		);
 	}
 
@@ -490,8 +490,8 @@ public class RecruitmentDrive extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Ability to respawn in Falador"),
-			new UnlockReward("Access to Initiate Armor")
+			new UnlockReward(t("Ability to respawn in Falador")),
+			new UnlockReward(t("Access to Initiate Armor"))
 		);
 	}
 
@@ -500,34 +500,34 @@ public class RecruitmentDrive extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Starting out", List.of(
+		sections.add(new PanelDetails(t("Starting out"), List.of(
 			cTalkToSirAmikVarze
 		)));
 
-		sections.add(new PanelDetails("Start the testing", List.of(
+		sections.add(new PanelDetails(t("Start the testing"), List.of(
 			talkToSirTiffy
 		), List.of(
 			noItemRequirement
 		)));
 
-		sections.add(new PanelDetails("Sir Tinley", List.of(
+		sections.add(new PanelDetails(t("Sir Tinley"), List.of(
 			talkToSirTinley,
 			doNothingStep,
 			leaveSirTinleyRoom
 		)));
 
-		sections.add(new PanelDetails("Ms. Hynn Terprett", List.of(
+		sections.add(new PanelDetails(t("Ms. Hynn Terprett"), List.of(
 			pwMsHynnTerprett,
 			leaveMsHynnTerprettRoom
 		)));
 
-		sections.add(new PanelDetails("Sir Kuam Ferentse", List.of(
+		sections.add(new PanelDetails(t("Sir Kuam Ferentse"), List.of(
 			talkToSirKuam,
 			pwKillSirLeye,
 			leaveSirKuamRoom
 		)));
 
-		sections.add(new PanelDetails("Sir Spishyus", List.of(
+		sections.add(new PanelDetails(t("Sir Spishyus"), List.of(
 			pwSirSpishyusStep,
 			moveChickenOnRightToLeft,
 			moveFoxOnRightToLeft,
@@ -537,16 +537,16 @@ public class RecruitmentDrive extends BasicQuestHelper
 			leaveSirSpishyusRoom
 		)));
 
-		sections.add(new PanelDetails("Sir Ren Itchood",
+		sections.add(new PanelDetails(t("Sir Ren Itchood"),
 			sirRenStep.getPanelSteps()
 		));
 
-		var missCheeversSection = new PanelDetails("Miss Cheevers", pwMissCheeversStep);
+		var missCheeversSection = new PanelDetails(t("Miss Cheevers"), pwMissCheeversStep);
 		missCheeversSection.addSteps(missCheeversStep.getPanelSteps());
 		missCheeversSection.addSteps(leaveMissCheeversRoom);
 		sections.add(missCheeversSection);
 
-		sections.add(new PanelDetails("Lady Table", List.of(
+		sections.add(new PanelDetails(t("Lady Table"), List.of(
 			pwLadyTableStep,
 			leaveLadyTableRoom
 		)));

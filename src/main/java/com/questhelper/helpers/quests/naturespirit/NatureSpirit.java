@@ -153,15 +153,15 @@ public class NatureSpirit extends BasicQuestHelper
 		journalHighlighted = new ItemRequirement("Journal", ItemID.FILLIMAN_JOURNAL);
 		journalHighlighted.setHighlightInInventory(true);
 		druidicSpell = new ItemRequirement("Druidic spell", ItemID.BLOOM_SPELL);
-		druidicSpell.setTooltip("You can get another from Filliman");
+		druidicSpell.setTooltip(t("You can get another from Filliman"));
 		druidPouch = new ItemRequirement("Druidic pouch", ItemID.DRUID_POUCH_EMPTY);
-		druidPouch.setTooltip("You can get one from inside the Grotto");
+		druidPouch.setTooltip(t("You can get one from inside the Grotto"));
 		druidPouchFull = new ItemRequirement("Druidic pouch", ItemID.DRUID_POUCH);
 		blessedSickle = new ItemRequirement("Silver sickle (b)", ItemID.SILVER_SICKLE_BLESSED);
-		blessedSickle.setTooltip("You can bless another silver sickle with the nature spirit");
+		blessedSickle.setTooltip(t("You can bless another silver sickle with the nature spirit"));
 		spellCard = new ItemRequirement("A used spell or druidic spell", ItemID.USED_BLOOM_SPELL);
 		spellCard.addAlternates(ItemID.BLOOM_SPELL);
-		spellCard.setTooltip("You can get another spell from Filliman");
+		spellCard.setTooltip(t("You can get another spell from Filliman"));
 		mushroom = new ItemRequirement("Mort myre fungus", ItemID.MORTMYREMUSHROOM);
 		mushroomHighlighted = mushroom.highlighted();
 		salveTele = new ItemRequirement("Salve Graveyard Teleports", ItemID.TELETAB_SALVE, 2);
@@ -188,58 +188,58 @@ public class NatureSpirit extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		goDownToDrezel = new ObjectStep(this, ObjectID.TRAPDOOR, new WorldPoint(3405, 3507, 0), "Talk to Drezel under the Paterdomus Temple.");
+		goDownToDrezel = new ObjectStep(this, ObjectID.TRAPDOOR, new WorldPoint(3405, 3507, 0), t("Talk to Drezel under the Paterdomus Temple."));
 		goDownToDrezel.addAlternateObjects(ObjectID.TRAPDOOR_OPEN);
-		talkToDrezel = new NpcStep(this, NpcID.PRIESTPERILTRAPPEDMONK_VIS, new WorldPoint(3439, 9896, 0), "Talk to Drezel under the Paterdomus Temple.");
+		talkToDrezel = new NpcStep(this, NpcID.PRIESTPERILTRAPPEDMONK_VIS, new WorldPoint(3439, 9896, 0), t("Talk to Drezel under the Paterdomus Temple."));
 		talkToDrezel.addDialogSteps("Well, what is it, I may be able to help?", "Yes.");
 		talkToDrezel.addSubSteps(goDownToDrezel);
-		leaveDrezel = new ObjectStep(this, ObjectID.PIP_UNDERGROUND_WALL_SIDE_WITHPORTAL, new WorldPoint(3440, 9886, 0), "Enter the Mort Myre from the north gate.");
-		enterSwamp = new ObjectStep(this, ObjectID.MORTMYRE_METALGATECLOSED_L, new WorldPoint(3444, 3458, 0), "Enter the Mort Myre from the north gate.", ghostspeak);
+		leaveDrezel = new ObjectStep(this, ObjectID.PIP_UNDERGROUND_WALL_SIDE_WITHPORTAL, new WorldPoint(3440, 9886, 0), t("Enter the Mort Myre from the north gate."));
+		enterSwamp = new ObjectStep(this, ObjectID.MORTMYRE_METALGATECLOSED_L, new WorldPoint(3444, 3458, 0), t("Enter the Mort Myre from the north gate."), ghostspeak);
 		enterSwamp.addSubSteps(leaveDrezel);
-		tryToEnterGrotto = new ObjectStep(this, ObjectID.GROTTO_DOOR_DRUIDICSPIRIT, new WorldPoint(3440, 3337, 0), "Attempt to enter the Grotto in the south of Mort Myre.", ghostspeak);
+		tryToEnterGrotto = new ObjectStep(this, ObjectID.GROTTO_DOOR_DRUIDICSPIRIT, new WorldPoint(3440, 3337, 0), t("Attempt to enter the Grotto in the south of Mort Myre."), ghostspeak);
 		tryToEnterGrotto.addDialogStep("How long have you been a ghost?");
-		talkToFilliman = new NpcStep(this, NpcID.FILLIMAN_TARLOCK_SPIRIT, new WorldPoint(3440, 3336, 0), "Talk to Filliman Tarlock.", ghostspeak);
+		talkToFilliman = new NpcStep(this, NpcID.FILLIMAN_TARLOCK_SPIRIT, new WorldPoint(3440, 3336, 0), t("Talk to Filliman Tarlock."), ghostspeak);
 		talkToFilliman.addDialogStep("How long have you been a ghost?");
-		takeWashingBowl = new DetailedQuestStep(this, new WorldPoint(3437, 3337, 0), "Pick up the washing bowl.", washingBowl);
-		takeMirror = new DetailedQuestStep(this, new WorldPoint(3437, 3337, 0), "Pick up the mirror.", mirror);
-		useMirrorOnFilliman = new NpcStep(this, NpcID.FILLIMAN_TARLOCK_SPIRIT, new WorldPoint(3440, 3336, 0), "Use the mirror on Filliman Tarlock.", ghostspeak, mirrorHighlighted);
+		takeWashingBowl = new DetailedQuestStep(this, new WorldPoint(3437, 3337, 0), t("Pick up the washing bowl."), washingBowl);
+		takeMirror = new DetailedQuestStep(this, new WorldPoint(3437, 3337, 0), t("Pick up the mirror."), mirror);
+		useMirrorOnFilliman = new NpcStep(this, NpcID.FILLIMAN_TARLOCK_SPIRIT, new WorldPoint(3440, 3336, 0), t("Use the mirror on Filliman Tarlock."), ghostspeak, mirrorHighlighted);
 		useMirrorOnFilliman.addDialogStep("How long have you been a ghost?");
 		useMirrorOnFilliman.addIcon(ItemID.MIRROR);
-		searchGrotto = new ObjectStep(this, ObjectID.GROTTO_DRUIDICSPIRIT, new WorldPoint(3440, 3339, 0), "Right-click search the grotto tree.");
-		useJournalOnFilliman = new NpcStep(this, NpcID.FILLIMAN_TARLOCK_SPIRIT, new WorldPoint(3440, 3336, 0), "Use the journal on Filliman Tarlock.", ghostspeak, journalHighlighted);
+		searchGrotto = new ObjectStep(this, ObjectID.GROTTO_DRUIDICSPIRIT, new WorldPoint(3440, 3339, 0), t("Right-click search the grotto tree."));
+		useJournalOnFilliman = new NpcStep(this, NpcID.FILLIMAN_TARLOCK_SPIRIT, new WorldPoint(3440, 3336, 0), t("Use the journal on Filliman Tarlock."), ghostspeak, journalHighlighted);
 		useJournalOnFilliman.addIcon(ItemID.FILLIMAN_JOURNAL);
 		useJournalOnFilliman.addDialogStep("How can I help?");
-		goBackDownToDrezel = new ObjectStep(this, ObjectID.PIPEASTSIDETRAPDOOR, new WorldPoint(3422, 3485, 0), "Return to Drezel under the Paterdomus Temple to get blessed.");
+		goBackDownToDrezel = new ObjectStep(this, ObjectID.PIPEASTSIDETRAPDOOR, new WorldPoint(3422, 3485, 0), t("Return to Drezel under the Paterdomus Temple to get blessed."));
 		goBackDownToDrezel.addAlternateObjects(ObjectID.PIPEASTSIDETRAPDOOR_OPEN);
-		talkToDrezelForBlessing = new NpcStep(this, NpcID.PRIESTPERILTRAPPEDMONK_VIS, new WorldPoint(3439, 9896, 0), "Return to Drezel under the Paterdomus Temple to get blessed.");
+		talkToDrezelForBlessing = new NpcStep(this, NpcID.PRIESTPERILTRAPPEDMONK_VIS, new WorldPoint(3439, 9896, 0), t("Return to Drezel under the Paterdomus Temple to get blessed."));
 		talkToDrezelForBlessing.addSubSteps(goBackDownToDrezel);
 		talkToDrezelForBlessing.addSubSteps(goBackDownToDrezel);
-		castSpellAndGetMushroom = new ObjectStep(this, ObjectID.LOG_DRUIDICSPIRIT2, "Cast the druidic spell next to a rotten log in Mort Myre to grow a mushroom. Pick it. If you already have, open the quest journal to re-sync your state.", druidicSpell);
+		castSpellAndGetMushroom = new ObjectStep(this, ObjectID.LOG_DRUIDICSPIRIT2, t("Cast the druidic spell next to a rotten log in Mort Myre to grow a mushroom. Pick it. If you already have, open the quest journal to re-sync your state."), druidicSpell);
 		castSpellAndGetMushroom.addDialogStep("Could I have another bloom scroll please?");
-		useMushroom = new ObjectStep(this, ObjectID.STONEDISC_DS_NATURE, new WorldPoint(3439, 3336, 0), "Use the mushroom on the brown stone outside the grotto. If you already have, search it instead.", mushroomHighlighted);
+		useMushroom = new ObjectStep(this, ObjectID.STONEDISC_DS_NATURE, new WorldPoint(3439, 3336, 0), t("Use the mushroom on the brown stone outside the grotto. If you already have, search it instead."), mushroomHighlighted);
 		useMushroom.addIcon(ItemID.MORTMYREMUSHROOM);
-		useSpellCard = new ObjectStep(this, ObjectID.STONEDISC_DS_SPIRIT, new WorldPoint(3441, 3336, 0), "Use the used spell on the gray stone outside the grotto. If you already have, search it instead.", spellCard);
+		useSpellCard = new ObjectStep(this, ObjectID.STONEDISC_DS_SPIRIT, new WorldPoint(3441, 3336, 0), t("Use the used spell on the gray stone outside the grotto. If you already have, search it instead."), spellCard);
 		useSpellCard.addIcon(ItemID.USED_BLOOM_SPELL);
-		standOnOrange = new DetailedQuestStep(this, new WorldPoint(3440, 3335, 0), "Stand on the orange stone outside the grotto.");
-		tellFillimanToCast = new NpcStep(this, NpcID.FILLIMAN_TARLOCK_SPIRIT, new WorldPoint(3440, 3336, 0), "Tell Filliman Tarlock you're ready.", ghostspeak);
+		standOnOrange = new DetailedQuestStep(this, new WorldPoint(3440, 3335, 0), t("Stand on the orange stone outside the grotto."));
+		tellFillimanToCast = new NpcStep(this, NpcID.FILLIMAN_TARLOCK_SPIRIT, new WorldPoint(3440, 3336, 0), t("Tell Filliman Tarlock you're ready."), ghostspeak);
 		tellFillimanToCast.addDialogStep("I think I've solved the puzzle!");
-		spawnFillimanForRitual = new ObjectStep(this, ObjectID.GROTTO_DOOR_DRUIDICSPIRIT, new WorldPoint(3440, 3337, 0), "Attempt to enter the Grotto in the south of Mort Myre to spawn Filliman.", ghostspeak);
+		spawnFillimanForRitual = new ObjectStep(this, ObjectID.GROTTO_DOOR_DRUIDICSPIRIT, new WorldPoint(3440, 3337, 0), t("Attempt to enter the Grotto in the south of Mort Myre to spawn Filliman."), ghostspeak);
 		spawnFillimanForRitual.addDialogStep("I think I've solved the puzzle!");
 		tellFillimanToCast.addSubSteps(spawnFillimanForRitual);
-		enterGrotto = new ObjectStep(this, ObjectID.GROTTO_DOOR_DRUIDICSPIRIT, new WorldPoint(3440, 3337, 0), "Enter the Grotto in the south of Mort Myre.", ghostspeak, silverSickle);
+		enterGrotto = new ObjectStep(this, ObjectID.GROTTO_DOOR_DRUIDICSPIRIT, new WorldPoint(3440, 3337, 0), t("Enter the Grotto in the south of Mort Myre."), ghostspeak, silverSickle);
 
-		searchAltar = new ObjectStep(this, ObjectID.DRUIDIC_SPIRIT_GROTTO, new WorldPoint(3442, 9741, 0), "Search the grotto inside.", ghostspeak);
-		talkToFillimanInGrotto = new NpcStep(this, NpcID.FILLIMAN_TARLOCK_SPIRIT, new WorldPoint(3441, 9738, 0), "Talk to Filliman in the grotto to bless your sickle.", ghostspeak, silverSickle);
-		blessSickle = new NpcStep(this, NpcID.FILLIMAN_TARLOCK_NS, new WorldPoint(3441, 9738, 0), "Talk to the Nature Spirit in the grotto to bless your sickle.", ghostspeak, silverSickle);
+		searchAltar = new ObjectStep(this, ObjectID.DRUIDIC_SPIRIT_GROTTO, new WorldPoint(3442, 9741, 0), t("Search the grotto inside."), ghostspeak);
+		talkToFillimanInGrotto = new NpcStep(this, NpcID.FILLIMAN_TARLOCK_SPIRIT, new WorldPoint(3441, 9738, 0), t("Talk to Filliman in the grotto to bless your sickle."), ghostspeak, silverSickle);
+		blessSickle = new NpcStep(this, NpcID.FILLIMAN_TARLOCK_NS, new WorldPoint(3441, 9738, 0), t("Talk to the Nature Spirit in the grotto to bless your sickle."), ghostspeak, silverSickle);
 		fillPouches = new DetailedQuestStep(this,
-			"Right-click 'bloom' the blessed sickle next to rotten logs for mort myre fungi. Use these to fill the druid pouch.", blessedSickle, prayerPoints
+			t("Right-click 'bloom' the blessed sickle next to rotten logs for mort myre fungi. Use these to fill the druid pouch."), blessedSickle, prayerPoints
 			, druidPouch);
-		killGhasts = new NpcStep(this, NpcID.GHAST_INVIS, "Use the filled druid pouch on a ghast to make it attackable and kill it. You'll need to kill 3.", druidPouchFull);
-		killGhast = new NpcStep(this, NpcID.GHAST_VIS, "Kill the ghast.", druidPouchFull);
+		killGhasts = new NpcStep(this, NpcID.GHAST_INVIS, t("Use the filled druid pouch on a ghast to make it attackable and kill it. You'll need to kill 3."), druidPouchFull);
+		killGhast = new NpcStep(this, NpcID.GHAST_VIS, t("Kill the ghast."), druidPouchFull);
 		killGhasts.addSubSteps(killGhast);
-		enterGrottoAgain = new ObjectStep(this, ObjectID.GROTTO_DOOR_DRUIDICSPIRIT, new WorldPoint(3440, 3337, 0), "Enter the Grotto in the south of Mort Myre.", ghostspeak);
-		touchAltarAgain = new ObjectStep(this, ObjectID.DRUIDIC_SPIRIT_GROTTO, new WorldPoint(3442, 9741, 0), "Search the grotto inside.", ghostspeak);
-		talkToNatureSpiritToFinish = new NpcStep(this, NpcID.FILLIMAN_TARLOCK_NS, new WorldPoint(3441, 9738, 0), "Talk to the Nature Spirit in the grotto to finish the quest!", ghostspeak);
+		enterGrottoAgain = new ObjectStep(this, ObjectID.GROTTO_DOOR_DRUIDICSPIRIT, new WorldPoint(3440, 3337, 0), t("Enter the Grotto in the south of Mort Myre."), ghostspeak);
+		touchAltarAgain = new ObjectStep(this, ObjectID.DRUIDIC_SPIRIT_GROTTO, new WorldPoint(3442, 9741, 0), t("Search the grotto inside."), ghostspeak);
+		talkToNatureSpiritToFinish = new NpcStep(this, NpcID.FILLIMAN_TARLOCK_NS, new WorldPoint(3441, 9738, 0), t("Talk to the Nature Spirit in the grotto to finish the quest!"), ghostspeak);
 		talkToNatureSpiritToFinish.addSubSteps(touchAltarAgain);
 	}
 
@@ -360,7 +360,7 @@ public class NatureSpirit extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"3 Ghasts (level 30)"
+			t("3 Ghasts (level 30)")
 		);
 	}
 
@@ -368,7 +368,7 @@ public class NatureSpirit extends BasicQuestHelper
 	public List<String> getNotes()
 	{
 		return List.of(
-			"Whilst in Mort Myre, the Ghasts will occasionally rot the food in your inventory."
+			t("Whilst in Mort Myre, the Ghasts will occasionally rot the food in your inventory.")
 		);
 	}
 
@@ -392,8 +392,8 @@ public class NatureSpirit extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Access to Mort Myre Swamp"),
-			new UnlockReward("Ability to fight Ghasts.")
+			new UnlockReward(t("Access to Mort Myre Swamp")),
+			new UnlockReward(t("Ability to fight Ghasts."))
 		);
 	}
 
@@ -402,7 +402,7 @@ public class NatureSpirit extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Start the quest", List.of(
+		sections.add(new PanelDetails(t("Start the quest"), List.of(
 			talkToDrezel,
 			enterSwamp,
 			tryToEnterGrotto,
@@ -418,7 +418,7 @@ public class NatureSpirit extends BasicQuestHelper
 			prayerPoints
 		)));
 
-		sections.add(new PanelDetails("Helping Filliman", List.of(
+		sections.add(new PanelDetails(t("Helping Filliman"), List.of(
 			talkToDrezelForBlessing,
 			castSpellAndGetMushroom,
 			useMushroom,
@@ -434,7 +434,7 @@ public class NatureSpirit extends BasicQuestHelper
 			silverSickle
 		)));
 
-		sections.add(new PanelDetails("Killing Ghasts", List.of(
+		sections.add(new PanelDetails(t("Killing Ghasts"), List.of(
 			fillPouches,
 			killGhasts,
 			enterGrottoAgain,

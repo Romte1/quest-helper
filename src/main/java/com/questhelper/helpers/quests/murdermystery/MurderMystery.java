@@ -237,7 +237,7 @@ public class MurderMystery extends BasicQuestHelper
 		twoFlypaper = new ItemRequirement("Flypaper", ItemID.MURDERPAPER, 2);
 		flypaper = new ItemRequirement("Flypaper", ItemID.MURDERPAPER);
 		flypaper.setHighlightInInventory(true);
-		flypaper.setTooltip("You can get more from the sack in the shed on the west of the Sinclair Mansion");
+		flypaper.setTooltip(t("You can get more from the sack in the shed on the west of the Sinclair Mansion"));
 		potOfFlourHighlighted = new ItemRequirement("Pot of flour", ItemID.POT_FLOUR);
 		potOfFlourHighlighted.setHighlightInInventory(true);
 		unknownPrint = new ItemRequirement("Unknown print", ItemID.MURDERFINGERPRINT1);
@@ -452,106 +452,106 @@ public class MurderMystery extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToGuard = new NpcStep(this, NpcID.MURDERGUARD, new WorldPoint(2741, 3561, 0), "Talk to the Guard in the Sinclair Manor north of Camelot.");
+		talkToGuard = new NpcStep(this, NpcID.MURDERGUARD, new WorldPoint(2741, 3561, 0), t("Talk to the Guard in the Sinclair Manor north of Camelot."));
 		talkToGuard.addDialogSteps("Yes.");
 
-		pickUpPungentPot = new ItemStep(this, new WorldPoint(2747, 3579, 0), "Enter the mansion and pick up the pungent pot inside the east room.", pungentPot);
-		pickUpDagger = new ItemStep(this, new WorldPoint(2746, 3578, 0), "Pick up the criminal's dagger.", criminalsDaggerAny);
-		searchWindowForThread = new ObjectStep(this, ObjectID.MURDERWINDOW, new WorldPoint(2748, 3577, 0), "Search the window for a clothing thread. The colour of the thread will match the killer's trousers.", criminalsThread);
+		pickUpPungentPot = new ItemStep(this, new WorldPoint(2747, 3579, 0), t("Enter the mansion and pick up the pungent pot inside the east room."), pungentPot);
+		pickUpDagger = new ItemStep(this, new WorldPoint(2746, 3578, 0), t("Pick up the criminal's dagger."), criminalsDaggerAny);
+		searchWindowForThread = new ObjectStep(this, ObjectID.MURDERWINDOW, new WorldPoint(2748, 3577, 0), t("Search the window for a clothing thread. The colour of the thread will match the killer's trousers."), criminalsThread);
 		var actuallyFillPotWithFlour = new ObjectStep(this, ObjectID.FLOURBARREL, new WorldPoint(2733, 3582, 0), "", pot);
-		var goDownstairs = new ObjectStep(this, ObjectID.MURDER_QIP_SPIRALSTAIRSTOP, new WorldPoint(2736, 3581, 1), "Head downstairs to the ground floor.");
-		fillPotWithFlour = new ConditionalStep(this, actuallyFillPotWithFlour, "Fill your pot with flour from the barrel in the mansion's kitchen.");
+		var goDownstairs = new ObjectStep(this, ObjectID.MURDER_QIP_SPIRALSTAIRSTOP, new WorldPoint(2736, 3581, 1), t("Head downstairs to the ground floor."));
+		fillPotWithFlour = new ConditionalStep(this, actuallyFillPotWithFlour, t("Fill your pot with flour from the barrel in the mansion's kitchen."));
 		((ConditionalStep) fillPotWithFlour).addStep(isUpstairs, goDownstairs);
-		useFlourOnDagger = new DetailedQuestStep(this, "Use the pot of flour on the Criminal's dagger.", potOfFlourHighlighted, criminalsDaggerHighlighted);
-		collectTwoFlypaper = new ObjectStep(this, ObjectID.MURDERSACKS, new WorldPoint(2731, 3582, 0), "Investigate the sacks in the shed for flypaper. Get 2 pieces.", twoFlypaper);
+		useFlourOnDagger = new DetailedQuestStep(this, t("Use the pot of flour on the Criminal's dagger."), potOfFlourHighlighted, criminalsDaggerHighlighted);
+		collectTwoFlypaper = new ObjectStep(this, ObjectID.MURDERSACKS, new WorldPoint(2731, 3582, 0), t("Investigate the sacks in the shed for flypaper. Get 2 pieces."), twoFlypaper);
 		collectTwoFlypaper.addDialogStep("Yes, it might be useful.");
 
-		QuestStep goUpstairs = new ObjectStep(this, ObjectID.MURDER_QIP_SPIRALSTAIRS, new WorldPoint(2736, 3581, 0), "Climb up the mansion staircase.");
+		QuestStep goUpstairs = new ObjectStep(this, ObjectID.MURDER_QIP_SPIRALSTAIRS, new WorldPoint(2736, 3581, 0), t("Climb up the mansion staircase."));
 
 		// Option 1 (red thread)
-		searchBobsBarrel = new ObjectStep(this, ObjectID.MURDERBARRELB, new WorldPoint(2735, 3579, 0), "Search Bob's barrel on the ground floor.");
-		searchCarolsBarrel = new ConditionalStep(this, goUpstairs, "Search Carol's barrel upstairs.");
+		searchBobsBarrel = new ObjectStep(this, ObjectID.MURDERBARRELB, new WorldPoint(2735, 3579, 0), t("Search Bob's barrel on the ground floor."));
+		searchCarolsBarrel = new ConditionalStep(this, goUpstairs, t("Search Carol's barrel upstairs."));
 		((ConditionalStep) searchCarolsBarrel).addStep(isUpstairs, new ObjectStep(this, ObjectID.MURDERBARRELC, new WorldPoint(2733, 3580, 1), ""));
 
 		// Option 2 (green thread)
-		searchAnnasBarrel = new ObjectStep(this, ObjectID.MURDERBARRELA, new WorldPoint(2733, 3575, 0), "Search Anna's barrel on the ground floor.");
-		searchDavidsBarrel = new ConditionalStep(this, goUpstairs, "Search David's barrel upstairs.");
+		searchAnnasBarrel = new ObjectStep(this, ObjectID.MURDERBARRELA, new WorldPoint(2733, 3575, 0), t("Search Anna's barrel on the ground floor."));
+		searchDavidsBarrel = new ConditionalStep(this, goUpstairs, t("Search David's barrel upstairs."));
 		((ConditionalStep) searchDavidsBarrel).addStep(isUpstairs, new ObjectStep(this, ObjectID.MURDERBARRELD, new WorldPoint(2733, 3577, 1), ""));
 
 		// Option 3 (blue thread)
-		searchFranksBarrel = new ConditionalStep(this, goUpstairs, "Search Frank's barrel upstairs.");
+		searchFranksBarrel = new ConditionalStep(this, goUpstairs, t("Search Frank's barrel upstairs."));
 		((ConditionalStep) searchFranksBarrel).addStep(isUpstairs, new ObjectStep(this, ObjectID.MURDERBARRELF, new WorldPoint(2747, 3577, 1), ""));
 
-		searchElizabethsBarrel = new ConditionalStep(this, goUpstairs, "Search Elizabeth's barrel upstairs.");
+		searchElizabethsBarrel = new ConditionalStep(this, goUpstairs, t("Search Elizabeth's barrel upstairs."));
 		((ConditionalStep) searchElizabethsBarrel).addStep(isUpstairs, new ObjectStep(this, ObjectID.MURDERBARRELE, new WorldPoint(2747, 3581, 1), ""));
 
-		useFlypaperOnDagger = new DetailedQuestStep(this, "Use the flypaper on the dagger.", flypaper, criminalsDaggerFlourHighlighted);
+		useFlypaperOnDagger = new DetailedQuestStep(this, t("Use the flypaper on the dagger."), flypaper, criminalsDaggerFlourHighlighted);
 
-		collectFlypaper = new ObjectStep(this, ObjectID.MURDERSACKS, new WorldPoint(2731, 3582, 0), "Investigate the sacks in the shed for 1 flypaper.", flypaper);
+		collectFlypaper = new ObjectStep(this, ObjectID.MURDERSACKS, new WorldPoint(2731, 3582, 0), t("Investigate the sacks in the shed for 1 flypaper."), flypaper);
 		collectFlypaper.addDialogStep("Yes, it might be useful.");
-		fillPotWithFlourForSilver = new ObjectStep(this, ObjectID.FLOURBARREL, new WorldPoint(2733, 3582, 0), "Fill your pot with flour from the barrel in the mansion's kitchen.", pot);
+		fillPotWithFlourForSilver = new ObjectStep(this, ObjectID.FLOURBARREL, new WorldPoint(2733, 3582, 0), t("Fill your pot with flour from the barrel in the mansion's kitchen."), pot);
 		fillPotWithFlourForSilver.addSubSteps(collectFlypaper);
 
-		useFlourOnNecklace = new DetailedQuestStep(this, "Use flour on the silver necklace.", silverNecklace.highlighted(), potOfFlourHighlighted);
-		useFlourOnCup = new DetailedQuestStep(this, "Use flour on the silver cup.", silverCup.highlighted(), potOfFlourHighlighted);
-		useFlourOnBottle = new DetailedQuestStep(this, "Use flour on the silver bottle.", silverBottle.highlighted(), potOfFlourHighlighted);
-		useFlourOnBook = new DetailedQuestStep(this, "Use flour on the silver book.", silverBook.highlighted(), potOfFlourHighlighted);
-		useFlourOnNeedle = new DetailedQuestStep(this, "Use flour on the silver needle.", silverNeedle.highlighted(), potOfFlourHighlighted);
-		useFlourOnPot = new DetailedQuestStep(this, "Use flour on the silver pot.", silverPot.highlighted(), potOfFlourHighlighted);
+		useFlourOnNecklace = new DetailedQuestStep(this, t("Use flour on the silver necklace."), silverNecklace.highlighted(), potOfFlourHighlighted);
+		useFlourOnCup = new DetailedQuestStep(this, t("Use flour on the silver cup."), silverCup.highlighted(), potOfFlourHighlighted);
+		useFlourOnBottle = new DetailedQuestStep(this, t("Use flour on the silver bottle."), silverBottle.highlighted(), potOfFlourHighlighted);
+		useFlourOnBook = new DetailedQuestStep(this, t("Use flour on the silver book."), silverBook.highlighted(), potOfFlourHighlighted);
+		useFlourOnNeedle = new DetailedQuestStep(this, t("Use flour on the silver needle."), silverNeedle.highlighted(), potOfFlourHighlighted);
+		useFlourOnPot = new DetailedQuestStep(this, t("Use flour on the silver pot."), silverPot.highlighted(), potOfFlourHighlighted);
 
-		useFlypaperOnNecklace = new DetailedQuestStep(this, "Use flypaper on the silver necklace.", silverNecklaceFlour.highlighted(), flypaper.highlighted());
-		useFlypaperOnCup = new DetailedQuestStep(this, "Use flypaper on the silver cup.", silverCupFlour.highlighted(), flypaper.highlighted());
-		useFlypaperOnBottle = new DetailedQuestStep(this, "Use flypaper on the silver bottle.", silverBottleFlour.highlighted(), flypaper.highlighted());
-		useFlypaperOnBook = new DetailedQuestStep(this, "Use flypaper on the silver book.", silverBookFlour.highlighted(), flypaper.highlighted());
-		useFlypaperOnNeedle = new DetailedQuestStep(this, "Use flypaper on the silver needle.", silverNeedleFlour.highlighted(), flypaper.highlighted());
-		useFlypaperOnPot = new DetailedQuestStep(this, "Use flypaper on the silver pot.", silverPotFlour.highlighted(), flypaper.highlighted());
+		useFlypaperOnNecklace = new DetailedQuestStep(this, t("Use flypaper on the silver necklace."), silverNecklaceFlour.highlighted(), flypaper.highlighted());
+		useFlypaperOnCup = new DetailedQuestStep(this, t("Use flypaper on the silver cup."), silverCupFlour.highlighted(), flypaper.highlighted());
+		useFlypaperOnBottle = new DetailedQuestStep(this, t("Use flypaper on the silver bottle."), silverBottleFlour.highlighted(), flypaper.highlighted());
+		useFlypaperOnBook = new DetailedQuestStep(this, t("Use flypaper on the silver book."), silverBookFlour.highlighted(), flypaper.highlighted());
+		useFlypaperOnNeedle = new DetailedQuestStep(this, t("Use flypaper on the silver needle."), silverNeedleFlour.highlighted(), flypaper.highlighted());
+		useFlypaperOnPot = new DetailedQuestStep(this, t("Use flypaper on the silver pot."), silverPotFlour.highlighted(), flypaper.highlighted());
 
-		compareAnna = new DetailedQuestStep(this, "Use Anna's prints on the killer's print to compare them.", unknownPrint.highlighted(), annaPrint.highlighted());
-		compareBob = new DetailedQuestStep(this, "Use Bob's prints on the killer's print to compare them.", unknownPrint.highlighted(), bobPrint.highlighted());
-		compareCarol = new DetailedQuestStep(this, "Use Carol's prints on the killer's print to compare them.", unknownPrint.highlighted(), carolPrint.highlighted());
-		compareDavid = new DetailedQuestStep(this, "Use David's prints on the killer's print to compare them.", unknownPrint.highlighted(), davidPrint.highlighted());
-		compareElizabeth = new DetailedQuestStep(this, "Use Elizabeth's prints on the killer's print to compare them.", unknownPrint.highlighted(), elizabethPrint.highlighted());
-		compareFrank = new DetailedQuestStep(this, "Use Frank's prints on the killer's print to compare them.", unknownPrint.highlighted(), frankPrint.highlighted());
+		compareAnna = new DetailedQuestStep(this, t("Use Anna's prints on the killer's print to compare them."), unknownPrint.highlighted(), annaPrint.highlighted());
+		compareBob = new DetailedQuestStep(this, t("Use Bob's prints on the killer's print to compare them."), unknownPrint.highlighted(), bobPrint.highlighted());
+		compareCarol = new DetailedQuestStep(this, t("Use Carol's prints on the killer's print to compare them."), unknownPrint.highlighted(), carolPrint.highlighted());
+		compareDavid = new DetailedQuestStep(this, t("Use David's prints on the killer's print to compare them."), unknownPrint.highlighted(), davidPrint.highlighted());
+		compareElizabeth = new DetailedQuestStep(this, t("Use Elizabeth's prints on the killer's print to compare them."), unknownPrint.highlighted(), elizabethPrint.highlighted());
+		compareFrank = new DetailedQuestStep(this, t("Use Frank's prints on the killer's print to compare them."), unknownPrint.highlighted(), frankPrint.highlighted());
 
-		talkToGossip = new NpcStep(this, NpcID.GOSSIPY_MAN, new WorldPoint(2741, 3557, 0), "Talk to Gossip, just south of the Sinclair Mansion.");
+		talkToGossip = new NpcStep(this, NpcID.GOSSIPY_MAN, new WorldPoint(2741, 3557, 0), t("Talk to Gossip, just south of the Sinclair Mansion."));
 		talkToGossip.addDialogStep("Who do you think was responsible?");
 
-		talkToPoisonSalesman = new NpcStep(this, NpcID.POISON_SALESMAN, new WorldPoint(2694, 3493, 0), "Talk to the Poison Salesman in the Seers' Village pub about his customers.");
+		talkToPoisonSalesman = new NpcStep(this, NpcID.POISON_SALESMAN, new WorldPoint(2694, 3493, 0), t("Talk to the Poison Salesman in the Seers' Village pub about his customers."));
 		talkToPoisonSalesman.addDialogStep("Who did you sell Poison to at the house?");
 		talkToPoisonSalesman.addDialogStep("Talk about the Murder Mystery Quest");
 
-		talkToPoisonSalesman2 = new NpcStep(this, NpcID.POISON_SALESMAN, new WorldPoint(2694, 3493, 0), "Talk to the Poison Salesman in the Seers' Village pub about the pungent pot.", pungentPot);
+		talkToPoisonSalesman2 = new NpcStep(this, NpcID.POISON_SALESMAN, new WorldPoint(2694, 3493, 0), t("Talk to the Poison Salesman in the Seers' Village pub about the pungent pot."), pungentPot);
 		talkToPoisonSalesman2.addDialogStep("I have this pot I found at the murder scene...");
 		talkToPoisonSalesman2.addDialogStep("Talk about the Murder Mystery Quest");
 
-		talkToAnna = new NpcStep(this, NpcID.ANNA_SINCLAIR, new WorldPoint(2734, 3575, 0), "Talk to Anna in the mansion about what she used the poison for. Make sure to finish the dialog.");
-		talkToBob = new NpcStep(this, NpcID.BOB_SINCLAIR, new WorldPoint(2748, 3559, 0), "Talk to Bob south of the mansion about what he used the poison for. Make sure to finish the dialog.");
-		talkToFrank = new NpcStep(this, NpcID.FRANK_SINCLAIR, new WorldPoint(2742, 3577, 0), "Talk to Frank in the mansion about what he used the poison for. Make sure to finish the dialog.");
-		talkToDavid = new NpcStep(this, NpcID.DAVID_SINCLAIR, new WorldPoint(2739, 3581, 0), "Talk to David in the mansion about what he used the poison for. Make sure to finish the dialog.");
-		talkToCarol = new ConditionalStep(this, goUpstairs, "Talk to Carol upstairs in the mansion about what she used her poison for. Make sure to finish the dialog.");
+		talkToAnna = new NpcStep(this, NpcID.ANNA_SINCLAIR, new WorldPoint(2734, 3575, 0), t("Talk to Anna in the mansion about what she used the poison for. Make sure to finish the dialog."));
+		talkToBob = new NpcStep(this, NpcID.BOB_SINCLAIR, new WorldPoint(2748, 3559, 0), t("Talk to Bob south of the mansion about what he used the poison for. Make sure to finish the dialog."));
+		talkToFrank = new NpcStep(this, NpcID.FRANK_SINCLAIR, new WorldPoint(2742, 3577, 0), t("Talk to Frank in the mansion about what he used the poison for. Make sure to finish the dialog."));
+		talkToDavid = new NpcStep(this, NpcID.DAVID_SINCLAIR, new WorldPoint(2739, 3581, 0), t("Talk to David in the mansion about what he used the poison for. Make sure to finish the dialog."));
+		talkToCarol = new ConditionalStep(this, goUpstairs, t("Talk to Carol upstairs in the mansion about what she used her poison for. Make sure to finish the dialog."));
 		((ConditionalStep) talkToCarol).addStep(isUpstairs, new NpcStep(this, NpcID.CAROL_SINCLAIR, new WorldPoint(2734, 3581, 1), ""));
-		talkToElizabeth = new ConditionalStep(this, goUpstairs, "Talk to Elizabeth upstairs in the mansion about what she used her poison for.");
+		talkToElizabeth = new ConditionalStep(this, goUpstairs, t("Talk to Elizabeth upstairs in the mansion about what she used her poison for."));
 		((ConditionalStep) talkToElizabeth).addStep(isUpstairs, new NpcStep(this, NpcID.ELIZABETH_SINCLAIR, new WorldPoint(2746, 3581, 1), ""));
 
-		searchAnna = new ObjectStep(this, ObjectID.MURDERCOMPOST, new WorldPoint(2730, 3572, 0), "Search the compost heap south west of the mansion. If a dialog box doesn't come up, go back to Anna to ask about poison, and COMPLETE THE DIALOG.");
-		searchBob = new ObjectStep(this, ObjectID.MURDERHIVE, new WorldPoint(2730, 3559, 0), "Search the beehive south west of the mansion. If a dialog box doesn't come up, go back to Bob to ask about poison, and COMPLETE THE DIALOG.");
-		searchCarol = new ObjectStep(this, ObjectID.MURDERDRAIN, new WorldPoint(2736, 3573, 0), "Search the drain south of the mansion. If a dialog box doesn't come up, go back to Carol to ask about poison, and COMPLETE THE DIALOG.");
-		searchDavid = new ConditionalStep(this, goUpstairs, "Search the spider's nest, upstairs in the mansion to the south. If a dialog box doesn't come up, go back to David to ask about poison, and COMPLETE THE DIALOG.");
+		searchAnna = new ObjectStep(this, ObjectID.MURDERCOMPOST, new WorldPoint(2730, 3572, 0), t("Search the compost heap south west of the mansion. If a dialog box doesn't come up, go back to Anna to ask about poison, and COMPLETE THE DIALOG."));
+		searchBob = new ObjectStep(this, ObjectID.MURDERHIVE, new WorldPoint(2730, 3559, 0), t("Search the beehive south west of the mansion. If a dialog box doesn't come up, go back to Bob to ask about poison, and COMPLETE THE DIALOG."));
+		searchCarol = new ObjectStep(this, ObjectID.MURDERDRAIN, new WorldPoint(2736, 3573, 0), t("Search the drain south of the mansion. If a dialog box doesn't come up, go back to Carol to ask about poison, and COMPLETE THE DIALOG."));
+		searchDavid = new ConditionalStep(this, goUpstairs, t("Search the spider's nest, upstairs in the mansion to the south. If a dialog box doesn't come up, go back to David to ask about poison, and COMPLETE THE DIALOG."));
 		((ConditionalStep) searchDavid).addStep(isUpstairs, new ObjectStep(this, ObjectID.MURDERWEB, new WorldPoint(2740, 3574, 1), ""));
-		searchElizabeth = new ObjectStep(this, ObjectID.MURDERFOUNTAIN, new WorldPoint(2747, 3563, 0), "Search the fountain south east of the mansion. If a dialog box doesn't come up, go back to Elizabeth to ask about poison, and COMPLETE THE DIALOG.");
-		searchFrank = new ObjectStep(this, ObjectID.MURDERSIGN, new WorldPoint(2746, 3573, 0), "Search the family crest attached to the south side of the mansion to the east. If a dialog box doesn't come up, go back to Frank to ask about poison, and COMPLETE THE DIALOG.");
+		searchElizabeth = new ObjectStep(this, ObjectID.MURDERFOUNTAIN, new WorldPoint(2747, 3563, 0), t("Search the fountain south east of the mansion. If a dialog box doesn't come up, go back to Elizabeth to ask about poison, and COMPLETE THE DIALOG."));
+		searchFrank = new ObjectStep(this, ObjectID.MURDERSIGN, new WorldPoint(2746, 3573, 0), t("Search the family crest attached to the south side of the mansion to the east. If a dialog box doesn't come up, go back to Frank to ask about poison, and COMPLETE THE DIALOG."));
 
-		finishQuest = new NpcStep(this, NpcID.MURDERGUARD, new WorldPoint(2741, 3561, 0), "Return to the guard outside the Sinclair Mansion and tell him your findings.");
+		finishQuest = new NpcStep(this, NpcID.MURDERGUARD, new WorldPoint(2741, 3561, 0), t("Return to the guard outside the Sinclair Mansion and tell him your findings."));
 		finishQuest.addDialogStep("I know who did it!");
 
-		remainingSteps = new DetailedQuestStep(this, "Follow the steps in the Quest Helper sidebar for the rest of the quest.");
+		remainingSteps = new DetailedQuestStep(this, t("Follow the steps in the Quest Helper sidebar for the rest of the quest."));
 		remainingSteps.addDialogStep(2, "Who do you think was responsible?");
 		remainingSteps.addDialogStep("Why'd you buy poison the other day?");
 		remainingSteps.addDialogStep("Who did you sell Poison to at the house?");
 		remainingSteps.addDialogStep("I know who did it!");
 		remainingSteps.setShowInSidebar(false);
 
-		var useFlourFallback = new DetailedQuestStep(this, "Use flour on the suspect's item.");
+		var useFlourFallback = new DetailedQuestStep(this, t("Use flour on the suspect's item."));
 		useFlour = new ConditionalStep(this, useFlourFallback);
 		useFlour.setShouldPassthroughText(true);
 		useFlour.addStep(elizabethGuilty, useFlourOnNeedle);
@@ -561,7 +561,7 @@ public class MurderMystery extends BasicQuestHelper
 		useFlour.addStep(frankGuilty, useFlourOnPot);
 		useFlour.addStep(bobGuilty, useFlourOnCup);
 
-		var searchBarrelFallback = new DetailedQuestStep(this, "Search the suspect's barrel.");
+		var searchBarrelFallback = new DetailedQuestStep(this, t("Search the suspect's barrel."));
 		searchBarrel = new ConditionalStep(this, searchBarrelFallback);
 		searchBarrel.setShouldPassthroughText(true);
 		searchBarrel.addStep(elizabethGuilty, searchElizabethsBarrel);
@@ -571,7 +571,7 @@ public class MurderMystery extends BasicQuestHelper
 		searchBarrel.addStep(frankGuilty, searchFranksBarrel);
 		searchBarrel.addStep(bobGuilty, searchBobsBarrel);
 
-		var useFlypaperFallback = new DetailedQuestStep(this, "Use flypaper on the suspect's item.");
+		var useFlypaperFallback = new DetailedQuestStep(this, t("Use flypaper on the suspect's item."));
 		useFlypaper = new ConditionalStep(this, useFlypaperFallback);
 		useFlypaper.setShouldPassthroughText(true);
 		useFlypaper.addStep(elizabethGuilty, useFlypaperOnNeedle);
@@ -581,7 +581,7 @@ public class MurderMystery extends BasicQuestHelper
 		useFlypaper.addStep(frankGuilty, useFlypaperOnPot);
 		useFlypaper.addStep(bobGuilty, useFlypaperOnCup);
 
-		var comparePrintsFallback = new DetailedQuestStep(this, "Compare prints with the suspect.");
+		var comparePrintsFallback = new DetailedQuestStep(this, t("Compare prints with the suspect."));
 		comparePrints = new ConditionalStep(this, comparePrintsFallback);
 		comparePrints.setShouldPassthroughText(true);
 		comparePrints.addStep(annaGuilty, compareAnna);
@@ -591,7 +591,7 @@ public class MurderMystery extends BasicQuestHelper
 		comparePrints.addStep(elizabethGuilty, compareElizabeth);
 		comparePrints.addStep(frankGuilty, compareFrank);
 
-		var talkToSuspectFallback = new DetailedQuestStep(this, "Talk to the suspect.");
+		var talkToSuspectFallback = new DetailedQuestStep(this, t("Talk to the suspect."));
 		talkToSuspect = new ConditionalStep(this, talkToSuspectFallback);
 		talkToSuspect.setShouldPassthroughText(true);
 		talkToSuspect.addStep(elizabethGuilty, talkToElizabeth);
@@ -602,7 +602,7 @@ public class MurderMystery extends BasicQuestHelper
 		talkToSuspect.addStep(annaGuilty, talkToAnna);
 		talkToSuspect.addDialogStep("Why'd you buy poison the other day?");
 
-		var searchSuspectItemFallback = new DetailedQuestStep(this, "Disprove the suspect's alibi by checking the thing they claimed to clean.");
+		var searchSuspectItemFallback = new DetailedQuestStep(this, t("Disprove the suspect's alibi by checking the thing they claimed to clean."));
 		searchSuspectItem = new ConditionalStep(this, searchSuspectItemFallback);
 		searchSuspectItem.setShouldPassthroughText(true);
 		searchSuspectItem.addStep(elizabethGuilty, searchElizabeth);
@@ -648,19 +648,19 @@ public class MurderMystery extends BasicQuestHelper
 	{
 		var allSteps = new ArrayList<PanelDetails>();
 
-		allSteps.add(new PanelDetails("Go to the Sinclair Manor", List.of(
+		allSteps.add(new PanelDetails(t("Go to the Sinclair Manor"), List.of(
 			talkToGuard
 		), List.of(
 			pot
 		)));
 
-		allSteps.add(new PanelDetails("Collect evidence", List.of(
+		allSteps.add(new PanelDetails(t("Collect evidence"), List.of(
 			searchWindowForThread,
 			pickUpPungentPot,
 			pickUpDagger
 		)));
 
-		allSteps.add(new PanelDetails("Collect fingerprints", List.of(
+		allSteps.add(new PanelDetails(t("Collect fingerprints"), List.of(
 			collectTwoFlypaper,
 			searchBarrel,
 			fillPotWithFlour,
@@ -672,7 +672,7 @@ public class MurderMystery extends BasicQuestHelper
 			comparePrints
 		)));
 
-		allSteps.add(new PanelDetails("Finishing off", List.of(
+		allSteps.add(new PanelDetails(t("Finishing off"), List.of(
 			talkToGossip,
 			talkToPoisonSalesman,
 			talkToPoisonSalesman2,

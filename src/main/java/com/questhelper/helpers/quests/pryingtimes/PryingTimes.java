@@ -128,7 +128,7 @@ public class PryingTimes extends BasicQuestHelper
 	{
 		//Quest Requirements
 		hammerRequirement = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed();
-		hammerRequirement.setTooltip("You can pick this up at the shipyard.");
+		hammerRequirement.setTooltip(t("You can pick this up at the shipyard."));
 		steelBarRequirement = new ItemRequirement("Steel bar", ItemID.STEEL_BAR, 1);
 		redberryPieRequirement = new ItemRequirement("Redberry pie", ItemID.REDBERRY_PIE, 1);
 		captainsLogRequirement = new ItemRequirement("Captain's log", ItemID.SAILING_LOG, 1);
@@ -149,10 +149,10 @@ public class PryingTimes extends BasicQuestHelper
 
 		shipAtPortSarimDock = new ShipInPortRequirement(Port.PORT_SARIM);
 		gotTheKey = new ItemRequirement("Crowbar", ItemID.SAILING_CHARTING_CROWBAR);
-		gotTheKey.setTooltip("You can get another from Thurgo. You'll need another redberry pie, steel bar, and hammer");
+		gotTheKey.setTooltip(t("You can get another from Thurgo. You'll need another redberry pie, steel bar, and hammer"));
 
 		crowbar = new ItemRequirement("Crowbar", ItemID.SAILING_CHARTING_CROWBAR);
-		crowbar.setTooltip("You can get another from the cargo hold of your boat");
+		crowbar.setTooltip(t("You can get another from the cargo hold of your boat"));
 		gotStout = new ItemRequirement("Bottle of fish bladder stout", ItemID.SAILING_CHARTING_DRINK_CRATE_PRYING_TIMES);
 		spawnedTroll = new NpcRequirement(NpcID.SAILING_CHARTING_DRINK_CRATE_PRYING_TIMES_EFFECT_TROLL);
 		drankStout = new VarbitRequirement(VarbitID.SAILING_CHARTING_DRINK_CRATE_PRYING_TIMES_COMPLETE, 1);
@@ -163,31 +163,31 @@ public class PryingTimes extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		startQuest = new NpcStep(this, NpcID.STEVE_BEANIE, new WorldPoint(3050, 2966, 0), "Talk to 'Squawking' Steve Beanie behind the Pandemonium bar to start the quest. You can travel there via Captain Tobias on Port Sarim docks for 30gp.", true, captainsLogRequirement);
+		startQuest = new NpcStep(this, NpcID.STEVE_BEANIE, new WorldPoint(3050, 2966, 0), t("Talk to 'Squawking' Steve Beanie behind the Pandemonium bar to start the quest. You can travel there via Captain Tobias on Port Sarim docks for 30gp."), true, captainsLogRequirement);
 		startQuest.addDialogStep("Any word from Old Grog?");
 		startQuest.addDialogStep("Yes.");
 
-		getDeliveryTask = new NpcStep(this, NpcID.STEVE_BEANIE, new WorldPoint(3050, 2966, 0), "Talk to 'Squawking' Steve Beanie behind the Pandemonium bar to start the quest.", true, captainsLogRequirement);
+		getDeliveryTask = new NpcStep(this, NpcID.STEVE_BEANIE, new WorldPoint(3050, 2966, 0), t("Talk to 'Squawking' Steve Beanie behind the Pandemonium bar to start the quest."), true, captainsLogRequirement);
 		getDeliveryTask.addDialogStep("About that job you wanted doing...");
 		startQuest.addSubSteps(getDeliveryTask);
 
 		deliverCargo = new PortTaskStep(this, Port.PORT_SARIM, Port.PANDEMONIUM, 600);
-		letSteveKnow = new NpcStep(this, NpcID.STEVE_BEANIE, new WorldPoint(3050, 2966, 0), "Let 'Squawking' Steve Beanie behind the bar know you delivered the looty.", true);
+		letSteveKnow = new NpcStep(this, NpcID.STEVE_BEANIE, new WorldPoint(3050, 2966, 0), t("Let 'Squawking' Steve Beanie behind the bar know you delivered the looty."), true);
 		letSteveKnow.addDialogStep("I delivered that cargo for you.");
 
-		getKey = new NpcStep(this, NpcID.THURGO, new WorldPoint(3000, 3145, 0), "Get the key from Thurgo in the shed near Mudskipper's Point.", true,hammerRequirement, steelBarRequirement,redberryPieRequirement);
+		getKey = new NpcStep(this, NpcID.THURGO, new WorldPoint(3000, 3145, 0), t("Get the key from Thurgo in the shed near Mudskipper's Point."), true,hammerRequirement, steelBarRequirement,redberryPieRequirement);
 		getKey.addDialogSteps("I need some help with a 'special key'.", "So, can you help me make a crowbar?", "Can you help me make another crowbar?");
 		getKey.addDialogStep("Yes.");
 		getKey.setRecommended(Arrays.asList(thurgoTeleportRecommend));
-		giveKey = new NpcStep(this, NpcID.STEVE_BEANIE, new WorldPoint(3050, 2966, 0), "Give the 'key' to 'Squawking' Steve Beanie behind the Pandemonium bar. You can travel there via Captain Tobias on Port Sarim docks for 30gp.", true, gotTheKey);
+		giveKey = new NpcStep(this, NpcID.STEVE_BEANIE, new WorldPoint(3050, 2966, 0), t("Give the 'key' to 'Squawking' Steve Beanie behind the Pandemonium bar. You can travel there via Captain Tobias on Port Sarim docks for 30gp."), true, gotTheKey);
 		giveKey.addDialogStep("I made that 'special key' you needed.");
-		testKey = new ObjectStep(this, ObjectID.SAILING_CHARTING_DRINK_CRATE, new WorldPoint(3013, 2998, 0), "Open the Sealed crate with the newly acquired 'key'.", crowbar);
-		sailToCrate = new SailStep(this, new WorldPoint(3013, 2998, 0), "Sail to the crate north-west of Pandemonium.", crowbar);
-		drinkTheStout = new ItemStep(this, "Drink the stout. Warning: you will be attacked by a level 14 Drink Troll.", gotStout.highlighted());
-		killTheTroll = new NpcStep(this, NpcID.SAILING_CHARTING_DRINK_CRATE_PRYING_TIMES_EFFECT_TROLL, new WorldPoint(3013, 2998, 0), "Kill the Drink Troll, or log out.");
-		goToSteve = new NpcStep(this, NpcID.STEVE_BEANIE, new WorldPoint(3050, 2966, 0), "Tell 'Squawking' Steve Beanie behind the Pandemonium bar the key works.", true, crowbar);
+		testKey = new ObjectStep(this, ObjectID.SAILING_CHARTING_DRINK_CRATE, new WorldPoint(3013, 2998, 0), t("Open the Sealed crate with the newly acquired 'key'."), crowbar);
+		sailToCrate = new SailStep(this, new WorldPoint(3013, 2998, 0), t("Sail to the crate north-west of Pandemonium."), crowbar);
+		drinkTheStout = new ItemStep(this, t("Drink the stout. Warning: you will be attacked by a level 14 Drink Troll."), gotStout.highlighted());
+		killTheTroll = new NpcStep(this, NpcID.SAILING_CHARTING_DRINK_CRATE_PRYING_TIMES_EFFECT_TROLL, new WorldPoint(3013, 2998, 0), t("Kill the Drink Troll, or log out."));
+		goToSteve = new NpcStep(this, NpcID.STEVE_BEANIE, new WorldPoint(3050, 2966, 0), t("Tell 'Squawking' Steve Beanie behind the Pandemonium bar the key works."), true, crowbar);
 		goToSteve.addDialogStep("About that crate...");
-		openCrate = new ObjectStep(this, ObjectID.PRY_CRATE_SEALED, new WorldPoint(3048, 2965, 0), "Open Steve's crate in the corner behind the bar.", crowbar);
+		openCrate = new ObjectStep(this, ObjectID.PRY_CRATE_SEALED, new WorldPoint(3048, 2965, 0), t("Open Steve's crate in the corner behind the bar."), crowbar);
 	}
 
 	@Override
@@ -211,7 +211,7 @@ public class PryingTimes extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Arrays.asList("Drink Troll (level 14) (can be ignored)");
+		return Arrays.asList(t("Drink Troll (level 14) (can be ignored)"));
 	}
 
 	@Override
@@ -232,16 +232,16 @@ public class PryingTimes extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("Unlimited Crowbars from the crate of crowbars"),
-			new UnlockReward("Ability to chart forgotten drinks"));
+			new UnlockReward(t("Unlimited Crowbars from the crate of crowbars")),
+			new UnlockReward(t("Ability to chart forgotten drinks")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Looty!", Arrays.asList(startQuest, deliverCargo, letSteveKnow), captainsLogRequirement, freeTaskSlotRequirement));
-		allSteps.add(new PanelDetails("A key!", Arrays.asList(getKey, giveKey, sailToCrate, testKey, drinkTheStout, killTheTroll, goToSteve, openCrate), hammerRequirement, steelBarRequirement, redberryPieRequirement));
+		allSteps.add(new PanelDetails(t("Looty!"), Arrays.asList(startQuest, deliverCargo, letSteveKnow), captainsLogRequirement, freeTaskSlotRequirement));
+		allSteps.add(new PanelDetails(t("A key!"), Arrays.asList(getKey, giveKey, sailToCrate, testKey, drinkTheStout, killTheTroll, goToSteve, openCrate), hammerRequirement, steelBarRequirement, redberryPieRequirement));
 		return allSteps;
 	}
 }

@@ -109,16 +109,16 @@ public class DruidicRitual extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		rawRat = new ItemRequirement("Raw rat meat", ItemID.RAW_RAT_MEAT);
-		rawRat.setTooltip("Can be acquired from a giant rat slightly north of the Varrock south-east mine");
+		rawRat.setTooltip(t("Can be acquired from a giant rat slightly north of the Varrock south-east mine"));
 		rawRat.addAlternates(ItemID.ENCHANTED_RAT_MEAT);
 		rawBear = new ItemRequirement("Raw bear meat", ItemID.RAW_BEAR_MEAT);
-		rawBear.setTooltip("Can be acquired from a bear south-east of Varrock");
+		rawBear.setTooltip(t("Can be acquired from a bear south-east of Varrock"));
 		rawBear.addAlternates(ItemID.ENCHANTED_BEAR_MEAT);
 		rawBeef = new ItemRequirement("Raw beef", ItemID.RAW_BEEF);
-		rawBeef.setTooltip("Can be acquired from a farm north of Lumbridge");
+		rawBeef.setTooltip(t("Can be acquired from a farm north of Lumbridge"));
 		rawBeef.addAlternates(ItemID.ENCHANTED_BEEF);
 		rawChicken = new ItemRequirement("Raw chicken", ItemID.RAW_CHICKEN);
-		rawChicken.setTooltip("Can be acquired from a farm north of Lumbridge");
+		rawChicken.setTooltip(t("Can be acquired from a farm north of Lumbridge"));
 		rawChicken.addAlternates(ItemID.ENCHANTED_CHICKEN);
 
 		rawRatHighlighted = rawRat.highlighted();
@@ -138,46 +138,46 @@ public class DruidicRitual extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToKaqemeex = new NpcStep(this, NpcID.KAQEMEEX, new WorldPoint(2925, 3486, 0), "Talk to Kaqemeex in the Druids' Circle in Taverley.");
+		talkToKaqemeex = new NpcStep(this, NpcID.KAQEMEEX, new WorldPoint(2925, 3486, 0), t("Talk to Kaqemeex in the Druids' Circle in Taverley."));
 		talkToKaqemeex.addDialogStep("I'm in search of a quest.");
 		talkToKaqemeex.addDialogStep("Yes.");
-		goUpToSanfew = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2899, 3429, 0), "Talk to Sanfew upstairs in the Taverley herblore store.");
-		talkToSanfew = new NpcStep(this, NpcID.SANFEW, new WorldPoint(2899, 3429, 1), "Talk to Sanfew upstairs in the Taverley herblore store.");
+		goUpToSanfew = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2899, 3429, 0), t("Talk to Sanfew upstairs in the Taverley herblore store."));
+		talkToSanfew = new NpcStep(this, NpcID.SANFEW, new WorldPoint(2899, 3429, 1), t("Talk to Sanfew upstairs in the Taverley herblore store."));
 		talkToSanfew.addDialogStep("I've been sent to help purify the Varrock stone circle.");
 		talkToSanfew.addSubSteps(goUpToSanfew);
 
 		enterDungeon = new ObjectStep(this, ObjectID.LADDER_OUTSIDE_TO_UNDERGROUND, new WorldPoint(2884, 3397, 0),
-			"Enter Taverley Dungeon south of Taverley.", rawRat, rawBear, rawBeef, rawChicken);
+			t("Enter Taverley Dungeon south of Taverley."), rawRat, rawBear, rawBeef, rawChicken);
 		enterDungeon.addDialogStep("Ok, I'll do that then.");
-		climbDownToEnterDungeon = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(2898, 3428, 1), "Enter Taverley Dungeon south of Taverley.", rawRat, rawBear, rawBeef, rawChicken);
+		climbDownToEnterDungeon = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(2898, 3428, 1), t("Enter Taverley Dungeon south of Taverley."), rawRat, rawBear, rawBeef, rawChicken);
 		enterDungeon.addSubSteps(climbDownToEnterDungeon);
 
 		enterCauldronRoom = new ObjectStep(this, ObjectID.CAULDRONDOOR_L, new WorldPoint(2889, 9830, 0),
-			"Spam-click the Prison door to enter the room with the cauldron in Taverley dungeon. Spam-clicking lets you skip the fight with the suits of armour standing nearby.", rawRat, rawBear, rawBeef, rawChicken);
+			t("Spam-click the Prison door to enter the room with the cauldron in Taverley dungeon. Spam-clicking lets you skip the fight with the suits of armour standing nearby."), rawRat, rawBear, rawBeef, rawChicken);
 		enterCauldronRoom.addAlternateObjects(ObjectID.CAULDRONDOOR);
 
 		useRatOnCauldron = new ObjectStep(this, ObjectID.CAULDRON_OF_THUNDER, new WorldPoint(2893, 9831, 0),
-			"Use the rat meat on the cauldron in Taverley dungeon.", rawRatHighlighted);
+			t("Use the rat meat on the cauldron in Taverley dungeon."), rawRatHighlighted);
 		useRatOnCauldron.addIcon(ItemID.RAW_RAT_MEAT);
 		useBeefOnCauldron = new ObjectStep(this, ObjectID.CAULDRON_OF_THUNDER, new WorldPoint(2893, 9831, 0),
-			"Use the beef meat on the cauldron in Taverley dungeon.", rawBeefHighlighted);
+			t("Use the beef meat on the cauldron in Taverley dungeon."), rawBeefHighlighted);
 		useBeefOnCauldron.addIcon(ItemID.RAW_BEEF);
 		useBearOnCauldron = new ObjectStep(this, ObjectID.CAULDRON_OF_THUNDER, new WorldPoint(2893, 9831, 0),
-			"Use the bear meat on the cauldron in Taverley dungeon.", rawBearHighlighted);
+			t("Use the bear meat on the cauldron in Taverley dungeon."), rawBearHighlighted);
 		useBearOnCauldron.addIcon(ItemID.RAW_BEAR_MEAT);
 		useChickenOnCauldron = new ObjectStep(this, ObjectID.CAULDRON_OF_THUNDER, new WorldPoint(2893, 9831, 0),
-			"Use the chicken meat on the cauldron in Taverley dungeon.", rawChickenHighlighted);
+			t("Use the chicken meat on the cauldron in Taverley dungeon."), rawChickenHighlighted);
 		useChickenOnCauldron.addIcon(ItemID.RAW_CHICKEN);
 		enchantMeats = new ObjectStep(this, ObjectID.CAULDRON_OF_THUNDER, new WorldPoint(2893, 9831, 0),
-			"Use the four meats on the cauldron in Taverley dungeon.");
+			t("Use the four meats on the cauldron in Taverley dungeon."));
 		enchantMeats.addSubSteps(useRatOnCauldron, useChickenOnCauldron, useBeefOnCauldron, useBearOnCauldron);
 
 		goUpToSanfewWithMeat = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2899, 3429, 0),
-			"Bring the enchanted meats to Sanfew upstairs in the Taverley herblore store.", enchantedRat, enchantedBear, enchantedBeef, enchantedChicken);
+			t("Bring the enchanted meats to Sanfew upstairs in the Taverley herblore store."), enchantedRat, enchantedBear, enchantedBeef, enchantedChicken);
 		talkToSanfewWithMeat = new NpcStep(this, NpcID.SANFEW, new WorldPoint(2899, 3429, 1),
-			"Bring the enchanted meats to Sanfew upstairs in the Taverley herblore store.", enchantedRat, enchantedBear, enchantedBeef, enchantedChicken);
+			t("Bring the enchanted meats to Sanfew upstairs in the Taverley herblore store."), enchantedRat, enchantedBear, enchantedBeef, enchantedChicken);
 		talkToSanfewWithMeat.addSubSteps(goUpToSanfewWithMeat);
-		talkToKaqemeexToFinish = new NpcStep(this, NpcID.KAQEMEEX, new WorldPoint(2925, 3486, 0), "Return to Kaqemeex in the Druids' Circle to finish the quest.");
+		talkToKaqemeexToFinish = new NpcStep(this, NpcID.KAQEMEEX, new WorldPoint(2925, 3486, 0), t("Return to Kaqemeex in the Druids' Circle to finish the quest."));
 	}
 
 	@Override
@@ -239,7 +239,7 @@ public class DruidicRitual extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Access to the Herblore Skill")
+			new UnlockReward(t("Access to the Herblore Skill"))
 		);
 	}
 
@@ -248,7 +248,7 @@ public class DruidicRitual extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Helping the druids", List.of(
+		sections.add(new PanelDetails(t("Helping the druids"), List.of(
 			talkToKaqemeex,
 			talkToSanfew,
 			enterDungeon,

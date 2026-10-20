@@ -153,10 +153,10 @@ public class MissCheeversStep extends ConditionalStep
 		aceticAcid = new ItemRequirement("Acetic Acid", ItemID.RD_ACETIC_ACID);
 
 		vialOfLiquid = new ItemRequirement(true, "Vial of Liquid", ItemID.RD_DIHYDROGEN_MONOXIDE);
-		vialOfLiquid.setTooltip("Take from the shelf on the north side or the south side.");
+		vialOfLiquid.setTooltip(questHelper.t("Take from the shelf on the north side or the south side."));
 
 		cupricSulfate = new ItemRequirement(true, "Cupric Sulfate", ItemID.RD_CUPRIC_SULPHATE);
-		cupricSulfate.setTooltip("Take from the shelves on the north side");
+		cupricSulfate.setTooltip(questHelper.t("Take from the shelves on the north side"));
 
 		gypsum = new ItemRequirement(true, "Gypsum", ItemID.RD_GYPSUM);
 
@@ -180,12 +180,12 @@ public class MissCheeversStep extends ConditionalStep
 		knife = new ItemRequirement(true, "Knife", ItemID.RD_KNIFE);
 
 		metalSpade = new ItemRequirement(true, "Metal Spade", ItemID.RD_METAL_SPADE);
-		metalSpade.setTooltip("If you are missing this item pick another up off the table.");
+		metalSpade.setTooltip(questHelper.t("If you are missing this item pick another up off the table."));
 
 		metalSpadeHead = new ItemRequirement(true, "Metal Spade", ItemID.RD_METAL_SPADE_NO_HANDLE);
-		metalSpadeHead.setTooltip("If you are missing this item pick up a metal spade off the table and use it on the bunsen burner.");
+		metalSpadeHead.setTooltip(questHelper.t("If you are missing this item pick up a metal spade off the table and use it on the bunsen burner."));
 		ashes = new ItemRequirement(true, "Ashes", ItemID.ASHES);
-		ashes.setTooltip("If you are missing this item pick up a metal spade off the table and use it on the bunsen burner.");
+		ashes.setTooltip(questHelper.t("If you are missing this item pick up a metal spade off the table and use it on the bunsen burner."));
 
 		gypsumTin = new ItemRequirement(true, "Tin", ItemID.RD_TINFULL);
 
@@ -210,60 +210,60 @@ public class MissCheeversStep extends ConditionalStep
 
 	private void setupSteps()
 	{
-		getMagnet = new ObjectStep(questHelper, ObjectID.RD_BOOKSHELF_OLD_TALL, "Get the magnet from the old bookshelf.");
-		getTwoVials = new ObjectStep(questHelper, ObjectID.RD_SHELVES_CHEMICALS_1, "Get two vials from the shelves");
+		getMagnet = new ObjectStep(questHelper, ObjectID.RD_BOOKSHELF_OLD_TALL, questHelper.t("Get the magnet from the old bookshelf."));
+		getTwoVials = new ObjectStep(questHelper, ObjectID.RD_SHELVES_CHEMICALS_1, questHelper.t("Get two vials from the shelves"));
 		getTwoVials.addDialogStep("Take both vials.");
-		getCupricSulfate = new ObjectStep(questHelper, ObjectID.RD_SHELVES_CHEMICALS_2, "Get Cupric Sulfate from the shelves.");
+		getCupricSulfate = new ObjectStep(questHelper, ObjectID.RD_SHELVES_CHEMICALS_2, questHelper.t("Get Cupric Sulfate from the shelves."));
 		getCupricSulfate.addDialogStep("YES");
-		getGypsum = new ObjectStep(questHelper, ObjectID.RD_SHELVES_CHEMICALS_3, "Get Gypsum from the shelves.");
+		getGypsum = new ObjectStep(questHelper, ObjectID.RD_SHELVES_CHEMICALS_3, questHelper.t("Get Gypsum from the shelves."));
 		getGypsum.addDialogStep("YES");
-		getSodiumChloride = new ObjectStep(questHelper, ObjectID.RD_SHELVES_CHEMICALS_4, "Get Sodium Chloride from the shelves.");
+		getSodiumChloride = new ObjectStep(questHelper, ObjectID.RD_SHELVES_CHEMICALS_4, questHelper.t("Get Sodium Chloride from the shelves."));
 		getSodiumChloride.addDialogStep("YES");
-		getWire = new ObjectStep(questHelper, ObjectID.RD_SMALL_CRATES, new WorldPoint(2475, 4943, 0), "Get Wire from the crate.");
-		getTin = new ObjectStep(questHelper, ObjectID.RD_LARGE_CRATE, new WorldPoint(2476, 4943, 0), "Get Tin from the crate.");
-		getShears = new ObjectStep(questHelper, ObjectID.RD_CHEST_CLOSED, "Get Shears from the chest.");
+		getWire = new ObjectStep(questHelper, ObjectID.RD_SMALL_CRATES, new WorldPoint(2475, 4943, 0), questHelper.t("Get Wire from the crate."));
+		getTin = new ObjectStep(questHelper, ObjectID.RD_LARGE_CRATE, new WorldPoint(2476, 4943, 0), questHelper.t("Get Tin from the crate."));
+		getShears = new ObjectStep(questHelper, ObjectID.RD_CHEST_CLOSED, questHelper.t("Get Shears from the chest."));
 		getShears.addAlternateObjects(ObjectID.RD_CHEST_OPEN);
-		getChisel = new ObjectStep(questHelper, ObjectID.RD_LARGE_CRATES, new WorldPoint(2476, 4937, 0), "Get a Chisel from the crate.");
-		getNitrousOxide = new ObjectStep(questHelper, ObjectID.RD_SHELVES_CHEMICALS_5, "Get Nitrous Oxide from the Shelves.");
+		getChisel = new ObjectStep(questHelper, ObjectID.RD_LARGE_CRATES, new WorldPoint(2476, 4937, 0), questHelper.t("Get a Chisel from the crate."));
+		getNitrousOxide = new ObjectStep(questHelper, ObjectID.RD_SHELVES_CHEMICALS_5, questHelper.t("Get Nitrous Oxide from the Shelves."));
 		getNitrousOxide.addDialogStep("YES");
-		getTinOrePowder = new ObjectStep(questHelper, ObjectID.RD_SHELVES_CHEMICALS_6, "Get Tin Ore Powder from the Shelves.");
+		getTinOrePowder = new ObjectStep(questHelper, ObjectID.RD_SHELVES_CHEMICALS_6, questHelper.t("Get Tin Ore Powder from the Shelves."));
 		getTinOrePowder.addDialogStep("YES");
-		getCupricOrePowder = new ObjectStep(questHelper, ObjectID.RD_SHELVES_CHEMICALS_7, "Get Cupric Ore Powder from the Shelves.");
+		getCupricOrePowder = new ObjectStep(questHelper, ObjectID.RD_SHELVES_CHEMICALS_7, questHelper.t("Get Cupric Ore Powder from the Shelves."));
 		getCupricOrePowder.addDialogStep("YES");
-		getThreeVials = new ObjectStep(questHelper, ObjectID.RD_SHELVES_CHEMICALS_8, "Get Three Vials Of Liquid from the Shelves.");
+		getThreeVials = new ObjectStep(questHelper, ObjectID.RD_SHELVES_CHEMICALS_8, questHelper.t("Get Three Vials Of Liquid from the Shelves."));
 		getThreeVials.addDialogStep("Take all three vials");
-		getKnife = new ObjectStep(questHelper, ObjectID.RD_BOOKSHELF_OLD_TALL3, "Get a Knife from the old bookshelf.");
-		getMetalSpade = new ItemStep(questHelper, "Get the metal spade off the table", metalSpade);
+		getKnife = new ObjectStep(questHelper, ObjectID.RD_BOOKSHELF_OLD_TALL3, questHelper.t("Get a Knife from the old bookshelf."));
+		getMetalSpade = new ItemStep(questHelper, questHelper.t("Get the metal spade off the table"), metalSpade);
 
-		useSpadeOnBunsenBurner = new ObjectStep(questHelper, ObjectID.RD_WOODEN_TABLE_BUNSEN_BURNER, "Use the spade in your inventory on the bunsen burner", metalSpade);
+		useSpadeOnBunsenBurner = new ObjectStep(questHelper, ObjectID.RD_WOODEN_TABLE_BUNSEN_BURNER, questHelper.t("Use the spade in your inventory on the bunsen burner"), metalSpade);
 		useSpadeOnBunsenBurner.addIcon(ItemID.RD_METAL_SPADE);
 
-		useSpadeHeadOnDoor = new ObjectStep(questHelper, ObjectID.RD_STONE_DOOR, "Use the spade in your inventory on the door.", metalSpadeHead);
+		useSpadeHeadOnDoor = new ObjectStep(questHelper, ObjectID.RD_STONE_DOOR, questHelper.t("Use the spade in your inventory on the door."), metalSpadeHead);
 		useSpadeHeadOnDoor.addIcon(ItemID.RD_METAL_SPADE_NO_HANDLE);
 
-		useCupricSulfateOnDoor = new ObjectStep(questHelper, ObjectID.RD_STONE_DOOR, "Use Cupric Sulfate in your inventory on the door.", cupricSulfate);
+		useCupricSulfateOnDoor = new ObjectStep(questHelper, ObjectID.RD_STONE_DOOR, questHelper.t("Use Cupric Sulfate in your inventory on the door."), cupricSulfate);
 		useCupricSulfateOnDoor.addIcon(ItemID.RD_CUPRIC_SULPHATE);
 
-		useVialOfLiquidOnDoor = new ObjectStep(questHelper, ObjectID.RD_STONE_DOOR, "Use vial of liquid in your inventory on the door.", vialOfLiquid);
+		useVialOfLiquidOnDoor = new ObjectStep(questHelper, ObjectID.RD_STONE_DOOR, questHelper.t("Use vial of liquid in your inventory on the door."), vialOfLiquid);
 		useVialOfLiquidOnDoor.addIcon(ItemID.RD_DIHYDROGEN_MONOXIDE);
 
-		openDoor = new ObjectStep(questHelper, ObjectID.RD_STONE_DOOR, "Open the door.");
+		openDoor = new ObjectStep(questHelper, ObjectID.RD_STONE_DOOR, questHelper.t("Open the door."));
 
-		useVialOfLiquidOnCakeTin = new DetailedQuestStep(questHelper, "Use a vial of liquid on the tin in your inventory.", tin, vialOfLiquid);
+		useVialOfLiquidOnCakeTin = new DetailedQuestStep(questHelper, questHelper.t("Use a vial of liquid on the tin in your inventory."), tin, vialOfLiquid);
 
-		useGypsumOnTin = new DetailedQuestStep(questHelper, "Use a vial of Gypsum on the tin in your inventory.", gypsum, tin);
+		useGypsumOnTin = new DetailedQuestStep(questHelper, questHelper.t("Use a vial of Gypsum on the tin in your inventory."), gypsum, tin);
 
-		useTinOnKey = new ObjectStep(questHelper, ObjectID.RD_KEY_CHAINED, "Use tin full with Gypsum on the key on the ground.", gypsumTin);
+		useTinOnKey = new ObjectStep(questHelper, ObjectID.RD_KEY_CHAINED, questHelper.t("Use tin full with Gypsum on the key on the ground."), gypsumTin);
 		useTinOnKey.addIcon(ItemID.RD_TINFULL);
 
-		useCupricOrePowderOnTin = new DetailedQuestStep(questHelper, "Use Tin on the cupric ore powder in your inventory.", tinKeyPrint, cupricOrePowder);
+		useCupricOrePowderOnTin = new DetailedQuestStep(questHelper, questHelper.t("Use Tin on the cupric ore powder in your inventory."), tinKeyPrint, cupricOrePowder);
 
-		useTinOrePowderOnTin = new DetailedQuestStep(questHelper, "Use Tin on the tin ore powder in your inventory.", tinWithCupricOre, tinOrePowder);
+		useTinOrePowderOnTin = new DetailedQuestStep(questHelper, questHelper.t("Use Tin on the tin ore powder in your inventory."), tinWithCupricOre, tinOrePowder);
 
-		useTinOnBunsenBurner = new ObjectStep(questHelper, ObjectID.RD_WOODEN_TABLE_BUNSEN_BURNER, "Use your tin with the bunsen burner to create a bronze key.", tinWithTinOre);
+		useTinOnBunsenBurner = new ObjectStep(questHelper, ObjectID.RD_WOODEN_TABLE_BUNSEN_BURNER, questHelper.t("Use your tin with the bunsen burner to create a bronze key."), tinWithTinOre);
 		useTinOnBunsenBurner.addIcon(ItemID.RD_FULL_KEYMOULD_UNHEATED);
 
-		useEquipmentOnTin = new DetailedQuestStep(questHelper, "Use your chisel, knife or bronze wires on your tin in your inventory.", tinWithAllOre, chisel, knife, bronzeWire);
+		useEquipmentOnTin = new DetailedQuestStep(questHelper, questHelper.t("Use your chisel, knife or bronze wires on your tin in your inventory."), tinWithAllOre, chisel, knife, bronzeWire);
 
 		pwGetMagnet = getMagnet.puzzleWrapStep(true);
 		pwGetTwoVials = getTwoVials.puzzleWrapStep(true);

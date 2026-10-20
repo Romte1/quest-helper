@@ -183,12 +183,12 @@ public class SleepingGiants extends BasicQuestHelper
 		hammer = new ItemRequirement("Hammer", ItemID.HAMMER);
 		hammer.addAlternates(ItemID.IMCANDO_HAMMER);
 		hammer.canBeObtainedDuringQuest();
-		hammer.setTooltip("Imcando hammer also works");
+		hammer.setTooltip(t("Imcando hammer also works"));
 
 		chisel = new ItemRequirement("Chisel", ItemCollections.CHISEL);
 
 		iceGloves = new ItemRequirement("Ice Gloves", ItemID.ICE_GLOVES);
-		iceGloves.setTooltip("Allows you to skip filling and using a bucket of water.");
+		iceGloves.setTooltip(t("Allows you to skip filling and using a bucket of water."));
 
 		bucket = new ItemRequirement("Bucket", ItemID.BUCKET_EMPTY);
 		bucket.canBeObtainedDuringQuest();
@@ -201,7 +201,7 @@ public class SleepingGiants extends BasicQuestHelper
 
 		alKharidTeleport = new ItemRequirement("Al Kharid Teleport", ItemCollections.RING_OF_DUELINGS);
 		alKharidTeleport.addAlternates(ItemCollections.AMULET_OF_GLORIES);
-		alKharidTeleport.setTooltip("Ring of Dueling or Amulet of Glory; Can be used to quickly reach the Giants' Foundry.");
+		alKharidTeleport.setTooltip(t("Ring of Dueling or Amulet of Glory; Can be used to quickly reach the Giants' Foundry."));
 
 		twoOakLogs = new ItemRequirement("Oak Logs", ItemID.OAK_LOGS);
 		twoOakLogs.setQuantity(2);
@@ -271,7 +271,7 @@ public class SleepingGiants extends BasicQuestHelper
 	public void setupSteps()
 	{
 		goToDesertPlateau = new DetailedQuestStep(this, new WorldPoint(3362, 3148, 0),
-			"Go to the Desert Plateau east of Al Kharid to start the quest. Minigame teleport to Giant's Foundry.", Arrays.asList(oakLogs, wool, nails, chisel), Arrays.asList(iceGloves));
+			t("Go to the Desert Plateau east of Al Kharid to start the quest. Minigame teleport to Giant's Foundry."), Arrays.asList(oakLogs, wool, nails, chisel), Arrays.asList(iceGloves));
 		((DetailedQuestStep) goToDesertPlateau).setLinePoints(Arrays.asList(new WorldPoint(3293, 3180, 0),
 			new WorldPoint(3306, 3180, 0),
 			new WorldPoint(3313, 3171, 0),
@@ -288,96 +288,96 @@ public class SleepingGiants extends BasicQuestHelper
 		);
 
 		takeHammer = new DetailedQuestStep(this, new WorldPoint(3350, 3162, 0),
-			"Take a hammer from the crate north of the Giants' Foundry.");
+			t("Take a hammer from the crate north of the Giants' Foundry."));
 		takeHammer.addIcon(ItemID.HAMMER);
 
 		strikeHillGiant = new NpcStep(this, NpcID.GIANTS_FOUNDRY_KOVAC_FAKE_ATTACK, new WorldPoint(3361, 3147, 0),
-			"Attempt to Strike the Hill Giant at the entrance of the cave to start the quest.");
+			t("Attempt to Strike the Hill Giant at the entrance of the cave to start the quest."));
 		strikeHillGiant.addDialogStep("Yes.");
 		speakToKovac = new NpcStep(this, NpcID.GIANTS_FOUNDRY_KOVAC_QUEST, new WorldPoint(3361, 3147, 0),
-			"Speak to Kovac.");
+			t("Speak to Kovac."));
 
 		enterFoundry = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_ENTRANCE /* Cave */, new WorldPoint(3361, 3150, 0),
-			"Enter the Giants' Foundry.");
+			t("Enter the Giants' Foundry."));
 
 		enterFoundryToMakeWeapon = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_ENTRANCE /* Cave */, new WorldPoint(3361, 3150, 0),
-			"Enter the Giants' Foundry again.");
+			t("Enter the Giants' Foundry again."));
 
 		fixPolishingStone = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_POLISHING_WHEEL_QUEST_MULTI /* Broken polishing wheel */, new WorldPoint(3363, 11485, 0),
-			"Fix the Broken polishing wheel.", twoOakLogs, fiveNails, hammer);
+			t("Fix the Broken polishing wheel."), twoOakLogs, fiveNails, hammer);
 		fixPolishingStone.addDialogStep("Yes.");
 
 		fixGrindstone = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_GRINDSTONE_QUEST_MULTI /* Broken grindstone */, new WorldPoint(3362, 11492, 0),
-			"Fix the Broken grindstone.", chisel);
+			t("Fix the Broken grindstone."), chisel);
 		fixGrindstone.addDialogStep("Yes.");
 		fixHammer = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_TRIP_HAMMER_QUEST_MULTI /* Broken trip hammer */, new WorldPoint(3364, 11497, 0),
-			"Fix the Broken trip hammer.", oneOakLog, fiveNails, hammer);
+			t("Fix the Broken trip hammer."), oneOakLog, fiveNails, hammer);
 		fixHammer.addDialogStep("Yes.");
 
-		speakToKovacAfterRepairs = new NpcStep(this, NpcID.GIANTS_FOUNDRY_KOVAC_QUEST, "Speak to Kovac to continue.");
-		speakToKovacContinue = new NpcStep(this, NpcID.GIANTS_FOUNDRY_KOVAC_1OP, "Speak to Kovac for a commission.");
+		speakToKovacAfterRepairs = new NpcStep(this, NpcID.GIANTS_FOUNDRY_KOVAC_QUEST, t("Speak to Kovac to continue."));
+		speakToKovacContinue = new NpcStep(this, NpcID.GIANTS_FOUNDRY_KOVAC_1OP, t("Speak to Kovac for a commission."));
 
 		searchCrate = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_SUPPLY_BOX_MULTI /* Crate */, new WorldPoint(3370, 11483, 0),
-			"Take some bars & weapons from the Crate.", freeInventorySpace);
+			t("Take some bars & weapons from the Crate."), freeInventorySpace);
 		searchCrate.addDialogStep("Yes.");
 
 		fillCrucible = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_CRUCIBLE_MULTI /* Crucible (empty */,
-			"Fill the Crucible with items & bars until it is full.");
+			t("Fill the Crucible with items & bars until it is full."));
 		fillCrucible.addSubSteps(enterFoundryToMakeWeapon);
 
-		speakToKovacAboutMould = new NpcStep(this, NpcID.GIANTS_FOUNDRY_KOVAC_1OP, "Speak to Kovac about the mould.");
+		speakToKovacAboutMould = new NpcStep(this, NpcID.GIANTS_FOUNDRY_KOVAC_1OP, t("Speak to Kovac about the mould."));
 
 		interactWithMould = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_MOULD_JIG /* Mould jig (Empty) */,
-			"Select the mould for the forte, blade and tip.");
+			t("Select the mould for the forte, blade and tip."));
 
-		selectForteTab = new WidgetStep(this, "Select the Forte tab.", new WidgetDetails(718, 12, 1));
-		selectForte = new WidgetStep(this, "Select the Forte that matches your commission best.", 718, 9);
-		selectBladesTab = new WidgetStep(this, "Select the Blades tab.", new WidgetDetails(718, 12, 9));
-		selectBlade = new WidgetStep(this, "Select the Blade that matches your commission best.", 718, 9);
-		selectTipsTab = new WidgetStep(this, "Select the Tips tab.", new WidgetDetails(718, 12, 18));
-		selectTip = new WidgetStep(this, "Select the Tip that matches your commission best.", 718, 9);
-		setMould = new WidgetStep(this, "Set the Mould.", 718, 6);
+		selectForteTab = new WidgetStep(this, t("Select the Forte tab."), new WidgetDetails(718, 12, 1));
+		selectForte = new WidgetStep(this, t("Select the Forte that matches your commission best."), 718, 9);
+		selectBladesTab = new WidgetStep(this, t("Select the Blades tab."), new WidgetDetails(718, 12, 9));
+		selectBlade = new WidgetStep(this, t("Select the Blade that matches your commission best."), 718, 9);
+		selectTipsTab = new WidgetStep(this, t("Select the Tips tab."), new WidgetDetails(718, 12, 18));
+		selectTip = new WidgetStep(this, t("Select the Tip that matches your commission best."), 718, 9);
+		setMould = new WidgetStep(this, t("Set the Mould."), 718, 6);
 		interactWithMould.addSubSteps(selectForte, selectForteTab, selectBladesTab, selectBlade, selectTipsTab, selectTip);
 
-		talkToKovakAfterMould = new NpcStep(this, NpcID.GIANTS_FOUNDRY_KOVAC_1OP, "Speak to Kovac about pouring the metal.");
+		talkToKovakAfterMould = new NpcStep(this, NpcID.GIANTS_FOUNDRY_KOVAC_1OP, t("Speak to Kovac about pouring the metal."));
 
-		pourMetal = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_CRUCIBLE_MULTI /* Crucible (empty */, "Pour the full Crucible into the mould.");
+		pourMetal = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_CRUCIBLE_MULTI /* Crucible (empty */, t("Pour the full Crucible into the mould."));
 
-		coolDownSword = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_MOULD_JIG, "Pick up the sword from the mould with a bucket of water or ice gloves equipped.",
+		coolDownSword = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_MOULD_JIG, t("Pick up the sword from the mould with a bucket of water or ice gloves equipped."),
 			iceGloves.equipped().showConditioned(iceGloves), bucketOfWater.showConditioned(bucketOfWater).highlighted());
 		coolDownSword.addIcon(ItemID.BUCKET_WATER);
 		fillBucketWaterfall = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_WATERFALL,
-			"Fill the bucket with water by using it on the Waterfall.", bucketOfWater);
+			t("Fill the bucket with water by using it on the Waterfall."), bucketOfWater);
 
-		takeBucket = new ObjectStep(this, ObjectID.MY2ARM_THRONE_ROOM_BUCKETS /* Pile of Buckets */, "Take a Bucket from the Pile of Buckets");
+		takeBucket = new ObjectStep(this, ObjectID.MY2ARM_THRONE_ROOM_BUCKETS /* Pile of Buckets */, t("Take a Bucket from the Pile of Buckets"));
 
 		// Trip hammer
-		dunkPreform = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_LAVA_POOL, new WorldPoint(3372, 11497, 0), "Dunk the preform in the lava pool until it's at max heat.");
+		dunkPreform = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_LAVA_POOL, new WorldPoint(3372, 11497, 0), t("Dunk the preform in the lava pool until it's at max heat."));
 		hitPreformWhileRed = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_TRIP_HAMMER /*  trip hammer */, new WorldPoint(3364, 11497, 0),
-			"Use the trip hammer while the heat bar is in the red, and re-heat it in the lava whenever it's close to yellow.");
+			t("Use the trip hammer while the heat bar is in the red, and re-heat it in the lava whenever it's close to yellow."));
 		hitPreformWhileRed.addSubSteps(dunkPreform);
 
 		// Grindstone
 		coolPreformToGrindstone = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_WATERFALL,
-			"Cool the preform to the lower range of the yellow heat section on the waterfall.");
+			t("Cool the preform to the lower range of the yellow heat section on the waterfall."));
 		dunkPreformToGrindstone = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_LAVA_POOL, new WorldPoint(3372, 11497, 0),
-			"Dunk the preform in the lava pool until it's at the bottom of the yellow heat section.");
+			t("Dunk the preform in the lava pool until it's at the bottom of the yellow heat section."));
 		grindstonePreform = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_GRINDSTONE, new WorldPoint(3362, 11492, 0),
-			"Grindstone the preform whilst in the yellow heat section.");
+			t("Grindstone the preform whilst in the yellow heat section."));
 		grindstonePreform.addSubSteps(coolPreformToGrindstone, dunkPreformToGrindstone);
 		// Polishing
 		coolPreformToPolish = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_WATERFALL,
-			"Cool the preform to the top of the range of the green heat section on the waterfall.");
+			t("Cool the preform to the top of the range of the green heat section on the waterfall."));
 		heatPreformToPolish = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_LAVA_POOL, new WorldPoint(3372, 11497, 0),
-			"Dunk the preform in the lava pool until it's at the top of the green heat section.");
+			t("Dunk the preform in the lava pool until it's at the top of the green heat section."));
 		polishPreform = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_POLISHING_WHEEL /* Broken polishing wheel */, new WorldPoint(3363, 11485, 0),
-			"Use the polishing wheel whilst in the green heat range, heating it in the lava when needed.");
+			t("Use the polishing wheel whilst in the green heat range, heating it in the lava when needed."));
 		polishPreform.addSubSteps(coolPreformToPolish, heatPreformToPolish);
 
 		getPreform = new ObjectStep(this, ObjectID.GIANTS_FOUNDRY_PREFORM_STORAGE, new WorldPoint(3369, 11501, 0),
-			"Get your preform from the preform storage in the north of the room.");
+			t("Get your preform from the preform storage in the north of the room."));
 
-		handInPreform = new NpcStep(this, NpcID.GIANTS_FOUNDRY_KOVAC_1OP, "Give the finished sword to Kovac to complete the quest.");
+		handInPreform = new NpcStep(this, NpcID.GIANTS_FOUNDRY_KOVAC_1OP, t("Give the finished sword to Kovac to complete the quest."));
 
 	}
 
@@ -413,17 +413,17 @@ public class SleepingGiants extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("Access to the Giants' Foundry"));
+		return Collections.singletonList(new UnlockReward(t("Access to the Giants' Foundry")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting out", Arrays.asList(goToDesertPlateau, strikeHillGiant, speakToKovac, enterFoundry,
+		allSteps.add(new PanelDetails(t("Starting out"), Arrays.asList(goToDesertPlateau, strikeHillGiant, speakToKovac, enterFoundry,
 			fixPolishingStone, fixGrindstone, fixHammer, speakToKovacAfterRepairs),
 			Arrays.asList(oakLogs, wool, nails, hammer, chisel), Collections.singletonList(freeInventorySpace)));
-		allSteps.add(new PanelDetails("Creating the sword", Arrays.asList(speakToKovacContinue, searchCrate, fillCrucible,
+		allSteps.add(new PanelDetails(t("Creating the sword"), Arrays.asList(speakToKovacContinue, searchCrate, fillCrucible,
 			speakToKovacAboutMould, setMould, interactWithMould, talkToKovakAfterMould, pourMetal, coolDownSword, hitPreformWhileRed, grindstonePreform, polishPreform,
 			handInPreform), Arrays.asList(iceGloves, bucket)));
 

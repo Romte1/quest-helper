@@ -62,7 +62,7 @@ public class PuzzleStep extends QuestStep
 
 	public PuzzleStep(QuestHelper questHelper)
 	{
-		super(questHelper, "Click the highlighted arrows to move the slots to the solution 'KURT'.");
+		super(questHelper, questHelper.t("Click the highlighted arrows to move the slots to the solution 'KURT'."));
 		highlightButtons.put(1, ARROW_ONE_RIGHT);
 		highlightButtons.put(2, ARROW_TWO_RIGHT);
 		highlightButtons.put(3, ARROW_THREE_RIGHT);

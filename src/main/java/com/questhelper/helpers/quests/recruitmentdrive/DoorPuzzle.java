@@ -49,7 +49,7 @@ public class DoorPuzzle extends QuestStep
 
 	public DoorPuzzle(QuestHelper questHelper, String word)
 	{
-		super(questHelper, "Click the highlighted arrows to move the slots to the solution.");
+		super(questHelper, questHelper.t("Click the highlighted arrows to move the slots to the solution."));
 		ENTRY_ONE = word.charAt(0);
 		ENTRY_TWO = word.charAt(1);
 		ENTRY_THREE = word.charAt(2);
@@ -81,7 +81,7 @@ public class DoorPuzzle extends QuestStep
 		ENTRY_TWO = word.charAt(1);
 		ENTRY_THREE = word.charAt(2);
 		ENTRY_FOUR = word.charAt(3);
-		setText("Click the highlighted arrows to move the slots to the solution. The answer is " + word + ".");
+		setText(questHelper.t("Click the highlighted arrows to move the slots to the solution. The answer is") + " " + word + ".");
 		updateSolvedPositionState();
 	}
 

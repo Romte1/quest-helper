@@ -166,12 +166,12 @@ public class WaterfallQuest extends BasicQuestHelper
 		book.setHighlightInInventory(true);
 		glarialsPebble = new ItemRequirement("Glarial's pebble", ItemID.GLARIALS_PEBBLE_WATERFALL_QUEST);
 		glarialsPebble.setHighlightInInventory(true);
-		glarialsPebble.setTooltip("You can get another from Golrie under the Tree Gnome Village");
+		glarialsPebble.setTooltip(t("You can get another from Golrie under the Tree Gnome Village"));
 		glarialsPebbleWithBank = glarialsPebble.alsoCheckBank();
 		glarialsUrn = new ItemRequirement("Glarial's urn", ItemID.GLARIALS_URN_FULL_WATERFALL_QUEST);
-		glarialsUrn.setTooltip("You can get another from the chest in Glarial's tomb");
+		glarialsUrn.setTooltip(t("You can get another from the chest in Glarial's tomb"));
 		glarialsAmulet = new ItemRequirement("Glarial's amulet", ItemID.GLARIALS_AMULET_WATERFALL_QUEST, 1, true);
-		glarialsAmulet.setTooltip("You can get another from the chest in Glarial's tomb");
+		glarialsAmulet.setTooltip(t("You can get another from the chest in Glarial's tomb"));
 		unequippedAmulet = new ItemRequirement("Glarial's amulet", ItemID.GLARIALS_AMULET_WATERFALL_QUEST);
 		key = new ItemRequirement("Key", ItemID.GOLRIE_KEY_WATERFALL_QUEST);
 		baxKey = new ItemRequirement("Key", ItemID.BAXTORIAN_KEY_WATERFALL_QUEST);
@@ -201,24 +201,24 @@ public class WaterfallQuest extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToAlmera = new NpcStep(this, NpcID.ALMERA_WATERFALL_QUEST, new WorldPoint(2521, 3495, 0), "Talk to Almera on top of Baxtorian Falls, south of Barbarian Outpost.");
+		talkToAlmera = new NpcStep(this, NpcID.ALMERA_WATERFALL_QUEST, new WorldPoint(2521, 3495, 0), t("Talk to Almera on top of Baxtorian Falls, south of Barbarian Outpost."));
 		talkToAlmera.addDialogStep("Yes.");
 
-		boardRaft = new ObjectStep(this, ObjectID.LOGRAFT_WATERFALL_QUEST, new WorldPoint(2509, 3494, 0), "Board the log raft west of Almera.", rope);
-		talkToHudon = new NpcStep(this, NpcID.HUDON_WATERFALL_QUEST, new WorldPoint(2511, 3484, 0), "Talk to Hudon.", rope);
-		useRopeOnRock = new ObjectStep(this, ObjectID.CROSSING_ROCK_WATERFALL_QUEST, new WorldPoint(2512, 3468, 0), "Use a rope on the rock to" +
-			" the south.", highlightRope);
+		boardRaft = new ObjectStep(this, ObjectID.LOGRAFT_WATERFALL_QUEST, new WorldPoint(2509, 3494, 0), t("Board the log raft west of Almera."), rope);
+		talkToHudon = new NpcStep(this, NpcID.HUDON_WATERFALL_QUEST, new WorldPoint(2511, 3484, 0), t("Talk to Hudon."), rope);
+		useRopeOnRock = new ObjectStep(this, ObjectID.CROSSING_ROCK_WATERFALL_QUEST, new WorldPoint(2512, 3468, 0), t("Use a rope on the rock to" +
+			" the south."), highlightRope);
 		useRopeOnRock.addIcon(ItemID.ROPE);
-		useRopeOnTree = new ObjectStep(this, ObjectID.OVERHANGING_TREE1_WATERFALL_QUEST, new WorldPoint(2512, 3465, 0), "Use a rope on the dead tree.", highlightRope);
+		useRopeOnTree = new ObjectStep(this, ObjectID.OVERHANGING_TREE1_WATERFALL_QUEST, new WorldPoint(2512, 3465, 0), t("Use a rope on the dead tree."), highlightRope);
 		useRopeOnTree.addIcon(ItemID.ROPE);
-		getInBarrel = new ObjectStep(this, ObjectID.BARREL_WATERFALL_QUEST, new WorldPoint(2512, 3463, 0), "Get in the barrel.");
+		getInBarrel = new ObjectStep(this, ObjectID.BARREL_WATERFALL_QUEST, new WorldPoint(2512, 3463, 0), t("Get in the barrel."));
 
-		goUpstairsHadley = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2518, 3430, 0), "Go up the stairs in the house south of Almera's house.");
-		searchBookcase = new ObjectStep(this, ObjectID.BOOKCASE_WATERFALL_QUEST, new WorldPoint(2520, 3427, 1), "Search the south east bookcase.");
-		readBook = new DetailedQuestStep(this, "Read the book.", book);
+		goUpstairsHadley = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2518, 3430, 0), t("Go up the stairs in the house south of Almera's house."));
+		searchBookcase = new ObjectStep(this, ObjectID.BOOKCASE_WATERFALL_QUEST, new WorldPoint(2520, 3427, 1), t("Search the south east bookcase."));
+		readBook = new DetailedQuestStep(this, t("Read the book."), book);
 
 		enterGnomeDungeon = new ObjectStep(this, ObjectID.ROVING_GOLRIE_LADDER_TO_CELLAR, new WorldPoint(2533, 3155, 0),
-			"Go to the centre of the Tree Gnome Village and go down the ladder at the entrance.");
+			t("Go to the centre of the Tree Gnome Village and go down the ladder at the entrance."));
 		enterGnomeDungeon.setLinePoints(Arrays.asList(
 			new WorldPoint(2505, 3190, 0),
 			new WorldPoint(2512, 3190, 0),
@@ -259,37 +259,37 @@ public class WaterfallQuest extends BasicQuestHelper
 			new WorldPoint(2545, 3155, 0),
 			new WorldPoint(2533, 3155, 0)
 		));
-		leaveHouse = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(2518, 3430, 1), "Go to the centre of the Tree Gnome Village and go down the ladder at the entrance.");
+		leaveHouse = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(2518, 3430, 1), t("Go to the centre of the Tree Gnome Village and go down the ladder at the entrance."));
 		enterGnomeDungeon.addSubSteps(leaveHouse);
-		searchGnomeCrate = new ObjectStep(this, ObjectID.GOLRIE_CRATE_WATERFALL_QUEST, new WorldPoint(2548, 9565, 0), "Search the off-coloured crate in the east room.");
-		enterGnomeDoor = new ObjectStep(this, ObjectID.GOLRIE_GATE_WATERFALL_QUEST, new WorldPoint(2515, 9575, 0), "Go through the gate in the west room.", key);
-		talkToGolrie = new NpcStep(this, NpcID.GOLRIE_WATERFALL_QUEST, new WorldPoint(2514, 9580, 0), "Talk to Golrie.");
-		usePebble = new ObjectStep(this, ObjectID.GLARIALS_TOMBSTONE_WATERFALL_QUEST, new WorldPoint(2559, 3445, 0), "Bank everything besides the pebble and some food. Then use Glarial's pebble on Glarial's Tombstone east of Baxtorian Falls.", glarialsPebble);
+		searchGnomeCrate = new ObjectStep(this, ObjectID.GOLRIE_CRATE_WATERFALL_QUEST, new WorldPoint(2548, 9565, 0), t("Search the off-coloured crate in the east room."));
+		enterGnomeDoor = new ObjectStep(this, ObjectID.GOLRIE_GATE_WATERFALL_QUEST, new WorldPoint(2515, 9575, 0), t("Go through the gate in the west room."), key);
+		talkToGolrie = new NpcStep(this, NpcID.GOLRIE_WATERFALL_QUEST, new WorldPoint(2514, 9580, 0), t("Talk to Golrie."));
+		usePebble = new ObjectStep(this, ObjectID.GLARIALS_TOMBSTONE_WATERFALL_QUEST, new WorldPoint(2559, 3445, 0), t("Bank everything besides the pebble and some food. Then use Glarial's pebble on Glarial's Tombstone east of Baxtorian Falls."), glarialsPebble);
 		usePebble.addIcon(ItemID.GLARIALS_PEBBLE_WATERFALL_QUEST);
 
-		searchGlarialChest = new ObjectStep(this, ObjectID.GLARIALS_CHEST_CLOSED_WATERFALL_QUEST, new WorldPoint(2530, 9844, 0), "Search the chest in the western room for Glarial's amulet.");
+		searchGlarialChest = new ObjectStep(this, ObjectID.GLARIALS_CHEST_CLOSED_WATERFALL_QUEST, new WorldPoint(2530, 9844, 0), t("Search the chest in the western room for Glarial's amulet."));
 		searchGlarialChest.addAlternateObjects(ObjectID.GLARIALS_CHEST_OPEN_WATERFALL_QUEST);
-		searchGlarialCoffin = new ObjectStep(this, ObjectID.GLARIALS_TOMB_WATERFALL_QUEST, new WorldPoint(2542, 9812, 0), "Search Glarial's Tomb in the south room for Glarial's urn.");
-		getFinalItems = new DetailedQuestStep(this, "Leave Glarial's Tomb and get 6 air, water, and earth runes, a rope, glarial's amulet, glarial's urn, and some food.", airRunes, earthRunes, waterRunes, glarialsAmulet, glarialsUrn, rope);
+		searchGlarialCoffin = new ObjectStep(this, ObjectID.GLARIALS_TOMB_WATERFALL_QUEST, new WorldPoint(2542, 9812, 0), t("Search Glarial's Tomb in the south room for Glarial's urn."));
+		getFinalItems = new DetailedQuestStep(this, t("Leave Glarial's Tomb and get 6 air, water, and earth runes, a rope, glarial's amulet, glarial's urn, and some food."), airRunes, earthRunes, waterRunes, glarialsAmulet, glarialsUrn, rope);
 
-		boardRaftFinal = new ObjectStep(this, ObjectID.LOGRAFT_WATERFALL_QUEST, new WorldPoint(2509, 3494, 0), "Board the log raft west of Almera.");
-		useRopeOnRockFinal = new ObjectStep(this, ObjectID.CROSSING_ROCK_WATERFALL_QUEST, new WorldPoint(2512, 3468, 0), "Use a rope on the " +
-			"rock to the south.", highlightRope);
+		boardRaftFinal = new ObjectStep(this, ObjectID.LOGRAFT_WATERFALL_QUEST, new WorldPoint(2509, 3494, 0), t("Board the log raft west of Almera."));
+		useRopeOnRockFinal = new ObjectStep(this, ObjectID.CROSSING_ROCK_WATERFALL_QUEST, new WorldPoint(2512, 3468, 0), t("Use a rope on the " +
+			"rock to the south."), highlightRope);
 		useRopeOnRockFinal.addIcon(ItemID.ROPE);
-		useRopeOnTreeFinal = new ObjectStep(this, ObjectID.OVERHANGING_TREE1_WATERFALL_QUEST, new WorldPoint(2512, 3465, 0), "Use a rope on the dead tree.", highlightRope);
+		useRopeOnTreeFinal = new ObjectStep(this, ObjectID.OVERHANGING_TREE1_WATERFALL_QUEST, new WorldPoint(2512, 3465, 0), t("Use a rope on the dead tree."), highlightRope);
 		useRopeOnTreeFinal.addIcon(ItemID.ROPE);
-		equipAmulet = new DetailedQuestStep(this, "Equip Glarial's amulet.", glarialsAmulet.highlighted());
-		enterFalls = new ObjectStep(this, ObjectID.WATERFALL_LEDGE_DOOR, new WorldPoint(2511, 3464, 0), "Enter the falls with Glarial's amulet equipped.", glarialsAmulet);
+		equipAmulet = new DetailedQuestStep(this, t("Equip Glarial's amulet."), glarialsAmulet.highlighted());
+		enterFalls = new ObjectStep(this, ObjectID.WATERFALL_LEDGE_DOOR, new WorldPoint(2511, 3464, 0), t("Enter the falls with Glarial's amulet equipped."), glarialsAmulet);
 
-		searchFallsCrate = new ObjectStep(this, ObjectID.BAXTORIAN_CRATE_WATERFALL_QUEST, new WorldPoint(2589, 9888, 0), "Search the crate in the east room for a key.");
-		useKeyOnFallsDoor = new ObjectStep(this, ObjectID.BAXTORIAN_DOOR_2_WATERFALL_QUEST, new WorldPoint(2566, 9901, 0), "Enter the west room with the key.", baxKey);
+		searchFallsCrate = new ObjectStep(this, ObjectID.BAXTORIAN_CRATE_WATERFALL_QUEST, new WorldPoint(2589, 9888, 0), t("Search the crate in the east room for a key."));
+		useKeyOnFallsDoor = new ObjectStep(this, ObjectID.BAXTORIAN_DOOR_2_WATERFALL_QUEST, new WorldPoint(2566, 9901, 0), t("Enter the west room with the key."), baxKey);
 
-		useRunes = new DetailedQuestStep(this, "Use 1 earth, water and air rune on each of the 6 pillars in the room. Afterwards, use Glarial's amulet on the statue of Glarial.", airRune, waterRune, earthRune);
+		useRunes = new DetailedQuestStep(this, t("Use 1 earth, water and air rune on each of the 6 pillars in the room. Afterwards, use Glarial's amulet on the statue of Glarial."), airRune, waterRune, earthRune);
 
-		useAmuletOnStatue = new ObjectStep(this, ObjectID.STATUE_QUEEN_WATERFALL_QUEST, new WorldPoint(2603, 9915, 0), "Use Glarial's amulet on the Statue of Glarial", unequippedAmulet);
+		useAmuletOnStatue = new ObjectStep(this, ObjectID.STATUE_QUEEN_WATERFALL_QUEST, new WorldPoint(2603, 9915, 0), t("Use Glarial's amulet on the Statue of Glarial"), unequippedAmulet);
 		useAmuletOnStatue.addIcon(ItemID.GLARIALS_AMULET_WATERFALL_QUEST);
 
-		useUrnOnChalice = new ObjectStep(this, ObjectID.BAXTORIAN_CHALICE_WATERFALL_QUEST, new WorldPoint(2604, 9911, 0), "DO NOT LEFT-CLICK THE CHALICE! Use Glarial's urn on the Chalice to finish the quest.", glarialsUrn.highlighted());
+		useUrnOnChalice = new ObjectStep(this, ObjectID.BAXTORIAN_CHALICE_WATERFALL_QUEST, new WorldPoint(2604, 9911, 0), t("DO NOT LEFT-CLICK THE CHALICE! Use Glarial's urn on the Chalice to finish the quest."), glarialsUrn.highlighted());
 		useUrnOnChalice.addIcon(ItemID.GLARIALS_URN_FULL_WATERFALL_QUEST);
 	}
 
@@ -378,7 +378,7 @@ public class WaterfallQuest extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"Able to survive enemies up to level 86 attacking you"
+			t("Able to survive enemies up to level 86 attacking you")
 		);
 	}
 
@@ -412,13 +412,13 @@ public class WaterfallQuest extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Starting off", List.of(
+		sections.add(new PanelDetails(t("Starting off"), List.of(
 			talkToAlmera
 		), List.of(
 			rope
 		)));
 
-		sections.add(new PanelDetails("Investigate", List.of(
+		sections.add(new PanelDetails(t("Investigate"), List.of(
 			boardRaft,
 			talkToHudon,
 			useRopeOnRock,
@@ -431,7 +431,7 @@ public class WaterfallQuest extends BasicQuestHelper
 			rope
 		)));
 
-		var getPebblePanel = new PanelDetails("Get Glarial's Pebble", List.of(
+		var getPebblePanel = new PanelDetails(t("Get Glarial's Pebble"), List.of(
 			enterGnomeDungeon,
 			searchGnomeCrate,
 			enterGnomeDoor,
@@ -440,7 +440,7 @@ public class WaterfallQuest extends BasicQuestHelper
 		getPebblePanel.setLockingStep(goGetPebble);
 		sections.add(getPebblePanel);
 
-		var getGlarialStuffPanel = new PanelDetails("Loot Glarial's tomb", List.of(
+		var getGlarialStuffPanel = new PanelDetails(t("Loot Glarial's tomb"), List.of(
 			usePebble,
 			searchGlarialChest,
 			searchGlarialCoffin
@@ -448,7 +448,7 @@ public class WaterfallQuest extends BasicQuestHelper
 		getGlarialStuffPanel.setLockingStep(getGlarialStuff);
 		sections.add(getGlarialStuffPanel);
 
-		sections.add(new PanelDetails("Put Glarial to rest", List.of(
+		sections.add(new PanelDetails(t("Put Glarial to rest"), List.of(
 			getFinalItems,
 			boardRaftFinal,
 			useRopeOnRockFinal,

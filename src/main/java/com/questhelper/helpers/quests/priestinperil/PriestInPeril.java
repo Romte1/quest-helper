@@ -179,66 +179,66 @@ public class PriestInPeril extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToRoald = new NpcStep(this, NpcID.KING_ROALD, new WorldPoint(3222, 3473, 0), "Speak to King Roald in Varrock Castle.");
+		talkToRoald = new NpcStep(this, NpcID.KING_ROALD, new WorldPoint(3222, 3473, 0), t("Speak to King Roald in Varrock Castle."));
 		talkToRoald.addDialogStep("I'm looking for a quest!");
 		talkToRoald.addDialogStep("Yes.");
 		goToTemple = new ObjectStep(this, ObjectID.PRIESTPERILTEMPLEDOORR, new WorldPoint(3408, 3488, 0),
-			"Go to the temple east of Varrock by the river and click on the large door.", weaponAndArmour);
+			t("Go to the temple east of Varrock by the river and click on the large door."), weaponAndArmour);
 		goToTemple.addDialogSteps("I'll get going.", "Roald sent me to check on Drezel.", "Sure. I'm a helpful person!");
-		goDownToDog = new ObjectStep(this, ObjectID.TRAPDOOR, new WorldPoint(3405, 3507, 0), "Go down the ladder north of the temple.");
+		goDownToDog = new ObjectStep(this, ObjectID.TRAPDOOR, new WorldPoint(3405, 3507, 0), t("Go down the ladder north of the temple."));
 		goDownToDog.addDialogStep("Yes.");
 		goDownToDog.addAlternateObjects(ObjectID.TRAPDOOR_OPEN);
 		killTheDog = new NpcStep(this, NpcID.PRIESTPERIL_GUARDIAN_MODEL, new WorldPoint(3405, 9901, 0),
-			"Kill the Temple Guardian (level 30). It is immune to magic so you will need to use either ranged or melee.");
+			t("Kill the Temple Guardian (level 30). It is immune to magic so you will need to use either ranged or melee."));
 		killTheDog.addSubSteps(goDownToDog);
 		climbUpAfterKillingDog = new ObjectStep(this, ObjectID.LADDER_FROM_CELLAR, new WorldPoint(3405, 9907, 0),
-			"Climb back up the ladder and return to King Roald.");
+			t("Climb back up the ladder and return to King Roald."));
 		returnToKingRoald = new NpcStep(this, NpcID.KING_ROALD, new WorldPoint(3222, 3473, 0),
-			"Return to King Roald.");
+			t("Return to King Roald."));
 		returnToKingRoald.addDialogStep("About that job I'm doing...");
 		returnToKingRoald.addSubSteps(climbUpAfterKillingDog);
 
 		returnToTemple = new ObjectStep(this, ObjectID.PRIESTPERILTEMPLEDOORR, new WorldPoint(3408, 3488, 0),
-			"Return to the temple.", bucket, lotsOfRuneEssence, rangedMagedGear);
-		killMonk = new NpcStep(this, NpcID.PRIESTPERILEVILMONK3, new WorldPoint(3412, 3488, 0), "Kill a Monk of Zamorak (level 30) for a golden key. You can safespot using the pews.", true, goldenKey);
+			t("Return to the temple."), bucket, lotsOfRuneEssence, rangedMagedGear);
+		killMonk = new NpcStep(this, NpcID.PRIESTPERILEVILMONK3, new WorldPoint(3412, 3488, 0), t("Kill a Monk of Zamorak (level 30) for a golden key. You can safespot using the pews."), true, goldenKey);
 
-		goUpToFloorOneTemple = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(3418, 3493, 0), "Go upstairs.");
-		goUpToFloorTwoTemple = new ObjectStep(this, ObjectID.LADDER, new WorldPoint(3410, 3485, 1), "Climb up the ladder.");
-		talkToDrezel = new NpcStep(this, NpcID.PRIESTPERILTRAPPEDMONK_VIS, new WorldPoint(3418, 3489, 2), "Talk to Drezel on the top floor of the temple.");
+		goUpToFloorOneTemple = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(3418, 3493, 0), t("Go upstairs."));
+		goUpToFloorTwoTemple = new ObjectStep(this, ObjectID.LADDER, new WorldPoint(3410, 3485, 1), t("Climb up the ladder."));
+		talkToDrezel = new NpcStep(this, NpcID.PRIESTPERILTRAPPEDMONK_VIS, new WorldPoint(3418, 3489, 2), t("Talk to Drezel on the top floor of the temple."));
 		talkToDrezel.addDialogSteps("So, what now?", "Yes, of course.");
 		talkToDrezel.addSubSteps(goUpToFloorOneTemple, goUpToFloorTwoTemple);
 
-		fillBucket = new ObjectStep(this, ObjectID.PRIESTPERIL_WELL, new WorldPoint(3423, 9890, 0), "Use the bucket on the well in the central room.", bucketHighlighted);
+		fillBucket = new ObjectStep(this, ObjectID.PRIESTPERIL_WELL, new WorldPoint(3423, 9890, 0), t("Use the bucket on the well in the central room."), bucketHighlighted);
 		fillBucket.addIcon(ItemID.BUCKET_EMPTY);
 
-		useKeyForKey = new DetailedQuestStep(this, new WorldPoint(3421, 9888, 0), "Go to the central room, and study the monuments to find which has a key on it. Use the Golden Key on it.", goldenKeyHighlighted);
+		useKeyForKey = new DetailedQuestStep(this, new WorldPoint(3421, 9888, 0), t("Go to the central room, and study the monuments to find which has a key on it. Use the Golden Key on it."), goldenKeyHighlighted);
 
-		goDownToFloorOneTemple = new ObjectStep(this, ObjectID.LADDERTOP, new WorldPoint(3410, 3485, 2), "Go down to the underground of the temple.", bucket);
-		goDownToGroundFloorTemple = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(3417, 3485, 1), "Go down to the underground of the temple.", bucket);
-		enterUnderground = new ObjectStep(this, ObjectID.TRAPDOOR, new WorldPoint(3405, 3507, 0), "Go down to the underground of the temple.", bucket);
+		goDownToFloorOneTemple = new ObjectStep(this, ObjectID.LADDERTOP, new WorldPoint(3410, 3485, 2), t("Go down to the underground of the temple."), bucket);
+		goDownToGroundFloorTemple = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(3417, 3485, 1), t("Go down to the underground of the temple."), bucket);
+		enterUnderground = new ObjectStep(this, ObjectID.TRAPDOOR, new WorldPoint(3405, 3507, 0), t("Go down to the underground of the temple."), bucket);
 		enterUnderground.addSubSteps(goDownToFloorOneTemple, goDownToGroundFloorTemple);
 		enterUnderground.addAlternateObjects(ObjectID.TRAPDOOR_OPEN);
 
 		goUpWithWaterToSurface = new ObjectStep(this, ObjectID.LADDER_FROM_CELLAR, new WorldPoint(3405, 9907, 0),
-			"Go back up to the top floor of the temple.");
+			t("Go back up to the top floor of the temple."));
 		goUpWithWaterToFirstFloor = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(3418, 3493, 0),
-			"Go back up to the top floor of the temple.");
+			t("Go back up to the top floor of the temple."));
 		goUpWithWaterToSecondFloor = new ObjectStep(this, ObjectID.LADDER, new WorldPoint(3410, 3485, 1),
-			"Go back up to the top floor of the temple.");
+			t("Go back up to the top floor of the temple."));
 		goUpWithWaterToSecondFloor.addSubSteps(goUpWithWaterToSurface, goUpWithWaterToFirstFloor);
 
-		openDoor = new ObjectStep(this, ObjectID.PIP_PRISONDOOR, new WorldPoint(3415, 3489, 2), "Open the cell door.", ironKey);
-		blessWater = new NpcStep(this, NpcID.PRIESTPERILTRAPPEDMONK_VIS, new WorldPoint(3418, 3489, 2), "Talk to Drezel to bless the water.", murkyWater);
-		useBlessedWater = new ObjectStep(this, ObjectID.PRIESTPERIL_COFFIN_NOANIM, new WorldPoint(3413, 3487, 2), "Use the blessed water on the coffin.", blessedWaterHighlighted);
+		openDoor = new ObjectStep(this, ObjectID.PIP_PRISONDOOR, new WorldPoint(3415, 3489, 2), t("Open the cell door."), ironKey);
+		blessWater = new NpcStep(this, NpcID.PRIESTPERILTRAPPEDMONK_VIS, new WorldPoint(3418, 3489, 2), t("Talk to Drezel to bless the water."), murkyWater);
+		useBlessedWater = new ObjectStep(this, ObjectID.PRIESTPERIL_COFFIN_NOANIM, new WorldPoint(3413, 3487, 2), t("Use the blessed water on the coffin."), blessedWaterHighlighted);
 		useBlessedWater.addIcon(ItemID.BUCKET_BLESSEDWATER);
 
-		talkToDrezelAfterFreeing = new NpcStep(this, NpcID.PRIESTPERILTRAPPEDMONK_VIS, new WorldPoint(3418, 3489, 2), "Talk to Drezel again.");
+		talkToDrezelAfterFreeing = new NpcStep(this, NpcID.PRIESTPERILTRAPPEDMONK_VIS, new WorldPoint(3418, 3489, 2), t("Talk to Drezel again."));
 
-		goDownToFloorOneAfterFreeing = new ObjectStep(this, ObjectID.LADDERTOP, new WorldPoint(3410, 3485, 2), "Go down to the underground of the temple.", lotsOfRuneEssence);
-		goDownToGroundFloorAfterFreeing = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(3417, 3485, 1), "Go down to the underground of the temple.", lotsOfRuneEssence);
-		enterUndergroundAfterFreeing = new ObjectStep(this, ObjectID.TRAPDOOR, new WorldPoint(3405, 3507, 0), "Go down to the underground of the temple.", lotsOfRuneEssence);
+		goDownToFloorOneAfterFreeing = new ObjectStep(this, ObjectID.LADDERTOP, new WorldPoint(3410, 3485, 2), t("Go down to the underground of the temple."), lotsOfRuneEssence);
+		goDownToGroundFloorAfterFreeing = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(3417, 3485, 1), t("Go down to the underground of the temple."), lotsOfRuneEssence);
+		enterUndergroundAfterFreeing = new ObjectStep(this, ObjectID.TRAPDOOR, new WorldPoint(3405, 3507, 0), t("Go down to the underground of the temple."), lotsOfRuneEssence);
 		enterUndergroundAfterFreeing.addAlternateObjects(ObjectID.TRAPDOOR_OPEN);
-		talkToDrezelUnderground = new NpcStep(this, NpcID.PRIESTPERILTRAPPEDMONK_VIS, new WorldPoint(3439, 9896, 0), "Talk to Drezel in the east of the underground temple area.", lotsOfRuneEssence);
+		talkToDrezelUnderground = new NpcStep(this, NpcID.PRIESTPERILTRAPPEDMONK_VIS, new WorldPoint(3439, 9896, 0), t("Talk to Drezel in the east of the underground temple area."), lotsOfRuneEssence);
 		talkToDrezelUnderground.addSubSteps(goDownToFloorOneAfterFreeing, goDownToGroundFloorAfterFreeing, enterUndergroundAfterFreeing);
 
 		bringDrezelEssence = new BringDrezelPureEssenceStep(this);
@@ -386,8 +386,8 @@ public class PriestInPeril extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"Temple Guardian (level 30). You cannot use Magic. Rings of recoil will not award the kill.",
-			"Monk of Zamorak (level 30)"
+			t("Temple Guardian (level 30). You cannot use Magic. Rings of recoil will not award the kill."),
+			t("Monk of Zamorak (level 30)")
 		);
 	}
 
@@ -417,7 +417,7 @@ public class PriestInPeril extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Access to Canifis and Morytania")
+			new UnlockReward(t("Access to Canifis and Morytania"))
 		);
 	}
 
@@ -426,11 +426,11 @@ public class PriestInPeril extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Start the quest", List.of(
+		sections.add(new PanelDetails(t("Start the quest"), List.of(
 			talkToRoald
 		)));
 
-		sections.add(new PanelDetails("Go to the temple", List.of(
+		sections.add(new PanelDetails(t("Go to the temple"), List.of(
 			goToTemple,
 			killTheDog,
 			returnToKingRoald
@@ -438,7 +438,7 @@ public class PriestInPeril extends BasicQuestHelper
 			weaponAndArmour
 		)));
 
-		sections.add(new PanelDetails("Return to the temple", List.of(
+		sections.add(new PanelDetails(t("Return to the temple"), List.of(
 			returnToTemple,
 			killMonk,
 			talkToDrezel
@@ -448,7 +448,7 @@ public class PriestInPeril extends BasicQuestHelper
 			lotsOfRuneEssence
 		)));
 
-		sections.add(new PanelDetails("Freeing Drezel", List.of(
+		sections.add(new PanelDetails(t("Freeing Drezel"), List.of(
 			enterUnderground,
 			useKeyForKey,
 			fillBucket,
@@ -463,7 +463,7 @@ public class PriestInPeril extends BasicQuestHelper
 			lotsOfRuneEssence
 		)));
 
-		sections.add(new PanelDetails("Curing the Salve", List.of(
+		sections.add(new PanelDetails(t("Curing the Salve"), List.of(
 			talkToDrezelUnderground, bringDrezelEssence
 		), List.of(
 			runeEssence

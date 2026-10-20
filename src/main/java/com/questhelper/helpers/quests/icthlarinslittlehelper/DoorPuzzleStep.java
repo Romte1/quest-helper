@@ -73,7 +73,7 @@ public class DoorPuzzleStep extends QuestStep
 
 	public DoorPuzzleStep(QuestHelper questHelper)
 	{
-		super(questHelper, "Click the highlighted boxes to turn the squares to solve the puzzle.");
+		super(questHelper, questHelper.t("Click the highlighted boxes to turn the squares to solve the puzzle."));
 	}
 
 	@Override

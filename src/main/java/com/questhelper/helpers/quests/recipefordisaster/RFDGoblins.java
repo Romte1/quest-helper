@@ -110,8 +110,8 @@ public class RFDGoblins extends BasicQuestHelper
 		blueGreenPurpledye = new ItemRequirement("A blue, green, or purple dye", ItemID.BLUEDYE);
 		blueGreenPurpledye.addAlternates(ItemID.GREENDYE, ItemID.PURPLEDYE);
 		spice = new ItemRequirement("Spice or gnome spice", ItemID.SPICESPOT).isNotConsumed();
-		spice.setTooltip("You can get some from the Culinaromancer's chest, or a Gnome Spice from the Tree Gnome " +
-			"Stronghold");
+		spice.setTooltip(t("You can get some from the Culinaromancer's chest, or a Gnome Spice from the Tree Gnome " +
+			"Stronghold"));
 		spice.addAlternates(ItemID.GNOME_SPICE);
 		fishingBait = new ItemRequirement("Fishing bait", ItemID.FISHING_BAIT);
 		bucketOfWater = new ItemRequirement("Bucket of water", ItemID.BUCKET_WATER);
@@ -128,7 +128,7 @@ public class RFDGoblins extends BasicQuestHelper
 		orangeSliceHighlighted.setHighlightInInventory(true);
 
 		charcoal = new ItemRequirement("Charcoal", ItemID.CHARCOAL);
-		charcoal.setTooltip("Can be bought from the general store in Shilo Village or the one northwest of Tai Bwo Wannai");
+		charcoal.setTooltip(t("Can be bought from the general store in Shilo Village or the one northwest of Tai Bwo Wannai"));
 		charcoal.addAlternates(ItemID.GROUND_CHARCOAL);
 
 		dyedOrange = new ItemRequirement("Dyed orange", ItemID._100GOBLIN_DYED_ORANGES);
@@ -174,15 +174,15 @@ public class RFDGoblins extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("Increased access to the Culinaromancer's Chest"));
+		return Collections.singletonList(new UnlockReward(t("Increased access to the Culinaromancer's Chest")));
 	}
 
 	public void setupSteps()
 	{
 		enterDiningRoom = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOUBLEDOORL, new WorldPoint(3213, 3221, 0),
-			"Go inspect Wartface or Bentnoze.");
+			t("Go inspect Wartface or Bentnoze."));
 		inspectGoblin = new ObjectStep(this, ObjectID.HUNDRED_GOBLIN1_BASE, new WorldPoint(1862, 5325, 0),
-			"Inspect Wartface or Bentnoze.");
+			t("Inspect Wartface or Bentnoze."));
 		inspectGoblin.addSubSteps(enterDiningRoom);
 
 		goDownToKitchen = new ObjectStep(this, ObjectID._100_GOBLIN_LADDER_DOWN, new WorldPoint(2960, 3507, 0),
@@ -193,38 +193,38 @@ public class RFDGoblins extends BasicQuestHelper
 		talkToCookAfterChar = new NpcStep(this, NpcID.GOBLIN_COOK_CHARRED, new WorldPoint(2981, 9868, 0),
 			"");
 
-		useWaterOnBread = new DetailedQuestStep(this, "Use a bucket of water on some bread.", bucketOfWaterHighlighted,
+		useWaterOnBread = new DetailedQuestStep(this, t("Use a bucket of water on some bread."), bucketOfWaterHighlighted,
 			breadHighlighted);
 
-		sliceOrange = new DetailedQuestStep(this, "Use a knife on an orange and SLICE it.", knifeHighlighted,
+		sliceOrange = new DetailedQuestStep(this, t("Use a knife on an orange and SLICE it."), knifeHighlighted,
 			orangeHighlighted);
-		dyeOrange = new DetailedQuestStep(this, "Use a dye on the sliced orange.", blueGreenPurpledyeHighlighted,
+		dyeOrange = new DetailedQuestStep(this, t("Use a dye on the sliced orange."), blueGreenPurpledyeHighlighted,
 			orangeSliceHighlighted);
-		spiceBait = new DetailedQuestStep(this, "Use spices on the fishing bait.", spiceHighlighted, fishingBaitHighlighted);
+		spiceBait = new DetailedQuestStep(this, t("Use spices on the fishing bait."), spiceHighlighted, fishingBaitHighlighted);
 
 		enterDiningRoomAgain = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOUBLEDOORL, new WorldPoint(3213, 3221, 0),
-			"Go use the slop on Wartface or Bentnoze in the Lumbridge Banquet room.", slop);
+			t("Go use the slop on Wartface or Bentnoze in the Lumbridge Banquet room."), slop);
 		useSlopOnGoblin = new ObjectStep(this, ObjectID.HUNDRED_GOBLIN1_BASE, new WorldPoint(1862, 5325, 0),
-			"Use the slop on Wartface or Bentnoze.", slopHighlighted);
+			t("Use the slop on Wartface or Bentnoze."), slopHighlighted);
 		useSlopOnGoblin.addSubSteps(enterDiningRoomAgain);
 		useSlopOnGoblin.addIcon(ItemID._100GOBLIN_COMPROMISE_MUSH);
 
-		goTalkCook1 = new ConditionalStep(this, goDownToKitchen, "Go talk to the Goblin Cook down the ladder in the Goblin " +
-			"Village.", bread, orange, knife, blueGreenPurpledye, spice, fishingBait,
+		goTalkCook1 = new ConditionalStep(this, goDownToKitchen, t("Go talk to the Goblin Cook down the ladder in the Goblin " +
+			"Village."), bread, orange, knife, blueGreenPurpledye, spice, fishingBait,
 			bucketOfWater, charcoal);
 		goTalkCook1.addStep(inCookRoom, talkToCook);
 		goTalkCook1.addDialogSteps("I need your help...", "What do you need? Maybe I can get it for you.");
 
-		goTalkCook2 = new ConditionalStep(this, goDownToKitchen, "Give the Goblin Cook some charcoal.", charcoal);
+		goTalkCook2 = new ConditionalStep(this, goDownToKitchen, t("Give the Goblin Cook some charcoal."), charcoal);
 		goTalkCook2.addStep(inCookRoom, talkToCook);
 		goTalkCook2.addDialogSteps("I've got the charcoal you were after.");
 
-		goTalkCook3 = new ConditionalStep(this, goDownToKitchen, "Talk to the Goblin Cook again.",
+		goTalkCook3 = new ConditionalStep(this, goDownToKitchen, t("Talk to the Goblin Cook again."),
 			bread, orange, knife, blueGreenPurpledye, spice, fishingBait, bucketOfWater);
 		goTalkCook3.addStep(inCookRoom, talkToCookAfterChar);
 		goTalkCook3.addDialogSteps("I need your help...");
 
-		goTalkCook4 = new ConditionalStep(this, goDownToKitchen, "Talk to the Goblin Cook again with the ingredients.",
+		goTalkCook4 = new ConditionalStep(this, goDownToKitchen, t("Talk to the Goblin Cook again with the ingredients."),
 			wetBread, dyedOrange, spicedBait);
 		goTalkCook4.addStep(inCookRoom, talkToCookAfterChar);
 		goTalkCook4.addDialogStep("I've got the ingredients we need...");
@@ -258,7 +258,7 @@ public class RFDGoblins extends BasicQuestHelper
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Saving the Generals",
+		allSteps.add(new PanelDetails(t("Saving the Generals"),
 			Arrays.asList(inspectGoblin, goTalkCook1, goTalkCook2, goTalkCook3,
 				useWaterOnBread, sliceOrange, dyeOrange, spiceBait, goTalkCook4,
 				useSlopOnGoblin),

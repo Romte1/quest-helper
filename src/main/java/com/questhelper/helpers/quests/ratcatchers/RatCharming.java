@@ -171,19 +171,19 @@ public class RatCharming extends DetailedOwnerStep
 		setupRequirements();
 
 		noteSteps = new QuestStep[8];
-		noteSteps[0] = new WidgetStep(getQuestHelper(), "Click the marked note.", 282, 2);
-		noteSteps[1] = new WidgetStep(getQuestHelper(), "Click the marked note.", 282, 5);
-		noteSteps[2] = new WidgetStep(getQuestHelper(), "Click the marked note.", 282, 3);
-		noteSteps[3] = new WidgetStep(getQuestHelper(), "Click the marked note.", 282, 4);
-		noteSteps[4] = new WidgetStep(getQuestHelper(), "Click the marked note.", 282, 2);
-		noteSteps[5] = new WidgetStep(getQuestHelper(), "Click the marked note.", 282, 7);
-		noteSteps[6] = new WidgetStep(getQuestHelper(), "Click the marked note.", 282, 8);
-		noteSteps[7] = new WidgetStep(getQuestHelper(), "Click the marked note.", 282, 6);
+		noteSteps[0] = new WidgetStep(getQuestHelper(), getQuestHelper().t("Click the marked note."), 282, 2);
+		noteSteps[1] = new WidgetStep(getQuestHelper(), getQuestHelper().t("Click the marked note."), 282, 5);
+		noteSteps[2] = new WidgetStep(getQuestHelper(), getQuestHelper().t("Click the marked note."), 282, 3);
+		noteSteps[3] = new WidgetStep(getQuestHelper(), getQuestHelper().t("Click the marked note."), 282, 4);
+		noteSteps[4] = new WidgetStep(getQuestHelper(), getQuestHelper().t("Click the marked note."), 282, 2);
+		noteSteps[5] = new WidgetStep(getQuestHelper(), getQuestHelper().t("Click the marked note."), 282, 7);
+		noteSteps[6] = new WidgetStep(getQuestHelper(), getQuestHelper().t("Click the marked note."), 282, 8);
+		noteSteps[7] = new WidgetStep(getQuestHelper(), getQuestHelper().t("Click the marked note."), 282, 6);
 
-		goNext = new WidgetStep(getQuestHelper(), "Go to the next page.", 282, 24);
-		goPrevious = new WidgetStep(getQuestHelper(), "Go to the previous page.", 282, 23);
-		clickOctave = new WidgetStep(getQuestHelper(), "Click the raise octave button.", 282, 11);
-		clickDone = new WidgetStep(getQuestHelper(), "Click play.", 282, 20);
+		goNext = new WidgetStep(getQuestHelper(), getQuestHelper().t("Go to the next page."), 282, 24);
+		goPrevious = new WidgetStep(getQuestHelper(), getQuestHelper().t("Go to the previous page."), 282, 23);
+		clickOctave = new WidgetStep(getQuestHelper(), getQuestHelper().t("Click the raise octave button."), 282, 11);
+		clickDone = new WidgetStep(getQuestHelper(), getQuestHelper().t("Click play."), 282, 20);
 	}
 
 	@Override

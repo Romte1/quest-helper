@@ -218,11 +218,11 @@ public class HolyGrail extends BasicQuestHelper
 		ardyTele = new ItemRequirement("Ardougne Teleport", ItemID.POH_TABLET_ARDOUGNETELEPORT);
 		faladorTele = new ItemRequirement("Falador Teleport", ItemID.POH_TABLET_FALADORTELEPORT);
 		sixtyCoins = new ItemRequirement("Coins", ItemCollections.COINS, 60);
-		sixtyCoins.appendToTooltip("For travel from Ardougne to Brimhaven twice");
+		sixtyCoins.appendToTooltip(t("For travel from Ardougne to Brimhaven twice"));
 		thirtyCoins = new ItemRequirement("Coins", ItemCollections.COINS, 30);
-		thirtyCoins.appendToTooltip("For travel from Ardougne to Brimhaven");
+		thirtyCoins.appendToTooltip(t("For travel from Ardougne to Brimhaven"));
 		antipoison = new ItemRequirement("Antipoison", ItemCollections.ANTIPOISONS);
-		antipoison.setTooltip("If you're below Combat level 41, the poisonous scorpions on Karamja are aggressive");
+		antipoison.setTooltip(t("If you're below Combat level 41, the poisonous scorpions on Karamja are aggressive"));
 		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
 		combatGear = new ItemRequirement("A weapon and armour (melee recommended)", -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
@@ -272,51 +272,51 @@ public class HolyGrail extends BasicQuestHelper
 	{
 		var kingArthurWorldPoint = new WorldPoint(2763, 3513, 0);
 
-		startQuest = new NpcStep(this, NpcID.KING_ARTHUR, kingArthurWorldPoint, "Talk to King Arthur in Camelot Castle to start the quest.");
+		startQuest = new NpcStep(this, NpcID.KING_ARTHUR, kingArthurWorldPoint, t("Talk to King Arthur in Camelot Castle to start the quest."));
 		startQuest.addDialogStep("Tell me of this quest.");
 		startQuest.addDialogStep("Yes.");
 
-		goUpStairsCamelot = new ObjectStep(this, ObjectID.KR_CAM_WOODENSTAIRS, new WorldPoint(2751, 3511, 0), "Go upstairs and talk to Merlin.");
-		openMerlinDoor = new ObjectStep(this, ObjectID.MERLINWORKSHOP, "Go upstairs and talk to Merlin.");
-		talkToMerlin = new NpcStep(this, NpcID.MERLIN2, new WorldPoint(2763, 3513, 1), "Go upstairs and talk to Merlin.");
+		goUpStairsCamelot = new ObjectStep(this, ObjectID.KR_CAM_WOODENSTAIRS, new WorldPoint(2751, 3511, 0), t("Go upstairs and talk to Merlin."));
+		openMerlinDoor = new ObjectStep(this, ObjectID.MERLINWORKSHOP, t("Go upstairs and talk to Merlin."));
+		talkToMerlin = new NpcStep(this, NpcID.MERLIN2, new WorldPoint(2763, 3513, 1), t("Go upstairs and talk to Merlin."));
 		talkToMerlin.addSubSteps(goUpStairsCamelot, openMerlinDoor);
 
-		goToEntrana = new NpcStep(this, NpcID.SHIPMONK1_C, new WorldPoint(3048, 3235, 0), "Head to Port Sarim and talk to a monk of Entrana for passage to Entrana. Bank all combat gear.", true);
-		talkToHighPriest = new NpcStep(this, NpcID.HIGH_PRIEST_OF_ENTRANA, new WorldPoint(2851, 3348, 0), "Talk to the High Priest on Entrana.");
+		goToEntrana = new NpcStep(this, NpcID.SHIPMONK1_C, new WorldPoint(3048, 3235, 0), t("Head to Port Sarim and talk to a monk of Entrana for passage to Entrana. Bank all combat gear."), true);
+		talkToHighPriest = new NpcStep(this, NpcID.HIGH_PRIEST_OF_ENTRANA, new WorldPoint(2851, 3348, 0), t("Talk to the High Priest on Entrana."));
 		talkToHighPriest.addDialogSteps("Ask about the Holy Grail Quest", "Ok, I will go searching.");
 
-		talkToGalahad = new NpcStep(this, NpcID.BROTHER_GALAHAD, new WorldPoint(2612, 3475, 0), "Talk to Galahad in his house west of McGrubor's Woods.");
+		talkToGalahad = new NpcStep(this, NpcID.BROTHER_GALAHAD, new WorldPoint(2612, 3475, 0), t("Talk to Galahad in his house west of McGrubor's Woods."));
 		talkToGalahad.addDialogStep("I seek an item from the realm of the Fisher King.");
 
-		goToDraynorManor = new DetailedQuestStep(this, new WorldPoint(3108, 3350, 0), "Travel to Draynor Manor.", holyTableNapkin);
+		goToDraynorManor = new DetailedQuestStep(this, new WorldPoint(3108, 3350, 0), t("Travel to Draynor Manor."), holyTableNapkin);
 		goToDraynorManor.addTeleport(draynorTele);
-		enterDraynorManor = new ObjectStep(this, ObjectID.HAUNTEDDOORR, "Enter Draynor Manor.", holyTableNapkin);
-		goUpStairsDraynor1 = new ObjectStep(this, ObjectID.DRAYNOR_MANOR_STAIRS_UP, new WorldPoint(3109, 3364, 0), "Go up the stairs in Draynor Manor.", holyTableNapkin);
-		goUpStairsDraynor2 = new ObjectStep(this, ObjectID.DRAYNOR_SPIRALSTAIRS, new WorldPoint(3105, 3363, 1), "Go up the second set of stairs in Draynor Manor.", holyTableNapkin);
-		openWhistleDoor = new ObjectStep(this, ObjectID.WHISTLEDOOR, "Open the door to the Magic Whistles.", holyTableNapkin);
-		takeWhistles = new DetailedQuestStep(this, new WorldPoint(3107, 3359, 2), "Pickup 2 Magic Whistles.", holyTableNapkin);
+		enterDraynorManor = new ObjectStep(this, ObjectID.HAUNTEDDOORR, t("Enter Draynor Manor."), holyTableNapkin);
+		goUpStairsDraynor1 = new ObjectStep(this, ObjectID.DRAYNOR_MANOR_STAIRS_UP, new WorldPoint(3109, 3364, 0), t("Go up the stairs in Draynor Manor."), holyTableNapkin);
+		goUpStairsDraynor2 = new ObjectStep(this, ObjectID.DRAYNOR_SPIRALSTAIRS, new WorldPoint(3105, 3363, 1), t("Go up the second set of stairs in Draynor Manor."), holyTableNapkin);
+		openWhistleDoor = new ObjectStep(this, ObjectID.WHISTLEDOOR, t("Open the door to the Magic Whistles."), holyTableNapkin);
+		takeWhistles = new DetailedQuestStep(this, new WorldPoint(3107, 3359, 2), t("Pickup 2 Magic Whistles."), holyTableNapkin);
 
-		goGetExcalibur = new ItemStep(this, "Go retrieve Excalibur from your bank. If you do not own Excalibur, you can retrieve it from the Lady of the Lake in Taverley for 500 coins.", twoMagicWhistles, excalibur);
+		goGetExcalibur = new ItemStep(this, t("Go retrieve Excalibur from your bank. If you do not own Excalibur, you can retrieve it from the Lady of the Lake in Taverley for 500 coins."), twoMagicWhistles, excalibur);
 		WorldPoint teleportLocationPoint = new WorldPoint(2742, 3236, 0);
-		goToTeleportLocation1 = new DetailedQuestStep(this, teleportLocationPoint, "Go to the tower on Karamja near gold mine west of Brimhaven.", twoMagicWhistles, excalibur);
+		goToTeleportLocation1 = new DetailedQuestStep(this, teleportLocationPoint, t("Go to the tower on Karamja near gold mine west of Brimhaven."), twoMagicWhistles, excalibur);
 		goToTeleportLocation1.addDialogStep("I'd like to go to Brimhaven.");
 		goToTeleportLocation1.addRecommended(thirtyCoins);
 		goToTeleportLocation1.addRecommended(antipoison);
 		goToTeleportLocation1.addSubSteps(goGetExcalibur);
-		blowWhistle1 = new ItemStep(this, "Blow the whistle once you are underneath of the tower.", highlightMagicWhistle1, excalibur);
+		blowWhistle1 = new ItemStep(this, t("Blow the whistle once you are underneath of the tower."), highlightMagicWhistle1, excalibur);
 
-		attackTitan = new NpcStep(this, NpcID.BLACK_KNIGHT_TITAN, "Kill the Black Knight Titan with Excalibur. Melee is recommended as it has high Ranged and Magic defence. (You only need to deal the killing blow with excalibur!)", twoMagicWhistles, excalibur);
-		talkToFisherman = new NpcStep(this, NpcID.GRAIL_FISHERMAN, new WorldPoint(2798, 4706, 0), "Talk to the fisherman by the river. After talking to him walk West to the castle.");
+		attackTitan = new NpcStep(this, NpcID.BLACK_KNIGHT_TITAN, t("Kill the Black Knight Titan with Excalibur. Melee is recommended as it has high Ranged and Magic defence. (You only need to deal the killing blow with excalibur!)"), twoMagicWhistles, excalibur);
+		talkToFisherman = new NpcStep(this, NpcID.GRAIL_FISHERMAN, new WorldPoint(2798, 4706, 0), t("Talk to the fisherman by the river. After talking to him walk West to the castle."));
 		talkToFisherman.addDialogStep("Any idea how to get into the castle?");
-		pickupBell = new ItemStep(this, new WorldPoint(2762, 4694, 0), "Pickup the grail bell outside of the castle. If it's not there, return to the fisherman and finish the conversation.", grailBell);
+		pickupBell = new ItemStep(this, new WorldPoint(2762, 4694, 0), t("Pickup the grail bell outside of the castle. If it's not there, return to the fisherman and finish the conversation."), grailBell);
 		pickupBell.addDialogStep("Any idea how to get into the castle?");
-		ringBell = new DetailedQuestStep(this, new WorldPoint(2762, 4694, 0), "Ring the grail bell while standing directly north of the broken castle wall (Where you picked up the bell)", grailBell);
+		ringBell = new DetailedQuestStep(this, new WorldPoint(2762, 4694, 0), t("Ring the grail bell while standing directly north of the broken castle wall (Where you picked up the bell)"), grailBell);
 		ringBell.addIcon(ItemID.GRAIL_BELL);
-		ringBellHighlighted = new DetailedQuestStep(this, new WorldPoint(2762, 4694, 0), "Ring the grail bell while standing directly north of the broken castle wall (Where you picked up the bell)", highlightGrailBell);
+		ringBellHighlighted = new DetailedQuestStep(this, new WorldPoint(2762, 4694, 0), t("Ring the grail bell while standing directly north of the broken castle wall (Where you picked up the bell)"), highlightGrailBell);
 		ringBellHighlighted.addIcon(ItemID.GRAIL_BELL);
 		ringBell.addSubSteps(ringBellHighlighted);
-		goUpStairsBrokenCastle = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2762, 4681, 0), "Go up the stairs inside of the castle.");
-		talkToFisherKing = new NpcStep(this, NpcID.FISHER_KING, "Talk to The Fisher King.");
+		goUpStairsBrokenCastle = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2762, 4681, 0), t("Go up the stairs inside of the castle."));
+		talkToFisherKing = new NpcStep(this, NpcID.FISHER_KING, t("Talk to The Fisher King."));
 		talkToFisherKing.addDialogStep("You don't look too well.");
 
 		findFisherKing = new ConditionalStep(this, talkToGalahad);
@@ -338,24 +338,24 @@ public class HolyGrail extends BasicQuestHelper
 		findFisherKing.addStep(holyTableNapkin, goToDraynorManor);
 		findFisherKing.setLockingCondition(twoMagicWhistles);
 
-		goToCamelot = new DetailedQuestStep(this, new WorldPoint(2758, 3486, 0), "Go back to Camelot.");
-		talkToKingArthur2 = new NpcStep(this, NpcID.KING_ARTHUR, kingArthurWorldPoint, "Return to Camelot and talk to King Arthur.", emptyInvSpot);
+		goToCamelot = new DetailedQuestStep(this, new WorldPoint(2758, 3486, 0), t("Go back to Camelot."));
+		talkToKingArthur2 = new NpcStep(this, NpcID.KING_ARTHUR, kingArthurWorldPoint, t("Return to Camelot and talk to King Arthur."), emptyInvSpot);
 
-		openSack = new ObjectStep(this, ObjectID.PERCY_SACKS, new WorldPoint(2962, 3506, 0), "Travel to the Goblin Village, north of Falador. Right click and open the sacks.", twoMagicWhistles);
+		openSack = new ObjectStep(this, ObjectID.PERCY_SACKS, new WorldPoint(2962, 3506, 0), t("Travel to the Goblin Village, north of Falador. Right click and open the sacks."), twoMagicWhistles);
 		openSack.addDialogStep("Come with me, I shall make you a king.");
 
-		goToTeleportLocation2 = new DetailedQuestStep(this, teleportLocationPoint, "Go to the tower on Karamja near gold mine west of Brimhaven.", oneMagicWhistle, goldFeather);
+		goToTeleportLocation2 = new DetailedQuestStep(this, teleportLocationPoint, t("Go to the tower on Karamja near gold mine west of Brimhaven."), oneMagicWhistle, goldFeather);
 		goToTeleportLocation2.addDialogStep("I'd like to go to Brimhaven.");
 		goToTeleportLocation2.addRecommended(thirtyCoins);
 		goToTeleportLocation2.addRecommended(antipoison);
-		blowWhistle2 = new ItemStep(this, "Blow the whistle once you are underneath of the tower.", highlightMagicWhistle2);
+		blowWhistle2 = new ItemStep(this, t("Blow the whistle once you are underneath of the tower."), highlightMagicWhistle2);
 
-		openFisherKingCastleDoor = new ObjectStep(this, ObjectID.CASTLEDOUBLEDOORR, "Open the door to the castle and enter.");
-		goUpNewCastleStairs = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2649, 4684, 0), "Go up the stairs to the east.");
-		goUpNewCastleLadder = new ObjectStep(this, ObjectID.LADDER, "Climb the ladder on the second floor.");
-		takeGrail = new ItemStep(this, new WorldPoint(2649, 4684, 2), "Pickup the Holy grail.", grail);
+		openFisherKingCastleDoor = new ObjectStep(this, ObjectID.CASTLEDOUBLEDOORR, t("Open the door to the castle and enter."));
+		goUpNewCastleStairs = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2649, 4684, 0), t("Go up the stairs to the east."));
+		goUpNewCastleLadder = new ObjectStep(this, ObjectID.LADDER, t("Climb the ladder on the second floor."));
+		takeGrail = new ItemStep(this, new WorldPoint(2649, 4684, 2), t("Pickup the Holy grail."), grail);
 
-		finishQuest = new NpcStep(this, NpcID.KING_ARTHUR, kingArthurWorldPoint, "Return to Camelot and talk to King Arthur", grail);
+		finishQuest = new NpcStep(this, NpcID.KING_ARTHUR, kingArthurWorldPoint, t("Return to Camelot and talk to King Arthur"), grail);
 	}
 
 	@Override
@@ -436,7 +436,7 @@ public class HolyGrail extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"Black Knight Titan (level 120)"
+			t("Black Knight Titan (level 120)")
 		);
 	}
 
@@ -459,8 +459,8 @@ public class HolyGrail extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Access to the Fisher Realm."),
-			new UnlockReward("Ability to put King Arthur picture on the wall in the POH.")
+			new UnlockReward(t("Access to the Fisher Realm.")),
+			new UnlockReward(t("Ability to put King Arthur picture on the wall in the POH."))
 		);
 	}
 
@@ -469,18 +469,18 @@ public class HolyGrail extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Starting off", List.of(
+		sections.add(new PanelDetails(t("Starting off"), List.of(
 			startQuest,
 			talkToMerlin
 		)));
 
-		sections.add(new PanelDetails("Getting the Napkin", List.of(
+		sections.add(new PanelDetails(t("Getting the Napkin"), List.of(
 			goToEntrana,
 			talkToHighPriest,
 			talkToGalahad
 		)));
 
-		sections.add(new PanelDetails("Getting the Magic Whistles", List.of(
+		sections.add(new PanelDetails(t("Getting the Magic Whistles"), List.of(
 			goToDraynorManor,
 			enterDraynorManor,
 			goUpStairsDraynor1,
@@ -493,7 +493,7 @@ public class HolyGrail extends BasicQuestHelper
 			draynorTele
 		)));
 
-		sections.add(new PanelDetails("Fisher King Realm Pt.1", List.of(
+		sections.add(new PanelDetails(t("Fisher King Realm Pt.1"), List.of(
 			goToTeleportLocation1,
 			blowWhistle1,
 			attackTitan,
@@ -510,7 +510,7 @@ public class HolyGrail extends BasicQuestHelper
 			antipoison
 		)));
 
-		sections.add(new PanelDetails("Finding Percival", List.of(
+		sections.add(new PanelDetails(t("Finding Percival"), List.of(
 			talkToKingArthur2,
 			openSack
 		), List.of(
@@ -518,7 +518,7 @@ public class HolyGrail extends BasicQuestHelper
 			twoMagicWhistles
 		)));
 
-		sections.add(new PanelDetails("Fisher King Realm Pt.2", List.of(
+		sections.add(new PanelDetails(t("Fisher King Realm Pt.2"), List.of(
 			goToTeleportLocation2,
 			blowWhistle2,
 			openFisherKingCastleDoor,
@@ -532,7 +532,7 @@ public class HolyGrail extends BasicQuestHelper
 			antipoison
 		)));
 
-		sections.add(new PanelDetails("Finishing up", List.of(
+		sections.add(new PanelDetails(t("Finishing up"), List.of(
 			finishQuest
 		), List.of(
 			grail

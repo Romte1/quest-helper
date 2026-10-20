@@ -61,7 +61,7 @@ public class HazeelValves extends DetailedOwnerStep
 
 	public HazeelValves(QuestHelper questHelper)
 	{
-		super(questHelper, "Turn the valves near the cave to direct the underground water.");
+		super(questHelper, questHelper.t("Turn the valves near the cave to direct the underground water."));
 	}
 
 	@Override
@@ -236,47 +236,47 @@ public class HazeelValves extends DetailedOwnerStep
 		setupZones();
 		setupConditions();
 
-		catchState = new DetailedQuestStep(getQuestHelper(), "You've entered an unknown state.");
+		catchState = new DetailedQuestStep(getQuestHelper(), questHelper.t("You've entered an unknown state."));
 
 		turnValve1 = new ObjectStep(getQuestHelper(), ObjectID.SEWERVALVE1, new WorldPoint(2562, 3247, 0),
-			"Turn the valve west of the Clocktower to the right.");
+			questHelper.t("Turn the valve west of the Clocktower to the right."));
 		turnValve1.addDialogStep("Turn it to the right.");
 		turnValve1.addSubSteps(catchState);
 
 		turnValve2 = new ObjectStep(getQuestHelper(), ObjectID.SEWERVALVE2, new WorldPoint(2572, 3263, 0),
-			"Turn the valve next to the Carnillean home to the right.");
+			questHelper.t("Turn the valve next to the Carnillean home to the right."));
 		turnValve2.addDialogStep("Turn it to the right.");
 
 		turnValve3 = new ObjectStep(getQuestHelper(), ObjectID.SEWERVALVE3, new WorldPoint(2585, 3245, 0),
-			"Turn the valve east of the Clocktower to the left.");
+			questHelper.t("Turn the valve east of the Clocktower to the left."));
 		turnValve3.addDialogStep("Turn it to the left.");
 
 		turnValve4 = new ObjectStep(getQuestHelper(), ObjectID.SEWERVALVE4, new WorldPoint(2597, 3263, 0),
-			"Turn the valve next to the zoo to the right.");
+			questHelper.t("Turn the valve next to the zoo to the right."));
 		turnValve4.addDialogStep("Turn it to the right.");
 
 		turnValve5 = new ObjectStep(getQuestHelper(), ObjectID.SEWERVALVE5, new WorldPoint(2611, 3242, 0),
-			"Turn the valve north of the monastery to the right.");
+			questHelper.t("Turn the valve north of the monastery to the right."));
 		turnValve5.addDialogStep("Turn it to the right.");
 
 		turnValve1NoDialog = new ObjectStep(getQuestHelper(), ObjectID.SEWERVALVE1, new WorldPoint(2562, 3247, 0),
-			"Turn the valve west of the Clocktower to the right.");
+			questHelper.t("Turn the valve west of the Clocktower to the right."));
 		turnValve1.addSubSteps(turnValve1NoDialog);
 
 		turnValve2NoDialog = new ObjectStep(getQuestHelper(), ObjectID.SEWERVALVE2, new WorldPoint(2572, 3263, 0),
-			"Turn the valve next to the Carnillean home to the right.");
+			questHelper.t("Turn the valve next to the Carnillean home to the right."));
 		turnValve2.addSubSteps(turnValve2NoDialog);
 
 		turnValve3NoDialog = new ObjectStep(getQuestHelper(), ObjectID.SEWERVALVE3, new WorldPoint(2585, 3245, 0),
-			"Turn the valve east of the Clocktower to the left.");
+			questHelper.t("Turn the valve east of the Clocktower to the left."));
 		turnValve3.addSubSteps(turnValve3NoDialog);
 
 		turnValve4NoDialog = new ObjectStep(getQuestHelper(), ObjectID.SEWERVALVE4, new WorldPoint(2597, 3263, 0),
-			"Turn the valve next to the zoo to the right.");
+			questHelper.t("Turn the valve next to the zoo to the right."));
 		turnValve4.addSubSteps(turnValve4NoDialog);
 
 		turnValve5NoDialog = new ObjectStep(getQuestHelper(), ObjectID.SEWERVALVE5, new WorldPoint(2611, 3242, 0),
-			"Turn the valve north of the monastery to the right.");
+			questHelper.t("Turn the valve north of the monastery to the right."));
 		turnValve5.addSubSteps(turnValve5NoDialog);
 	}
 
