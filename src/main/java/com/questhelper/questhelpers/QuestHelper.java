@@ -43,6 +43,7 @@ import com.questhelper.runeliteobjects.extendedruneliteobjects.RuneliteObjectMan
 import com.questhelper.steps.DetailedQuestStep;
 import com.questhelper.steps.OwnerStep;
 import com.questhelper.steps.QuestStep;
+import com.questhelper.util.TranslationService;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -72,6 +73,10 @@ public abstract class QuestHelper implements Module, QuestDebugRenderer
 	@Inject
 	@Getter
 	protected ConfigManager configManager;
+
+	@Inject
+	@Getter
+	protected TranslationService translationService;
 
 	@Inject
 	protected RuneliteObjectManager runeliteObjectManager;
