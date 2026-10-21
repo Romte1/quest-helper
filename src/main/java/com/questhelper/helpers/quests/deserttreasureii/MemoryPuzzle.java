@@ -57,7 +57,7 @@ public class MemoryPuzzle extends DetailedOwnerStep
 	QuestStep[] steps;
 	public MemoryPuzzle(QuestHelper questHelper)
 	{
-		super(questHelper, "Solve the memory puzzle. Make sure to go into air bubbles whenever your air meter is low.");
+		super(questHelper, questHelper.t("Solve the memory puzzle. Make sure to go into air bubbles whenever your air meter is low."));
 	}
 
 	@Override
@@ -70,13 +70,13 @@ public class MemoryPuzzle extends DetailedOwnerStep
 	protected void setupSteps()
 	{
 		swStep = new ObjectStep(getQuestHelper(), ObjectID.DT2_SCAR_MAZE_2_SEQUENCE_GROWTH,
-			new WorldPoint(1903, 6431, 0), "Touch the south-western growth.");
+			new WorldPoint(1903, 6431, 0), questHelper.t("Touch the south-western growth."));
 		nwStep = new ObjectStep(getQuestHelper(), ObjectID.DT2_SCAR_MAZE_2_SEQUENCE_GROWTH,
-			new WorldPoint(1900, 6442, 0), "Touch the north-western growth.");
+			new WorldPoint(1900, 6442, 0), questHelper.t("Touch the north-western growth."));
 		neStep = new ObjectStep(getQuestHelper(), ObjectID.DT2_SCAR_MAZE_2_SEQUENCE_GROWTH,
-		new WorldPoint(1909, 6441, 0), "Touch the north-eastern growth.");
+		new WorldPoint(1909, 6441, 0), questHelper.t("Touch the north-eastern growth."));
 		seStep = new ObjectStep(getQuestHelper(), ObjectID.DT2_SCAR_MAZE_2_SEQUENCE_GROWTH,
-			new WorldPoint(1914, 6434, 0), "Touch the south-eastern growth.");
+			new WorldPoint(1914, 6434, 0), questHelper.t("Touch the south-eastern growth."));
 
 		steps = new QuestStep[4];
 		// SW

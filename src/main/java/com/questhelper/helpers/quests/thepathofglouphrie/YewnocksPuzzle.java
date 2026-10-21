@@ -94,7 +94,7 @@ public class YewnocksPuzzle extends DetailedOwnerStep
 
 	public YewnocksPuzzle(ThePathOfGlouphrie pog)
 	{
-		super(pog, "Operate Yewnock's machine & solve the puzzle. All items left on the ground are lost.");
+		super(pog, pog.t("Operate Yewnock's machine & solve the puzzle. All items left on the ground are lost."));
 
 		loadDiscs(discs);
 		loadValueToRequirement(discs, valueToRequirement);
@@ -372,30 +372,30 @@ public class YewnocksPuzzle extends DetailedOwnerStep
 	@Override
 	protected void setupSteps()
 	{
-		getMoreDiscs = new ObjectStep(getQuestHelper(), ObjectID.POG_CHEST_CLOSED, regionPoint(34, 31), "Get more discs from the chests outside. You can drop discs before you get more. You can also use the exchanger next to Yewnock's machine.", true);
+		getMoreDiscs = new ObjectStep(getQuestHelper(), ObjectID.POG_CHEST_CLOSED, regionPoint(34, 31), getQuestHelper().t("Get more discs from the chests outside. You can drop discs before you get more. You can also use the exchanger next to Yewnock's machine."), true);
 
-		useExchanger = new ObjectStep(getQuestHelper(), ObjectID.POG_GNOME_MACHINE_03, regionPoint(22, 33), "A solution has been calculated, exit the machine interface & click Yewnock's exchanger.");
+		useExchanger = new ObjectStep(getQuestHelper(), ObjectID.POG_GNOME_MACHINE_03, regionPoint(22, 33), getQuestHelper().t("A solution has been calculated, exit the machine interface & click Yewnock's exchanger."));
 		useExchanger.addWidgetHighlight(InterfaceID.PogCoinMachine.CLOSE);
 
 		clickMachine = new ObjectStep(getQuestHelper(), ObjectID.POG_GNOME_MACHINE_02, regionPoint(22, 32),
-			"A solution has been found, click Yewnock's machine and insert the discs as prompted.");
+			getQuestHelper().t("A solution has been found, click Yewnock's machine and insert the discs as prompted."));
 		clickMachine.addWidgetHighlight(InterfaceID.PogCoinExchanger.CLOSE);
 
-		clickMachineOnce = new ObjectStep(getQuestHelper(), ObjectID.POG_GNOME_MACHINE_02, regionPoint(22, 32), "Operate Yewnock's machine to calculate a solution.");
+		clickMachineOnce = new ObjectStep(getQuestHelper(), ObjectID.POG_GNOME_MACHINE_02, regionPoint(22, 32), getQuestHelper().t("Operate Yewnock's machine to calculate a solution."));
 
-		machineInsertDisc = new DiscInsertionStep(getQuestHelper(), "Insert the highlighted disc into the highlighted slot.");
+		machineInsertDisc = new DiscInsertionStep(getQuestHelper(), getQuestHelper().t("Insert the highlighted disc into the highlighted slot."));
 		machineReset = new WidgetStep(getQuestHelper(),
-			"An incorrect disc has been inserted into the machine, click the reset button & follow the instructions.",
+			getQuestHelper().t("An incorrect disc has been inserted into the machine, click the reset button & follow the instructions."),
 			848, 25);
 		machineSubmit = new WidgetStep(getQuestHelper(),
-			"Click the submit button.",
+			getQuestHelper().t("Click the submit button."),
 			848, 26);
 
-		exchangerInsertDisc = new DiscInsertionStep(getQuestHelper(), "Insert the highlighted disc into the highlighted slot.");
+		exchangerInsertDisc = new DiscInsertionStep(getQuestHelper(), getQuestHelper().t("Insert the highlighted disc into the highlighted slot."));
 		exchangerExchange = new WidgetStep(getQuestHelper(), "", InterfaceID.PogCoinExchanger.EXCHANGE);
-		exchangerConfirm = new DetailedQuestStep(getQuestHelper(), "Click the confirm button.");
+		exchangerConfirm = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Click the confirm button."));
 		exchangerConfirm.addWidgetHighlight(InterfaceID.PogCoinExchanger.SUBMIT);
-		exchangerReset = new WidgetStep(getQuestHelper(), "Found unexpected disc(s) in the exchange input, reset & follow the instructions.");
+		exchangerReset = new WidgetStep(getQuestHelper(), getQuestHelper().t("Found unexpected disc(s) in the exchange input, reset & follow the instructions."));
 		exchangerReset.addWidgetHighlight(InterfaceID.PogCoinExchanger.RESET);
 
 		machineOpen = new WidgetPresenceRequirement(InterfaceID.PogCoinMachine.UNIVERSE);
@@ -730,7 +730,7 @@ public class YewnocksPuzzle extends DetailedOwnerStep
 						.stream()
 						.map(ItemRequirement::getName)
 						.collect(Collectors.joining(" or "));
-					exchangerExchange.setText(String.format("Click the exchange button until a %s appears.", discWeAreLookingFor));
+					exchangerExchange.setText(String.format(getQuestHelper().t("Click the exchange button until a %s appears."), discWeAreLookingFor));
 					startUpStep(exchangerExchange);
 					return;
 				}
@@ -756,11 +756,11 @@ public class YewnocksPuzzle extends DetailedOwnerStep
 			// The machine is open, prompt the user to close it then click the exchanger
 			if (solution.puzzle1Requirement == null)
 			{
-				useExchanger.setText("A partial solution has been calculated, exit the machine interface & click Yewnock's exchanger.");
+				useExchanger.setText(getQuestHelper().t("A partial solution has been calculated, exit the machine interface & click Yewnock's exchanger."));
 			}
 			else
 			{
-				useExchanger.setText("A solution has been calculated, exit the machine interface & click Yewnock's exchanger.");
+				useExchanger.setText(getQuestHelper().t("A solution has been calculated, exit the machine interface & click Yewnock's exchanger."));
 			}
 			startUpStep(useExchanger);
 			return;
@@ -770,11 +770,11 @@ public class YewnocksPuzzle extends DetailedOwnerStep
 		// The machine is not open, just prompt the user to click the exchanger
 		if (solution.puzzle1Requirement == null)
 		{
-			useExchanger.setText("A partial solution has been calculated, click Yewnock's exchanger to start exchanging discs.");
+			useExchanger.setText(getQuestHelper().t("A partial solution has been calculated, click Yewnock's exchanger to start exchanging discs."));
 		}
 		else
 		{
-			useExchanger.setText("A solution has been calculated, click Yewnock's exchanger to start exchanging discs.");
+			useExchanger.setText(getQuestHelper().t("A solution has been calculated, click Yewnock's exchanger to start exchanging discs."));
 		}
 		startUpStep(useExchanger);
 	}

@@ -212,10 +212,10 @@ public class VarrockHard extends ComplexStateQuestHelper
 		runedSceptre = new ItemRequirement("Runed sceptre", ItemID.SOS_SCEPTRE).showConditioned(notSkullSceptre);
 		combinedSkullSceptre = new ItemRequirement("Skull sceptre", ItemID.SOS_SKULL_SCEPTRE).showConditioned(notSkullSceptre);
 		dashingKeb = new ItemRequirement("Dashing kebbit fur", ItemID.HUNTINGBEAST_SPEEDY2_FUR).showConditioned(notSpottyCape);
-		dashingKeb.setTooltip("Requires 69 hunter to obtain.");
+		dashingKeb.setTooltip(t("Requires 69 hunter to obtain."));
 		coins = new ItemRequirement("Coins", ItemCollections.COINS).showConditioned(new Conditions(LogicType.OR, notSpottyCape, notFancyStone));
 		cape = new ItemRequirement("Spottier cape", ItemID.HUNTING_LIGHTER_CAPE).showConditioned(notSpottyCape).isNotConsumed();
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES).showConditioned(new Conditions(LogicType.OR,
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).showConditioned(new Conditions(LogicType.OR,
 			notWakkaEdge, notYewChurch, notYewRoots)).isNotConsumed();
 		lawRune = new ItemRequirement("Law rune", ItemID.LAWRUNE).showConditioned(notPaddewwaTP);
 		airRune = new ItemRequirement("Air rune", ItemID.AIRRUNE).showConditioned(notPaddewwaTP);
@@ -226,10 +226,10 @@ public class VarrockHard extends ComplexStateQuestHelper
 		rake = new ItemRequirement("Rake", ItemID.RAKE).showConditioned(notYewRoots).isNotConsumed();
 		spade = new ItemRequirement("Spade", ItemID.SPADE).showConditioned(notYewRoots).isNotConsumed();
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
 		inStronghold1 = new ZoneRequirement(stronghold1);
 		inStronghold2 = new ZoneRequirement(stronghold2);
@@ -290,88 +290,88 @@ public class VarrockHard extends ComplexStateQuestHelper
 	public void setupSteps()
 	{
 		moveToStronghold = new ObjectStep(this, ObjectID.SOS_DUNG_ENT_OPEN, new WorldPoint(3081, 3420, 0),
-			"Enter the Security Stronghold.", combatGear, food);
+			t("Enter the Security Stronghold."), combatGear, food);
 		killMino = new NpcStep(this, NpcID.SOS_WAR_MINOTAUR, new WorldPoint(1888, 5220, 0),
-			"Kill Minotaurs until you receive a right skull half.", rightSkull, combatGear, food);
+			t("Kill Minotaurs until you receive a right skull half."), rightSkull, combatGear, food);
 		killMino.addAlternateNpcs(NpcID.SOS_WAR_MINOTAUR2);
 		killMino.addAlternateNpcs(NpcID.SOS_WAR_MINOTAUR3);
 		moveToStronghold2 = new ObjectStep(this, ObjectID.SOS_WAR_LADD_DOWN, new WorldPoint(1902, 5222, 0),
-			"Go to the 2nd floor of the stronghold.", combatGear, food);
+			t("Go to the 2nd floor of the stronghold."), combatGear, food);
 		killFlesh = new NpcStep(this, NpcID.SOS_FAM_FLESHCRAWLER, new WorldPoint(2019, 5215, 0),
-			"Kill Flesh crawlers until you receive a bottom of sceptre.", combatGear, food, botSceptre);
+			t("Kill Flesh crawlers until you receive a bottom of sceptre."), combatGear, food, botSceptre);
 		killFlesh.addAlternateNpcs(NpcID.SOS_FAM_FLESHCRAWLER2);
 		killFlesh.addAlternateNpcs(NpcID.SOS_FAM_FLESHCRAWLER3);
 		moveToStronghold3 = new ObjectStep(this, ObjectID.SOS_FAM_LADD_DOWN, new WorldPoint(2026, 5218, 0),
-			"Go to the 3rd floor of the stronghold.", combatGear, food);
+			t("Go to the 3rd floor of the stronghold."), combatGear, food);
 		killCatablepon = new NpcStep(this, NpcID.SOS_PEST_CATABLEPON, new WorldPoint(2144, 5281, 0),
-			"Kill Catablepons until you receive a top of sceptre.", combatGear, food, topSceptre);
+			t("Kill Catablepons until you receive a top of sceptre."), combatGear, food, topSceptre);
 		killCatablepon.addAlternateNpcs(NpcID.SOS_PEST_CATABLEPON2);
 		killCatablepon.addAlternateNpcs(NpcID.SOS_PEST_CATABLEPON3);
 		moveToStronghold4 = new ObjectStep(this, ObjectID.SOS_PEST_LADD_DOWN, new WorldPoint(2148, 5284, 0),
-			"Go to the 4th floor of the stronghold.", combatGear, food);
+			t("Go to the 4th floor of the stronghold."), combatGear, food);
 		killAnkou = new NpcStep(this, NpcID.SOS_DEATH_ANKOU, new WorldPoint(2344, 5213, 0),
-			"Kill Ankous until you receive a left skull half.", combatGear, food, leftSkull);
+			t("Kill Ankous until you receive a left skull half."), combatGear, food, leftSkull);
 		killAnkou.addAlternateNpcs(NpcID.SOS_DEATH_ANKOU2);
 		killAnkou.addAlternateNpcs(NpcID.SOS_DEATH_ANKOU3);
-		makeSkull = new ItemStep(this, "Use both skull halves together.", leftSkull.highlighted(),
+		makeSkull = new ItemStep(this, t("Use both skull halves together."), leftSkull.highlighted(),
 			rightSkull.highlighted());
-		makeSceptre = new ItemStep(this, "Use the sceptre pieces together.", botSceptre.highlighted(), topSceptre.highlighted());
-		makeSkullSceptre = new ItemStep(this, "Use the runed sceptre and strange skull together.",
+		makeSceptre = new ItemStep(this, t("Use the sceptre pieces together."), botSceptre.highlighted(), topSceptre.highlighted());
+		makeSkullSceptre = new ItemStep(this, t("Use the runed sceptre and strange skull together."),
 			runedSceptre.highlighted(), strangeSkull.highlighted());
 		skullSceptre = new DetailedQuestStep(this,
-			"Right-click on the Skull sceptre and select 'Invoke' to teleport to the stronghold.",
+			t("Right-click on the Skull sceptre and select 'Invoke' to teleport to the stronghold."),
 			combinedSkullSceptre.highlighted());
 		getCape = new NpcStep(this, NpcID.TAILORP, new WorldPoint(3281, 3398, 0),
-			"Have Asyff make a spottier cape.", dashingKeb.quantity(2), coins.quantity(800));
+			t("Have Asyff make a spottier cape."), dashingKeb.quantity(2), coins.quantity(800));
 		getCape.addDialogStep("Could you make anything out of this fur that I got from hunting?");
-		spottyCape = new ItemStep(this, "Equip the spottier cape.", cape.highlighted());
+		spottyCape = new ItemStep(this, t("Equip the spottier cape."), cape.highlighted());
 		moveToBasement = new ObjectStep(this, ObjectID.VM_BASEMENT_WALL_STAIRS_DOWN, new WorldPoint(3256, 3452, 0),
-			"Climb down the Varrock Museum stairs.");
+			t("Climb down the Varrock Museum stairs."));
 		kudos = new NpcStep(this, NpcID.VM_NATHIS_APPRENTICE, new WorldPoint(1759, 4955, 0),
-			"Speak with Orlando.");
-		getKudos = new DetailedQuestStep(this, "Complete more quests and tasks for kudos. " +
-			"Check out the kudos wiki page for more details.");
+			t("Speak with Orlando."));
+		getKudos = new DetailedQuestStep(this, t("Complete more quests and tasks for kudos. " +
+			"Check out the kudos wiki page for more details."));
 		wakkaEdge = new ObjectStep(this, ObjectID.CANOEING_CANOESTATION_EDGEVILLE, new WorldPoint(3131, 3510, 0),
-			"Make a Waka at the canoe station in Edgeville.", axe);
-		paddewwaTP = new DetailedQuestStep(this, "Cast teleport to Paddewwa.", ancientBook, lawRune.quantity(2), airRune.quantity(1), fireRune.quantity(1));
+			t("Make a Waka at the canoe station in Edgeville."), axe);
+		paddewwaTP = new DetailedQuestStep(this, t("Cast teleport to Paddewwa."), ancientBook, lawRune.quantity(2), airRune.quantity(1), fireRune.quantity(1));
 		cutYew = new ObjectStep(this, ObjectID.DEADMAN_YEWTREE, new WorldPoint(3249, 3473, 0),
-			"Cut a yew tree until you get a log.", axe);
+			t("Cut a yew tree until you get a log."), axe);
 		goUp1 = new ObjectStep(this, ObjectID.VARROCK_SPIRALSTAIRS_TALLER, new WorldPoint(3259, 3488, 0),
-			"Climb to the top of the Varrock Church.", yewLog, tinderBox);
+			t("Climb to the top of the Varrock Church."), yewLog, tinderBox);
 		goUp2 = new ObjectStep(this, ObjectID.VARROCK_SPIRALSTAIRS_MIDDLE_TALLER, new WorldPoint(3259, 3488, 1),
-			"Climb the stairs.", yewLog, tinderBox);
+			t("Climb the stairs."), yewLog, tinderBox);
 		goUp2.addDialogStep("Climb up");
 		goUp3 = new ObjectStep(this, ObjectID.VARROCK_SPIRALSTAIRS_MIDDLE_TALLER, new WorldPoint(3259, 3488, 2),
-			"Climb the stairs.", yewLog, tinderBox);
+			t("Climb the stairs."), yewLog, tinderBox);
 		goUp3.addDialogStep("Climb up");
 		goUp1.addSubSteps(goUp2, goUp3);
-		burnLogs = new ItemStep(this, "Burn the yew logs on top of the church.", tinderBox.highlighted(),
+		burnLogs = new ItemStep(this, t("Burn the yew logs on top of the church."), tinderBox.highlighted(),
 			yewLog.highlighted());
 
 		fancyStone = new NpcStep(this, NpcID.POH_ESTATE_AGENT, new WorldPoint(3240, 3475, 0),
-			"Talk to the estate agent to redecorate your house to fancy stone.", coins.quantity(25000));
+			t("Talk to the estate agent to redecorate your house to fancy stone."), coins.quantity(25000));
 		fancyStone.addDialogStep("Can you redecorate my house please?");
 		growYew = new ObjectStep(this, ObjectID.YEW_TREE_FULLYGROWN_2, new WorldPoint(3229, 3459, 0),
-			"Grow and check the health of a yew tree in front of Varrock palace. " +
+			t("Grow and check the health of a yew tree in front of Varrock palace. " +
 				"Afterwards, dig up the stump to get the yew roots. " +
-				"If you're waiting for it to grow and want to complete further tasks, use the tick box on panel.",
+				"If you're waiting for it to grow and want to complete further tasks, use the tick box on panel."),
 			yewSap, rake, spade);
 		chopYew = new ObjectStep(this, ObjectID.YEW_TREE_FULLYGROWN_2, new WorldPoint(3229, 3459, 0),
-			"Chop the yew tree that you grew in front of Varrock palace. Afterwards, dig up the stump to get the Yew " +
-				"roots.", axe, spade);
+			t("Chop the yew tree that you grew in front of Varrock palace. Afterwards, dig up the stump to get the Yew " +
+				"roots."), axe, spade);
 		digUpYewRoots = new ObjectStep(this, ObjectID.YEW_TREE_STUMP, new WorldPoint(3229, 3459, 0),
-			"Dig up the stump to get the Yew roots.", spade);
+			t("Dig up the stump to get the Yew roots."), spade);
 		moveToUpstairs = new ObjectStep(this, ObjectID.VARROCK_SPIRALSTAIRS, new WorldPoint(3219, 3497, 0),
-			"Climb the stairs in the back of the Varrock palace.");
+			t("Climb the stairs in the back of the Varrock palace."));
 		prayAtAltar = new ObjectStep(this, ObjectID.ALTAR, new WorldPoint(3208, 3495, 1),
-			"Pray at altar with Smite active.", smiteActive);
+			t("Pray at altar with Smite active."), smiteActive);
 		moveToEdge = new ObjectStep(this, ObjectID.TRAPDOOR_OPEN, new WorldPoint(3097, 3468, 0),
-			"Enter the Edgeville dungeon.");
+			t("Enter the Edgeville dungeon."));
 		obsPipe = new ObjectStep(this, ObjectID.VARROCK_DUNGEON_PIPE_SC, new WorldPoint(3150, 9906, 0),
-			"Climb through the pipe shortcut near Vannaka.");
+			t("Climb through the pipe shortcut near Vannaka."));
 
 		claimReward = new NpcStep(this, NpcID.TOBY_VARROCK_DIARY, new WorldPoint(3225, 3415, 0),
-			"Talk to Toby in Varrock to claim your reward!");
+			t("Talk to Toby in Varrock to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -414,7 +414,7 @@ public class VarrockHard extends ComplexStateQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Kill various monsters in the stronghold of security (levels 13-86)");
+		return Collections.singletonList(t("Kill various monsters in the stronghold of security (levels 13-86)"));
 	}
 
 	@Override
@@ -429,11 +429,11 @@ public class VarrockHard extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("10% Chance to mine 2 ores at once up to adamantite ore"),
-			new UnlockReward("10% Chance of smelting 2 bars at once up to adamantite when using the Edgeville furnace"),
-			new UnlockReward("Zaff will sell 60 Battlestaves per day for 7,000 Coins each"),
-			new UnlockReward("The Skull sceptre will now hold 22 charges"),
-			new UnlockReward("Access to the Cooks' Guild bank"));
+			new UnlockReward(t("10% Chance to mine 2 ores at once up to adamantite ore")),
+			new UnlockReward(t("10% Chance of smelting 2 bars at once up to adamantite when using the Edgeville furnace")),
+			new UnlockReward(t("Zaff will sell 60 Battlestaves per day for 7,000 Coins each")),
+			new UnlockReward(t("The Skull sceptre will now hold 22 charges")),
+			new UnlockReward(t("Access to the Cooks' Guild bank")));
 	}
 
 	@Override
@@ -441,71 +441,71 @@ public class VarrockHard extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails yewRootsSteps = new PanelDetails("Yew Roots", Arrays.asList(growYew, chopYew, digUpYewRoots),
+		PanelDetails yewRootsSteps = new PanelDetails(t("Yew Roots"), Arrays.asList(growYew, chopYew, digUpYewRoots),
 			new SkillRequirement(Skill.FARMING, 68, true), new SkillRequirement(Skill.WOODCUTTING, 60, true), axe, spade,
 			rake, yewSap);
 		yewRootsSteps.setDisplayCondition(notYewRoots);
 		yewRootsSteps.setLockingStep(yewRootsTask);
 		allSteps.add(yewRootsSteps);
 
-		PanelDetails spottierCapeSteps = new PanelDetails("Trade for A Spottier Cape", Arrays.asList(getCape, spottyCape),
+		PanelDetails spottierCapeSteps = new PanelDetails(t("Trade for A Spottier Cape"), Arrays.asList(getCape, spottyCape),
 			new SkillRequirement(Skill.HUNTER, 66, false), dashingKeb.quantity(2), coins.quantity(800));
 		spottierCapeSteps.setDisplayCondition(notSpottyCape);
 		spottierCapeSteps.setLockingStep(spottyCapeTask);
 		allSteps.add(spottierCapeSteps);
 
-		PanelDetails kudosSteps = new PanelDetails("Speak with Orlando With 153+ Kudos", Arrays.asList(getKudos,
+		PanelDetails kudosSteps = new PanelDetails(t("Speak with Orlando With 153+ Kudos"), Arrays.asList(getKudos,
 			moveToBasement, kudos), atleast153Kudos);
 		kudosSteps.setDisplayCondition(not153Kudos);
 		kudosSteps.setLockingStep(kudosTask);
 		allSteps.add(kudosSteps);
 
-		PanelDetails yewChurchSteps = new PanelDetails("Cut and Burn Yew Logs Atop the Church", Arrays.asList(cutYew,
+		PanelDetails yewChurchSteps = new PanelDetails(t("Cut and Burn Yew Logs Atop the Church"), Arrays.asList(cutYew,
 			goUp1, burnLogs), new SkillRequirement(Skill.FIREMAKING, 60, true),
 			new SkillRequirement(Skill.WOODCUTTING, 60, true), axe, tinderBox);
 		yewChurchSteps.setDisplayCondition(notYewChurch);
 		yewChurchSteps.setLockingStep(yewChurchTask);
 		allSteps.add(yewChurchSteps);
 
-		PanelDetails fancyStoneSteps = new PanelDetails("Fancy Stone", Collections.singletonList(fancyStone),
+		PanelDetails fancyStoneSteps = new PanelDetails(t("Fancy Stone"), Collections.singletonList(fancyStone),
 			new SkillRequirement(Skill.CONSTRUCTION, 50, false), coins.quantity(25000));
 		fancyStoneSteps.setDisplayCondition(notFancyStone);
 		fancyStoneSteps.setLockingStep(fancyStoneTask);
 		allSteps.add(fancyStoneSteps);
 
-		PanelDetails smitedSteps = new PanelDetails("Altar Smited", Arrays.asList(moveToUpstairs,
+		PanelDetails smitedSteps = new PanelDetails(t("Altar Smited"), Arrays.asList(moveToUpstairs,
 			prayAtAltar), new SkillRequirement(Skill.PRAYER, 52, false));
 		smitedSteps.setDisplayCondition(notSmiteAltar);
 		smitedSteps.setLockingStep(smiteAltarTask);
 		allSteps.add(smitedSteps);
 
-		PanelDetails edgevilleWakkaSteps = new PanelDetails("Edgeville Wakka", Collections.singletonList(wakkaEdge),
+		PanelDetails edgevilleWakkaSteps = new PanelDetails(t("Edgeville Wakka"), Collections.singletonList(wakkaEdge),
 			new SkillRequirement(Skill.WOODCUTTING, 57, true), axe);
 		edgevilleWakkaSteps.setDisplayCondition(notWakkaEdge);
 		edgevilleWakkaSteps.setLockingStep(wakkaEdgeTask);
 		allSteps.add(edgevilleWakkaSteps);
 
-		PanelDetails paddewwaSteps = new PanelDetails("Teleport to Paddewwa", Collections.singletonList(paddewwaTP),
+		PanelDetails paddewwaSteps = new PanelDetails(t("Teleport to Paddewwa"), Collections.singletonList(paddewwaTP),
 			new SkillRequirement(Skill.MAGIC, 54, true), desertTreasure, ancientBook, lawRune.quantity(2),
 			airRune.quantity(1), fireRune.quantity(1));
 		paddewwaSteps.setDisplayCondition(notPaddewwaTP);
 		paddewwaSteps.setLockingStep(paddewwaTPTask);
 		allSteps.add(paddewwaSteps);
 
-		PanelDetails obstaclePipeSteps = new PanelDetails("Obstacle Pipe", Arrays.asList(moveToEdge, obsPipe),
+		PanelDetails obstaclePipeSteps = new PanelDetails(t("Obstacle Pipe"), Arrays.asList(moveToEdge, obsPipe),
 			new SkillRequirement(Skill.AGILITY, 51, true));
 		obstaclePipeSteps.setDisplayCondition(notPipe);
 		obstaclePipeSteps.setLockingStep(pipeTask);
 		allSteps.add(obstaclePipeSteps);
 
-		PanelDetails skullSceptreSteps = new PanelDetails("Teleport with Skull Sceptre", Arrays.asList(moveToStronghold,
+		PanelDetails skullSceptreSteps = new PanelDetails(t("Teleport with Skull Sceptre"), Arrays.asList(moveToStronghold,
 			killMino, moveToStronghold2, killFlesh, moveToStronghold3, killCatablepon, moveToStronghold4, killAnkou,
 			makeSkull, makeSceptre, makeSkullSceptre, skullSceptre), combatGear, food);
 		skullSceptreSteps.setDisplayCondition(notSkullSceptre);
 		skullSceptreSteps.setLockingStep(skullSceptreTask);
 		allSteps.add(skullSceptreSteps);
 
-		PanelDetails finishOffSteps = new PanelDetails("Finishing off", Collections.singletonList(claimReward));
+		PanelDetails finishOffSteps = new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward));
 		allSteps.add(finishOffSteps);
 
 		return allSteps;

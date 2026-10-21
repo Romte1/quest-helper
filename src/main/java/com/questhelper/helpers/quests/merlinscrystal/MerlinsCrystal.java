@@ -172,7 +172,7 @@ public class MerlinsCrystal extends BasicQuestHelper
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
 		bucketOfWax = new ItemRequirement("Bucket of wax", ItemID.BUCKET_WAX).canBeObtainedDuringQuest();
 		batBones = new ItemRequirement("Bat bones", ItemID.BAT_BONES).canBeObtainedDuringQuest();
-		combatGear = new ItemRequirement("Combat gear + food for Sir Mordred (level 39)", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear + food for Sir Mordred (level 39)"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		varrockTeleport = new ItemRequirement("Teleport to Varrock", ItemID.POH_TABLET_VARROCKTELEPORT);

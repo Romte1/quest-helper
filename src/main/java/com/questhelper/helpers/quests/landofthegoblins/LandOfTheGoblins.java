@@ -112,7 +112,7 @@ public class LandOfTheGoblins extends BasicQuestHelper
 
 		steps.put(2, goTalkToZanik);
 
-		DetailedQuestStep watchTheCutscene = new DetailedQuestStep(this, "Watch the cutscene.");
+		DetailedQuestStep watchTheCutscene = new DetailedQuestStep(this, t("Watch the cutscene."));
 		goTalkToZanik.addSubSteps(watchTheCutscene);
 
 		steps.put(4, watchTheCutscene);
@@ -173,7 +173,7 @@ public class LandOfTheGoblins extends BasicQuestHelper
 		steps.put(30, talkToPriest);
 		steps.put(32, talkToPriest);
 
-		returnToTempleWithDyes = new ConditionalStep(this, goToTempleWithDyes, "Return to the goblin temple with all the dyes and some combat gear.");
+		returnToTempleWithDyes = new ConditionalStep(this, goToTempleWithDyes, t("Return to the goblin temple with all the dyes and some combat gear."));
 		returnToTempleWithDyes.addStep(isAGoblin, enterTempleDoorForThieving);
 		returnToTempleWithDyes.addStep(goblinSelectionActive, confirmGoblin);
 		returnToTempleWithDyes.addStep(inFrontOfGuardsWithGoblinPotion, drinkGoblinPotion);
@@ -208,7 +208,7 @@ public class LandOfTheGoblins extends BasicQuestHelper
 
 		steps.put(34, getKeys);
 
-		ConditionalStep goEnterCrypt = new ConditionalStep(this, enterGoblinCaveForKilling, "Return to the goblin temple with some combat gear.");
+		ConditionalStep goEnterCrypt = new ConditionalStep(this, enterGoblinCaveForKilling, t("Return to the goblin temple with some combat gear."));
 		goEnterCrypt.addStep(inGoblinTemple, enterCrypt);
 		goEnterCrypt.addStep(isAGoblin, enterTempleDoorForThieving);
 		goEnterCrypt.addStep(goblinSelectionActive, confirmGoblin);
@@ -355,23 +355,23 @@ public class LandOfTheGoblins extends BasicQuestHelper
 		vial = new ItemRequirement("Vial", ItemID.VIAL_EMPTY).hideConditioned(new Conditions(LogicType.OR, unlockedDoor, huzamogaarbKey));
 		blackMushroom = new ItemRequirement("Black mushroom", ItemID.GOLEM_MUSHROOM).hideConditioned(new Conditions(LogicType.OR, unlockedDoor, huzamogaarbKey));
 		blackDye = new ItemRequirement("Black dye", ItemID.GOLEM_INK).hideConditioned(new Conditions(LogicType.OR, unlockedDoor, huzamogaarbKey));
-		blackDye.setTooltip("Black mushrooms obtainable during quest - bring empty vial and pestle and mortar");
+		blackDye.setTooltip(t("Black mushrooms obtainable during quest - bring empty vial and pestle and mortar"));
 		fishingRod = new ItemRequirement("Fishing rod", ItemID.FISHING_ROD).hideConditioned(new Conditions(LogicType.OR, unlockedDoor, saragorgakKey));
 		rawSlimyEel = new ItemRequirement("Raw slimy eel", ItemID.MORT_SLIMEY_EEL).hideConditioned(new Conditions(LogicType.OR, unlockedDoor, saragorgakKey));
 		coins = new ItemRequirement("Coins", ItemCollections.COINS, 5).hideConditioned(new Conditions(LogicType.OR, unlockedDoor, saragorgakKey));
-		noPet = new NoFollowerRequirement("No pet following you");
+		noPet = new NoFollowerRequirement(t("No pet following you"));
 		combatGear = new ItemRequirement("Combat gear", -1, -1);
 
-		invSpaceToUnequip = new ItemRequirement("Inventory space to unequip all your items", -1, -1);
-		noEquippedItems = new NoItemRequirement("No equipped items", ItemSlots.ANY_EQUIPPED);
+		invSpaceToUnequip = new ItemRequirement(t("Inventory space to unequip all your items"), -1, -1);
+		noEquippedItems = new NoItemRequirement(t("No equipped items"), ItemSlots.ANY_EQUIPPED);
 
 		recommendedCombatLevel = new CombatLevelRequirement(65);
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX);
-		tinderbox.setTooltip("If using an extinguishable light source");
+		tinderbox.setTooltip(t("If using an extinguishable light source"));
 		dorgeshKaanSphereRec = new ItemRequirement("Dorgesh-Kaan sphere", ItemID.DORGESH_TELEPORT_ARTIFACT, 2);
 		dramenStaff = new ItemRequirement("Dramen staff", ItemID.DRAMEN_STAFF);
 		dramenStaff.addAlternates(ItemID.LUNAR_MOONCLAN_LIMINAL_STAFF);
-		dramenStaff.setTooltip("For transportation via fairy rings");
+		dramenStaff.setTooltip(t("For transportation via fairy rings"));
 		skillsNecklace = new ItemRequirement("Skills necklace", ItemCollections.SKILLS_NECKLACES, 3);
 		skillsNecklace.setChargedItem(true);
 		combatBracelet = new ItemRequirement("Combat bracelet", ItemCollections.COMBAT_BRACELETS);
@@ -456,56 +456,56 @@ public class LandOfTheGoblins extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		goDownIntoBasement = new ObjectStep(this, ObjectID.QIP_COOK_TRAPDOOR_OPEN, new WorldPoint(3209, 3216, 0), "Enter the Lumbridge Castle basement.");
+		goDownIntoBasement = new ObjectStep(this, ObjectID.QIP_COOK_TRAPDOOR_OPEN, new WorldPoint(3209, 3216, 0), t("Enter the Lumbridge Castle basement."));
 		climbThroughHole = new ObjectStep(this, ObjectID.LOST_TRIBE_CELLAR_WALL, new WorldPoint(3219, 9618, 0), "");
-		talkToKazgar = new NpcStep(this, NpcID.LOST_TRIBE_GUIDE_3OPS, new WorldPoint(3230, 9610, 0), "Travel with Kazgar to shortcut to Mistag.");
+		talkToKazgar = new NpcStep(this, NpcID.LOST_TRIBE_GUIDE_3OPS, new WorldPoint(3230, 9610, 0), t("Travel with Kazgar to shortcut to Mistag."));
 		talkToKazgar.addDialogStep("Can you show me the way to the mines?");
 
 		talkToGrubfoot = new NpcStep(this, NpcID.LOTG_GRUBFOOT, new WorldPoint(3318, 9611, 0), "");
 		talkToGrubfoot.addDialogStep("Yes.");
 		talkToGrubfoot.addDialogStep("Follow me.");
-		enterDorgeshKaan = new ObjectStep(this, ObjectID.CAVE_GOBLIN_CITY_DOORR, new WorldPoint(3317, 9601, 0), "Enter the city of Dorgesh-Kaan.");
+		enterDorgeshKaan = new ObjectStep(this, ObjectID.CAVE_GOBLIN_CITY_DOORR, new WorldPoint(3317, 9601, 0), t("Enter the city of Dorgesh-Kaan."));
 		talkToZanik = new NpcStep(this, NpcID.LOTG_ZANIK, new WorldPoint(2704, 5365, 0),
-			"Talk to Zanik in Oldak's lab.");
+			t("Talk to Zanik in Oldak's lab."));
 		talkToZanik.addDialogStep("So why have you come to talk to Zanik?");
 		talkToZanik.addDialogStep("What was this new dream?");
 		talkToZanik.addDialogSteps("It's just a dream. It doesn't mean anything.", "I think it must mean something.", "I don't know.");
 		talkToZanik.addDialogStep("I'm ready.");
 
-		enterGoblinCave = new ObjectStep(this, ObjectID.MCANNONCAVE, new WorldPoint(2624, 3393, 0), "Enter the Goblin Cave next to the Fishing Guild.");
-		talkToZanikGoblinCave = new NpcStep(this, NpcID.LOTG_ZANIK, new WorldPoint(2617, 9797, 0), "Talk to Zanik and get her to follow you.");
+		enterGoblinCave = new ObjectStep(this, ObjectID.MCANNONCAVE, new WorldPoint(2624, 3393, 0), t("Enter the Goblin Cave next to the Fishing Guild."));
+		talkToZanikGoblinCave = new NpcStep(this, NpcID.LOTG_ZANIK, new WorldPoint(2617, 9797, 0), t("Talk to Zanik and get her to follow you."));
 		talkToZanikGoblinCave.addDialogStep("Follow me.");
-		talkToGuard = new NpcStep(this, NpcID.LOTG_GOBLIN_GUARD1, new WorldPoint(2580, 9852, 0), "Talk to the goblin guard in the northwest of the cave.");
+		talkToGuard = new NpcStep(this, NpcID.LOTG_GOBLIN_GUARD1, new WorldPoint(2580, 9852, 0), t("Talk to the goblin guard in the northwest of the cave."));
 		talkToMakeoverMage = new NpcStep(this, new int[]{NpcID.MAKEOVER_MAGE, NpcID.MAKEOVER_MAGE_FEMALE}, new WorldPoint(2917, 3322, 0),
-			"Talk to the Makeover Mage southwest of Falador.", toadflaxPotionUnf);
+			t("Talk to the Makeover Mage southwest of Falador."), toadflaxPotionUnf);
 		((NpcStep) talkToMakeoverMage).addTeleport(skillsNecklace.quantity(1).named("Skills necklace (Crafting Guild [3])"));
 		talkToMakeoverMage.addDialogSteps("Can you turn me into a goblin?", "I need to slip past some goblin guards.", "Can you turn me into a goblin or not?");
-		pickPharmakosBerry = new ObjectStep(this, ObjectID.LOTG_PHARMAKOS_BUSH, "Pick some Pharmakos berries from the bushes outside.", toadflaxPotionUnf);
-		mixGoblinPotion = new DetailedQuestStep(this, "Use the pharmakos berries on the unfinished toadflax potion.", pharmakosBerryHighlight, toadflaxUnfHighlight);
-		goBackToGoblinCave = new ObjectStep(this, ObjectID.MCANNONCAVE, new WorldPoint(2624, 3393, 0), "Go back to the Goblin Cave outside the Fishing Guild.",
+		pickPharmakosBerry = new ObjectStep(this, ObjectID.LOTG_PHARMAKOS_BUSH, t("Pick some Pharmakos berries from the bushes outside."), toadflaxPotionUnf);
+		mixGoblinPotion = new DetailedQuestStep(this, t("Use the pharmakos berries on the unfinished toadflax potion."), pharmakosBerryHighlight, toadflaxUnfHighlight);
+		goBackToGoblinCave = new ObjectStep(this, ObjectID.MCANNONCAVE, new WorldPoint(2624, 3393, 0), t("Go back to the Goblin Cave outside the Fishing Guild."),
 			goblinPotion, vial, pestleAndMortar, noEquippedItems);
 		((ObjectStep) goBackToGoblinCave).addTeleport(skillsNecklace.quantity(1).named("Skills necklace (Fishing Guild [1])"));
-		pickBlackMushrooms = new ObjectStep(this, ObjectID.GOLEM_BLACK_MUSHROOMS, new WorldPoint(2577, 9845, 0), "Pick some black mushrooms and use it on a vial to make black dye.",
+		pickBlackMushrooms = new ObjectStep(this, ObjectID.GOLEM_BLACK_MUSHROOMS, new WorldPoint(2577, 9845, 0), t("Pick some black mushrooms and use it on a vial to make black dye."),
 			goblinPotion, vial, pestleAndMortar, noEquippedItems);
-		makeBlackDye = new DetailedQuestStep(this, "Make black dye by using the blackmushrooms on a vial.", blackMushroom.highlighted(), vial.highlighted(), pestleAndMortar);
-		goToGuards = new DetailedQuestStep(this, new WorldPoint(2580, 9850, 0), "Go to the area outside the temple near the guards.", goblinPotion, noEquippedItems);
-		drinkGoblinPotion = new DetailedQuestStep(this, "Drink the goblin potion.", goblinPotionHighlight, noEquippedItems);
-		confirmGoblin = new WidgetStep(this, "Confirm to become a goblin. Your selection doesn't matter.", 739, 31);
+		makeBlackDye = new DetailedQuestStep(this, t("Make black dye by using the blackmushrooms on a vial."), blackMushroom.highlighted(), vial.highlighted(), pestleAndMortar);
+		goToGuards = new DetailedQuestStep(this, new WorldPoint(2580, 9850, 0), t("Go to the area outside the temple near the guards."), goblinPotion, noEquippedItems);
+		drinkGoblinPotion = new DetailedQuestStep(this, t("Drink the goblin potion."), goblinPotionHighlight, noEquippedItems);
+		confirmGoblin = new WidgetStep(this, t("Confirm to become a goblin. Your selection doesn't matter."), 739, 31);
 		talkToGuardAsGoblin = new NpcStep(this, NpcID.LOTG_GOBLIN_GUARD1, new WorldPoint(2580, 9852, 0),
-			"Talk to the goblin guard to enter the temple. If you want, you can tell them to guess your name until you get one you like.", blackDye);
+			t("Talk to the goblin guard to enter the temple. If you want, you can tell them to guess your name until you get one you like."), blackDye);
 		talkToGuardAsGoblin.addDialogStep("Me want get into temple.");
 		talkToGuardAsGoblin.addDialogStep(Pattern.compile("^Yes, me .*"));
 		talkToGuardAsGoblin.addDialogStep("Yes.");
 
-		getGoblinMail = new ObjectStep(this, ObjectID.LOTG_ARMOUR_CRATE, new WorldPoint(3747, 4309, 0), "Search the crate by the entrance for some goblin mail.", blackDye);
-		dyeGoblinMail = new DetailedQuestStep(this, "Use the black dye on the goblin mail.", blackDye.highlighted(), goblinMail.highlighted());
-		enterNorthEastRoom = new NpcStep(this, NpcID.LOTG_GOBLIN_GUARD_BLACK, new WorldPoint(3753, 4329, 0), "Pass by the guard to the northeastern room. WARNING: If you teleport away with a full inventory and while wearing the goblin mail, it will be DESTROYED.", blackGoblinMail.highlighted().equipped());
-		enterNorthEastRoomForKey = new NpcStep(this, NpcID.LOTG_GOBLIN_GUARD_BLACK, new WorldPoint(3753, 4329, 0), "Pass by the guard to the northeastern room again.", blackGoblinMail.highlighted().equipped());
+		getGoblinMail = new ObjectStep(this, ObjectID.LOTG_ARMOUR_CRATE, new WorldPoint(3747, 4309, 0), t("Search the crate by the entrance for some goblin mail."), blackDye);
+		dyeGoblinMail = new DetailedQuestStep(this, t("Use the black dye on the goblin mail."), blackDye.highlighted(), goblinMail.highlighted());
+		enterNorthEastRoom = new NpcStep(this, NpcID.LOTG_GOBLIN_GUARD_BLACK, new WorldPoint(3753, 4329, 0), t("Pass by the guard to the northeastern room. WARNING: If you teleport away with a full inventory and while wearing the goblin mail, it will be DESTROYED."), blackGoblinMail.highlighted().equipped());
+		enterNorthEastRoomForKey = new NpcStep(this, NpcID.LOTG_GOBLIN_GUARD_BLACK, new WorldPoint(3753, 4329, 0), t("Pass by the guard to the northeastern room again."), blackGoblinMail.highlighted().equipped());
 
-		searchCrateForSphere = new ObjectStep(this, ObjectID.LOTG_SPHERE_CRATE, new WorldPoint(3757, 4342, 0), "Search the crate for a Dorgesh-Kaan sphere.");
-		talkToZanikInCell = new NpcStep(this, NpcID.LOTG_ZANIK, new WorldPoint(3751, 4343, 0), "Talk to Zanik in the cell.", dorgeshKaanSphere);
-		leaveNorthEastRoom = new NpcStep(this, NpcID.LOTG_GOBLIN_GUARD_BLACK, new WorldPoint(3753, 4329, 0), "Pass by the guard to leave the northeastern room.");
-		talkToPriestInTemple = new NpcStep(this, NpcID.LOTG_GOBLIN_HIGH_PRIEST, new WorldPoint(3744, 4328, 0), "Talk to High Priest Bighead. When prompted, answer in this order: True, False, False.");
+		searchCrateForSphere = new ObjectStep(this, ObjectID.LOTG_SPHERE_CRATE, new WorldPoint(3757, 4342, 0), t("Search the crate for a Dorgesh-Kaan sphere."));
+		talkToZanikInCell = new NpcStep(this, NpcID.LOTG_ZANIK, new WorldPoint(3751, 4343, 0), t("Talk to Zanik in the cell."), dorgeshKaanSphere);
+		leaveNorthEastRoom = new NpcStep(this, NpcID.LOTG_GOBLIN_GUARD_BLACK, new WorldPoint(3753, 4329, 0), t("Pass by the guard to leave the northeastern room."));
+		talkToPriestInTemple = new NpcStep(this, NpcID.LOTG_GOBLIN_HIGH_PRIEST, new WorldPoint(3744, 4328, 0), t("Talk to High Priest Bighead. When prompted, answer in this order: True, False, False."));
 		var q1 = new DialogChoiceStep(config, "True.");
 		q1.setExpectedPreviousLine("True or false: Those who do not believe in Big High War God, whether they goblins or other races, must die.");
 		talkToPriestInTemple.addDialogStep(q1);
@@ -525,29 +525,29 @@ public class LandOfTheGoblins extends BasicQuestHelper
 		talkToPriestInTemple.addDialogStep("Where is Yu'biusk?");
 		talkToPriestInTemple.addDialogStep("Can I talk to old high priests?");
 
-		goBackToGoblinCaveNoDye = new ObjectStep(this, ObjectID.MCANNONCAVE, new WorldPoint(2624, 3393, 0), "Go back to the Goblin Cave outside the Fishing Guild.",
+		goBackToGoblinCaveNoDye = new ObjectStep(this, ObjectID.MCANNONCAVE, new WorldPoint(2624, 3393, 0), t("Go back to the Goblin Cave outside the Fishing Guild."),
 			goblinPotion, noEquippedItems);
 
-		enterGoblinCaveForKilling = new ObjectStep(this, ObjectID.MCANNONCAVE, new WorldPoint(2624, 3393, 0), "Go back to the Goblin Cave outside the Fishing Guild, ready for fighting.",
+		enterGoblinCaveForKilling = new ObjectStep(this, ObjectID.MCANNONCAVE, new WorldPoint(2624, 3393, 0), t("Go back to the Goblin Cave outside the Fishing Guild, ready for fighting."),
 			goblinPotion, noEquippedItems, combatGear);
 
-		goToGuardsNoDye = new DetailedQuestStep(this, new WorldPoint(2580, 9850, 0), "Go to the area outside the temple near the guards.", goblinPotion, noEquippedItems);
-		drinkGoblinPotionNoDye = new DetailedQuestStep(this, "Drink the goblin potion.", goblinPotionHighlight, noEquippedItems);
-		talkToGuardAsGoblinNoDye = new NpcStep(this, NpcID.LOTG_GOBLIN_GUARD1, new WorldPoint(2580, 9852, 0), "Talk to the goblin guard to enter the temple. If you want, you can tell them to guess your name until you get one you like.");
+		goToGuardsNoDye = new DetailedQuestStep(this, new WorldPoint(2580, 9850, 0), t("Go to the area outside the temple near the guards."), goblinPotion, noEquippedItems);
+		drinkGoblinPotionNoDye = new DetailedQuestStep(this, t("Drink the goblin potion."), goblinPotionHighlight, noEquippedItems);
+		talkToGuardAsGoblinNoDye = new NpcStep(this, NpcID.LOTG_GOBLIN_GUARD1, new WorldPoint(2580, 9852, 0), t("Talk to the goblin guard to enter the temple. If you want, you can tell them to guess your name until you get one you like."));
 		talkToGuardAsGoblin.addDialogStep("Me want get into temple.");
 		talkToGuardAsGoblin.addDialogStep(Pattern.compile("^Yes, me .*"));
 		talkToGuardAsGoblin.addDialogStep("Yes.");
 
-		pickpocketPriest = new NpcStep(this, NpcID.LOTG_GOBLIN_PRIEST_BLACK_2OP, new WorldPoint(3754, 4340, 0), "Pickpocket a key from the priest.");
-		talkToAggie = new NpcStep(this, NpcID.AGGIE, new WorldPoint(3086, 3258, 0), "Talk to Aggie in Draynor Village.");
+		pickpocketPriest = new NpcStep(this, NpcID.LOTG_GOBLIN_PRIEST_BLACK_2OP, new WorldPoint(3754, 4340, 0), t("Pickpocket a key from the priest."));
+		talkToAggie = new NpcStep(this, NpcID.AGGIE, new WorldPoint(3086, 3258, 0), t("Talk to Aggie in Draynor Village."));
 		((NpcStep) talkToAggie).addAlternateNpcs(NpcID.AGGIE_1OP);
 		((NpcStep) talkToAggie).addTeleport(draynorTeleport.quantity(1).named("Amulet of glory (Draynor Village [3])"));
 		talkToAggie.addDialogSteps("Draynor Village", "Can you make dyes for me, please?", "Can you make black or white dye?", "Thanks.");
-		goToHemenster = new ObjectStep(this, ObjectID.FISHINGGATECLOSEDR, new WorldPoint(2642, 3441, 0), "Go to Hemenster to catch a whitefish.", fishingRod, rawSlimyEel);
+		goToHemenster = new ObjectStep(this, ObjectID.FISHINGGATECLOSEDR, new WorldPoint(2642, 3441, 0), t("Go to Hemenster to catch a whitefish."), fishingRod, rawSlimyEel);
 		((ObjectStep) goToHemenster).addTeleport(combatBracelet.named("Combat bracelet (Ranging Guild [4])"));
 		goToHemenster.addDialogSteps("Ranging Guild", "I need to catch a Hemenster Whitefish.");
-		catchWhitefish = new NpcStep(this, NpcID._0_41_53_SINISTERFISHSPOT, new WorldPoint(2637, 3444, 0), "Catch a Hemenster whitefish.", fishingRod, rawSlimyEel);
-		talkToAggieWithFish = new NpcStep(this, NpcID.AGGIE, new WorldPoint(3086, 3258, 0), "Bring the whitefish and black goblin mail to Aggie.", coins, hemensterWhitefish, blackGoblinMail);
+		catchWhitefish = new NpcStep(this, NpcID._0_41_53_SINISTERFISHSPOT, new WorldPoint(2637, 3444, 0), t("Catch a Hemenster whitefish."), fishingRod, rawSlimyEel);
+		talkToAggieWithFish = new NpcStep(this, NpcID.AGGIE, new WorldPoint(3086, 3258, 0), t("Bring the whitefish and black goblin mail to Aggie."), coins, hemensterWhitefish, blackGoblinMail);
 		((NpcStep) talkToAggieWithFish).addAlternateNpcs(NpcID.AGGIE_1OP);
 		((NpcStep) talkToAggieWithFish).addTeleport(draynorTeleport.quantity(1).named("Amulet of glory (Draynor Village [3])"));
 		talkToAggieWithFish.addDialogSteps("Draynor Village", "Can you make dyes for me, please?", "Could you remove the dye from this goblin mail?");
@@ -555,87 +555,86 @@ public class LandOfTheGoblins extends BasicQuestHelper
 			"", whiteGoblinMail, goblinPotion, huzamogaarbKey, yellowDye, blueDye, orangeDye, purpleDye, noEquippedItems, combatGear);
 		((ObjectStep) goToTempleWithDyes).addTeleport(skillsNecklace.quantity(1).named("Skills necklace (Fishing Guild [1])"));
 
-		enterTempleDoorForThieving = new ObjectStep(this, ObjectID.LOTG_GOBLIN_STAIRCASE, new WorldPoint(2581, 9853, 0), "Enter the temple.");
+		enterTempleDoorForThieving = new ObjectStep(this, ObjectID.LOTG_GOBLIN_STAIRCASE, new WorldPoint(2581, 9853, 0), t("Enter the temple."));
 
-		dyeGoblinMailYellow = new DetailedQuestStep(this, "Use the yellow dye on your goblin mail. It is safe to unequip the goblin mail inside the enclave, you will be thrown out to the center area.",
+		dyeGoblinMailYellow = new DetailedQuestStep(this, t("Use the yellow dye on your goblin mail. It is safe to unequip the goblin mail inside the enclave, you will be thrown out to the center area."),
 			yellowDye.highlighted(), anyGoblinMail.highlighted());
-		dyeGoblinMailBlue = new DetailedQuestStep(this, "Use the blue dye on your goblin mail. It is safe to unequip the goblin mail inside the enclave, you will be thrown out to the center area.",
+		dyeGoblinMailBlue = new DetailedQuestStep(this, t("Use the blue dye on your goblin mail. It is safe to unequip the goblin mail inside the enclave, you will be thrown out to the center area."),
 			blueDye.highlighted(), anyGoblinMail.highlighted());
-		dyeGoblinMailOrange = new DetailedQuestStep(this, "Use the orange dye on your goblin mail. It is safe to unequip the goblin mail inside the enclave, you will be thrown out to the center area.",
+		dyeGoblinMailOrange = new DetailedQuestStep(this, t("Use the orange dye on your goblin mail. It is safe to unequip the goblin mail inside the enclave, you will be thrown out to the center area."),
 			orangeDye.highlighted(), anyGoblinMail.highlighted());
-		dyeGoblinMailPurple = new DetailedQuestStep(this, "Use the purple dye on your goblin mail. It is safe to unequip the goblin mail inside the enclave, you will be thrown out to the center area.",
+		dyeGoblinMailPurple = new DetailedQuestStep(this, t("Use the purple dye on your goblin mail. It is safe to unequip the goblin mail inside the enclave, you will be thrown out to the center area."),
 			purpleDye.highlighted(), anyGoblinMail.highlighted());
 
-		passWhiteGuard = new NpcStep(this, NpcID.LOTG_GOBLIN_GUARD_WHITE, new WorldPoint(3732, 4320, 0), "Pass by the guard to enter the western area.", whiteGoblinMail.equipped().highlighted());
-		passYellowGuard = new NpcStep(this, NpcID.LOTG_GOBLIN_GUARD_YELLOW, new WorldPoint(3735, 4329, 0), "Pass by the guard to enter the north-western area.", yellowGoblinMail.equipped().highlighted());
-		passBlueGuard = new NpcStep(this, NpcID.LOTG_GOBLIN_GUARD_BLUE, new WorldPoint(3756, 4320, 0), "Pass by the guard to enter the eastern area.", blueGoblinMail.equipped().highlighted());
-		passOrangeGuard = new NpcStep(this, NpcID.LOTG_GOBLIN_GUARD_ORANGE, new WorldPoint(3753, 4311, 0), "Pass by the guard to enter the south-eastern area.", orangeGoblinMail.equipped().highlighted());
-		passPurpleGuard = new NpcStep(this, NpcID.LOTG_GOBLIN_GUARD_PURPLE, new WorldPoint(3735, 4311, 0), "Pass by the guard to enter the south-western area.", purpleGoblinMail.equipped().highlighted());
+		passWhiteGuard = new NpcStep(this, NpcID.LOTG_GOBLIN_GUARD_WHITE, new WorldPoint(3732, 4320, 0), t("Pass by the guard to enter the western area."), whiteGoblinMail.equipped().highlighted());
+		passYellowGuard = new NpcStep(this, NpcID.LOTG_GOBLIN_GUARD_YELLOW, new WorldPoint(3735, 4329, 0), t("Pass by the guard to enter the north-western area."), yellowGoblinMail.equipped().highlighted());
+		passBlueGuard = new NpcStep(this, NpcID.LOTG_GOBLIN_GUARD_BLUE, new WorldPoint(3756, 4320, 0), t("Pass by the guard to enter the eastern area."), blueGoblinMail.equipped().highlighted());
+		passOrangeGuard = new NpcStep(this, NpcID.LOTG_GOBLIN_GUARD_ORANGE, new WorldPoint(3753, 4311, 0), t("Pass by the guard to enter the south-eastern area."), orangeGoblinMail.equipped().highlighted());
+		passPurpleGuard = new NpcStep(this, NpcID.LOTG_GOBLIN_GUARD_PURPLE, new WorldPoint(3735, 4311, 0), t("Pass by the guard to enter the south-western area."), purpleGoblinMail.equipped().highlighted());
 
-		pickpocketWhitePriest = new NpcStep(this, NpcID.LOTG_GOBLIN_PRIEST_WHITE_2OP, new WorldPoint(3727, 4316, 0), "Pickpocket the priest in the western room for the Saragorak key.");
-		pickpocketYellowPriest = new NpcStep(this, NpcID.LOTG_GOBLIN_PRIEST_YELLOW_2OP, new WorldPoint(3727, 4330, 0), "Pickpocket the priest in the north-western room for the Yurkolgokh key.");
-		pickpocketBluePriest = new NpcStep(this, NpcID.LOTG_GOBLIN_PRIEST_BLUE_2OP, new WorldPoint(3760, 4320, 0), "Pickpocket the priest in the eastern room for the Ekeleshuun key.");
-		pickpocketOrangePriest = new NpcStep(this, NpcID.LOTG_GOBLIN_PRIEST_ORANGE_2OP, new WorldPoint(3762, 4318, 0), "Pickpocket the priest in the south-eastern room for the Narogoshuun key.");
-		pickpocketPurplePriest = new NpcStep(this, NpcID.LOTG_GOBLIN_PRIEST_PURPLE_2OP, new WorldPoint(3730, 4302, 0), "Pickpocket the priest in the south-western room for the Horogothgar key.");
+		pickpocketWhitePriest = new NpcStep(this, NpcID.LOTG_GOBLIN_PRIEST_WHITE_2OP, new WorldPoint(3727, 4316, 0), t("Pickpocket the priest in the western room for the Saragorak key."));
+		pickpocketYellowPriest = new NpcStep(this, NpcID.LOTG_GOBLIN_PRIEST_YELLOW_2OP, new WorldPoint(3727, 4330, 0), t("Pickpocket the priest in the north-western room for the Yurkolgokh key."));
+		pickpocketBluePriest = new NpcStep(this, NpcID.LOTG_GOBLIN_PRIEST_BLUE_2OP, new WorldPoint(3760, 4320, 0), t("Pickpocket the priest in the eastern room for the Ekeleshuun key."));
+		pickpocketOrangePriest = new NpcStep(this, NpcID.LOTG_GOBLIN_PRIEST_ORANGE_2OP, new WorldPoint(3762, 4318, 0), t("Pickpocket the priest in the south-eastern room for the Narogoshuun key."));
+		pickpocketPurplePriest = new NpcStep(this, NpcID.LOTG_GOBLIN_PRIEST_PURPLE_2OP, new WorldPoint(3730, 4302, 0), t("Pickpocket the priest in the south-western room for the Horogothgar key."));
 
-		unlockCrypt = new ObjectStep(this, ObjectID.LOTG_TEMPLE_HUGE_DOOR, new WorldPoint(3744, 4332, 0), "Unlock the door using the 6 keys. You may leave to gear up after unlocking it.", huzamogaarbKey, saragorgakKey, yurkolgokhKey, ekeleshuunKey, nargoshuunKey, horogothgarKey);
-		enterCrypt = new ObjectStep(this, ObjectID.LOTG_TEMPLE_HUGE_DOOR, new WorldPoint(3744, 4332, 0), "Enter the crypt.", combatGear);
+		unlockCrypt = new ObjectStep(this, ObjectID.LOTG_TEMPLE_HUGE_DOOR, new WorldPoint(3744, 4332, 0), t("Unlock the door using the 6 keys. You may leave to gear up after unlocking it."), huzamogaarbKey, saragorgakKey, yurkolgokhKey, ekeleshuunKey, nargoshuunKey, horogothgarKey);
+		enterCrypt = new ObjectStep(this, ObjectID.LOTG_TEMPLE_HUGE_DOOR, new WorldPoint(3744, 4332, 0), t("Enter the crypt."), combatGear);
 		enterCrypt.addDialogStep("Yes.");
 
-		sayNameSnothead = new ObjectStep(this, ObjectID.LOTG_CRYPT_PRIEST_GRAVE1, new WorldPoint(3738, 4385, 0), "Say Snothead's name at the south-west grave.");
-		sayNameSnailfeet = new ObjectStep(this, ObjectID.LOTG_CRYPT_PRIEST_GRAVE2, new WorldPoint(3746, 4385, 0), "Say Snailfeet's name at the south-east grave.");
+		sayNameSnothead = new ObjectStep(this, ObjectID.LOTG_CRYPT_PRIEST_GRAVE1, new WorldPoint(3738, 4385, 0), t("Say Snothead's name at the south-west grave."));
+		sayNameSnailfeet = new ObjectStep(this, ObjectID.LOTG_CRYPT_PRIEST_GRAVE2, new WorldPoint(3746, 4385, 0), t("Say Snailfeet's name at the south-east grave."));
 		sayNameSnailfeet.addDialogStep("Snailfeet.");
-		sayNameMosschin = new ObjectStep(this, ObjectID.LOTG_CRYPT_PRIEST_GRAVE3, new WorldPoint(3738, 4389, 0), "Say Mosschin's name at the north-west grave.");
+		sayNameMosschin = new ObjectStep(this, ObjectID.LOTG_CRYPT_PRIEST_GRAVE3, new WorldPoint(3738, 4389, 0), t("Say Mosschin's name at the north-west grave."));
 		sayNameMosschin.addDialogStep("Mosschin.");
-		sayNameRedeyes = new ObjectStep(this, ObjectID.LOTG_CRYPT_PRIEST_GRAVE4, new WorldPoint(3746, 4389, 0), "Say Redeyes's name at the north-east grave.");
+		sayNameRedeyes = new ObjectStep(this, ObjectID.LOTG_CRYPT_PRIEST_GRAVE4, new WorldPoint(3746, 4389, 0), t("Say Redeyes's name at the north-east grave."));
 		sayNameRedeyes.addDialogStep("Redeyes.");
-		sayNameStrongbones = new ObjectStep(this, ObjectID.LOTG_CRYPT_PRIEST_GRAVE5, new WorldPoint(3742, 4393, 0), "Say Strongbones's name at the north grave.");
+		sayNameStrongbones = new ObjectStep(this, ObjectID.LOTG_CRYPT_PRIEST_GRAVE5, new WorldPoint(3742, 4393, 0), t("Say Strongbones's name at the north grave."));
 		sayNameStrongbones.addDialogStep("Strongbones.");
 
-		defeatSnothead = new NpcStep(this, NpcID.LOTG_GOBLIN_SKELETON_HIGH_PRIEST1, "Defeat Snothead. He attacks using melee.");
-		defeatSnailfeet = new NpcStep(this, NpcID.LOTG_GOBLIN_SKELETON_HIGH_PRIEST2, "Defeat Snailfeet. He attacks using melee and range.");
-		defeatMosschin = new NpcStep(this, NpcID.LOTG_GOBLIN_SKELETON_HIGH_PRIEST3, "Defeat Mosschin. He attacks using melee and magic.");
-		defeatRedeyes = new NpcStep(this, NpcID.LOTG_GOBLIN_SKELETON_HIGH_PRIEST4, "Defeat Redeyes. He attacks using melee and magic, and lowers your attack, strength, and defence.");
-		defeatStrongbones = new NpcStep(this, NpcID.LOTG_GOBLIN_SKELETON_HIGH_PRIEST5, "Defeat Strongbones. He attacks using all 3 combat styles, lowers your attack, strength and defence. Ignore the level 29 Skoblins he spawns.");
+		defeatSnothead = new NpcStep(this, NpcID.LOTG_GOBLIN_SKELETON_HIGH_PRIEST1, t("Defeat Snothead. He attacks using melee."));
+		defeatSnailfeet = new NpcStep(this, NpcID.LOTG_GOBLIN_SKELETON_HIGH_PRIEST2, t("Defeat Snailfeet. He attacks using melee and range."));
+		defeatMosschin = new NpcStep(this, NpcID.LOTG_GOBLIN_SKELETON_HIGH_PRIEST3, t("Defeat Mosschin. He attacks using melee and magic."));
+		defeatRedeyes = new NpcStep(this, NpcID.LOTG_GOBLIN_SKELETON_HIGH_PRIEST4, t("Defeat Redeyes. He attacks using melee and magic, and lowers your attack, strength, and defence."));
+		defeatStrongbones = new NpcStep(this, NpcID.LOTG_GOBLIN_SKELETON_HIGH_PRIEST5, t("Defeat Strongbones. He attacks using all 3 combat styles, lowers your attack, strength and defence. Ignore the level 29 Skoblins he spawns."));
 
-		learnSnailfeet = new NpcStep(this, NpcID.LOTG_GOBLIN_SKELETON_HIGH_PRIEST1_DEFEATED, "Talk to Snothead to learn the name of the next priest.");
+		learnSnailfeet = new NpcStep(this, NpcID.LOTG_GOBLIN_SKELETON_HIGH_PRIEST1_DEFEATED, t("Talk to Snothead to learn the name of the next priest."));
 		learnSnailfeet.addDialogStep("What was your predecessor's name?");
-		learnMosschin = new NpcStep(this, NpcID.LOTG_GOBLIN_SKELETON_HIGH_PRIEST2_DEFEATED, "Talk to Snailfeet to learn the name of the next priest.");
+		learnMosschin = new NpcStep(this, NpcID.LOTG_GOBLIN_SKELETON_HIGH_PRIEST2_DEFEATED, t("Talk to Snailfeet to learn the name of the next priest."));
 		learnMosschin.addDialogStep("What was your predecessor's name?");
-		learnRedeyes = new NpcStep(this, NpcID.LOTG_GOBLIN_SKELETON_HIGH_PRIEST3_DEFEATED, "Talk to Mosschin to learn the name of the next priest.");
+		learnRedeyes = new NpcStep(this, NpcID.LOTG_GOBLIN_SKELETON_HIGH_PRIEST3_DEFEATED, t("Talk to Mosschin to learn the name of the next priest."));
 		learnRedeyes.addDialogStep("What was your predecessor's name?");
-		learnStrongbones = new NpcStep(this, NpcID.LOTG_GOBLIN_SKELETON_HIGH_PRIEST4_DEFEATED, "Talk to Redeyes to learn the name of the next priest.");
+		learnStrongbones = new NpcStep(this, NpcID.LOTG_GOBLIN_SKELETON_HIGH_PRIEST4_DEFEATED, t("Talk to Redeyes to learn the name of the next priest."));
 		learnStrongbones.addDialogStep("What was your predecessor's name?");
-		learnYubiusk = new NpcStep(this, NpcID.LOTG_GOBLIN_SKELETON_HIGH_PRIEST5_DEFEATED, "Talk to Strongbones to learn where Yu'biusk is.");
+		learnYubiusk = new NpcStep(this, NpcID.LOTG_GOBLIN_SKELETON_HIGH_PRIEST5_DEFEATED, t("Talk to Strongbones to learn where Yu'biusk is."));
 		learnYubiusk.addDialogStep("Where is Yu'biusk?");
 
-		talkToOldak = new NpcStep(this, NpcID.DORGESH_OLDAK_THERE, new WorldPoint(2703, 5366, 0), "Talk to Oldak in his workshop.");
-		climbDorgeshKaanStairsF0 = new ObjectStep(this, ObjectID.DORGESH_1STAIRS, new WorldPoint(2714, 5283, 0), "If you have access to fairy rings, travel to AJQ. Otherwise, climb the stairs in south Dorgesh-Kaan.");
-		climbDorgeshKaanStairsF1 = new ObjectStep(this, ObjectID.DORGESH_2STAIRS_POSH, new WorldPoint(2723, 5253, 1), "Climb up the stairs to the south to enter the Dorgesh-Kaan cave.");
-		climbLadderTop = new ObjectStep(this, ObjectID.DORGESH_CAVES_LADDER_DOWN, new WorldPoint(2719, 5241, 3), "Climb down the ladder to the west.");
-		talkToOldakAtMachine = new NpcStep(this, NpcID.DORGESH_OLDAK_THERE_1OP, new WorldPoint(2741, 5220, 0), "Talk to Oldak near the machine at the fairy ring " +
-			"in the the caves south of Dorgesh-Kaan.");
-		inspectMachine = new ObjectStep(this, ObjectID.LOTG_FAIRY_RING_MACHINE_SETUP_THERE, new WorldPoint(2740, 5219, 0), "Fix the machine.");
+		talkToOldak = new NpcStep(this, NpcID.DORGESH_OLDAK_THERE, new WorldPoint(2703, 5366, 0), t("Talk to Oldak in his workshop."));
+		climbDorgeshKaanStairsF0 = new ObjectStep(this, ObjectID.DORGESH_1STAIRS, new WorldPoint(2714, 5283, 0), t("If you have access to fairy rings, travel to AJQ. Otherwise, climb the stairs in south Dorgesh-Kaan."));
+		climbDorgeshKaanStairsF1 = new ObjectStep(this, ObjectID.DORGESH_2STAIRS_POSH, new WorldPoint(2723, 5253, 1), t("Climb up the stairs to the south to enter the Dorgesh-Kaan cave."));
+		climbLadderTop = new ObjectStep(this, ObjectID.DORGESH_CAVES_LADDER_DOWN, new WorldPoint(2719, 5241, 3), t("Climb down the ladder to the west."));
+		talkToOldakAtMachine = new NpcStep(this, NpcID.DORGESH_OLDAK_THERE_1OP, new WorldPoint(2741, 5220, 0), t("Talk to Oldak near the machine at the fairy ring in the the caves south of Dorgesh-Kaan."));
+		inspectMachine = new ObjectStep(this, ObjectID.LOTG_FAIRY_RING_MACHINE_SETUP_THERE, new WorldPoint(2740, 5219, 0), t("Fix the machine."));
 
-		increaseFirst = new WidgetStep(this, "Set the first value to 9.", 738, 21);
-		decreaseFirst = new WidgetStep(this, "Set the first value to 9.", 738, 22);
-		increaseSecond = new WidgetStep(this, "Set the second value to 4.", 738, 23);
-		decreaseSecond = new WidgetStep(this, "Set the first value to 4.", 738, 24);
-		increaseThird = new WidgetStep(this, "Set the first value to 1.", 738, 25);
-		decreaseThird = new WidgetStep(this, "Set the first value to 1.", 738, 26);
-		confirmFixMachine = new WidgetStep(this, "Fix the machine.", 738, 39);
-		watchYubiuskCutscene = new DetailedQuestStep(this, "Watch the cutscene.");
+		increaseFirst = new WidgetStep(this, t("Set the first value to 9."), 738, 21);
+		decreaseFirst = new WidgetStep(this, t("Set the first value to 9."), 738, 22);
+		increaseSecond = new WidgetStep(this, t("Set the second value to 4."), 738, 23);
+		decreaseSecond = new WidgetStep(this, t("Set the first value to 4."), 738, 24);
+		increaseThird = new WidgetStep(this, t("Set the first value to 1."), 738, 25);
+		decreaseThird = new WidgetStep(this, t("Set the first value to 1."), 738, 26);
+		confirmFixMachine = new WidgetStep(this, t("Fix the machine."), 738, 39);
+		watchYubiuskCutscene = new DetailedQuestStep(this, t("Watch the cutscene."));
 
 		goToYubiusk = new NpcStep(this, NpcID.DORGESH_OLDAK_THERE_1OP, new WorldPoint(2741, 5220, 0),
-			"Talk to Oldak to return to Yu'Biusk.");
+			t("Talk to Oldak to return to Yu'Biusk."));
 		openBox = new ObjectStep(this, ObjectID.LOTG_BANDOS_SARCOPHAGUS, new WorldPoint(3537, 4389, 0),
-			"Walk up to the strange box and watch the cutscene. Quest complete!");
+			t("Walk up to the strange box and watch the cutscene. Quest complete!"));
 
 		ConditionalStep getToMine = new ConditionalStep(this, goDownIntoBasement);
 		getToMine.addStep(inTunnels, talkToKazgar);
 		getToMine.addStep(inBasement, climbThroughHole);
 
-		goTalkToGrubfoot = new ConditionalStep(this, getToMine, "Talk to Grubfoot in the Dorgeshuun Mines.");
+		goTalkToGrubfoot = new ConditionalStep(this, getToMine, t("Talk to Grubfoot in the Dorgeshuun Mines."));
 		goTalkToGrubfoot.addStep(inMines, talkToGrubfoot);
 
 		ConditionalStep enterCity = new ConditionalStep(this, getToMine);
@@ -646,9 +645,9 @@ public class LandOfTheGoblins extends BasicQuestHelper
 		goTalkToZanik.addStep(grubfootFollowing, enterCity);
 
 		// TODO: Add a teleport step to use one of the Dorgesh-Kaan spheres
-		goReturnToDorg = new ConditionalStep(this, enterCity, "Return to Dorgesh-Kaan and speak to Oldak.");
+		goReturnToDorg = new ConditionalStep(this, enterCity, t("Return to Dorgesh-Kaan and speak to Oldak."));
 
-		returnToDorgeshKaanOrFairyRing = new ConditionalStep(this, enterCity, "If you have access to fairy rings, travel to AJQ. Otherwise, return to Dorgesh-Kaan.");
+		returnToDorgeshKaanOrFairyRing = new ConditionalStep(this, enterCity, t("If you have access to fairy rings, travel to AJQ. Otherwise, return to Dorgesh-Kaan."));
 
 		drinkGoblinPotion.addSubSteps(confirmGoblin);
 		drinkGoblinPotionNoDye.addSubSteps(confirmGoblin);
@@ -684,11 +683,11 @@ public class LandOfTheGoblins extends BasicQuestHelper
 	@Override
 	public ArrayList<String> getCombatRequirements()
 	{
-		return new ArrayList<>(ImmutableList.of("Snothead (level 32)",
-			"Snailfeet (level 56)",
-			"Mosschin (level 88)",
-			"Redeyes (level 121)",
-			"Strongbones (level 184)"));
+		return new ArrayList<>(ImmutableList.of(t("Snothead (level 32)"),
+			t("Snailfeet (level 56)"),
+			t("Mosschin (level 88)"),
+			t("Redeyes (level 121)"),
+			t("Strongbones (level 184)")));
 	}
 
 	@Override
@@ -720,38 +719,38 @@ public class LandOfTheGoblins extends BasicQuestHelper
 
 	@Override
 	public List<UnlockReward> getUnlockRewards() {
-		return Arrays.asList(new UnlockReward("Access to the Goblin Temple"),
-			new UnlockReward("Access to Yu'Biusk (with fairy ring code BLQ)"),
-			new UnlockReward("Ability to purchase plain of mud spheres"),
-			new UnlockReward("Ability to make goblin potions"));
+		return Arrays.asList(new UnlockReward(t("Access to the Goblin Temple")),
+			new UnlockReward(t("Access to Yu'Biusk (with fairy ring code BLQ)")),
+			new UnlockReward(t("Ability to purchase plain of mud spheres")),
+			new UnlockReward(t("Ability to make goblin potions")));
 	}
 
 	@Override
 	public ArrayList<PanelDetails> getPanels()
 	{
 		ArrayList<PanelDetails> panels = new ArrayList<>();
-		panels.add(new PanelDetails("Grubfoot's Dream",
+		panels.add(new PanelDetails(t("Grubfoot's Dream"),
 			Arrays.asList(goTalkToGrubfoot, enterDorgeshKaan, talkToZanik),
 			lightSource, noPet));
-		panels.add(new PanelDetails("Impostor Among Goblins",
+		panels.add(new PanelDetails(t("Impostor Among Goblins"),
 			Arrays.asList(enterGoblinCave, talkToZanikGoblinCave, talkToGuard, talkToMakeoverMage, pickPharmakosBerry, mixGoblinPotion),
 			Collections.singletonList(toadflaxPotionUnf),
 			Arrays.asList(skillsNecklace, invSpaceToUnequip)));
-		panels.add(new PanelDetails("The Temple of Tribes",
+		panels.add(new PanelDetails(t("The Temple of Tribes"),
 			Arrays.asList(goBackToGoblinCave, goToGuards, pickBlackMushrooms, makeBlackDye, drinkGoblinPotion, talkToGuardAsGoblin, dyeGoblinMail, enterNorthEastRoom, searchCrateForSphere, talkToZanikInCell,
 				leaveNorthEastRoom, talkToPriestInTemple, enterNorthEastRoomForKey, pickpocketPriest),
 			Arrays.asList(noPet, goblinPotion, vial, pestleAndMortar, goblinMail),
 			Arrays.asList(skillsNecklace.quantity(1), invSpaceToUnequip, dorgeshKaanSphereRec)));
-		panels.add(new PanelDetails("Keys to the Crypt",
+		panels.add(new PanelDetails(t("Keys to the Crypt"),
 			Arrays.asList(talkToAggie, goToHemenster, catchWhitefish, talkToAggieWithFish, returnToTempleWithDyes, pickpocketWhitePriest, dyeGoblinMailYellow,
 				pickpocketYellowPriest, dyeGoblinMailBlue, pickpocketBluePriest, dyeGoblinMailOrange, pickpocketOrangePriest,
 				dyeGoblinMailPurple, pickpocketPurplePriest, unlockCrypt),
 			Arrays.asList(fishingRod, rawSlimyEel, coins, yellowDye, blueDye, orangeDye, purpleDye, blackGoblinMail, goblinPotion, huzamogaarbKey, combatGear),
 			Arrays.asList(draynorTeleport, combatBracelet, skillsNecklace.quantity(1))));
-		panels.add(new PanelDetails("High Priests of Ages Past",
+		panels.add(new PanelDetails(t("High Priests of Ages Past"),
 			Arrays.asList(enterCrypt, sayNameSnothead, defeatSnothead, sayNameSnailfeet, defeatSnailfeet, sayNameMosschin, defeatMosschin, sayNameRedeyes, defeatRedeyes, sayNameStrongbones, defeatStrongbones, learnYubiusk),
 			combatGear));
-		panels.add(new PanelDetails("Path to Yu'biusk",
+		panels.add(new PanelDetails(t("Path to Yu'biusk"),
 			Arrays.asList(goReturnToDorg, talkToOldak, talkToOldakAtMachine, inspectMachine, watchYubiuskCutscene, openBox),
 			Collections.singletonList(lightSource),
 			Arrays.asList(dorgeshKaanSphereRec, dramenStaff)));

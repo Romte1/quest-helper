@@ -159,13 +159,13 @@ public class NatureSpirit extends BasicQuestHelper
 		druidPouchFull = new ItemRequirement("Druidic pouch", ItemID.DRUID_POUCH);
 		blessedSickle = new ItemRequirement("Silver sickle (b)", ItemID.SILVER_SICKLE_BLESSED);
 		blessedSickle.setTooltip(t("You can bless another silver sickle with the nature spirit"));
-		spellCard = new ItemRequirement("A used spell or druidic spell", ItemID.USED_BLOOM_SPELL);
+		spellCard = new ItemRequirement(t("A used spell or druidic spell"), ItemID.USED_BLOOM_SPELL);
 		spellCard.addAlternates(ItemID.BLOOM_SPELL);
 		spellCard.setTooltip(t("You can get another spell from Filliman"));
 		mushroom = new ItemRequirement("Mort myre fungus", ItemID.MORTMYREMUSHROOM);
 		mushroomHighlighted = mushroom.highlighted();
 		salveTele = new ItemRequirement("Salve Graveyard Teleports", ItemID.TELETAB_SALVE, 2);
-		combatGear = new ItemRequirement("Combat gear to kill the ghasts", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear to kill the ghasts"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		inUnderground = new ZoneRequirement(underground);
 		onOrange = new ZoneRequirement(orangeStone);

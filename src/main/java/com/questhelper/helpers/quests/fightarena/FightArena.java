@@ -117,7 +117,7 @@ public class FightArena extends BasicQuestHelper
 
 		coins = new ItemRequirement("Coins", ItemCollections.COINS, 5);
 
-		combatGear = new ItemRequirement("Combat equipment and food (magic/ranged if you want to safe spot)", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat equipment and food (magic/ranged if you want to safe spot)"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		khazardHelmet = new ItemRequirement("Khazard helmet", ItemID.KHAZARD_HELMET);

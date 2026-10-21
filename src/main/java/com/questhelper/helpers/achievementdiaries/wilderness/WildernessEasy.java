@@ -155,20 +155,20 @@ public class WildernessEasy extends ComplexStateQuestHelper
 		firstTimeAbyss = new VarbitRequirement(VarbitID.RCU_ABYSSAL_WARNING, 1);
 		normalBook = new SpellbookRequirement(Spellbook.NORMAL);
 
-		chaosAccess = new ItemRequirement("Access to the Chaos altar",
+		chaosAccess = new ItemRequirement(t("Access to the Chaos altar"),
 			ItemCollections.CHAOS_ALTAR).showConditioned(notChaosTemple).isNotConsumed();
-		chaosAccess.setTooltip("Chaos Talisman/Tiara, Catalytic Talisman/Tiara, RC-skill cape or travel through Abyss");
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).showConditioned(notIronOre).isNotConsumed();
-		teamCape = new ItemRequirement("Any team cape", ItemCollections.TEAM_CAPE).showConditioned(notEquipTeamCape).isNotConsumed();
+		chaosAccess.setTooltip(t("Chaos Talisman/Tiara, Catalytic Talisman/Tiara, RC-skill cape or travel through Abyss"));
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).showConditioned(notIronOre).isNotConsumed();
+		teamCape = new ItemRequirement(t("Any team cape"), ItemCollections.TEAM_CAPE).showConditioned(notEquipTeamCape).isNotConsumed();
 		redSpiderEggs = new ItemRequirement("Red spider eggs", ItemID.RED_SPIDERS_EGGS).showConditioned(notSpiderEggs);
-		alchable = new ItemRequirement("Any item that is alch-able", 1, -1);
+		alchable = new ItemRequirement(t("Any item that is alch-able"), 1, -1);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		burningAmulet = new ItemRequirement("Burning amulet", ItemCollections.BURNING_AMULETS);
-		oneClick = new ItemRequirement("A one click teleport or accept imminent death", 1, -1)
+		oneClick = new ItemRequirement(t("A one click teleport or accept imminent death"), 1, -1)
 			.showConditioned(notEnterKBDLair);
 
 		inWildy = new ZoneRequirement(wildy);
@@ -193,58 +193,58 @@ public class WildernessEasy extends ComplexStateQuestHelper
 	public void setupSteps()
 	{
 		killMammoth = new NpcStep(this, NpcID.WILDERNESS_MAMMOTH, new WorldPoint(3164, 3593, 0),
-			"Kill a Mammoth in the Wilderness.", combatGear);
+			t("Kill a Mammoth in the Wilderness."), combatGear);
 
 		moveToEdgeSpider = new ObjectStep(this, ObjectID.TRAPDOOR_OPEN, new WorldPoint(3097, 3468, 0),
-			"Enter the Edgeville dungeon.", food);
+			t("Enter the Edgeville dungeon."), food);
 
 		moveToEdgeEarth = new ObjectStep(this, ObjectID.TRAPDOOR_OPEN, new WorldPoint(3097, 3468, 0),
-			"Enter the Edgeville dungeon.", combatGear, food);
+			t("Enter the Edgeville dungeon."), combatGear, food);
 
-		moveToWildy = new DetailedQuestStep(this, "Enter the Wilderness.", teamCape);
-		equipTeamCape = new DetailedQuestStep(this, "Equip a team cape. If you already have one on, re-equip it.",
+		moveToWildy = new DetailedQuestStep(this, t("Enter the Wilderness."), teamCape);
+		equipTeamCape = new DetailedQuestStep(this, t("Equip a team cape. If you already have one on, re-equip it."),
 			teamCape.equipped());
 
 		chaosTemple = new ObjectStep(this, ObjectID.CHAOSTEMPLE_RUINED, new WorldPoint(3060, 3591, 0),
-			"Enter the chaos altar north of Edgeville with a chaos talisman/tiara, or enter it through the Abyss.");
+			t("Enter the chaos altar north of Edgeville with a chaos talisman/tiara, or enter it through the Abyss."));
 		chaosTemple.addIcon(ItemID.CHAOS_TALISMAN);
 
 		moveToFount = new DetailedQuestStep(this, new WorldPoint(3374, 3893, 0),
-			"Go to the Fountain of Rune with an item you can cast Low Alchemy on.");
+			t("Go to the Fountain of Rune with an item you can cast Low Alchemy on."));
 		lowAlch = new ObjectStep(this, ObjectID.FOUNTAIN_OF_RUNE_OBELISK_DESKTOP, new WorldPoint(3374, 3893, 0),
-			"Cast Low Alchemy on anything.");
+			t("Cast Low Alchemy on anything."));
 
 		abyssEnable = new NpcStep(this, NpcID.RCU_ZAMMY_MAGE1_EDGEB, new WorldPoint(3259, 3385, 0),
-			"Speak with the Mage of Zamorak in Varrock and ask him about the Abyss.");
+			t("Speak with the Mage of Zamorak in Varrock and ask him about the Abyss."));
 		enterAbyss = new NpcStep(this, NpcID.RCU_ZAMMY_MAGE1B, new WorldPoint(3105, 3556, 0),
-			"Speak with the Mage of Zamorak in the Wilderness to teleport to the Abyss.");
+			t("Speak with the Mage of Zamorak in the Wilderness to teleport to the Abyss."));
 
 		ironOre = new ObjectStep(this, ObjectID.IRONROCK1, new WorldPoint(3104, 3570, 0),
-			"Mine iron in the Wilderness.", pickaxe);
+			t("Mine iron in the Wilderness."), pickaxe);
 
-		spiderEggs = new ItemStep(this, new WorldPoint(3122, 9953, 0), "Pickup 5 red spider eggs in the Edgeville " +
-			"Wilderness Dungeon.", redSpiderEggs);
+		spiderEggs = new ItemStep(this, new WorldPoint(3122, 9953, 0), t("Pickup 5 red spider eggs in the Edgeville " +
+			"Wilderness Dungeon."), redSpiderEggs);
 
 		earthWarrior = new NpcStep(this, NpcID.EARTHWARRIOR, new WorldPoint(3121, 9972, 0),
-			"Kill an Earth warrior in the north of the Edgeville Wilderness Dungeon.", combatGear, food);
+			t("Kill an Earth warrior in the north of the Edgeville Wilderness Dungeon."), combatGear, food);
 
 		wildyLever = new ObjectStep(this, ObjectID.EDGEVILLE_WILDY_LEVER, new WorldPoint(3090, 3475, 0),
-			"Pull the Lever in Edgeville. This will take you to DEEP Wilderness, bank anything you aren't willing to lose.");
+			t("Pull the Lever in Edgeville. This will take you to DEEP Wilderness, bank anything you aren't willing to lose."));
 
 		demonicPrayer = new DetailedQuestStep(this, new WorldPoint(3288, 3886, 0),
-			"Stand in the Demonic Ruins until the ruins automatically restore a prayer point for you. You must be at " +
-				"less than your max prayer points.");
+			t("Stand in the Demonic Ruins until the ruins automatically restore a prayer point for you. You must be at " +
+				"less than your max prayer points."));
 
 		chaosAltar = new ObjectStep(this, ObjectID.CHAOSALTAR, new WorldPoint(2947, 3821, 0),
-			"Pray at the Chaos Altar.");
+			t("Pray at the Chaos Altar."));
 
 		enterKBDLair = new ObjectStep(this, ObjectID.WILDYMIRRORLADDERTOP1, new WorldPoint(3017, 3849, 0),
-			"Climb down the ladder that leads to the King Black Dragon Lair.", oneClick);
+			t("Climb down the ladder that leads to the King Black Dragon Lair."), oneClick);
 		enterKBDLair2 = new ObjectStep(this, ObjectID.DRAGONKINGINLEVER, new WorldPoint(3067, 10253, 0),
-			"Pull the lever to enter the King Black Dragon lair.", oneClick);
+			t("Pull the lever to enter the King Black Dragon lair."), oneClick);
 
 		claimReward = new NpcStep(this, NpcID.LESSER_FANATIC_DIARY, new WorldPoint(3121, 3518, 0),
-			"Talk to the Lesser Fanatic in Edgeville to claim your reward!");
+			t("Talk to the Lesser Fanatic in Edgeville to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -276,7 +276,7 @@ public class WildernessEasy extends ComplexStateQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Kill an Earth Warrior (lvl 51) and a Mammoth (lvl 80).");
+		return Collections.singletonList(t("Kill an Earth Warrior (lvl 51) and a Mammoth (lvl 80)."));
 	}
 
 	@Override
@@ -292,8 +292,8 @@ public class WildernessEasy extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("Wilderness lever can teleport you to either Edgeville or Ardougne"),
-			new UnlockReward("40 random free runes from Lundail once per day")
+			new UnlockReward(t("Wilderness lever can teleport you to either Edgeville or Ardougne")),
+			new UnlockReward(t("40 random free runes from Lundail once per day"))
 		);
 	}
 
@@ -303,76 +303,76 @@ public class WildernessEasy extends ComplexStateQuestHelper
 		List<PanelDetails> allSteps = new ArrayList<>();
 
 		/* Edgeville-region tasks */
-		PanelDetails teamCapeSteps = new PanelDetails("Team Cape", Arrays.asList(moveToWildy, equipTeamCape), teamCape);
+		PanelDetails teamCapeSteps = new PanelDetails(t("Team Cape"), Arrays.asList(moveToWildy, equipTeamCape), teamCape);
 		teamCapeSteps.setDisplayCondition(notEquipTeamCape);
 		teamCapeSteps.setLockingStep(equipTeamCapeTask);
 		allSteps.add(teamCapeSteps);
 
-		PanelDetails eggsSteps = new PanelDetails("Spider Eggs", Arrays.asList(moveToEdgeSpider, spiderEggs), food);
+		PanelDetails eggsSteps = new PanelDetails(t("Spider Eggs"), Arrays.asList(moveToEdgeSpider, spiderEggs), food);
 		eggsSteps.setDisplayCondition(notSpiderEggs);
 		eggsSteps.setLockingStep(spiderEggsTask);
 		allSteps.add(eggsSteps);
 
-		PanelDetails earthWarriorSteps = new PanelDetails("Earth Warrior", Arrays.asList(moveToEdgeEarth, earthWarrior),
+		PanelDetails earthWarriorSteps = new PanelDetails(t("Earth Warrior"), Arrays.asList(moveToEdgeEarth, earthWarrior),
 			new SkillRequirement(Skill.AGILITY, 15, true), combatGear, food);
 		earthWarriorSteps.setDisplayCondition(notEarthWarrior);
 		earthWarriorSteps.setLockingStep(earthWarriorTask);
 		allSteps.add(earthWarriorSteps);
 
-		PanelDetails leverSteps = new PanelDetails("Wilderness Lever", Collections.singletonList(wildyLever));
+		PanelDetails leverSteps = new PanelDetails(t("Wilderness Lever"), Collections.singletonList(wildyLever));
 		leverSteps.setDisplayCondition(notWildyLever);
 		leverSteps.setLockingStep(wildyLeverTask);
 		allSteps.add(leverSteps);
 
 		/* Starting to go up from Edgeville */
-		PanelDetails ironOreSteps = new PanelDetails("Iron Ore", Collections.singletonList(ironOre),
+		PanelDetails ironOreSteps = new PanelDetails(t("Iron Ore"), Collections.singletonList(ironOre),
 			new SkillRequirement(Skill.MINING, 15, true), pickaxe);
 		ironOreSteps.setDisplayCondition(notIronOre);
 		ironOreSteps.setLockingStep(ironOreTask);
 		allSteps.add(ironOreSteps);
 
-		PanelDetails mammothSteps = new PanelDetails("Mammoth", Collections.singletonList(killMammoth), combatGear,
+		PanelDetails mammothSteps = new PanelDetails(t("Mammoth"), Collections.singletonList(killMammoth), combatGear,
 			food);
 		mammothSteps.setDisplayCondition(notKillMammoth);
 		mammothSteps.setLockingStep(killMammothTask);
 		allSteps.add(mammothSteps);
 
-		PanelDetails chaosSteps = new PanelDetails("Chaos RC Altar", Collections.singletonList(chaosTemple),
+		PanelDetails chaosSteps = new PanelDetails(t("Chaos RC Altar"), Collections.singletonList(chaosTemple),
 			chaosAccess);
 		chaosSteps.setDisplayCondition(notChaosTemple);
 		chaosSteps.setLockingStep(chaosTempleTask);
 		allSteps.add(chaosSteps);
 
-		PanelDetails alchSteps = new PanelDetails("Free Low Alchemy", Arrays.asList(moveToFount, lowAlch),
+		PanelDetails alchSteps = new PanelDetails(t("Free Low Alchemy"), Arrays.asList(moveToFount, lowAlch),
 			new SkillRequirement(Skill.MAGIC, 21, true), normalBook, alchable);
 		alchSteps.setDisplayCondition(notLowAlch);
 		alchSteps.setLockingStep(lowAlchTask);
 		allSteps.add(alchSteps);
 
-		PanelDetails ruinsSteps = new PanelDetails("Demonic Ruins", Collections.singletonList(demonicPrayer));
+		PanelDetails ruinsSteps = new PanelDetails(t("Demonic Ruins"), Collections.singletonList(demonicPrayer));
 		ruinsSteps.setDisplayCondition(notDemonicPrayer);
 		ruinsSteps.setLockingStep(demonicPrayerTask);
 		allSteps.add(ruinsSteps);
 
-		PanelDetails altarSteps = new PanelDetails("Pray at Chaos Altar", Collections.singletonList(chaosAltar));
+		PanelDetails altarSteps = new PanelDetails(t("Pray at Chaos Altar"), Collections.singletonList(chaosAltar));
 		altarSteps.setDisplayCondition(notChaosAltar);
 		altarSteps.setLockingStep(chaosAltarTask);
 		allSteps.add(altarSteps);
 
 
-		PanelDetails kbdSteps = new PanelDetails("The Lair", Arrays.asList(enterKBDLair, enterKBDLair2), oneClick);
+		PanelDetails kbdSteps = new PanelDetails(t("The Lair"), Arrays.asList(enterKBDLair, enterKBDLair2), oneClick);
 		kbdSteps.setDisplayCondition(notEnterKBDLair);
 		kbdSteps.setLockingStep(enterKBDLairTask);
 		allSteps.add(kbdSteps);
 
 		/* At end as it skulls the player */
-		PanelDetails abyssSteps = new PanelDetails("Enter the Abyss", Arrays.asList(abyssEnable, enterAbyss),
+		PanelDetails abyssSteps = new PanelDetails(t("Enter the Abyss"), Arrays.asList(abyssEnable, enterAbyss),
 			enterTheAbyss);
 		abyssSteps.setDisplayCondition(notEnterAbyss);
 		abyssSteps.setLockingStep(enterAbyssTask);
 		allSteps.add(abyssSteps);
 
-		allSteps.add(new PanelDetails("Finishing off", Collections.singletonList(claimReward)));
+		allSteps.add(new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward)));
 
 		return allSteps;
 	}

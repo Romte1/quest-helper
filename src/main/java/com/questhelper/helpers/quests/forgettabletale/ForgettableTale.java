@@ -357,11 +357,11 @@ public class ForgettableTale extends BasicQuestHelper
 		dwarvenStout = new ItemRequirement("Dwarven stout", ItemID.DWARVEN_STOUT);
 		dwarvenStout.setTooltip(t("You can pick up one of these next to the NPC you need to give it to."));
 		beerGlass = new ItemRequirement("Beer glass", ItemID.BEER_GLASS);
-		randomItem = new ItemRequirement("A random item per player", -1, -1);
+		randomItem = new ItemRequirement(t("A random item per player"), -1, -1);
 		pot = new ItemRequirement("Pot", ItemID.POT_EMPTY);
 		pot.setTooltip(t("You can pick up the pot next to the vat"));
 
-		grandExchangeTeleport = new ItemRequirement("Grand exchange teleport to access the Mine Cart from there",
+		grandExchangeTeleport = new ItemRequirement(t("Grand exchange teleport to access the Mine Cart from there"),
 			ItemID.POH_TABLET_VARROCKTELEPORT);
 
 		keldaSeed = new ItemRequirement("Kelda seed", ItemID.KELDA_HOP_SEED);

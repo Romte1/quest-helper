@@ -244,37 +244,37 @@ public class AgilityDungeonSteps extends DetailedOwnerStep
 		setupPaths();
 
 		leaveFallArea1 = new ObjectStep(getQuestHelper(), ObjectID.MM2_MAZE_EXIT_ROPE, new WorldPoint(2317, 9159, 1),
-			"Go up the rope to the west.", protectFromMelee);
+			getQuestHelper().t("Go up the rope to the west."), protectFromMelee);
 		leaveFallArea2 = new ObjectStep(getQuestHelper(), ObjectID.MM2_MAZE_EXIT_ROPE, new WorldPoint(2379, 9168, 1),
-			"Go up the rope to the west.", protectFromMelee);
+			getQuestHelper().t("Go up the rope to the west."), protectFromMelee);
 		leaveFallArea3 = new ObjectStep(getQuestHelper(), ObjectID.MM2_MAZE_EXIT_ROPE, new WorldPoint(2414, 9189, 1),
-			"Climb up the rope to the south east and use Protect from Ranged.", protectFromRanged);
+			getQuestHelper().t("Climb up the rope to the south east and use Protect from Ranged."), protectFromRanged);
 		leaveFallArea4 = new ObjectStep(getQuestHelper(), ObjectID.MM2_MAZE_EXIT_ROPE, new WorldPoint(2364, 9264, 1),
-			"Climb up the rope to the north west and use Protect from Melee.", protectFromMelee);
+			getQuestHelper().t("Climb up the rope to the north west and use Protect from Melee."), protectFromMelee);
 
-		traverseDungeonFirstSection = new DetailedQuestStep(getQuestHelper(), "Traverse the next section of the dungeon. Protect from Melee if you fall.");
+		traverseDungeonFirstSection = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Traverse the next section of the dungeon. Protect from Melee if you fall."));
 		traverseDungeonThirdSection = new ObjectStep(getQuestHelper(), ObjectID.MM2_CRACK_PASS, new WorldPoint(2595, 9266, 1),
-			"Traverse the next section of the dungeon. PROTECT FROM MISSILE if you fall.");
+			getQuestHelper().t("Traverse the next section of the dungeon. PROTECT FROM MISSILE if you fall."));
 		getKey = new ObjectStep(getQuestHelper(), ObjectID.MM2_AGILITY_CHEST_CLOSED, new WorldPoint(2653, 9163, 1),
-			"Right-click unlock the chest in the cavern to the east for a bronze key.");
+			getQuestHelper().t("Right-click unlock the chest in the cavern to the east for a bronze key."));
 		((ObjectStep)(getKey)).addAlternateObjects(ObjectID.MM2_AGILITY_CHEST_OPEN);
 		getKey.setLinePoints(pathToChest);
 
 		openBronzeDoor = new ObjectStep(getQuestHelper(), ObjectID.MM2_AGILITY_DOOR, new WorldPoint(2610, 9195, 1),
-			"Make your way north then through the bronze door.", bronzeKey);
+			getQuestHelper().t("Make your way north then through the bronze door."), bronzeKey);
 		openBronzeDoor.setLinePoints(pathToDoor);
 
 		openShortcut = new ObjectStep(getQuestHelper(), ObjectID.MM2_MAZE_RETURN_MULTI, new WorldPoint(2544, 9232, 1),
-			"Continue through the dungeon until you reach a shortcut to open. PROTECT FROM MELEE if you fall.");
+			getQuestHelper().t("Continue through the dungeon until you reach a shortcut to open. PROTECT FROM MELEE if you fall."));
 
 		enterShortcut = new ObjectStep(getQuestHelper(), ObjectID.MM2_MAZE_RETURN_MULTI, new WorldPoint(2515, 9173, 1),
-			"Enter the shortcut near the entrance.");
+			getQuestHelper().t("Enter the shortcut near the entrance."));
 		goToKruk = new ObjectStep(getQuestHelper(), ObjectID.MM2_KRUK_BATTLE_ENTRANCE, new WorldPoint(2531, 9227, 1),
-			"Prepare to fight Kruk, then enter the hole to the south.");
+			getQuestHelper().t("Prepare to fight Kruk, then enter the hole to the south."));
 		goToKruk.addSubSteps(enterShortcut);
 
 		fightKruk = new NpcStep(getQuestHelper(), NpcID.MM2_KRUK_COMBAT, new WorldPoint(2535, 9213, 1),
-			"Kill Kruk. He can be flinched on a corner in the room by keeping him on a north east tile to you.");
+			getQuestHelper().t("Kill Kruk. He can be flinched on a corner in the room by keeping him on a north east tile to you."));
 		fightKruk.addTileMarker(new WorldPoint(2528, 9220, 1), SpriteID.Sworddecor.LEFT);
 		fightKruk.addTileMarker(new WorldPoint(2529, 9221, 1), SpriteID.Wornicons.SHIELD);
 	}

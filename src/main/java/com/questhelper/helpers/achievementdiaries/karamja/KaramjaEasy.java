@@ -139,7 +139,7 @@ public class KaramjaEasy extends ComplexStateQuestHelper
 		coins = new ItemRequirement("Coins", ItemCollections.COINS).showConditioned(new Conditions(LogicType.OR,
 			notGoneToSarim, notGoneToArdougne));
 		smallFishingNet = new ItemRequirement("Small fishing net", ItemID.NET).showConditioned(notFished).isNotConsumed();
-		combatGear = new ItemRequirement("Combat gear to defeat a Jogre (level 56)", -1, -1).showConditioned(notKilledJogre).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear to defeat a Jogre (level 56)"), -1, -1).showConditioned(notKilledJogre).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
@@ -160,39 +160,39 @@ public class KaramjaEasy extends ComplexStateQuestHelper
 
 	public void setupSteps()
 	{
-		swingRope = new ObjectStep(this, ObjectID.TREE_ROPESWING1, new WorldPoint(2708, 3209, 0), "Swing on the " +
-			"ropeswing west of Brimhaven.");
+		swingRope = new ObjectStep(this, ObjectID.TREE_ROPESWING1, new WorldPoint(2708, 3209, 0), t("Swing on the " +
+			"ropeswing west of Brimhaven."));
 		pickBananas = new ObjectStep(this, ObjectID.BANANATREEFULL, new WorldPoint(2916, 3162, 0),
-			"Pick 5 bananas from the banana plantation.");
+			t("Pick 5 bananas from the banana plantation."));
 		((ObjectStep) pickBananas).addAlternateObjects(ObjectID.BANANATREEFOUR, ObjectID.BANANATREETHREE,
 			ObjectID.BANANATREETWO, ObjectID.BANANATREEONE);
 		mineGold = new ObjectStep(this, ObjectID.GOLDROCK2, new WorldPoint(2732, 3223, 0),
-			"Mine a gold rock north west of Brimhaven.", pickaxe);
+			t("Mine a gold rock north west of Brimhaven."), pickaxe);
 		goSarim = new NpcStep(this, NpcID.CUSTOMS_OFFICER, new WorldPoint(2954, 3147, 0),
-			"Travel to Port Sarim from Musa Point with the Customs officer.", coins.quantity(30));
+			t("Travel to Port Sarim from Musa Point with the Customs officer."), coins.quantity(30));
 		goArdougne = new NpcStep(this, NpcID.CAPTAIN_BARNABY_KARAMJA, new WorldPoint(2772, 3228, 0),
-			"Travel to Ardougne from Brimhaven with Captain Barnaby.", coins.quantity(30));
+			t("Travel to Ardougne from Brimhaven with Captain Barnaby."), coins.quantity(30));
 		goCairn = new DetailedQuestStep(this, new WorldPoint(2770, 2979, 0),
-			"Travel to Cairn Island by climbing up the rocks east of it, then crossing the bridge.");
+			t("Travel to Cairn Island by climbing up the rocks east of it, then crossing the bridge."));
 		goFish = new NpcStep(this, NpcID._0_45_49_SALTFISH, new WorldPoint(2924, 3178, 0),
-			"Fish north of the banana plantation.", true, smallFishingNet);
+			t("Fish north of the banana plantation."), true, smallFishingNet);
 		pickupSeaweed = new DetailedQuestStep(this, new WorldPoint(2756, 3125, 0),
-			"Pick up 5 seaweed on Karamja's coast. You can just drop a piece and pick it up again 5 times.", seaweed);
+			t("Pick up 5 seaweed on Karamja's coast. You can just drop a piece and pick it up again 5 times."), seaweed);
 		enterCave = new ObjectStep(this, ObjectID.VOLCANO_ENTRANCE, new WorldPoint(2857, 3169, 0),
-			"Enter the fight pits or fight caves in Mor Ul Rek under the Karamja Volcano.");
+			t("Enter the fight pits or fight caves in Mor Ul Rek under the Karamja Volcano."));
 		enterTzhaar = new ObjectStep(this, ObjectID.TZHAAR_KARAMJADUNGEON_WALL_ENTRANCE, new WorldPoint(2864, 9572, 0),
-			"Enter the fight pits or fight caves in Mor Ul Rek under the Karamja Volcano.");
+			t("Enter the fight pits or fight caves in Mor Ul Rek under the Karamja Volcano."));
 		enterFightCave = new ObjectStep(this, ObjectID.TZHAAR_FIGHTCAVE_WALL_ENTRANCE, new WorldPoint(2438, 5167, 0),
-			"Enter the fight pits or fight caves in Mor Ul Rek under the Karamja Volcano.");
+			t("Enter the fight pits or fight caves in Mor Ul Rek under the Karamja Volcano."));
 		enterFightCave.addSubSteps(enterCave, enterTzhaar);
 		enterPothole = new ObjectStep(this, ObjectID.POTHOLE_CAVE_ENTRANCE, new WorldPoint(2825, 3119, 0),
-			"Enter the dungeon east of Tai Bwo Wannai, and kill a Jogre in there.", combatGear);
+			t("Enter the dungeon east of Tai Bwo Wannai, and kill a Jogre in there."), combatGear);
 		enterPothole.addDialogStep("Yes, I'll enter the cave.");
 		killJogre = new NpcStep(this, NpcID.JOGRE, new WorldPoint(2832, 9517, 0),
-			"Kill a Jogre.", true, combatGear);
+			t("Kill a Jogre."), true, combatGear);
 		enterPothole.addSubSteps(killJogre);
 		claimReward = new NpcStep(this, NpcID.AGILITYARENA_TICKETTRADER_2OPS, new WorldPoint(2810, 3192, 0),
-			"Talk to Pirate Jackie the Fruit in Brimhaven to claim your reward!");
+			t("Talk to Pirate Jackie the Fruit in Brimhaven to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -229,8 +229,8 @@ public class KaramjaEasy extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("Better prices in shops on Karamja and in Tzhaar City."),
-			new UnlockReward("Half price ships from Ardougne to Brimhaven and Musa Point to Port Sarim."));
+			new UnlockReward(t("Better prices in shops on Karamja and in Tzhaar City.")),
+			new UnlockReward(t("Half price ships from Ardougne to Brimhaven and Musa Point to Port Sarim.")));
 	}
 
 	@Override
@@ -238,63 +238,63 @@ public class KaramjaEasy extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails travelSarimSteps = new PanelDetails("Travel to Port Sarim", Collections.singletonList(goSarim),
+		PanelDetails travelSarimSteps = new PanelDetails(t("Travel to Port Sarim"), Collections.singletonList(goSarim),
 			coins.quantity(30));
 		travelSarimSteps.setDisplayCondition(notGoneToSarim);
 		travelSarimSteps.setLockingStep(goneToSarimTask);
 		allSteps.add(travelSarimSteps);
 
-		PanelDetails pickBananasSteps = new PanelDetails("Pick 5 Bananas", Collections.singletonList(pickBananas));
+		PanelDetails pickBananasSteps = new PanelDetails(t("Pick 5 Bananas"), Collections.singletonList(pickBananas));
 		pickBananasSteps.setDisplayCondition(notPickedBananas);
 		pickBananasSteps.setLockingStep(pickedBananasTask);
 		allSteps.add(pickBananasSteps);
 
-		PanelDetails goFishSteps = new PanelDetails("Fish North of Banana Plantation", Collections.singletonList(goFish),
+		PanelDetails goFishSteps = new PanelDetails(t("Fish North of Banana Plantation"), Collections.singletonList(goFish),
 			smallFishingNet);
 		goFishSteps.setDisplayCondition(notFished);
 		goFishSteps.setLockingStep(fishedTask);
 		allSteps.add(goFishSteps);
 
-		PanelDetails enterFightCaveSteps = new PanelDetails("Attempt the Fight Cave or TzHaar Fight Pits", Collections.singletonList(enterFightCave));
+		PanelDetails enterFightCaveSteps = new PanelDetails(t("Attempt the Fight Cave or TzHaar Fight Pits"), Collections.singletonList(enterFightCave));
 		enterFightCaveSteps.setDisplayCondition(notEnteredFightCave);
 		enterFightCaveSteps.setLockingStep(enteredFightCaveTask);
 		allSteps.add(enterFightCaveSteps);
 
-		PanelDetails goArdougneSteps = new PanelDetails("Travel to Ardougne", Collections.singletonList(goArdougne),
+		PanelDetails goArdougneSteps = new PanelDetails(t("Travel to Ardougne"), Collections.singletonList(goArdougne),
 			coins.quantity(30));
 		goArdougneSteps.setDisplayCondition(notGoneToArdougne);
 		goArdougneSteps.setLockingStep(goneToArdougneTask);
 		allSteps.add(goArdougneSteps);
 
-		PanelDetails mineGoldSteps = new PanelDetails("Mine gold", Collections.singletonList(mineGold),
+		PanelDetails mineGoldSteps = new PanelDetails(t("Mine gold"), Collections.singletonList(mineGold),
 			new SkillRequirement(Skill.MINING, 40, true), pickaxe);
 		mineGoldSteps.setDisplayCondition(notMinedGold);
 		mineGoldSteps.setLockingStep(minedGoldTask);
 		allSteps.add(mineGoldSteps);
 
-		PanelDetails swingRopeSteps = new PanelDetails("Swing Rope to Moss Giant Isle", Collections.singletonList(swingRope),
+		PanelDetails swingRopeSteps = new PanelDetails(t("Swing Rope to Moss Giant Isle"), Collections.singletonList(swingRope),
 			new SkillRequirement(Skill.AGILITY, 10, true));
 		swingRopeSteps.setDisplayCondition(notSwungOnRope);
 		swingRopeSteps.setLockingStep(swungOnRopeTask);
 		allSteps.add(swingRopeSteps);
 
-		PanelDetails pickupSeaweedSteps = new PanelDetails("Pickup 5 Seaweed", Collections.singletonList(pickupSeaweed));
+		PanelDetails pickupSeaweedSteps = new PanelDetails(t("Pickup 5 Seaweed"), Collections.singletonList(pickupSeaweed));
 		pickupSeaweedSteps.setDisplayCondition(notPickedUpSeaweed);
 		pickupSeaweedSteps.setLockingStep(pickedUpSeaweedTask);
 		allSteps.add(pickupSeaweedSteps);
 
-		PanelDetails goCairnSteps = new PanelDetails("Explore Cairn Isle", Collections.singletonList(goCairn),
+		PanelDetails goCairnSteps = new PanelDetails(t("Explore Cairn Isle"), Collections.singletonList(goCairn),
 			new SkillRequirement(Skill.AGILITY, 15, true));
 		goCairnSteps.setDisplayCondition(notGoneToCairn);
 		goCairnSteps.setLockingStep(goneToCairnTask);
 		allSteps.add(goCairnSteps);
 
-		PanelDetails killJogreSteps = new PanelDetails("Kill Jogre in Pothole Dungeon", Collections.singletonList(enterPothole));
+		PanelDetails killJogreSteps = new PanelDetails(t("Kill Jogre in Pothole Dungeon"), Collections.singletonList(enterPothole));
 		killJogreSteps.setDisplayCondition(notKilledJogre);
 		killJogreSteps.setLockingStep(killedJogreTask);
 		allSteps.add(killJogreSteps);
 
-		PanelDetails finishOffSteps = new PanelDetails("Finishing off", Collections.singletonList(claimReward));
+		PanelDetails finishOffSteps = new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward));
 		allSteps.add(finishOffSteps);
 
 		return allSteps;

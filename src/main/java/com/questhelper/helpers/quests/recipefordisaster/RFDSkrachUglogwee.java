@@ -134,7 +134,7 @@ public class RFDSkrachUglogwee extends BasicQuestHelper
 		cookedJubblyHighlighted = new ItemRequirement("Cooked jubbly", ItemID._100_JUBBLY_MEAT_COOKED).highlighted();
 		axeHighlighted = new ItemRequirement("Any axe", ItemCollections.AXES).isNotConsumed().highlighted();
 		ironSpit = new ItemRequirement("Iron spit", ItemID.SPIT_IRON).highlighted().isNotConsumed();
-		log = new ItemRequirement("Any log to burn", ItemCollections.LOGS_FOR_FIRE);
+		log = new ItemRequirement(t("Any log to burn"), ItemCollections.LOGS_FOR_FIRE);
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
 		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
 		ogreBellows = new ItemRequirement("Ogre bellows", ItemID.EMPTY_OGRE_BELLOWS).isNotConsumed();
@@ -160,11 +160,11 @@ public class RFDSkrachUglogwee extends BasicQuestHelper
 		rock.setHighlightInInventory(true);
 
 
-		feldipTeleport = new ItemRequirement("Feldip teleport. Fairy Ring (AKS), Gnome Glider", ItemID.TELEPORTSCROLL_FELDIP);
+		feldipTeleport = new ItemRequirement(t("Feldip teleport. Fairy Ring (AKS), Gnome Glider"), ItemID.TELEPORTSCROLL_FELDIP);
 		feldipTeleport.addAlternates(ItemCollections.FAIRY_STAFF);
 
 		lumbridgeTeleport = new ItemRequirement("Lumbridge teleport", ItemID.POH_TABLET_LUMBRIDGETELEPORT);
-		karamjaTeleport = new ItemRequirement("Karamja teleport. Brimhaven Teleport tablet, Fairy Ring (CKR)", ItemID.NZONE_TELETAB_BRIMHAVEN);
+		karamjaTeleport = new ItemRequirement(t("Karamja teleport. Brimhaven Teleport tablet, Fairy Ring (CKR)"), ItemID.NZONE_TELETAB_BRIMHAVEN);
 		karamjaTeleport.addAlternates(ItemCollections.FAIRY_STAFF);
 	}
 

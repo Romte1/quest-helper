@@ -151,11 +151,11 @@ public class FallenFromGrace extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		raftOrSkiff = new ItemRequirement("A raft or a skiff", -1);
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed().canBeObtainedDuringQuest();
+		raftOrSkiff = new ItemRequirement(t("A raft or a skiff"), -1);
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).isNotConsumed().canBeObtainedDuringQuest();
 		chisel = new ItemRequirement("Chisel", ItemCollections.CHISEL).isNotConsumed().canBeObtainedDuringQuest();
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed().canBeObtainedDuringQuest();
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 
 		// Quest items
 		sunstone = new ItemRequirement("Sunstone", ItemID.SUNSTONE);
@@ -188,70 +188,70 @@ public class FallenFromGrace extends BasicQuestHelper
 	{
 		travelToWyrmscraig = new SailStep(this, Port.WYRMSCRAIG);
 
-		talkToFfion = new NpcStep(this, NpcID.WYRMSCRAIG_VILLAGER_1, new WorldPoint(2575, 2296, 0), "Talk to Ffion to be allowed onto the island.");
+		talkToFfion = new NpcStep(this, NpcID.WYRMSCRAIG_VILLAGER_1, new WorldPoint(2575, 2296, 0), t("Talk to Ffion to be allowed onto the island."));
 
-		talkToCormac = new NpcStep(this, NpcID.CORMAC, new WorldPoint(2576, 2255, 0), "Talk to Cormac in Auchrie village on Wyrmscraig island.");
+		talkToCormac = new NpcStep(this, NpcID.CORMAC, new WorldPoint(2576, 2255, 0), t("Talk to Cormac in Auchrie village on Wyrmscraig island."));
 		talkToCormac.addDialogStep("Yes.");
 
-		talkToMuriel = new NpcStep(this, NpcID.MURIEL, new WorldPoint(2587, 2256, 0), "Talk to Muriel in the house north east of Cormac.");
+		talkToMuriel = new NpcStep(this, NpcID.MURIEL, new WorldPoint(2587, 2256, 0), t("Talk to Muriel in the house north east of Cormac."));
 
-		searchTentForPickaxe = new ObjectStep(this, ObjectID.WYRMSCRAIG_CRAFTING_TENT, new WorldPoint(2599, 2223, 0), "Search the tent to the south east on the coast for a pickaxe.");
+		searchTentForPickaxe = new ObjectStep(this, ObjectID.WYRMSCRAIG_CRAFTING_TENT, new WorldPoint(2599, 2223, 0), t("Search the tent to the south east on the coast for a pickaxe."));
 		searchTentForPickaxe.addDialogStep("Take a pickaxe.");
-		searchTentForHammer = new ObjectStep(this, ObjectID.WYRMSCRAIG_CRAFTING_TENT, new WorldPoint(2599, 2223, 0), "Search the tent to the south east on the coast for a hammer.");
+		searchTentForHammer = new ObjectStep(this, ObjectID.WYRMSCRAIG_CRAFTING_TENT, new WorldPoint(2599, 2223, 0), t("Search the tent to the south east on the coast for a hammer."));
 		searchTentForHammer.addDialogStep("Take a hammer.");
-		searchTentForChisel = new ObjectStep(this, ObjectID.WYRMSCRAIG_CRAFTING_TENT, new WorldPoint(2599, 2223, 0), "Search the tent to the south east on the coast for a chisel.");
+		searchTentForChisel = new ObjectStep(this, ObjectID.WYRMSCRAIG_CRAFTING_TENT, new WorldPoint(2599, 2223, 0), t("Search the tent to the south east on the coast for a chisel."));
 		searchTentForChisel.addDialogStep("Take a chisel.");
 
-		searchTentForItems = new DetailedQuestStep(this, "Search the tent to the south east on the coast for a pickaxe, hammer, and chisel.");
+		searchTentForItems = new DetailedQuestStep(this, t("Search the tent to the south east on the coast for a pickaxe, hammer, and chisel."));
 		searchTentForItems.addSubSteps(searchTentForPickaxe, searchTentForChisel, searchTentForHammer);
 
-		inspectSunstone = new ObjectStep(this, ObjectID.WYRMSCRAIG_SUNSTONE01, new WorldPoint(2598, 2247, 0), "Inspect the sunstone monolith on the coast south east of Muriel.");
+		inspectSunstone = new ObjectStep(this, ObjectID.WYRMSCRAIG_SUNSTONE01, new WorldPoint(2598, 2247, 0), t("Inspect the sunstone monolith on the coast south east of Muriel."));
 
-		mineSunstone = new ObjectStep(this, ObjectID.WYRMSCRAIG_SUNSTONE01, new WorldPoint(2598, 2247, 0), "Mine a sunstone fragment off the sunstone monolith.", pickaxe);
-		chiselSunstoneFragment = new DetailedQuestStep(this, "Use a chisel on the sunstone fragment.", sunstone.highlighted(), chisel.highlighted());
-		investigateHat = new DetailedQuestStep(this, new WorldPoint(2556, 2198, 0), "Investigate the large hat on a basalt column on the south west corner of the island.", largeHat);
+		mineSunstone = new ObjectStep(this, ObjectID.WYRMSCRAIG_SUNSTONE01, new WorldPoint(2598, 2247, 0), t("Mine a sunstone fragment off the sunstone monolith."), pickaxe);
+		chiselSunstoneFragment = new DetailedQuestStep(this, t("Use a chisel on the sunstone fragment."), sunstone.highlighted(), chisel.highlighted());
+		investigateHat = new DetailedQuestStep(this, new WorldPoint(2556, 2198, 0), t("Investigate the large hat on a basalt column on the south west corner of the island."), largeHat);
 
-		returnToCormac = new NpcStep(this, NpcID.CORMAC, new WorldPoint(2576, 2255, 0), "Return to Cormac in Auchrie village on Wyrmscraig island.");
+		returnToCormac = new NpcStep(this, NpcID.CORMAC, new WorldPoint(2576, 2255, 0), t("Return to Cormac in Auchrie village on Wyrmscraig island."));
 		sailToCavern = new ObjectStep(this, ObjectID.WYRMSCRAIG_CAVE_ENTRANCE_SAILABLE, new WorldPoint(2562, 2203, 0),
-			"Sail into the cave on the south west of the island with either a skiff or a raft.", combatGear, sunstoneCore.hideConditioned(haveRepairedGolem));
+			t("Sail into the cave on the south west of the island with either a skiff or a raft."), combatGear, sunstoneCore.hideConditioned(haveRepairedGolem));
 
-		talkToMortimer = new NpcStep(this, NpcID.MORTIMER_CUTSCENE, new WorldPoint(2601, 8608, 0), "Disembark onto the gangplank and talk to Mortimer.");
-		killTrolls = new NpcStep(this, NpcID.FFG_TROLL_1, new WorldPoint(2592, 8607, 0), "Kill the 3 trolls near to Mortimer.", true);
+		talkToMortimer = new NpcStep(this, NpcID.MORTIMER_CUTSCENE, new WorldPoint(2601, 8608, 0), t("Disembark onto the gangplank and talk to Mortimer."));
+		killTrolls = new NpcStep(this, NpcID.FFG_TROLL_1, new WorldPoint(2592, 8607, 0), t("Kill the 3 trolls near to Mortimer."), true);
 		killTrolls.addAlternateNpcs(NpcID.FFG_TROLL_2, NpcID.FFG_TROLL_3);
-		talkToMortimerAgain = new NpcStep(this, NpcID.MORTIMER_CUTSCENE, new WorldPoint(2601, 8608, 0), "Talk to Mortimer again.");
+		talkToMortimerAgain = new NpcStep(this, NpcID.MORTIMER_CUTSCENE, new WorldPoint(2601, 8608, 0), t("Talk to Mortimer again."));
 		investigateGolem = new NpcStep(this, NpcID.FFG_BROKEN_GOLEM_NOPOWER, new WorldPoint(2573, 8650, 0),
-			"Investigate the broken golem in the far north of the cavern.");
+			t("Investigate the broken golem in the far north of the cavern."));
 
 		repairGolem = new NpcStep(this, NpcID.FFG_BROKEN_GOLEM_NOPOWER, new WorldPoint(2573, 8650, 0),
-			"Use your sunstone core on the broken golem.", sunstoneCore.highlighted());
+			t("Use your sunstone core on the broken golem."), sunstoneCore.highlighted());
 		repairGolem.addIcon(ItemID.SUNSTONE_CORE);
 
 		arrowChestPuzzleStep = new ArrowChestPuzzleStep(this);
 		arrowChestPuzzleStep.setSolution(1, 3, 2, 2);
-		arrowChestPuzzleStepPW = arrowChestPuzzleStep.puzzleWrapStep("Work out how to unlock the chest in the north west of the northern room.");
+		arrowChestPuzzleStepPW = arrowChestPuzzleStep.puzzleWrapStep(t("Work out how to unlock the chest in the north west of the northern room."));
 
-		openChest = new ObjectStep(this, ObjectID.FFG_CATHEDRAL_CHEST, new WorldPoint(2567, 8660, 0), "Unlock the chest in the north west of the northern room. The code is 'RIGHT, LEFT, DOWN, DOWN'.");
+		openChest = new ObjectStep(this, ObjectID.FFG_CATHEDRAL_CHEST, new WorldPoint(2567, 8660, 0), t("Unlock the chest in the north west of the northern room. The code is 'RIGHT, LEFT, DOWN, DOWN'."));
 		openChest.addSubSteps(arrowChestPuzzleStep);
-		openChestPW = openChest.puzzleWrapStep("Work out how to unlock the chest in the north west of the northern room.");
+		openChestPW = openChest.puzzleWrapStep(t("Work out how to unlock the chest in the north west of the northern room."));
 		openChestPW.addSubSteps(arrowChestPuzzleStepPW);
 
-		destroySunstoneCore = new DetailedQuestStep(this, "Right-click destroy the ancient sunstone core.", ancientSunstoneCore.highlighted());
+		destroySunstoneCore = new DetailedQuestStep(this, t("Right-click destroy the ancient sunstone core."), ancientSunstoneCore.highlighted());
 
-		climbStaircase = new ObjectStep(this, ObjectID.WYRMSCRAIG_CATHEDRAL_SPIRALSTAIRS, new WorldPoint(2576, 8657, 0), "Climb the staircase, ready for the boss fight.", combatGear, staircaseKey);
+		climbStaircase = new ObjectStep(this, ObjectID.WYRMSCRAIG_CATHEDRAL_SPIRALSTAIRS, new WorldPoint(2576, 8657, 0), t("Climb the staircase, ready for the boss fight."), combatGear, staircaseKey);
 
-		killBoss = new NpcStep(this, NpcID.MAD_ANGEL_CATHEDRAL_VIS_QUEST, new WorldPoint(2533, 2216, 0), "Defeat the Mad Angel. Read the sidebar for more details.", true);
+		killBoss = new NpcStep(this, NpcID.MAD_ANGEL_CATHEDRAL_VIS_QUEST, new WorldPoint(2533, 2216, 0), t("Defeat the Mad Angel. Read the sidebar for more details."), true);
 		killBoss.addAlternateNpcs(NpcID.MAD_ANGEL_INITIAL_QUEST, NpcID.MAD_ANGEL_QUEST, NpcID.MAD_ANGEL_ANIM_QUEST);
 		killBoss.addDialogStep("Yes.");
 
-		killBossSidebar = new DetailedQuestStep(this, "Defeat the Mad Angel. Use Protect from Melee.");
-		killBossSidebar.addText("If she pulls her sword back slowly, run behind her.");
-		killBossSidebar.addText("If she charges a blue attack, protect from magic. If you activate it the tick it hits you, you get a guaranteed max hit on her next hit.");
-		killBossSidebar.addText("If she launches a projectile at a tile, stand on the tile to bounce it back to her.");
+		killBossSidebar = new DetailedQuestStep(this, t("Defeat the Mad Angel. Use Protect from Melee."));
+		killBossSidebar.addText(t("If she pulls her sword back slowly, run behind her."));
+		killBossSidebar.addText(t("If she charges a blue attack, protect from magic. If you activate it the tick it hits you, you get a guaranteed max hit on her next hit."));
+		killBossSidebar.addText(t("If she launches a projectile at a tile, stand on the tile to bounce it back to her."));
 		killBossSidebar.addSubSteps(killBoss);
 
-		searchBody = new ObjectStep(this, ObjectID.FFG_CORPSE_KEENAN, new WorldPoint(2529, 2215, 0), "Search the body in the church.");
-		readNote = new DetailedQuestStep(this, "Read the final letter.", finalLetter.highlighted());
-		finishQuest = new NpcStep(this, NpcID.CORMAC, new WorldPoint(2576, 2255, 0), "Return to Cormac to finish the quest.");
+		searchBody = new ObjectStep(this, ObjectID.FFG_CORPSE_KEENAN, new WorldPoint(2529, 2215, 0), t("Search the body in the church."));
+		readNote = new DetailedQuestStep(this, t("Read the final letter."), finalLetter.highlighted());
+		finishQuest = new NpcStep(this, NpcID.CORMAC, new WorldPoint(2576, 2255, 0), t("Return to Cormac to finish the quest."));
 	}
 
 	@Override
@@ -373,8 +373,8 @@ public class FallenFromGrace extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"Mad Angel (lvl 270)",
-			"3 Mountain Trolls (level 69)"
+			t("Mad Angel (lvl 270)"),
+			t("3 Mountain Trolls (level 69)")
 		);
 	}
 
@@ -399,9 +399,9 @@ public class FallenFromGrace extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Access to Mad Angel boss"),
-			new UnlockReward("Access to Sunstone Golem Crafting & Mining"),
-			new UnlockReward("Teleports to Wyrmscraig on the Slayer Ring and Necklace of Passage")
+			new UnlockReward(t("Access to Mad Angel boss")),
+			new UnlockReward(t("Access to Sunstone Golem Crafting & Mining")),
+			new UnlockReward(t("Teleports to Wyrmscraig on the Slayer Ring and Necklace of Passage"))
 		);
 	}
 
@@ -410,7 +410,7 @@ public class FallenFromGrace extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Investigating", List.of(
+		sections.add(new PanelDetails(t("Investigating"), List.of(
 			travelToWyrmscraig,
 			talkToFfion,
 			talkToCormac,
@@ -423,7 +423,7 @@ public class FallenFromGrace extends BasicQuestHelper
 			returnToCormac
 		)));
 
-		sections.add(new PanelDetails("Below the church", List.of(
+		sections.add(new PanelDetails(t("Below the church"), List.of(
 			sailToCavern,
 			talkToMortimer,
 			killTrolls,

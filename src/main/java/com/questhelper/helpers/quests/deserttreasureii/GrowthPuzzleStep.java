@@ -54,7 +54,7 @@ public class GrowthPuzzleStep extends ObjectStep
 	public GrowthPuzzleStep(QuestHelper questHelper)
 	{
 		super(questHelper, -1,
-			"Work out the correct order to activate the runes through trial and error.");
+			questHelper.t("Work out the correct order to activate the runes through trial and error."));
 		addAlternateObjects(ObjectID.DT2_SCAR_MAZE_1_RIFT_EARTH_VIS, ObjectID.DT2_SCAR_MAZE_1_RIFT_COSMIC_VIS,
 				ObjectID.DT2_SCAR_MAZE_1_RIFT_DEATH_VIS, ObjectID.DT2_SCAR_MAZE_1_RIFT_NATURE_VIS,
 				ObjectID.DT2_SCAR_MAZE_1_RIFT_LAW_VIS, ObjectID.DT2_SCAR_MAZE_1_RIFT_FIRE_VIS);

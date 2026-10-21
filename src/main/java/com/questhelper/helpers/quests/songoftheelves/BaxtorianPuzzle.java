@@ -66,7 +66,7 @@ public class BaxtorianPuzzle extends DetailedOwnerStep
 
 	public BaxtorianPuzzle(QuestHelper questHelper)
 	{
-		super(questHelper, "Solve the pillar puzzle.");
+		super(questHelper, questHelper.t("Solve the pillar puzzle."));
 	}
 
 	@Override
@@ -234,7 +234,7 @@ public class BaxtorianPuzzle extends DetailedOwnerStep
 
 		iritLeaf = new ItemRequirements(LogicType.OR, "Irit leaf", cleanIritLeaf, grimyIritLeaf);
 		iritLeaf.setDisplayMatchedItemName(true);
-		iritLeaf.setTooltip("Grimy Irit Leaf is also valid.");
+		iritLeaf.setTooltip(questHelper.t("Grimy Irit Leaf is also valid."));
 
 		flowersOrIrit = new ItemRequirements(LogicType.OR, "Irit leaf or a flower", iritLeaf, flowers);
 		flowersOrIrit.setHighlightInInventory(true);

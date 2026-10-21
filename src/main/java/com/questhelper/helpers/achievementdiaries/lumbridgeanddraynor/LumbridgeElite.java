@@ -135,19 +135,19 @@ public class LumbridgeElite extends ComplexStateQuestHelper
 		lockpick = new ItemRequirement("Lockpick", ItemID.LOCKPICK).showConditioned(notRichChest).isNotConsumed();
 		crossbow = new ItemRequirement("Crossbow", ItemCollections.CROSSBOWS).showConditioned(notGrapplePylon).isNotConsumed();
 		mithgrap = new ItemRequirement("Mith grapple", ItemID.XBOWS_GRAPPLE_TIP_BOLT_MITHRIL_ROPE).showConditioned(notGrapplePylon).isNotConsumed();
-		lightsource = new ItemRequirement("A lightsource", ItemCollections.LIGHT_SOURCES).showConditioned(notGrapplePylon).isNotConsumed();
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES).showConditioned(notChopMagic).isNotConsumed();
+		lightsource = new ItemRequirement(t("A lightsource"), ItemCollections.LIGHT_SOURCES).showConditioned(notGrapplePylon).isNotConsumed();
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).showConditioned(notChopMagic).isNotConsumed();
 		addyBar = new ItemRequirement("Adamantite bar", ItemID.ADAMANTITE_BAR).showConditioned(notAddyPlatebody);
 		hammer = new ItemRequirement("Hammer", ItemID.HAMMER).showConditioned(notAddyPlatebody).isNotConsumed();
 		essence = new ItemRequirement("Essence", ItemCollections.ESSENCE_LOW).showConditioned(notWaterRunes);
-		waterAccessOrAbyss = new ItemRequirement("Access to the Water Altar", ItemCollections.WATER_ALTAR_WEARABLE).showConditioned(notWaterRunes).isNotConsumed();
-		waterAccessOrAbyss.setTooltip("Water Tiara, Elemental Tiara, RC-skill cape or via Abyss");
+		waterAccessOrAbyss = new ItemRequirement(t("Access to the Water Altar"), ItemCollections.WATER_ALTAR_WEARABLE).showConditioned(notWaterRunes).isNotConsumed();
+		waterAccessOrAbyss.setTooltip(t("Water Tiara, Elemental Tiara, RC-skill cape or via Abyss"));
 		qcCape = new ItemRequirement("Quest cape", ItemCollections.QUEST_CAPE).showConditioned(notQCEmote).isNotConsumed();
 		dorgSphere = new ItemRequirement("Dorgesh-kaan Sphere", ItemID.DORGESH_TELEPORT_ARTIFACT)
 			.showConditioned(new Conditions(LogicType.OR, notGrapplePylon, notRichChest));
-		ringOfDueling = new ItemRequirement("Ring of dueling to Emir's Arena", ItemCollections.RING_OF_DUELINGS)
+		ringOfDueling = new ItemRequirement(t("Ring of dueling to Emir's Arena"), ItemCollections.RING_OF_DUELINGS)
 			.showConditioned(notChopMagic);
-		dramenStaff = new ItemRequirement("Dramen or Lunar staff to AJQ", ItemCollections.FAIRY_STAFF).isNotConsumed()
+		dramenStaff = new ItemRequirement(t("Dramen or Lunar staff to AJQ"), ItemCollections.FAIRY_STAFF).isNotConsumed()
 			.showConditioned(notGrapplePylon);
 
 		inUnderground = new ZoneRequirement(underground);
@@ -179,58 +179,58 @@ public class LumbridgeElite extends ComplexStateQuestHelper
 	public void setupSteps()
 	{
 		moveToDraySewer = new ObjectStep(this, ObjectID.VAMPIRE_TRAP2, new WorldPoint(3118, 3244, 0),
-			"Climb down into the Draynor Sewer.");
+			t("Climb down into the Draynor Sewer."));
 		moveToDraySewer.addAlternateObjects(ObjectID.VAMPIRE_TRAP1);
 		addyPlatebody = new ObjectStep(this, ObjectID.ANVIL, new WorldPoint(3112, 9689, 0),
-			"Smith a adamant platebody at the anvil in Draynor Sewer.", addyBar.quantity(5), hammer);
+			t("Smith a adamant platebody at the anvil in Draynor Sewer."), addyBar.quantity(5), hammer);
 
 		moveToOldman = new TileStep(this, new WorldPoint(3088, 3253, 0),
-			"Go to the Wise Old Man's house in Draynor Village.");
+			t("Go to the Wise Old Man's house in Draynor Village."));
 		qcEmote = new EmoteStep(this, QuestEmote.SKILL_CAPE, new WorldPoint(3088, 3253, 0),
-			"Perform the skill cape emote with the quest cape equipped.", qcCape.equipped());
+			t("Perform the skill cape emote with the quest cape equipped."), qcCape.equipped());
 
 		moveToWater = new ObjectStep(this, ObjectID.WATERTEMPLE_RUINED, new WorldPoint(3185, 3165, 0),
-			"Enter the water altar.", waterAccessOrAbyss.highlighted(), essence.quantity(28));
+			t("Enter the water altar."), waterAccessOrAbyss.highlighted(), essence.quantity(28));
 		waterRunes = new ObjectStep(this, ObjectID.WATER_ALTAR, new WorldPoint(2716, 4836, 0),
-			"Craft water runes.", essence.quantity(28));
+			t("Craft water runes."), essence.quantity(28));
 
 		moveToUndergroundPylon = new ObjectStep(this, ObjectID.QIP_COOK_TRAPDOOR_OPEN, new WorldPoint(3209, 3216, 0),
-			"Either enter the trapdoor in the Lumbridge Castle or use a fairy ring to AJQ.", mithgrap, crossbow, lightsource);
+			t("Either enter the trapdoor in the Lumbridge Castle or use a fairy ring to AJQ."), mithgrap, crossbow, lightsource);
 		moveToUndergroundChest = new ObjectStep(this, ObjectID.QIP_COOK_TRAPDOOR_OPEN, new WorldPoint(3209, 3216, 0),
-			"Climb down the trapdoor in the Lumbridge Castle.", lockpick, lightsource);
+			t("Climb down the trapdoor in the Lumbridge Castle."), lockpick, lightsource);
 
 		moveToDorgChest = new ObjectStep(this, ObjectID.CAVE_GOBLIN_CITY_DOORR, new WorldPoint(3317, 9601, 0),
-			"Go through the doors to Dorgesh-Kaan.", true, lockpick, lightsource);
+			t("Go through the doors to Dorgesh-Kaan."), true, lockpick, lightsource);
 		moveToDorgChest.addAlternateObjects(ObjectID.CAVE_GOBLIN_CITY_DOORL);
 		moveToDorgPylon = new ObjectStep(this, ObjectID.CAVE_GOBLIN_CITY_DOORR, new WorldPoint(3317, 9601, 0),
-			"Go through the doors to Dorgesh-Kaan.", true, mithgrap, crossbow, lightsource);
+			t("Go through the doors to Dorgesh-Kaan."), true, mithgrap, crossbow, lightsource);
 		moveToDorgPylon.addAlternateObjects(ObjectID.CAVE_GOBLIN_CITY_DOORL);
 
 		dorgStairsPylon = new ObjectStep(this, ObjectID.DORGESH_1STAIRS_POSH, new WorldPoint(2721, 5360, 0),
-			"Climb the stairs to the second level of Dorgesh-Kaan.", mithgrap, crossbow, lightsource);
+			t("Climb the stairs to the second level of Dorgesh-Kaan."), mithgrap, crossbow, lightsource);
 		dorgStairsChest = new ObjectStep(this, ObjectID.DORGESH_1STAIRS_POSH, new WorldPoint(2721, 5360, 0),
-			"Climb the stairs to the second level of Dorgesh-Kaan.", lockpick);
+			t("Climb the stairs to the second level of Dorgesh-Kaan."), lockpick);
 		moveToDorgAgi = new ObjectStep(this, ObjectID.DORGESH_2STAIRS_POSH, new WorldPoint(2723, 5253, 1),
-			"Climb the stairs to enter the Dorgesh-Kaan agility course.", mithgrap, crossbow, lightsource);
+			t("Climb the stairs to enter the Dorgesh-Kaan agility course."), mithgrap, crossbow, lightsource);
 		dorgLadderToAgi = new ObjectStep(this, ObjectID.DORGESH_CAVEWALL_SLOPE_STEPS, new WorldPoint(2716, 5241, 0),
-			"Climb the ladder to enter the Dorgesh-Kaan agility course.", mithgrap, crossbow, lightsource);
+			t("Climb the ladder to enter the Dorgesh-Kaan agility course."), mithgrap, crossbow, lightsource);
 
-		moveToDorgAgiCourse = new ConditionalStep(this, moveToUndergroundPylon, "Travel to the Dorgesh-Kaan agility course.");
+		moveToDorgAgiCourse = new ConditionalStep(this, moveToUndergroundPylon, t("Travel to the Dorgesh-Kaan agility course."));
 		moveToDorgAgiCourse.addStep(inUnderground, moveToDorgPylon);
 		moveToDorgAgiCourse.addStep(inDorg1, dorgStairsPylon);
 		moveToDorgAgiCourse.addStep(inDorg2, moveToDorgAgi);
 		moveToDorgAgiCourse.addStep(inLowerDorgAgi, dorgLadderToAgi);
 
 		richChest = new ObjectStep(this, ObjectID.DORGESH_RICH_CHEST_CLOSED, new WorldPoint(2703, 5348, 1),
-			"Lockpick the chest.", lockpick);
+			t("Lockpick the chest."), lockpick);
 		grapplePylon = new ObjectStep(this, ObjectID.DORGESH_PYLON_GRAPPLE_BASE, new WorldPoint(2714, 5242, 3),
-			"Grapple a pylon near the start of the grapple route in the agility course.", mithgrap, crossbow, lightsource);
+			t("Grapple a pylon near the start of the grapple route in the agility course."), mithgrap, crossbow, lightsource);
 
 		chopMagic = new ObjectStep(this, ObjectID.MAGICTREE, new WorldPoint(3357, 3312, 0),
-			"Chop some magic logs near the Magic Training Arena.", axe);
+			t("Chop some magic logs near the Magic Training Arena."), axe);
 
 		claimReward = new NpcStep(this, NpcID.HATIUS_LUMBRIDGE_DIARY, new WorldPoint(3235, 3213, 0),
-			"Talk to Hatius Cosaintus in Lumbridge to claim your reward!");
+			t("Talk to Hatius Cosaintus in Lumbridge to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -284,11 +284,11 @@ public class LumbridgeElite extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("100% run energy replenish 3 times a day from Explorer's ring"),
-			new UnlockReward("30 casts of High Level Alchemy per day (does not provide experience) from Explorer's ring"),
-			new UnlockReward("20% discount on items in the Culinaromancer's Chest"),
-			new UnlockReward("Ability to use Fairy rings without the need of a Dramen or Lunar staff"),
-			new UnlockReward("Unlocked the 6th slot for blocking Slayer tasks")
+			new UnlockReward(t("100% run energy replenish 3 times a day from Explorer's ring")),
+			new UnlockReward(t("30 casts of High Level Alchemy per day (does not provide experience) from Explorer's ring")),
+			new UnlockReward(t("20% discount on items in the Culinaromancer's Chest")),
+			new UnlockReward(t("Ability to use Fairy rings without the need of a Dramen or Lunar staff")),
+			new UnlockReward(t("Unlocked the 6th slot for blocking Slayer tasks"))
 		);
 	}
 
@@ -297,27 +297,27 @@ public class LumbridgeElite extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails adamantitePlatebodySteps = new PanelDetails("Adamantite Platebody",
+		PanelDetails adamantitePlatebodySteps = new PanelDetails(t("Adamantite Platebody"),
 			Arrays.asList(moveToDraySewer, addyPlatebody), new SkillRequirement(Skill.SMITHING, 88, true),
 			addyBar.quantity(5), hammer);
 		adamantitePlatebodySteps.setDisplayCondition(notAddyPlatebody);
 		adamantitePlatebodySteps.setLockingStep(addyPlatebodyTask);
 		allSteps.add(adamantitePlatebodySteps);
 
-		PanelDetails questCapeEmoteSteps = new PanelDetails("Quest Cape Emote", Arrays.asList(moveToOldman, qcEmote),
+		PanelDetails questCapeEmoteSteps = new PanelDetails(t("Quest Cape Emote"), Arrays.asList(moveToOldman, qcEmote),
 			allQuests, qcCape);
 		questCapeEmoteSteps.setDisplayCondition(notQCEmote);
 		questCapeEmoteSteps.setLockingStep(qcEmoteTask);
 		allSteps.add(questCapeEmoteSteps);
 
-		PanelDetails richChestSteps = new PanelDetails("Dorgesh-Kaan Rich Chest", Arrays.asList(moveToUndergroundChest,
+		PanelDetails richChestSteps = new PanelDetails(t("Dorgesh-Kaan Rich Chest"), Arrays.asList(moveToUndergroundChest,
 			moveToDorgChest, dorgStairsChest, richChest), Arrays.asList(new SkillRequirement(Skill.THIEVING, 78, true), deathToDorg,
 			lightsource, lockpick), Collections.singletonList(dorgSphere));
 		richChestSteps.setDisplayCondition(notRichChest);
 		richChestSteps.setLockingStep(richChestTask);
 		allSteps.add(richChestSteps);
 
-		PanelDetails pylonSteps = new PanelDetails("Grapple Dorgesh-Kaan Pylon", Arrays.asList(moveToDorgAgiCourse, grapplePylon), Arrays.asList(
+		PanelDetails pylonSteps = new PanelDetails(t("Grapple Dorgesh-Kaan Pylon"), Arrays.asList(moveToDorgAgiCourse, grapplePylon), Arrays.asList(
 			new SkillRequirement(Skill.AGILITY, 70, true), new SkillRequirement(Skill.RANGED, 70, true),
 			new SkillRequirement(Skill.STRENGTH, 70, true), deathToDorg, templeOfIkov, mithgrap, crossbow, lightsource),
 			Arrays.asList(dramenStaff, dorgSphere));
@@ -325,20 +325,20 @@ public class LumbridgeElite extends ComplexStateQuestHelper
 		pylonSteps.setLockingStep(grapplePylonTask);
 		allSteps.add(pylonSteps);
 
-		PanelDetails waterRunesSteps = new PanelDetails("140 Water Runes", Arrays.asList(moveToWater, waterRunes),
+		PanelDetails waterRunesSteps = new PanelDetails(t("140 Water Runes"), Arrays.asList(moveToWater, waterRunes),
 			new SkillRequirement(Skill.RUNECRAFT, 76, true), essence.quantity(28), waterAccessOrAbyss);
 		waterRunesSteps.setDisplayCondition(notWaterRunes);
 		waterRunesSteps.setLockingStep(waterRunesTask);
 		allSteps.add(waterRunesSteps);
 
-		PanelDetails chopMagicsSteps = new PanelDetails("Chop Magics", Collections.singletonList(chopMagic),
+		PanelDetails chopMagicsSteps = new PanelDetails(t("Chop Magics"), Collections.singletonList(chopMagic),
 			Arrays.asList(new SkillRequirement(Skill.WOODCUTTING, 75, true), axe),
 			Collections.singletonList(ringOfDueling));
 		chopMagicsSteps.setDisplayCondition(notChopMagic);
 		chopMagicsSteps.setLockingStep(chopMagicTask);
 		allSteps.add(chopMagicsSteps);
 
-		allSteps.add(new PanelDetails("Finishing off", Collections.singletonList(claimReward)));
+		allSteps.add(new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward)));
 
 		return allSteps;
 	}

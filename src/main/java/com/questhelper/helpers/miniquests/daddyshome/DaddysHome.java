@@ -150,7 +150,7 @@ public class DaddysHome extends BasicQuestHelper
 
 		plank10 = new ItemRequirement("Plank", ItemID.WOODPLANK, 10);
 		bolt5 = new ItemRequirement("Bolt of cloth", ItemID.CLOTH, 5);
-		nails20 = new ItemRequirement("Nails (bring more in case you fail with some)", ItemCollections.NAILS, 14);
+		nails20 = new ItemRequirement(t("Nails (bring more in case you fail with some)"), ItemCollections.NAILS, 14);
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed();
 		saw = new ItemRequirement("Saw", ItemCollections.SAW).isNotConsumed();
 		waxwoodLog3 = new ItemRequirement("Waxwood log", ItemID.DADDYSHOME_WAXWOOD_LOGS, 3);
@@ -169,24 +169,24 @@ public class DaddysHome extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToMarlo = new NpcStep(this, NpcID.CON_CONTRACTOR_VARROCK_1OP, new WorldPoint(3241, 3471, 0), "Talk to Marlo in north-east Varrock.");
+		talkToMarlo = new NpcStep(this, NpcID.CON_CONTRACTOR_VARROCK_1OP, new WorldPoint(3241, 3471, 0), t("Talk to Marlo in north-east Varrock."));
 		talkToMarlo.addAlternateNpcs(NpcID.CON_CONTRACTOR_VARROCK_2OP);
 		talkToMarlo.addDialogSteps("What kind of favour do you want me to do?", "Tell me more about the job.", "Tell me where he lives, and I'll do the job.");
 
-		talkToYarlo = new NpcStep(this, NpcID.DADDYSHOME_DADDY, new WorldPoint(3240, 3395, 0), "Talk to Old Man Yarlo in south-east Varrock, west of Aubury's Rune Shop.");
+		talkToYarlo = new NpcStep(this, NpcID.DADDYSHOME_DADDY, new WorldPoint(3240, 3395, 0), t("Talk to Old Man Yarlo in south-east Varrock, west of Aubury's Rune Shop."));
 
-		removeCampbed = new ObjectStep(this, ObjectID.DADDYSHOME_BED, new WorldPoint(3242, 3398, 0), "Remove the campbed.");
-		removeCarpet = new ObjectStep(this, ObjectID.DADDYSHOME_CARPET_MIDDLE, new WorldPoint(3239, 3395, 0), "Right-click remove the rotten carpet.");
-		removeStool = new ObjectStep(this, ObjectID.DADDYSHOME_STOOL_2, new WorldPoint(3239, 3394, 0), "Demolish the broken stool.");
-		removeTable = new ObjectStep(this, ObjectID.DADDYSHOME_TABLE_2, new WorldPoint(3240, 3394, 0), "Demolish the broken table.");
-		removeChair = new ObjectStep(this, ObjectID.DADDYSHOME_CHAIR, new WorldPoint(3241, 3393, 0), "Demolish the broken chair.");
-		removeStool2 = new ObjectStep(this, ObjectID.DADDYSHOME_STOOL_1, new WorldPoint(3244, 3394, 0), "Demolish the other broken stool.");
-		removeTable2 = new ObjectStep(this, ObjectID.DADDYSHOME_TABLE_1, new WorldPoint(3245, 3394, 0), "Demolish the other broken table.");
+		removeCampbed = new ObjectStep(this, ObjectID.DADDYSHOME_BED, new WorldPoint(3242, 3398, 0), t("Remove the campbed."));
+		removeCarpet = new ObjectStep(this, ObjectID.DADDYSHOME_CARPET_MIDDLE, new WorldPoint(3239, 3395, 0), t("Right-click remove the rotten carpet."));
+		removeStool = new ObjectStep(this, ObjectID.DADDYSHOME_STOOL_2, new WorldPoint(3239, 3394, 0), t("Demolish the broken stool."));
+		removeTable = new ObjectStep(this, ObjectID.DADDYSHOME_TABLE_2, new WorldPoint(3240, 3394, 0), t("Demolish the broken table."));
+		removeChair = new ObjectStep(this, ObjectID.DADDYSHOME_CHAIR, new WorldPoint(3241, 3393, 0), t("Demolish the broken chair."));
+		removeStool2 = new ObjectStep(this, ObjectID.DADDYSHOME_STOOL_1, new WorldPoint(3244, 3394, 0), t("Demolish the other broken stool."));
+		removeTable2 = new ObjectStep(this, ObjectID.DADDYSHOME_TABLE_1, new WorldPoint(3245, 3394, 0), t("Demolish the other broken table."));
 
-		talkToYarloAfterRemovingFurniture = new NpcStep(this, NpcID.DADDYSHOME_DADDY, new WorldPoint(3240, 3395, 0), "Talk to Old Man Yarlo again after removing all the broken furniture.");
+		talkToYarloAfterRemovingFurniture = new NpcStep(this, NpcID.DADDYSHOME_DADDY, new WorldPoint(3240, 3395, 0), t("Talk to Old Man Yarlo again after removing all the broken furniture."));
 		talkToYarloAfterRemovingFurniture.addDialogStep("Skip Yarlo's lecture. He'll offer it later if you like.");
 
-		removeFurniture = new ConditionalStep(this, removeTable2, "Remove the broken furniture in Old Man Yarlo's house.");
+		removeFurniture = new ConditionalStep(this, removeTable2, t("Remove the broken furniture in Old Man Yarlo's house."));
 		removeFurniture.addStep(needToRemoveCampbed, removeCampbed);
 		removeFurniture.addStep(needToRemoveCarpet, removeCarpet);
 		removeFurniture.addStep(needToRemoveStool, removeStool);
@@ -195,38 +195,38 @@ public class DaddysHome extends BasicQuestHelper
 		removeFurniture.addStep(needToRemoveStool2, removeStool2);
 
 		var highlightFirstOption = new WidgetHighlight(InterfaceID.PohFurnitureCreation._01);
-		buildCarpet = new ObjectStep(this, ObjectID.DADDYSHOME_CARPET_MIDDLE, new WorldPoint(3239, 3395, 0), "Right-click build the carpet.", bolt3, saw, hammer);
+		buildCarpet = new ObjectStep(this, ObjectID.DADDYSHOME_CARPET_MIDDLE, new WorldPoint(3239, 3395, 0), t("Right-click build the carpet."), bolt3, saw, hammer);
 		buildCarpet.addWidgetHighlight(highlightFirstOption);
-		buildStool = new ObjectStep(this, ObjectID.DADDYSHOME_STOOL_2, new WorldPoint(3239, 3394, 0), "Build the stool.", plank, nails2, saw, hammer);
+		buildStool = new ObjectStep(this, ObjectID.DADDYSHOME_STOOL_2, new WorldPoint(3239, 3394, 0), t("Build the stool."), plank, nails2, saw, hammer);
 		buildStool.addWidgetHighlight(highlightFirstOption);
-		buildTable = new ObjectStep(this, ObjectID.DADDYSHOME_TABLE_2, new WorldPoint(3240, 3394, 0), "Build the table.", plank3, nails4, saw, hammer);
+		buildTable = new ObjectStep(this, ObjectID.DADDYSHOME_TABLE_2, new WorldPoint(3240, 3394, 0), t("Build the table."), plank3, nails4, saw, hammer);
 		buildTable.addWidgetHighlight(highlightFirstOption);
-		buildChair = new ObjectStep(this, ObjectID.DADDYSHOME_CHAIR, new WorldPoint(3241, 3393, 0), "Build the chair.", plank2, nails2, saw, hammer);
+		buildChair = new ObjectStep(this, ObjectID.DADDYSHOME_CHAIR, new WorldPoint(3241, 3393, 0), t("Build the chair."), plank2, nails2, saw, hammer);
 		buildChair.addWidgetHighlight(highlightFirstOption);
-		buildStool2 = new ObjectStep(this, ObjectID.DADDYSHOME_STOOL_1, new WorldPoint(3244, 3394, 0), "Build the other stool.", plank, nails2, saw, hammer);
+		buildStool2 = new ObjectStep(this, ObjectID.DADDYSHOME_STOOL_1, new WorldPoint(3244, 3394, 0), t("Build the other stool."), plank, nails2, saw, hammer);
 		buildStool2.addWidgetHighlight(highlightFirstOption);
-		buildTable2 = new ObjectStep(this, ObjectID.DADDYSHOME_TABLE_1, new WorldPoint(3245, 3394, 0), "Build the other table.", plank3, nails4, saw, hammer);
+		buildTable2 = new ObjectStep(this, ObjectID.DADDYSHOME_TABLE_1, new WorldPoint(3245, 3394, 0), t("Build the other table."), plank3, nails4, saw, hammer);
 		buildTable2.addWidgetHighlight(highlightFirstOption);
 
-		buildSimpleFurniture = new ConditionalStep(this, buildTable2, "Rebuild the furniture in Old Man Yarlo's house.");
+		buildSimpleFurniture = new ConditionalStep(this, buildTable2, t("Rebuild the furniture in Old Man Yarlo's house."));
 		buildSimpleFurniture.addStep(needToBuildCarpet, buildCarpet);
 		buildSimpleFurniture.addStep(needToBuildStool, buildStool);
 		buildSimpleFurniture.addStep(needToBuildTable, buildTable);
 		buildSimpleFurniture.addStep(needToBuildChair, buildChair);
 		buildSimpleFurniture.addStep(needToBuildStool2, buildStool2);
 
-		searchCrate = new ObjectStep(this, ObjectID.DADDYSHOME_CRATES, new WorldPoint(3243, 3398, 0), "Search the crates in Old Man Yarlo's house for waxwood logs.");
+		searchCrate = new ObjectStep(this, ObjectID.DADDYSHOME_CRATES, new WorldPoint(3243, 3398, 0), t("Search the crates in Old Man Yarlo's house for waxwood logs."));
 
-		talkToOperator = new NpcStep(this, NpcID.POH_SAWMILL_OPP, new WorldPoint(3302, 3492, 0), "Talk to the Sawmill operator north-east of Varrock to make waxwood planks.", waxwoodLog3);
+		talkToOperator = new NpcStep(this, NpcID.POH_SAWMILL_OPP, new WorldPoint(3302, 3492, 0), t("Talk to the Sawmill operator north-east of Varrock to make waxwood planks."), waxwoodLog3);
 		talkToOperator.addDialogStep("I need some waxwood planks for Old Man Yarlo.");
 		talkToOperator.addTeleport(lumberyardTeleport);
-		buildCampbed = new ObjectStep(this, ObjectID.DADDYSHOME_BED, new WorldPoint(3242, 3398, 0), "Build the waxwood bed in Old Man Yarlo's house.", waxwoodPlank3, bolt2, hammer, saw);
+		buildCampbed = new ObjectStep(this, ObjectID.DADDYSHOME_BED, new WorldPoint(3242, 3398, 0), t("Build the waxwood bed in Old Man Yarlo's house."), waxwoodPlank3, bolt2, hammer, saw);
 		buildCampbed.addWidgetHighlight(highlightFirstOption);
 		buildCampbed.addTeleport(varrockTeleport3.quantity(1));
 
-		talkToYarloAfterBuildingFurniture = new NpcStep(this, NpcID.DADDYSHOME_DADDY, new WorldPoint(3240, 3395, 0), "Talk to Old Man Yarlo again after rebuilding the furniture.");
+		talkToYarloAfterBuildingFurniture = new NpcStep(this, NpcID.DADDYSHOME_DADDY, new WorldPoint(3240, 3395, 0), t("Talk to Old Man Yarlo again after rebuilding the furniture."));
 
-		talkToMarloToFinish = new NpcStep(this, NpcID.CON_CONTRACTOR_VARROCK_1OP, new WorldPoint(3241, 3471, 0), "Talk to Marlo in north-east Varrock to complete the quest.");
+		talkToMarloToFinish = new NpcStep(this, NpcID.CON_CONTRACTOR_VARROCK_1OP, new WorldPoint(3241, 3471, 0), t("Talk to Marlo in north-east Varrock to complete the quest."));
 		talkToMarloToFinish.addAlternateNpcs(NpcID.CON_CONTRACTOR_VARROCK_2OP);
 		talkToMarloToFinish.addDialogStep("Yeah, what have you got for me?");
 	}
@@ -317,7 +317,7 @@ public class DaddysHome extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Helping Yarlo & Marlo", List.of(
+		sections.add(new PanelDetails(t("Helping Yarlo & Marlo"), List.of(
 			talkToMarlo,
 			talkToYarlo,
 			removeFurniture,

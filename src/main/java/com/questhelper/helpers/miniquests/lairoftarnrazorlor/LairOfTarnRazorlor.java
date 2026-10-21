@@ -89,7 +89,7 @@ public class LairOfTarnRazorlor extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		diary = new ItemRequirement("Tarn's diary", ItemID.LOTR_DIARY);
 		diary.setHighlightInInventory(true);
@@ -113,11 +113,12 @@ public class LairOfTarnRazorlor extends BasicQuestHelper
 	public void setupSteps()
 	{
 		tarnRoute = new TarnRoute(this);
-		killTarn = new NpcStep(this, NpcID.LOTR_TRAN_RAZORLOR_MUTANT, new WorldPoint(3186, 4619, 0), "Kill Mutant and Ghost Tarn.");
+		killTarn = new NpcStep(this, NpcID.LOTR_TRAN_RAZORLOR_MUTANT, new WorldPoint(3186, 4619, 0), t("Kill Mutant and Ghost Tarn."));
 		killTarn.addAlternateNpcs(NpcID.LOTR_TRAN_RAZORLOR, NpcID.LOTR_TRAN_RAZORLOR_GHOST);
 
-		enterFinalRoom = new ObjectStep(this, ObjectID.LOTR_RUINS_TRAN_DOOR_OPEN, new WorldPoint(3186, 4627, 0), "Go into the north passageway. If you would like to complete a task for the Morytania Diary, you should kill a Terror Dog now.");
-		pickUpDiary = new ItemStep(this, "Pick up Tarn's diary. Quest complete!", diary);
+		enterFinalRoom = new ObjectStep(this, ObjectID.LOTR_RUINS_TRAN_DOOR_OPEN, new WorldPoint(3186, 4627, 0),
+			t("Go into the north passageway. If you would like to complete a task for the Morytania Diary, you should kill a Terror Dog now."));
+		pickUpDiary = new ItemStep(this, t("Pick up Tarn's diary. Quest complete!"), diary);
 	}
 
 	@Override
@@ -129,7 +130,7 @@ public class LairOfTarnRazorlor extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Tarn (level 69) twice");
+		return Collections.singletonList(t("Tarn (level 69) twice"));
 	}
 
 	@Override
@@ -156,14 +157,14 @@ public class LairOfTarnRazorlor extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("The ability to enchant Salve Amulets."));
+		return Collections.singletonList(new UnlockReward(t("The ability to enchant Salve Amulets.")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		PanelDetails fullQuestPanel = new PanelDetails("Traversing the dungeon", tarnRoute.getDisplaySteps(), combatGear);
+		PanelDetails fullQuestPanel = new PanelDetails(t("Traversing the dungeon"), tarnRoute.getDisplaySteps(), combatGear);
 		fullQuestPanel.addSteps(killTarn, enterFinalRoom, pickUpDiary);
 		allSteps.add(fullQuestPanel);
 		return allSteps;

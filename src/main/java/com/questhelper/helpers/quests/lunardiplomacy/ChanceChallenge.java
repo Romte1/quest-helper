@@ -21,7 +21,7 @@ public class ChanceChallenge extends DetailedOwnerStep
 
 	public ChanceChallenge(QuestHelper questHelper)
 	{
-		super(questHelper, "Flip the dice to sum up to the correct number.");
+		super(questHelper, questHelper.t("Flip the dice to sum up to the correct number."));
 		setupSolutions();
 	}
 
@@ -50,15 +50,15 @@ public class ChanceChallenge extends DetailedOwnerStep
 
 	public void setupSteps()
 	{
-		talk = new NpcStep(getQuestHelper(), NpcID.LUNAR_MOON_DREAM_DICE_GAME_MAN, new WorldPoint(1737, 5068, 2), "Talk to the Ethereal Fluke, and solve his puzzle.");
+		talk = new NpcStep(getQuestHelper(), NpcID.LUNAR_MOON_DREAM_DICE_GAME_MAN, new WorldPoint(1737, 5068, 2), getQuestHelper().t("Talk to the Ethereal Fluke, and solve his puzzle."));
 		talk.addDialogStep("Suppose I may as well have a go.");
 
-		spinD1 = new ObjectStep(getQuestHelper(), ObjectID.QUEST_LUNAR_DICE_1UP_MULTI, new WorldPoint(1735, 5064, 2), "Flip the centre west die.");
-		spinD2 = new ObjectStep(getQuestHelper(), ObjectID.QUEST_LUNAR_DICE_6UP_MULTI, new WorldPoint(1737, 5063, 2), "Flip the centre east die.");
-		spinD3 = new ObjectStep(getQuestHelper(), ObjectID.QUEST_LUNAR_DICE_5UP_MULTI, new WorldPoint(1732, 5067, 2), "Flip the north west die.");
-		spinD4 = new ObjectStep(getQuestHelper(), ObjectID.QUEST_LUNAR_DICE_2UP_MULTI, new WorldPoint(1732, 5060, 2), "Flip the south west die.");
-		spinD5 = new ObjectStep(getQuestHelper(), ObjectID.QUEST_LUNAR_DICE_4UP_MULTI, new WorldPoint(1739, 5067, 2), "Flip the north east die.");
-		spinD6 = new ObjectStep(getQuestHelper(), ObjectID.QUEST_LUNAR_DICE_3UP_MULTI, new WorldPoint(1739, 5060, 2), "Flip the south east die.");
+		spinD1 = new ObjectStep(getQuestHelper(), ObjectID.QUEST_LUNAR_DICE_1UP_MULTI, new WorldPoint(1735, 5064, 2), getQuestHelper().t("Flip the centre west die."));
+		spinD2 = new ObjectStep(getQuestHelper(), ObjectID.QUEST_LUNAR_DICE_6UP_MULTI, new WorldPoint(1737, 5063, 2), getQuestHelper().t("Flip the centre east die."));
+		spinD3 = new ObjectStep(getQuestHelper(), ObjectID.QUEST_LUNAR_DICE_5UP_MULTI, new WorldPoint(1732, 5067, 2), getQuestHelper().t("Flip the north west die."));
+		spinD4 = new ObjectStep(getQuestHelper(), ObjectID.QUEST_LUNAR_DICE_2UP_MULTI, new WorldPoint(1732, 5060, 2), getQuestHelper().t("Flip the south west die."));
+		spinD5 = new ObjectStep(getQuestHelper(), ObjectID.QUEST_LUNAR_DICE_4UP_MULTI, new WorldPoint(1739, 5067, 2), getQuestHelper().t("Flip the north east die."));
+		spinD6 = new ObjectStep(getQuestHelper(), ObjectID.QUEST_LUNAR_DICE_3UP_MULTI, new WorldPoint(1739, 5060, 2), getQuestHelper().t("Flip the south east die."));
 	}
 
 	@Subscribe

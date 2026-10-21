@@ -196,12 +196,12 @@ public class DragonSlayer extends BasicQuestHelper
 		lobsterPot = new ItemRequirement("Lobster pot", ItemID.LOBSTER_POT);
 		silk = new ItemRequirement("Silk", ItemID.SILK);
 		ItemRequirement telegrab = new ItemRequirement("Telekinetic grab", ItemID.POH_TABLET_TELEGRAB, 1);
-		telegrabOrTenK = new ItemRequirements(LogicType.OR, "Either 33 Magic for Telegrab and a ranged/mage weapon, or 10,000 coins",
+		telegrabOrTenK = new ItemRequirements(LogicType.OR, t("Either 33 Magic for Telegrab and a ranged/mage weapon, or 10,000 coins"),
 			new ItemRequirement("Coins", ItemCollections.COINS, 10000), telegrab);
-		ringsOfRecoil = new ItemRequirement("Rings of Recoil for Elvarg", ItemID.RING_OF_RECOIL, -1);
-		chronicle = new ItemRequirement("The Chronicle for teleports to Champions' Guild", ItemID.CHRONICLE).isNotConsumed();
-		antifirePotion = new ItemRequirement("Antifire potion for Elvarg", ItemCollections.ANTIFIRE_POTIONS, -1);
-		edgevilleTeleport = new ItemRequirement("Teleports to Edgeville for getting to Oziach", ItemID.TRAIL_AMULET_OF_GLORY_6, -1);
+		ringsOfRecoil = new ItemRequirement(t("Rings of Recoil for Elvarg"), ItemID.RING_OF_RECOIL, -1);
+		chronicle = new ItemRequirement(t("The Chronicle for teleports to Champions' Guild"), ItemID.CHRONICLE).isNotConsumed();
+		antifirePotion = new ItemRequirement(t("Antifire potion for Elvarg"), ItemCollections.ANTIFIRE_POTIONS, -1);
+		edgevilleTeleport = new ItemRequirement(t("Teleports to Edgeville for getting to Oziach"), ItemID.TRAIL_AMULET_OF_GLORY_6, -1);
 		rimmingtonTeleport = new ItemRequirement("Teleports to Port Sarim/Rimmington/Draynor Village area", ItemID.TRAIL_AMULET_OF_GLORY_6, -1);
 
 		mapPart1 = new ItemRequirement("Map part", ItemID.MAPPART3);

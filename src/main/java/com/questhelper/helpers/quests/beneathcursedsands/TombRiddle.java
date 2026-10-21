@@ -44,7 +44,7 @@ public class TombRiddle extends DetailedOwnerStep
 
 	public TombRiddle(QuestHelper questHelper)
 	{
-		super(questHelper, "Solve the riddle.");
+		super(questHelper, questHelper.t("Solve the riddle."));
 
 		final int SCARAB = 4;
 		final int HUMAN = 2;
@@ -163,14 +163,14 @@ public class TombRiddle extends DetailedOwnerStep
 	@Override
 	protected void setupSteps()
 	{
-		inspectPlaque = new ObjectStep(questHelper, ObjectID.BCS_RIDDLE_PLAQUE, new WorldPoint(3391, 9251, 0), "Inspect the north-western plaque and read it.");
-		obtainEmblems = new ObjectStep(questHelper, ObjectID.BCS_EMBLEM_PLAQUE, new WorldPoint(3391, 9245, 0), "Inspect the south-western plaque to get four emblems.");
-		pullLever = new ObjectStep(questHelper, ObjectID.BCS_TOMB_WALL_LEVER, new WorldPoint(3390, 9247, 0), "Pull the lever to the south-west.");
+		inspectPlaque = new ObjectStep(questHelper, ObjectID.BCS_RIDDLE_PLAQUE, new WorldPoint(3391, 9251, 0), questHelper.t("Inspect the north-western plaque and read it."));
+		obtainEmblems = new ObjectStep(questHelper, ObjectID.BCS_EMBLEM_PLAQUE, new WorldPoint(3391, 9245, 0), questHelper.t("Inspect the south-western plaque to get four emblems."));
+		pullLever = new ObjectStep(questHelper, ObjectID.BCS_TOMB_WALL_LEVER, new WorldPoint(3390, 9247, 0), questHelper.t("Pull the lever to the south-west."));
 
-		placeNorthernUrn = new ObjectStep(questHelper, ObjectID.BCS_TOMB_URN_4, "Place the emblem in the northernmost urn.");
-		placeCentreNorthUrn = new ObjectStep(questHelper, ObjectID.BCS_TOMB_URN_3, "Place the emblem in the centre-north urn.");
-		placeCentreSouthUrn = new ObjectStep(questHelper, ObjectID.BCS_TOMB_URN_2, "Place the emblem in the centre-south urn.");
-		placeSouthernUrn = new ObjectStep(questHelper, ObjectID.BCS_TOMB_URN_1, "Place the emblem in the southernmost urn.");
+		placeNorthernUrn = new ObjectStep(questHelper, ObjectID.BCS_TOMB_URN_4, questHelper.t("Place the emblem in the northernmost urn."));
+		placeCentreNorthUrn = new ObjectStep(questHelper, ObjectID.BCS_TOMB_URN_3, questHelper.t("Place the emblem in the centre-north urn."));
+		placeCentreSouthUrn = new ObjectStep(questHelper, ObjectID.BCS_TOMB_URN_2, questHelper.t("Place the emblem in the centre-south urn."));
+		placeSouthernUrn = new ObjectStep(questHelper, ObjectID.BCS_TOMB_URN_1, questHelper.t("Place the emblem in the southernmost urn."));
 
 		setupItemRequirements();
 	}

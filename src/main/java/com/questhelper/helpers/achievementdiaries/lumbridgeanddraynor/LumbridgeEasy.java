@@ -159,25 +159,25 @@ public class LumbridgeEasy extends ComplexStateQuestHelper
 
 		addedRopeToHole = new VarbitRequirement(VarbitID.SWAMP_CAVES_ROPED_ENTRANCE, 1);
 
-		lightSource = new ItemRequirement("Light source", ItemCollections.LIGHT_SOURCES).showConditioned(notKillCaveBug).isNotConsumed();
+		lightSource = new ItemRequirement(t("Light source"), ItemCollections.LIGHT_SOURCES).showConditioned(notKillCaveBug).isNotConsumed();
 		rope = new ItemRequirement("Rope", ItemID.ROPE).showConditioned(notKillCaveBug);
-		spinyHelm = new ItemRequirement("Spiny helmet or slayer helmet (Recommended for low combat levels / Ironmen)",
+		spinyHelm = new ItemRequirement(t("Spiny helmet or slayer helmet (Recommended for low combat levels / Ironmen)"),
 			ItemCollections.WALL_BEAST).showConditioned(notKillCaveBug).isNotConsumed();
-		waterAccessOrAbyss = new ItemRequirement("Access to the Water Altar",
+		waterAccessOrAbyss = new ItemRequirement(t("Access to the Water Altar"),
 			ItemCollections.WATER_ALTAR).showConditioned(notWaterRune).isNotConsumed();
-		waterAccessOrAbyss.setTooltip("Water Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss");
+		waterAccessOrAbyss.setTooltip(t("Water Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss"));
 		runeEss = new ItemRequirement("Essence", ItemCollections.ESSENCE_LOW).showConditioned(notWaterRune);
 		dough = new ItemRequirement("Bread dough", ItemID.BREAD_DOUGH).showConditioned(notBread);
 		oakLogs = new ItemRequirement("Oak logs", ItemID.OAK_LOGS).showConditioned(notOak);
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).showConditioned(notOak).isNotConsumed();
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES).showConditioned(notOak).isNotConsumed();
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).showConditioned(notIron).isNotConsumed();
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).showConditioned(notOak).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).showConditioned(notIron).isNotConsumed();
 		smallFishingNet = new ItemRequirement("Small fishing net", ItemID.NET).showConditioned(notFishAnchovies).isNotConsumed();
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
 		inCave = new ZoneRequirement(cave);
 		inSewer = new ZoneRequirement(sewer);
@@ -212,67 +212,67 @@ public class LumbridgeEasy extends ComplexStateQuestHelper
 	public void setupSteps()
 	{
 		drayAgi = new ObjectStep(this, ObjectID.ROOFTOPS_DRAYNOR_WALLCLIMB, new WorldPoint(3103, 3279, 0),
-			"Complete a lap of the Draynor Rooftop Course.");
+			t("Complete a lap of the Draynor Rooftop Course."));
 
 		moveToDraySewer = new ObjectStep(this, ObjectID.VAMPIRE_TRAP2, new WorldPoint(3118, 3244, 0),
-			"Climb down into the Draynor Sewer.");
+			t("Climb down into the Draynor Sewer."));
 		moveToDraySewer.addAlternateObjects(ObjectID.VAMPIRE_TRAP1);
 		killZombie = new NpcStep(this, NpcID.ZOMBIE_UNARMED_SEWER1, new WorldPoint(3123, 9648, 0),
-			"Kill a zombie.", true);
+			t("Kill a zombie."), true);
 		killZombie.addAlternateNpcs(NpcID.ZOMBIE_UNARMED_SEWER3, NpcID.ZOMBIE_ARMED_SEWER3, NpcID.ZOMBIE_ARMED_SEWER1, NpcID.ZOMBIE_ARMED_SEWER2);
 
 		moveToSed = new ObjectStep(this, ObjectID.WIZARDS_TOWER_LADDERTOP, new WorldPoint(3104, 3162, 0),
-			"Climb down the ladder in the Wizards' Tower.");
+			t("Climb down the ladder in the Wizards' Tower."));
 		sedridor = new NpcStep(this, NpcID.HEAD_WIZARD_1OP, new WorldPoint(3103, 9571, 0),
-			"Teleport to the Rune essence mine via Sedridor.");
+			t("Teleport to the Rune essence mine via Sedridor."));
 		((NpcStep) sedridor).addAlternateNpcs(NpcID.HEAD_WIZARD_2OP);
 		sedridor.addDialogStep("Can you teleport me to the Rune Essence?");
 		sedridor.addDialogStep("Can you teleport me to the Rune Essence Mine?");
 
 		enterHAM = new ObjectStep(this, ObjectID.OSF_TRAPDOOR_CLOSED, new WorldPoint(3166, 3252, 0),
-			"Lock pick and enter the HAM hideout.");
+			t("Lock pick and enter the HAM hideout."));
 		enterHAM.addAlternateObjects(ObjectID.OSF_TRAPDOOR_OPEN);
 
 		moveToDarkHole = new ObjectStep(this, ObjectID.GOBLIN_CAVE_ENTRANCE, new WorldPoint(3169, 3172, 0),
-			"Enter the dark hole in the Lumbridge Swamp.", lightSource, combatGear);
+			t("Enter the dark hole in the Lumbridge Swamp."), lightSource, combatGear);
 		addRopeToHole = new ObjectStep(this, ObjectID.GOBLIN_CAVE_ENTRANCE, new WorldPoint(3169, 3172, 0),
-			"Use a rope on the dark hole in the Lumbridge Swamp, and then enter it.",
+			t("Use a rope on the dark hole in the Lumbridge Swamp, and then enter it."),
 			lightSource, rope.highlighted(), combatGear);
 		addRopeToHole.addSubSteps(moveToDarkHole);
 		addRopeToHole.addIcon(ItemID.ROPE);
 		killCaveBug = new NpcStep(this, NpcID.SWAMP_CAVE_BUG, new WorldPoint(3151, 9574, 0),
-			"Kill a Cave Bug.", true, combatGear, lightSource);
+			t("Kill a Cave Bug."), true, combatGear, lightSource);
 
 		moveToWaterAltar = new ObjectStep(this, ObjectID.WATERTEMPLE_RUINED, new WorldPoint(3185, 3165, 0),
-			"Enter the water altar in Lumbridge Swamp.", waterAccessOrAbyss.highlighted(), runeEss);
+			t("Enter the water altar in Lumbridge Swamp."), waterAccessOrAbyss.highlighted(), runeEss);
 		moveToWaterAltar.addIcon(ItemID.WATER_TALISMAN);
 		waterRune = new ObjectStep(this, ObjectID.WATER_ALTAR, new WorldPoint(2716, 4836, 0),
-			"Craft water runes.", runeEss);
+			t("Craft water runes."), runeEss);
 
 		bread = new ObjectStep(this, ObjectID.COOKSQUESTRANGE, new WorldPoint(3212, 3216, 0),
-			"Cook bread on the cooking range in Lumbridge Castle.", dough);
+			t("Cook bread on the cooking range in Lumbridge Castle."), dough);
 
 		hans = new NpcStep(this, NpcID.HANS, new WorldPoint(3215, 3219, 0),
-			"Talk to Hans to learn your age.");
+			t("Talk to Hans to learn your age."));
 		hans.addDialogStep("Can you tell me how long I've been here?");
 
 		pickpocket = new NpcStep(this, NpcID.MAN2, new WorldPoint(3215, 3219, 0),
-			"Pickpocket a man or woman infront of Lumbridge Castle.", true);
+			t("Pickpocket a man or woman infront of Lumbridge Castle."), true);
 		pickpocket.addAlternateNpcs(NpcID.MAN3, NpcID.DSKIN_W_ARDOUNGECITIZEN2, NpcID.AVAN_FITZHARMON_MAN);
 
 		chopOak = new ObjectStep(this, ObjectID.OAKTREE, new WorldPoint(3219, 3206, 0),
-			"Chop the oak tree in the Lumbridge Castle Courtyard.", axe);
-		burnOak = new ItemStep(this, "Burn the oak logs you've chopped.", tinderbox.highlighted(),
+			t("Chop the oak tree in the Lumbridge Castle Courtyard."), axe);
+		burnOak = new ItemStep(this, t("Burn the oak logs you've chopped."), tinderbox.highlighted(),
 			oakLogs.highlighted());
 
 		mineIron = new ObjectStep(this, ObjectID.IRONROCK1, new WorldPoint(3303, 3284, 0),
-			"Mine some iron ore at the Al-Kharid mine.", pickaxe);
+			t("Mine some iron ore at the Al-Kharid mine."), pickaxe);
 
 		fishAnchovies = new NpcStep(this, NpcID._0_51_49_SALTFISH, new WorldPoint(3267, 3148, 0),
-			"Fish for anchovies in Al-Kharid.", smallFishingNet);
+			t("Fish for anchovies in Al-Kharid."), smallFishingNet);
 
 		claimReward = new NpcStep(this, NpcID.HATIUS_LUMBRIDGE_DIARY, new WorldPoint(3235, 3213, 0),
-			"Talk to Hatius Cosaintus in Lumbridge to claim your reward!");
+			t("Talk to Hatius Cosaintus in Lumbridge to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -309,7 +309,7 @@ public class LumbridgeEasy extends ComplexStateQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Zombie (lvl 13) and cave bug (lvl 6)");
+		return Collections.singletonList(t("Zombie (lvl 13) and cave bug (lvl 6)"));
 	}
 
 	@Override
@@ -325,8 +325,8 @@ public class LumbridgeEasy extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("30 casts of Low Level Alchemy per day without runes (does not provide experience) from Explorer's ring"),
-			new UnlockReward("50% run energy replenish twice a day from Explorer's ring")
+			new UnlockReward(t("30 casts of Low Level Alchemy per day without runes (does not provide experience) from Explorer's ring")),
+			new UnlockReward(t("50% run energy replenish twice a day from Explorer's ring"))
 		);
 	}
 
@@ -335,75 +335,75 @@ public class LumbridgeEasy extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails draynorRooftopsSteps = new PanelDetails("Draynor Rooftops", Collections.singletonList(drayAgi));
+		PanelDetails draynorRooftopsSteps = new PanelDetails(t("Draynor Rooftops"), Collections.singletonList(drayAgi));
 		draynorRooftopsSteps.setDisplayCondition(notDrayAgi);
 		draynorRooftopsSteps.setLockingStep(drayAgiTask);
 		allSteps.add(draynorRooftopsSteps);
 
-		PanelDetails zombieSteps = new PanelDetails("Kill Zombie in Draynor Sewers", Arrays.asList(moveToDraySewer,
+		PanelDetails zombieSteps = new PanelDetails(t("Kill Zombie in Draynor Sewers"), Arrays.asList(moveToDraySewer,
 			killZombie), combatGear);
 		zombieSteps.setDisplayCondition(notKillZombie);
 		zombieSteps.setLockingStep(killZombieTask);
 		allSteps.add(zombieSteps);
 
-		PanelDetails sedridorSteps = new PanelDetails("Rune Essence Mine", Arrays.asList(moveToSed, sedridor),
+		PanelDetails sedridorSteps = new PanelDetails(t("Rune Essence Mine"), Arrays.asList(moveToSed, sedridor),
 			runeMysteries);
 		sedridorSteps.setDisplayCondition(notSedridor);
 		sedridorSteps.setLockingStep(sedridorTask);
 		allSteps.add(sedridorSteps);
 
-		PanelDetails enterTheHamHideoutSteps = new PanelDetails("Enter the HAM Hideout", Collections.singletonList(enterHAM));
+		PanelDetails enterTheHamHideoutSteps = new PanelDetails(t("Enter the HAM Hideout"), Collections.singletonList(enterHAM));
 		enterTheHamHideoutSteps.setDisplayCondition(notEnterHAM);
 		enterTheHamHideoutSteps.setLockingStep(enterHAMTask);
 		allSteps.add(enterTheHamHideoutSteps);
 
-		PanelDetails killCaveBugSteps = new PanelDetails("Kill Cave Bug", Arrays.asList(addRopeToHole, killCaveBug),
+		PanelDetails killCaveBugSteps = new PanelDetails(t("Kill Cave Bug"), Arrays.asList(addRopeToHole, killCaveBug),
 			new SkillRequirement(Skill.SLAYER, 7, true), lightSource, rope, spinyHelm);
 		killCaveBugSteps.setDisplayCondition(notKillCaveBug);
 		killCaveBugSteps.setLockingStep(killCaveBugTask);
 		allSteps.add(killCaveBugSteps);
 
-		PanelDetails waterRunesSteps = new PanelDetails("Craft Water Runes", Arrays.asList(moveToWaterAltar, waterRune),
+		PanelDetails waterRunesSteps = new PanelDetails(t("Craft Water Runes"), Arrays.asList(moveToWaterAltar, waterRune),
 			new SkillRequirement(Skill.RUNECRAFT, 5, true), waterAccessOrAbyss, runeEss);
 		waterRunesSteps.setDisplayCondition(notWaterRune);
 		waterRunesSteps.setLockingStep(waterRuneTask);
 		allSteps.add(waterRunesSteps);
 
-		PanelDetails breadSteps = new PanelDetails("Cooking Bread", Collections.singletonList(bread), cooksAssistant,
+		PanelDetails breadSteps = new PanelDetails(t("Cooking Bread"), Collections.singletonList(bread), cooksAssistant,
 			dough);
 		breadSteps.setDisplayCondition(notBread);
 		breadSteps.setLockingStep(breadTask);
 		allSteps.add(breadSteps);
 
-		PanelDetails hansSteps = new PanelDetails("Learn Age from Hans", Collections.singletonList(hans));
+		PanelDetails hansSteps = new PanelDetails(t("Learn Age from Hans"), Collections.singletonList(hans));
 		hansSteps.setDisplayCondition(notHans);
 		hansSteps.setLockingStep(hansTask);
 		allSteps.add(hansSteps);
 
-		PanelDetails pickpocketSteps = new PanelDetails("Pickpocket Man or Woman", Collections.singletonList(pickpocket));
+		PanelDetails pickpocketSteps = new PanelDetails(t("Pickpocket Man or Woman"), Collections.singletonList(pickpocket));
 		pickpocketSteps.setDisplayCondition(notPickpocket);
 		pickpocketSteps.setLockingStep(pickpocketTask);
 		allSteps.add(pickpocketSteps);
 
-		PanelDetails oakSteps = new PanelDetails("Chop and Burn Oak Logs", Arrays.asList(chopOak, burnOak),
+		PanelDetails oakSteps = new PanelDetails(t("Chop and Burn Oak Logs"), Arrays.asList(chopOak, burnOak),
 			new SkillRequirement(Skill.WOODCUTTING, 15, true), new SkillRequirement(Skill.FIREMAKING, 15, true), tinderbox, axe);
 		oakSteps.setDisplayCondition(notOak);
 		oakSteps.setLockingStep(oakTask);
 		allSteps.add(oakSteps);
 
-		PanelDetails mineIronSteps = new PanelDetails("Mine Iron in Al-Kharid", Collections.singletonList(mineIron),
+		PanelDetails mineIronSteps = new PanelDetails(t("Mine Iron in Al-Kharid"), Collections.singletonList(mineIron),
 			new SkillRequirement(Skill.MINING, 15, true), pickaxe);
 		mineIronSteps.setDisplayCondition(notIron);
 		mineIronSteps.setLockingStep(ironTask);
 		allSteps.add(mineIronSteps);
 
-		PanelDetails anchoviesSteps = new PanelDetails("Fish Anchovies in Al-Kharid",
+		PanelDetails anchoviesSteps = new PanelDetails(t("Fish Anchovies in Al-Kharid"),
 			Collections.singletonList(fishAnchovies), new SkillRequirement(Skill.FISHING, 15, true), smallFishingNet);
 		anchoviesSteps.setDisplayCondition(notFishAnchovies);
 		anchoviesSteps.setLockingStep(fishAnchoviesTask);
 		allSteps.add(anchoviesSteps);
 
-		allSteps.add(new PanelDetails("Finishing off", Collections.singletonList(claimReward)));
+		allSteps.add(new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward)));
 
 		return allSteps;
 	}

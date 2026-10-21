@@ -185,10 +185,10 @@ public class ShiloVillage extends BasicQuestHelper
 		staminas = new ItemRequirement("Stamina potions", ItemCollections.STAMINA_POTIONS, -1);
 		antipoison = new ItemRequirement("Antipoisons", ItemCollections.ANTIPOISONS, -1);
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS, -1);
-		quickTeleport = new ItemRequirement("A quick teleport for escaping", -1, -1);
+		quickTeleport = new ItemRequirement(t("A quick teleport for escaping"), -1, -1);
 		papyrus = new ItemRequirement("Papyrus", ItemID.PAPYRUS);
 		charcoal = new ItemRequirement("Charcoal", ItemID.CHARCOAL);
-		crumbleUndead = new ItemRequirement("Crumble undead spell for final boss", -1, -1);
+		crumbleUndead = new ItemRequirement(t("Crumble undead spell for final boss"), -1, -1);
 
 		freeInvSlot1 = new FreeInventorySlotRequirement(1);
 		freeInvSlot2 = new FreeInventorySlotRequirement(2);

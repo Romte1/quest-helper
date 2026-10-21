@@ -257,7 +257,7 @@ public class MakingFriendsWithMyArm extends BasicQuestHelper
 		boltOfCloth = new ItemRequirement("Bolt of cloth", ItemID.CLOTH);
 		mahogPlanks5 = new ItemRequirement("Mahogany plank", ItemID.PLANK_MAHOGANY, 5);
 		cadavaBerries = new ItemRequirement("Cadava berries", ItemID.CADAVABERRIES);
-		combatRangeMelee = new ItemRequirement("Combat gear, preferably ranged or melee", -1, -1).isNotConsumed();
+		combatRangeMelee = new ItemRequirement(t("Combat gear, preferably ranged or melee"), -1, -1).isNotConsumed();
 		combatRangeMelee.setDisplayItemId(BankSlotIcons.getCombatGear());
 		trollTele = new ItemRequirement("Trollheim teleports", ItemID.NZONE_TELETAB_TROLLHEIM);
 		varrockTele = new ItemRequirement("Varrock teleport", ItemID.POH_TABLET_VARROCKTELEPORT);
@@ -270,7 +270,7 @@ public class MakingFriendsWithMyArm extends BasicQuestHelper
 
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed();
 		potion = new ItemRequirement("Reduced cadava potion", ItemID.MY2ARM_POTION);
-		potion.setTooltip("You can get another by bringing the Apothecary a cadava berry");
+		potion.setTooltip(t("You can get another by bringing the Apothecary a cadava berry"));
 
 		coffin = new ItemRequirement("Old man's coffin", ItemID.MY2ARM_COFFIN);
 
@@ -411,153 +411,153 @@ public class MakingFriendsWithMyArm extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		enterStronghold = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_DOOR, new WorldPoint(2839, 3690, 0), "Talk to Burntmeat in the Troll Stronghold's kitchen.");
+		enterStronghold = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_DOOR, new WorldPoint(2839, 3690, 0), t("Talk to Burntmeat in the Troll Stronghold's kitchen."));
 
-		goDownToBurntmeat = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRSTOP, new WorldPoint(2844, 10052, 2), "Go down the south staircase.");
+		goDownToBurntmeat = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRSTOP, new WorldPoint(2844, 10052, 2), t("Go down the south staircase."));
 
-		goUpToBurntmeat = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRS, new WorldPoint(2853, 10107, 0), "Go up the stairs from the prison.");
+		goUpToBurntmeat = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRS, new WorldPoint(2853, 10107, 0), t("Go up the stairs from the prison."));
 
-		talkToBurntmeat = new NpcStep(this, NpcID.EADGAR_TROLL_CHIEF_COOK, new WorldPoint(2845, 10057, 1), "Talk to Burntmeat in the Troll Stronghold's kitchen.");
+		talkToBurntmeat = new NpcStep(this, NpcID.EADGAR_TROLL_CHIEF_COOK, new WorldPoint(2845, 10057, 1), t("Talk to Burntmeat in the Troll Stronghold's kitchen."));
 		talkToBurntmeat.addSubSteps(enterStronghold, goDownToBurntmeat, goUpToBurntmeat);
 		talkToBurntmeat.addDialogSteps("Yes, I'll take your quest.", "Why in the heck would you choose My Arm?");
 
-		enterStrongholdAfterStart = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_DOOR, new WorldPoint(2839, 3690, 0), "Talk to My Arm on the roof of the Troll Stronghold.");
+		enterStrongholdAfterStart = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_DOOR, new WorldPoint(2839, 3690, 0), t("Talk to My Arm on the roof of the Troll Stronghold."));
 
-		goUpAfterStart = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRS, new WorldPoint(2853, 10107, 0), "Talk to My Arm on the roof of the Troll Stronghold.");
+		goUpAfterStart = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRS, new WorldPoint(2853, 10107, 0), t("Talk to My Arm on the roof of the Troll Stronghold."));
 
-		goUpFromF1ToMyArm = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRS, new WorldPoint(2843, 10052, 1), "Talk to My Arm on the roof of the Troll Stronghold.");
-		goUpToMyArmAfterStart = new ObjectStep(this, ObjectID.MYARM_LADDER, new WorldPoint(2831, 10077, 2), "Talk to My Arm on the roof of the Troll Stronghold.");
-		talkToMyArmUpstairs = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2830, 3698, 0), "Talk to My Arm on the roof of the Troll Stronghold.");
+		goUpFromF1ToMyArm = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRS, new WorldPoint(2843, 10052, 1), t("Talk to My Arm on the roof of the Troll Stronghold."));
+		goUpToMyArmAfterStart = new ObjectStep(this, ObjectID.MYARM_LADDER, new WorldPoint(2831, 10077, 2), t("Talk to My Arm on the roof of the Troll Stronghold."));
+		talkToMyArmUpstairs = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2830, 3698, 0), t("Talk to My Arm on the roof of the Troll Stronghold."));
 		talkToMyArmUpstairs.addDialogSteps("I'm doing another quest for Burntmeat.", "Wolfbone said we should go by sea.");
 		talkToMyArmUpstairs.addSubSteps(enterStrongholdAfterStart, goUpAfterStart, goUpFromF1ToMyArm, goUpToMyArmAfterStart);
 
-		talkToLarry = new NpcStep(this, NpcID.PENG_LARRY_RELL, new WorldPoint(2707, 3733, 0), "Talk to Larry north east of Rellekka.");
+		talkToLarry = new NpcStep(this, NpcID.PENG_LARRY_RELL, new WorldPoint(2707, 3733, 0), t("Talk to Larry north east of Rellekka."));
 		talkToLarry.addDialogSteps("Can I transport My Arm in your boat?", "Never mind, I just need to borrow your boat.");
-		talkToLarryAgain = new NpcStep(this, NpcID.PENG_LARRY_RELL, new WorldPoint(2707, 3733, 0), "Talk to Larry again.");
+		talkToLarryAgain = new NpcStep(this, NpcID.PENG_LARRY_RELL, new WorldPoint(2707, 3733, 0), t("Talk to Larry again."));
 		talkToLarryAgain.addDialogSteps("Can I transport My Arm in your boat?", "Never mind, I just need to borrow your boat.");
 
-		boardBoat = new ObjectStep(this, ObjectID.PENG_BOAT_RELL, new WorldPoint(2709, 3735, 0), "Board Larry's boat to Weiss.");
+		boardBoat = new ObjectStep(this, ObjectID.PENG_BOAT_RELL, new WorldPoint(2709, 3735, 0), t("Board Larry's boat to Weiss."));
 		boardBoat.addDialogStep("Travel to Weiss.");
 		// 6719 0->2 on boat
 
-		attemptToMine = new ObjectStep(this, ObjectID.MY2ARM_CLIFFBOTTOM_CAVEENTRANCE, new WorldPoint(2859, 3967, 0), "Attempt to mine the cave entrance.");
-		searchBoatForRopeAndPickaxe = new ObjectStep(this, ObjectID.MY2ARM_SHIPWRECK, new WorldPoint(2856, 3971, 0), "Search the wrecked boat for a pickaxe and rope.");
+		attemptToMine = new ObjectStep(this, ObjectID.MY2ARM_CLIFFBOTTOM_CAVEENTRANCE, new WorldPoint(2859, 3967, 0), t("Attempt to mine the cave entrance."));
+		searchBoatForRopeAndPickaxe = new ObjectStep(this, ObjectID.MY2ARM_SHIPWRECK, new WorldPoint(2856, 3971, 0), t("Search the wrecked boat for a pickaxe and rope."));
 		searchBoatForRopeAndPickaxe.addDialogSteps("Take rope", "Take pickaxe");
-		searchBoatForPickaxe = new ObjectStep(this, ObjectID.MY2ARM_SHIPWRECK, new WorldPoint(2856, 3971, 0), "Search the wrecked boat for a pickaxe.");
+		searchBoatForPickaxe = new ObjectStep(this, ObjectID.MY2ARM_SHIPWRECK, new WorldPoint(2856, 3971, 0), t("Search the wrecked boat for a pickaxe."));
 		searchBoatForPickaxe.addDialogStep("Take pickaxe");
-		searchBoatForRope = new ObjectStep(this, ObjectID.MY2ARM_SHIPWRECK, new WorldPoint(2856, 3971, 0), "Search the wrecked boat for a rope.");
+		searchBoatForRope = new ObjectStep(this, ObjectID.MY2ARM_SHIPWRECK, new WorldPoint(2856, 3971, 0), t("Search the wrecked boat for a rope."));
 		searchBoatForRope.addDialogStep("Take rope");
-		climbRocks = new ObjectStep(this, ObjectID.MY2ARM_CLIFF_SHORTCUT_1, new WorldPoint(2852, 3965, 0), "Climb the rockslide.");
+		climbRocks = new ObjectStep(this, ObjectID.MY2ARM_CLIFF_SHORTCUT_1, new WorldPoint(2852, 3965, 0), t("Climb the rockslide."));
 
-		climbRocks2 = new ObjectStep(this, ObjectID.MY2ARM_CLIFF_SHORTCUT_2, new WorldPoint(2853, 3964, 0), "Climb the rockslide.");
+		climbRocks2 = new ObjectStep(this, ObjectID.MY2ARM_CLIFF_SHORTCUT_2, new WorldPoint(2853, 3964, 0), t("Climb the rockslide."));
 		climbRocks.addSubSteps(climbRocks2);
-		useRope = new ObjectStep(this, ObjectID.MY2ARM_CLIFF_SHORTCUT_3, new WorldPoint(2853, 3962, 0), "Use a rope on the nearby tree.", ropeHighlight);
+		useRope = new ObjectStep(this, ObjectID.MY2ARM_CLIFF_SHORTCUT_3, new WorldPoint(2853, 3962, 0), t("Use a rope on the nearby tree."), ropeHighlight);
 		useRope.addIcon(ItemID.ROPE);
 
-		climbRope = new ObjectStep(this, ObjectID.MY2ARM_CLIFF_SHORTCUT_3_ROPETRAIL_MULTI, new WorldPoint(2855, 3963, 0), "Climb the rope.");
-		crossLedge = new ObjectStep(this, ObjectID.MY2ARM_CLIFF_SHORTCUT_4, new WorldPoint(2855, 3961, 0), "Cross the ledge.");
-		climbRocks3 = new ObjectStep(this, ObjectID.MY2ARM_CLIFF_SHORTCUT_5, new WorldPoint(2859, 3961, 0), "Continue climbing.");
-		passTree = new ObjectStep(this, ObjectID.MY2ARM_CLIFF_SHORTCUT_6, new WorldPoint(2857, 3956, 0), "Pass the fallen tree.");
+		climbRope = new ObjectStep(this, ObjectID.MY2ARM_CLIFF_SHORTCUT_3_ROPETRAIL_MULTI, new WorldPoint(2855, 3963, 0), t("Climb the rope."));
+		crossLedge = new ObjectStep(this, ObjectID.MY2ARM_CLIFF_SHORTCUT_4, new WorldPoint(2855, 3961, 0), t("Cross the ledge."));
+		climbRocks3 = new ObjectStep(this, ObjectID.MY2ARM_CLIFF_SHORTCUT_5, new WorldPoint(2859, 3961, 0), t("Continue climbing."));
+		passTree = new ObjectStep(this, ObjectID.MY2ARM_CLIFF_SHORTCUT_6, new WorldPoint(2857, 3956, 0), t("Pass the fallen tree."));
 
-		talkToBoulder = new NpcStep(this, NpcID.MY2ARM_SENTRY_BOULDER, new WorldPoint(2865, 3947, 0), "Talk to Boulder.");
+		talkToBoulder = new NpcStep(this, NpcID.MY2ARM_SENTRY_BOULDER, new WorldPoint(2865, 3947, 0), t("Talk to Boulder."));
 		talkToBoulder.addDialogStep("You only need to let My Arm in, not me.");
-		crossFence = new ObjectStep(this, ObjectID.MY2ARM_TOWN_FENCE_BROKEN, new WorldPoint(2890, 3948, 0), "Sneak into Weiss via the fence to the east.");
+		crossFence = new ObjectStep(this, ObjectID.MY2ARM_TOWN_FENCE_BROKEN, new WorldPoint(2890, 3948, 0), t("Sneak into Weiss via the fence to the east."));
 		crossFence.addDialogStep("I'll be back!");
 
-		goSouthSneak = new TileStep(this, new WorldPoint(2887, 3935, 0), "You need to reach the hole at the north west " +
-			"corner, avoiding the trolls and the boulders they throw. Go south, then west, then north.");
-		goWestSneak1 = new TileStep(this, new WorldPoint(2879, 3922, 0), "Wait a few seconds, then run west to the next point.");
-		goWestSneak2 = new TileStep(this, new WorldPoint(2865, 3928, 0), "Wait a few seconds, then run west to the next point.");
-		goWestSneak3 = new TileStep(this, new WorldPoint(2856, 3923, 0), "Wait a few seconds, then run west to the next point.");
-		goNorth = new TileStep(this, new WorldPoint(2859, 3939, 0), "Wait a few seconds, then run north to the next point.");
+		goSouthSneak = new TileStep(this, new WorldPoint(2887, 3935, 0), t("You need to reach the hole at the north west " +
+			"corner, avoiding the trolls and the boulders they throw. Go south, then west, then north."));
+		goWestSneak1 = new TileStep(this, new WorldPoint(2879, 3922, 0), t("Wait a few seconds, then run west to the next point."));
+		goWestSneak2 = new TileStep(this, new WorldPoint(2865, 3928, 0), t("Wait a few seconds, then run west to the next point."));
+		goWestSneak3 = new TileStep(this, new WorldPoint(2856, 3923, 0), t("Wait a few seconds, then run west to the next point."));
+		goNorth = new TileStep(this, new WorldPoint(2859, 3939, 0), t("Wait a few seconds, then run north to the next point."));
 
-		enterHole = new ObjectStep(this, ObjectID.MY2ARM_TOWN_HOLE_A, new WorldPoint(2854, 3944,0), "Wait a few seconds, and run into the hole.");
+		enterHole = new ObjectStep(this, ObjectID.MY2ARM_TOWN_HOLE_A, new WorldPoint(2854, 3944,0), t("Wait a few seconds, and run into the hole."));
 		goSouthSneak.addSubSteps(goWestSneak1, goWestSneak2, goWestSneak3, goNorth, enterHole);
-		enterNarrowHole = new ObjectStep(this, ObjectID.MY2ARM_CAVE_SQUEEZE, new WorldPoint(2704, 5794, 0), "Enter the narrow gap to the south quickly.");
+		enterNarrowHole = new ObjectStep(this, ObjectID.MY2ARM_CAVE_SQUEEZE, new WorldPoint(2704, 5794, 0), t("Enter the narrow gap to the south quickly."));
 
-		enterWater = new ObjectStep(this, ObjectID.MY2ARM_CAVE_WATERLINE, new WorldPoint(2710, 5782, 0), "Enter the water.");
+		enterWater = new ObjectStep(this, ObjectID.MY2ARM_CAVE_WATERLINE, new WorldPoint(2710, 5782, 0), t("Enter the water."));
 
-		waterSpot1 = new DetailedQuestStep(this, new WorldPoint(2717, 5780, 0), "Swim across the water.");
-		leaveWater1 = new ObjectStep(this, ObjectID.MY2ARM_CAVE_WATERLINE, new WorldPoint(2730, 5781, 0), "Wait a few seconds, then swim to the east shore.");
+		waterSpot1 = new DetailedQuestStep(this, new WorldPoint(2717, 5780, 0), t("Swim across the water."));
+		leaveWater1 = new ObjectStep(this, ObjectID.MY2ARM_CAVE_WATERLINE, new WorldPoint(2730, 5781, 0), t("Wait a few seconds, then swim to the east shore."));
 		waterSpot1.addSubSteps(enterWater, leaveWater1);
 
-		enterWater2 = new ObjectStep(this,  ObjectID.MY2ARM_CAVE_WATERLINE_FORHINT, new WorldPoint(2734, 5792, 0), "Enter the water.");
+		enterWater2 = new ObjectStep(this,  ObjectID.MY2ARM_CAVE_WATERLINE_FORHINT, new WorldPoint(2734, 5792, 0), t("Enter the water."));
 
-		mineCave = new ObjectStep(this, ObjectID.MY2ARM_CAVE_EXIT_BLOCKED, new WorldPoint(2737, 5817, 0), "Mine the cave exit.", pickaxe);
+		mineCave = new ObjectStep(this, ObjectID.MY2ARM_CAVE_EXIT_BLOCKED, new WorldPoint(2737, 5817, 0), t("Mine the cave exit."), pickaxe);
 
-		placeRocks = new DetailedQuestStep(this, "You now need to make a path with the stones thrown at you in the water. Have the troll throw 5 rocks next to each other going out from the north shore.");
+		placeRocks = new DetailedQuestStep(this, t("You now need to make a path with the stones thrown at you in the water. Have the troll throw 5 rocks next to each other going out from the north shore."));
 		placeRocks.addSubSteps(enterWater2);
 
-		talkToMother = new NpcStep(this, NpcID.MY2ARM_MOTHER_ENTHRONED, new WorldPoint(2872, 3932, 0), "Talk to Mother in Weiss.");
+		talkToMother = new NpcStep(this, NpcID.MY2ARM_MOTHER_ENTHRONED, new WorldPoint(2872, 3932, 0), t("Talk to Mother in Weiss."));
 		talkToMother.addDialogSteps("Let's move on with the chat.", "Tell him goutweed is delicious.", "Tell him how tough Stronghold trolls are.",
 			"Tell him to show respect to his daughter.", "Tell him you love his daughter!");
 
-		talkToMyArmAfterMeeting = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2877, 3947, 0), "Talk to My Arm in Weiss.");
+		talkToMyArmAfterMeeting = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2877, 3947, 0), t("Talk to My Arm in Weiss."));
 		talkToMyArmAfterMeeting.addDialogSteps("Odd Mushroom, why are you here with us?", "Does Mother respect anything except fighting?", "I did some fishing and fetched some stuff.");
 
-		talkToWom = new NpcStep(this, NpcID.WISE_OLD_MAN, new WorldPoint(3088, 3255, 0), "Talk to the Wise Old Man in Draynor Village.");
+		talkToWom = new NpcStep(this, NpcID.WISE_OLD_MAN, new WorldPoint(3088, 3255, 0), t("Talk to the Wise Old Man in Draynor Village."));
 		talkToWom.addDialogSteps("Ask about My Arm.", "Can you pretend you're dead?", "You owe me a favour after the Fishing Colony quest.");
 
-		buildCoffin = new ObjectStep(this, ObjectID.MY2ARM_COFFIN_MULTI, new WorldPoint(3090, 3254, 0), "Build the coffin in the Wise Old Man's house.", saw, hammer, mahogPlanks5, boltOfCloth);
+		buildCoffin = new ObjectStep(this, ObjectID.MY2ARM_COFFIN_MULTI, new WorldPoint(3090, 3254, 0), t("Build the coffin in the Wise Old Man's house."), saw, hammer, mahogPlanks5, boltOfCloth);
 
-		talkToApoth = new NpcStep(this, NpcID.APOTHECARY, new WorldPoint(3196, 3403, 0), "Talk to the Apothecary in Varrock.", cadavaBerries);
+		talkToApoth = new NpcStep(this, NpcID.APOTHECARY, new WorldPoint(3196, 3403, 0), t("Talk to the Apothecary in Varrock."), cadavaBerries);
 		talkToApoth.addDialogStep("Talk about Making Friends with My Arm.");
 
-		talkToWomAfterPrep = new NpcStep(this, NpcID.WISE_OLD_MAN, new WorldPoint(3088, 3255, 0), "Bring the cadava potion to the Wise Old Man in Draynor Village.", potion);
+		talkToWomAfterPrep = new NpcStep(this, NpcID.WISE_OLD_MAN, new WorldPoint(3088, 3255, 0), t("Bring the cadava potion to the Wise Old Man in Draynor Village."), potion);
 		talkToWomAfterPrep.addDialogStep("Ask about My Arm.");
 
-		pickUpCoffin = new ObjectStep(this, ObjectID.MY2ARM_COFFIN_MULTI, new WorldPoint(3090, 3254, 0), "Pick up the coffin in the Wise Old Man's house.");
+		pickUpCoffin = new ObjectStep(this, ObjectID.MY2ARM_COFFIN_MULTI, new WorldPoint(3090, 3254, 0), t("Pick up the coffin in the Wise Old Man's house."));
 
-		takeBoatWithWom = new ObjectStep(this, ObjectID.PENG_BOAT_RELL, new WorldPoint(2709, 3735, 0), "Board Larry's boat to Weiss.", coffin, combatRangeMelee);
+		takeBoatWithWom = new ObjectStep(this, ObjectID.PENG_BOAT_RELL, new WorldPoint(2709, 3735, 0), t("Board Larry's boat to Weiss."), coffin, combatRangeMelee);
 		takeBoatWithWom.addDialogStep("Travel to Weiss.");
 
-		enterCaveWithWom = new ObjectStep(this, ObjectID.MY2ARM_CLIFFBOTTOM_CAVEENTRANCE, new WorldPoint(2859, 3967, 0), "Enter the cave entrance.", coffin, combatRangeMelee);
+		enterCaveWithWom = new ObjectStep(this, ObjectID.MY2ARM_CLIFFBOTTOM_CAVEENTRANCE, new WorldPoint(2859, 3967, 0), t("Enter the cave entrance."), coffin, combatRangeMelee);
 
-		talkToMyArmWithWom = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2877, 3947, 0), "Talk to My Arm in Weiss.", coffin, combatRangeMelee);
+		talkToMyArmWithWom = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2877, 3947, 0), t("Talk to My Arm in Weiss."), coffin, combatRangeMelee);
 
-		talkToMyArmAfterGivingWom = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2877, 3947, 0), "Talk to My Arm in Weiss.");
+		talkToMyArmAfterGivingWom = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2877, 3947, 0), t("Talk to My Arm in Weiss."));
 		talkToMyArmWithWom.addSubSteps(takeBoatWithWom, enterCaveWithWom, talkToMyArmAfterGivingWom);
 
-		takeBoatToPrison = new ObjectStep(this, ObjectID.PENG_BOAT_RELL, new WorldPoint(2709, 3735, 0), "Board Larry's boat to Weiss.");
+		takeBoatToPrison = new ObjectStep(this, ObjectID.PENG_BOAT_RELL, new WorldPoint(2709, 3735, 0), t("Board Larry's boat to Weiss."));
 		takeBoatToPrison.addDialogStep("Travel to Weiss.");
 
-		enterCaveToPrison = new ObjectStep(this, ObjectID.MY2ARM_CLIFFBOTTOM_CAVEENTRANCE, new WorldPoint(2859, 3967, 0), "Enter the cave entrance. Be prepared to fight.", combatRangeMelee);
-		talkToBoulderToEnterPrison = new NpcStep(this, NpcID.MY2ARM_SENTRY_BOULDER, new WorldPoint(2865, 3947, 0), "Talk to Boulder in Weiss. Be prepared to fight.", combatRangeMelee);
+		enterCaveToPrison = new ObjectStep(this, ObjectID.MY2ARM_CLIFFBOTTOM_CAVEENTRANCE, new WorldPoint(2859, 3967, 0), t("Enter the cave entrance. Be prepared to fight."), combatRangeMelee);
+		talkToBoulderToEnterPrison = new NpcStep(this, NpcID.MY2ARM_SENTRY_BOULDER, new WorldPoint(2865, 3947, 0), t("Talk to Boulder in Weiss. Be prepared to fight."), combatRangeMelee);
 
-		talkToOddMushroom = new NpcStep(this, NpcID.MY2ARM_MUSHROOM_DYING, new WorldPoint(2852, 10332, 0), "Talk to Odd Mushroom in the prison.");
+		talkToOddMushroom = new NpcStep(this, NpcID.MY2ARM_MUSHROOM_DYING, new WorldPoint(2852, 10332, 0), t("Talk to Odd Mushroom in the prison."));
 		talkToOddMushroom.addSubSteps(takeBoatToPrison, enterCaveToPrison, talkToBoulderToEnterPrison);
 		talkToOddMushroom.addDialogStep("I'll never leave you.");
 
-		talkToSnowflake = new NpcStep(this, NpcID.MY2ARM_SNOWFLAKE, new WorldPoint(2852, 10334, 0), "Talk to Snowflake. Be prepared to fight Don't Know What. Protect from Ranged, and move around to avoid his attacks.", combatRangeMelee);
+		talkToSnowflake = new NpcStep(this, NpcID.MY2ARM_SNOWFLAKE, new WorldPoint(2852, 10334, 0), t("Talk to Snowflake. Be prepared to fight Don't Know What. Protect from Ranged, and move around to avoid his attacks."), combatRangeMelee);
 		talkToSnowflake.addDialogStep("So I can't teleport, and I may lose stuff? Okay.");
 
-		killDontKnowWhat = new NpcStep(this, NpcID.MY2ARM_DONTKNOWWHAT_BATTLE, "Kill Don't Know What. Move around and Protect from Ranged to avoid his attacks.");
+		killDontKnowWhat = new NpcStep(this, NpcID.MY2ARM_DONTKNOWWHAT_BATTLE, t("Kill Don't Know What. Move around and Protect from Ranged to avoid his attacks."));
 
-		killMother = new NpcStep(this, NpcID.MY2ARM_MOTHER_BATTLE_MAGIC, "Kill Mother. Protect from Ranged, keep moving and keep your distance.");
+		killMother = new NpcStep(this, NpcID.MY2ARM_MOTHER_BATTLE_MAGIC, t("Kill Mother. Protect from Ranged, keep moving and keep your distance."));
 		killMother.addAlternateNpcs(NpcID.MY2ARM_MOTHER_BATTLE_MELEE, NpcID.MY2ARM_MOTHER_BATTLE_RANGED);
 
-		pickUpBucket = new ObjectStep(this, ObjectID.MY2ARM_THRONE_ROOM_BUCKETS, new WorldPoint(2867, 3934, 0), "You now need to put out the fire. Pick up a bucket from the bucket pile.");
-		useBucketOnWater = new ObjectStep(this, ObjectID.MY2ARM_THRONE_ROOM_WATER, new WorldPoint(2869, 3933, 0), "Fill the bucket on the barrel of water.", bucketHighlight);
+		pickUpBucket = new ObjectStep(this, ObjectID.MY2ARM_THRONE_ROOM_BUCKETS, new WorldPoint(2867, 3934, 0), t("You now need to put out the fire. Pick up a bucket from the bucket pile."));
+		useBucketOnWater = new ObjectStep(this, ObjectID.MY2ARM_THRONE_ROOM_WATER, new WorldPoint(2869, 3933, 0), t("Fill the bucket on the barrel of water."), bucketHighlight);
 		useBucketOnWater.addIcon(ItemID.BUCKET_EMPTY);
 
-		useBucketOnFire = new ObjectStep(this, ObjectID.MY2ARM_FIRE_THRONE_ROOM, new WorldPoint(2876, 3933, 0), "Use the full bucket on the Fire of Domination.", bucketOfWaterHighlight);
+		useBucketOnFire = new ObjectStep(this, ObjectID.MY2ARM_FIRE_THRONE_ROOM, new WorldPoint(2876, 3933, 0), t("Use the full bucket on the Fire of Domination."), bucketOfWaterHighlight);
 		useBucketOnFire.addIcon(ItemID.BUCKET_WATER);
 
-		talkToMyArmAfterFight = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2874, 3934, 0), "Talk to My Arm in Weiss.");
-		talkToWomAfterFight = new NpcStep(this, NpcID.WOM_UNARMED, new WorldPoint(2873, 3936, 0), "Talk to the Wise Old Man in Weiss.");
-		talkToSnowflakeAfterFight = new NpcStep(this, NpcID.MY2ARM_SNOWFLAKE, new WorldPoint(2872, 3934, 0), "Talk to Snowflake in Weiss.");
+		talkToMyArmAfterFight = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2874, 3934, 0), t("Talk to My Arm in Weiss."));
+		talkToWomAfterFight = new NpcStep(this, NpcID.WOM_UNARMED, new WorldPoint(2873, 3936, 0), t("Talk to the Wise Old Man in Weiss."));
+		talkToSnowflakeAfterFight = new NpcStep(this, NpcID.MY2ARM_SNOWFLAKE, new WorldPoint(2872, 3934, 0), t("Talk to Snowflake in Weiss."));
 		talkToSnowflakeAfterFight.addDialogStep("Okay, I'll be back.");
-		pickUpGoatDung = new ObjectStep(this, ObjectID.MY2ARM_GOATDUNG, new WorldPoint(2888, 3944, 0), "Pick up some goat poo from the north east building of Weiss.", bucketHighlight);
-		pickUpBucketForDung = new ItemStep(this, "Pick up a bucket of water from the north east building of Weiss.", bucketOfWaterHighlight);
-		emptyBucket = new DetailedQuestStep(this, "Empty the bucket of water", bucketOfWaterHighlight);
+		pickUpGoatDung = new ObjectStep(this, ObjectID.MY2ARM_GOATDUNG, new WorldPoint(2888, 3944, 0), t("Pick up some goat poo from the north east building of Weiss."), bucketHighlight);
+		pickUpBucketForDung = new ItemStep(this, t("Pick up a bucket of water from the north east building of Weiss."), bucketOfWaterHighlight);
+		emptyBucket = new DetailedQuestStep(this, t("Empty the bucket of water"), bucketOfWaterHighlight);
 		pickUpGoatDung.addSubSteps(pickUpBucketForDung, emptyBucket);
-		talkToSnowflakeAfterDung = new NpcStep(this, NpcID.MY2ARM_SNOWFLAKE, new WorldPoint(2872, 3934, 0), "Talk to Snowflake.");
-		bringDungToSnowflake = new NpcStep(this, NpcID.MY2ARM_SNOWFLAKE, new WorldPoint(2872, 3934, 0), "Bring the goat poo to Snowflake.", goatDung);
+		talkToSnowflakeAfterDung = new NpcStep(this, NpcID.MY2ARM_SNOWFLAKE, new WorldPoint(2872, 3934, 0), t("Talk to Snowflake."));
+		bringDungToSnowflake = new NpcStep(this, NpcID.MY2ARM_SNOWFLAKE, new WorldPoint(2872, 3934, 0), t("Bring the goat poo to Snowflake."), goatDung);
 		bringDungToSnowflake.addSubSteps(talkToSnowflakeAfterDung);
 
-		readNotes = new DetailedQuestStep(this, "Read the Weiss fire notes.", fireNotes);
+		readNotes = new DetailedQuestStep(this, t("Read the Weiss fire notes."), fireNotes);
 
-		talkToSnowflakeToFinish = new NpcStep(this, NpcID.MY2ARM_SNOWFLAKE, new WorldPoint(2872, 3934, 0), "Talk to Snowflake to finish.");
+		talkToSnowflakeToFinish = new NpcStep(this, NpcID.MY2ARM_SNOWFLAKE, new WorldPoint(2872, 3934, 0), t("Talk to Snowflake to finish."));
 	}
 
 	@Override
@@ -575,7 +575,7 @@ public class MakingFriendsWithMyArm extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Arrays.asList("Don't Know What (level 163)", "Mother (level 198)");
+		return Arrays.asList(t("Don't Know What (level 163)"), t("Mother (level 198)"));
 	}
 
 	@Override
@@ -598,26 +598,26 @@ public class MakingFriendsWithMyArm extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Access to the Salt Mines."),
-				new UnlockReward("Ability to build fire pits"),
-				new UnlockReward("Ability to tune a house portal to Troll Stronghold."),
-				new UnlockReward("Access to a disease free herb patch in Weiss."));
+				new UnlockReward(t("Access to the Salt Mines.")),
+				new UnlockReward(t("Ability to build fire pits")),
+				new UnlockReward(t("Ability to tune a house portal to Troll Stronghold.")),
+				new UnlockReward(t("Access to a disease free herb patch in Weiss.")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off", Arrays.asList(talkToBurntmeat, talkToMyArmUpstairs)));
-		allSteps.add(new PanelDetails("Getting to Weiss", Arrays.asList(talkToLarry, talkToLarryAgain, boardBoat, attemptToMine,
+		allSteps.add(new PanelDetails(t("Starting off"), Arrays.asList(talkToBurntmeat, talkToMyArmUpstairs)));
+		allSteps.add(new PanelDetails(t("Getting to Weiss"), Arrays.asList(talkToLarry, talkToLarryAgain, boardBoat, attemptToMine,
 			searchBoatForRopeAndPickaxe, climbRocks, useRope, climbRope, crossLedge, climbRocks3, passTree, talkToBoulder)));
-		allSteps.add(new PanelDetails("Infiltrating Weiss", Arrays.asList(crossFence, goSouthSneak, enterHole, enterNarrowHole,
+		allSteps.add(new PanelDetails(t("Infiltrating Weiss"), Arrays.asList(crossFence, goSouthSneak, enterHole, enterNarrowHole,
 			waterSpot1, placeRocks, mineCave, talkToMother, talkToMyArmAfterMeeting), pickaxe));
-		allSteps.add(new PanelDetails("Faking death", Arrays.asList(talkToWom, buildCoffin, talkToApoth, talkToWomAfterPrep, pickUpCoffin),
+		allSteps.add(new PanelDetails(t("Faking death"), Arrays.asList(talkToWom, buildCoffin, talkToApoth, talkToWomAfterPrep, pickUpCoffin),
 			saw, hammer, mahogPlanks5, boltOfCloth, cadavaBerries));
-		allSteps.add(new PanelDetails("Rising up", Arrays.asList(talkToMyArmWithWom, talkToOddMushroom, talkToSnowflake, killDontKnowWhat,
+		allSteps.add(new PanelDetails(t("Rising up"), Arrays.asList(talkToMyArmWithWom, talkToOddMushroom, talkToSnowflake, killDontKnowWhat,
 			pickUpBucket, useBucketOnWater, useBucketOnFire, killMother), coffin, combatRangeMelee));
-		allSteps.add(new PanelDetails("Finishing off", Arrays.asList(talkToMyArmAfterFight, talkToWomAfterFight, talkToSnowflakeAfterFight,
+		allSteps.add(new PanelDetails(t("Finishing off"), Arrays.asList(talkToMyArmAfterFight, talkToWomAfterFight, talkToSnowflakeAfterFight,
 			pickUpGoatDung, bringDungToSnowflake, readNotes, talkToSnowflakeToFinish)));
 
 		return allSteps;

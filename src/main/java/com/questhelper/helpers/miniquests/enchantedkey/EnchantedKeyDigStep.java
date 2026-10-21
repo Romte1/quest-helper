@@ -67,7 +67,7 @@ public class EnchantedKeyDigStep extends DetailedQuestStep
 
 	public EnchantedKeyDigStep(QuestHelper questHelper, ItemRequirement... requirements)
 	{
-		super(questHelper, "Use the Enchanted Key to locate treasure.", requirements);
+		super(questHelper, questHelper.t("Use the Enchanted Key to locate treasure."), requirements);
 	}
 
 	@Override

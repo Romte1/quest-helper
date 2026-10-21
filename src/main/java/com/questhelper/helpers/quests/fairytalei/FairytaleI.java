@@ -131,7 +131,7 @@ public class FairytaleI extends BasicQuestHelper
 		secateurs = new ItemRequirement("Secateurs", ItemID.SECATEURS);
 		draynorSkull = new ItemRequirement("Draynor skull", ItemID.FAIRY_SKULL);
 		draynorSkull.canBeObtainedDuringQuest();
-		skullOrSpade = new ItemRequirement("Draynor skull or a spade to get it", ItemID.FAIRY_SKULL);
+		skullOrSpade = new ItemRequirement(t("Draynor skull or a spade to get it"), ItemID.FAIRY_SKULL);
 		skullOrSpade.addAlternates(ItemID.SPADE);
 		spade = new ItemRequirement("Spade", ItemID.SPADE).isNotConsumed();
 		ghostspeak = new ItemRequirement("Ghostspeak amulet", ItemCollections.GHOSTSPEAK, 1, true).isNotConsumed();
@@ -139,12 +139,12 @@ public class FairytaleI extends BasicQuestHelper
 		dramenOrLunarStaff = new ItemRequirement("Dramen or lunar staff", ItemID.DRAMEN_STAFF, 1, true).isNotConsumed();
 		dramenOrLunarStaff.addAlternates(ItemID.LUNAR_MOONCLAN_LIMINAL_STAFF);
 		dramenOrLunarStaff.setDisplayMatchedItemName(true);
-		randomItems = new ItemRequirement("3 random items requested by Malignius", -1);
+		randomItems = new ItemRequirement(t("3 random items requested by Malignius"), -1);
 
 		varrockTeleport = new ItemRequirement("Varrock teleport", ItemID.POH_TABLET_VARROCKTELEPORT);
 		faladorTeleport = new ItemRequirement("Falador teleport", ItemID.POH_TABLET_FALADORTELEPORT);
 		lumbridgeTeleport = new ItemRequirement("Lumbridge teleport", ItemID.POH_TABLET_LUMBRIDGETELEPORT);
-		moryTele = new ItemRequirement("Teleport to Morytania", ItemID.TELEPORTSCROLL_MORTTON);
+		moryTele = new ItemRequirement(t("Teleport to Morytania"), ItemID.TELEPORTSCROLL_MORTTON);
 		moryTele.addAlternates(ItemID.TELETAB_BARROWS, ItemID.ECTOPHIAL);
 		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
 
@@ -156,7 +156,7 @@ public class FairytaleI extends BasicQuestHelper
 		magicSecateursEquipped.setTooltip(t("If you lost these you'll need to have the Nature Spirit enchant another secateur"));
 		queensSecateurs = new ItemRequirement("Queen's secateurs", ItemID.FAIRY_QUEEN_SECATEURS);
 		queensSecateurs.setTooltip(t("You can get another by killing another Tanglefoot"));
-		items3 = new ItemRequirement("3 items Mortifer told you to get", -1, -1);
+		items3 = new ItemRequirement(t("3 items Mortifer told you to get"), -1, -1);
 	}
 
 	@Override

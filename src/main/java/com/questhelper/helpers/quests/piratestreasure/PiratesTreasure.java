@@ -94,8 +94,8 @@ public class PiratesTreasure extends BasicQuestHelper
 		sixtyCoins = new ItemRequirement("Coins", ItemCollections.COINS, 60);
 		spade = new ItemRequirement("Spade", ItemID.SPADE).isNotConsumed();
 
-		teleportVarrock = new ItemRequirement("A teleport to Varrock", ItemID.POH_TABLET_VARROCKTELEPORT);
-		teleportFalador = new ItemRequirement("A teleport to Falador", ItemID.POH_TABLET_FALADORTELEPORT);
+		teleportVarrock = new ItemRequirement(t("A teleport to Varrock"), ItemID.POH_TABLET_VARROCKTELEPORT);
+		teleportFalador = new ItemRequirement(t("A teleport to Falador"), ItemID.POH_TABLET_FALADORTELEPORT);
 		tenBananas = new ItemRequirement("Bananas", ItemID.BANANA, 10).canBeObtainedDuringQuest();
 
 		pirateMessage = new ItemRequirement("Pirate message", ItemID.PIRATEMESSAGE);

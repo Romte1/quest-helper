@@ -192,9 +192,9 @@ public class Biohazard extends BasicQuestHelper
 		gasMask = new ItemRequirement("Gas mask", ItemID.GASMASK, 1, true).isNotConsumed();
 		gasMask.setTooltip(t("You can get another from the cupboard in Edmond's house west of Elena's house."));
 
-		teleportVarrock = new ItemRequirement("Teleport to Varrock", ItemID.POH_TABLET_VARROCKTELEPORT);
-		teleportArdougne = new ItemRequirement("Teleport to Ardougne", ItemID.POH_TABLET_ARDOUGNETELEPORT, 3);
-		teleportRimmington = new ItemRequirement("Teleport to Rimmington", ItemID.NZONE_TELETAB_RIMMINGTON);
+		teleportVarrock = new ItemRequirement(t("Teleport to Varrock"), ItemID.POH_TABLET_VARROCKTELEPORT);
+		teleportArdougne = new ItemRequirement(t("Teleport to Ardougne"), ItemID.POH_TABLET_ARDOUGNETELEPORT, 3);
+		teleportRimmington = new ItemRequirement(t("Teleport to Rimmington"), ItemID.NZONE_TELETAB_RIMMINGTON);
 		coins = new ItemRequirement("Coins", ItemCollections.COINS, 30);
 		coins.setTooltip(t("For travelling from Ardougne to Rimmington."));
 

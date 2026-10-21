@@ -188,50 +188,50 @@ public class ANightAtTheTheatre extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		NotYetImplemented = new DetailedQuestStep(this, "Not yet Implemented");
+		NotYetImplemented = new DetailedQuestStep(this, t("Not yet Implemented"));
 
 		speakWithMysteriousStrangerToStart = new NpcStep(this, NpcID.TOB_STRANGER_1OP, new WorldPoint(3673, 3223, 0),
-			"Speak with the Mysterious Stranger in Ver Sinhaza.", saw);
+			t("Speak with the Mysterious Stranger in Ver Sinhaza."), saw);
 		((NpcStep) speakWithMysteriousStrangerToStart).addAlternateNpcs(NpcID.TOB_STRANGER_2OP);
 		speakWithMysteriousStrangerToStart.addDialogSteps("What's all this really about?", "What's this thing you need from me?", "Yes.");
 
 		enterVerSinhazaCrypts = new ObjectStep(this, ObjectID.TOBQUEST_CRYPT_ENTRANCE, new WorldPoint(3682, 3231, 0),
-			"Enter the crypts north east of the Mysterious Stranger.", saw, flail, combatGear, food);
+			t("Enter the crypts north east of the Mysterious Stranger."), saw, flail, combatGear, food);
 		enterVerSinhazaCrypts.addDialogSteps("Yes.");
 
 		killVyrewatchForKey = new NpcStep(this, NpcID.TOBQUEST_VYREWATCH_CUTSCENE,
-			"Kill a vyrewatch for a key. You must have your flail equipped in order to damage the vyrewatches.", true, flail.equipped(), combatGear, food);
+			t("Kill a vyrewatch for a key. You must have your flail equipped in order to damage the vyrewatches."), true, flail.equipped(), combatGear, food);
 		((NpcStep) killVyrewatchForKey).addAlternateNpcs(NpcID.TOBQUEST_VYREWATCH_FEMALE_1, NpcID.TOBQUEST_VYREWATCH_FEMALE_2, NpcID.TOBQUEST_VYREWATCH_MALE_1, NpcID.TOBQUEST_VYREWATCH_MALE_2, NpcID.TOBQUEST_VYREWATCH_CUTSCENE);
-		pickupCryptKey = new ItemStep(this, "Pick up the crypt key", cryptKey);
+		pickupCryptKey = new ItemStep(this, t("Pick up the crypt key"), cryptKey);
 		killVyrewatchForKey.addSubSteps(pickupCryptKey);
 
-		unlockTheCryptGate = new ObjectStep(this, ObjectID.TOBQUEST_CRYPT_INNER_DOOR, "Unlock the crypt gate with the key.", cryptKey, saw);
+		unlockTheCryptGate = new ObjectStep(this, ObjectID.TOBQUEST_CRYPT_INNER_DOOR, t("Unlock the crypt gate with the key."), cryptKey, saw);
 
-		searchTheCoffinInVerSinhazaCrypts = new ObjectStep(this, ObjectID.TOBQUEST_CRYPT_COFFIN_OP, "Search the coffin.", saw);
+		searchTheCoffinInVerSinhazaCrypts = new ObjectStep(this, ObjectID.TOBQUEST_CRYPT_COFFIN_OP, t("Search the coffin."), saw);
 
-		leaveCrypts = new ObjectStep(this, ObjectID.TOBQUEST_CRYPT_EXIT, "Return to the Mysterious Stranger with Ranis' head.", ranisHead);
+		leaveCrypts = new ObjectStep(this, ObjectID.TOBQUEST_CRYPT_EXIT, t("Return to the Mysterious Stranger with Ranis' head."), ranisHead);
 		speakWithMysteriousStrangerWithRanisHead = new NpcStep(this, NpcID.TOB_STRANGER_1OP,
-			new WorldPoint(3673, 3223, 0), "Return to the Mysterious Stranger with Ranis' head.", ranisHead);
+			new WorldPoint(3673, 3223, 0), t("Return to the Mysterious Stranger with Ranis' head."), ranisHead);
 		((NpcStep) speakWithMysteriousStrangerWithRanisHead).addAlternateNpcs(NpcID.TOB_STRANGER_2OP, NpcID.MYQ4_STRANGER_CUTSCENE);
 		speakWithMysteriousStrangerWithRanisHead.addDialogSteps("I managed to recover Ranis' head.");
 		speakWithMysteriousStrangerWithRanisHead.addSubSteps(leaveCrypts);
 
 		speakMoreWithMysteriousStranger = new NpcStep(this, NpcID.TOB_STRANGER_1OP, new WorldPoint(3673, 3223, 0),
-			"Speak to the Mysterious Stranger some more.");
+			t("Speak to the Mysterious Stranger some more."));
 		((NpcStep) speakMoreWithMysteriousStranger).addAlternateNpcs(NpcID.TOB_STRANGER_2OP, NpcID.MYQ4_STRANGER_CUTSCENE);
 		speakMoreWithMysteriousStranger.addDialogSteps("So what are we doing with Ranis' head?", "So about that memory...");
 
-		enterSpiderCave = new ObjectStep(this, ObjectID.ARAXYTE_CAVE_ENTRY, new WorldPoint(3658, 3409, 0), "Enter the spider cave south of Port Phasmatys.");
+		enterSpiderCave = new ObjectStep(this, ObjectID.ARAXYTE_CAVE_ENTRY, new WorldPoint(3658, 3409, 0), t("Enter the spider cave south of Port Phasmatys."));
 		enterSpiderCave.addDialogSteps("Yes.");
 
-		searchSpiderCaveSkeleton = new ObjectStep(this, ObjectID.TOBQUEST_SKELETON_OP, "Search the skeleton found near the Egg Sac at the end of the cave.");
-		readStickyNote = new DetailedQuestStep(this, "Read the Sticky note.", stickyNote.highlighted());
+		searchSpiderCaveSkeleton = new ObjectStep(this, ObjectID.TOBQUEST_SKELETON_OP, t("Search the skeleton found near the Egg Sac at the end of the cave."));
+		readStickyNote = new DetailedQuestStep(this, t("Read the Sticky note."), stickyNote.highlighted());
 
-		exitSpiderCave = new ObjectStep(this, ObjectID.ARAXYTE_CAVE_EXIT, "Exit the spider cave via the way you came in.");
+		exitSpiderCave = new ObjectStep(this, ObjectID.ARAXYTE_CAVE_EXIT, t("Exit the spider cave via the way you came in."));
 		enterSisterhoodSanctuary = new ObjectStep(this, ObjectID.SLP_CHURCH_CRYPT_SOUTH_LADDER_DOWN, new WorldPoint(3728, 3300, 0),
-			"Speak with Daer Krand found in the north east corner of the main room of the Sisterhood Sanctuary in Slepe.");
+			t("Speak with Daer Krand found in the north east corner of the main room of the Sisterhood Sanctuary in Slepe."));
 		climbStairsToSisterhoodSanctuaryF1 = new ObjectStep(this, ObjectID.SANCTUARY_STAIRS_TALL_2X3, new WorldPoint(3826, 9778, 1),
-			"Speak with Daer Krand found in the north east corner of the main room of the Sisterhood Sanctuary in Slepe.");
+			t("Speak with Daer Krand found in the north east corner of the main room of the Sisterhood Sanctuary in Slepe."));
 
 
 		List<WorldPoint> sisterhoodSanctuaryLines = Arrays.asList(
@@ -258,54 +258,54 @@ public class ANightAtTheTheatre extends BasicQuestHelper
 		((ObjectStep) climbStairsToSisterhoodSanctuaryF1).setLinePoints(sisterhoodSanctuaryLines);
 
 		speakWithDaerKrand = new NpcStep(this, NpcID.SANCTUARY_DARK_WIZARD, new WorldPoint(3821, 9778, 2),
-			"Speak with Daer Krand found in the north east corner of the main room of the Sisterhood Sanctuary in Slepe.");
+			t("Speak with Daer Krand found in the north east corner of the main room of the Sisterhood Sanctuary in Slepe."));
 		speakWithDaerKrand.addDialogSteps("Got any sulphuric acid?");
 		speakWithDaerKrand.addSubSteps(exitSpiderCave, climbStairsToSisterhoodSanctuaryF1, enterSisterhoodSanctuary);
 
 		returnToSpiderCave = new ObjectStep(this, ObjectID.ARAXYTE_CAVE_ENTRY, new WorldPoint(3658, 3409, 0),
-			"Return to the spider cave south of Port Phasmatys then use the Sulphuric acid on the Egg sac at the end of the cave.", sulphuricAcid);
+			t("Return to the spider cave south of Port Phasmatys then use the Sulphuric acid on the Egg sac at the end of the cave."), sulphuricAcid);
 		returnToSpiderCave.addDialogSteps("Yes.");
 		climbStairsDownSisterhoodF0 = new ObjectStep(this, ObjectID.SANCTUARY_STAIRS_TALL_TOP_2X3, new WorldPoint(3826, 9778, 2),
-			"Return to the spider cave south of Port Phasmatys then use the Sulphuric acid on the Egg sac at the end of the cave. " +
-				"Use the Drakan's Medallion Slepe tele to exit the Sisterhood Sanctuary quickly.", sulphuricAcid);
+			t("Return to the spider cave south of Port Phasmatys then use the Sulphuric acid on the Egg sac at the end of the cave. " +
+				"Use the Drakan's Medallion Slepe tele to exit the Sisterhood Sanctuary quickly."), sulphuricAcid);
 		exitSisterhoodSanctuary = new ObjectStep(this, ObjectID.SLP_CHURCH_CRYPT_SOUTH_LADDER_EXIT, new WorldPoint(3739, 9701, 1),
-			"Return to the spider cave south of Port Phasmatys then use the Sulphuric acid on the Egg sac at the end of the cave. " +
-				"Use the Drakan's Medallion Slepe tele to exit the Sisterhood Sanctuary quickly.", sulphuricAcid);
+			t("Return to the spider cave south of Port Phasmatys then use the Sulphuric acid on the Egg sac at the end of the cave. " +
+				"Use the Drakan's Medallion Slepe tele to exit the Sisterhood Sanctuary quickly."), sulphuricAcid);
 		List<WorldPoint> sisterhoodSanctuaryLinesReversed = new ArrayList<>(sisterhoodSanctuaryLines);
 		Collections.reverse(sisterhoodSanctuaryLinesReversed);
 		((ObjectStep) exitSisterhoodSanctuary).setLinePoints(sisterhoodSanctuaryLinesReversed);
 		useSulphuricAcidOnEggSac = new ObjectStep(this, ObjectID.TOBQUEST_EGG_SAC_FULL,
-			"Return to the spider cave south of Port Phasmatys then use the Sulphuric acid on the Egg sac at the end " +
-				"of the cave. You do not need to kill the spiders which appear.", sulphuricAcid.highlighted());
+			t("Return to the spider cave south of Port Phasmatys then use the Sulphuric acid on the Egg sac at the end " +
+				"of the cave. You do not need to kill the spiders which appear."), sulphuricAcid.highlighted());
 		returnToSpiderCave.addSubSteps(climbStairsDownSisterhoodF0, exitSisterhoodSanctuary, useSulphuricAcidOnEggSac);
 		useSulphuricAcidOnEggSac.addIcon(ItemID.TOBQUEST_ACID);
 
 		returnToMysteriousStrangerWithEggs = new NpcStep(this, NpcID.TOB_STRANGER_2OP, new WorldPoint(3673, 3223, 0),
-			"Speak with the Mysterious Stranger in Ver Sinhaza again with the spider eggs retrieved from the Egg sac. " +
-				"Use the Drakan's Medallion tele to get to Ver Sinhaza quickly.", strangeSpiderEggs);
+			t("Speak with the Mysterious Stranger in Ver Sinhaza again with the spider eggs retrieved from the Egg sac. " +
+				"Use the Drakan's Medallion tele to get to Ver Sinhaza quickly."), strangeSpiderEggs);
 		returnToMysteriousStrangerWithEggs.addDialogSteps("I found some of those eggs.");
 		((NpcStep) returnToMysteriousStrangerWithEggs).addAlternateNpcs(NpcID.TOB_STRANGER_1OP);
 		((NpcStep) returnToMysteriousStrangerWithEggs).addTeleport(drakansMedallion);
 
-		mysteriousStrangerCutscenes = new DetailedQuestStep(this, "Watch cutscenes.");
+		mysteriousStrangerCutscenes = new DetailedQuestStep(this, t("Watch cutscenes."));
 		speakWithMysteriousStrangerAndWatchCutscenes = new NpcStep(this, NpcID.TOB_STRANGER_2OP, new WorldPoint(3673, 3223, 0),
-			"Speak with the Mysterious Stranger in Ver Sinhaza and watch the cutscenes.");
+			t("Speak with the Mysterious Stranger in Ver Sinhaza and watch the cutscenes."));
 		((NpcStep) speakWithMysteriousStrangerAndWatchCutscenes).addAlternateNpcs(NpcID.TOB_STRANGER_1OP);
 		mysteriousStrangerCutscenes.addSubSteps(speakWithMysteriousStrangerAndWatchCutscenes);
 		speakWithMysteriousStrangerAndWatchCutscenes.addDialogSteps("That memory didn't tell us too much.",
 			"That memory seemed more useful.");
 
 		goToNatureGrotto = new ObjectStep(this, ObjectID.GROTTO_DOOR_DRUIDICSPIRIT, new WorldPoint(3440, 3337, 0),
-			"Go to the Nature Grotto in the Mort Myre Swamp and speak with the Nature Spirit inside. " +
-				"Use fairy ring BIP (with 50 agility) to get there quickly.",
+			t("Go to the Nature Grotto in the Mort Myre Swamp and speak with the Nature Spirit inside. " +
+				"Use fairy ring BIP (with 50 agility) to get there quickly."),
 			ghostSpeakAmulet.equipped(), combatGear, food, antipoison, axe);
 		speakToNatureSpiritInGrotto = new NpcStep(this, NpcID.FILLIMAN_TARLOCK_NS,
-			"Go to the Nature Grotto in the Mort Myre Swamp and speak with the Nature Spirit inside. " +
-				"Use fairy ring BIP (with 50 agility) to get there quickly.", ghostSpeakAmulet.equipped());
+			t("Go to the Nature Grotto in the Mort Myre Swamp and speak with the Nature Spirit inside. " +
+				"Use fairy ring BIP (with 50 agility) to get there quickly."), ghostSpeakAmulet.equipped());
 		goToNatureGrotto.addSubSteps(speakToNatureSpiritInGrotto);
 
-		String hesporiFightText = "Go to the island directly east of the Nature Grotto. Be prepared to fight Hespori. " +
-			"The fight is similar to what you would expect from the Hespori fight in the Farming Guild. Activate Hespori when ready.";
+		String hesporiFightText = t("Go to the island directly east of the Nature Grotto. Be prepared to fight Hespori. " +
+			"The fight is similar to what you would expect from the Hespori fight in the Farming Guild. Activate Hespori when ready.");
 		goToHesporiFight = new ObjectStep(this, ObjectID.TOBQUEST_STEPPING_STONE, new WorldPoint(3499, 3355, 0),
 				hesporiFightText, combatGear, food, antipoison, axe);
 		((ObjectStep) goToHesporiFight).setLinePoints(Arrays.asList(
@@ -326,18 +326,18 @@ public class ANightAtTheTheatre extends BasicQuestHelper
 				hesporiFightText, combatGear, food, antipoison, axe);
 		goToHesporiFight.addSubSteps(exitNatureGrotto, activateHesporiFight);
 
-		fightHespori = new NpcStep(this, NpcID.TOBQUEST_HESPORI, "Fight Hespori.");
+		fightHespori = new NpcStep(this, NpcID.TOBQUEST_HESPORI, t("Fight Hespori."));
 
-		chopHesporiForBark = new ObjectStep(this, ObjectID.TOBQUEST_HESPORI_DEAD, new WorldPoint(3507, 3357, 0), "Chop Hespori to obtain Hespori bark.", axe);
+		chopHesporiForBark = new ObjectStep(this, ObjectID.TOBQUEST_HESPORI_DEAD, new WorldPoint(3507, 3357, 0), t("Chop Hespori to obtain Hespori bark."), axe);
 		returnToMysteriousStrangerWithBark = new NpcStep(this, NpcID.TOB_STRANGER_2OP, new WorldPoint(3673, 3223, 0),
-			"Speak with the Mysterious Stranger in Ver Sinhaza again with the Hespori bark. Use the Drakan's Medallion tele to get to Ver Sinhaza quickly.", hesporiBark);
+			t("Speak with the Mysterious Stranger in Ver Sinhaza again with the Hespori bark. Use the Drakan's Medallion tele to get to Ver Sinhaza quickly."), hesporiBark);
 		returnToMysteriousStrangerWithBark.addDialogSteps("I found a hespori.");
 		((NpcStep) returnToMysteriousStrangerWithBark).addAlternateNpcs(NpcID.TOB_STRANGER_1OP);
 		((NpcStep) returnToMysteriousStrangerWithBark).addTeleport(drakansMedallion);
 
-		mysteriousStrangerCutscenes2 = new DetailedQuestStep(this, "Watch cutscenes.");
+		mysteriousStrangerCutscenes2 = new DetailedQuestStep(this, t("Watch cutscenes."));
 		speakWithMysteriousStrangerAndWatchCutscenes2 = new NpcStep(this, NpcID.TOB_STRANGER_2OP, new WorldPoint(3673, 3223, 0),
-		"Speak with the Mysterious Stranger in Ver Sinhaza and watch the cutscenes.");
+		t("Speak with the Mysterious Stranger in Ver Sinhaza and watch the cutscenes."));
 		mysteriousStrangerCutscenes2.addSubSteps(speakWithMysteriousStrangerAndWatchCutscenes2);
 
 		speakWithMysteriousStrangerAndWatchCutscenes2.addDialogSteps("Can we use this bark to find more memories?",
@@ -345,11 +345,11 @@ public class ANightAtTheTheatre extends BasicQuestHelper
 		((NpcStep) speakWithMysteriousStrangerAndWatchCutscenes2).addAlternateNpcs(NpcID.TOB_STRANGER_1OP);
 
 
-		completeTob = new DetailedQuestStep(this, "Complete the Theatre of Blood.");
+		completeTob = new DetailedQuestStep(this, t("Complete the Theatre of Blood."));
 		completeTob.addDialogSteps("Yes.");
 
 		speakWithMysteriousStrangerToFinish = new NpcStep(this, NpcID.TOB_STRANGER_2OP, new WorldPoint(3673, 3223, 0),
-			"Speak with the Mysterious Stranger in Ver Sinhaza and watch the cutscenes to finish the quest.");
+			t("Speak with the Mysterious Stranger in Ver Sinhaza and watch the cutscenes to finish the quest."));
 		((NpcStep) speakWithMysteriousStrangerToFinish).addAlternateNpcs(NpcID.TOB_STRANGER_MEMORY, NpcID.TOB_STRANGER_1OP);
 		speakWithMysteriousStrangerToFinish.addDialogSteps("Did you manage to get any useful memories from Verzik?");
 
@@ -367,37 +367,37 @@ public class ANightAtTheTheatre extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getMeleeCombatGear());
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD);
 		drakansMedallion = new ItemRequirement("Drakan's Medallion", ItemID.DRAKANS_MEDALLION).isNotConsumed();
 		spiderCaveTeleport = new ItemRequirement("Spider cave teleport", ItemID.TELEPORTSCROLL_SPIDERCAVE);
 		antiVenom = new ItemRequirement("Anti-venom", ItemCollections.ANTIVENOMS);
 		antipoison = new ItemRequirement("Antipoison", ItemCollections.ANTIPOISONS);
-		fairyRings = new ItemRequirement("Access to fairy rings", ItemCollections.FAIRY_STAFF).isNotConsumed();
+		fairyRings = new ItemRequirement(t("Access to fairy rings"), ItemCollections.FAIRY_STAFF).isNotConsumed();
 
 		flail = new ItemRequirement("Ivandis/Blisterwood flail", ItemID.IVANDIS_FLAIL).isNotConsumed();
 		flail.addAlternates(ItemID.BLISTERWOOD_FLAIL);
 		saw = new ItemRequirement("Saw", ItemCollections.SAW).isNotConsumed();
 		ghostSpeakAmulet = new ItemRequirement("Ghostspeak amulet", ItemCollections.GHOSTSPEAK).isNotConsumed();
-		ghostSpeakAmulet.setTooltip("Morytania legs 2+ work as well.");
+		ghostSpeakAmulet.setTooltip(t("Morytania legs 2+ work as well."));
 		axe = new ItemRequirement("An axe", ItemCollections.AXES).isNotConsumed();
 
 		cryptKey = new ItemRequirement("Crypt key", ItemID.TOBQUEST_KEY);
 		ranisHead = new ItemRequirement("Ranis' Head", ItemID.TOBQUEST_HEAD);
-		ranisHead.setTooltip("You can obtain another one from the coffin in the crypt.");
+		ranisHead.setTooltip(t("You can obtain another one from the coffin in the crypt."));
 
 		stickyNote = new ItemRequirement("Stick note", ItemID.TOBQUEST_NOTE);
-		stickyNote.setTooltip("You can obtain another from the skeleton in the spider cave south of Port Phasmatys.");
+		stickyNote.setTooltip(t("You can obtain another from the skeleton in the spider cave south of Port Phasmatys."));
 
 		sulphuricAcid = new ItemRequirement("Sulphuric acid", ItemID.TOBQUEST_ACID);
-		sulphuricAcid.setTooltip("You can get more from Daer Krand in the Sisterhood Sanctuary");
+		sulphuricAcid.setTooltip(t("You can get more from Daer Krand in the Sisterhood Sanctuary"));
 
 		strangeSpiderEggs = new ItemRequirement("Strange spider eggs", ItemID.TOBQUEST_ARAXYTE_EGGS);
-		strangeSpiderEggs.setTooltip("You can obtain more from the egg sac in the spider cave south of Port Phasmatys.");
+		strangeSpiderEggs.setTooltip(t("You can obtain more from the egg sac in the spider cave south of Port Phasmatys."));
 
 		hesporiBark = new ItemRequirement("Hespori bark", ItemID.TOBQUEST_BARK);
-		hesporiBark.setTooltip("You can chop some more from the hespori east of the Nature Grotto in the Mort Myre Swamp.");
+		hesporiBark.setTooltip(t("You can chop some more from the hespori east of the Nature Grotto in the Mort Myre Swamp."));
 	}
 
 	public void setupConditions()
@@ -439,10 +439,10 @@ public class ANightAtTheTheatre extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		ArrayList<String> reqs = new ArrayList<>();
-		reqs.add("Vyrewatch (level 105)");
-		reqs.add("Several venomous spiders (level 87 and 123)");
-		reqs.add("Hespori (level 302)");
-		reqs.add("All ToB Bosses");
+		reqs.add(t("Vyrewatch (level 105)"));
+		reqs.add(t("Several venomous spiders (level 87 and 123)"));
+		reqs.add(t("Hespori (level 302)"));
+		reqs.add(t("All ToB Bosses"));
 
 		return reqs;
 	}
@@ -472,13 +472,13 @@ public class ANightAtTheTheatre extends BasicQuestHelper
 	public ArrayList<PanelDetails> getPanels()
 	{
 		ArrayList<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Memories of a \"Friend\"", Arrays.asList(speakWithMysteriousStrangerToStart,
+		allSteps.add(new PanelDetails(t("Memories of a \"Friend\""), Arrays.asList(speakWithMysteriousStrangerToStart,
 			enterVerSinhazaCrypts, killVyrewatchForKey, unlockTheCryptGate, searchTheCoffinInVerSinhazaCrypts,
 			speakWithMysteriousStrangerWithRanisHead, speakMoreWithMysteriousStranger, enterSpiderCave, searchSpiderCaveSkeleton,
 			readStickyNote, speakWithDaerKrand, returnToSpiderCave, returnToMysteriousStrangerWithEggs,
 			mysteriousStrangerCutscenes), combatGear, food, flail, saw, antiVenom, drakansMedallion, spiderCaveTeleport));
 
-		allSteps.add(new PanelDetails("In Touch with Nature", Arrays.asList(goToNatureGrotto, goToHesporiFight, fightHespori,
+		allSteps.add(new PanelDetails(t("In Touch with Nature"), Arrays.asList(goToNatureGrotto, goToHesporiFight, fightHespori,
 			chopHesporiForBark, returnToMysteriousStrangerWithBark, mysteriousStrangerCutscenes2), combatGear,
 			food,
 			ghostSpeakAmulet, axe, antipoison, drakansMedallion));

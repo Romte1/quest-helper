@@ -223,7 +223,7 @@ public class HeroesQuest extends BasicQuestHelper
 		gripsKey = new ItemRequirement("Grip's keyring", ItemID.GRIP_KEYS);
 		fireFeather = new ItemRequirement("Fire feather", ItemID.HOT_FEATHER);
 
-		combatGear = new ItemRequirement("Weapons, armour and food for the Ice Queen", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Weapons, armour and food for the Ice Queen"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		varrockTeleport = new ItemRequirement("Varrock teleport", ItemID.POH_TABLET_VARROCKTELEPORT);
 		antifireShield = new ItemRequirement("Anti-dragon shield", ItemID.ANTIDRAGONBREATHSHIELD).isNotConsumed();
@@ -232,7 +232,7 @@ public class HeroesQuest extends BasicQuestHelper
 		burthorpeTeleport = new ItemRequirement("Burthorpe teleport", ItemCollections.GAMES_NECKLACES);
 		taverleyTeleport = new ItemRequirement("Taverley teleport", ItemID.NZONE_TELETAB_TAVERLEY);
 		taverleyTeleport.addAlternates(ItemID.POH_TABLET_FALADORTELEPORT);
-		brimhavenTeleport = new ItemRequirement("Brimhaven teleport, or travel by boat from Ardougne/Port Sarim for 30gp", ItemID.NZONE_TELETAB_BRIMHAVEN);
+		brimhavenTeleport = new ItemRequirement(t("Brimhaven teleport, or travel by boat from Ardougne/Port Sarim for 30gp"), ItemID.NZONE_TELETAB_BRIMHAVEN);
 		portSarimTeleport = new ItemRequirement("Port Sarim teleport (Explorer's ring 2/3/4, Amulet of Glory to Draynor)", ItemID.LUMBRIDGE_RING_ELITE);
 		portSarimTeleport.addAlternates(ItemID.LUMBRIDGE_RING_HARD, ItemID.LUMBRIDGE_RING_MEDIUM, ItemID.LUMBRIDGE_RING_EASY);
 		portSarimTeleport.addAlternates(ItemCollections.AMULET_OF_GLORIES);

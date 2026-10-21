@@ -151,7 +151,7 @@ public class SwanSong extends BasicQuestHelper
 		lava10 = new ItemRequirement("Lava rune", ItemID.LAVARUNE, 10);
 		blood5 = new ItemRequirement("Blood rune", ItemID.BLOODRUNE, 5);
 		bones7 = new ItemRequirement("Bones", ItemID.BONES, 7);
-		bones7.setTooltip("Obtainable during the quest, just pick up bones when killing the sea trolls.");
+		bones7.setTooltip(t("Obtainable during the quest, just pick up bones when killing the sea trolls."));
 
 		pot = new ItemRequirement("Pot", ItemID.POT_EMPTY);
 		potLid = new ItemRequirement("Pot lid", ItemID.POTLID);
@@ -164,7 +164,7 @@ public class SwanSong extends BasicQuestHelper
 		potHiglight = new ItemRequirement("Pot", ItemID.POT_EMPTY);
 		potHiglight.setHighlightInInventory(true);
 		potLidHiglight = new ItemRequirement("Pot lid", ItemID.POTLID);
-		potLidHiglight.setTooltip("You can make one from wet clay on a potter's wheel");
+		potLidHiglight.setTooltip(t("You can make one from wet clay on a potter's wheel"));
 		potLidHiglight.setHighlightInInventory(true);
 		ironBar5Higlight = new ItemRequirement("Iron bar", ItemID.IRON_BAR, 5);
 		ironBar5Higlight.setHighlightInInventory(true);
@@ -174,31 +174,31 @@ public class SwanSong extends BasicQuestHelper
 		tinderboxHiglight = tinderbox.highlighted();
 
 		// Recommended
-		draynorTeleport = new ItemRequirement("Teleport to Draynor Village", ItemCollections.AMULET_OF_GLORIES);
+		draynorTeleport = new ItemRequirement(t("Teleport to Draynor Village"), ItemCollections.AMULET_OF_GLORIES);
 		piscTeleport = new ItemRequirement("Piscatoris teleport", ItemID.TELEPORTSCROLL_PISCATORIS);
-		yanilleTeleport = new ItemRequirement("Yanille teleport or Nightmare Zone minigame teleport", ItemID.POH_TABLET_WATCHTOWERTELEPORT);
+		yanilleTeleport = new ItemRequirement(t("Yanille teleport or Nightmare Zone minigame teleport"), ItemID.POH_TABLET_WATCHTOWERTELEPORT);
 		craftingGuildTeleport = new ItemRequirement("Crafting Guild teleport", ItemCollections.SKILLS_NECKLACES);
-		cookingGauntlets = new ItemRequirement("Cooking gauntlets for lower burn chance on monkfish", ItemID.GAUNTLETS_OF_COOKING);
+		cookingGauntlets = new ItemRequirement(t("Cooking gauntlets for lower burn chance on monkfish"), ItemID.GAUNTLETS_OF_COOKING);
 
 		smallNet = new ItemRequirement("Small fishing net", ItemID.NET).isNotConsumed();
-		smallNet.setTooltip("You can get one from Arnold");
+		smallNet.setTooltip(t("You can get one from Arnold"));
 
-		hammerPanel = new ItemRequirement("Hammer (obtainable in quest)", ItemCollections.HAMMER).isNotConsumed();
+		hammerPanel = new ItemRequirement(t("Hammer (obtainable in quest)"), ItemCollections.HAMMER).isNotConsumed();
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed();
-		hammer.setTooltip("Franklin will give you one");
+		hammer.setTooltip(t("Franklin will give you one"));
 		brownApron = new ItemRequirement("Brown apron", ItemID.BROWN_APRON, 1, true).isNotConsumed();
 		brownApron.setHighlightInInventory(true);
-		brownApron.setTooltip("Malignius will give you one");
+		brownApron.setTooltip(t("Malignius will give you one"));
 		monkfish5 = new ItemRequirement("Fresh monkfish", ItemID.SWAN_MONKFISH, 5);
 		rawMonkfish5 = new ItemRequirement("Fresh monkfish", ItemID.SWAN_RAW_MONKFISH, 5);
 		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		combatGearRanged = new ItemRequirement("Ranged or melee combat gear", -1, -1).isNotConsumed();
+		combatGearRanged = new ItemRequirement(t("Ranged or melee combat gear"), -1, -1).isNotConsumed();
 		combatGearRanged.setDisplayItemId(BankSlotIcons.getCombatGear());
 		ironSheet5 = new ItemRequirement("Iron sheet", ItemID.IRON_SHEET, 5);
 
 		boneSeeds = new ItemRequirement("Bone seed", ItemID.SWAN_ARMY);
-		boneSeeds.setTooltip("You can get more by bringing Malignius another airtight pot");
+		boneSeeds.setTooltip(t("You can get more by bringing Malignius another airtight pot"));
 	}
 
 	@Override
@@ -233,58 +233,58 @@ public class SwanSong extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToHerman = new NpcStep(this, NpcID.SWAN_HERMAN, new WorldPoint(2345, 3651, 0), "Talk to Herman Carnos outside the Fishing Colony.");
+		talkToHerman = new NpcStep(this, NpcID.SWAN_HERMAN, new WorldPoint(2345, 3651, 0), t("Talk to Herman Carnos outside the Fishing Colony."));
 		talkToHerman.addTeleport(piscTeleport);
 		talkToHerman.addDialogSteps("What's the rush?", "Do you need any help?", "I'm a brave adventurer! Can I try?", "Yes.");
-		talkToWom = new NpcStep(this, NpcID.WISE_OLD_MAN, new WorldPoint(3089, 3253, 0), "Talk to the Wise Old Man in Draynor Village.", blood5, lava10, mist10);
+		talkToWom = new NpcStep(this, NpcID.WISE_OLD_MAN, new WorldPoint(3089, 3253, 0), t("Talk to the Wise Old Man in Draynor Village."), blood5, lava10, mist10);
 		talkToWom.addTeleport(draynorTeleport);
 		talkToWom.addDialogSteps("Draynor Village", "You used to be a famous adventurer, didn't you?");
-		talkToWomAtColony = new NpcStep(this, NpcID.WOM_CUTSCENE_2, new WorldPoint(2345, 3651, 0), "Talk to the Wise Old Man outside the Fishing Colony. Be prepared to fight sea trolls.", combatGear);
+		talkToWomAtColony = new NpcStep(this, NpcID.WOM_CUTSCENE_2, new WorldPoint(2345, 3651, 0), t("Talk to the Wise Old Man outside the Fishing Colony. Be prepared to fight sea trolls."), combatGear);
 		talkToWomAtColony.addTeleport(piscTeleport);
 		talkToWomAtColony.addDialogStep("I'm ready to fight.");
-		enterColony = new ObjectStep(this, ObjectID.SWAN_HOLE, new WorldPoint(2344, 3651, 0), "Enter the Fishing Colony, prepared to fight trolls.", combatGear, log, tinderbox, ironBar5, hammer);
+		enterColony = new ObjectStep(this, ObjectID.SWAN_HOLE, new WorldPoint(2344, 3651, 0), t("Enter the Fishing Colony, prepared to fight trolls."), combatGear, log, tinderbox, ironBar5, hammer);
 		talkToWomAtColony.addSubSteps(enterColony);
-		kill79Trolls = new NpcStep(this, NpcID.SWAN_TROLL_AMBUSH, new WorldPoint(2343, 3657, 0), "Kill the sea trolls.", true);
-		talkToHermanInBuilding = new NpcStep(this, NpcID.SWAN_HERMAN, new WorldPoint(2354, 3683, 0), "Talk to Herman in the east of the Fishing Colony.");
-		talkToFranklin = new NpcStep(this, NpcID.SWAN_FRANKLIN, new WorldPoint(2341, 3667, 0), "Talk to Franklin in the middle of the Fishing Colony.");
-		useLog = new ObjectStep(this, ObjectID.SWAN_FIREBOX, new WorldPoint(2344, 3676, 0), "Add some logs to the firebox in the building with a furnace.", logHiglight);
+		kill79Trolls = new NpcStep(this, NpcID.SWAN_TROLL_AMBUSH, new WorldPoint(2343, 3657, 0), t("Kill the sea trolls."), true);
+		talkToHermanInBuilding = new NpcStep(this, NpcID.SWAN_HERMAN, new WorldPoint(2354, 3683, 0), t("Talk to Herman in the east of the Fishing Colony."));
+		talkToFranklin = new NpcStep(this, NpcID.SWAN_FRANKLIN, new WorldPoint(2341, 3667, 0), t("Talk to Franklin in the middle of the Fishing Colony."));
+		useLog = new ObjectStep(this, ObjectID.SWAN_FIREBOX, new WorldPoint(2344, 3676, 0), t("Add some logs to the firebox in the building with a furnace."), logHiglight);
 		useLog.addIcon(ItemID.LOGS);
-		useTinderbox = new ObjectStep(this, ObjectID.SWAN_FIREBOX, new WorldPoint(2344, 3676, 0), "Light the logs in the firebox in the building with a furnace.", tinderboxHiglight);
+		useTinderbox = new ObjectStep(this, ObjectID.SWAN_FIREBOX, new WorldPoint(2344, 3676, 0), t("Light the logs in the firebox in the building with a furnace."), tinderboxHiglight);
 		useTinderbox.addIcon(ItemID.TINDERBOX);
 		repairWall = new FixWall(this);
 
-		talkToArnold = new NpcStep(this, NpcID.SWAN_ARNOLD, new WorldPoint(2329, 3688, 0), "Talk to Arnold at the bank in the Fishing Colony.");
+		talkToArnold = new NpcStep(this, NpcID.SWAN_ARNOLD, new WorldPoint(2329, 3688, 0), t("Talk to Arnold at the bank in the Fishing Colony."));
 		fishAndCookMonkfish = new FishMonkfish(this);
 
-		talkToFranklinAgain = new NpcStep(this, NpcID.SWAN_FRANKLIN, new WorldPoint(2341, 3667, 0), "Talk to Franklin again.");
-		talkToHermanAfterTasks = new NpcStep(this, NpcID.SWAN_HERMAN, new WorldPoint(2354, 3683, 0), "Talk to Herman in the east of the colony again.");
+		talkToFranklinAgain = new NpcStep(this, NpcID.SWAN_FRANKLIN, new WorldPoint(2341, 3667, 0), t("Talk to Franklin again."));
+		talkToHermanAfterTasks = new NpcStep(this, NpcID.SWAN_HERMAN, new WorldPoint(2354, 3683, 0), t("Talk to Herman in the east of the colony again."));
 
-		enterWizardsBasement = new ObjectStep(this, ObjectID.LADDER_CELLAR, new WorldPoint(2594, 3085, 0), "Talk to Wizard Frumscone in the Wizards' Guild basement.");
+		enterWizardsBasement = new ObjectStep(this, ObjectID.LADDER_CELLAR, new WorldPoint(2594, 3085, 0), t("Talk to Wizard Frumscone in the Wizards' Guild basement."));
 		enterWizardsBasement.addTeleport(yanilleTeleport);
 
-		talkToFruscone = new NpcStep(this, NpcID.WIZARD_FRUMSCONE, new WorldPoint(2587, 9488, 0), "Talk to Wizard Frumscone in the Wizards' Guild basement.");
+		talkToFruscone = new NpcStep(this, NpcID.WIZARD_FRUMSCONE, new WorldPoint(2587, 9488, 0), t("Talk to Wizard Frumscone in the Wizards' Guild basement."));
 		talkToFruscone.addDialogStep("I'll see what the necromancer needs me to do.");
 		talkToFruscone.addSubSteps(enterWizardsBasement);
-		talkToMalignius = new NpcStep(this, NpcID.ELEMENTAL_WIZARD_BOSS, new WorldPoint(2993, 3269, 0), "Talk to Malignius Mortifer near Port Sarim.", bones7);
+		talkToMalignius = new NpcStep(this, NpcID.ELEMENTAL_WIZARD_BOSS, new WorldPoint(2993, 3269, 0), t("Talk to Malignius Mortifer near Port Sarim."), bones7);
 		talkToMalignius.addDialogStep("I need help with saving a fishing colony.");
 		talkToMalignius.addTeleport(craftingGuildTeleport);
-		talkToCrafter = new NpcStep(this, NpcID.MASTER_CRAFTER_3, new WorldPoint(2937, 3290, 0), "Talk to a Master Crafter with dreadlocks in the Crafting Guild.", brownApron);
+		talkToCrafter = new NpcStep(this, NpcID.MASTER_CRAFTER_3, new WorldPoint(2937, 3290, 0), t("Talk to a Master Crafter with dreadlocks in the Crafting Guild."), brownApron);
 		talkToCrafter.addDialogStep("Swan Song.");
-		makeAirtightPot = new DetailedQuestStep(this, "Add a pot lid to a pot.", potHiglight, potLidHiglight);
-		talkToMaligniusWithPot = new NpcStep(this, NpcID.ELEMENTAL_WIZARD_BOSS, new WorldPoint(2993, 3269, 0), "Bring the airtight pot and 7 bones to Malignius Mortifer near Port Sarim. Make sure you're equipped for the fight before speaking to Malignus.", airtightPot);
+		makeAirtightPot = new DetailedQuestStep(this, t("Add a pot lid to a pot."), potHiglight, potLidHiglight);
+		talkToMaligniusWithPot = new NpcStep(this, NpcID.ELEMENTAL_WIZARD_BOSS, new WorldPoint(2993, 3269, 0), t("Bring the airtight pot and 7 bones to Malignius Mortifer near Port Sarim. Make sure you're equipped for the fight before speaking to Malignus."), airtightPot);
 		talkToMaligniusWithPot.addDialogStep("I've spoken to the master crafter...");
 		talkToHermanWithPot = new NpcStep(this, NpcID.SWAN_HERMAN, new WorldPoint(2354, 3683, 0),
-			"Be prepared to fight, and talk to Herman in the colony.", combatGearRanged, boneSeeds);
+			t("Be prepared to fight, and talk to Herman in the colony."), combatGearRanged, boneSeeds);
 		talkToHermanWithPot.addDialogSteps("I've lost the army!");
 
 		talkToHermanForFinalFight = new NpcStep(this, NpcID.SWAN_HERMAN, new WorldPoint(2354, 3683, 0),
-			"Be prepared to fight, and talk to Herman in the colony.", combatGearRanged);
+			t("Be prepared to fight, and talk to Herman in the colony."), combatGearRanged);
 		talkToHermanForFinalFight.addDialogStep("I'm ready. Let's fight!");
 		talkToHermanForFinalFight.addSubSteps(talkToHermanWithPot);
 
-		killQueen = new NpcStep(this, NpcID.SWAN_SEATROLL_QUEEN, new WorldPoint(2347, 3704, 0), "Kill the Sea Troll Queen.", combatGearRanged);
+		killQueen = new NpcStep(this, NpcID.SWAN_SEATROLL_QUEEN, new WorldPoint(2347, 3704, 0), t("Kill the Sea Troll Queen."), combatGearRanged);
 		killQueen.addDialogStep("No, I'm ready to move on with the quest.");
-		talkToHermanToFinish = new NpcStep(this, NpcID.SWAN_HERMAN, new WorldPoint(2354, 3683, 0), "Talk to Herman to finish the quest.");
+		talkToHermanToFinish = new NpcStep(this, NpcID.SWAN_HERMAN, new WorldPoint(2354, 3683, 0), t("Talk to Herman to finish the quest."));
 	}
 
 	@Override
@@ -304,8 +304,8 @@ public class SwanSong extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		ArrayList<String> reqs = new ArrayList<>();
-		reqs.add("11 Sea trolls (levels 65/79/87/101)");
-		reqs.add("Sea troll queen (level 170)");
+		reqs.add(t("11 Sea trolls (levels 65/79/87/101)"));
+		reqs.add(t("Sea troll queen (level 170)"));
 		return reqs;
 	}
 
@@ -351,30 +351,30 @@ public class SwanSong extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("Access to the Piscatoris Fishing Colony"),
-			new UnlockReward("The ability to fish Monkfish"));
+			new UnlockReward(t("Access to the Piscatoris Fishing Colony")),
+			new UnlockReward(t("The ability to fish Monkfish")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off", Arrays.asList(talkToHerman, talkToWom), Arrays.asList(blood5, mist10, lava10), Arrays.asList(piscTeleport, draynorTeleport)));
-		allSteps.add(new PanelDetails("Entering the colony", Arrays.asList(talkToWomAtColony, kill79Trolls, talkToHermanInBuilding), Arrays.asList(combatGear, log, tinderbox, ironBar5, hammerPanel),
+		allSteps.add(new PanelDetails(t("Starting off"), Arrays.asList(talkToHerman, talkToWom), Arrays.asList(blood5, mist10, lava10), Arrays.asList(piscTeleport, draynorTeleport)));
+		allSteps.add(new PanelDetails(t("Entering the colony"), Arrays.asList(talkToWomAtColony, kill79Trolls, talkToHermanInBuilding), Arrays.asList(combatGear, log, tinderbox, ironBar5, hammerPanel),
 			Collections.singletonList(piscTeleport)));
 		List<QuestStep> helpingSteps = QuestUtil.toArrayList(talkToFranklin, useLog, useTinderbox);
 		helpingSteps.addAll(repairWall.getDisplaySteps());
 		helpingSteps.add(talkToFranklinAgain);
-		allSteps.add(new PanelDetails("Helping Franklin", helpingSteps, Arrays.asList(combatGear, log, tinderbox, ironBar5, hammerPanel)));
+		allSteps.add(new PanelDetails(t("Helping Franklin"), helpingSteps, Arrays.asList(combatGear, log, tinderbox, ironBar5, hammerPanel)));
 
 		List<QuestStep> helpingArnoldSteps = QuestUtil.toArrayList(talkToArnold);
 		helpingArnoldSteps.addAll(fishAndCookMonkfish.getSteps());
 		helpingArnoldSteps.add(talkToHermanAfterTasks);
 
-		allSteps.add(new PanelDetails("Helping Arnold", helpingArnoldSteps, Collections.singletonList(combatGear), Collections.singletonList(cookingGauntlets)));
-		allSteps.add(new PanelDetails("Making an army", Arrays.asList(talkToFruscone, talkToMalignius,
+		allSteps.add(new PanelDetails(t("Helping Arnold"), helpingArnoldSteps, Collections.singletonList(combatGear), Collections.singletonList(cookingGauntlets)));
+		allSteps.add(new PanelDetails(t("Making an army"), Arrays.asList(talkToFruscone, talkToMalignius,
 			talkToCrafter, makeAirtightPot, talkToMaligniusWithPot), Arrays.asList(bones7, pot, potLid, combatGearRanged), Arrays.asList(yanilleTeleport, craftingGuildTeleport)));
-		allSteps.add(new PanelDetails("Defeating the trolls", Arrays.asList(talkToHermanForFinalFight, killQueen, talkToHermanToFinish), combatGearRanged));
+		allSteps.add(new PanelDetails(t("Defeating the trolls"), Arrays.asList(talkToHermanForFinalFight, killQueen, talkToHermanToFinish), combatGearRanged));
 		return allSteps;
 	}
 }

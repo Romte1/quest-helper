@@ -131,7 +131,7 @@ public class MorytaniaElite extends ComplexStateQuestHelper
 
 		magicRedwoodPyreLogs = new ItemRequirement("Magic / Redwood pyrelogs", ItemCollections.ELITE_PYRE_LOGS)
 			.showConditioned(notCremateShade);
-		magicRedwoodPyreLogs.setTooltip("Can be created by using sacred oil on magic / redwood logs");
+		magicRedwoodPyreLogs.setTooltip(t("Can be created by using sacred oil on magic / redwood logs"));
 		shadeRemains = new ItemRequirement("Shade remains", ItemCollections.SHADE_REMAINS).showConditioned(notCremateShade);
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).showConditioned(notCremateShade);
 		earthRune = new ItemRequirement("Earth rune", ItemID.EARTHRUNE).showConditioned(notFertilizeHerb);
@@ -142,7 +142,7 @@ public class MorytaniaElite extends ComplexStateQuestHelper
 		thread = new ItemRequirement("Thread", ItemID.THREAD).showConditioned(notCraftBlackDhideBody);
 		needleThread = new ItemRequirements(needle, thread);
 		costumeNeedle = new ItemRequirement("Costume needle", ItemID.COSTUMENEEDLE);
-		needleThreadOrCostumeNeedle = new ItemRequirements(LogicType.OR, "Needle/Thread or Costume needle", needleThread, costumeNeedle);
+		needleThreadOrCostumeNeedle = new ItemRequirements(LogicType.OR, t("Needle/Thread or Costume needle"), needleThread, costumeNeedle);
 		needleThreadOrCostumeNeedle.setDisplayMatchedItemName(true);
 
 		ahrimSet = new ItemRequirements("Ahrim Set", new ItemRequirement("Hood", ItemCollections.AHRIM_HOOD),
@@ -170,13 +170,13 @@ public class MorytaniaElite extends ComplexStateQuestHelper
 			new ItemRequirement("Hammers", ItemCollections.TORAG_HAMMERS), new ItemRequirement("Body",
 			ItemCollections.TORAG_BODY), new ItemRequirement("legs", ItemCollections.TORAG_LEGS)).isNotConsumed();
 
-		barrowsSet = new ItemRequirements(LogicType.OR, "Any complete barrows set", ahrimSet, karilSet, guthanSet,
+		barrowsSet = new ItemRequirements(LogicType.OR, t("Any complete barrows set"), ahrimSet, karilSet, guthanSet,
 			veracSet, dharokSet, toragSet).showConditioned(notBarrowsChest).isNotConsumed();
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		barrowsTab = new ItemRequirement("Barrows teleport", ItemID.TELETAB_BARROWS);
 		slayerRing = new ItemRequirement("Slayer ring", ItemCollections.SLAYER_RINGS);
 		ectophial = new ItemRequirement("Ectophial", ItemID.ECTOPHIAL).isNotConsumed();
@@ -208,41 +208,41 @@ public class MorytaniaElite extends ComplexStateQuestHelper
 	public void setupSteps()
 	{
 		moveToBarrows = new DetailedQuestStep(this, new WorldPoint(3566, 3299, 0),
-			"Dig at the top of the mounds and search the Sarcophagi until you find the hidden tunnel. A spade can " +
-				"be found in a shed at the entrance.", spade, barrowsSet, food);
+			t("Dig at the top of the mounds and search the Sarcophagi until you find the hidden tunnel. A spade can " +
+				"be found in a shed at the entrance."), spade, barrowsSet, food);
 		// equipped doesn't work, it's highlighted as long as it's in inventory.
 		barrowsChest = new ObjectStep(this, ObjectID.BARROWS_STONE_CHEST, new WorldPoint(3552, 9696, 0),
-			"Loot the chest wearing a complete set of barrows gear.", barrowsSet.equipped());
+			t("Loot the chest wearing a complete set of barrows gear."), barrowsSet.equipped());
 
 		cremateShade = new ObjectStep(this, ObjectID.TEMPLE_PYRE, new WorldPoint(3500, 3266, 0),
-			"Place the pyre logs and shade remains on the funeral pyre and light them with a tinderbox", tinderbox,
+			t("Place the pyre logs and shade remains on the funeral pyre and light them with a tinderbox"), tinderbox,
 			shadeRemains, magicRedwoodPyreLogs);
 		cremateShade.addAlternateObjects(ObjectID.TEMPLE_PYRE_MAGIC, ObjectID.TEMPLE_PYRE_BONES_MAGIC, ObjectID.TEMPLE_PYRE_REDWOOD, ObjectID.TEMPLE_PYRE_BONES_REDWOOD);
 
 		bareHandShark = new NpcStep(this, NpcID._0_54_49_MEMBERFISH, new WorldPoint(3479, 3189, 0),
-			"Bare hand fish a shark in Burgh de Rott.");
+			t("Bare hand fish a shark in Burgh de Rott."));
 
 		moveToSlayer2 = new ObjectStep(this, ObjectID.SLAYER_STAIRS_LV1, new WorldPoint(3436, 3538, 0),
-			"Climb the stairs or the Spikey chains in the Slayer tower to ascend to the higher level.", combatGear,
+			t("Climb the stairs or the Spikey chains in the Slayer tower to ascend to the higher level."), combatGear,
 			food);
 		moveToSlayer3 = new ObjectStep(this, ObjectID.SLAYER_STAIRS_LV2, new WorldPoint(3415, 3541, 1),
-			"Climb the stairs or the Spikey chains in the Slayer tower to ascend to the higher level.", combatGear,
+			t("Climb the stairs or the Spikey chains in the Slayer tower to ascend to the higher level."), combatGear,
 			food);
 		abyssalDemon = new NpcStep(this, NpcID.SLAYER_ABYSSAL, new WorldPoint(3420, 3569, 2),
-			"Kill an Abyssal demon.", combatGear, food);
+			t("Kill an Abyssal demon."), combatGear, food);
 
 		moveToCanifisBank = new DetailedQuestStep(this, new WorldPoint(3511, 3480, 0),
-			"Move to the bank in Canifis.", blackLeather.quantity(3).highlighted(), needle.highlighted(), thread);
-		craftBlackDhideBody = new DetailedQuestStep(this, "Craft a black dragon hide body.",
+			t("Move to the bank in Canifis."), blackLeather.quantity(3).highlighted(), needle.highlighted(), thread);
+		craftBlackDhideBody = new DetailedQuestStep(this, t("Craft a black dragon hide body."),
 			blackLeather.quantity(3).highlighted(), needle.highlighted(), needleThreadOrCostumeNeedle);
 
 		fertilizeHerb = new ObjectStep(this, ObjectID.FARMING_HERB_PATCH_4, new WorldPoint(3606, 3530, 0),
-			"Cast Fertile Soil on the herb patch in Morytania.", lunarBook, earthRune.quantity(15),
+			t("Cast Fertile Soil on the herb patch in Morytania."), lunarBook, earthRune.quantity(15),
 			astralRune.quantity(3), natureRune.quantity(2));
 		fertilizeHerb.addIcon(SpriteID.LunarMagicOn.FERTILE_SOIL);
 
 		claimReward = new NpcStep(this, NpcID.LESABRE_MORT_DIARY, new WorldPoint(3464, 3480, 0),
-			"Talk to Le-Sabre near Canifis to claim your reward!");
+			t("Talk to Le-Sabre near Canifis to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -286,7 +286,7 @@ public class MorytaniaElite extends ComplexStateQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("One Abyssal Demon (lvl 124)");
+		return Collections.singletonList(t("One Abyssal Demon (lvl 124)"));
 	}
 
 	@Override
@@ -302,12 +302,12 @@ public class MorytaniaElite extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("Unlimited teleports to the slime pit beneath the Ectofuntus from Morytania legs"),
-			new UnlockReward("Robin offers 39 free buckets of slime and 39 pots of bonemeal in exchange for bones each day"),
-			new UnlockReward("50% more Firemaking experience when burning shade remains"),
-			new UnlockReward("Bones buried from the Bonecrusher grant full Prayer experience"),
-			new UnlockReward("Access to the herb patch on Harmony Island"),
-			new UnlockReward("10% more Slayer experience in the Slayer Tower while on a Slayer task")
+			new UnlockReward(t("Unlimited teleports to the slime pit beneath the Ectofuntus from Morytania legs")),
+			new UnlockReward(t("Robin offers 39 free buckets of slime and 39 pots of bonemeal in exchange for bones each day")),
+			new UnlockReward(t("50% more Firemaking experience when burning shade remains")),
+			new UnlockReward(t("Bones buried from the Bonecrusher grant full Prayer experience")),
+			new UnlockReward(t("Access to the herb patch on Harmony Island")),
+			new UnlockReward(t("10% more Slayer experience in the Slayer Tower while on a Slayer task"))
 		);
 	}
 
@@ -316,20 +316,20 @@ public class MorytaniaElite extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails grabSharkSteps = new PanelDetails("Grab Shark", Collections.singletonList(bareHandShark),
+		PanelDetails grabSharkSteps = new PanelDetails(t("Grab Shark"), Collections.singletonList(bareHandShark),
 			new SkillRequirement(Skill.FISHING, 96, true), new SkillRequirement(Skill.STRENGTH, 76, true),
 			inAidOfTheMyreque, bareHandBarb);
 		grabSharkSteps.setDisplayCondition(notBareHandShark);
 		grabSharkSteps.setLockingStep(bareHandSharkTask);
 		allSteps.add(grabSharkSteps);
 
-		PanelDetails cremateSteps = new PanelDetails("Cremate Shade Remains", Collections.singletonList(cremateShade),
+		PanelDetails cremateSteps = new PanelDetails(t("Cremate Shade Remains"), Collections.singletonList(cremateShade),
 			new SkillRequirement(Skill.FIREMAKING, 80, true), shadesOfMorton, magicRedwoodPyreLogs, shadeRemains, tinderbox);
 		cremateSteps.setDisplayCondition(notCremateShade);
 		cremateSteps.setLockingStep(cremateShadeTask);
 		allSteps.add(cremateSteps);
 
-		PanelDetails barrowsSteps = new PanelDetails("Barrows Looting", Arrays.asList(moveToBarrows,
+		PanelDetails barrowsSteps = new PanelDetails(t("Barrows Looting"), Arrays.asList(moveToBarrows,
 			barrowsChest), new SkillRequirement(Skill.DEFENCE, 70, false, "70 Defense and one of the following:"),
 			new SkillRequirement(Skill.ATTACK, 70, false), new SkillRequirement(Skill.MAGIC, 70, false),
 			new SkillRequirement(Skill.RANGED, 70, false), new SkillRequirement(Skill.STRENGTH, 70, false), barrowsSet);
@@ -337,27 +337,27 @@ public class MorytaniaElite extends ComplexStateQuestHelper
 		barrowsSteps.setLockingStep(barrowsChestTask);
 		allSteps.add(barrowsSteps);
 
-		PanelDetails abyssalDemonSteps = new PanelDetails("Kill Abyssal Demon", Arrays.asList(moveToSlayer2, moveToSlayer3,
+		PanelDetails abyssalDemonSteps = new PanelDetails(t("Kill Abyssal Demon"), Arrays.asList(moveToSlayer2, moveToSlayer3,
 			abyssalDemon), new SkillRequirement(Skill.SLAYER, 85, true), combatGear, food);
 		abyssalDemonSteps.setDisplayCondition(notAbyssalDemon);
 		abyssalDemonSteps.setLockingStep(abyssalDemonTask);
 		allSteps.add(abyssalDemonSteps);
 
-		PanelDetails craftSteps = new PanelDetails("Craft Black D'hide Body", Arrays.asList(moveToCanifisBank,
+		PanelDetails craftSteps = new PanelDetails(t("Craft Black D'hide Body"), Arrays.asList(moveToCanifisBank,
 			craftBlackDhideBody), new SkillRequirement(Skill.CRAFTING, 84, true),
 			blackLeather.quantity(3), needleThreadOrCostumeNeedle.quantity(1));
 		craftSteps.setDisplayCondition(notCraftBlackDhideBody);
 		craftSteps.setLockingStep(craftBlackDhideBodyTask);
 		allSteps.add(craftSteps);
 
-		PanelDetails fertSteps = new PanelDetails("Fertilize Herb Patch", Collections.singletonList(fertilizeHerb),
+		PanelDetails fertSteps = new PanelDetails(t("Fertilize Herb Patch"), Collections.singletonList(fertilizeHerb),
 			new SkillRequirement(Skill.MAGIC, 83, true), lunarDiplomacy, lunarBook, earthRune.quantity(15),
 			astralRune.quantity(3), natureRune.quantity(2));
 		fertSteps.setDisplayCondition(notFertilizeHerb);
 		fertSteps.setLockingStep(fertilizeHerbTask);
 		allSteps.add(fertSteps);
 
-		allSteps.add(new PanelDetails("Finishing off", Collections.singletonList(claimReward)));
+		allSteps.add(new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward)));
 
 		return allSteps;
 	}

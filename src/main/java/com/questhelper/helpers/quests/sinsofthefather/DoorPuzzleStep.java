@@ -93,7 +93,9 @@ public class DoorPuzzleStep extends DetailedQuestStep
 
 	public DoorPuzzleStep(BasicQuestHelper questHelper)
 	{
-		super(questHelper, "Solve the puzzle by marking the highlighted squares.");
+		super(questHelper, questHelper != null
+			? questHelper.t("Solve the puzzle by marking the highlighted squares.")
+			: "Solve the puzzle by marking the highlighted squares.");
 	}
 
 	/**
@@ -435,7 +437,7 @@ public class DoorPuzzleStep extends DetailedQuestStep
 		Widget panels = client.getWidget(InterfaceID.Myq5TombPuzzle.GRID_BUTTONS);
 		if (result == null && panels != null)
 		{
-			String text = "Unable to calculate an answer for this puzzle. Good luck!";
+			String text = questHelper.t("Unable to calculate an answer for this puzzle. Good luck!");
 			Color color = Color.RED;
 			panelComponent.getChildren().add(LineComponent.builder()
 				.left(text)

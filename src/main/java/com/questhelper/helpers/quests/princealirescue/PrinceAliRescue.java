@@ -141,8 +141,8 @@ public class PrinceAliRescue extends BasicQuestHelper
 
 		ropeHighlighted = new ItemRequirement("Rope", ItemID.ROPE);
 		ropeHighlighted.setHighlightInInventory(true);
-		ropeReqs = new ItemRequirement("Rope, or 15 coins / 4 balls of wool to obtain during the quest", ItemID.ROPE);
-		coins100 = new ItemRequirement("Coins minimum", ItemCollections.COINS, 100);
+		ropeReqs = new ItemRequirement(t("Rope, or 15 coins / 4 balls of wool to obtain during the quest"), ItemID.ROPE);
+		coins100 = new ItemRequirement(t("Coins minimum"), ItemCollections.COINS, 100);
 		wig = new ItemRequirement("Wig", ItemID.PLAINWIG);
 		wig.setHighlightInInventory(true);
 		dyedWig = new ItemRequirement("Wig (dyed)", ItemID.BLONDWIG);
@@ -153,8 +153,8 @@ public class PrinceAliRescue extends BasicQuestHelper
 
 		keyHighlighted = new ItemRequirement("Bronze key", ItemID.PRINCESKEY);
 		keyHighlighted.setHighlightInInventory(true);
-		yellowDyeReqs = new ItemRequirement("Yellow dye, or 2 onions + 5 coins to obtain during quest", ItemID.YELLOWDYE);
-		glory = new ItemRequirement("Amulet of Glory for Al Kharid and Draynor Village teleports", ItemCollections.AMULET_OF_GLORIES);
+		yellowDyeReqs = new ItemRequirement(t("Yellow dye, or 2 onions + 5 coins to obtain during quest"), ItemID.YELLOWDYE);
+		glory = new ItemRequirement(t("Amulet of Glory for Al Kharid and Draynor Village teleports"), ItemCollections.AMULET_OF_GLORIES);
 	}
 
 	public void setupConditions()

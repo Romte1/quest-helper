@@ -184,13 +184,13 @@ public class ThePathOfGlouphrie extends BasicQuestHelper
 	{
 		/// Required items
 		rovingElvesNotStarted = new QuestRequirement(QuestHelperQuest.ROVING_ELVES, QuestState.NOT_STARTED);
-		crossbow = new ItemRequirement("Any crossbow", ItemCollections.CROSSBOWS).isNotConsumed();
+		crossbow = new ItemRequirement(t("Any crossbow"), ItemCollections.CROSSBOWS).isNotConsumed();
 		mithGrapple = new ItemRequirement("Mith grapple", ItemID.XBOWS_GRAPPLE_TIP_BOLT_MITHRIL_ROPE).isNotConsumed();
 		// NOTE: This does NOT have a step attached
 		// I didn't have any character available that hadn't started the Roving Elves quest
 		treeGnomeVillageDungeonKey = new ItemRequirement("Tree Gnome Village dungeon key", ItemID.GOLRIE_KEY_WATERFALL_QUEST).showConditioned(rovingElvesNotStarted);
 		treeGnomeVillageDungeonKey.canBeObtainedDuringQuest();
-		combatGear = new ItemRequirement("Combat equipment", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat equipment"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS, -1);
 		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
@@ -198,21 +198,21 @@ public class ThePathOfGlouphrie extends BasicQuestHelper
 
 		/// Recommended items
 		var lumbridgeEliteComplete = new QuestRequirement(QuestHelperQuest.LUMBRIDGE_ELITE, QuestState.FINISHED);
-		earmuffsOrSlayerHelmet = new ItemRequirement("Earmuffs or a Slayer helmet", ItemCollections.EAR_PROTECTION, 1, true).highlighted();
-		earmuffsOrSlayerHelmet.setTooltip("You will take a lot more damage without these");
+		earmuffsOrSlayerHelmet = new ItemRequirement(t("Earmuffs or a Slayer helmet"), ItemCollections.EAR_PROTECTION, 1, true).highlighted();
+		earmuffsOrSlayerHelmet.setTooltip(t("You will take a lot more damage without these"));
 		earmuffsOrSlayerHelmetEquipped = earmuffsOrSlayerHelmet.equipped();
-		fairyRingOrCastleWars = new TeleportItemRequirement("Teleport to Castle Wars (Fairy Ring BKP or Ring of Dueling [2])", ItemCollections.FAIRY_STAFF, 1);
+		fairyRingOrCastleWars = new TeleportItemRequirement(t("Teleport to Castle Wars (Fairy Ring BKP or Ring of Dueling [2])"), ItemCollections.FAIRY_STAFF, 1);
 		fairyRingOrCastleWars.addAlternates(ItemCollections.RING_OF_DUELINGS);
 		fairyRingOrCastleWars.setConditionToHide(lumbridgeEliteComplete);
-		runRestoreItems = new ItemRequirement("Several run restore items", ItemCollections.RUN_RESTORE_ITEMS, -1);
+		runRestoreItems = new ItemRequirement(t("Several run restore items"), ItemCollections.RUN_RESTORE_ITEMS, -1);
 		// TODO: recommend the toad legs to get a mint cake?
 
 		/// Teleports
-		teleToBolren = new TeleportItemRequirement("Spirit tree to Tree Gnome Village [1]", -1, -1);
+		teleToBolren = new TeleportItemRequirement(t("Spirit tree to Tree Gnome Village [1]"), -1, -1);
 
 		/// Quest items
 		crystalChime = new ItemRequirement("Crystal chime", ItemID.CRYSTAL_CHIME, 1);
-		crystalChime.setTooltip("You can get a new one by going back to the storeroom in the Tree Gnome Village dungeon");
+		crystalChime.setTooltip(t("You can get a new one by going back to the storeroom in the Tree Gnome Village dungeon"));
 	}
 
 	private void setupConditions()
@@ -291,8 +291,8 @@ public class ThePathOfGlouphrie extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return Arrays.asList(
-			"3 Warped Terrorbirds (level 138)",
-			"Evil Creature (level 1)"
+			t("3 Warped Terrorbirds (level 138)"),
+			t("Evil Creature (level 1)")
 		);
 	}
 
@@ -317,9 +317,9 @@ public class ThePathOfGlouphrie extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("Access to the Poison Waste Dungeon"),
-			new UnlockReward("Ability to unlock warped creatures as a Slayer task"),
-			new UnlockReward("Access to a new spirit tree destination in the Poison Waste")
+			new UnlockReward(t("Access to the Poison Waste Dungeon")),
+			new UnlockReward(t("Ability to unlock warped creatures as a Slayer task")),
+			new UnlockReward(t("Access to a new spirit tree destination in the Poison Waste"))
 		);
 	}
 
@@ -346,24 +346,24 @@ public class ThePathOfGlouphrie extends BasicQuestHelper
 		var panels = new ArrayList<PanelDetails>();
 
 		var startingOffPanel = new PanelDetails(
-			"Starting off",
+			t("Starting off"),
 			startingOff.getSteps(),
 			List.of(freeInventorySlots, treeGnomeVillageDungeonKey)
 		);
 
 		var unveilTheEvilCreature = new PanelDetails(
-			"Unveil the Evil creature",
+			t("Unveil the Evil creature"),
 			unveilEvil.getSteps(),
 			List.of(freeInventorySlots)
 		);
 
 		var informKingBolrenPanel = new PanelDetails(
-			"Inform King Bolren",
+			t("Inform King Bolren"),
 			informKingBolren.getSteps()
 		);
 
 		var findLongramblePanel = new PanelDetails(
-			"Find Longramble",
+			t("Find Longramble"),
 			findLongramble.getSteps(),
 			List.of(crossbow, mithGrapple, combatGear, food, crystalChime),
 			List.of(earmuffsOrSlayerHelmet, runRestoreItems)

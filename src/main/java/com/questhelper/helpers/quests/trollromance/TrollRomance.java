@@ -151,7 +151,7 @@ public class TrollRomance extends BasicQuestHelper
 		trollweissFlowers = new ItemRequirement("Trollweiss", ItemID.TROLLROMANCE_RARE_FLOWER);
 		trollweissFlowers.setTooltip(t("You can get another from the Trollweiss mountain"));
 		climbingBoots = new ItemRequirement("Climbing boots", ItemCollections.CLIMBING_BOOTS).isNotConsumed();
-		combatGear = new ItemRequirement("Combat gear, food, and potions", -1, -1);
+		combatGear = new ItemRequirement(t("Combat gear, food, and potions"), -1, -1);
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		gamesNeck = new ItemRequirement("Games necklace", ItemCollections.GAMES_NECKLACES);
 	}

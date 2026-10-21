@@ -136,19 +136,19 @@ public class WildernessElite extends ComplexStateQuestHelper
 
 		ancientBook = new SpellbookRequirement(Spellbook.ANCIENT);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		hammer = new ItemRequirement("Hammer", ItemID.HAMMER).showConditioned(notRuneScim).isNotConsumed();
 		lawRune = new ItemRequirement("Law rune", ItemID.LAWRUNE).showConditioned(notTPGhorrock);
 		waterRune = new ItemRequirement("Water rune", ItemID.WATERRUNE).showConditioned(notTPGhorrock);
 		lobsterPot = new ItemRequirement("Lobster pot", ItemID.LOBSTER_POT).showConditioned(notDarkCrab).isNotConsumed();
 		darkFishingBait = new ItemRequirement("Dark fish bait", ItemID.WILDERNESS_FISHING_BAIT).showConditioned(notDarkCrab);
-		coins = new ItemRequirement("Coins (7500 if no wildy diary rewards claimed, 6000 if med claimed, 3750 if hard claimed)", ItemCollections.COINS).showConditioned(new Conditions(LogicType.OR,
+		coins = new ItemRequirement(t("Coins (7500 if no wildy diary rewards claimed, 6000 if med claimed, 3750 if hard claimed)"), ItemCollections.COINS).showConditioned(new Conditions(LogicType.OR,
 			notDarkCrab, notMagicLogs, notRuneScim));
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).showConditioned(notRuneScim).isNotConsumed();
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES).showConditioned(notMagicLogs).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).showConditioned(notRuneScim).isNotConsumed();
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).showConditioned(notMagicLogs).isNotConsumed();
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).showConditioned(notMagicLogs).isNotConsumed();
-		godEquip = new ItemRequirement("Various god equipment (1 of each god suggested)", -1, -1)
+		godEquip = new ItemRequirement(t("Various god equipment (1 of each god suggested)"), -1, -1)
 			.showConditioned(notSpiritMage).isNotConsumed();
 		coal = new ItemRequirement("Coal", ItemID.COAL).showConditioned(notRuneScim);
 		runeOre = new ItemRequirement("Runite ore", ItemID.RUNITE_ORE);
@@ -156,7 +156,7 @@ public class WildernessElite extends ComplexStateQuestHelper
 		magicLog = new ItemRequirement("Magic logs", ItemID.MAGIC_LOGS);
 		rawDarkCrab = new ItemRequirement("Raw dark crab", ItemID.RAW_DARK_CRAB);
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
 		enterGodwars = new ItemRequirement("60 Strength or Agility", -1, -1);
 
@@ -222,52 +222,52 @@ public class WildernessElite extends ComplexStateQuestHelper
 	public void setupSteps()
 	{
 		moveToResource1 = new ObjectStep(this, ObjectID.WILDERNESS_RESOURCE_GATE, new WorldPoint(3184, 3944, 0),
-			"Enter the Wilderness Resource Area.", coins.quantity(6000), axe, tinderbox);
+			t("Enter the Wilderness Resource Area."), coins.quantity(6000), axe, tinderbox);
 		magicLogs = new ObjectStep(this, ObjectID.MAGICTREE, new WorldPoint(3190, 3926, 0),
-			"Chop some magic logs.", true, axe, tinderbox);
-		burnLogs = new ItemStep(this, "Burn the magic logs in the Resource Area.", tinderbox.highlighted(),
+			t("Chop some magic logs."), true, axe, tinderbox);
+		burnLogs = new ItemStep(this, t("Burn the magic logs in the Resource Area."), tinderbox.highlighted(),
 			magicLog.highlighted());
 
 		moveToResource2 = new ObjectStep(this, ObjectID.WILDERNESS_RESOURCE_GATE, new WorldPoint(3184, 3944, 0),
-			"Enter the Wilderness Resource Area.", coins.quantity(3750), combatGear, food, pickaxe, coal.quantity(16), hammer);
+			t("Enter the Wilderness Resource Area."), coins.quantity(3750), combatGear, food, pickaxe, coal.quantity(16), hammer);
 		runiteGolem = new NpcStep(this, NpcID.WILDERNESS_RUNE_GOLEM, new WorldPoint(3189, 3938, 0),
-			"Kill and mine the Runite Golems in the Resource Area.", true, combatGear, food,
+			t("Kill and mine the Runite Golems in the Resource Area."), true, combatGear, food,
 			pickaxe, coal.quantity(16), hammer);
 		runiteGolem.addAlternateNpcs(NpcID.WILDERNESS_GOLEM_RUNE_ROCK);
 		smeltBar = new ObjectStep(this, ObjectID.WILDERNESS_RESOURCE_FURNACE, new WorldPoint(3191, 3936, 0),
-			"Smelt the ore into runite bars.", hammer, runeOre.quantity(2), coal.quantity(16), hammer);
+			t("Smelt the ore into runite bars."), hammer, runeOre.quantity(2), coal.quantity(16), hammer);
 		runeScim = new ObjectStep(this, ObjectID.ANVIL, new WorldPoint(3190, 3938, 0),
-			"Smith a runite scimitar in the Resource Area.", hammer, runeBar.quantity(2));
+			t("Smith a runite scimitar in the Resource Area."), hammer, runeBar.quantity(2));
 
 		moveToResource3 = new ObjectStep(this, ObjectID.WILDERNESS_RESOURCE_GATE, new WorldPoint(3184, 3944, 0),
-			"Enter the Wilderness Resource Area.", coins.quantity(3750), lobsterPot, darkFishingBait);
+			t("Enter the Wilderness Resource Area."), coins.quantity(3750), lobsterPot, darkFishingBait);
 		darkCrab = new NpcStep(this, NpcID._49_61_CRABS, new WorldPoint(3187, 3927, 0),
-			"Fish a dark crab in the Resource Area.", lobsterPot, darkFishingBait);
+			t("Fish a dark crab in the Resource Area."), lobsterPot, darkFishingBait);
 		cookDarkCrab = new ObjectStep(this, ObjectID.FIRE, new WorldPoint(3188, 3930, 0),
-			"Cook the raw dark crab on the nearby fire.", rawDarkCrab);
+			t("Cook the raw dark crab on the nearby fire."), rawDarkCrab);
 
-		tPGhorrock = new DetailedQuestStep(this, "Teleport to Ghorrock.", ancientBook, lawRune.quantity(2),
+		tPGhorrock = new DetailedQuestStep(this, t("Teleport to Ghorrock."), ancientBook, lawRune.quantity(2),
 			waterRune.quantity(8));
 
 		moveToGodWars1 = new ObjectStep(this, ObjectID.WILDERNESS_GWD_ENTRANCE, new WorldPoint(3018, 3739, 0),
-			"Enter the Wilderness God Wars Dungeon.", combatGear, food, godEquip);
+			t("Enter the Wilderness God Wars Dungeon."), combatGear, food, godEquip);
 		moveToGodWars2 = new ObjectStep(this, ObjectID.WILDERNESS_GWD_CREVICE, new WorldPoint(3066, 10142, 0),
-			"Use the crevice to enter the Wilderness God Wars Dungeon. The Strength entrance is to the west.",
+			t("Use the crevice to enter the Wilderness God Wars Dungeon. The Strength entrance is to the west."),
 			combatGear, food, godEquip);
 		spiritMage = new NpcStep(this, NpcID.GODWARS_SPIRITUAL_SARADOMIN_MAGE, new WorldPoint(3050, 10131, 0),
-			"Kill a Spiritual Mage in the Wilderness God Wars Dungeon.", combatGear, food, godEquip);
+			t("Kill a Spiritual Mage in the Wilderness God Wars Dungeon."), combatGear, food, godEquip);
 		spiritMage.addAlternateNpcs(NpcID.GODWARS_SPIRITUAL_BANDOS_MAGE, NpcID.GODWARS_SPIRITUAL_ZAMORAK_MAGE, NpcID.GODWARS_SPIRITUAL_ARMADYL_MAGE);
 
 		threeBosses = new NpcStep(this, NpcID.CLANCUP_CALLISTO, new WorldPoint(3291, 3844, 0),
-			"Kill Callisto, Venenatis, and Vet'ion. You must complete this task fully before continuing the other " +
-				"tasks.", combatGear, food);
+			t("Kill Callisto, Venenatis, and Vet'ion. You must complete this task fully before continuing the other " +
+				"tasks."), combatGear, food);
 		threeBosses.addAlternateNpcs(NpcID.VETION, NpcID.CLANCUP_VENENATIS);
 
 		roguesChest = new ObjectStep(this, ObjectID.WILDERNESS_ROGUE_CHEST, new WorldPoint(3297, 3940, 0),
-			"Steal from the chest in Rogues' Castle.");
+			t("Steal from the chest in Rogues' Castle."));
 
 		claimReward = new NpcStep(this, NpcID.LESSER_FANATIC_DIARY, new WorldPoint(3121, 3518, 0),
-			"Talk to Lesser Fanatic in Edgeville to claim your reward!");
+			t("Talk to Lesser Fanatic in Edgeville to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -307,8 +307,8 @@ public class WildernessElite extends ComplexStateQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Arrays.asList("Callisto (lvl 470)", "Venenatis (lvl 464)", "Vet'ion (lvl 454)",
-			"Runite Golem (lvl 178)", "Spiritual Mage (lvl 121)");
+		return Arrays.asList(t("Callisto (lvl 470)"), t("Venenatis (lvl 464)"), t("Vet'ion (lvl 454)"),
+			t("Runite Golem (lvl 178)"), t("Spiritual Mage (lvl 121)"));
 	}
 
 	@Override
@@ -324,12 +324,12 @@ public class WildernessElite extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("Unlimited free teleports to the Fountain of Rune on the Wilderness Sword 4"),
-			new UnlockReward("Free entry to the Resource Area"),
-			new UnlockReward("All dragon bones drops in the Wilderness are noted. (Note: This does not include the King Black Dragon, as his lair is not Wilderness affected.)"),
-			new UnlockReward("Noted lava dragon bones can be toggled by speaking to the Lesser Fanatic."),
-			new UnlockReward("200 random free runes from Lundail once per day"),
-			new UnlockReward("Increased dark crab catch rate")
+			new UnlockReward(t("Unlimited free teleports to the Fountain of Rune on the Wilderness Sword 4")),
+			new UnlockReward(t("Free entry to the Resource Area")),
+			new UnlockReward(t("All dragon bones drops in the Wilderness are noted. (Note: This does not include the King Black Dragon, as his lair is not Wilderness affected.)")),
+			new UnlockReward(t("Noted lava dragon bones can be toggled by speaking to the Lesser Fanatic.")),
+			new UnlockReward(t("200 random free runes from Lundail once per day")),
+			new UnlockReward(t("Increased dark crab catch rate"))
 		);
 	}
 
@@ -338,21 +338,21 @@ public class WildernessElite extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails tpSteps = new PanelDetails("Teleport to Ghorrock", Collections.singletonList(tPGhorrock),
+		PanelDetails tpSteps = new PanelDetails(t("Teleport to Ghorrock"), Collections.singletonList(tPGhorrock),
 			new SkillRequirement(Skill.MAGIC, 96, true), desertTreasure, ancientBook, lawRune.quantity(2),
 			waterRune.quantity(8));
 		tpSteps.setDisplayCondition(notTPGhorrock);
 		tpSteps.setLockingStep(tpGhorrockTask);
 		allSteps.add(tpSteps);
 
-		PanelDetails magicSteps = new PanelDetails("Chop and Burn Magic Logs", Arrays.asList(moveToResource1, magicLogs,
+		PanelDetails magicSteps = new PanelDetails(t("Chop and Burn Magic Logs"), Arrays.asList(moveToResource1, magicLogs,
 			burnLogs), new SkillRequirement(Skill.FIREMAKING, 75, true), new SkillRequirement(Skill.WOODCUTTING, 75, true),
 			coins.quantity(6000), axe, tinderbox);
 		magicSteps.setDisplayCondition(notMagicLogs);
 		magicSteps.setLockingStep(magicLogsTask);
 		allSteps.add(magicSteps);
 
-		PanelDetails scimSteps = new PanelDetails("Rune Scimitar in Resource Area",
+		PanelDetails scimSteps = new PanelDetails(t("Rune Scimitar in Resource Area"),
 			Arrays.asList(moveToResource2, runiteGolem, smeltBar, runeScim), new SkillRequirement(Skill.MINING, 85, true),
 			new SkillRequirement(Skill.SMITHING, 90, true), coins.quantity(6000), combatGear, food, pickaxe,
 			coal.quantity(16), hammer);
@@ -360,31 +360,31 @@ public class WildernessElite extends ComplexStateQuestHelper
 		scimSteps.setLockingStep(runeScimTask);
 		allSteps.add(scimSteps);
 
-		PanelDetails crabSteps = new PanelDetails("Dark Crab in Resource Area", Arrays.asList(moveToResource3, darkCrab,
+		PanelDetails crabSteps = new PanelDetails(t("Dark Crab in Resource Area"), Arrays.asList(moveToResource3, darkCrab,
 			cookDarkCrab), new SkillRequirement(Skill.COOKING, 90, true), new SkillRequirement(Skill.FISHING, 85, true),
 			coins.quantity(6000), lobsterPot, darkFishingBait);
 		crabSteps.setDisplayCondition(notDarkCrab);
 		crabSteps.setLockingStep(darkCrabTask);
 		allSteps.add(crabSteps);
 
-		PanelDetails chestSteps = new PanelDetails("Rogues' Castle Chest", Collections.singletonList(roguesChest));
+		PanelDetails chestSteps = new PanelDetails(t("Rogues' Castle Chest"), Collections.singletonList(roguesChest));
 		chestSteps.setDisplayCondition(notRoguesChest);
 		chestSteps.setLockingStep(roguesChestTask);
 		allSteps.add(chestSteps);
 
-		PanelDetails mageSteps = new PanelDetails("Spiritual Mage", Arrays.asList(moveToGodWars1, moveToGodWars2,
+		PanelDetails mageSteps = new PanelDetails(t("Spiritual Mage"), Arrays.asList(moveToGodWars1, moveToGodWars2,
 			spiritMage), enterGodwars, combatGear, food, godEquip);
 		mageSteps.setDisplayCondition(notSpiritMage);
 		mageSteps.setLockingStep(spiritMageTask);
 		allSteps.add(mageSteps);
 
-		PanelDetails bossSteps = new PanelDetails("Three bosses", Collections.singletonList(threeBosses), combatGear,
+		PanelDetails bossSteps = new PanelDetails(t("Three bosses"), Collections.singletonList(threeBosses), combatGear,
 			food);
 		bossSteps.setDisplayCondition(notThreeBosses);
 		bossSteps.setLockingStep(threeBossesTask);
 		allSteps.add(bossSteps);
 
-		allSteps.add(new PanelDetails("Finishing off", Collections.singletonList(claimReward)));
+		allSteps.add(new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward)));
 
 		return allSteps;
 	}

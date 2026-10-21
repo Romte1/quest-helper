@@ -145,7 +145,7 @@ public class HorrorFromTheDeep extends BasicQuestHelper
 		airRune = new ItemRequirement("Air rune", ItemID.AIRRUNE);
 		waterRune = new ItemRequirement("Water rune", ItemID.WATERRUNE);
 		earthRune = new ItemRequirement("Earth rune", ItemID.EARTHRUNE);
-		sword = new ItemRequirement("Any sword you're willing to lose", ItemCollections.SWORDS);
+		sword = new ItemRequirement(t("Any sword you're willing to lose"), ItemCollections.SWORDS);
 		arrow = new ItemRequirement("Any arrow", ItemCollections.METAL_ARROWS);
 		moltenGlass = new ItemRequirement("Molten glass", ItemID.MOLTEN_GLASS);
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
@@ -158,7 +158,7 @@ public class HorrorFromTheDeep extends BasicQuestHelper
 
 		magicCombat = new ItemRequirement("Magic combat gear", -1, -1).isNotConsumed();
 		magicCombat.setDisplayItemId(BankSlotIcons.getMagicCombatGear());
-		combatRunes = new ItemRequirement("20+ casts of each element spell", -1, -1);
+		combatRunes = new ItemRequirement(t("20+ casts of each element spell"), -1, -1);
 		combatRunes.setDisplayItemId(ItemID.DEATHRUNE);
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS, -1);
 		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);

@@ -123,7 +123,7 @@ public class VardorvisSteps extends ConditionalStep
 	protected void setupItemRequirements()
 	{
 		VarbitRequirement nardahTeleportInBook = new VarbitRequirement(VarbitID.BOOKOFSCROLLS_NARDAH, 1, Operation.GREATER_EQUAL);
-		nardahTeleport = new ItemRequirement("Nardah teleport, or Fairy Ring to DLQ", ItemID.DESERT_AMULET_ELITE);
+		nardahTeleport = new ItemRequirement(getQuestHelper().t("Nardah teleport, or Fairy Ring to DLQ"), ItemID.DESERT_AMULET_ELITE);
 		nardahTeleport.setAdditionalOptions(nardahTeleportInBook);
 		nardahTeleport.addAlternates(ItemID.DESERT_AMULET_HARD, ItemID.TELEPORTSCROLL_NARDAH, ItemID.DESERT_AMULET_MEDIUM);
 		nardahTeleport.addAlternates(ItemCollections.FAIRY_STAFF);
@@ -135,18 +135,18 @@ public class VardorvisSteps extends ConditionalStep
 
 		potionNote = new ItemRequirement("Potion note", ItemID.DT2_KASONDE_NOTE);
 		strangePotion = new ItemRequirement("Strange potion", ItemID.DT2_KASONDE_POTION);
-		food = new ItemRequirement("Bring high healing food to tank the infected.", -1);
-		freezes = new ItemRequirement("Freezing spells STRONGLY recommended + reasonable mage accuracy", -1);
+		food = new ItemRequirement(getQuestHelper().t("Bring high healing food to tank the infected."), -1);
+		freezes = new ItemRequirement(getQuestHelper().t("Freezing spells STRONGLY recommended + reasonable mage accuracy"), -1);
 		berry = new ItemRequirement("Argian berries", ItemID.DT2_STRANGLEWOOD_BERRIES);
-		berry.setTooltip("You can get another from the south-west corner of The Stranglewood");
+		berry.setTooltip(getQuestHelper().t("You can get another from the south-west corner of The Stranglewood"));
 		herb = new ItemRequirement("Korbal herb", ItemID.DT2_STRANGLEWOOD_HERB);
-		herb.setTooltip("You can get another from the north-west corner of The Stranglewood");
+		herb.setTooltip(getQuestHelper().t("You can get another from the north-west corner of The Stranglewood"));
 		unfinishedSerum = new ItemRequirement("Unfinished serum", ItemID.DT2_STRANGLEWOOD_POTION_UNFINISHED_1);
 		serumWithHerb = new ItemRequirement("Unfinished serum (herb added)", ItemID.DT2_STRANGLEWOOD_POTION_UNFINISHED_2);
 		stranglerSerum = new ItemRequirement("Strangler serum", ItemID.DT2_STRANGLEWOOD_POTION);
 		templeKey = new ItemRequirement("Temple key", ItemID.DT2_STRANGLEWOOD_KEY);
 		vardorvisMedallion = new ItemRequirement("Vardorvis' medallion", ItemID.DT2_MEDALLION_VARDORVIS);
-		vardorvisMedallion.setTooltip("You can get another from Kasonde's hideout");
+		vardorvisMedallion.setTooltip(getQuestHelper().t("You can get another from Kasonde's hideout"));
 	}
 
 	protected void setupConditions()
@@ -220,43 +220,43 @@ public class VardorvisSteps extends ConditionalStep
 
 	protected void setupSteps()
 	{
-		talkToBarus = new NpcStep(getQuestHelper(), NpcID.DT2_LOVAKENGJ_HISTORIAN, new WorldPoint(1459, 3782, 0), "Talk to Barus near the burning man in south-west Lovakengj.");
+		talkToBarus = new NpcStep(getQuestHelper(), NpcID.DT2_LOVAKENGJ_HISTORIAN, new WorldPoint(1459, 3782, 0), getQuestHelper().t("Talk to Barus near the burning man in south-west Lovakengj."));
 		// TODO: Highlight the widget
-		talkToBarus.addTeleport(xericTalisman.named("Xeric's talisman ([3] Xeric's Inferno)"));
+		talkToBarus.addTeleport(xericTalisman.named(getQuestHelper().t("Xeric's talisman ([3] Xeric's Inferno)")));
 
 		searchDesk = new ObjectStep(getQuestHelper(), ObjectID.DT2_KASONDE_DESK, new WorldPoint(1781, 3619, 0),
-			"Search the desk in the house south of the Hosidius Estate Agent.");
-		searchDesk.addTeleport(xericTalisman.named("Xeric's talisman ([2] Xeric's Glade)"));
+			getQuestHelper().t("Search the desk in the house south of the Hosidius Estate Agent."));
+		searchDesk.addTeleport(xericTalisman.named(getQuestHelper().t("Xeric's talisman ([2] Xeric's Glade)")));
 
-		readPotionNote = new ItemStep(getQuestHelper(), "Read the potion note.", potionNote.highlighted());
-		drinkPotion = new ItemStep(getQuestHelper(), "Drink the strange potion.", strangePotion.highlighted());
+		readPotionNote = new ItemStep(getQuestHelper(), getQuestHelper().t("Read the potion note."), potionNote.highlighted());
+		drinkPotion = new ItemStep(getQuestHelper(), getQuestHelper().t("Drink the strange potion."), strangePotion.highlighted());
 		boardBoat = new ObjectStep(getQuestHelper(), ObjectID.DT2_STRANGLEWOOD_BOAT_IN, new WorldPoint(1227, 3470, 0),
-			"Board the boat south of Quidamortem into The Stranglewood. You can use the Fairy Ring BLS to get nearby, or travel with the Mountain Guide.");
-		runIntoStanglewood = new DetailedQuestStep(getQuestHelper(), new WorldPoint(1194, 3394, 0), "Run deeper into Stranglewood. " +
-			"Be careful of the Strangled, as they'll bind you and deal damage.");
-		talkToKasonde = new NpcStep(getQuestHelper(), NpcID.DT2_KASONDE_VIS, new WorldPoint(1191, 3404, 0), "Talk to Kasonde.");
-		enterEntry = new ObjectStep(getQuestHelper(), ObjectID.DT2_STRANGLEWOOD_HIDEOUT_ENTRY, new WorldPoint(1191, 3411, 0), "Hide away in the Entry in the north-west of the room.");
-		defendKasondeSidebar = new NpcStep(getQuestHelper(), NpcID.DT2_STRANGLED_SURVIVAL_T1_1, "Defend Kasonde! There are barricades in the stone chests you can set up to block routes. " +
+			getQuestHelper().t("Board the boat south of Quidamortem into The Stranglewood. You can use the Fairy Ring BLS to get nearby, or travel with the Mountain Guide."));
+		runIntoStanglewood = new DetailedQuestStep(getQuestHelper(), new WorldPoint(1194, 3394, 0), getQuestHelper().t("Run deeper into Stranglewood. " +
+			"Be careful of the Strangled, as they'll bind you and deal damage."));
+		talkToKasonde = new NpcStep(getQuestHelper(), NpcID.DT2_KASONDE_VIS, new WorldPoint(1191, 3404, 0), getQuestHelper().t("Talk to Kasonde."));
+		enterEntry = new ObjectStep(getQuestHelper(), ObjectID.DT2_STRANGLEWOOD_HIDEOUT_ENTRY, new WorldPoint(1191, 3411, 0), getQuestHelper().t("Hide away in the Entry in the north-west of the room."));
+		defendKasondeSidebar = new NpcStep(getQuestHelper(), NpcID.DT2_STRANGLED_SURVIVAL_T1_1, getQuestHelper().t("Defend Kasonde! There are barricades in the stone chests you can set up to block routes. " +
 			"There are also satchels you can place on the floor, and detonate using the Detonator. This will kill all of the Strangled in a 7x7 area, as well as damaging you or " +
-			"Kasonde if either of you are in the blast radius.", true);
-		defendKasondeSidebar.addText("Closed chests require you to guess the correct code to open, with correct numbers in the correct place being marked in green, " +
-			"and correct numbers in the wrong places being marked with blue.");
-		defendKasondeSidebar.addText("It's recommended to also use freezes if you have ancient magicks with you to keep them off of Kasonde. If you have freezes, you can largely ignore the barricading and explosives.");
+			"Kasonde if either of you are in the blast radius."), true);
+		defendKasondeSidebar.addText(getQuestHelper().t("Closed chests require you to guess the correct code to open, with correct numbers in the correct place being marked in green, " +
+			"and correct numbers in the wrong places being marked with blue."));
+		defendKasondeSidebar.addText(getQuestHelper().t("It's recommended to also use freezes if you have ancient magicks with you to keep them off of Kasonde. If you have freezes, you can largely ignore the barricading and explosives."));
 		((NpcStep) defendKasondeSidebar).addAlternateNpcs(NpcID.DT2_STRANGLED_SURVIVAL_T1_2, NpcID.DT2_STRANGLED_SURVIVAL_T1_3, NpcID.DT2_STRANGLED_SURVIVAL_T2_1);
 
-		defendKasonde = new DetailedQuestStep(getQuestHelper(), "Defend Kasonde! Read the sidebar for more details.");
+		defendKasonde = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Defend Kasonde! Read the sidebar for more details."));
 		defendKasonde.addRecommended(freezes);
 		defendKasonde.addRecommended(food);
 		defendKasondeSidebar.addSubSteps(defendKasonde);
 
 		// TODO: Get actual coordinate and ladder ID!
 		leaveTowerDefenseRoom = new ObjectStep(getQuestHelper(), ObjectID.DT2_STRANGLEWOOD_HIDEOUT_EXIT, new WorldPoint(1187, 9764, 0),
-			"Leave the dungeon up the ladder.");
+			getQuestHelper().t("Leave the dungeon up the ladder."));
 		talkToKasondeAfterTowerDefense = new NpcStep(getQuestHelper(), NpcID.DT2_KASONDE_VIS, new WorldPoint(1191, 3404, 0),
-			"Talk to Kasonde on the surface.");
+			getQuestHelper().t("Talk to Kasonde on the surface."));
 		getHerb = new ObjectStep(getQuestHelper(), ObjectID.DT2_STRANGLEWOOD_HERBS_OP, new WorldPoint(1155, 3447, 0),
-			"Go get the herb from the north-west corner of the area. " +
-				"The stangled will attack you, so bring food and freezes to trap them. More info in the sidebar.");
+			getQuestHelper().t("Go get the herb from the north-west corner of the area. " +
+				"The stangled will attack you, so bring food and freezes to trap them. More info in the sidebar."));
 		getHerb.setLinePoints(Arrays.asList(
 			new WorldPoint(1193, 3403, 0),
 			new WorldPoint(1193, 3395, 0),
@@ -271,15 +271,15 @@ public class VardorvisSteps extends ConditionalStep
 		));
 
 		getHerbSidebar = new ObjectStep(getQuestHelper(), ObjectID.DT2_STRANGLEWOOD_HERBS_OP, new WorldPoint(1111, 3434, 0),
-			"Go get the herb. The Strangled will attack you, so have food. If your infected bar reaches full, " +
-				"you'll be teleported to the starting room again. ");
-		getHerbSidebar.addText("You can get some stink bombs from the chest in the south-east corner of Kasonde's room, " +
-			"which when used attract the Strangled to the location. This can be useful for avoiding them.");
-		getHerbSidebar.addText("Freezes and blood spells are useful for trapping them and healing up.");
+			getQuestHelper().t("Go get the herb. The Strangled will attack you, so have food. If your infected bar reaches full, " +
+				"you'll be teleported to the starting room again. "));
+		getHerbSidebar.addText(getQuestHelper().t("You can get some stink bombs from the chest in the south-east corner of Kasonde's room, " +
+			"which when used attract the Strangled to the location. This can be useful for avoiding them."));
+		getHerbSidebar.addText(getQuestHelper().t("Freezes and blood spells are useful for trapping them and healing up."));
 		getHerbSidebar.addSubSteps(getHerb);
 
 		getBerry = new ObjectStep(getQuestHelper(), ObjectID.DT2_STRANGLEWOOD_BUSH_OP, new WorldPoint(1126, 3323, 0),
-			"Get the berry from the south-west part of the area. Beware the Strangled still.");
+			getQuestHelper().t("Get the berry from the south-west part of the area. Beware the Strangled still."));
 		getBerry.setLinePoints(Arrays.asList(
 			new WorldPoint(1161, 3441, 0),
 			new WorldPoint(1159, 3428, 0),
@@ -297,7 +297,7 @@ public class VardorvisSteps extends ConditionalStep
 		));
 
 		goDownToKasonde = new ObjectStep(getQuestHelper(), ObjectID.DT2_STRANGLEWOOD_TEMPLE_ENTRY, new WorldPoint(1174, 3428, 0),
-			"Go to Kasonde, who is inside the main pyramid of the area to the north. Be ready to fight a few Strangled.", combatGear, berry, herb);
+			getQuestHelper().t("Go to Kasonde, who is inside the main pyramid of the area to the north. Be ready to fight a few Strangled."), combatGear, berry, herb);
 		goDownToKasonde.setLinePoints(Arrays.asList(
 			new WorldPoint(1126, 3323, 0),
 			new WorldPoint(1144, 3342, 0),
@@ -313,16 +313,16 @@ public class VardorvisSteps extends ConditionalStep
 			new WorldPoint(1174, 3427, 0)
 		));
 		defendKasondeHerb = new NpcStep(getQuestHelper(), NpcID.DT2_STRANGLED_TEMPLE_2, new WorldPoint(1183, 9824, 0),
-			"Defeat the Strangled attacking Kasonde.", true);
+			getQuestHelper().t("Defeat the Strangled attacking Kasonde."), true);
 		((NpcStep) defendKasondeHerb).addAlternateNpcs(NpcID.DT2_STRANGLED_TEMPLE_1);
 
 		talkToKasondeWithHerbAndBerry = new NpcStep(getQuestHelper(), NpcID.DT2_KASONDE_TEMPLE, new WorldPoint(1183, 9824, 0),
-			"Talk to Kasonde.", berry, herb);
-		addHerb = new DetailedQuestStep(getQuestHelper(), "Add the herb to unfinished serum.", herb.highlighted(), unfinishedSerum.highlighted());
-		addBerry = new DetailedQuestStep(getQuestHelper(), "Add the berries to the serum.", serumWithHerb.highlighted(), berry.highlighted());
-		drinkStranglewoodPotion = new DetailedQuestStep(getQuestHelper(), "Drink the strangler serum.", stranglerSerum.highlighted());
+			getQuestHelper().t("Talk to Kasonde."), berry, herb);
+		addHerb = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Add the herb to unfinished serum."), herb.highlighted(), unfinishedSerum.highlighted());
+		addBerry = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Add the berries to the serum."), serumWithHerb.highlighted(), berry.highlighted());
+		drinkStranglewoodPotion = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Drink the strangler serum."), stranglerSerum.highlighted());
 
-		goToRitualSite = new ObjectStep(getQuestHelper(), ObjectID.DT2_STRANGLEWOOD_BOSS_ENTRY, new WorldPoint(1118, 3428, 0), "Go to the ritual site to the west, ready to fight the boss of the area.", combatGear);
+		goToRitualSite = new ObjectStep(getQuestHelper(), ObjectID.DT2_STRANGLEWOOD_BOSS_ENTRY, new WorldPoint(1118, 3428, 0), getQuestHelper().t("Go to the ritual site to the west, ready to fight the boss of the area."), combatGear);
 		goToRitualSite.setLinePoints(Arrays.asList(
 			new WorldPoint(1174, 3427, 0),
 			new WorldPoint(1174, 3416, 0),
@@ -358,18 +358,18 @@ public class VardorvisSteps extends ConditionalStep
 			new WorldPoint(1163, 3395, 0)
 		));
 
-		fightVardorvis = new NpcStep(getQuestHelper(), NpcID.VARDORVIS, new WorldPoint(1129, 3419, 0), "Defeat Vardorvis, who's weak to slash. Look at the sidebar for more details. Protect from Melee when he's not using a special attack.");
+		fightVardorvis = new NpcStep(getQuestHelper(), NpcID.VARDORVIS, new WorldPoint(1129, 3419, 0), getQuestHelper().t("Defeat Vardorvis, who's weak to slash. Look at the sidebar for more details. Protect from Melee when he's not using a special attack."));
 		((NpcStep) fightVardorvis).addAlternateNpcs(NpcID.VARDORVIS_QUEST, NpcID.VARDORVIS_CUTSCENE, NpcID.VARDORVIS_BASE_QUEST, NpcID.VARDORVIS_BASE_POSTQUEST);
-		fightVardorvisSidebar = new DetailedQuestStep(getQuestHelper(), "Defeat Vardorvis. He's weak to slash weapons, and uses Melee. It's recommended to watch a video to get an understanding of his abilities.");
-		fightVardorvisSidebar.addText("Swinging axes: He will spawn axes around the arena, which will go to the opposite corner to which they appear. Avoid them.");
-		fightVardorvisSidebar.addText("Homing spikes: Vardorvis hits the ground, causing a spike to appear under you. Move off the tile to avoid.");
-		fightVardorvisSidebar.addText("Head projectile: A tentacle will appear with a head on it, firing a green projectile. Protect from Missiles should be flicked to.");
-		fightVardorvisSidebar.addText("Virus cells: Red splotches appear on the screen. Click them all within the time limit to avoid damage.");
+		fightVardorvisSidebar = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Defeat Vardorvis. He's weak to slash weapons, and uses Melee. It's recommended to watch a video to get an understanding of his abilities."));
+		fightVardorvisSidebar.addText(getQuestHelper().t("Swinging axes: He will spawn axes around the arena, which will go to the opposite corner to which they appear. Avoid them."));
+		fightVardorvisSidebar.addText(getQuestHelper().t("Homing spikes: Vardorvis hits the ground, causing a spike to appear under you. Move off the tile to avoid."));
+		fightVardorvisSidebar.addText(getQuestHelper().t("Head projectile: A tentacle will appear with a head on it, firing a green projectile. Protect from Missiles should be flicked to."));
+		fightVardorvisSidebar.addText(getQuestHelper().t("Virus cells: Red splotches appear on the screen. Click them all within the time limit to avoid damage."));
 		fightVardorvisSidebar.addSubSteps(fightVardorvis);
 
-		pickUpTempleKey = new ItemStep(getQuestHelper(),  "Pick up the Temple Key in the Vardorvis arena.", templeKey);
+		pickUpTempleKey = new ItemStep(getQuestHelper(),  getQuestHelper().t("Pick up the Temple Key in the Vardorvis arena."), templeKey);
 		getTempleKeyFromRocks = new ObjectStep(getQuestHelper(), ObjectID.DT2_STRANGLEWOOD_BOSS_ENTRY, new WorldPoint(1118, 3428, 0),
-			"Go to the ritual site to the west, and search the rocks to get another Temple Key.");
+			getQuestHelper().t("Go to the ritual site to the west, and search the rocks to get another Temple Key."));
 
 		// TODO: Leave area step
 		// 48742, 1118, 3428, 0
@@ -378,7 +378,7 @@ public class VardorvisSteps extends ConditionalStep
 		// 48746, 1147, 3433, 0
 
 		goToRitualSiteShortcut = new ObjectStep(getQuestHelper(), ObjectID.DT2_STRANGLEWOOD_BOSS_ENTRY, new WorldPoint(1118, 3428, 0),
-				"Go to the ritual site to the west via the shortcut hole north-east of main pyramid, ready to fight the boss of the area.", combatGear);
+				getQuestHelper().t("Go to the ritual site to the west via the shortcut hole north-east of main pyramid, ready to fight the boss of the area."), combatGear);
 		goToRitualSiteShortcut.setLinePoints(Arrays.asList(
 				new WorldPoint(1196, 3450, 0),
 				new WorldPoint(1189, 3451, 0),
@@ -403,8 +403,8 @@ public class VardorvisSteps extends ConditionalStep
 		DetailedQuestStep giveKasondeKey =  new NpcStep(getQuestHelper(), NpcID.DT2_KASONDE_TEMPLE, new WorldPoint(1183, 9824, 0),
 			"");
 		returnToKasondeWithTempleKey = new ConditionalStep(getQuestHelper(), boardBoat,
-			"Return to Kasonde with the temple key, who is inside the main pyramid of the area to the north. " +
-				"Be ready for another fight.", combatGear, templeKey.hideConditioned(givenKasondeKey));
+			getQuestHelper().t("Return to Kasonde with the temple key, who is inside the main pyramid of the area to the north. " +
+				"Be ready for another fight."), combatGear, templeKey.hideConditioned(givenKasondeKey));
 		returnToKasondeWithTempleKey.addStep(new Conditions(inStranglewoodPyramidRoom, templeKey.alsoCheckBank()), giveKasondeKey);
 		returnToKasondeWithTempleKey.addStep(new Conditions(inAnyStranglewood, or(templeKey.alsoCheckBank(), givenKasondeKey)), enterKasondeWithKey);
 		returnToKasondeWithTempleKey.addStep(templeKeyNearby, pickUpTempleKey);
@@ -414,7 +414,7 @@ public class VardorvisSteps extends ConditionalStep
 			"");
 		kasondeFight.addAlternateNpcs(NpcID.DT2_KASONDE_COMBAT_OPBREAK);
 		defeatKasonde = new ConditionalStep(getQuestHelper(), boardBoat,
-			"Defeat Kasonde in the pyramid. Avoid the potions he throws. If he throws his hands up, hide behind a pillar.", combatGear);
+			getQuestHelper().t("Defeat Kasonde in the pyramid. Avoid the potions he throws. If he throws his hands up, hide behind a pillar."), combatGear);
 		defeatKasonde.addStep(new Conditions(inStranglewoodPyramidRoom), kasondeFight);
 		defeatKasonde.addStep(new Conditions(inAnyStranglewood), enterKasondeWithKey);
 
@@ -422,7 +422,7 @@ public class VardorvisSteps extends ConditionalStep
 		NpcStep talkToKasondeAfterFight = new NpcStep(getQuestHelper(), NpcID.DT2_KASONDE_INJURED, new WorldPoint(1183, 9824, 0), "");
 
 		goTalkToKasondeAfterFight = new ConditionalStep(getQuestHelper(), boardBoat,
-			"Talk to Kasonde again in the pyramid.");
+			getQuestHelper().t("Talk to Kasonde again in the pyramid."));
 		goTalkToKasondeAfterFight.addStep(new Conditions(inStranglewoodPyramidRoom), talkToKasondeAfterFight);
 		goTalkToKasondeAfterFight.addStep(new Conditions(inAnyStranglewood), enterKasondeWithKey);
 
@@ -430,16 +430,16 @@ public class VardorvisSteps extends ConditionalStep
 		/* Getting the medallion */
 		ObjectStep leavePyramid = new ObjectStep(getQuestHelper(), ObjectID.DT2_STRANGLEWOOD_TEMPLE_EXIT, new WorldPoint(1183, 9809, 0), "");
 		goGetVardorvisMedallion = new ConditionalStep(getQuestHelper(), boardBoat,
-			"Search the north-east chest in Kasonde's initial hideout for a medallion.");
+			getQuestHelper().t("Search the north-east chest in Kasonde's initial hideout for a medallion."));
 		goGetVardorvisMedallion.addStep(inStranglewoodPyramidRoom, leavePyramid);
 		goGetVardorvisMedallion.addStep(new Conditions(inAnyStranglewood), searchChestForVardorvisMedallion);
 
 		returnToDesertWithVardorvisMedallion = new ObjectStep(getQuestHelper(), ObjectID.DT2_DESERT_VAULT_DOOR,
-			new WorldPoint(3511, 2971, 0), "Return to the Vault door north-east of Nardah.", vardorvisMedallion);
+			new WorldPoint(3511, 2971, 0), getQuestHelper().t("Return to the Vault door north-east of Nardah."), vardorvisMedallion);
 		returnToDesertWithVardorvisMedallion.addTeleport(nardahTeleport);
 
 		useVardorvisMedallionOnStatue = new ObjectStep(getQuestHelper(), ObjectID.DT2_VAULT_VARDORVIS_STATUE, new WorldPoint(3942, 9636, 1),
-			"Use the medallion on the north-east statue.", vardorvisMedallion.highlighted());
+			getQuestHelper().t("Use the medallion on the north-east statue."), vardorvisMedallion.highlighted());
 		useVardorvisMedallionOnStatue.addIcon(ItemID.DT2_MEDALLION_VARDORVIS);
 	}
 

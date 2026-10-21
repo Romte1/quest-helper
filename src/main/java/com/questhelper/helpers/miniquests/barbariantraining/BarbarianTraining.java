@@ -298,35 +298,35 @@ public class BarbarianTraining extends BasicQuestHelper
 		barbFishingRod = new ItemRequirement("Barbarian rod", ItemID.BRUT_FISHING_ROD);
 		barbFishingRod.addAlternates(ItemID.FISHINGROD_PEARL_BRUT);
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX);
-		bow = new ItemRequirement("Any bow", ItemCollections.BOWS);
+		bow = new ItemRequirement(t("Any bow"), ItemCollections.BOWS);
 		knife = new ItemRequirement("Knife", ItemID.KNIFE);
 		fish = new ItemRequirement("Leaping trout/salmon/sturgeon", ItemID.BRUT_STURGEON);
 		fish.addAlternates(ItemID.BRUT_SPAWNING_SALMON, ItemID.BRUT_SPAWNING_TROUT);
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		antifireShield = new ItemRequirement("Anti-dragon shield or DFS", ItemCollections.ANTIFIRE_SHIELDS).isNotConsumed();
+		antifireShield = new ItemRequirement(t("Anti-dragon shield or DFS"), ItemCollections.ANTIFIRE_SHIELDS).isNotConsumed();
 		chewedBones = new ItemRequirement("Chewed bones", ItemID.BRUT_BARBARIAN_BONES);
 		bronzeBar = new ItemRequirement("Bronze bar", ItemID.BRONZE_BAR);
 		logs = new ItemRequirement("Logs", ItemID.LOGS);
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER);
 		roe = new ItemRequirement("Roe", ItemID.BRUT_ROE);
 		attackPotion = new ItemRequirement("Attack potion (2)", ItemID._2DOSE1ATTACK);
-		sapling = new ItemRequirement("Any sapling you can plant", ItemCollections.TREE_SAPLINGS);
+		sapling = new ItemRequirement(t("Any sapling you can plant"), ItemCollections.TREE_SAPLINGS);
 		sapling.addAlternates(ItemCollections.FRUIT_TREE_SAPLINGS);
-		seed = new ItemRequirement("Any seed that can be planted directly", ItemCollections.ALLOTMENT_SEEDS);
+		seed = new ItemRequirement(t("Any seed that can be planted directly"), ItemCollections.ALLOTMENT_SEEDS);
 		seed.addAlternates(ItemCollections.HERB_SEEDS);
 		seed.addAlternates(ItemCollections.FLOWER_SEEDS);
 		seed.addAlternates(ItemCollections.BUSH_SEEDS);
 		seed.addAlternates(ItemCollections.HOPS_SEEDS);
 		spade = new ItemRequirement("Spade", ItemID.SPADE);
 		oakLogs = new ItemRequirement("Oak logs", ItemID.OAK_LOGS);
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES);
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES);
 		feathers = new ItemRequirement("Feathers", ItemID.FEATHER);
 
 		// Recommended
 		gamesNecklace = new ItemRequirement("Games necklace", ItemCollections.GAMES_NECKLACES);
 		gamesNecklace.setChargedItem(true);
-		catherbyTeleport = new ItemRequirement("Catherby teleport for fishing", ItemID.LUNAR_TABLET_CATHERBY_TELEPORT);
+		catherbyTeleport = new ItemRequirement(t("Catherby teleport for fishing"), ItemID.LUNAR_TABLET_CATHERBY_TELEPORT);
 		catherbyTeleport.addAlternates(ItemID.POH_TABLET_CAMELOTTELEPORT);
 
 		// Quest items
@@ -415,105 +415,105 @@ public class BarbarianTraining extends BasicQuestHelper
 	{
 		// Barbarian Fishing
 		talkToOttoAboutFishing = new NpcStep(this, NpcID.BRUT_OTTO, new WorldPoint(2500, 3488, 0),
-			"Talk to Otto in his hut north-west of Baxtorian Falls about fishing.");
+			t("Talk to Otto in his hut north-west of Baxtorian Falls about fishing."));
 		talkToOttoAboutFishing.addDialogSteps("You think so?", "What can I learn about the use of a fishing rod?");
 
-		searchBed = new ObjectStep(this, ObjectID.BRUT_BARBARIAN_BED, new WorldPoint(2500, 3490, 0), "Search the bed in Otto's hut.");
+		searchBed = new ObjectStep(this, ObjectID.BRUT_BARBARIAN_BED, new WorldPoint(2500, 3490, 0), t("Search the bed in Otto's hut."));
 		catchFish = new NpcStep(this, NpcID._0_39_54_BRUT_FISHING_SPOT, new WorldPoint(2500, 3510, 0),
-			"Fish from one of the fishing spots near Otto's hut.", true, barbFishingRod, feathers);
+			t("Fish from one of the fishing spots near Otto's hut."), true, barbFishingRod, feathers);
 
 		talkToOttoAfterFish = new NpcStep(this, NpcID.BRUT_OTTO, new WorldPoint(2500, 3488, 0),
-			"Return to Otto and tell him about your success.");
+			t("Return to Otto and tell him about your success."));
 		talkToOttoAfterFish.addDialogStep("I've fished with a barbarian rod!");
 
 		// Barbarian Harpooning
 		talkToOttoAboutBarehanded = new NpcStep(this, NpcID.BRUT_OTTO, new WorldPoint(2500, 3488, 0),
-			"Talk to Otto in his hut north-west of Baxtorian Falls about barehand fishing.");
+			t("Talk to Otto in his hut north-west of Baxtorian Falls about barehand fishing."));
 		talkToOttoAboutBarehanded.addDialogSteps("You think so?", "Please teach me of your cunning with harpoons.");
 		// TODO: Update ID and WorldPoint
-		fishHarpoon = new NpcStep(this, NpcID._0_44_53_RAREFISH, new WorldPoint(2845, 3429, 0), "Fish in a fishing spot which requires a harpoon WITHOUT a harpoon.", true, fishing55);
+		fishHarpoon = new NpcStep(this, NpcID._0_44_53_RAREFISH, new WorldPoint(2845, 3429, 0), t("Fish in a fishing spot which requires a harpoon WITHOUT a harpoon."), true, fishing55);
 		talkToOttoAfterHarpoon = new NpcStep(this, NpcID.BRUT_OTTO, new WorldPoint(2500, 3488, 0),
-			"Return to Otto in his hut north-west of Baxtorian Falls.");
+			t("Return to Otto in his hut north-west of Baxtorian Falls."));
 		talkToOttoAfterHarpoon.addDialogSteps("Barbarian Outpost.", "I've fished with my hands!");
 		talkToOttoAfterHarpoon.addTeleport(gamesNecklace);
 
 		// Barbarian Firemaking
 		talkToOttoAboutBow = new NpcStep(this, NpcID.BRUT_OTTO, new WorldPoint(2500, 3488, 0),
-			"Talk to Otto in his hut north-west of Baxtorian Falls about firemaking.");
+			t("Talk to Otto in his hut north-west of Baxtorian Falls about firemaking."));
 		talkToOttoAboutBow.addDialogSteps("You think so?", "I'm ready for your firemaking wisdom. Please instruct me.");
-		lightLogWithBow = new DetailedQuestStep(this, "Use a bow on some oak logs to light it.", bow.highlighted(), oakLogs.highlighted());
+		lightLogWithBow = new DetailedQuestStep(this, t("Use a bow on some oak logs to light it."), bow.highlighted(), oakLogs.highlighted());
 		talkToOttoAfterBow = new NpcStep(this, NpcID.BRUT_OTTO, new WorldPoint(2500, 3488, 0),
-			"Return to Otto in his hut north-west of Baxtorian Falls.");
+			t("Return to Otto in his hut north-west of Baxtorian Falls."));
 		talkToOttoAfterBow.addDialogSteps("I've set fire to logs with a bow!");
 
 		talkToOttoAboutPyre = new NpcStep(this, NpcID.BRUT_OTTO, new WorldPoint(2500, 3488, 0),
-			"Talk to Otto in his hut north-west of Baxtorian Falls about advanced firemaking.");
+			t("Talk to Otto in his hut north-west of Baxtorian Falls about advanced firemaking."));
 		talkToOttoAboutPyre.addDialogStep("I have completed firemaking with a bow. What follows this?");
 		enterWhirlpool = new ObjectStep(this, ObjectID.BRUT_WHIRLPOOL, new WorldPoint(2513, 3509, 0),
-			"Jump into the whirlpool north of Otto. Be prepared to fight mithril dragons.", combatGear, antifireShield);
+			t("Jump into the whirlpool north of Otto. Be prepared to fight mithril dragons."), combatGear, antifireShield);
 		goDownToBrutalGreen = new ObjectStep(this, ObjectID.BRUT_STAIR_LRG_TOP, new WorldPoint(1769, 5365, 1),
-			"Climb down the stairs. There are brutal green dragons there, so have antifire protection and Protect from Magic on!");
+			t("Climb down the stairs. There are brutal green dragons there, so have antifire protection and Protect from Magic on!"));
 		goUpToMithrilDragons = new ObjectStep(this, ObjectID.BRUT_CAVE_STAIRS_LOW, new WorldPoint(1778, 5344, 0),
-			"Climb up the stairs to the south-east. Be ready to fight the mithril dragons!");
+			t("Climb up the stairs to the south-east. Be ready to fight the mithril dragons!"));
 		killMithrilDragons = new NpcStep(this, NpcID.BRUT_MITHRIL_DRAGON, new WorldPoint(1773, 5348, 1),
-			"Kill mithril dragons until you get some chewed bones.");
-		pickupChewedBones = new ItemStep(this, "Pick up the chewed bones.", chewedBones);
+			t("Kill mithril dragons until you get some chewed bones."));
+		pickupChewedBones = new ItemStep(this, t("Pick up the chewed bones."), chewedBones);
 		useLogOnPyre = new ObjectStep(this, ObjectID.BRUT_BURNED_GROUND, new WorldPoint(2506, 3518, 0),
-			"Construct a pyre on the lake near Otto.", logs, chewedBones, tinderbox, axe);
+			t("Construct a pyre on the lake near Otto."), logs, chewedBones, tinderbox, axe);
 		talkToOttoAfterPyre = new NpcStep(this, NpcID.BRUT_OTTO, new WorldPoint(2500, 3488, 0),
-			"Return to Otto and tell him about the succesful pyre-making.");
+			t("Return to Otto and tell him about the succesful pyre-making."));
 		talkToOttoAfterPyre.addDialogStep("I've created a pyre ship!");
 
 		// Barbarian Farming
 		talkToOttoAboutFarming = new NpcStep(this, NpcID.BRUT_OTTO, new WorldPoint(2500, 3488, 0),
-			"Talk to Otto in his hut north-west of Baxtorian Falls about farming.");
+			t("Talk to Otto in his hut north-west of Baxtorian Falls about farming."));
 		talkToOttoAboutFarming.addDialogSteps("You think so?", "How can I use my strength in the ways of agriculture?");
-		plantSeed = new DetailedQuestStep(this, "Plant a seed in a patch WITHOUT a dibber. This can fail, so bring multiple and preferably use cheap seeds.",
+		plantSeed = new DetailedQuestStep(this, t("Plant a seed in a patch WITHOUT a dibber. This can fail, so bring multiple and preferably use cheap seeds."),
 			seed.quantity(9));
 		talkToOttoAfterPlantingSeed = new NpcStep(this, NpcID.BRUT_OTTO, new WorldPoint(2500, 3488, 0),
-			"Return to Otto in his hut north-west of Baxtorian Falls.");
+			t("Return to Otto in his hut north-west of Baxtorian Falls."));
 		talkToOttoAfterPlantingSeed.addDialogStep("I've planted seeds with my fists!");
 
 		// Farming P2
 		talkToOttoAboutPots = new NpcStep(this, NpcID.BRUT_OTTO, new WorldPoint(2500, 3488, 0),
-			"Talk to Otto in his hut north-west of Baxtorian Falls about advanced farming.");
+			t("Talk to Otto in his hut north-west of Baxtorian Falls about advanced farming."));
 		talkToOttoAboutPots.addDialogStep("Are there any other fist related farming activities I can learn?");
-		plantSapling = new DetailedQuestStep(this, "Plant a sapling in a tree or fruit tree patch.", sapling, spade);
+		plantSapling = new DetailedQuestStep(this, t("Plant a sapling in a tree or fruit tree patch."), sapling, spade);
 		talkToOttoAfterSmashingPot = new NpcStep(this, NpcID.BRUT_OTTO, new WorldPoint(2500, 3488, 0),
-			"Return to Otto in his hut north-west of Baxtorian Falls.");
+			t("Return to Otto in his hut north-west of Baxtorian Falls."));
 		talkToOttoAfterSmashingPot.addDialogStep("I've smashed a pot whilst farming!");
 
 		// Barbarian Smithing, REQUIRES barbarian firemaking P1
 		talkToOttoAboutSpears = new NpcStep(this, NpcID.BRUT_OTTO, new WorldPoint(2500, 3488, 0),
-			"Talk to Otto in his hut north-west of Baxtorian Falls about spears.");
+			t("Talk to Otto in his hut north-west of Baxtorian Falls about spears."));
 		talkToOttoAboutSpears.addDialogSteps("Tell me more about the use of spears.");
 		makeBronzeSpear = new ObjectStep(this, ObjectID.BRUT_ANVIL, new WorldPoint(2502, 3485, 0),
-			"Make a bronze spear on the anvil south of Otto.", bronzeBar, logs, hammer);
+			t("Make a bronze spear on the anvil south of Otto."), bronzeBar, logs, hammer);
 		talkToOttoAfterBronzeSpear = new NpcStep(this, NpcID.BRUT_OTTO, new WorldPoint(2500, 3488, 0),
-			"Talk to Otto in his hut north-west of Baxtorian Falls.");
+			t("Talk to Otto in his hut north-west of Baxtorian Falls."));
 		talkToOttoAfterBronzeSpear.addDialogStep("I've created a spear!");
 
 		talkToOttoAboutHastae = new NpcStep(this, NpcID.BRUT_OTTO, new WorldPoint(2500, 3488, 0),
-			"Talk to Otto in his hut north-west of Baxtorian Falls about hastae.");
+			t("Talk to Otto in his hut north-west of Baxtorian Falls about hastae."));
 		talkToOttoAboutHastae.addDialogStep("Tell me more about the use of spears.");
 		makeBronzeHasta = new ObjectStep(this, ObjectID.BRUT_ANVIL, new WorldPoint(2502, 3485, 0),
-			"Make a bronze hasta on the anvil south of Otto.", bronzeBar, logs, hammer);
+			t("Make a bronze hasta on the anvil south of Otto."), bronzeBar, logs, hammer);
 		makeBronzeHasta.addWidgetHighlightWithItemIdRequirement(270, 15, ItemID.BRUT_BRONZE_SPEAR_DUMMY, true);
 		talkToOttoAfterMakingHasta = new NpcStep(this, NpcID.BRUT_OTTO, new WorldPoint(2500, 3488, 0),
-			"Talk to Otto in his hut north-west of Baxtorian Falls.");
+			t("Talk to Otto in his hut north-west of Baxtorian Falls."));
 		talkToOttoAfterMakingHasta.addDialogStep("I've created a hasta!");
 
 		// Barbarian Herblore, REQUIRES Barbarian Fishing
 		talkToOttoAboutHerblore = new NpcStep(this, NpcID.BRUT_OTTO, new WorldPoint(2500, 3488, 0),
-			"Talk to Otto in his hut north-west of Baxtorian Falls about herblore.");
-		getBarbRodForHerblore = new ObjectStep(this, ObjectID.BRUT_BARBARIAN_BED, new WorldPoint(2500, 3490, 0), "Search the bed in Otto's hut.");
-		fishForHerblore = new NpcStep(this, NpcID._0_39_54_BRUT_FISHING_SPOT, new WorldPoint(2500, 3510, 0), "Fish from one of the fishing spots near Otto's hut.", true, barbFishingRod);
+			t("Talk to Otto in his hut north-west of Baxtorian Falls about herblore."));
+		getBarbRodForHerblore = new ObjectStep(this, ObjectID.BRUT_BARBARIAN_BED, new WorldPoint(2500, 3490, 0), t("Search the bed in Otto's hut."));
+		fishForHerblore = new NpcStep(this, NpcID._0_39_54_BRUT_FISHING_SPOT, new WorldPoint(2500, 3510, 0), t("Fish from one of the fishing spots near Otto's hut."), true, barbFishingRod);
 		fishForHerblore.addSubSteps(getBarbRodForHerblore);
-		dissectFish = new DetailedQuestStep(this, "Dissect the fish with a knife until you get some roe.", knife.highlighted(), fish.highlighted());
+		dissectFish = new DetailedQuestStep(this, t("Dissect the fish with a knife until you get some roe."), knife.highlighted(), fish.highlighted());
 		talkToOttoAboutHerblore.addDialogSteps("What was that secret knowledge of herblore we talked of?");
-		useRoeOnAttackPotion = new DetailedQuestStep(this, "Use roe on an attack potion (2).", roe.highlighted(), attackPotion.highlighted());
+		useRoeOnAttackPotion = new DetailedQuestStep(this, t("Use roe on an attack potion (2)."), roe.highlighted(), attackPotion.highlighted());
 		talkToOttoAfterPotion = new NpcStep(this, NpcID.BRUT_OTTO, new WorldPoint(2500, 3488, 0),
-			"Talk to Otto in his hut north-west of Baxtorian Falls.", barbarianAttackPotion);
+			t("Talk to Otto in his hut north-west of Baxtorian Falls."), barbarianAttackPotion);
 		talkToOttoAfterPotion.addDialogStep("I've made a barbarian potion!");
 		// LOOKED IN LOG, varplayer 3679 -1->3451
 	}
@@ -546,13 +546,13 @@ public class BarbarianTraining extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Mithril Dragon (level 304)");
+		return Collections.singletonList(t("Mithril Dragon (level 304)"));
 	}
 
 	@Override
 	public List<String> getNotes()
 	{
-		return Collections.singletonList("If the helper is out of sync, open up the Quest Journal to re-sync it.");
+		return Collections.singletonList(t("If the helper is out of sync, open up the Quest Journal to re-sync it."));
 	}
 
 	@Override
@@ -560,45 +560,45 @@ public class BarbarianTraining extends BasicQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails barbFishing = new PanelDetails("Barbarian Fishing", Arrays.asList(talkToOttoAboutFishing, searchBed, catchFish, talkToOttoAfterFish),
+		PanelDetails barbFishing = new PanelDetails(t("Barbarian Fishing"), Arrays.asList(talkToOttoAboutFishing, searchBed, catchFish, talkToOttoAfterFish),
 			Arrays.asList(fishing48, agility15, strength15, feathers), Arrays.asList(gamesNecklace, catherbyTeleport));
 		barbFishing.setLockingStep(fishingSteps);
 		allSteps.add(barbFishing);
 
-		PanelDetails barbHerblore = new PanelDetails("Barbarian Herblore", Arrays.asList(talkToOttoAboutHerblore,
+		PanelDetails barbHerblore = new PanelDetails(t("Barbarian Herblore"), Arrays.asList(talkToOttoAboutHerblore,
 			fishForHerblore, dissectFish, useRoeOnAttackPotion, talkToOttoAfterPotion),
 			druidicRitual, finishedFishing, attackPotion, knife, barbFishingRod, feathers);
 		barbHerblore.setLockingStep(herbloreSteps);
 		allSteps.add(barbHerblore);
 
-		PanelDetails barbHarpooning = new PanelDetails("Barbarian Harpooning", Arrays.asList(talkToOttoAboutBarehanded, fishHarpoon, talkToOttoAfterHarpoon), fishing55, agility15, strength35);
+		PanelDetails barbHarpooning = new PanelDetails(t("Barbarian Harpooning"), Arrays.asList(talkToOttoAboutBarehanded, fishHarpoon, talkToOttoAfterHarpoon), fishing55, agility15, strength35);
 		barbHarpooning.setLockingStep(harpoonSteps);
 		allSteps.add(barbHarpooning);
 
-		PanelDetails barbFarming = new PanelDetails("Barbarian Planting",
+		PanelDetails barbFarming = new PanelDetails(t("Barbarian Planting"),
 			Arrays.asList(talkToOttoAboutFarming, plantSeed, talkToOttoAfterPlantingSeed), seed);
 		barbFarming.setLockingStep(seedSteps);
 		allSteps.add(barbFarming);
 
-		PanelDetails barbSmashing = new PanelDetails("Barb Plant Pot Smashing",
+		PanelDetails barbSmashing = new PanelDetails(t("Barb Plant Pot Smashing"),
 			Arrays.asList(talkToOttoAboutPots, plantSapling, talkToOttoAfterSmashingPot),
 			finishedSeedPlanting, farming15, sapling, spade);
 		barbSmashing.setLockingStep(potSmashingSteps);
 		allSteps.add(barbSmashing);
 
-		PanelDetails barbFiremaking = new PanelDetails("Barbarian Firemaking",
+		PanelDetails barbFiremaking = new PanelDetails(t("Barbarian Firemaking"),
 			Arrays.asList(talkToOttoAboutBow, lightLogWithBow, talkToOttoAfterBow),
 			firemaking35, crafting11, bow, oakLogs);
 		barbFiremaking.setLockingStep(firemakingSteps);
 		allSteps.add(barbFiremaking);
 
-		PanelDetails barbSmithing = new PanelDetails("Barbarian Smithing", Arrays.asList(talkToOttoAboutSpears, makeBronzeSpear, talkToOttoAfterBronzeSpear,
+		PanelDetails barbSmithing = new PanelDetails(t("Barbarian Smithing"), Arrays.asList(talkToOttoAboutSpears, makeBronzeSpear, talkToOttoAfterBronzeSpear,
 			talkToOttoAboutHastae, makeBronzeHasta, talkToOttoAfterMakingHasta), taiBwoWannaiTrio,
 			finishedHarpoon, smithing5, hammer, bronzeBar.quantity(2), logs.quantity(2));
 		barbSmithing.setLockingStep(spearAndHastaeSteps);
 		allSteps.add(barbSmithing);
 
-		PanelDetails barbPyremaking = new PanelDetails("Barbarian Pyremaking",
+		PanelDetails barbPyremaking = new PanelDetails(t("Barbarian Pyremaking"),
 			Arrays.asList(talkToOttoAboutPyre, enterWhirlpool, goDownToBrutalGreen, goUpToMithrilDragons, killMithrilDragons,
 				pickupChewedBones, useLogOnPyre, talkToOttoAfterPyre),
 			finishedFiremaking, logs, tinderbox, axe, combatGear, antifireShield);

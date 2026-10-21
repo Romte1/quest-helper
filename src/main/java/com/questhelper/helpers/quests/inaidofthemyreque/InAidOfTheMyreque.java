@@ -214,10 +214,10 @@ public class InAidOfTheMyreque extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		food = new ItemRequirement("Any food", ItemCollections.GOOD_EATING_FOOD);
-		foodForChest = new ItemRequirement("Food to put in a chest, multiple pieces in case a Ghast eats some",
+		foodForChest = new ItemRequirement(t("Food to put in a chest, multiple pieces in case a Ghast eats some"),
 			ItemCollections.GOOD_EATING_FOOD);
 		spade = new ItemRequirement("Spade", ItemID.SPADE).isNotConsumed();
-		bucketTo5 = new ItemRequirement("buckets (Can use 1 but is much slower)", ItemID.BUCKET_EMPTY, 5);
+		bucketTo5 = new ItemRequirement(t("buckets (Can use 1 but is much slower)"), ItemID.BUCKET_EMPTY, 5);
 		bucketOrSemiFilledBucket = new ItemRequirement("Bucket", ItemID.BUCKET_EMPTY);
 		bucketOrSemiFilledBucket.addAlternates(ItemID.BURGH_RUBBLE_BUCKET_1, ItemID.BURGH_RUBBLE_BUCKET_2);
 		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
@@ -228,7 +228,7 @@ public class InAidOfTheMyreque extends BasicQuestHelper
 		snails10 = new ItemRequirement("Raw snail", ItemID.SNAIL_CORPSE1);
 		snails10.addAlternates(ItemID.SNAIL_CORPSE3, ItemID.SNAIL_CORPSE2);
 		mackerel10 = new ItemRequirement("Raw mackerel", ItemID.RAW_MACKEREL, 10);
-		rawMackerelOrSnail10 = new ItemRequirements("10 Raw mackerel or raw snail meat (random for each player)",
+		rawMackerelOrSnail10 = new ItemRequirements(t("10 Raw mackerel or raw snail meat (random for each player)"),
 			mackerel10,
 			snails10);
 
@@ -245,8 +245,8 @@ public class InAidOfTheMyreque extends BasicQuestHelper
 		coalHiglighted = new ItemRequirement("Coal", ItemID.COAL);
 		coalHiglighted.setHighlightInInventory(true);
 
-		efaritaysAidOrSilverWeapon = new ItemRequirement("Silver weapon (including Silverlight + varieties), blessed " +
-			"axe or Efaritay's Aid to damage vampyres", ItemID.ARCLIGHT);
+		efaritaysAidOrSilverWeapon = new ItemRequirement(t("Silver weapon (including Silverlight + varieties), blessed " +
+			"axe or Efaritay's Aid to damage vampyres"), ItemID.ARCLIGHT);
 		efaritaysAidOrSilverWeapon.addAlternates(ItemID.DARKLIGHT, ItemID.SILVERLIGHT, ItemID.AGRITH_SILVERLIGHT_DYED,
 			ItemID.POH_TROPHY_SILVERLIGHT, ItemID.SILVER_SICKLE_BLESSED, ItemID.SILVER_SICKLE, ItemID.VAMPYRE_RING, ItemID.DAGGER_WOLFBANE);
 
@@ -271,8 +271,8 @@ public class InAidOfTheMyreque extends BasicQuestHelper
 		silverSickle.setTooltip(t("You can give this to Ivan just before accompanying him through the swamp to make him " +
 			"stronger"));
 
-		morttonTeleport = new ItemRequirement("Teleports to Mort'ton (minigame tele, teleport scroll)", ItemID.TELEPORTSCROLL_MORTTON);
-		canifisTeleport = new ItemRequirement("Canifis teleports (ancients spell, nearby fairy ring bip)", ItemID.TABLET_KHARYLL);
+		morttonTeleport = new ItemRequirement(t("Teleports to Mort'ton (minigame tele, teleport scroll)"), ItemID.TELEPORTSCROLL_MORTTON);
+		canifisTeleport = new ItemRequirement(t("Canifis teleports (ancients spell, nearby fairy ring bip)"), ItemID.TABLET_KHARYLL);
 		canifisTeleport.addAlternates(ItemID.DRAMEN_STAFF, ItemID.LUNAR_MOONCLAN_LIMINAL_STAFF, ItemID.TELETAB_FENK);
 
 		planks2 = new ItemRequirement("Plank", ItemID.WOODPLANK, 2);

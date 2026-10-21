@@ -160,9 +160,9 @@ public class FaladorEasy extends ComplexStateQuestHelper
 		tiara = new ItemRequirement("Tiara", ItemID.TIARA).showConditioned(notMindTiara);
 		mindTalisman = new ItemRequirement("Mind Talisman", ItemID.MIND_TALISMAN).showConditioned(notMindTiara);
 		hammer = new ItemRequirement("Hammer", ItemID.HAMMER).showConditioned(new Conditions(LogicType.OR, notMotherloadMine, notBluriteLimbs)).isNotConsumed();
-		pickaxe = new ItemRequirement("Any Pickaxe", ItemCollections.PICKAXES)
+		pickaxe = new ItemRequirement(t("Any Pickaxe"), ItemCollections.PICKAXES)
 			.showConditioned(new Conditions(LogicType.OR, notMotherloadMine, notBluriteLimbs)).isNotConsumed();
-		combatGear = new ItemRequirement("A range or mage attack to kill a Duck (Level 1)", -1, -1).showConditioned(notKilledDuck).isNotConsumed();
+		combatGear = new ItemRequirement(t("A range or mage attack to kill a Duck (Level 1)"), -1, -1).showConditioned(notKilledDuck).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getRangedCombatGear());
 		bluriteOre = new ItemRequirement("Blurite Ore", ItemID.BLURITE_ORE);
 		bluriteBar = new ItemRequirement("Blurite Bar", ItemID.BLURITE_BAR);
@@ -170,9 +170,9 @@ public class FaladorEasy extends ComplexStateQuestHelper
 		bluriteBar.canBeObtainedDuringQuest();
 
 		//Recommended
-		teleportFalador = new TeleportItemRequirement("Multiple teleports to Falador", ItemID.POH_TABLET_FALADORTELEPORT, -1);
-		teleportMindAltar = new TeleportItemRequirement("A Teleport to the Mind Altar", ItemID.TELETAB_MIND_ALTAR);
-		explorersRing = new TeleportItemRequirement("Explorers Ring (2) or above.", ItemID.LUMBRIDGE_RING_MEDIUM).isNotConsumed();
+		teleportFalador = new TeleportItemRequirement(t("Multiple teleports to Falador"), ItemID.POH_TABLET_FALADORTELEPORT, -1);
+		teleportMindAltar = new TeleportItemRequirement(t("A Teleport to the Mind Altar"), ItemID.TELETAB_MIND_ALTAR);
+		explorersRing = new TeleportItemRequirement(t("Explorers Ring (2) or above."), ItemID.LUMBRIDGE_RING_MEDIUM).isNotConsumed();
 		explorersRing.addAlternates(ItemID.LUMBRIDGE_RING_HARD, ItemID.LUMBRIDGE_RING_ELITE);
 
 		hasBluriteOre = bluriteOre.alsoCheckBank();
@@ -204,86 +204,86 @@ public class FaladorEasy extends ComplexStateQuestHelper
 	{
 		//Fill a bucket of water from the pump north of Falador Park
 		fillWater = new ObjectStep(this, ObjectID.FAI_FALADOR_WATERPUMP, new WorldPoint(2947, 3382, 0),
-			"Use the bucket on the Waterpump outside the Hairdressers in west Falador.", bucket.highlighted());
+			t("Use the bucket on the Waterpump outside the Hairdressers in west Falador."), bucket.highlighted());
 		fillWater.addIcon(ItemID.BUCKET_EMPTY);
 
 		//Get a Haircut from the Falador hairdresser
 		getHaircut = new NpcStep(this, NpcID.HAIRDRESSER, new WorldPoint(2945, 3380, 0),
-			"Visit the hairdresser in west Falador for a well deserved shave.");
+			t("Visit the hairdresser in west Falador for a well deserved shave."));
 		getHaircut.addDialogStep("I'd like a haircut please.");
 		getHaircut.addDialogStep("I'd like a shave please.");
 
 		//Climb over the Western Falador Wall
 		climbWall = new ObjectStep(this, ObjectID.FAI_FALADOR_CASTLE_CRUMBLE_MID, new WorldPoint(2935, 3355, 0),
-			"Climb over the Crumbled Wall west of the West Falador Bank.");
+			t("Climb over the Crumbled Wall west of the West Falador Bank."));
 
 		//Kill a duck in Falador Park
 		killDuck = new NpcStep(this, NpcID.DUCK_FEMALE, new WorldPoint(2989, 3379, 0),
-			"Kill a Duck (Level 1) in the Falador Park", true, combatGear);
+			t("Kill a Duck (Level 1) in the Falador Park"), true, combatGear);
 		killDuck.addAlternateNpcs(NpcID.DUCK);
 
 		//Repair a broken strut in the Motherlode Mine
 		enterDwarvenMines = new ObjectStep(this, ObjectID.STAIRS_CELLAR, new WorldPoint(3058, 3376, 0),
-			"Enter the Dwarven Mines, you can get there quickly by going down the stairs near the Party Room.", pickaxe);
+			t("Enter the Dwarven Mines, you can get there quickly by going down the stairs near the Party Room."), pickaxe);
 		enterCaveToMotherlodeMine = new ObjectStep(this, ObjectID.MOTHERLODE_ENTRANCE, new WorldPoint(3059, 9764, 0),
-			"Go through the Cave entrance to the Motherlode Mines.", pickaxe);
+			t("Go through the Cave entrance to the Motherlode Mines."), pickaxe);
 		fixMotherloadMine = new ObjectStep(this, ObjectID.MOTHERLODE_WHEEL_STRUT_BROKEN, new WorldPoint(3742, 5669, 0),
-			"Repair a broken strut on the Waterwheel in the Motherlode mine. It may take a few minutes for it to break.", true, hammer.highlighted());
+			t("Repair a broken strut on the Waterwheel in the Motherlode mine. It may take a few minutes for it to break."), true, hammer.highlighted());
 		fixMotherloadMine.addIcon(ItemID.HAMMER);
 
 		//Find out what your family crest is from Sir Renitee
 		climbLadderWhiteKnightCastle = new ObjectStep(this, ObjectID.FAI_FALADOR_CASTLE_LADDER_UP, new WorldPoint(2994, 3341, 0),
-			"Climb the ladder in The White Knights Castle!");
+			t("Climb the ladder in The White Knights Castle!"));
 		discoverFamilyCrest = new NpcStep(this, NpcID.POH_HERALD_OF_FALADOR, new WorldPoint(2982, 3341, 1),
-			"Speak to Sir Renitee to find out your family crest.");
+			t("Speak to Sir Renitee to find out your family crest."));
 		discoverFamilyCrest.addDialogStep("I don't know, what can you do for me?");
 		discoverFamilyCrest.addDialogStep("Can you see if I have a family crest?");
 		discoverFamilyCrest.addDialogStep("Thanks!");
 
 		//Browse Sarah's Farm Shop
 		browseSarahFarmingShop = new NpcStep(this, NpcID.FARMING_SHOPKEEPER_1, new WorldPoint(3039, 3292, 0),
-			"Trade Sarah in the Farming Shop south of Falador and browse her goods.");
+			t("Trade Sarah in the Farming Shop south of Falador and browse her goods."));
 		browseSarahFarmingShop.addDialogStep("What are you selling?");
 
 		//Take the boat to Entrana
 		goEntrana = new NpcStep(this, NpcID.SHIPMONK, new WorldPoint(3046, 3235, 0),
-			"Deposit all your combat gear and talk to the Monk of Entrana in Port Sarim to take the boat.");
+			t("Deposit all your combat gear and talk to the Monk of Entrana in Port Sarim to take the boat."));
 		goEntrana.addDialogStep("Yes, okay, I'm ready to go.");
 
 		//Claim a security book from the Security Guard at Port Sarim Jail.
 		climbLadderPortSarimJail = new ObjectStep(this, ObjectID.PRISON_LADDER_UP, new WorldPoint(3010, 3184, 0),
-			"Climb up the ladder in the Port Sarim Jail to speak to the Security Guard.");
+			t("Climb up the ladder in the Port Sarim Jail to speak to the Security Guard."));
 		getSecurityBook = new NpcStep(this, NpcID.SOS_GUARD, new WorldPoint(3013, 3192, 1),
-			"Speak to the Security Guard in the Port Sarim Jail to get a Security Book.");
+			t("Speak to the Security Guard in the Port Sarim Jail to get a Security Book."));
 		getSecurityBook.addDialogStep("If you're a security guard, let's talk about security.");
 
 		//Smith some Blurite Limbs on Doric's Anvil
 		getPickaxe = new DetailedQuestStep(this, new WorldPoint(2963, 3216, 0),
-			"Get a pickaxe in Rimmington if you do not have one.");
+			t("Get a pickaxe in Rimmington if you do not have one."));
 		enterDungeon = new ObjectStep(this, ObjectID.FAI_TRAPDOOR, new WorldPoint(3008, 3150, 0),
-			"Go down the ladder south of Port Sarim. Be prepared for ice giants and ice warriors to attack you.", pickaxe, hammer);
+			t("Go down the ladder south of Port Sarim. Be prepared for ice giants and ice warriors to attack you."), pickaxe, hammer);
 		mineBlurite = new ObjectStep(this, ObjectID.BLURITE_ROCK_1, new WorldPoint(3049, 9566, 0),
-			"Mine a blurite ore in the eastern cavern.", pickaxe, hammer);
+			t("Mine a blurite ore in the eastern cavern."), pickaxe, hammer);
 		smeltBlurite = new ObjectStep(this, ObjectID.FAI_FALADOR_FURNACE, new WorldPoint(2976, 3369, 0),
-			"Smelt the blurite ore into a blurite bar.", hammer, bluriteOre);
+			t("Smelt the blurite ore into a blurite bar."), hammer, bluriteOre);
 		smeltBlurite.addWidgetHighlightWithItemIdRequirement(270, 15, ItemID.BLURITE_BAR, true);
 		smithBluriteLimbs = new ObjectStep(this, ObjectID.DORICS_ANVIL, new WorldPoint(2950, 3451, 0),
-			"Smith the blurite bar into blurite limbs on Doric's Anvil, north of Falador.", hammer, bluriteBar);
+			t("Smith the blurite bar into blurite limbs on Doric's Anvil, north of Falador."), hammer, bluriteBar);
 		smithBluriteLimbs.addSubSteps(enterDungeon, mineBlurite, smeltBlurite);
 		smithBluriteLimbs.addWidgetHighlightWithItemIdRequirement(270, 13, ItemID.XBOWS_CROSSBOW_LIMBS_BLURITE, true);
 
 
 		//Make a Mind Tiara
 		enterMindAltar = new ObjectStep(this, ObjectID.MINDTEMPLE_RUINED_OLD, new WorldPoint(2982, 3514, 0),
-			"Use the mind talisman on the Mysterious Ruins to access the Mind Altar.", mindTalisman.highlighted(), tiara);
+			t("Use the mind talisman on the Mysterious Ruins to access the Mind Altar."), mindTalisman.highlighted(), tiara);
 		getMindTiara = new ObjectStep(this, ObjectID.ASTRAL_ALTAR, new WorldPoint(2786, 4841, 0),
-			"Use the mind talisman on the Altar", mindTalisman.highlighted(), tiara);
+			t("Use the mind talisman on the Altar"), mindTalisman.highlighted(), tiara);
 		getMindTiara.addIcon(ItemID.MIND_TALISMAN);
 		enterMindAltar.addSubSteps(getMindTiara);
 
 		//Claim Reward
 		claimReward = new NpcStep(this, NpcID.WHITE_KNIGHT_DIARY, new WorldPoint(2977, 3346, 0),
-			"Congratulations! Talk to Sir Rebral in the courtyard of The White Knight Castle to claim your reward!");
+			t("Congratulations! Talk to Sir Rebral in the courtyard of The White Knight Castle to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -326,7 +326,7 @@ public class FaladorEasy extends ComplexStateQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("Tight-gap shortcut to the Chaos Temple from Burthorpe."));
+		return Collections.singletonList(new UnlockReward(t("Tight-gap shortcut to the Chaos Temple from Burthorpe.")));
 	}
 
 	@Override
@@ -334,52 +334,52 @@ public class FaladorEasy extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails fillBucketSteps = new PanelDetails("Fill Water Bucket", Collections.singletonList(fillWater),
+		PanelDetails fillBucketSteps = new PanelDetails(t("Fill Water Bucket"), Collections.singletonList(fillWater),
 			bucket);
 		fillBucketSteps.setDisplayCondition(notFilledWater);
 		fillBucketSteps.setLockingStep(filledWaterTask);
 		allSteps.add(fillBucketSteps);
 
-		PanelDetails haircutSteps = new PanelDetails("Get A Haircut", Collections.singletonList(getHaircut));
+		PanelDetails haircutSteps = new PanelDetails(t("Get A Haircut"), Collections.singletonList(getHaircut));
 		haircutSteps.setDisplayCondition(notGotHaircut);
 		haircutSteps.setLockingStep(gotHaircutTask);
 		allSteps.add(haircutSteps);
 
-		PanelDetails westWallSteps = new PanelDetails("Climb West Wall", Collections.singletonList(climbWall),
+		PanelDetails westWallSteps = new PanelDetails(t("Climb West Wall"), Collections.singletonList(climbWall),
 			new SkillRequirement(Skill.AGILITY, 5, true));
 		westWallSteps.setDisplayCondition(notClimbedWall);
 		westWallSteps.setLockingStep(climbedWallTask);
 		allSteps.add(westWallSteps);
 
-		PanelDetails duckSteps = new PanelDetails("Kill The Duck", Collections.singletonList(killDuck), combatGear);
+		PanelDetails duckSteps = new PanelDetails(t("Kill The Duck"), Collections.singletonList(killDuck), combatGear);
 		duckSteps.setDisplayCondition(notKilledDuck);
 		duckSteps.setLockingStep(killedDuckTask);
 		allSteps.add(duckSteps);
 
-		PanelDetails motherlodeRepairsSteps = new PanelDetails("Motherlode Repairs", Arrays.asList(enterDwarvenMines,
+		PanelDetails motherlodeRepairsSteps = new PanelDetails(t("Motherlode Repairs"), Arrays.asList(enterDwarvenMines,
 			enterCaveToMotherlodeMine, fixMotherloadMine), pickaxe, hammer);
 		motherlodeRepairsSteps.setDisplayCondition(notMotherloadMine);
 		motherlodeRepairsSteps.setLockingStep(motherloadMineTask);
 		allSteps.add(motherlodeRepairsSteps);
 
-		PanelDetails sarahsFarmingSteps = new PanelDetails("Sarah's Farming Shop",
+		PanelDetails sarahsFarmingSteps = new PanelDetails(t("Sarah's Farming Shop"),
 			Collections.singletonList(browseSarahFarmingShop));
 		sarahsFarmingSteps.setDisplayCondition(notSarahFarmingShop);
 		sarahsFarmingSteps.setLockingStep(sarahFarmingShopTask);
 		allSteps.add(sarahsFarmingSteps);
 
-		PanelDetails holyLandSteps = new PanelDetails("To the Holy Land!", Collections.singletonList(goEntrana));
+		PanelDetails holyLandSteps = new PanelDetails(t("To the Holy Land!"), Collections.singletonList(goEntrana));
 		holyLandSteps.setDisplayCondition(notEntrana);
 		holyLandSteps.setLockingStep(entranaTask);
 		allSteps.add(holyLandSteps);
 
-		PanelDetails securityBookSteps = new PanelDetails("Get A Security Book",
+		PanelDetails securityBookSteps = new PanelDetails(t("Get A Security Book"),
 			Arrays.asList(climbLadderPortSarimJail, getSecurityBook));
 		securityBookSteps.setDisplayCondition(notGotSecurityBook);
 		securityBookSteps.setLockingStep(gotSecurityBookTask);
 		allSteps.add(securityBookSteps);
 
-		PanelDetails bluriteLimbsSteps = new PanelDetails("Blurite Limbs", Arrays.asList(getPickaxe, enterDungeon,
+		PanelDetails bluriteLimbsSteps = new PanelDetails(t("Blurite Limbs"), Arrays.asList(getPickaxe, enterDungeon,
 			mineBlurite, smeltBlurite, smithBluriteLimbs), doricsQuest, knightSword,
 			new SkillRequirement(Skill.MINING, 10, true),
 			new SkillRequirement(Skill.SMITHING, 13, true), hammer, pickaxe);
@@ -387,19 +387,19 @@ public class FaladorEasy extends ComplexStateQuestHelper
 		bluriteLimbsSteps.setLockingStep(bluriteLimbsTask);
 		allSteps.add(bluriteLimbsSteps);
 
-		PanelDetails mindTiaraSteps = new PanelDetails("Mind Tiara", Arrays.asList(enterMindAltar, getMindTiara),
+		PanelDetails mindTiaraSteps = new PanelDetails(t("Mind Tiara"), Arrays.asList(enterMindAltar, getMindTiara),
 			new QuestRequirement(QuestHelperQuest.RUNE_MYSTERIES, QuestState.FINISHED), tiara, mindTalisman);
 		mindTiaraSteps.setDisplayCondition(notMindTiara);
 		mindTiaraSteps.setLockingStep(mindTiaraTask);
 		allSteps.add(mindTiaraSteps);
 
-		PanelDetails familyCrestSteps = new PanelDetails("Family Crest", Arrays.asList(climbLadderWhiteKnightCastle,
+		PanelDetails familyCrestSteps = new PanelDetails(t("Family Crest"), Arrays.asList(climbLadderWhiteKnightCastle,
 			discoverFamilyCrest), new SkillRequirement(Skill.CONSTRUCTION, 16, true));
 		familyCrestSteps.setDisplayCondition(notFamilyCrest);
 		familyCrestSteps.setLockingStep(familyCrestTask);
 		allSteps.add(familyCrestSteps);
 
-		PanelDetails finishOffSteps = new PanelDetails("Finishing off", Collections.singletonList(claimReward));
+		PanelDetails finishOffSteps = new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward));
 		allSteps.add(finishOffSteps);
 
 		return allSteps;

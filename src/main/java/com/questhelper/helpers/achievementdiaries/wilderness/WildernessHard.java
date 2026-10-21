@@ -147,30 +147,30 @@ public class WildernessHard extends ComplexStateQuestHelper
 
 		normalBook = new SpellbookRequirement(Spellbook.NORMAL);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		godRunes = new ItemRequirement("Runes for a god spell that correspond with your god staff", -1, -1)
+		godRunes = new ItemRequirement(t("Runes for a god spell that correspond with your god staff"), -1, -1)
 			.showConditioned(notGodSpells);
-		godStaff = new ItemRequirement("Any god staff", ItemCollections.GOD_STAFF).showConditioned(notGodSpells).isNotConsumed();
+		godStaff = new ItemRequirement(t("Any god staff"), ItemCollections.GOD_STAFF).showConditioned(notGodSpells).isNotConsumed();
 		unpoweredOrb = new ItemRequirement("Unpowered orb", ItemID.STAFFORB).showConditioned(notAirOrb);
 		cosmicRune = new ItemRequirement("Cosmic rune", ItemID.COSMICRUNE).showConditioned(notAirOrb);
 		airRune = new ItemRequirement("Air rune", ItemID.AIRRUNE).showConditioned(notAirOrb);
 		smallFishingNet = new ItemRequirement("Small fishing net", ItemID.NET).showConditioned(notBlackSally).isNotConsumed();
 		rope = new ItemRequirement("Rope", ItemID.ROPE).showConditioned(notBlackSally).isNotConsumed();
-		knife = new ItemRequirement("Knife or slashing weapon", -1, -1).showConditioned(notRawLavaEel).isNotConsumed();
+		knife = new ItemRequirement(t("Knife or slashing weapon"), -1, -1).showConditioned(notRawLavaEel).isNotConsumed();
 		oilyRod = new ItemRequirement("Oily fishing rod", ItemID.OILY_FISHING_ROD).showConditioned(notRawLavaEel).isNotConsumed();
 		fishingBait = new ItemRequirement("Fishing bait", ItemID.FISHING_BAIT).showConditioned(notRawLavaEel).isNotConsumed();
-		godEquip = new ItemRequirement("Various god equipment (1 of each god suggested)", -1, -1)
+		godEquip = new ItemRequirement(t("Various god equipment (1 of each god suggested)"), -1, -1)
 			.showConditioned(notSprirtualWarrior).isNotConsumed();
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).showConditioned(notAddyScim).isNotConsumed();
-		coins = new ItemRequirement("Coins (7500 if reward from wildy med tasks are not claimed)", ItemCollections.COINS, 6000).showConditioned(notAddyScim);
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).showConditioned(notAddyScim).isNotConsumed();
+		coins = new ItemRequirement(t("Coins (7500 if reward from wildy med tasks are not claimed)"), ItemCollections.COINS, 6000).showConditioned(notAddyScim);
 		addyBar = new ItemRequirement("Adamantite bar", ItemID.ADAMANTITE_BAR, 2).showConditioned(notAddyScim);
 		addyOre = new ItemRequirement("Adamantite ore", ItemID.ADAMANTITE_ORE);
 		hammer = new ItemRequirement("Hammer", ItemID.HAMMER).showConditioned(notAddyScim).isNotConsumed();
-		barsOrPick = new ItemRequirements(LogicType.OR, "2 Adamantite bars or a pickaxe", addyBar, pickaxe);
+		barsOrPick = new ItemRequirements(LogicType.OR, t("2 Adamantite bars or a pickaxe"), addyBar, pickaxe);
 		lavaDragonBones = new ItemRequirement("Lava Dragon Bones", ItemID.LAVA_DRAGON_BONES);
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		burningAmulet = new ItemRequirement("Burning amulet", ItemCollections.BURNING_AMULETS);
 
 		enterGodwars = new ComplexRequirement(LogicType.OR, "60 Agility or Strength",
@@ -200,55 +200,55 @@ public class WildernessHard extends ComplexStateQuestHelper
 
 	public void setupSteps()
 	{
-		godSpells = new DetailedQuestStep(this, "Cast one of the 3 god spells against another player in the " +
-			"Wilderness. Splashing will not count.", godStaff.equipped(), godRunes);
+		godSpells = new DetailedQuestStep(this, t("Cast one of the 3 god spells against another player in the " +
+			"Wilderness. Splashing will not count."), godStaff.equipped(), godRunes);
 
 		moveToEdge = new ObjectStep(this, ObjectID.TRAPDOOR_OPEN, new WorldPoint(3097, 3468, 0),
-			"Enter to the Edgeville dungeon.", airRune.quantity(30), cosmicRune.quantity(3), unpoweredOrb);
+			t("Enter to the Edgeville dungeon."), airRune.quantity(30), cosmicRune.quantity(3), unpoweredOrb);
 		moveToAir = new ObjectStep(this, ObjectID.LADDER_FROM_CELLAR, new WorldPoint(3088, 9971, 0),
-			"Climb the ladder that leads to the Obelisk of Air.", airRune.quantity(30), cosmicRune.quantity(3), unpoweredOrb);
+			t("Climb the ladder that leads to the Obelisk of Air."), airRune.quantity(30), cosmicRune.quantity(3), unpoweredOrb);
 		airOrb = new ObjectStep(this, ObjectID.OBELISK_AIR, new WorldPoint(3088, 3569, 0),
-			"Cast charge air orb on the Obelisk of Air.", airRune.quantity(30), cosmicRune.quantity(3), unpoweredOrb);
+			t("Cast charge air orb on the Obelisk of Air."), airRune.quantity(30), cosmicRune.quantity(3), unpoweredOrb);
 
 		chaosEle = new NpcStep(this, NpcID.CHAOSELEMENTAL, new WorldPoint(3263, 3918, 0),
-			"Kill the Chaos Elemental.", combatGear, food);
+			t("Kill the Chaos Elemental."), combatGear, food);
 		chaosEle.addAlternateNpcs(NpcID.CLANCUP_CHAOSELEMENTAL);
 
 		blackSally = new ObjectStep(this, ObjectID.HUNTING_SAPLING_UP_BLACK, new WorldPoint(3296, 3671, 0),
-			"Set a trap and catch a Black salamander in the Wilderness.", true);
+			t("Set a trap and catch a Black salamander in the Wilderness."), true);
 
 		lavaDrag = new NpcStep(this, NpcID.LAVA_DRAGON, new WorldPoint(3209, 3848, 0),
-			"Kill a Lava dragon and bury the bones on Lava Dragon Isle.", true, combatGear, food);
-		buryBone = new ItemStep(this, "Bury the dragon bones", lavaDragonBones.highlighted());
+			t("Kill a Lava dragon and bury the bones on Lava Dragon Isle."), true, combatGear, food);
+		buryBone = new ItemStep(this, t("Bury the dragon bones"), lavaDragonBones.highlighted());
 
 		rawLavaEel = new NpcStep(this, NpcID._0_47_59_LAVAFISH, new WorldPoint(3071, 3839, 0),
-			"Fish a raw lava eel in the Lava Maze.", knife, oilyRod, fishingBait);
+			t("Fish a raw lava eel in the Lava Maze."), knife, oilyRod, fishingBait);
 
 		addyScim = new ObjectStep(this, ObjectID.ANVIL, new WorldPoint(3190, 3938, 0),
-			"Smith an Adamant scimitar in the Resource Area.", hammer, addyBar);
+			t("Smith an Adamant scimitar in the Resource Area."), hammer, addyBar);
 		moveToResource = new ObjectStep(this, ObjectID.WILDERNESS_RESOURCE_GATE, new WorldPoint(3184, 3944, 0),
-			"Enter the Wilderness Resource Area.", coins, hammer, addyBar);
+			t("Enter the Wilderness Resource Area."), coins, hammer, addyBar);
 
 		moveToGodWars1 = new ObjectStep(this, ObjectID.WILDERNESS_GWD_ENTRANCE, new WorldPoint(3017, 3738, 0),
-			"Enter the Wilderness God Wars Dungeon.", combatGear, food, godEquip);
+			t("Enter the Wilderness God Wars Dungeon."), combatGear, food, godEquip);
 		moveToGodWars2 = new ObjectStep(this, ObjectID.WILDERNESS_GWD_CREVICE, new WorldPoint(3066, 10142, 3),
-			"Use the crevice to enter the Wilderness God Wars Dungeon. The Strength entrance is to the West.",
+			t("Use the crevice to enter the Wilderness God Wars Dungeon. The Strength entrance is to the West."),
 			combatGear, food, godEquip);
 		sprirtualWarrior = new NpcStep(this, NpcID.GODWARS_SPIRITUAL_SARADOMIN_WARRIOR, new WorldPoint(3050, 10131, 0),
-			"Kill a Spiritual Warrior in the Wilderness God Wars Dungeon.", combatGear, food, godEquip);
+			t("Kill a Spiritual Warrior in the Wilderness God Wars Dungeon."), combatGear, food, godEquip);
 		sprirtualWarrior.addAlternateNpcs(NpcID.GODWARS_SPIRITUAL_BANDOS_WARRIOR, NpcID.GODWARS_SPIRITUAL_ZAMORAK_WARRIOR,
 			NpcID.GODWARS_SPIRITUAL_ARMADYL_WARRIOR);
 
 		threeBosses = new NpcStep(this, NpcID.CRAZY_ARCHAEOLOGIST, new WorldPoint(3947, 3706, 0),
-			"Kill Crazy archaeologist, Chaos Fanatic, and Scorpia. You must complete this task " +
-				"fully before continuing the other tasks.", combatGear, food);
+			t("Kill Crazy archaeologist, Chaos Fanatic, and Scorpia. You must complete this task " +
+				"fully before continuing the other tasks."), combatGear, food);
 		threeBosses.addAlternateNpcs(NpcID.SCORPIA, NpcID.CHAOS_FANATIC);
 
 		trollWildy = new ObjectStep(this, ObjectID.TROLLHEIM_WILDY_CLIMB_ROCKS, new WorldPoint(2916, 3672, 0),
-			"Take the agility shortcut from Trollheim to the Wilderness.");
+			t("Take the agility shortcut from Trollheim to the Wilderness."));
 
 		claimReward = new NpcStep(this, NpcID.LESSER_FANATIC_DIARY, new WorldPoint(3121, 3518, 0),
-			"Talk to Lesser Fanatic in Edgeville to claim your reward!");
+			t("Talk to Lesser Fanatic in Edgeville to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -286,8 +286,8 @@ public class WildernessHard extends ComplexStateQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Arrays.asList("Chaos Elemental (lvl 305)", "Crazy archaeologist (lvl 204)",
-			"Chaos Fanatic (lvl 202)", "Lava dragon (lvl 252)", "Scorpia (lvl 225)", "Spiritual warrior (lvl 115-134)");
+		return Arrays.asList(t("Chaos Elemental (lvl 305)"), t("Crazy archaeologist (lvl 204)"),
+			t("Chaos Fanatic (lvl 202)"), t("Lava dragon (lvl 252)"), t("Scorpia (lvl 225)"), t("Spiritual warrior (lvl 115-134)"));
 	}
 
 	@Override
@@ -303,17 +303,17 @@ public class WildernessHard extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("One free teleport to the Fountain of Rune daily on the Wilderness Sword 3"),
-			new UnlockReward("50% more lava shards per lava scale"),
-			new UnlockReward("Access to Artio, Spindel, and Calvar'ion"),
-			new UnlockReward("Can have 5 ecumenical keys at a time"),
-			new UnlockReward("120 random free runes from Lundail once per day"),
-			new UnlockReward("Able to choose your destination when teleporting through the Ancient Obelisks"),
-			new UnlockReward("50% off entry to Resource Area (3,750gp)"),
-			new UnlockReward("Wine of Zamorak found in the Chaos Temple (hut) and Deep Wilderness Dungeon will be received in noted form"),
-			new UnlockReward("The teleport delay in both the Revenant Caves and the Wilderness boss caves will no longer apply to you"),
-			new UnlockReward("25% more loot when opening rogues' chests"),
-			new UnlockReward("Ecumenical keys may be sold to the Lesser Fanatic in Edgeville for 61,500 coins per key")
+			new UnlockReward(t("One free teleport to the Fountain of Rune daily on the Wilderness Sword 3")),
+			new UnlockReward(t("50% more lava shards per lava scale")),
+			new UnlockReward(t("Access to Artio, Spindel, and Calvar'ion")),
+			new UnlockReward(t("Can have 5 ecumenical keys at a time")),
+			new UnlockReward(t("120 random free runes from Lundail once per day")),
+			new UnlockReward(t("Able to choose your destination when teleporting through the Ancient Obelisks")),
+			new UnlockReward(t("50% off entry to Resource Area (3,750gp)")),
+			new UnlockReward(t("Wine of Zamorak found in the Chaos Temple (hut) and Deep Wilderness Dungeon will be received in noted form")),
+			new UnlockReward(t("The teleport delay in both the Revenant Caves and the Wilderness boss caves will no longer apply to you")),
+			new UnlockReward(t("25% more loot when opening rogues' chests")),
+			new UnlockReward(t("Ecumenical keys may be sold to the Lesser Fanatic in Edgeville for 61,500 coins per key"))
 		);
 	}
 
@@ -322,67 +322,67 @@ public class WildernessHard extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails airSteps = new PanelDetails("Air Orb", Arrays.asList(moveToEdge, moveToAir, airOrb),
+		PanelDetails airSteps = new PanelDetails(t("Air Orb"), Arrays.asList(moveToEdge, moveToAir, airOrb),
 			new SkillRequirement(Skill.MAGIC, 60, true), airRune.quantity(30), cosmicRune.quantity(3), unpoweredOrb);
 		airSteps.setDisplayCondition(notAirOrb);
 		airSteps.setLockingStep(airOrbTask);
 		allSteps.add(airSteps);
 
-		PanelDetails sallySteps = new PanelDetails("Black Salamander", Collections.singletonList(blackSally),
+		PanelDetails sallySteps = new PanelDetails(t("Black Salamander"), Collections.singletonList(blackSally),
 			new SkillRequirement(Skill.HUNTER, 67, true), smallFishingNet, rope);
 		sallySteps.setDisplayCondition(notBlackSally);
 		sallySteps.setLockingStep(blackSallyTask);
 		allSteps.add(sallySteps);
 
-		PanelDetails lavaSteps = new PanelDetails("Lava Dragon and Bury", Collections.singletonList(lavaDrag),
+		PanelDetails lavaSteps = new PanelDetails(t("Lava Dragon and Bury"), Collections.singletonList(lavaDrag),
 			combatGear, food);
 		lavaSteps.setDisplayCondition(notLavaDrag);
 		lavaSteps.setLockingStep(lavaDragTask);
 		allSteps.add(lavaSteps);
 
-		PanelDetails rawLavaEelSteps = new PanelDetails("Fishing a Raw Lava Eel", Collections.singletonList(rawLavaEel),
+		PanelDetails rawLavaEelSteps = new PanelDetails(t("Fishing a Raw Lava Eel"), Collections.singletonList(rawLavaEel),
 			new SkillRequirement(Skill.FISHING, 53, true), oilyRod, fishingBait, knife);
 		rawLavaEelSteps.setDisplayCondition(notRawLavaEel);
 		rawLavaEelSteps.setLockingStep(rawLavaEelTask);
 		allSteps.add(rawLavaEelSteps);
 
-		PanelDetails warrSteps = new PanelDetails("Spiritual Warrior", Arrays.asList(moveToGodWars1, moveToGodWars2,
+		PanelDetails warrSteps = new PanelDetails(t("Spiritual Warrior"), Arrays.asList(moveToGodWars1, moveToGodWars2,
 			sprirtualWarrior),
 			enterGodwars, new SkillRequirement(Skill.SLAYER, 68, true), combatGear, food, godEquip);
 		warrSteps.setDisplayCondition(notSprirtualWarrior);
 		warrSteps.setLockingStep(sprirtualWarriorTask);
 		allSteps.add(warrSteps);
 
-		PanelDetails trollSteps = new PanelDetails("Agility Shortcut", Collections.singletonList(trollWildy),
+		PanelDetails trollSteps = new PanelDetails(t("Agility Shortcut"), Collections.singletonList(trollWildy),
 			new SkillRequirement(Skill.AGILITY, 64, true), deathPlateau);
 		trollSteps.setDisplayCondition(notTrollWildy);
 		trollSteps.setLockingStep(trollWildyTask);
 		allSteps.add(trollSteps);
 
-		PanelDetails scimSteps = new PanelDetails("Adamant Scimitar in Resource Area", Arrays.asList(moveToResource,
+		PanelDetails scimSteps = new PanelDetails(t("Adamant Scimitar in Resource Area"), Arrays.asList(moveToResource,
 			addyScim), new SkillRequirement(Skill.SMITHING, 75, true), barsOrPick, hammer, coins);
 		scimSteps.setDisplayCondition(notAddyScim);
 		scimSteps.setLockingStep(addyScimTask);
 		allSteps.add(scimSteps);
 
-		PanelDetails chaosSteps = new PanelDetails("Chaos Elemental", Collections.singletonList(chaosEle), combatGear, food);
+		PanelDetails chaosSteps = new PanelDetails(t("Chaos Elemental"), Collections.singletonList(chaosEle), combatGear, food);
 		chaosSteps.setDisplayCondition(notChaosEle);
 		chaosSteps.setLockingStep(chaosEleTask);
 		allSteps.add(chaosSteps);
 
-		PanelDetails bossesSteps = new PanelDetails("Three Bosses", Collections.singletonList(threeBosses), combatGear,
+		PanelDetails bossesSteps = new PanelDetails(t("Three Bosses"), Collections.singletonList(threeBosses), combatGear,
 			food);
 		bossesSteps.setDisplayCondition(notThreeBosses);
 		bossesSteps.setLockingStep(threeBossesTask);
 		allSteps.add(bossesSteps);
 
-		PanelDetails godSpellSteps = new PanelDetails("God Spell on Player", Collections.singletonList(godSpells),
+		PanelDetails godSpellSteps = new PanelDetails(t("God Spell on Player"), Collections.singletonList(godSpells),
 			new SkillRequirement(Skill.MAGIC, 60, false), godStaff, godRunes);
 		godSpellSteps.setDisplayCondition(notGodSpells);
 		godSpellSteps.setLockingStep(godSpellsTask);
 		allSteps.add(godSpellSteps);
 
-		allSteps.add(new PanelDetails("Finishing off", Collections.singletonList(claimReward)));
+		allSteps.add(new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward)));
 
 		return allSteps;
 	}

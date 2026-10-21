@@ -21,34 +21,34 @@ public class NumberChallenge extends DetailedOwnerStep
 
 	public NumberChallenge(QuestHelper questHelper)
 	{
-		super(questHelper, "Select the correct numbers to finish the pattern.");
+		super(questHelper, questHelper.t("Select the correct numbers to finish the pattern."));
 	}
 
 	@Override
 	protected void setupSteps()
 	{
 		press0 = new ObjectStep(getQuestHelper(), ObjectID.LUNAR_DREAM_NUMBER_0, new WorldPoint(1783, 5062, 2),
-			"Press the zero.");
+			getQuestHelper().t("Press the zero."));
 		press1 = new ObjectStep(getQuestHelper(), ObjectID.LUNAR_DREAM_NUMBER_1, new WorldPoint(1786, 5065, 2),
-			"Press the one.");
+			getQuestHelper().t("Press the one."));
 		press2 = new ObjectStep(getQuestHelper(), ObjectID.LUNAR_DREAM_NUMBER_2, new WorldPoint(1787, 5063, 2),
-			"Press the two.");
+			getQuestHelper().t("Press the two."));
 		press3 = new ObjectStep(getQuestHelper(), ObjectID.LUNAR_DREAM_NUMBER_3, new WorldPoint(1786, 5061, 2),
-			"Press the three.");
+			getQuestHelper().t("Press the three."));
 		press4 = new ObjectStep(getQuestHelper(), ObjectID.LUNAR_DREAM_NUMBER_4, new WorldPoint(1784, 5060, 2),
-			"Press the four.");
+			getQuestHelper().t("Press the four."));
 		press5 = new ObjectStep(getQuestHelper(), ObjectID.LUNAR_DREAM_NUMBER_5, new WorldPoint(1781, 5061, 2),
-			"Press the five.");
+			getQuestHelper().t("Press the five."));
 		press6 = new ObjectStep(getQuestHelper(), ObjectID.LUNAR_DREAM_NUMBER_6, new WorldPoint(1780, 5063, 2),
-			"Press the six.");
+			getQuestHelper().t("Press the six."));
 		press7 = new ObjectStep(getQuestHelper(), ObjectID.LUNAR_DREAM_NUMBER_7, new WorldPoint(1781, 5065, 2),
-			"Press the seven.");
+			getQuestHelper().t("Press the seven."));
 		press8 = new ObjectStep(getQuestHelper(), ObjectID.LUNAR_DREAM_NUMBER_8, new WorldPoint(1782, 5066, 2),
-			"Press the eight.");
+			getQuestHelper().t("Press the eight."));
 		press9 = new ObjectStep(getQuestHelper(), ObjectID.LUNAR_DREAM_NUMBER_9, new WorldPoint(1784, 5067, 2),
-			"Press the nine.");
+			getQuestHelper().t("Press the nine."));
 
-		catchStep = new DetailedQuestStep(getQuestHelper(), "Press the numbers to finish the pattern.");
+		catchStep = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Press the numbers to finish the pattern."));
 	}
 
 	@Override

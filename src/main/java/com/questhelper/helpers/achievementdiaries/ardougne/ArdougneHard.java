@@ -171,24 +171,24 @@ public class ArdougneHard extends ComplexStateQuestHelper
 			.showConditioned(new Conditions(LogicType.OR, notMithPlate, notDragSquare)).isNotConsumed();
 		rope = new ItemRequirement("Rope", ItemID.ROPE).showConditioned(notRedSally).isNotConsumed();
 		smallFishingNet = new ItemRequirement("Small fishing net", ItemID.NET).showConditioned(notRedSally).isNotConsumed();
-		rechargableJewelry = new ItemRequirement("Skills necklace or Combat bracelet under 4 charges",
+		rechargableJewelry = new ItemRequirement(t("Skills necklace or Combat bracelet under 4 charges"),
 			ItemCollections.RECHARGEABLE_NECK_BRACELET).showConditioned(notRecharge);
 		greeGree = new ItemRequirement("Karamja monkey greegree", ItemID.MM_MONKEY_GREEGREE_FOR_NORMAL_MONKEY)
 			.showConditioned(notMonkeyCage).isNotConsumed();
 		lockpick = new ItemRequirement("Lockpick", ItemID.LOCKPICK).showConditioned(notStealChest).isNotConsumed();
 		shieldLeft = new ItemRequirement("Shield left half", ItemID.DRAGONSHIELD_A).showConditioned(notDragSquare);
 		shieldRight = new ItemRequirement("Shield right half", ItemID.DRAGONSHIELD_B).showConditioned(notDragSquare);
-		deathAccess = new ItemRequirement("Access to the Death Altar",
+		deathAccess = new ItemRequirement(t("Access to the Death Altar"),
 			ItemCollections.DEATH_ALTAR).showConditioned(notDeathRune).isNotConsumed();
-		deathAccess.setTooltip("Death Talisman/Tiara, Catalytic Talisman/Tiara, RC-skill cape or via Abyss");
+		deathAccess.setTooltip(t("Death Talisman/Tiara, Catalytic Talisman/Tiara, RC-skill cape or via Abyss"));
 		crystalTrink = new ItemRequirement("Crystal Trinket", ItemID.MOURNING_CRYSTAL_TRINKET).showConditioned(notDeathRune).isNotConsumed();
-		highEss = new ItemRequirement("Pure or Daeyalt essence", ItemCollections.ESSENCE_HIGH)
+		highEss = new ItemRequirement(t("Pure or Daeyalt essence"), ItemCollections.ESSENCE_HIGH)
 			.showConditioned(notDeathRune);
 
 		var hasCompletedSOTE = new QuestRequirement(QuestHelperQuest.SONG_OF_THE_ELVES, QuestState.FINISHED);
 
 		newKey = new KeyringRequirement("New key", KeyringCollection.NEW_KEY).showConditioned(notDeathRune).isNotConsumed().hideConditioned(hasCompletedSOTE);
-		newKey.setTooltip("Another can be found on the desk in the south-east room of the Mourner HQ basement.");
+		newKey.setTooltip(t("Another can be found on the desk in the south-east room of the Mourner HQ basement."));
 
 		mournerBoots = new ItemRequirement("Mourner boots", ItemID.MOURNING_MOURNER_BOOTS).isNotConsumed().hideConditioned(hasCompletedSOTE);
 		gasMask = new ItemRequirement("Gas mask", ItemID.GASMASK).isNotConsumed().hideConditioned(hasCompletedSOTE);
@@ -196,9 +196,9 @@ public class ArdougneHard extends ComplexStateQuestHelper
 		mournerCloak = new ItemRequirement("Mourner cloak", ItemID.MOURNING_MOURNER_CLOAK).isNotConsumed().hideConditioned(hasCompletedSOTE);
 		mournerTop = new ItemRequirement("Mourner top", ItemID.MOURNING_MOURNER_TOP).isNotConsumed().hideConditioned(hasCompletedSOTE);
 		mournerTrousers = new ItemRequirement("Mourner trousers", ItemID.MOURNING_MOURNER_LEGS).isNotConsumed().hideConditioned(hasCompletedSOTE);
-		mournersOutfit = new ItemRequirements("Full mourners' outfit", gasMask, mournerTop, mournerTrousers,
+		mournersOutfit = new ItemRequirements(t("Full mourners' outfit"), gasMask, mournerTop, mournerTrousers,
 			mournerCloak, mournerBoots, mournerGloves).showConditioned(notDeathRune).isNotConsumed().hideConditioned(hasCompletedSOTE);
-		mournersOutfit.setTooltip("Another set can be obtained at the north entrance to Arandar.");
+		mournersOutfit.setTooltip(t("Another set can be obtained at the north entrance to Arandar."));
 		rake = new ItemRequirement("Rake", ItemID.RAKE)
 			.showConditioned(new Conditions(LogicType.OR, notPalmTree, notPoisonIvy)).isNotConsumed();
 		seedDib = new ItemRequirement("Seed dibber", ItemID.DIBBER)
@@ -208,7 +208,7 @@ public class ArdougneHard extends ComplexStateQuestHelper
 		palmSap = new ItemRequirement("Palm tree sapling", ItemID.PLANTPOT_PALM_SAPLING).showConditioned(notPalmTree);
 		papaya = new ItemRequirement("Papaya fruit", ItemID.PAPAYA).showConditioned(notPalmTree);
 		compost = new ItemRequirement("Compost", ItemCollections.COMPOST).showConditioned(notPalmTree);
-		papayaOrCompost = new ItemRequirements(LogicType.OR, "15 Papaya fruit or Compost", papaya.quantity(15), compost)
+		papayaOrCompost = new ItemRequirements(LogicType.OR, t("15 Papaya fruit or Compost"), papaya.quantity(15), compost)
 			.showConditioned(notPalmTree);
 
 		inCastle = new ZoneRequirement(castle);
@@ -242,74 +242,74 @@ public class ArdougneHard extends ComplexStateQuestHelper
 
 	public void setupSteps()
 	{
-		tPWatchtower = new DetailedQuestStep(this, "Teleport to the Watchtower.", earthRune.quantity(2),
+		tPWatchtower = new DetailedQuestStep(this, t("Teleport to the Watchtower."), earthRune.quantity(2),
 			lawRune.quantity(2));
 
 		moveHouse = new NpcStep(this, NpcID.POH_ESTATE_AGENT, new WorldPoint(2638, 3293, 0),
-			"Talk to an Estate agent and relocate your house to Yanille.", coins.quantity(25000));
+			t("Talk to an Estate agent and relocate your house to Yanille."), coins.quantity(25000));
 		moveHouse.addDialogStep("Can you move my house please?");
 		yanPOH = new ObjectStep(this, ObjectID.POH_YANILLE_PORTAL, new WorldPoint(2544, 3098, 0),
-			"Enter your house from the portal in Yanille.");
+			t("Enter your house from the portal in Yanille."));
 
 		magicGuild = new ObjectStep(this, ObjectID.MAGICGUILD_DOOR_L, new WorldPoint(2584, 3088, 0),
-			"Enter the Magic Guild.", true);
+			t("Enter the Magic Guild."), true);
 		magicGuild.addAlternateObjects(ObjectID.MAGICGUILD_DOOR_R);
 
 		mithPlate = new ObjectStep(this, ObjectID.ANVIL, new WorldPoint(2613, 3081, 0),
-			"Smith a Mithril platebody in Yanille.", mithBar.quantity(5), hammer);
+			t("Smith a Mithril platebody in Yanille."), mithBar.quantity(5), hammer);
 
 		redSally = new ObjectStep(this, ObjectID.HUNTING_SAPLING_UP_RED, new WorldPoint(2474, 3239, 0),
-			"Catch a Red Salamander.", true, rope, smallFishingNet);
+			t("Catch a Red Salamander."), true, rope, smallFishingNet);
 
 		recharge = new ObjectStep(this, ObjectID.LG_TOTEM_POLE_LEGENDS, new WorldPoint(2729, 3378, 0),
-			"Recharge some jewellery at the Totem pole in the Legends' Guild.", rechargableJewelry);
+			t("Recharge some jewellery at the Totem pole in the Legends' Guild."), rechargableJewelry);
 
 		monkeyCage = new NpcStep(this, NpcID.MM_MONKEY_MINDER, new WorldPoint(2607, 3277, 0),
-			"Talk to a Monkey minder with the Karamja monkey greegree equipped.", greeGree.equipped());
+			t("Talk to a Monkey minder with the Karamja monkey greegree equipped."), greeGree.equipped());
 
 		moveToCastle = new ObjectStep(this, ObjectID.STAIRS, new WorldPoint(2572, 3296, 0),
-			"Climb the stairs in the Ardougne Castle.", lockpick);
+			t("Climb the stairs in the Ardougne Castle."), lockpick);
 		stealChest = new ObjectStep(this, ObjectID.TRAPCHEST5, new WorldPoint(2588, 3291, 1),
-			"Attempt to steal from a chest in Ardougne Castle.", lockpick);
+			t("Attempt to steal from a chest in Ardougne Castle."), lockpick);
 
 		dragSquare = new ObjectStep(this, ObjectID.ANVIL, new WorldPoint(2501, 3330, 0),
-			"Smith a Dragon sq shield in West Ardougne.", shieldLeft, shieldRight, hammer);
+			t("Smith a Dragon sq shield in West Ardougne."), shieldLeft, shieldRight, hammer);
 
 		enterMournerHQ = new ObjectStep(this, ObjectID.MOURNERSTEWDOOR, new WorldPoint(2551, 3320, 0),
-			"Enter the Mourner HQ, or enter the Death Altar via the Abyss.", deathAccess, highEss, crystalTrink, newKey,
+			t("Enter the Mourner HQ, or enter the Death Altar via the Abyss."), deathAccess, highEss, crystalTrink, newKey,
 			gasMask.equipped(), mournerTop.equipped(), mournerTrousers.equipped(),
 			mournerCloak.equipped(), mournerGloves.equipped(), mournerBoots.equipped());
 		enterMournerBasement = new ObjectStep(this, ObjectID.MOURNING_HIDEOUT_TRAP_DOOR, new WorldPoint(2542, 3327, 0),
-			"Enter the Mourner HQ basement.", deathAccess, highEss, crystalTrink, newKey);
+			t("Enter the Mourner HQ basement."), deathAccess, highEss, crystalTrink, newKey);
 		deathMoveUp1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1903, 4639, 0),
-			"Go up the stairs to the first floor.", deathAccess, highEss, crystalTrink);
+			t("Go up the stairs to the first floor."), deathAccess, highEss, crystalTrink);
 		deathMoveUp2 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_BASE, new WorldPoint(1894, 4620, 1),
-			"Go up the south staircase to the second floor.", deathAccess, highEss, crystalTrink);
+			t("Go up the south staircase to the second floor."), deathAccess, highEss, crystalTrink);
 		deathMoveDown1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1891, 4636, 2),
-			"Go down to the first floor.", deathAccess, highEss, crystalTrink);
+			t("Go down to the first floor."), deathAccess, highEss, crystalTrink);
 		deathMoveDown0 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1888, 4639, 1),
-			"Go down to the ground floor.", deathAccess, highEss, crystalTrink);
+			t("Go down to the ground floor."), deathAccess, highEss, crystalTrink);
 		turnKeyMirror = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_B, new WorldPoint(1881, 4639, 0),
-			"Enter the central area, and turn the pillar's mirror west.");
+			t("Enter the central area, and turn the pillar's mirror west."));
 		deathAltar = new ObjectStep(this, ObjectID.DEATHTEMPLE_RUINED, new WorldPoint(1860, 4639, 0),
-			"Enter the Death altar.", deathAccess.highlighted(), highEss, crystalTrink);
+			t("Enter the Death altar."), deathAccess.highlighted(), highEss, crystalTrink);
 		deathAltar.addIcon(ItemID.DEATH_TALISMAN);
 		deathRune = new ObjectStep(this, ObjectID.DEATH_ALTAR, new WorldPoint(2205, 4836, 0),
-			"Craft some death runes from essence."
-				+ "TURN THE MIDDLE PILLAR TO POINT BACK EAST OR YOU'LL HAVE TO RETURN VIA THE UNDERGROUND PASS.", highEss);
+			t("Craft some death runes from essence. "
+				+ "TURN THE MIDDLE PILLAR TO POINT BACK EAST OR YOU'LL HAVE TO RETURN VIA THE UNDERGROUND PASS."), highEss);
 
 		poisonIvy = new ObjectStep(this, ObjectID.FARMING_BUSH_PATCH_4, new WorldPoint(2618, 3226, 0),
-			"Plant and harvest poison ivy in the Ardougne Monastery bush patch. " +
-				"If you're waiting for it to grow and want to complete further tasks, use the tick box on panel.",
+			t("Plant and harvest poison ivy in the Ardougne Monastery bush patch. " +
+				"If you're waiting for it to grow and want to complete further tasks, use the tick box on panel."),
 			rake, seedDib, poisonIvySeed);
 
 		palmTree = new ObjectStep(this, ObjectID.FARMING_FRUIT_TREE_PATCH_2, new WorldPoint(2490, 3180, 0),
-			"Check the health of a palm tree near Tree Gnome Village. " +
-				"If you're waiting for it to grow and want to complete further tasks, use the tick box on panel.",
+			t("Check the health of a palm tree near Tree Gnome Village. " +
+				"If you're waiting for it to grow and want to complete further tasks, use the tick box on panel."),
 			spade, rake, palmSap);
 
 		claimReward = new NpcStep(this, NpcID.ARDY_TWOPINTS_DIARY, new WorldPoint(2574, 3323, 0),
-			"Talk to Two-pints in the Flying Horse Inn at East Ardougne to claim your reward!");
+			t("Talk to Two-pints in the Flying Horse Inn at East Ardougne to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -361,10 +361,10 @@ public class ArdougneHard extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("Five daily teleports to Ardougne farm patch with the Ardougne cloak 3"),
-			new UnlockReward("150 free noted pure essence every day from Wizard Cromperty"),
-			new UnlockReward("Ability to toggle Watchtower Teleport to the centre of Yanille"),
-			new UnlockReward("10% increased chance of succeeding when pickpocketing around Gielinor")
+			new UnlockReward(t("Five daily teleports to Ardougne farm patch with the Ardougne cloak 3")),
+			new UnlockReward(t("150 free noted pure essence every day from Wizard Cromperty")),
+			new UnlockReward(t("Ability to toggle Watchtower Teleport to the centre of Yanille")),
+			new UnlockReward(t("10% increased chance of succeeding when pickpocketing around Gielinor"))
 		);
 	}
 
@@ -373,80 +373,80 @@ public class ArdougneHard extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails palmSteps = new PanelDetails("Tree Gnome Village Palm Tree", Collections.singletonList(palmTree),
+		PanelDetails palmSteps = new PanelDetails(t("Tree Gnome Village Palm Tree"), Collections.singletonList(palmTree),
 			new SkillRequirement(Skill.FARMING, 68, true), spade, rake, palmSap);
 		palmSteps.setDisplayCondition(notPalmTree);
 		palmSteps.setLockingStep(palmTreeTask);
 		allSteps.add(palmSteps);
 
-		PanelDetails ivySteps = new PanelDetails("Monastery Poison Ivy", Collections.singletonList(poisonIvy),
+		PanelDetails ivySteps = new PanelDetails(t("Monastery Poison Ivy"), Collections.singletonList(poisonIvy),
 			new SkillRequirement(Skill.FARMING, 70, true), seedDib, rake, poisonIvySeed);
 		ivySteps.setDisplayCondition(notPoisonIvy);
 		ivySteps.setLockingStep(poisonIvyTask);
 		allSteps.add(ivySteps);
 
-		PanelDetails watchtowerSteps = new PanelDetails("Teleport to Watchtower",
+		PanelDetails watchtowerSteps = new PanelDetails(t("Teleport to Watchtower"),
 			Collections.singletonList(tPWatchtower), new SkillRequirement(Skill.MAGIC, 58, true), watchtower,
 			earthRune.quantity(2), lawRune.quantity(2));
 		watchtowerSteps.setDisplayCondition(notTPWatchtower);
 		watchtowerSteps.setLockingStep(tpWatchtowerTask);
 		allSteps.add(watchtowerSteps);
 
-		PanelDetails yan2Steps = new PanelDetails("Yanille POH", Arrays.asList(moveHouse, yanPOH),
+		PanelDetails yan2Steps = new PanelDetails(t("Yanille POH"), Arrays.asList(moveHouse, yanPOH),
 			new SkillRequirement(Skill.CONSTRUCTION, 50, false), coins.quantity(25000));
 		yan2Steps.setDisplayCondition(new Conditions(notYanHouse, notYanPOH));
 		yan2Steps.setLockingStep(yanHouseTask);
 		allSteps.add(yan2Steps);
 
-		PanelDetails yanSteps = new PanelDetails("Yanille POH", Collections.singletonList(yanPOH));
+		PanelDetails yanSteps = new PanelDetails(t("Yanille POH"), Collections.singletonList(yanPOH));
 		yanSteps.setDisplayCondition(new Conditions(notYanHouse2, notYanPOH));
 		yan2Steps.setLockingStep(yanHouseTask);
 		allSteps.add(yanSteps);
 
-		PanelDetails mgSteps = new PanelDetails("Magic Guild", Collections.singletonList(magicGuild),
+		PanelDetails mgSteps = new PanelDetails(t("Magic Guild"), Collections.singletonList(magicGuild),
 			new SkillRequirement(Skill.MAGIC, 66, true));
 		mgSteps.setDisplayCondition(notMagicGuild);
 		mgSteps.setLockingStep(magicGuildTask);
 		allSteps.add(mgSteps);
 
-		PanelDetails plateSteps = new PanelDetails("Mithril Platebody", Collections.singletonList(mithPlate),
+		PanelDetails plateSteps = new PanelDetails(t("Mithril Platebody"), Collections.singletonList(mithPlate),
 			new SkillRequirement(Skill.SMITHING, 68, true), mithBar.quantity(5), hammer);
 		plateSteps.setDisplayCondition(notMithPlate);
 		plateSteps.setLockingStep(mithPlateTask);
 		allSteps.add(plateSteps);
 
-		PanelDetails sallySteps = new PanelDetails("Red Salamander", Collections.singletonList(redSally),
+		PanelDetails sallySteps = new PanelDetails(t("Red Salamander"), Collections.singletonList(redSally),
 			new SkillRequirement(Skill.HUNTER, 59, true), rope, smallFishingNet);
 		sallySteps.setDisplayCondition(notRedSally);
 		sallySteps.setLockingStep(redSallyTask);
 		allSteps.add(sallySteps);
 
-		PanelDetails rechargeSteps = new PanelDetails("Recharge Jewelry", Collections.singletonList(recharge),
+		PanelDetails rechargeSteps = new PanelDetails(t("Recharge Jewelry"), Collections.singletonList(recharge),
 			legendsQuest, rechargableJewelry);
 		rechargeSteps.setDisplayCondition(notRecharge);
 		rechargeSteps.setLockingStep(rechargeTask);
 		allSteps.add(rechargeSteps);
 
-		PanelDetails monkeySteps = new PanelDetails("Monkey in a Cage", Collections.singletonList(monkeyCage),
+		PanelDetails monkeySteps = new PanelDetails(t("Monkey in a Cage"), Collections.singletonList(monkeyCage),
 			monkeyMadness, greeGree);
 		monkeySteps.setDisplayCondition(notMonkeyCage);
 		monkeySteps.setLockingStep(monkeyCageTask);
 		allSteps.add(monkeySteps);
 
-		PanelDetails chestSteps = new PanelDetails("Stealing from Ardougne Royalty", Arrays.asList(moveToCastle,
+		PanelDetails chestSteps = new PanelDetails(t("Stealing from Ardougne Royalty"), Arrays.asList(moveToCastle,
 			stealChest), new SkillRequirement(Skill.THIEVING, 72, true), lockpick);
 		chestSteps.setDisplayCondition(notStealChest);
 		chestSteps.setLockingStep(stealChestTask);
 		allSteps.add(chestSteps);
 
-		PanelDetails dragSteps = new PanelDetails("Smith Dragon Square in West Ardougne",
+		PanelDetails dragSteps = new PanelDetails(t("Smith Dragon Square in West Ardougne"),
 			Collections.singletonList(dragSquare), new SkillRequirement(Skill.SMITHING, 60, true), shieldLeft, shieldRight,
 			hammer);
 		dragSteps.setDisplayCondition(notDragSquare);
 		dragSteps.setLockingStep(dragSquareTask);
 		allSteps.add(dragSteps);
 
-		PanelDetails deathSteps = new PanelDetails("Craft Death Runes", Arrays.asList(enterMournerHQ,
+		PanelDetails deathSteps = new PanelDetails(t("Craft Death Runes"), Arrays.asList(enterMournerHQ,
 			enterMournerBasement, deathMoveUp1, deathMoveUp2, deathMoveDown1, deathMoveDown0, deathAltar, deathRune),
 			new SkillRequirement(Skill.RUNECRAFT, 65, true), mourningsEndII, newKey, crystalTrink,
 			mournersOutfit, highEss, deathAccess);
@@ -454,7 +454,7 @@ public class ArdougneHard extends ComplexStateQuestHelper
 		deathSteps.setLockingStep(deathRuneTask);
 		allSteps.add(deathSteps);
 
-		allSteps.add(new PanelDetails("Finishing off", Collections.singletonList(claimReward)));
+		allSteps.add(new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward)));
 
 		return allSteps;
 	}

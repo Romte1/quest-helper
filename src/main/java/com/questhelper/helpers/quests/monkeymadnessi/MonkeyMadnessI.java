@@ -331,12 +331,12 @@ public class MonkeyMadnessI extends BasicQuestHelper
 		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD);
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS);
 
-		grandTreeTeleport = new ItemRequirement("Tree Gnome Stronghold teleport via Spirit Tree (2), Gnome Glider (Ta Quir Priw), or Grand Seed Pod", ItemID.ALUFT_SEED_POD);
+		grandTreeTeleport = new ItemRequirement(t("Tree Gnome Stronghold teleport via Spirit Tree (2), Gnome Glider (Ta Quir Priw), or Grand Seed Pod"), ItemID.ALUFT_SEED_POD);
 
 		protectFromRanged = new PrayerRequirement("Protect from Missiles", Prayer.PROTECT_FROM_MISSILES);
 		protectFromMelee = new PrayerRequirement("Protect from Melee", Prayer.PROTECT_FROM_MELEE);
 		protectFromMagic = new PrayerRequirement("Protect from Magic", Prayer.PROTECT_FROM_MAGIC);
-		escapeTeleport = new ItemRequirement("Any teleport to leave Ape Atoll", ItemID.POH_TABLET_VARROCKTELEPORT);
+		escapeTeleport = new ItemRequirement(t("Any teleport to leave Ape Atoll"), ItemID.POH_TABLET_VARROCKTELEPORT);
 		ItemRequirement ardougneTeleTab = new ItemRequirement("Ardougne teleport", ItemID.POH_TABLET_ARDOUGNETELEPORT);
 		ItemRequirement ardougneTeleRunes = new ItemRequirements("Ardougne teleport",
 			new ItemRequirement("Law runes", ItemID.LAWRUNE, 2),

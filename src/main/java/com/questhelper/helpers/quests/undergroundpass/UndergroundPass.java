@@ -113,7 +113,7 @@ public class UndergroundPass extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		rope1 = new ItemRequirement("Rope", ItemID.ROPE);
-		rope2 = new ItemRequirement("Rope, multiple in case you fail an agility check", ItemID.ROPE);
+		rope2 = new ItemRequirement(t("Rope, multiple in case you fail an agility check"), ItemID.ROPE);
 		ropeHighlight = new ItemRequirement("Rope", ItemID.ROPE);
 		ropeHighlight.setHighlightInInventory(true);
 		bow = new ItemRequirement("Bow (not crossbow)", ItemCollections.BOWS, 1, true).isNotConsumed();
@@ -138,7 +138,7 @@ public class UndergroundPass extends BasicQuestHelper
 		food = new ItemRequirement("Food", -1, -1);
 		food.setDisplayItemId(ItemID.SHARK);
 		staminaPotions = new ItemRequirement("Stamina Potions", ItemCollections.STAMINA_POTIONS);
-		coins = new ItemRequirement("Coins (to buy food, 75 ea)", ItemCollections.COINS, 750);
+		coins = new ItemRequirement(t("Coins (to buy food, 75 ea)"), ItemCollections.COINS, 750);
 		agilityPotions = new ItemRequirement("Agility Potions", ItemCollections.AGILITY_POTIONS);
 		telegrabRunes = new ItemRequirements("Telegrab Runes", new ItemRequirement("Air rune", ItemID.AIRRUNE),
 			new ItemRequirement("Law rune", ItemID.LAWRUNE));

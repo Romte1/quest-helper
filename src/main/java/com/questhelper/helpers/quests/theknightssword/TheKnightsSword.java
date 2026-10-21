@@ -122,7 +122,7 @@ public class TheKnightsSword extends BasicQuestHelper
 
 		varrockTeleport = new ItemRequirement("A teleport to Varrock", ItemID.POH_TABLET_VARROCKTELEPORT);
 		faladorTeleports = new ItemRequirement("Teleports to Falador", ItemID.POH_TABLET_FALADORTELEPORT, 3);
-		homeTele = new ItemRequirement("A teleport near Mudskipper Point, such as POH teleport or Fairy Ring to AIQ", ItemID.NZONE_TELETAB_RIMMINGTON, 2);
+		homeTele = new ItemRequirement(t("A teleport near Mudskipper Point, such as POH teleport or Fairy Ring to AIQ"), ItemID.NZONE_TELETAB_RIMMINGTON, 2);
 
 		bluriteSword = new ItemRequirement("Blurite sword", ItemID.FALADIAN_SWORD);
 		portrait = new ItemRequirement("Portrait", ItemID.KNIGHTS_PORTRAIT);

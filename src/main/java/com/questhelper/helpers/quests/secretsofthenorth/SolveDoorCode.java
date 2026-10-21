@@ -59,7 +59,7 @@ public class SolveDoorCode extends QuestStep
 
 	public SolveDoorCode(QuestHelper questHelper)
 	{
-		super(questHelper, "Click the highlighted arrows to move the slots to the solution 'BLOOD'.");
+		super(questHelper, questHelper.t("Click the highlighted arrows to move the slots to the solution 'BLOOD'."));
 		highlightButtons.put(1, ARROW_ONE_DOWN);
 		highlightButtons.put(2, ARROW_TWO_DOWN);
 		highlightButtons.put(3, ARROW_THREE_DOWN);

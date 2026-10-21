@@ -177,16 +177,16 @@ public class TempleOfIkov extends BasicQuestHelper
 		pendantOfLucienEquipped = pendantOfLucien.equipped();
 		bootsOfLightness = new ItemRequirement("Boots of lightness", ItemID.IKOV_BOOTSOFLIGHTNESS).isNotConsumed();
 		bootsOfLightnessEquipped = bootsOfLightness.equipped();
-		limpwurt20 = new ItemRequirement("Limpwurt (unnoted)", ItemID.LIMPWURT_ROOT, 20);
-		yewOrBetterBow = new ItemRequirement("Yew, magic, or dark bow", ItemID.YEW_SHORTBOW).isNotConsumed();
+		limpwurt20 = new ItemRequirement(t("Limpwurt (unnoted)"), ItemID.LIMPWURT_ROOT, 20);
+		yewOrBetterBow = new ItemRequirement(t("Yew, magic, or dark bow"), ItemID.YEW_SHORTBOW).isNotConsumed();
 		yewOrBetterBow.addAlternates(ItemID.YEW_LONGBOW, ItemID.TRAIL_COMPOSITE_BOW_YEW, ItemID.MAGIC_SHORTBOW, ItemID.MAGIC_SHORTBOW_I,
 			ItemID.MAGIC_LONGBOW, ItemID.DARKBOW);
 		throwableWeapon = new ItemRequirement("Throwable Weapon", ItemCollections.THROWING_KNIVES);
 		throwableWeapon.addAlternates(ItemCollections.DARTS);
 		throwableWeapon.addAlternates(ItemCollections.THROWING_AXES);
-		yewOrBetterBowOrThrowableWeapon = new ItemRequirements(LogicType.OR, "Yew, magic, dark bow, or thrown ranged weapons (darts, knives, thrownaxes)", yewOrBetterBow, throwableWeapon);
-		knife = new ItemRequirement("Knife to get the boots of lightness", ItemID.KNIFE).isNotConsumed();
-		lightSource = new ItemRequirement("A light source to get the boots of lightness", ItemCollections.LIGHT_SOURCES).isNotConsumed();
+		yewOrBetterBowOrThrowableWeapon = new ItemRequirements(LogicType.OR, t("Yew, magic, dark bow, or thrown ranged weapons (darts, knives, thrownaxes)"), yewOrBetterBow, throwableWeapon);
+		knife = new ItemRequirement(t("Knife to get the boots of lightness"), ItemID.KNIFE).isNotConsumed();
+		lightSource = new ItemRequirement(t("A light source to get the boots of lightness"), ItemCollections.LIGHT_SOURCES).isNotConsumed();
 
 		iceArrows20 = new ItemRequirement("Ice arrows", ItemID.ICE_ARROW, 20);
 

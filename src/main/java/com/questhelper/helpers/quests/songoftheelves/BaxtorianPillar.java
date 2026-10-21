@@ -62,8 +62,8 @@ public class BaxtorianPillar
 	{
 		this.wp = wp;
 		this.answerText = answerText;
-		this.inspectStep = new ObjectStep(questHelper, ObjectID.STONEPILLAR_SMALL_WATERFALL_QUEST, inspectWp, "Inspect the marked pillar.");
-		this.useStep = new ObjectStep(questHelper, ObjectID.STONEPILLAR_SMALL_WATERFALL_QUEST, wp, "Place the correct item on the " + name + " pillar.");
+		this.inspectStep = new ObjectStep(questHelper, ObjectID.STONEPILLAR_SMALL_WATERFALL_QUEST, inspectWp, questHelper.t("Inspect the marked pillar."));
+		this.useStep = new ObjectStep(questHelper, ObjectID.STONEPILLAR_SMALL_WATERFALL_QUEST, wp, String.format(questHelper.t("Place the correct item on the %s pillar."), name));
 	}
 
 	public void setSolution(ItemRequirement solution)

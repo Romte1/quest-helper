@@ -95,7 +95,7 @@ public class TribalTotem extends BasicQuestHelper
  @Override
  protected void setupRequirements()
     {
-        coins = new ItemRequirement("Coins or more for boat trips", ItemCollections.COINS, 90);
+        coins = new ItemRequirement(t("Coins or more for boat trips"), ItemCollections.COINS, 90);
         amuletOfGlory = new ItemRequirement("Amulet of glory", ItemCollections.AMULET_OF_GLORIES).isNotConsumed();
         ardougneTeleport = new ItemRequirement("Ardougne teleport", ItemID.POH_TABLET_ARDOUGNETELEPORT);
 		brimhavenTeleports = new ItemRequirement("Brimhaven teleports", ItemID.NZONE_TELETAB_BRIMHAVEN, 2);

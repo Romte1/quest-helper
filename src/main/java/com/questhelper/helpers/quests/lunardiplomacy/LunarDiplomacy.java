@@ -293,7 +293,7 @@ public class LunarDiplomacy extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		sealOfPassage = new ItemRequirement("Seal of passage", ItemID.LUNAR_SEAL_OF_PASSAGE).isNotConsumed();
-		sealOfPassage.setTooltip("You can get another from Brundt");
+		sealOfPassage.setTooltip(t("You can get another from Brundt"));
 
 		sealOfPassageEquipped = sealOfPassage.equipped();
 
@@ -315,10 +315,10 @@ public class LunarDiplomacy extends BasicQuestHelper
 		emeraldLanternLitHighlighted.setHighlightInInventory(true);
 
 		emeraldLens = new ItemRequirement("Emerald lens", ItemID.BULLSEYE_LANTERN_LENS_LUNAR_QUEST);
-		emeraldLens.setTooltip("You can get another from the Cabin boy");
+		emeraldLens.setTooltip(t("You can get another from the Cabin boy"));
 
 		emeraldLensHighlighted = new ItemRequirement("Emerald lens", ItemID.BULLSEYE_LANTERN_LENS_LUNAR_QUEST);
-		emeraldLensHighlighted.setTooltip("You can get another from the Cabin boy");
+		emeraldLensHighlighted.setTooltip(t("You can get another from the Cabin boy"));
 		emeraldLensHighlighted.setHighlightInInventory(true);
 
 		tinderboxHighlighted = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
@@ -335,15 +335,15 @@ public class LunarDiplomacy extends BasicQuestHelper
 		groundTooth.setHighlightInInventory(true);
 
 		specialVial = new ItemRequirement("Empty vial", ItemID.LUNAR_MOONCLAN_LIMINAL_VIAL_EMPTY);
-		specialVial.setTooltip("You can get another from Baba Yaga");
+		specialVial.setTooltip(t("You can get another from Baba Yaga"));
 
 		specialVialHighlighted = new ItemRequirement("Empty vial", ItemID.LUNAR_MOONCLAN_LIMINAL_VIAL_EMPTY);
 		specialVialHighlighted.setHighlightInInventory(true);
-		specialVialHighlighted.setTooltip("You can get another from Baba Yaga");
+		specialVialHighlighted.setTooltip(t("You can get another from Baba Yaga"));
 
 		waterVial = new ItemRequirement("Empty vial", ItemID.LUNAR_MOONCLAN_LIMINAL_VIAL_WATER);
 		waterVial.setHighlightInInventory(true);
-		waterVial.setTooltip("You can get another from Baba Yaga");
+		waterVial.setTooltip(t("You can get another from Baba Yaga"));
 
 		guamPotion = new ItemRequirement("Guam vial", ItemID.LUNAR_MOONCLAN_LIMINAL_GUAM);
 		guamPotion.setHighlightInInventory(true);
@@ -361,22 +361,22 @@ public class LunarDiplomacy extends BasicQuestHelper
 		pestle = new ItemRequirement("Pestle and mortar", ItemID.PESTLE_AND_MORTAR).isNotConsumed();
 		pestle.setHighlightInInventory(true);
 
-		airTalisman = new ItemRequirement("Access to the Air Altar", ItemCollections.AIR_ALTAR).isNotConsumed();
-		airTalisman.setTooltip("Air Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss.");
+		airTalisman = new ItemRequirement(t("Access to the Air Altar"), ItemCollections.AIR_ALTAR).isNotConsumed();
+		airTalisman.setTooltip(t("Air Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss."));
 
-		fireTalisman = new ItemRequirement("Access to the Fire Altar", ItemCollections.FIRE_ALTAR).isNotConsumed();
-		fireTalisman.setTooltip("Fire Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss.");
+		fireTalisman = new ItemRequirement(t("Access to the Fire Altar"), ItemCollections.FIRE_ALTAR).isNotConsumed();
+		fireTalisman.setTooltip(t("Fire Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss."));
 
-		earthTalisman = new ItemRequirement("Access to the Earth Altar", ItemCollections.EARTH_ALTAR).isNotConsumed();
-		earthTalisman.setTooltip("Earth Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss.");
+		earthTalisman = new ItemRequirement(t("Access to the Earth Altar"), ItemCollections.EARTH_ALTAR).isNotConsumed();
+		earthTalisman.setTooltip(t("Earth Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss."));
 
-		waterTalisman = new ItemRequirement("Access to the Water Altar", ItemCollections.WATER_ALTAR).isNotConsumed();
-		waterTalisman.setTooltip("Water Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss.");
+		waterTalisman = new ItemRequirement(t("Access to the Water Altar"), ItemCollections.WATER_ALTAR).isNotConsumed();
+		waterTalisman.setTooltip(t("Water Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss."));
 
 		dramenStaff = new ItemRequirement("Dramen staff", ItemID.DRAMEN_STAFF).isNotConsumed();
-		dramenStaff.setTooltip("You can get another from under Entrana");
+		dramenStaff.setTooltip(t("You can get another from under Entrana"));
 		dramenStaffHighlighted = new ItemRequirement("Dramen staff", ItemID.DRAMEN_STAFF).isNotConsumed();
-		dramenStaffHighlighted.setTooltip("You can get another from under Entrana");
+		dramenStaffHighlighted.setTooltip(t("You can get another from under Entrana"));
 		dramenStaffHighlighted.setHighlightInInventory(true);
 
 		lunarStaffP1 = new ItemRequirement("Lunar staff - pt1", ItemID.DRAMEN_STAFF_AIR);
@@ -410,7 +410,7 @@ public class LunarDiplomacy extends BasicQuestHelper
 
 		moonClanTeleport = new ItemRequirement("Moonclan Teleport", -1, -1);
 		moonClanTeleport.setDisplayItemId(ItemID.LUNAR_TABLET_MOONCLAN_TELEPORT);
-		moonClanTeleport.setTooltip("Can be used after first visiting Lunar Isle during the quest");
+		moonClanTeleport.setTooltip(t("Can be used after first visiting Lunar Isle during the quest"));
 
 		spade = new ItemRequirement("Spade", ItemID.SPADE).isNotConsumed();
 
@@ -428,7 +428,7 @@ public class LunarDiplomacy extends BasicQuestHelper
 		boots = new ItemRequirement("Lunar boots", ItemID.LUNAR_BOOTS);
 		legs = new ItemRequirement("Lunar legs", ItemID.LUNAR_LEGS);
 		kindling = new ItemRequirement("Kindling", ItemID.LUNAR_MOONCLAN_KINDLING);
-		kindling.setTooltip("You can get any of these items from the Oneiromancer");
+		kindling.setTooltip(t("You can get any of these items from the Oneiromancer"));
 		kindling.setHighlightInInventory(true);
 		soakedKindling = new ItemRequirement("Soaked kindling", ItemID.LUNAR_MOONCLAN_KINDLING_SOAKED);
 		soakedKindlingHighlighted = new ItemRequirement("Soaked kindling", ItemID.LUNAR_MOONCLAN_KINDLING_SOAKED);
@@ -554,254 +554,254 @@ public class LunarDiplomacy extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToLokar = new NpcStep(this, NpcID.LUNAR_FREMENNIK_PIRATE_1OP, new WorldPoint(2620, 3693, 0), "Talk to Lokar Searunner on Rellekka's docks.");
+		talkToLokar = new NpcStep(this, NpcID.LUNAR_FREMENNIK_PIRATE_1OP, new WorldPoint(2620, 3693, 0), t("Talk to Lokar Searunner on Rellekka's docks."));
 		talkToLokar.addDialogSteps("Yes.", "You've been away from these parts a while?", "Why did you leave?", "Why not, I've always wondered what the state of my innards are!");
 
-		talkToBrundt = new NpcStep(this, NpcID.VIKING_BRUNDT_CHILD, new WorldPoint(2658, 3667, 0), "Talk to Brundt in Rellekka's longhall.");
+		talkToBrundt = new NpcStep(this, NpcID.VIKING_BRUNDT_CHILD, new WorldPoint(2658, 3667, 0), t("Talk to Brundt in Rellekka's longhall."));
 		talkToBrundt.addDialogStep("Ask about a Seal of Passage.");
 
-		talkToLokarAgain = new NpcStep(this, NpcID.LUNAR_FREMENNIK_PIRATE_1OP, new WorldPoint(2620, 3693, 0), "Return to Lokar Searunner on Rellekka's docks.", sealOfPassage);
+		talkToLokarAgain = new NpcStep(this, NpcID.LUNAR_FREMENNIK_PIRATE_1OP, new WorldPoint(2620, 3693, 0), t("Return to Lokar Searunner on Rellekka's docks."), sealOfPassage);
 		talkToLokarAgain.addDialogStep("Arrr! Yar! Let's be on our way, yar!");
 
-		travelWithLokar = new NpcStep(this, NpcID.LUNAR_FREMENNIK_PIRATE_BY_PIRATESHIP, new WorldPoint(2620, 3693, 0), "Travel with Lokar in Rellekka.", sealOfPassage);
+		travelWithLokar = new NpcStep(this, NpcID.LUNAR_FREMENNIK_PIRATE_BY_PIRATESHIP, new WorldPoint(2620, 3693, 0), t("Travel with Lokar in Rellekka."), sealOfPassage);
 		travelWithLokar.addDialogStep("Go now.");
 
-		climbLadder = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_PIER_STAIRS_BASE_LOWER, new WorldPoint(2213, 3795, 0), "Climb up to the ship.");
-		boardShip = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_PIER_STAIRS_BASE, new WorldPoint(2214, 3801, 1), "Climb up to the ship.");
+		climbLadder = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_PIER_STAIRS_BASE_LOWER, new WorldPoint(2213, 3795, 0), t("Climb up to the ship."));
+		boardShip = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_PIER_STAIRS_BASE, new WorldPoint(2214, 3801, 1), t("Climb up to the ship."));
 		climbLadder.addSubSteps(travelWithLokar, boardShip);
 
-		talkToBentley = new NpcStep(this, NpcID.LUNAR_PIRATE_CAPTAIN_1OP, new WorldPoint(2222, 3796, 2), "Talk to Captain " +
-			"Bentley.", sealOfPassageEquipped);
+		talkToBentley = new NpcStep(this, NpcID.LUNAR_PIRATE_CAPTAIN_1OP, new WorldPoint(2222, 3796, 2), t("Talk to Captain " +
+			"Bentley."), sealOfPassageEquipped);
 		talkToBentley.addDialogStep("Can we sail to Lunar Isle now?");
 
-		climbDownSouthStairs = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP, new WorldPoint(2222, 3792, 2), "Go down to talk to 'Birds-Eye' Jack.");
-		talkToJack = new NpcStep(this, NpcID.LUNAR_PIRATE_NAVIGATOR, new WorldPoint(2222, 3788, 1), "Talk to 'Birds-Eye' Jack.");
+		climbDownSouthStairs = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP, new WorldPoint(2222, 3792, 2), t("Go down to talk to 'Birds-Eye' Jack."));
+		talkToJack = new NpcStep(this, NpcID.LUNAR_PIRATE_NAVIGATOR, new WorldPoint(2222, 3788, 1), t("Talk to 'Birds-Eye' Jack."));
 		climbDownSouthStairs.addSubSteps(talkToJack);
 
-		climbUpSouthStairs = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE, new WorldPoint(2222, 3792, 1), "Go upstairs to talk to Bentley again.");
-		talkToBentleyAfterJack = new NpcStep(this, NpcID.LUNAR_PIRATE_CAPTAIN_1OP, new WorldPoint(2222, 3796, 2), "Talk to Captain Bentley again.");
+		climbUpSouthStairs = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE, new WorldPoint(2222, 3792, 1), t("Go upstairs to talk to Bentley again."));
+		talkToBentleyAfterJack = new NpcStep(this, NpcID.LUNAR_PIRATE_CAPTAIN_1OP, new WorldPoint(2222, 3796, 2), t("Talk to Captain Bentley again."));
 		talkToBentleyAfterJack.addDialogStep("Perhaps it's the Navigator's fault?");
 		climbUpSouthStairs.addSubSteps(talkToBentleyAfterJack);
 
-		goDownToJackAgain = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP, new WorldPoint(2222, 3792, 2), "Go down to talk to 'Birds-Eye' Jack again.");
-		talkToJackAgain = new NpcStep(this, NpcID.LUNAR_PIRATE_NAVIGATOR, new WorldPoint(2222, 3788, 1), "Talk to 'Birds-Eye' Jack.");
+		goDownToJackAgain = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP, new WorldPoint(2222, 3792, 2), t("Go down to talk to 'Birds-Eye' Jack again."));
+		talkToJackAgain = new NpcStep(this, NpcID.LUNAR_PIRATE_NAVIGATOR, new WorldPoint(2222, 3788, 1), t("Talk to 'Birds-Eye' Jack."));
 		goDownToJackAgain.addSubSteps(talkToJackAgain);
 
-		goUpToShultz = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE, new WorldPoint(2222, 3792, 1), "Talk to 'Eagle-eye' Shultz on the north end of the ship.");
-		talkToShultz = new NpcStep(this, NpcID.LUNAR_PIRATE_LOOKOUT, new WorldPoint(2224, 3813, 2), "Talk to 'Eagle-eye' Shultz on the north end of the ship.");
+		goUpToShultz = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE, new WorldPoint(2222, 3792, 1), t("Talk to 'Eagle-eye' Shultz on the north end of the ship."));
+		talkToShultz = new NpcStep(this, NpcID.LUNAR_PIRATE_LOOKOUT, new WorldPoint(2224, 3813, 2), t("Talk to 'Eagle-eye' Shultz on the north end of the ship."));
 		goUpToShultz.addSubSteps(talkToShultz);
 
-		goDownToBurns1 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP, new WorldPoint(2227, 3794, 3), "Go to the bottom deck to talk to 'Beefy' Burns.");
-		goDownToBurns2 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP, new WorldPoint(2222, 3792, 2), "Go to the bottom deck to talk to 'Beefy' Burns.");
-		goDownToBurns3 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP_LEVEL1, new WorldPoint(2225, 3808, 1), "Go to the bottom deck to talk to 'Beefy' Burns.");
-		talkToBurns = new NpcStep(this, NpcID.LUNAR_PIRATE_COOK, new WorldPoint(2221, 3788, 0), "Talk to 'Beefy' Burns in the south of the ship.");
+		goDownToBurns1 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP, new WorldPoint(2227, 3794, 3), t("Go to the bottom deck to talk to 'Beefy' Burns."));
+		goDownToBurns2 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP, new WorldPoint(2222, 3792, 2), t("Go to the bottom deck to talk to 'Beefy' Burns."));
+		goDownToBurns3 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP_LEVEL1, new WorldPoint(2225, 3808, 1), t("Go to the bottom deck to talk to 'Beefy' Burns."));
+		talkToBurns = new NpcStep(this, NpcID.LUNAR_PIRATE_COOK, new WorldPoint(2221, 3788, 0), t("Talk to 'Beefy' Burns in the south of the ship."));
 		goDownToBurns1.addSubSteps(goDownToBurns2, goDownToBurns3, talkToBurns);
 
-		goUpToLee1 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE_LEVEL1, new WorldPoint(2225, 3808, 0), "Go to the top deck to talk to 'Lecherous' Lee.");
-		goUpToLee2 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE, new WorldPoint(2222, 3792, 1), "Go to the top deck to talk to 'Lecherous' Lee.");
-		goUpToLee3 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE, new WorldPoint(2227, 3794, 2), "Go to the top deck to talk to 'Lecherous' Lee.");
+		goUpToLee1 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE_LEVEL1, new WorldPoint(2225, 3808, 0), t("Go to the top deck to talk to 'Lecherous' Lee."));
+		goUpToLee2 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE, new WorldPoint(2222, 3792, 1), t("Go to the top deck to talk to 'Lecherous' Lee."));
+		goUpToLee3 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE, new WorldPoint(2227, 3794, 2), t("Go to the top deck to talk to 'Lecherous' Lee."));
 
-		talkToLee = new NpcStep(this, NpcID.LUNAR_PIRATE_GENERIC_PIRATE_9, new WorldPoint(2224, 3788, 3), "Talk to 'Lecherous' Lee.");
+		talkToLee = new NpcStep(this, NpcID.LUNAR_PIRATE_GENERIC_PIRATE_9, new WorldPoint(2224, 3788, 3), t("Talk to 'Lecherous' Lee."));
 		goUpToLee1.addSubSteps(goUpToLee2, goUpToLee3, talkToLee);
 
-		goDownToDavey = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP, new WorldPoint(2227, 3794, 3), "Go down to the deck to talk to First mate 'Davey-boy'.");
-		talkToDavey = new NpcStep(this, NpcID.LUNAR_PIRATE_FIRST_MATE, new WorldPoint(2223, 3791, 2), "Talk to First mate 'Davey-boy'.");
+		goDownToDavey = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP, new WorldPoint(2227, 3794, 3), t("Go down to the deck to talk to First mate 'Davey-boy'."));
+		talkToDavey = new NpcStep(this, NpcID.LUNAR_PIRATE_FIRST_MATE, new WorldPoint(2223, 3791, 2), t("Talk to First mate 'Davey-boy'."));
 		goDownToDavey.addSubSteps(talkToDavey);
 
-		goUpToCabinBoy = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE, new WorldPoint(2227, 3794, 2), "Go up to the Cabin Boy.");
-		talkToCabinBoy = new NpcStep(this, NpcID.LUNAR_PIRATE_CABIN_BOY_BASE_CONFIG, new WorldPoint(2225, 3789, 3), "Talk to the Cabin Boy.");
+		goUpToCabinBoy = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE, new WorldPoint(2227, 3794, 2), t("Go up to the Cabin Boy."));
+		talkToCabinBoy = new NpcStep(this, NpcID.LUNAR_PIRATE_CABIN_BOY_BASE_CONFIG, new WorldPoint(2225, 3789, 3), t("Talk to the Cabin Boy."));
 		goUpToCabinBoy.addSubSteps(talkToCabinBoy);
 
-		getLensAndBullseye = new DetailedQuestStep(this, "Go get a bullseye lantern to add the emerald lens to.", bullseyeLantern, emeraldLens);
-		extinguishLantern = new DetailedQuestStep(this, "Extinguish the bullseye lantern.", bullseyeLanternLit);
-		replaceLens = new DetailedQuestStep(this, "Use the emerald lens on the lantern.", emeraldLensHighlighted, bullseyeLanternHighlighted);
-		lightLantern = new DetailedQuestStep(this, "Light the emerald lantern.", tinderboxHighlighted, emeraldLantern);
+		getLensAndBullseye = new DetailedQuestStep(this, t("Go get a bullseye lantern to add the emerald lens to."), bullseyeLantern, emeraldLens);
+		extinguishLantern = new DetailedQuestStep(this, t("Extinguish the bullseye lantern."), bullseyeLanternLit);
+		replaceLens = new DetailedQuestStep(this, t("Use the emerald lens on the lantern."), emeraldLensHighlighted, bullseyeLanternHighlighted);
+		lightLantern = new DetailedQuestStep(this, t("Light the emerald lantern."), tinderboxHighlighted, emeraldLantern);
 
-		goUpToCannon1 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE_LEVEL1, new WorldPoint(2225, 3808, 0), "Go to the top deck to remove the cannon's symbol.");
-		goUpToCannon2 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE, new WorldPoint(2222, 3792, 1), "Go to the top deck to remove the cannon's symbol.");
-		goUpToCannon3 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE, new WorldPoint(2227, 3794, 2), "Go to the top deck to remove the cannon's symbol.");
-		useLanternOnCannon = new ObjectStep(this, ObjectID.QUEST_LUNAR_CANNON_SYMBOL_MULTI, new WorldPoint(2227, 3786, 3), "Use the emerald lantern on the east cannon.", emeraldLanternLitHighlighted);
+		goUpToCannon1 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE_LEVEL1, new WorldPoint(2225, 3808, 0), t("Go to the top deck to remove the cannon's symbol."));
+		goUpToCannon2 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE, new WorldPoint(2222, 3792, 1), t("Go to the top deck to remove the cannon's symbol."));
+		goUpToCannon3 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE, new WorldPoint(2227, 3794, 2), t("Go to the top deck to remove the cannon's symbol."));
+		useLanternOnCannon = new ObjectStep(this, ObjectID.QUEST_LUNAR_CANNON_SYMBOL_MULTI, new WorldPoint(2227, 3786, 3), t("Use the emerald lantern on the east cannon."), emeraldLanternLitHighlighted);
 		useLanternOnCannon.addIcon(ItemID.BULLSEYE_LANTERN_LIT_LUNAR_QUEST);
 		useLanternOnCannon.addDialogStep("Rub away!");
 		goUpToCannon1.addSubSteps(goUpToCannon2, goUpToCannon3, useLanternOnCannon);
 
-		goDownToChart = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP, new WorldPoint(2227, 3794, 3), "Go to the main deck to remove a wallchart's symbol.");
-		goUpToChart1 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE_LEVEL1, new WorldPoint(2225, 3808, 0), "Go to the main deck to remove a wallchart's symbol.");
-		goUpToChart2 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE, new WorldPoint(2222, 3792, 1), "Go to the main deck to remove a wallchart's symbol.");
-		useLanternOnChart = new ObjectStep(this, ObjectID.QUEST_LUNAR_WALLCHART_SYMBOL_MULTI, new WorldPoint(2222, 3790, 2), "Use the emerald lantern on the wallchart in the south room.", emeraldLanternLitHighlighted);
+		goDownToChart = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP, new WorldPoint(2227, 3794, 3), t("Go to the main deck to remove a wallchart's symbol."));
+		goUpToChart1 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE_LEVEL1, new WorldPoint(2225, 3808, 0), t("Go to the main deck to remove a wallchart's symbol."));
+		goUpToChart2 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE, new WorldPoint(2222, 3792, 1), t("Go to the main deck to remove a wallchart's symbol."));
+		useLanternOnChart = new ObjectStep(this, ObjectID.QUEST_LUNAR_WALLCHART_SYMBOL_MULTI, new WorldPoint(2222, 3790, 2), t("Use the emerald lantern on the wallchart in the south room."), emeraldLanternLitHighlighted);
 		useLanternOnChart.addIcon(ItemID.BULLSEYE_LANTERN_LIT_LUNAR_QUEST);
 		useLanternOnChart.addDialogStep("Rub away!");
 		goDownToChart.addSubSteps(goUpToChart1, goUpToChart2, useLanternOnChart);
 
-		goDownToChest1 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP, new WorldPoint(2227, 3794, 3), "Go to the bottom deck to remove more symbols.");
-		goDownToChest2 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP, new WorldPoint(2222, 3792, 2), "Go to the bottom deck to remove more symbols.");
-		goDownToChest3 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP_LEVEL1, new WorldPoint(2225, 3808, 1), "Go to the bottom deck to remove more symbols.");
-		useLanternOnChest = new ObjectStep(this, ObjectID.QUEST_LUNAR_CHEST_SYMBOL_MULTI, new WorldPoint(2223, 3811, 0), "Use the emerald lantern on the chest in the north of the bottom deck.", emeraldLanternLitHighlighted);
+		goDownToChest1 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP, new WorldPoint(2227, 3794, 3), t("Go to the bottom deck to remove more symbols."));
+		goDownToChest2 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP, new WorldPoint(2222, 3792, 2), t("Go to the bottom deck to remove more symbols."));
+		goDownToChest3 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP_LEVEL1, new WorldPoint(2225, 3808, 1), t("Go to the bottom deck to remove more symbols."));
+		useLanternOnChest = new ObjectStep(this, ObjectID.QUEST_LUNAR_CHEST_SYMBOL_MULTI, new WorldPoint(2223, 3811, 0), t("Use the emerald lantern on the chest in the north of the bottom deck."), emeraldLanternLitHighlighted);
 		useLanternOnChest.addIcon(ItemID.BULLSEYE_LANTERN_LIT_LUNAR_QUEST);
 		useLanternOnChest.addDialogStep("Rub away!");
 		useLanternOnChest.addSubSteps(goDownToChest1, goDownToChest2, goDownToChest3);
 
-		useLanternOnPillar = new ObjectStep(this, ObjectID.QUEST_LUNAR_SUPPORT_SYMBOL_MULTI, new WorldPoint(2224, 3793, 0), "Use the emerald lantern on the pillar next to the kitchen of the bottom deck.", emeraldLanternLitHighlighted);
+		useLanternOnPillar = new ObjectStep(this, ObjectID.QUEST_LUNAR_SUPPORT_SYMBOL_MULTI, new WorldPoint(2224, 3793, 0), t("Use the emerald lantern on the pillar next to the kitchen of the bottom deck."), emeraldLanternLitHighlighted);
 		useLanternOnPillar.addIcon(ItemID.BULLSEYE_LANTERN_LIT_LUNAR_QUEST);
 		useLanternOnPillar.addDialogStep("Rub away!");
-		useLanternOnCrate = new ObjectStep(this, ObjectID.QUEST_LUNAR_SACK_PILE_SYMBOL_MULTI, new WorldPoint(2226, 3790, 0), "Use the emerald lantern on the crate in the kitchen of the bottom deck.", emeraldLanternLitHighlighted);
+		useLanternOnCrate = new ObjectStep(this, ObjectID.QUEST_LUNAR_SACK_PILE_SYMBOL_MULTI, new WorldPoint(2226, 3790, 0), t("Use the emerald lantern on the crate in the kitchen of the bottom deck."), emeraldLanternLitHighlighted);
 		useLanternOnCrate.addIcon(ItemID.BULLSEYE_LANTERN_LIT_LUNAR_QUEST);
 		useLanternOnCrate.addDialogStep("Rub away!");
 
-		goDownToSail = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP, new WorldPoint(2227, 3794, 3), "Go to the main deck and talk to Captain Bentley to set sail.");
-		goUpToSail1 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE_LEVEL1, new WorldPoint(2225, 3808, 0), "Go to the main deck and talk to Captain Bentley to set sail.");
-		goUpToSail2 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE, new WorldPoint(2222, 3792, 1), "Go to the main deck and talk to Captain Bentley to set sail.");
-		talkToBentleyToSail = new NpcStep(this, NpcID.LUNAR_PIRATE_CAPTAIN_1OP, new WorldPoint(2222, 3796, 2), "Talk to Captain Bentley to set sail.");
+		goDownToSail = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_TOP, new WorldPoint(2227, 3794, 3), t("Go to the main deck and talk to Captain Bentley to set sail."));
+		goUpToSail1 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE_LEVEL1, new WorldPoint(2225, 3808, 0), t("Go to the main deck and talk to Captain Bentley to set sail."));
+		goUpToSail2 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_STAIRS_BASE, new WorldPoint(2222, 3792, 1), t("Go to the main deck and talk to Captain Bentley to set sail."));
+		talkToBentleyToSail = new NpcStep(this, NpcID.LUNAR_PIRATE_CAPTAIN_1OP, new WorldPoint(2222, 3796, 2), t("Talk to Captain Bentley to set sail."));
 		talkToBentleyToSail.addAlternateNpcs(NpcID.LUNAR_PIRATE_CAPTAIN_2OPS);
 		talkToBentleyToSail.addSubSteps(goDownToSail, goUpToSail1, goUpToSail2);
 
-		goDownToIsle1 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_PIER_STAIRS_TOP, new WorldPoint(2127, 3893, 2), "Climb down to Lunar Isle.");
-		goDownToIsle2 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_PIER_STAIRS_TOP_LOWER, new WorldPoint(2118, 3894, 1), "Climb down to Lunar Isle.");
-		enterTown = new DetailedQuestStep(this, new WorldPoint(2100, 3914, 0), "Enter the town on Lunar Isle.");
+		goDownToIsle1 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_PIER_STAIRS_TOP, new WorldPoint(2127, 3893, 2), t("Climb down to Lunar Isle."));
+		goDownToIsle2 = new ObjectStep(this, ObjectID.QUEST_LUNAR_GALLEON_PIER_STAIRS_TOP_LOWER, new WorldPoint(2118, 3894, 1), t("Climb down to Lunar Isle."));
+		enterTown = new DetailedQuestStep(this, new WorldPoint(2100, 3914, 0), t("Enter the town on Lunar Isle."));
 		enterTown.addSubSteps(goDownToIsle1, goDownToIsle2);
 
-		talkToOneiromancer = new NpcStep(this, NpcID.LUNAR_ONEIROMANCER, new WorldPoint(2151, 3867, 0), "Talk to the Oneiromancer in the south east of Lunar Isle.", sealOfPassage);
+		talkToOneiromancer = new NpcStep(this, NpcID.LUNAR_ONEIROMANCER, new WorldPoint(2151, 3867, 0), t("Talk to the Oneiromancer in the south east of Lunar Isle."), sealOfPassage);
 
-		enterChickenHouse = new NpcStep(this, NpcID.LUNAR_BABA_YAGA_HOUSE, new WorldPoint(2085, 3931, 0), "Talk to Baba Yaga in the chicken-legged house in the north of Lunar Isle's town.", sealOfPassage);
-		talkToYaga = new NpcStep(this, NpcID.LUNAR_MOONCLAN_BABA_YAGA, new WorldPoint(2451, 4646, 0), "Talk to Baba Yaga.", sealOfPassage);
+		enterChickenHouse = new NpcStep(this, NpcID.LUNAR_BABA_YAGA_HOUSE, new WorldPoint(2085, 3931, 0), t("Talk to Baba Yaga in the chicken-legged house in the north of Lunar Isle's town."), sealOfPassage);
+		talkToYaga = new NpcStep(this, NpcID.LUNAR_MOONCLAN_BABA_YAGA, new WorldPoint(2451, 4646, 0), t("Talk to Baba Yaga."), sealOfPassage);
 		talkToYaga.addDialogStep("The Oneiromancer told me you may be able to help...");
 
-		leaveChickenHouse = new ObjectStep(this, ObjectID.LUNAR_MOONCLAN_DOOR_BABA_YAGA, new WorldPoint(2451, 4644, 0), "Leave Baba Yaga's house.", specialVial);
+		leaveChickenHouse = new ObjectStep(this, ObjectID.LUNAR_MOONCLAN_DOOR_BABA_YAGA, new WorldPoint(2451, 4644, 0), t("Leave Baba Yaga's house."), specialVial);
 
-		fillVial = new ObjectStep(this, ObjectID.LUNAR_MOONCLAN_SINK, new WorldPoint(2091, 3922, 0), "Fill the vial with water.", specialVialHighlighted);
+		fillVial = new ObjectStep(this, ObjectID.LUNAR_MOONCLAN_SINK, new WorldPoint(2091, 3922, 0), t("Fill the vial with water."), specialVialHighlighted);
 		fillVial.addIcon(ItemID.LUNAR_MOONCLAN_LIMINAL_VIAL_EMPTY);
 		fillVial.addSubSteps(leaveChickenHouse);
 
-		addGuam = new DetailedQuestStep(this, "Add guam to the vial of water.", waterVial, guam);
-		addGuamToMarrentill = new DetailedQuestStep(this, "Add guam to the marr vial.", marrentilPotion, guam);
+		addGuam = new DetailedQuestStep(this, t("Add guam to the vial of water."), waterVial, guam);
+		addGuamToMarrentill = new DetailedQuestStep(this, t("Add guam to the marr vial."), marrentilPotion, guam);
 		addGuam.addSubSteps(addGuamToMarrentill);
 
-		addMarrentil = new DetailedQuestStep(this, "Add marrentill to the guam vial.", marrentill, guamPotion);
-		grindTooth = new DetailedQuestStep(this, "Grind the suqah tooth.", suqahTooth, pestle);
+		addMarrentil = new DetailedQuestStep(this, t("Add marrentill to the guam vial."), marrentill, guamPotion);
+		grindTooth = new DetailedQuestStep(this, t("Grind the suqah tooth."), suqahTooth, pestle);
 
-		addToothToPotion = new DetailedQuestStep(this, "Add the ground tooth to the guam-marr potion.", groundTooth, guamMarrentilPotionHighlighted);
+		addToothToPotion = new DetailedQuestStep(this, t("Add the ground tooth to the guam-marr potion."), groundTooth, guamMarrentilPotionHighlighted);
 
-		killSuqahForTooth = new NpcStep(this, NpcID.LUNAR_SUQKA, "Kill the Suqah outside the town for a tooth. You'll also need 4 hides for later, so pick them up.", true);
-		pickUpTooth = new ItemStep(this, "Pick up the suqah tooth.", suqahTooth);
+		killSuqahForTooth = new NpcStep(this, NpcID.LUNAR_SUQKA, t("Kill the Suqah outside the town for a tooth. You'll also need 4 hides for later, so pick them up."), true);
+		pickUpTooth = new ItemStep(this, t("Pick up the suqah tooth."), suqahTooth);
 
-		bringPotionToOneiromancer = new NpcStep(this, NpcID.LUNAR_ONEIROMANCER, new WorldPoint(2151, 3867, 0), "Return to the Oneiromancer with the waking sleep vial.", sealOfPassage, sleepPotion);
+		bringPotionToOneiromancer = new NpcStep(this, NpcID.LUNAR_ONEIROMANCER, new WorldPoint(2151, 3867, 0), t("Return to the Oneiromancer with the waking sleep vial."), sealOfPassage, sleepPotion);
 
 		enterAirAltar = new ObjectStep(this, ObjectID.AIRTEMPLE_RUINED, new WorldPoint(2985, 3292, 0),
-			"Enter the Air Altar and use a dramen staff on it.", airTalisman, dramenStaff);
+			t("Enter the Air Altar and use a dramen staff on it."), airTalisman, dramenStaff);
 		enterAirAltar.addIcon(ItemID.AIR_TALISMAN);
 		useOnAir = new ObjectStep(this, ObjectID.AIR_ALTAR, new WorldPoint(2844, 4834, 0),
-			"Use the staff on the altar.", dramenStaffHighlighted);
+			t("Use the staff on the altar."), dramenStaffHighlighted);
 		useOnAir.addIcon(ItemID.DRAMEN_STAFF);
 		enterAirAltar.addSubSteps(useOnAir);
 
 		enterFireAltar = new ObjectStep(this, ObjectID.FIRETEMPLE_RUINED, new WorldPoint(3313, 3255, 0),
-			"Enter the Fire Altar and use a partially made lunar staff on it.", fireTalisman, lunarStaffP1);
+			t("Enter the Fire Altar and use a partially made lunar staff on it."), fireTalisman, lunarStaffP1);
 		enterFireAltar.addIcon(ItemID.FIRE_TALISMAN);
 		useOnFire = new ObjectStep(this, ObjectID.FIRE_ALTAR, new WorldPoint(2585, 4838, 0),
-			"Use the staff on the altar.", lunarStaffP1Highlighted);
+			t("Use the staff on the altar."), lunarStaffP1Highlighted);
 		useOnFire.addIcon(ItemID.DRAMEN_STAFF_AIR);
 		enterFireAltar.addSubSteps(useOnFire);
 
 		enterWaterAltar = new ObjectStep(this, ObjectID.WATERTEMPLE_RUINED, new WorldPoint(3185, 3165, 0),
-			"Enter the Water Altar and use the partially made lunar staff on it.", waterTalisman, lunarStaffP2);
+			t("Enter the Water Altar and use the partially made lunar staff on it."), waterTalisman, lunarStaffP2);
 		enterWaterAltar.addIcon(ItemID.WATER_TALISMAN);
-		useOnWater = new ObjectStep(this, ObjectID.WATER_ALTAR, new WorldPoint(2716, 4836, 0), "Use the staff on the altar.", lunarStaffP2Highlighted);
+		useOnWater = new ObjectStep(this, ObjectID.WATER_ALTAR, new WorldPoint(2716, 4836, 0), t("Use the staff on the altar."), lunarStaffP2Highlighted);
 		useOnWater.addIcon(ItemID.DRAMEN_STAFF_FIRE);
 		enterWaterAltar.addSubSteps(useOnWater);
 
 		enterEarthAltar = new ObjectStep(this, ObjectID.EARTHTEMPLE_RUINED, new WorldPoint(3306, 3474, 0),
-			"Enter the Earth Altar and use a partially made lunar staff on it.", earthTalisman, lunarStaffP3);
+			t("Enter the Earth Altar and use a partially made lunar staff on it."), earthTalisman, lunarStaffP3);
 		enterEarthAltar.addIcon(ItemID.EARTH_TALISMAN);
 		useOnEarth = new ObjectStep(this, ObjectID.EARTH_ALTAR, new WorldPoint(2658, 4841, 0),
-			"Use the staff on the altar.", lunarStaffP3Highlighted);
+			t("Use the staff on the altar."), lunarStaffP3Highlighted);
 		useOnEarth.addIcon(ItemID.DRAMEN_STAFF_WATER);
 		enterEarthAltar.addSubSteps(useOnEarth);
 
-		talkToOneiromancerWithStaff = new NpcStep(this, NpcID.LUNAR_ONEIROMANCER, new WorldPoint(2151, 3867, 0), "Bring the staff to the Oneiromancer in the south east of Lunar Isle.", sealOfPassage, lunarStaff);
+		talkToOneiromancerWithStaff = new NpcStep(this, NpcID.LUNAR_ONEIROMANCER, new WorldPoint(2151, 3867, 0), t("Bring the staff to the Oneiromancer in the south east of Lunar Isle."), sealOfPassage, lunarStaff);
 
-		enterMine = new ObjectStep(this, ObjectID.LUNAR_MINE_SLANTY_LADDER_DOWN, new WorldPoint(2142, 3944, 0), "Enter the mine in the north east of Lunar Isle.", pickaxe);
-		mineOre = new ObjectStep(this, ObjectID.LUNAR_MINE_STALAGMITE_SMALL, "Mine a lunar ore from one of the stalagmites in the area. (Tip: Grab 3 extra ores to save time during The Fremennik Exiles quest)", pickaxe);
+		enterMine = new ObjectStep(this, ObjectID.LUNAR_MINE_SLANTY_LADDER_DOWN, new WorldPoint(2142, 3944, 0), t("Enter the mine in the north east of Lunar Isle."), pickaxe);
+		mineOre = new ObjectStep(this, ObjectID.LUNAR_MINE_STALAGMITE_SMALL, t("Mine a lunar ore from one of the stalagmites in the area. (Tip: Grab 3 extra ores to save time during The Fremennik Exiles quest)"), pickaxe);
 		mineOre.addAlternateObjects(ObjectID.LUNAR_MINE_STALAGMITE_TWIN);
-		smeltBar = new DetailedQuestStep(this, "Smelt the ore at a furnace.", lunarOre);
-		makeHelmet = new DetailedQuestStep(this, "Make the lunar helmet on an anvil.", lunarBar, hammer);
+		smeltBar = new DetailedQuestStep(this, t("Smelt the ore at a furnace."), lunarOre);
+		makeHelmet = new DetailedQuestStep(this, t("Make the lunar helmet on an anvil."), lunarBar, hammer);
 		makeHelmet.addDialogStep("Yes.");
-		talkToPauline = new NpcStep(this, NpcID.LUNAR_MOONCLAN_MONK1, new WorldPoint(2070, 3917, 0), "Talk to Pauline Polaris in the west of Lunar Isle's town.", sealOfPassage);
+		talkToPauline = new NpcStep(this, NpcID.LUNAR_MOONCLAN_MONK1, new WorldPoint(2070, 3917, 0), t("Talk to Pauline Polaris in the west of Lunar Isle's town."), sealOfPassage);
 		talkToPauline.addDialogSteps("Pauline?", "Jane Blud-Hagic-Maid");
-		talkToMeteora = new NpcStep(this, NpcID.LUNAR_MOONCLAN_MONK2, new WorldPoint(2083, 3890, 0), "Talk to Meteora in the south of Lunar Isle's town.", sealOfPassage);
-		talkToSelene = new NpcStep(this, NpcID.LUNAR_MOONCLAN_MONK4, new WorldPoint(2079, 3912, 0), "Talk to Selene in the west of Lunar Isle's town.", sealOfPassage);
+		talkToMeteora = new NpcStep(this, NpcID.LUNAR_MOONCLAN_MONK2, new WorldPoint(2083, 3890, 0), t("Talk to Meteora in the south of Lunar Isle's town."), sealOfPassage);
+		talkToSelene = new NpcStep(this, NpcID.LUNAR_MOONCLAN_MONK4, new WorldPoint(2079, 3912, 0), t("Talk to Selene in the west of Lunar Isle's town."), sealOfPassage);
 		talkToSelene.addDialogStep("I'm looking for a ring.");
-		killSuqahForTiara = new NpcStep(this, NpcID.LUNAR_SUQKA, "Kill the Suqah outside the town for a special tiara. You'll also need 4 hides for making clothes, so pick them up.", true);
-		pickUpTiara = new ItemStep(this, "Pick up the tiara.", tiara);
+		killSuqahForTiara = new NpcStep(this, NpcID.LUNAR_SUQKA, t("Kill the Suqah outside the town for a special tiara. You'll also need 4 hides for making clothes, so pick them up."), true);
+		pickUpTiara = new ItemStep(this, t("Pick up the tiara."), tiara);
 		killSuqahForTiara.addSubSteps(pickUpTiara);
 		returnTiaraToMeteora = new NpcStep(this, NpcID.LUNAR_MOONCLAN_MONK2, new WorldPoint(2083, 3890, 0),
-			"Return the tiara to Meteora in the south of Lunar Isle's town.", sealOfPassage, tiara);
+			t("Return the tiara to Meteora in the south of Lunar Isle's town."), sealOfPassage, tiara);
 
-		digForRing = new DigStep(this, new WorldPoint(2078, 3863, 0), "Dig in the south west of Lunar Isle for the ring.");
+		digForRing = new DigStep(this, new WorldPoint(2078, 3863, 0), t("Dig in the south west of Lunar Isle for the ring."));
 		talkToRimae = new NpcStep(this, NpcID.LUNAR_MOONCLAN_MONK5, new WorldPoint(2104, 3909, 0),
-			"Talk to Rimae in the east of Lunar Isle's town.", sealOfPassage, suqahHide4, coins400, threadNeedleOrCostumeNeedle);
+			t("Talk to Rimae in the east of Lunar Isle's town."), sealOfPassage, suqahHide4, coins400, threadNeedleOrCostumeNeedle);
 		talkToRimae.addDialogStep("You know the ceremonial clothes?");
 		makeClothes = new NpcStep(this, NpcID.LUNAR_MOONCLAN_MONK5, new WorldPoint(2104, 3909, 0),
-			"Have Rimae in the east of Lunar Isle's town tan 4 suqah hides, and craft them into the torso, gloves, boots and legs.", sealOfPassage, suqahHide4, coins400, threadNeedleOrCostumeNeedle);
+			t("Have Rimae in the east of Lunar Isle's town tan 4 suqah hides, and craft them into the torso, gloves, boots and legs."), sealOfPassage, suqahHide4, coins400, threadNeedleOrCostumeNeedle);
 		makeClothes.addDialogSteps("You know the ceremonial clothes?", "That seems like a fair deal.");
 
 		bringItemsToOneiromancer = new BringLunarItems(this);
 
-		useVialOnKindling = new DetailedQuestStep(this, "Use the waking sleep potion on the kindling", sleepPotionHighlighted, kindling);
+		useVialOnKindling = new DetailedQuestStep(this, t("Use the waking sleep potion on the kindling"), sleepPotionHighlighted, kindling);
 
 		lightBrazier = new ObjectStep(this, ObjectID.LUNAR_MOONCLAN_BRAZIER_MULTI, new WorldPoint(2073, 3912, 0),
-			"Equip your lunar equipment, some combat runes, and light the Brazier in the west of Lunar Isle's town.",
+			t("Equip your lunar equipment, some combat runes, and light the Brazier in the west of Lunar Isle's town."),
 			sealOfPassage, tinderboxHighlighted, soakedKindling, helmEquipped, bodyEquipped, legsEquipped, bootsEquipped, glovesEquipped,
 			cloakEquipped, amuletEquipped, ringEquipped, lunarStaffEquipped);
 		lightBrazier.addIcon(ItemID.TINDERBOX);
 
 		useKindlingOnBrazier = new ObjectStep(this, ObjectID.LUNAR_MOONCLAN_BRAZIER_MULTI, new WorldPoint(2073, 3912, 0),
-			"Add the soaked kindling the Brazier in the west of Lunar Isle's town.",
+			t("Add the soaked kindling the Brazier in the west of Lunar Isle's town."),
 			sealOfPassage, soakedKindlingHighlighted, helmEquipped, bodyEquipped, legsEquipped, bootsEquipped, glovesEquipped,
 			cloakEquipped, amuletEquipped, ringEquipped, lunarStaffEquipped);
 		useKindlingOnBrazier.addIcon(ItemID.LUNAR_MOONCLAN_KINDLING_SOAKED);
 
 		if (client.getLocalPlayer() != null && client.getLocalPlayer().getPlayerComposition() != null && client.getLocalPlayer().getPlayerComposition().getGender() == 1)
 		{
-			talkToEthereal = new NpcStep(this, NpcID.LUNAR_MOON_DREAM_LADY, new WorldPoint(1762, 5088, 2), "Talk to the Ethereal Being.");
-			talkWithEtherealToFight = new NpcStep(this, NpcID.LUNAR_MOON_DREAM_LADY, new WorldPoint(1762, 5088, 2), "Talk to the Ethereal Being. Be prepared to fight.");
+			talkToEthereal = new NpcStep(this, NpcID.LUNAR_MOON_DREAM_LADY, new WorldPoint(1762, 5088, 2), t("Talk to the Ethereal Being."));
+			talkWithEtherealToFight = new NpcStep(this, NpcID.LUNAR_MOON_DREAM_LADY, new WorldPoint(1762, 5088, 2), t("Talk to the Ethereal Being. Be prepared to fight."));
 		}
 		else
 		{
-			talkToEthereal = new NpcStep(this, NpcID.LUNAR_MOON_DREAM_MAN, new WorldPoint(1762, 5088, 2), "Talk to the Ethereal Being.");
-			talkWithEtherealToFight = new NpcStep(this, NpcID.LUNAR_MOON_DREAM_MAN, new WorldPoint(1762, 5088, 2), "Talk to the Ethereal Being. Be prepared to fight.");
+			talkToEthereal = new NpcStep(this, NpcID.LUNAR_MOON_DREAM_MAN, new WorldPoint(1762, 5088, 2), t("Talk to the Ethereal Being."));
+			talkWithEtherealToFight = new NpcStep(this, NpcID.LUNAR_MOON_DREAM_MAN, new WorldPoint(1762, 5088, 2), t("Talk to the Ethereal Being. Be prepared to fight."));
 		}
 		talkWithEtherealToFight.addDialogStep("Of course. I'm ready.");
 
-		goToNumbers = new ObjectStep(this, ObjectID.QUEST_LUNAR_SPRING_NUMBERS_MULTI, new WorldPoint(1768, 5080, 2), "Go on the platform to the number challenge.");
-		goToMimic = new ObjectStep(this, ObjectID.QUEST_LUNAR_SPRING_MUSIC_MULTI, new WorldPoint(1765, 5079, 2), "Go on the platform to the mimic challenge.");
-		goToRace = new ObjectStep(this, ObjectID.QUEST_LUNAR_SPRING_POWER_MULTI, new WorldPoint(1770, 5088, 2), "Go on the platform to the race challenge.");
-		goToMemory = new ObjectStep(this, ObjectID.QUEST_LUNAR_SPRING_JUMP_MULTI, new WorldPoint(1751, 5095, 2), "Go on the platform to the memory challenge.");
-		goToTrees = new ObjectStep(this, ObjectID.QUEST_LUNAR_SPRING_TREE_MULTI, new WorldPoint(1764, 5098, 2), "Go on the platform to the trees challenge.");
-		goToChance = new ObjectStep(this, ObjectID.QUEST_LUNAR_SPRING_DICE_MULTI, new WorldPoint(1751, 5080, 2), "Go on the platform to the chance challenge.");
+		goToNumbers = new ObjectStep(this, ObjectID.QUEST_LUNAR_SPRING_NUMBERS_MULTI, new WorldPoint(1768, 5080, 2), t("Go on the platform to the number challenge."));
+		goToMimic = new ObjectStep(this, ObjectID.QUEST_LUNAR_SPRING_MUSIC_MULTI, new WorldPoint(1765, 5079, 2), t("Go on the platform to the mimic challenge."));
+		goToRace = new ObjectStep(this, ObjectID.QUEST_LUNAR_SPRING_POWER_MULTI, new WorldPoint(1770, 5088, 2), t("Go on the platform to the race challenge."));
+		goToMemory = new ObjectStep(this, ObjectID.QUEST_LUNAR_SPRING_JUMP_MULTI, new WorldPoint(1751, 5095, 2), t("Go on the platform to the memory challenge."));
+		goToTrees = new ObjectStep(this, ObjectID.QUEST_LUNAR_SPRING_TREE_MULTI, new WorldPoint(1764, 5098, 2), t("Go on the platform to the trees challenge."));
+		goToChance = new ObjectStep(this, ObjectID.QUEST_LUNAR_SPRING_DICE_MULTI, new WorldPoint(1751, 5080, 2), t("Go on the platform to the chance challenge."));
 
-		doMemoryChallenge = new PuzzleWrapperStep(this, new MemoryChallenge(this), "Solve the memory puzzle.");
-		startTreeChallenge = new NpcStep(this, NpcID.LUNAR_MOON_DREAM_TREES_GAME_MAN, new WorldPoint(1765, 5112, 2), "Talk to Ethereal Perceptive to begin. Cut 20 logs and deposit them on the log piles faster than the NPC.");
+		doMemoryChallenge = new PuzzleWrapperStep(this, new MemoryChallenge(this), t("Solve the memory puzzle."));
+		startTreeChallenge = new NpcStep(this, NpcID.LUNAR_MOON_DREAM_TREES_GAME_MAN, new WorldPoint(1765, 5112, 2), t("Talk to Ethereal Perceptive to begin. Cut 20 logs and deposit them on the log piles faster than the NPC."));
 		startTreeChallenge.addDialogStep("Ok, let's go!");
-		doRaceChallenge = new DetailedQuestStep(this, "Race to the end of the course to win!");
-		doChanceChallenge = new PuzzleWrapperStep(this, new ChanceChallenge(this), "Solve the dice challenge.");
-		doNumberChallenge = new PuzzleWrapperStep(this, new NumberChallenge(this), "Complete the numbers challenge.");
-		doMimicChallenge = new PuzzleWrapperStep(this, new MimicChallenge(this), "Complete the mimic challenge.");
+		doRaceChallenge = new DetailedQuestStep(this, t("Race to the end of the course to win!"));
+		doChanceChallenge = new PuzzleWrapperStep(this, new ChanceChallenge(this), t("Solve the dice challenge."));
+		doNumberChallenge = new PuzzleWrapperStep(this, new NumberChallenge(this), t("Complete the numbers challenge."));
+		doMimicChallenge = new PuzzleWrapperStep(this, new MimicChallenge(this), t("Complete the mimic challenge."));
 
 		startNumber = new NpcStep(this, NpcID.LUNAR_MOON_DREAM_NUMBERS_GAME_MAN, new WorldPoint(1786, 5066, 2),
-			"Talk to the Ethereal Numerator to begin the challenge.");
+			t("Talk to the Ethereal Numerator to begin the challenge."));
 
-		doTreeChallenge = new DetailedQuestStep(this, "Chop 20 logs and deposit them in the log pile.");
+		doTreeChallenge = new DetailedQuestStep(this, t("Chop 20 logs and deposit them in the log pile."));
 
-		startRace = new NpcStep(this, NpcID.LUNAR_MOON_DREAM_POWER_GAME_MAN, new WorldPoint(1788, 5068, 2), "Talk to the Ethereal Expert. Be prepared to race!");
+		startRace = new NpcStep(this, NpcID.LUNAR_MOON_DREAM_POWER_GAME_MAN, new WorldPoint(1788, 5068, 2), t("Talk to the Ethereal Expert. Be prepared to race!"));
 		startRace.addDialogStep("Ok.");
 
-		fightMe = new NpcStep(this, NpcID.QUEST_LUNAR_MIRROR_OF_PLAYER, new WorldPoint(1823, 5087, 2), "Fight Me.");
+		fightMe = new NpcStep(this, NpcID.QUEST_LUNAR_MIRROR_OF_PLAYER, new WorldPoint(1823, 5087, 2), t("Fight Me."));
 		fightMe.addAlternateNpcs(NpcID.QUEST_LUNAR_MIRROR_OF_PLAYER_FEMALE);
 
-		leaveLecturn = new ObjectStep(this, ObjectID.LUNAR_DREAM_DREAM_PLINTH, new WorldPoint(1760, 5088, 2), "Read My life to return to Lunar Isle.");
+		leaveLecturn = new ObjectStep(this, ObjectID.LUNAR_DREAM_DREAM_PLINTH, new WorldPoint(1760, 5088, 2), t("Read My life to return to Lunar Isle."));
 		leaveLecturn.addDialogStep("Yes");
 		finishQuest = new NpcStep(this, NpcID.LUNAR_ONEIROMANCER, new WorldPoint(2151, 3867, 0),
-			"Talk to the Oneiromancer in the south east of Lunar Isle to finish the quest!\n(Remember to equip the seal of passage)", sealOfPassage);
+			t("Talk to the Oneiromancer in the south east of Lunar Isle to finish the quest!\n(Remember to equip the seal of passage)"), sealOfPassage);
 	}
 
 	private void setupConditionalSteps()
@@ -820,16 +820,16 @@ public class LunarDiplomacy extends BasicQuestHelper
 		enteringTheIsland.addStep(onLunarDock, goDownToIsle2);
 		enteringTheIsland.addStep(onBoatLunar, goDownToIsle1);
 
-		returnToTalkToYaga = new ConditionalStep(this, enteringTheIsland, "Talk to Baba Yaga in the chicken-legged house in the north of Lunar Isle's town.");
+		returnToTalkToYaga = new ConditionalStep(this, enteringTheIsland, t("Talk to Baba Yaga in the chicken-legged house in the north of Lunar Isle's town."));
 		returnToTalkToYaga.addSubSteps(talkToYaga, enterChickenHouse);
 
-		returnToMakePotion = new ConditionalStep(this, enteringTheIsland, "Kill the Suqah outside the town on Lunar Isle for a tooth. You'll also need 4 hides for later, so pick them up.");
+		returnToMakePotion = new ConditionalStep(this, enteringTheIsland, t("Kill the Suqah outside the town on Lunar Isle for a tooth. You'll also need 4 hides for later, so pick them up."));
 		returnToMakePotion.addSubSteps(killSuqahForTooth, pickUpTooth);
 
-		returnToOneWithPotion = new ConditionalStep(this, enteringTheIsland, "Return to the Oneiromancer with the waking sleep vial.", sleepPotion);
+		returnToOneWithPotion = new ConditionalStep(this, enteringTheIsland, t("Return to the Oneiromancer with the waking sleep vial."), sleepPotion);
 		returnToOneWithPotion.addSubSteps(bringPotionToOneiromancer);
 
-		returnWithStaff = new ConditionalStep(this, enteringTheIsland, "Return to the Oneiromancer with the Lunar Staff.", lunarStaff);
+		returnWithStaff = new ConditionalStep(this, enteringTheIsland, t("Return to the Oneiromancer with the Lunar Staff."), lunarStaff);
 		returnWithStaff.addSubSteps(talkToOneiromancerWithStaff);
 
 		makingHelm = new ConditionalStep(this, enterMine);
@@ -872,7 +872,7 @@ public class LunarDiplomacy extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Arrays.asList("Multiple Suqah (level 111)", "Me (level 79)");
+		return Arrays.asList(t("Multiple Suqah (level 111)"), t("Me (level 79)"));
 	}
 
 	@Override
@@ -890,7 +890,7 @@ public class LunarDiplomacy extends BasicQuestHelper
 		req.add(new SkillRequirement(Skill.MAGIC, 65));
 		req.add(new SkillRequirement(Skill.MINING, 60));
 		req.add(new SkillRequirement(Skill.WOODCUTTING, 55));
-		req.add(new ItemRequirement("Access to the following altars: \nAir, Earth, Fire, Water", -1, -1));
+		req.add(new ItemRequirement(t("Access to the following altars: \nAir, Earth, Fire, Water"), -1, -1));
 		return req;
 	}
 
@@ -921,63 +921,63 @@ public class LunarDiplomacy extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Access to Lunar Island"),
-				new UnlockReward("Access to the Lunar Spellbook"),
-				new UnlockReward("Access to the Astral Altar"));
+				new UnlockReward(t("Access to Lunar Island")),
+				new UnlockReward(t("Access to the Lunar Spellbook")),
+				new UnlockReward(t("Access to the Astral Altar")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Investigating", Arrays.asList(talkToLokar, talkToBrundt, talkToLokarAgain, climbLadder, talkToBentley),
+		allSteps.add(new PanelDetails(t("Investigating"), Arrays.asList(talkToLokar, talkToBrundt, talkToLokarAgain, climbLadder, talkToBentley),
 			bullseyeLantern, tinderboxHighlighted));
-		allSteps.add(new PanelDetails("The curse", Arrays.asList(climbDownSouthStairs, climbUpSouthStairs, goDownToJackAgain, goUpToShultz, goDownToBurns1, goUpToLee1,
+		allSteps.add(new PanelDetails(t("The curse"), Arrays.asList(climbDownSouthStairs, climbUpSouthStairs, goDownToJackAgain, goUpToShultz, goDownToBurns1, goUpToLee1,
 			goDownToDavey, goUpToCabinBoy, replaceLens, lightLantern, goUpToCannon1, goDownToChart, useLanternOnChest, useLanternOnPillar, useLanternOnCrate,
 			talkToBentleyToSail), bullseyeLantern, tinderboxHighlighted));
-		allSteps.add(new PanelDetails("Starting diplomacy", Arrays.asList(
+		allSteps.add(new PanelDetails(t("Starting diplomacy"), Arrays.asList(
 			enterTown, talkToOneiromancer, returnToTalkToYaga, fillVial, addGuam, addMarrentil, returnToMakePotion, grindTooth,
 			addToothToPotion, returnToOneWithPotion), guam, marrentill, pestle, sealOfPassage, combatGear));
-		allSteps.add(new PanelDetails("Making the staff", Arrays.asList(
+		allSteps.add(new PanelDetails(t("Making the staff"), Arrays.asList(
 			enterAirAltar, enterFireAltar, enterWaterAltar, enterEarthAltar, returnWithStaff),
 			dramenStaff, airTalisman, fireTalisman, waterTalisman, earthTalisman));
 
-		PanelDetails makingHelmPanel = new PanelDetails("Making the helmet", Arrays.asList(
+		PanelDetails makingHelmPanel = new PanelDetails(t("Making the helmet"), Arrays.asList(
 			enterMine, mineOre, smeltBar, makeHelmet), pickaxe, hammer);
 		makingHelmPanel.setLockingStep(makingHelm);
 		allSteps.add(makingHelmPanel);
 
-		PanelDetails gettingCapePanel = new PanelDetails("Getting the cape", Collections.singletonList(talkToPauline));
+		PanelDetails gettingCapePanel = new PanelDetails(t("Getting the cape"), Collections.singletonList(talkToPauline));
 		gettingCapePanel.setLockingStep(gettingCape);
 		allSteps.add(gettingCapePanel);
 
-		PanelDetails gettingAmuletPanel = new PanelDetails("Getting the amulet", Arrays.asList(
+		PanelDetails gettingAmuletPanel = new PanelDetails(t("Getting the amulet"), Arrays.asList(
 			talkToMeteora, killSuqahForTiara, returnTiaraToMeteora), combatGear);
 		gettingAmuletPanel.setLockingStep(gettingAmulet);
 		allSteps.add(gettingAmuletPanel);
 
-		PanelDetails gettingRingPanel = new PanelDetails("Getting the ring", Arrays.asList(
+		PanelDetails gettingRingPanel = new PanelDetails(t("Getting the ring"), Arrays.asList(
 			talkToSelene, digForRing), spade);
 		gettingRingPanel.setLockingStep(gettingRing);
 		allSteps.add(gettingRingPanel);
 
-		PanelDetails gettingClothingPanel = new PanelDetails("Making the clothing", Collections.singletonList(
+		PanelDetails gettingClothingPanel = new PanelDetails(t("Making the clothing"), Collections.singletonList(
 			makeClothes), coins400, threadNeedleOrCostumeNeedle, suqahHide4);
 		gettingClothingPanel.setLockingStep(gettingClothes);
 		allSteps.add(gettingClothingPanel);
 
-		allSteps.add(new PanelDetails("Return to Oneiromancer", Collections.singletonList(
+		allSteps.add(new PanelDetails(t("Return to Oneiromancer"), Collections.singletonList(
 			bringItemsToOneiromancer)));
 
-		allSteps.add(new PanelDetails("Entering the Dreamland", Arrays.asList(
+		allSteps.add(new PanelDetails(t("Entering the Dreamland"), Arrays.asList(
 			useVialOnKindling, lightBrazier, useKindlingOnBrazier, talkToEthereal), tinderboxHighlighted));
-		allSteps.add(new PanelDetails("Racing challenge", Arrays.asList(goToRace, startRace, doRaceChallenge)));
-		allSteps.add(new PanelDetails("Number challenge", Arrays.asList(goToNumbers, startNumber, doNumberChallenge)));
-		allSteps.add(new PanelDetails("Mimic challenge", Arrays.asList(goToMimic, doMimicChallenge)));
-		allSteps.add(new PanelDetails("Chance challenge", Arrays.asList(goToChance, doChanceChallenge)));
-		allSteps.add(new PanelDetails("Memory challenge", Arrays.asList(goToMemory, doMemoryChallenge)));
-		allSteps.add(new PanelDetails("Tree challenge", Arrays.asList(goToTrees, doTreeChallenge)));
-		allSteps.add(new PanelDetails("Final challenge", Arrays.asList(talkWithEtherealToFight, fightMe, leaveLecturn, finishQuest), combatGear));
+		allSteps.add(new PanelDetails(t("Racing challenge"), Arrays.asList(goToRace, startRace, doRaceChallenge)));
+		allSteps.add(new PanelDetails(t("Number challenge"), Arrays.asList(goToNumbers, startNumber, doNumberChallenge)));
+		allSteps.add(new PanelDetails(t("Mimic challenge"), Arrays.asList(goToMimic, doMimicChallenge)));
+		allSteps.add(new PanelDetails(t("Chance challenge"), Arrays.asList(goToChance, doChanceChallenge)));
+		allSteps.add(new PanelDetails(t("Memory challenge"), Arrays.asList(goToMemory, doMemoryChallenge)));
+		allSteps.add(new PanelDetails(t("Tree challenge"), Arrays.asList(goToTrees, doTreeChallenge)));
+		allSteps.add(new PanelDetails(t("Final challenge"), Arrays.asList(talkWithEtherealToFight, fightMe, leaveLecturn, finishQuest), combatGear));
 		return allSteps;
 	}
 }

@@ -20,7 +20,7 @@ public class BringLunarItems extends NpcStep
 	public BringLunarItems(QuestHelper questHelper)
 	{
 		super(questHelper, NpcID.LUNAR_ONEIROMANCER, new WorldPoint(2151, 3867, 0),
-			"Bring all the items to the Oneiromancer in the south east of Lunar Isle.");
+			questHelper.t("Bring all the items to the Oneiromancer in the south east of Lunar Isle."));
 		setupRequirements();
 		setupConditions();
 	}
@@ -40,7 +40,7 @@ public class BringLunarItems extends NpcStep
 	public void setupConditions()
 	{
 		sealOfPassage = new ItemRequirement("Seal of passage", ItemID.LUNAR_SEAL_OF_PASSAGE);
-		sealOfPassage.setTooltip("You can get another from Brundt");
+		sealOfPassage.setTooltip(questHelper.t("You can get another from Brundt"));
 
 		handedInHelm = new VarbitRequirement(VarbitID.LUNAR_PT2_ONEIRO_GIVEN_HELM, 1);
 		handedInCape = new VarbitRequirement(VarbitID.LUNAR_PT2_ONEIRO_GIVEN_CAPE, 1);

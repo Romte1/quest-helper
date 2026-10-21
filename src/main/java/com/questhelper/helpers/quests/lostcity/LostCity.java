@@ -114,9 +114,9 @@ public class LostCity extends BasicQuestHelper
 		axe.addAlternates(ItemCollections.AXES);
 		knife = new ItemRequirement("Knife", ItemID.KNIFE).isNotConsumed();
 
-		combatGear = new ItemRequirement("Runes, or a way of dealing damage which you can smuggle onto Entrana. Runes for Crumble Undead (level 39 Magic) are best", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Runes, or a way of dealing damage which you can smuggle onto Entrana. Runes for Crumble Undead (level 39 Magic) are best"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(ItemID.SKULL);
-		teleport = new ItemRequirement("Teleport, preferably to Lumbridge. Home teleport will work if off cooldown", ItemID.RING_OF_ELEMENTS_CHARGED);
+		teleport = new ItemRequirement(t("Teleport, preferably to Lumbridge. Home teleport will work if off cooldown"), ItemID.RING_OF_ELEMENTS_CHARGED);
 		teleport.addAlternates(ItemID.POH_TABLET_LUMBRIDGETELEPORT);
 
 		bronzeOrIronAxe = new ItemRequirement("Bronze or Iron axe", ItemID.BRONZE_AXE).isNotConsumed();

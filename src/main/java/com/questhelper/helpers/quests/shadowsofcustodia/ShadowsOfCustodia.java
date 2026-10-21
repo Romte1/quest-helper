@@ -175,11 +175,11 @@ public class ShadowsOfCustodia extends BasicQuestHelper
 
 		oneFreeInventorySlot = new FreeInventorySlotRequirement(1);
 		
-		startTeleport = new TeleportItemRequirement("Teleport to Auburnvale (Fairy ring AIS)", ItemCollections.FAIRY_STAFF);
+		startTeleport = new TeleportItemRequirement(t("Teleport to Auburnvale (Fairy ring AIS)"), ItemCollections.FAIRY_STAFF);
 		startTeleport.setAdditionalOptions(new QuestRequirement(QuestHelperQuest.LUMBRIDGE_ELITE, QuestState.FINISHED));
 
 		fishingRod = new ItemRequirement("Fishing rod", ItemID.FISHING_ROD).showConditioned(needToFishClothFromLog).highlighted();
-		fishingRod.appendToTooltip("Can be obtained during the quest, south-west of the area where you need it.");
+		fishingRod.appendToTooltip(t("Can be obtained during the quest, south-west of the area where you need it."));
 
 		// NOTE: I have _not_ confirmed you can use any other hammer, this is an educated guess.
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).showConditioned(needToReinforceWall);
@@ -195,70 +195,70 @@ public class ShadowsOfCustodia extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		var unreachableState = new DetailedQuestStep(this, "This state should not be reachable, please make a report with a screenshot in the Quest Helper discord.");
+		var unreachableState = new DetailedQuestStep(this, t("This state should not be reachable, please make a report with a screenshot in the Quest Helper discord."));
 
-		startQuest = new ObjectStep(this, ObjectID.SOC_MISSING_PERSONS, new WorldPoint(1396, 3356, 0), "Read the noticeboard in the Auburnvale bar to start the quest.");
+		startQuest = new ObjectStep(this, ObjectID.SOC_MISSING_PERSONS, new WorldPoint(1396, 3356, 0), t("Read the noticeboard in the Auburnvale bar to start the quest."));
 		startQuest.addDialogStep("Yes.");
 		startQuest.addTeleport(startTeleport);
 
-		var talkToCitizen = new NpcStep(this, NpcID.SOC_CITIZEN, new WorldPoint(1394, 3354, 0), "Talk to Marcus in the Auburnvale bar.");
-		var talkToBarkeep = new NpcStep(this, NpcID.AUBURN_BARTENDER, new WorldPoint(1391, 3354, 0), "Talk to the Bartender in the Auburnvale bar.");
+		var talkToCitizen = new NpcStep(this, NpcID.SOC_CITIZEN, new WorldPoint(1394, 3354, 0), t("Talk to Marcus in the Auburnvale bar."));
+		var talkToBarkeep = new NpcStep(this, NpcID.AUBURN_BARTENDER, new WorldPoint(1391, 3354, 0), t("Talk to the Bartender in the Auburnvale bar."));
 		talkToBarkeep.addDialogStep("About the missing people...");
-		var talkToShopkeep = new NpcStep(this, NpcID.AUBURN_GENERAL_STORE, new WorldPoint(1380, 3348, 0), "Talk to the Shopkeep in the Auburnvale General store.");
+		var talkToShopkeep = new NpcStep(this, NpcID.AUBURN_GENERAL_STORE, new WorldPoint(1380, 3348, 0), t("Talk to the Shopkeep in the Auburnvale General store."));
 		talkToShopkeep.addDialogStep("About the missing people...");
-		var talkToIctus = new NpcStep(this, NpcID.SOC_SILLYMAN, new WorldPoint(1409, 3375, 0), "Talk to Ictus, north of the Auburnvale Quetzal.");
+		var talkToIctus = new NpcStep(this, NpcID.SOC_SILLYMAN, new WorldPoint(1409, 3375, 0), t("Talk to Ictus, north of the Auburnvale Quetzal."));
 
-		findOutAboutTheMissingPeople = new ConditionalStep(this, unreachableState, "Talk to citizens of Auburnvale about the missing people.");
+		findOutAboutTheMissingPeople = new ConditionalStep(this, unreachableState, t("Talk to citizens of Auburnvale about the missing people."));
 		findOutAboutTheMissingPeople.addStep(needToTalkToCitizen, talkToCitizen);
 		findOutAboutTheMissingPeople.addStep(needToTalkToBarkeep, talkToBarkeep);
 		findOutAboutTheMissingPeople.addStep(needToTalkToIctus, talkToIctus);
 		findOutAboutTheMissingPeople.addStep(needToTalkToShopkeep, talkToShopkeep);
 
-		talkToTheParents = new NpcStep(this, NpcID.SOC_PARENT, new WorldPoint(1381, 3360, 0), "Talk to Aemilia and Francis, north of the Auburnvale General store, about their missing sons.", true);
+		talkToTheParents = new NpcStep(this, NpcID.SOC_PARENT, new WorldPoint(1381, 3360, 0), t("Talk to Aemilia and Francis, north of the Auburnvale General store, about their missing sons."), true);
 		talkToTheParents.addAlternateNpcs(NpcID.SOC_PARENT_2);
 
-		inspectWall = new ObjectStep(this, ObjectID.SOC_WALL_INSPECT_OP, new WorldPoint(1378, 3358, 0), "Inspect the wall outside Aemilia and Francis' house.");
+		inspectWall = new ObjectStep(this, ObjectID.SOC_WALL_INSPECT_OP, new WorldPoint(1378, 3358, 0), t("Inspect the wall outside Aemilia and Francis' house."));
 
-		inspectPuddle = new ObjectStep(this, ObjectID.SOC_PUDDLE, new WorldPoint(1376, 3357, 0), "Inspect the puddle outside Aemilia and Francis' house.");
-		inspectPlank = new ObjectStep(this, ObjectID.SOC_LOG_OP, new WorldPoint(1347, 3354, 0), "Follow the puddle trail and inspect the plank in the river, west of Auburnvale.", fishingRod);
+		inspectPuddle = new ObjectStep(this, ObjectID.SOC_PUDDLE, new WorldPoint(1376, 3357, 0), t("Inspect the puddle outside Aemilia and Francis' house."));
+		inspectPlank = new ObjectStep(this, ObjectID.SOC_LOG_OP, new WorldPoint(1347, 3354, 0), t("Follow the puddle trail and inspect the plank in the river, west of Auburnvale."), fishingRod);
 
 		returnToTheParentsWithCloth = talkToTheParents.copy();
-		returnToTheParentsWithCloth.setText("Return to Aemilia and Francis' house, north of the Auburnvale General store, and talk to them about the cloth you found.");
+		returnToTheParentsWithCloth.setText(t("Return to Aemilia and Francis' house, north of the Auburnvale General store, and talk to them about the cloth you found."));
 
 		// 16649: clicked plank but without a fishing rod
 
-		enterCave = new ObjectStep(this, ObjectID.SOC_CAVE_ENTRANCE, new WorldPoint(1295, 3373, 0), "Follow the trail west of the city, then through the mountains, and enter the cave.");
+		enterCave = new ObjectStep(this, ObjectID.SOC_CAVE_ENTRANCE, new WorldPoint(1295, 3373, 0), t("Follow the trail west of the city, then through the mountains, and enter the cave."));
 
-		talkToInjuredBoyInCave = new NpcStep(this, NpcID.SOC_INJURED_PERSON, new WorldPoint(1298, 9757, 0), "Talk to the Injured boy inside the cave.");
+		talkToInjuredBoyInCave = new NpcStep(this, NpcID.SOC_INJURED_PERSON, new WorldPoint(1298, 9757, 0), t("Talk to the Injured boy inside the cave."));
 
 		findInjuredBoys = new ConditionalStep(this, talkToInjuredBoyInCave);
 		findInjuredBoys.addStep(outsideOfCave, enterCave);
 
 		returnToTheParentsWithBoy = talkToTheParents.copy();
-		returnToTheParentsWithBoy.setText("Return to Aemilia and Francis's house, north of the Auburnvale General store, and tell them you found their missing boys.");
+		returnToTheParentsWithBoy.setText(t("Return to Aemilia and Francis's house, north of the Auburnvale General store, and tell them you found their missing boys."));
 
-		reinforceWall = new ObjectStep(this, ObjectID.SOC_WALL_INSPECT_REINFORCE, new WorldPoint(1378, 3358, 0), "Reinforce the wall outside Aemilia and Francis' house.", hammer, fourMapleLogs);
+		reinforceWall = new ObjectStep(this, ObjectID.SOC_WALL_INSPECT_REINFORCE, new WorldPoint(1378, 3358, 0), t("Reinforce the wall outside Aemilia and Francis' house."), hammer, fourMapleLogs);
 
-		informCaptainAboutMissingPeople = new NpcStep(this, NpcID.AUBURNVALE_GUARD_CAPTAIN, new WorldPoint(1369, 3344, 0), "Talk to Captain Ariadna, south-west of the Auburnvale General store, and inform her about the missing people.", fourWillowLongbows);
+		informCaptainAboutMissingPeople = new NpcStep(this, NpcID.AUBURNVALE_GUARD_CAPTAIN, new WorldPoint(1369, 3344, 0), t("Talk to Captain Ariadna, south-west of the Auburnvale General store, and inform her about the missing people."), fourWillowLongbows);
 
 		reinforceWallAndTalkToCaptain = new ConditionalStep(this, informCaptainAboutMissingPeople);
 		reinforceWallAndTalkToCaptain.addStep(needToReinforceWall, reinforceWall);
 
-		var climbUpLadder = new ObjectStep(this, ObjectID.SOC_LADDER, new WorldPoint(1380, 3357, 0), "Climb upstairs of Aemilia and Francis' house and talk to Etz.");
+		var climbUpLadder = new ObjectStep(this, ObjectID.SOC_LADDER, new WorldPoint(1380, 3357, 0), t("Climb upstairs of Aemilia and Francis' house and talk to Etz."));
 
-		talkToEtzAboutWhatTheyRemember = new NpcStep(this, NpcID.SOC_ETZ, new WorldPoint(1381, 3360, 1), "Talk to Etz, upstairs of Aemilia and Francis' house, about what he remembers.");
+		talkToEtzAboutWhatTheyRemember = new NpcStep(this, NpcID.SOC_ETZ, new WorldPoint(1381, 3360, 1), t("Talk to Etz, upstairs of Aemilia and Francis' house, about what he remembers."));
 		talkToEtzAboutWhatTheyRemember.addSubSteps(climbUpLadder);
 
 		talkToBoysUpstairs = new ConditionalStep(this, talkToEtzAboutWhatTheyRemember);
 		talkToBoysUpstairs.addStep(not(isUpstairsOfParentsHouse), climbUpLadder);
 
-		var climbDownstairs = new ObjectStep(this, ObjectID.SOC_LADDERTOP, new WorldPoint(1380, 3357, 1), "Climb downstairs, then head back to the cave.");
+		var climbDownstairs = new ObjectStep(this, ObjectID.SOC_LADDERTOP, new WorldPoint(1380, 3357, 1), t("Climb downstairs, then head back to the cave."));
 		enterCave2 = enterCave.copy();
 		enterCave2.addSubSteps(climbDownstairs);
 
-		var killCreatures = new NpcStep(this, NpcID.SOC_QUEST_JUVENILE, new WorldPoint(1337, 9753, 0), "Kill the strange creatures. Protect from Melee works to avoid most damage.", true);
+		var killCreatures = new NpcStep(this, NpcID.SOC_QUEST_JUVENILE, new WorldPoint(1337, 9753, 0), t("Kill the strange creatures. Protect from Melee works to avoid most damage."), true);
 
-		talkToAntos = new NpcStep(this, NpcID.SOC_ANTOS, new WorldPoint(1337, 9753, 0), "Talk to Antos in the eastern part of the cave, ready to fight three Strange creatures. Protect from Melee works to avoid all damage.");
+		talkToAntos = new NpcStep(this, NpcID.SOC_ANTOS, new WorldPoint(1337, 9753, 0), t("Talk to Antos in the eastern part of the cave, ready to fight three Strange creatures. Protect from Melee works to avoid all damage."));
 		talkToAntos.addSubSteps(killCreatures);
 
 		var hasSpawnedCreatures = new VarbitRequirement(VarbitID.SOC_STALKERS_ENCOUNTERED, 1);
@@ -273,7 +273,7 @@ public class ShadowsOfCustodia extends BasicQuestHelper
 		// TODO: technically a little route would be nice
 		talkToAntosAfterSavingHim.addStep(outsideOfCave, enterCave2);
 
-		finishQuest = new NpcStep(this, NpcID.AUBURNVALE_GUARD_CAPTAIN, new WorldPoint(1368, 3343, 0), "Talk to Captain Ariadna in Auburnvale to finish the quest!");
+		finishQuest = new NpcStep(this, NpcID.AUBURNVALE_GUARD_CAPTAIN, new WorldPoint(1368, 3343, 0), t("Talk to Captain Ariadna in Auburnvale to finish the quest!"));
 	}
 
 	@Override
@@ -321,7 +321,7 @@ public class ShadowsOfCustodia extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"3 Strange creatures (level 93)"
+			t("3 Strange creatures (level 93)")
 		);
 	}
 
@@ -346,7 +346,7 @@ public class ShadowsOfCustodia extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Access to the Custodia Pass Slayer Dungeon")
+			new UnlockReward(t("Access to the Custodia Pass Slayer Dungeon"))
 		);
 	}
 
@@ -355,7 +355,7 @@ public class ShadowsOfCustodia extends BasicQuestHelper
 	{
 		var panels = new ArrayList<PanelDetails>();
 
-		panels.add(new PanelDetails("Starting off", List.of(
+		panels.add(new PanelDetails(t("Starting off"), List.of(
 			startQuest,
 			findOutAboutTheMissingPeople,
 			talkToTheParents
@@ -365,7 +365,7 @@ public class ShadowsOfCustodia extends BasicQuestHelper
 			startTeleport
 		)));
 
-		panels.add(new PanelDetails("Hunting the trail", List.of(
+		panels.add(new PanelDetails(t("Hunting the trail"), List.of(
 			inspectWall,
 			inspectPuddle,
 			inspectPlank,
@@ -379,7 +379,7 @@ public class ShadowsOfCustodia extends BasicQuestHelper
 			// Recommended
 		)));
 
-		panels.add(new PanelDetails("Inform the authorities", List.of(
+		panels.add(new PanelDetails(t("Inform the authorities"), List.of(
 			reinforceWall,
 			informCaptainAboutMissingPeople,
 			talkToEtzAboutWhatTheyRemember
@@ -391,7 +391,7 @@ public class ShadowsOfCustodia extends BasicQuestHelper
 			// Recommended
 		)));
 
-		panels.add(new PanelDetails("Save Antos", List.of(
+		panels.add(new PanelDetails(t("Save Antos"), List.of(
 			enterCave2,
 			talkToAntos,
 			finishQuest

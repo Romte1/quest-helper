@@ -144,7 +144,7 @@ public class ObservatoryQuest extends BasicQuestHelper
 
 		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
 		duelingRing = new ItemRequirement("Ring of dueling", ItemCollections.RING_OF_DUELINGS);
-		antipoison = new ItemRequirement("Antipoison (there is a spawn of superantipoison near the Observatory)", ItemCollections.ANTIPOISONS);
+		antipoison = new ItemRequirement(t("Antipoison (there is a spawn of superantipoison near the Observatory)"), ItemCollections.ANTIPOISONS);
 
 		mould = new ItemRequirement("Lens mould", ItemID.LENS_MOULD).isNotConsumed();
 		lens = new ItemRequirement("Observatory lens", ItemID.LENS).isNotConsumed();

@@ -49,13 +49,13 @@ public class ChestCodeStep extends QuestStep
 
     public ChestCodeStep(QuestHelper questHelper, int sizeOfLoop)
     {
-        super(questHelper, "Open the chest using the code from the book.");
+        super(questHelper, questHelper.t("Open the chest using the code from the book."));
         SIZE_OF_LOOP = sizeOfLoop;
     }
 
     public void setAnswer(String answer, int... targets)
     {
-        setText("Open the chest using the code " + answer + ".");
+        setText(questHelper.t("Open the chest using the code ") + answer + ".");
         NUMBER_OF_DIALS = targets.length;
         buttonToPress = new int[NUMBER_OF_DIALS];
         distance = new int[NUMBER_OF_DIALS];

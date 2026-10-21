@@ -186,17 +186,17 @@ public class MourningsEndPartI extends BasicQuestHelper
 		bearFur = new ItemRequirement("Bear fur", ItemID.FUR);
 		silk2 = new ItemRequirement("Silk", ItemID.SILK, 2);
 		redDye = new ItemRequirement("Red dye", ItemID.REDDYE);
-		redDye.setTooltip("Can be bought during quest for 6gp");
+		redDye.setTooltip(t("Can be bought during quest for 6gp"));
 		yellowDye = new ItemRequirement("Yellow dye", ItemID.YELLOWDYE);
-		yellowDye.setTooltip("Can be bought during quest for 6gp");
+		yellowDye.setTooltip(t("Can be bought during quest for 6gp"));
 		greenDye = new ItemRequirement("Green dye", ItemID.GREENDYE);
-		greenDye.setTooltip("Can be bought during quest for 6gp");
+		greenDye.setTooltip(t("Can be bought during quest for 6gp"));
 		blueDye = new ItemRequirement("Blue dye", ItemID.BLUEDYE);
-		blueDye.setTooltip("Can be bought during quest for 6gp");
+		blueDye.setTooltip(t("Can be bought during quest for 6gp"));
 		waterBucket = new ItemRequirement("Bucket of water", ItemID.BUCKET_WATER);
 		rottenApple = new ItemRequirement("Rotten apple", ItemID.ROTTENAPPLES);
-		rottenApple.setTooltip("Obtained during quest.");
-		toadCrunchies = new ItemRequirement("Toad crunchies (can be Premade t'd crunch)", ItemID.TOAD_CRUNCHIES);
+		rottenApple.setTooltip(t("Obtained during quest."));
+		toadCrunchies = new ItemRequirement(t("Toad crunchies (can be Premade t'd crunch)"), ItemID.TOAD_CRUNCHIES);
 		toadCrunchies.addAlternates(ItemID.ALUFT_TOAD_CRUNCHIES, ItemID.PREMADE_TOAD_CRUNCHIES);
 		magicLogs = new ItemRequirement("Magic logs", ItemID.MAGIC_LOGS);
 		leather = new ItemRequirement("Leather", ItemID.LEATHER);
@@ -207,18 +207,18 @@ public class MourningsEndPartI extends BasicQuestHelper
 		twoInventoryFree = new FreeInventorySlotRequirement(2);
 
 		// Recommended
-		outpostTeleport = new ItemRequirement("Teleport to the Outpost. Necklace of passage (The Outpost [2])", ItemCollections.NECKLACE_OF_PASSAGES);
-		taverleyTeleport = new ItemRequirement("Teleport to Taverley. Taverley Teleport, Games necklace (Burthorpe. [1])", ItemID.NZONE_TELETAB_TAVERLEY);
+		outpostTeleport = new ItemRequirement(t("Teleport to the Outpost. Necklace of passage (The Outpost [2])"), ItemCollections.NECKLACE_OF_PASSAGES);
+		taverleyTeleport = new ItemRequirement(t("Teleport to Taverley. Taverley Teleport, Games necklace (Burthorpe. [1])"), ItemID.NZONE_TELETAB_TAVERLEY);
 		taverleyTeleport.addAlternates(ItemCollections.GAMES_NECKLACES);
-		lletyaTeleport = new ItemRequirement("Lletya teleport. Teleport crystal", ItemCollections.TELEPORT_CRYSTAL);
+		lletyaTeleport = new ItemRequirement(t("Lletya teleport. Teleport crystal"), ItemCollections.TELEPORT_CRYSTAL);
 		westArdougneTeleport = new ItemRequirement("West ardougne teleport", ItemID.TELETAB_WESTARDY);
 		westArdougneTeleport.addAlternates(ItemID.POH_TABLET_ARDOUGNETELEPORT);
 
 		// Quest
 		naphtha = new ItemRequirement("Barrel of naphtha", ItemID.REGICIDE_BARREL_NAPHTHA);
 		naphtha.setHighlightInInventory(true);
-		coal20OrNaphtha = new ItemRequirements(LogicType.OR, "Barrel of coal tar + 10-20 coal, or a barrel of naphtha", coal20AndTar, naphtha);
-		coal20OrNaphtha.setTooltip("You can get this by using a barrel from Port Tyras on the Poison Waste");
+		coal20OrNaphtha = new ItemRequirements(LogicType.OR, t("Barrel of coal tar + 10-20 coal, or a barrel of naphtha"), coal20AndTar, naphtha);
+		coal20OrNaphtha.setTooltip(t("You can get this by using a barrel from Port Tyras on the Poison Waste"));
 		feather = new ItemRequirement("Feather", ItemID.FEATHER);
 		greenBellow = new ItemRequirement("Green dye bellows", ItemID.MOURNING_OGRE_BELLOWS_GREEN);
 		yellowBellow = new ItemRequirement("Yellow dye bellows", ItemID.MOURNING_OGRE_BELLOWS_YELLOW);
@@ -237,7 +237,7 @@ public class MourningsEndPartI extends BasicQuestHelper
 		mournerLegs = new ItemRequirement("Mourner trousers", ItemID.MOURNING_MOURNER_LEGS);
 		sieve = new ItemRequirement("Sieve", ItemID.MOURNING_SIEVE);
 		sieve.setHighlightInInventory(true);
-		sieve.setTooltip("You can get another from Elena");
+		sieve.setTooltip(t("You can get another from Elena"));
 		tarnishedKey = new ItemRequirement("Tarnished key", ItemID.MOURNING_GNOME_KEY);
 		fullMourners = new ItemRequirements("Full mourners' outfit", mournerMask, mournerBody, mournerLegs, mournerCloak, mournerBoots, mournerGloves);
 
@@ -274,7 +274,7 @@ public class MourningsEndPartI extends BasicQuestHelper
 		toxicNaphtha.setHighlightInInventory(true);
 
 		toxicPowder = new ItemRequirement("Toxic powder", ItemID.MOURNING_APPLE_TOXIN);
-		toxicPowder.setTooltip("You'll have to make more if you've lost it");
+		toxicPowder.setTooltip(t("You'll have to make more if you've lost it"));
 		toxicPowder.setHighlightInInventory(true);
 	}
 
@@ -332,142 +332,142 @@ public class MourningsEndPartI extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToIslwyn = new NpcStep(this, NpcID.ROVING_ISLWYN_2OPS, new WorldPoint(2207, 3159, 0), "Talk to Islwyn in Isafdar. If he's not at the marked location, try hopping worlds to find him here.");
+		talkToIslwyn = new NpcStep(this, NpcID.ROVING_ISLWYN_2OPS, new WorldPoint(2207, 3159, 0), t("Talk to Islwyn in Isafdar. If he's not at the marked location, try hopping worlds to find him here."));
 		talkToIslwyn.addDialogStep("I'm ready now.");
 		talkToIslwyn.addDialogStep("I'm ready.");
 		talkToIslwyn.addDialogStep("Yes.");
 
-		talkToArianwyn = new NpcStep(this, NpcID.MOURNING_ARIANWYN_VIS, new WorldPoint(2354, 3170, 0), "Talk to Arianwyn in Lletya.");
+		talkToArianwyn = new NpcStep(this, NpcID.MOURNING_ARIANWYN_VIS, new WorldPoint(2354, 3170, 0), t("Talk to Arianwyn in Lletya."));
 		talkToArianwyn.addDialogStep("Okay, let's begin.");
-		killMourner = new NpcStep(this, NpcID.MOURNING_OVERPASS_MOURNER_VIS, new WorldPoint(2385, 3326, 0), "Kill a mourner travelling through the Arandar pass. This is more easily accessed from the north entrance. You'll need 7 free inventory spaces.", true);
+		killMourner = new NpcStep(this, NpcID.MOURNING_OVERPASS_MOURNER_VIS, new WorldPoint(2385, 3326, 0), t("Kill a mourner travelling through the Arandar pass. This is more easily accessed from the north entrance. You'll need 7 free inventory spaces."), true);
 		killMourner.addTeleport(outpostTeleport);
-		pickUpLoot = new DetailedQuestStep(this, "Pick up everything the mourner dropped.", mournerBoots, mournerCloak, mournerGloves, mournerLegsBroken, mournerMask, mournerLetter, bloodyMournerBody);
+		pickUpLoot = new DetailedQuestStep(this, t("Pick up everything the mourner dropped."), mournerBoots, mournerCloak, mournerGloves, mournerLegsBroken, mournerMask, mournerLetter, bloodyMournerBody);
 
 		searchLaundry = new ObjectStep(this, ObjectID.EADGAR_LAUNDRY_BASKET, new WorldPoint(2912, 3418, 0),
-			"Search Tegid's laundry basket in south Taverley for some soap.");
+			t("Search Tegid's laundry basket in south Taverley for some soap."));
 		searchLaundry.addDialogStep("Steal the soap.");
 		searchLaundry.addTeleport(taverleyTeleport);
-		useSoapOnTop = new DetailedQuestStep(this, "Use the soap on the bloody mourner top", tegidsSoap, waterBucket,
+		useSoapOnTop = new DetailedQuestStep(this, t("Use the soap on the bloody mourner top"), tegidsSoap, waterBucket,
 			bloodyMournerBody.highlighted());
 
 		talkToOronwen = new NpcStep(this, NpcID.MOURNING_SEAMSTRESS, new WorldPoint(2327, 3176, 0),
-			"Teleport to Lletya using a crystal teleport seed and talk to Oronwen to have them repair your trousers. Buy dyes here if you still need them.", mournerLegsBroken, bearFur, silk2);
+			t("Teleport to Lletya using a crystal teleport seed and talk to Oronwen to have them repair your trousers. Buy dyes here if you still need them."), mournerLegsBroken, bearFur, silk2);
 		talkToOronwen.addDialogStep("Do you mend clothes?");
 		talkToOronwen.addDialogStep("I have all I need to mend my trousers.");
 		talkToOronwen.addTeleport(lletyaTeleport);
 
 		enterMournerBase = new ObjectStep(this, ObjectID.MOURNERSTEWDOOR, new WorldPoint(2551, 3320, 0),
-			"Equip the full mourners outfit and enter the Mourners' Headquarters in West Ardougne.", toadCrunchies, feather, magicLogs, leather, equippedMournerMask, equippedMournerBody, equippedMournerLegs, equippedMournerBoots,
+			t("Equip the full mourners outfit and enter the Mourners' Headquarters in West Ardougne."), toadCrunchies, feather, magicLogs, leather, equippedMournerMask, equippedMournerBody, equippedMournerLegs, equippedMournerBoots,
 			equippedMournerGloves, equippedMournerCloak, mournerLetter);
 		enterMournerBase.addTeleport(westArdougneTeleport);
 
 		enterMournerBaseNoPass = new ObjectStep(this, ObjectID.MOURNERSTEWDOOR, new WorldPoint(2551, 3320, 0),
-			"Equip the full mourners outfit and enter the Mourners' Headquarters in West Ardougne.", toadCrunchies, feather, magicLogs, leather, equippedMournerMask, equippedMournerBody, equippedMournerLegs, equippedMournerBoots,
+			t("Equip the full mourners outfit and enter the Mourners' Headquarters in West Ardougne."), toadCrunchies, feather, magicLogs, leather, equippedMournerMask, equippedMournerBody, equippedMournerLegs, equippedMournerBoots,
 			equippedMournerGloves, equippedMournerCloak);
 		enterMournerBase.addSubSteps(enterMournerBaseNoPass);
 
-		enterBasement = new ObjectStep(this, ObjectID.MOURNING_HIDEOUT_TRAP_DOOR, new WorldPoint(2542, 3327, 0), "Go down the trapdoor in the north west corner of the HQ.");
+		enterBasement = new ObjectStep(this, ObjectID.MOURNING_HIDEOUT_TRAP_DOOR, new WorldPoint(2542, 3327, 0), t("Go down the trapdoor in the north west corner of the HQ."));
 
-		talkToEssyllt = new NpcStep(this, NpcID.MOURNER_HIDEOUT_HEAD_MOURNER_VIS, new WorldPoint(2043, 4631, 0), "Talk to Essyllt in the south room.");
+		talkToEssyllt = new NpcStep(this, NpcID.MOURNER_HIDEOUT_HEAD_MOURNER_VIS, new WorldPoint(2043, 4631, 0), t("Talk to Essyllt in the south room."));
 
-		talkToGnome = new ObjectStep(this, ObjectID.MOURNING_GNOME_RACK, new WorldPoint(2035, 4630, 0), "Talk to the gnome on a rack.", tarnishedKey, feather, toadCrunchies);
+		talkToGnome = new ObjectStep(this, ObjectID.MOURNING_GNOME_RACK, new WorldPoint(2035, 4630, 0), t("Talk to the gnome on a rack."), tarnishedKey, feather, toadCrunchies);
 		talkToGnome.addDialogStep("You talked about toad crunchies and being tickled.");
 
 		enterMournerBaseForGnome = new ObjectStep(this, ObjectID.MOURNERSTEWDOOR, new WorldPoint(2551, 3320, 0),
-			"Equip the full mourners outfit and enter the Mourners' Headquarters in West Ardougne.", toadCrunchies, feather, magicLogs, leather, equippedMournerMask, equippedMournerBody,
+			t("Equip the full mourners outfit and enter the Mourners' Headquarters in West Ardougne."), toadCrunchies, feather, magicLogs, leather, equippedMournerMask, equippedMournerBody,
 			equippedMournerLegs, equippedMournerBoots, equippedMournerGloves, equippedMournerCloak);
-		enterBasementForGnome = new ObjectStep(this, ObjectID.MOURNING_HIDEOUT_TRAP_DOOR, new WorldPoint(2542, 3327, 0), "Go down the trapdoor in the north west corner of the HQ.", feather, toadCrunchies, magicLogs, leather);
+		enterBasementForGnome = new ObjectStep(this, ObjectID.MOURNING_HIDEOUT_TRAP_DOOR, new WorldPoint(2542, 3327, 0), t("Go down the trapdoor in the north west corner of the HQ."), feather, toadCrunchies, magicLogs, leather);
 		talkToGnome.addSubSteps(enterMournerBaseForGnome, enterBasementForGnome);
 
-		useFeatherOnGnome = new ObjectStep(this, ObjectID.MOURNING_GNOME_RACK, new WorldPoint(2035, 4630, 0), "Use a feather on the gnome with toad crunchies in your inventory.", tarnishedKey, featherHighlight, toadCrunchies);
+		useFeatherOnGnome = new ObjectStep(this, ObjectID.MOURNING_GNOME_RACK, new WorldPoint(2035, 4630, 0), t("Use a feather on the gnome with toad crunchies in your inventory."), tarnishedKey, featherHighlight, toadCrunchies);
 		useFeatherOnGnome.addIcon(ItemID.FEATHER);
 
 		enterMournerBaseAfterTorture = new ObjectStep(this, ObjectID.MOURNERSTEWDOOR, new WorldPoint(2551, 3320, 0),
-			"Equip the full mourners outfit and enter the Mourners' Headquarters in West Ardougne.", toadCrunchies, feather, magicLogs, leather, equippedMournerMask, equippedMournerBody, equippedMournerLegs, equippedMournerBoots,
+			t("Equip the full mourners outfit and enter the Mourners' Headquarters in West Ardougne."), toadCrunchies, feather, magicLogs, leather, equippedMournerMask, equippedMournerBody, equippedMournerLegs, equippedMournerBoots,
 			equippedMournerGloves, equippedMournerCloak);
-		enterBasementAfterTorture = new ObjectStep(this, ObjectID.MOURNING_HIDEOUT_TRAP_DOOR, new WorldPoint(2542, 3327, 0), "Go down the trapdoor in the north west corner of the HQ.", toadCrunchies, magicLogs, leather);
+		enterBasementAfterTorture = new ObjectStep(this, ObjectID.MOURNING_HIDEOUT_TRAP_DOOR, new WorldPoint(2542, 3327, 0), t("Go down the trapdoor in the north west corner of the HQ."), toadCrunchies, magicLogs, leather);
 
-		talkToGnomeWithItems = new ObjectStep(this, ObjectID.MOURNING_GNOME_RACK, new WorldPoint(2035, 4630, 0), "Talk to the gnome again with the required items.", toadCrunchies, magicLogs, leather);
+		talkToGnomeWithItems = new ObjectStep(this, ObjectID.MOURNING_GNOME_RACK, new WorldPoint(2035, 4630, 0), t("Talk to the gnome again with the required items."), toadCrunchies, magicLogs, leather);
 
-		releaseGnome = new ObjectStep(this, ObjectID.MOURNING_GNOME_RACK, new WorldPoint(2035, 4630, 0), "Right-click release the gnome with the items.", tarnishedKey, magicLogs, leather, toadCrunchies, brokenDevice);
+		releaseGnome = new ObjectStep(this, ObjectID.MOURNING_GNOME_RACK, new WorldPoint(2035, 4630, 0), t("Right-click release the gnome with the items."), tarnishedKey, magicLogs, leather, toadCrunchies, brokenDevice);
 
-		giveGnomeItems = new NpcStep(this, NpcID.MOURNER_HIDEOUT_GNOME_HEAD, new WorldPoint(2035, 4630, 0), "Give the gnome a magic log, some soft leather and some toad crunchies.", tarnishedKey, magicLogs, leather, toadCrunchies, brokenDevice);
+		giveGnomeItems = new NpcStep(this, NpcID.MOURNER_HIDEOUT_GNOME_HEAD, new WorldPoint(2035, 4630, 0), t("Give the gnome a magic log, some soft leather and some toad crunchies."), tarnishedKey, magicLogs, leather, toadCrunchies, brokenDevice);
 
-		askAboutToads = new NpcStep(this, NpcID.MOURNER_HIDEOUT_GNOME_HEAD, new WorldPoint(2035, 4630, 0), "Ask the gnome about ammo.");
+		askAboutToads = new NpcStep(this, NpcID.MOURNER_HIDEOUT_GNOME_HEAD, new WorldPoint(2035, 4630, 0), t("Ask the gnome about ammo."));
 
 		getToads = new DetailedQuestStep(this, new WorldPoint(2599, 2966, 0),
-			"You need to make some dyed toads. Go to Feldip Hills (AKS), use a dye on your empty bellows, then use the " +
-				"bellows to inflate a toad. Get at least one toad of each colour.", redToad, yellowToad, greenToad, blueToad);
+			t("You need to make some dyed toads. Go to Feldip Hills (AKS), use a dye on your empty bellows, then use the " +
+				"bellows to inflate a toad. Get at least one toad of each colour."), redToad, yellowToad, greenToad, blueToad);
 
-		loadGreenToad = new DetailedQuestStep(this, "Add a green toad to the fixed device.", greenToad.highlighted(),
+		loadGreenToad = new DetailedQuestStep(this, t("Add a green toad to the fixed device."), greenToad.highlighted(),
 			fixedDevice.highlighted());
 		loadGreenToad.addTeleport(westArdougneTeleport);
-		shootGreenToad = new NpcStep(this, NpcID.HERDER_PLAGUESHEEP_2, new WorldPoint(2621, 3368, 0), "Wield the fixed device and select Aim and Fire from your combat options to fire at a green sheep north of Ardougne.", true, fixedDeviceEquipped);
+		shootGreenToad = new NpcStep(this, NpcID.HERDER_PLAGUESHEEP_2, new WorldPoint(2621, 3368, 0), t("Wield the fixed device and select Aim and Fire from your combat options to fire at a green sheep north of Ardougne."), true, fixedDeviceEquipped);
 
-		loadRedToad = new DetailedQuestStep(this, "Add a red toad to the fixed device.",
+		loadRedToad = new DetailedQuestStep(this, t("Add a red toad to the fixed device."),
 			redToad.highlighted(), fixedDevice.highlighted());
-		shootRedToad = new NpcStep(this, NpcID.HERDER_PLAGUESHEEP_1, new WorldPoint(2611, 3344, 0), "Wield the fixed device and select Aim and Fire from your combat options to fire at a shoot the red toad at a red sheep north of Ardougne.", true, fixedDeviceEquipped);
+		shootRedToad = new NpcStep(this, NpcID.HERDER_PLAGUESHEEP_1, new WorldPoint(2611, 3344, 0), t("Wield the fixed device and select Aim and Fire from your combat options to fire at a shoot the red toad at a red sheep north of Ardougne."), true, fixedDeviceEquipped);
 
-		loadYellowToad = new DetailedQuestStep(this, "Add a yellow toad to the fixed device.",
+		loadYellowToad = new DetailedQuestStep(this, t("Add a yellow toad to the fixed device."),
 			yellowToad.highlighted(), fixedDevice.highlighted());
-		shootYellowToad = new NpcStep(this, NpcID.HERDER_PLAGUESHEEP_4, new WorldPoint(2610, 3391, 0), "Wield the fixed device and select Aim and Fire from your combat options to fire at a yellow sheep north of Ardougne.", true, fixedDeviceEquipped);
+		shootYellowToad = new NpcStep(this, NpcID.HERDER_PLAGUESHEEP_4, new WorldPoint(2610, 3391, 0), t("Wield the fixed device and select Aim and Fire from your combat options to fire at a yellow sheep north of Ardougne."), true, fixedDeviceEquipped);
 
-		loadBlueToad = new DetailedQuestStep(this, "Add a blue toad to the fixed device.",
+		loadBlueToad = new DetailedQuestStep(this, t("Add a blue toad to the fixed device."),
 			blueToad.highlighted(), fixedDevice.highlighted());
-		shootBlueToad = new NpcStep(this, NpcID.HERDER_PLAGUESHEEP_3, new WorldPoint(2562, 3390, 0), "Wield the fixed device and select Aim and Fire from your combat options to fire at a blue sheep north of Ardougne.", true, fixedDeviceEquipped);
+		shootBlueToad = new NpcStep(this, NpcID.HERDER_PLAGUESHEEP_3, new WorldPoint(2562, 3390, 0), t("Wield the fixed device and select Aim and Fire from your combat options to fire at a blue sheep north of Ardougne."), true, fixedDeviceEquipped);
 
-		dyeSheep = new DetailedQuestStep(this, "Dye each colour of sheep north of Ardougne by using the dyed toads on the fixed device and select Aim and Fire from your combat options to fire.");
+		dyeSheep = new DetailedQuestStep(this, t("Dye each colour of sheep north of Ardougne by using the dyed toads on the fixed device and select Aim and Fire from your combat options to fire."));
 		dyeSheep.addSubSteps(loadGreenToad, loadYellowToad, loadBlueToad, loadRedToad, shootBlueToad, shootGreenToad, shootRedToad, shootYellowToad);
 
 		enterBaseAfterSheep = new ObjectStep(this, ObjectID.MOURNERSTEWDOOR, new WorldPoint(2551, 3320, 0),
-			"Equip the full mourners outfit and enter the Mourners' Headquarters in West Ardougne.", equippedMournerMask, equippedMournerBody, equippedMournerLegs, equippedMournerBoots, equippedMournerGloves, equippedMournerCloak);
+			t("Equip the full mourners outfit and enter the Mourners' Headquarters in West Ardougne."), equippedMournerMask, equippedMournerBody, equippedMournerLegs, equippedMournerBoots, equippedMournerGloves, equippedMournerCloak);
 
-		enterBasementAfterSheep = new ObjectStep(this, ObjectID.MOURNING_HIDEOUT_TRAP_DOOR, new WorldPoint(2542, 3327, 0), "Go down the trapdoor in the north west corner of the HQ.");
+		enterBasementAfterSheep = new ObjectStep(this, ObjectID.MOURNING_HIDEOUT_TRAP_DOOR, new WorldPoint(2542, 3327, 0), t("Go down the trapdoor in the north west corner of the HQ."));
 
-		talkToEssylltAfterSheep = new NpcStep(this, NpcID.MOURNER_HIDEOUT_HEAD_MOURNER_VIS, new WorldPoint(2043, 4631, 0), "Talk to Essyllt in the south room.");
+		talkToEssylltAfterSheep = new NpcStep(this, NpcID.MOURNER_HIDEOUT_HEAD_MOURNER_VIS, new WorldPoint(2043, 4631, 0), t("Talk to Essyllt in the south room."));
 
 		pickUpRottenApple = new DetailedQuestStep(this, new WorldPoint(2535, 3333, 0),
-			"Pick up a rotten apple from north-west of the Mourner HQ.", rottenApple);
+			t("Pick up a rotten apple from north-west of the Mourner HQ."), rottenApple);
 
-		talkToElena = new NpcStep(this, NpcID.ELENA2_VIS, new WorldPoint(2592, 3335, 0), "Talk to Elena in north-west of East Ardougne.", rottenApple);
-		talkToElenaNoApple = new NpcStep(this, NpcID.ELENA2_VIS, new WorldPoint(2592, 3335, 0), "Talk to Elena in north-west of East Ardougne.");
+		talkToElena = new NpcStep(this, NpcID.ELENA2_VIS, new WorldPoint(2592, 3335, 0), t("Talk to Elena in north-west of East Ardougne."), rottenApple);
+		talkToElenaNoApple = new NpcStep(this, NpcID.ELENA2_VIS, new WorldPoint(2592, 3335, 0), t("Talk to Elena in north-west of East Ardougne."));
 		talkToElena.addSubSteps(talkToElenaNoApple);
 
-		pickUpBarrel = new DetailedQuestStep(this, new WorldPoint(2487, 3371, 0), "Pick up a barrel from the Orchard north of Ardougne.", emptyBarrel);
-		useBarrelOnPile = new ObjectStep(this, ObjectID.MOURNING_ORCHARD_APPLEPILE, new WorldPoint(2487, 3374, 0), "Use the barrel on a rotten apple pile.", emptyBarrel);
+		pickUpBarrel = new DetailedQuestStep(this, new WorldPoint(2487, 3371, 0), t("Pick up a barrel from the Orchard north of Ardougne."), emptyBarrel);
+		useBarrelOnPile = new ObjectStep(this, ObjectID.MOURNING_ORCHARD_APPLEPILE, new WorldPoint(2487, 3374, 0), t("Use the barrel on a rotten apple pile."), emptyBarrel);
 		useBarrelOnPile.addIcon(ItemID.REGICIDE_BARREL_EMPTY);
 
-		useApplesOnPress = new ObjectStep(this, ObjectID.MOURNING_ORCHARD_APPLEBARREL_EMPTY, new WorldPoint(2484, 3374, 0), "Use the rotten apples on the apple press.", barrelOfRottenApples);
+		useApplesOnPress = new ObjectStep(this, ObjectID.MOURNING_ORCHARD_APPLEBARREL_EMPTY, new WorldPoint(2484, 3374, 0), t("Use the rotten apples on the apple press."), barrelOfRottenApples);
 		useApplesOnPress.addIcon(ItemID.APPLEBARREL_FULL);
 
-		getNaphtha = new ObjectStep(this, ObjectID.REGICIDE_FRACTIONALIZING_STILL, new WorldPoint(2927, 3212, 0), "Make some Naphtha. Grab another " +
+		getNaphtha = new ObjectStep(this, ObjectID.REGICIDE_FRACTIONALIZING_STILL, new WorldPoint(2927, 3212, 0), t("Make some Naphtha. Grab another " +
 			"barrel, fill it on the swamp south of the elven lands, then refine it on the fractionalising still at " +
-			"the Chemist in Rimmington with 10-20 coal.", coal20OrNaphtha);
-		getNaphtha.addText("To do this, rotate the 'Tar regulator' wheel twice. Wait until the 'Pressure' indicator is in the green, then rotate the 'Pressure valve' regulator clockwise once.");
-		getNaphtha.addText("Now all you need to do is occasionally click the 'Add coal' text to add coal, to push the 'Heat' into the green. Be careful to do this slowly so as to not hit the orange heat and ruin the tar.");
+			"the Chemist in Rimmington with 10-20 coal."), coal20OrNaphtha);
+		getNaphtha.addText(t("To do this, rotate the 'Tar regulator' wheel twice. Wait until the 'Pressure' indicator is in the green, then rotate the 'Pressure valve' regulator clockwise once."));
+		getNaphtha.addText(t("Now all you need to do is occasionally click the 'Add coal' text to add coal, to push the 'Heat' into the green. Be careful to do this slowly so as to not hit the orange heat and ruin the tar."));
 
-		useNaphthaOnBarrel = new DetailedQuestStep(this, "Use a barrel of naptha on the apple barrel.", naphtha, appleBarrel);
+		useNaphthaOnBarrel = new DetailedQuestStep(this, t("Use a barrel of naptha on the apple barrel."), naphtha, appleBarrel);
 
-		useSieveOnBarrel = new DetailedQuestStep(this, "Use the sieve on the naphtha apple mix", sieve, naphthaAppleMix);
+		useSieveOnBarrel = new DetailedQuestStep(this, t("Use the sieve on the naphtha apple mix"), sieve, naphthaAppleMix);
 
-		cookNaphtha = new ObjectStep(this, ObjectID.CARNILLEANRANGE, new WorldPoint(2970, 3210, 0), "Cook the toxic naphtha on " +
-			"a range. DO NOT USE IT ON A FIRE, and MAKE SURE TO HAVE TWO FREE INVENTORY SPACES.", toxicNaphtha, twoInventoryFree);
+		cookNaphtha = new ObjectStep(this, ObjectID.CARNILLEANRANGE, new WorldPoint(2970, 3210, 0), t("Cook the toxic naphtha on " +
+			"a range. DO NOT USE IT ON A FIRE, and MAKE SURE TO HAVE TWO FREE INVENTORY SPACES."), toxicNaphtha, twoInventoryFree);
 
-		usePowderOnFood1 = new ObjectStep(this, ObjectID.MOURNING_SACK_FULL1, new WorldPoint(2517, 3315, 0), "Use the toxic powder on the food store in the room north west of West Ardougne's town centre.", toxicPowder);
+		usePowderOnFood1 = new ObjectStep(this, ObjectID.MOURNING_SACK_FULL1, new WorldPoint(2517, 3315, 0), t("Use the toxic powder on the food store in the room north west of West Ardougne's town centre."), toxicPowder);
 		usePowderOnFood1.addIcon(ItemID.MOURNING_APPLE_TOXIN);
 		usePowderOnFood1.addTeleport(westArdougneTeleport);
-		usePowderOnFood2 = new ObjectStep(this, ObjectID.MOURNING_SACK_FULL2, new WorldPoint(2525, 3288, 0), "Use the toxic powder on the food store in the church south of West Ardougne's town centre.", toxicPowder);
+		usePowderOnFood2 = new ObjectStep(this, ObjectID.MOURNING_SACK_FULL2, new WorldPoint(2525, 3288, 0), t("Use the toxic powder on the food store in the church south of West Ardougne's town centre."), toxicPowder);
 		usePowderOnFood2.addIcon(ItemID.MOURNING_APPLE_TOXIN);
 
 		enterMournerBaseAfterPoison = new ObjectStep(this, ObjectID.MOURNERSTEWDOOR, new WorldPoint(2551, 3320, 0),
-			"Return to Essyllt in the Mourner HQ basement.", equippedMournerMask, equippedMournerBody, equippedMournerLegs, equippedMournerBoots, equippedMournerGloves, equippedMournerCloak);
+			t("Return to Essyllt in the Mourner HQ basement."), equippedMournerMask, equippedMournerBody, equippedMournerLegs, equippedMournerBoots, equippedMournerGloves, equippedMournerCloak);
 
-		enterMournerBasementAfterPoison = new ObjectStep(this, ObjectID.MOURNING_HIDEOUT_TRAP_DOOR, new WorldPoint(2542, 3327, 0), "Return to Essyllt in the Mourner HQ basement.");
+		enterMournerBasementAfterPoison = new ObjectStep(this, ObjectID.MOURNING_HIDEOUT_TRAP_DOOR, new WorldPoint(2542, 3327, 0), t("Return to Essyllt in the Mourner HQ basement."));
 
-		talkToEssylltAfterPoison = new NpcStep(this, NpcID.MOURNER_HIDEOUT_HEAD_MOURNER_VIS, new WorldPoint(2043, 4631, 0), "Return to Essyllt in the Mourner HQ basement.");
+		talkToEssylltAfterPoison = new NpcStep(this, NpcID.MOURNER_HIDEOUT_HEAD_MOURNER_VIS, new WorldPoint(2043, 4631, 0), t("Return to Essyllt in the Mourner HQ basement."));
 		talkToEssylltAfterPoison.addSubSteps(enterMournerBasementAfterPoison, enterMournerBaseAfterPoison);
 
-		returnToArianwyn = new NpcStep(this, NpcID.MOURNING_ARIANWYN_VIS, new WorldPoint(2354, 3170, 0), "Return to Arianwyn in Lletya.");
+		returnToArianwyn = new NpcStep(this, NpcID.MOURNING_ARIANWYN_VIS, new WorldPoint(2354, 3170, 0), t("Return to Arianwyn in Lletya."));
 		returnToArianwyn.addTeleport(lletyaTeleport);
 	}
 
@@ -486,7 +486,7 @@ public class MourningsEndPartI extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Mourner (level 11) (will decrease all combat skills to 20, including Hitpoints)");
+		return Collections.singletonList(t("Mourner (level 11) (will decrease all combat skills to 20, including Hitpoints)"));
 	}
 
 	@Override
@@ -524,7 +524,7 @@ public class MourningsEndPartI extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("Access to the Mourner HQ"));
+		return Collections.singletonList(new UnlockReward(t("Access to the Mourner HQ")));
 	}
 
 
@@ -532,41 +532,41 @@ public class MourningsEndPartI extends BasicQuestHelper
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off",
+		allSteps.add(new PanelDetails(t("Starting off"),
 			Arrays.asList(talkToIslwyn, talkToArianwyn)));
 
-		PanelDetails pickItemsPanel = new PanelDetails("Get Mourner's outfit",
+		PanelDetails pickItemsPanel = new PanelDetails(t("Get Mourner's outfit"),
 			Arrays.asList(killMourner, pickUpLoot), null, Arrays.asList(outpostTeleport, taverleyTeleport));
 		pickItemsPanel.setLockingStep(getItems);
 		allSteps.add(pickItemsPanel);
 
-		PanelDetails cleanPanel = new PanelDetails("Clean Mourner top",
+		PanelDetails cleanPanel = new PanelDetails(t("Clean Mourner top"),
 			Arrays.asList(searchLaundry, useSoapOnTop), Arrays.asList(waterBucket, bloodyMournerBody), Arrays.asList(taverleyTeleport, lletyaTeleport));
 		cleanPanel.setLockingStep(cleanTopSteps);
 
-		PanelDetails repairPanel = new PanelDetails("Repair Mourner trousers",
+		PanelDetails repairPanel = new PanelDetails(t("Repair Mourner trousers"),
 			Collections.singletonList(talkToOronwen), Arrays.asList(bearFur, silk2, mournerLegsBroken), Arrays.asList(lletyaTeleport));
 		repairPanel.setLockingStep(repairTrousersSteps);
 
 		allSteps.add(cleanPanel);
 		allSteps.add(repairPanel);
 
-		PanelDetails enterWestArdougnePanel = new PanelDetails("Infiltrate the Mourners", Arrays.asList(enterMournerBase,
+		PanelDetails enterWestArdougnePanel = new PanelDetails(t("Infiltrate the Mourners"), Arrays.asList(enterMournerBase,
 			enterBasement, talkToEssyllt, talkToGnome, useFeatherOnGnome, talkToGnomeWithItems, releaseGnome, giveGnomeItems, askAboutToads),
 			Arrays.asList(fullMourners, mournerLetter, feather, toadCrunchies, magicLogs, leather), Arrays.asList(westArdougneTeleport));
 
 		allSteps.add(enterWestArdougnePanel);
 
-		allSteps.add(new PanelDetails("Dye the sheep", Arrays.asList(getToads, dyeSheep, enterBaseAfterSheep,
+		allSteps.add(new PanelDetails(t("Dye the sheep"), Arrays.asList(getToads, dyeSheep, enterBaseAfterSheep,
 			enterBasementAfterSheep, talkToEssylltAfterSheep), fullMourners, fixedDevice, ogreBellows, redDye, yellowDye, greenDye, blueDye));
 
 
-		allSteps.add(new PanelDetails("Poison the citizens",
+		allSteps.add(new PanelDetails(t("Poison the citizens"),
 			Arrays.asList(pickUpRottenApple, talkToElena, pickUpBarrel, useBarrelOnPile, useApplesOnPress, getNaphtha,
 				useNaphthaOnBarrel, useSieveOnBarrel, cookNaphtha, usePowderOnFood1, usePowderOnFood2,
 				talkToEssylltAfterPoison), Arrays.asList(coal20OrNaphtha, fullMourners), Arrays.asList(westArdougneTeleport, lletyaTeleport)));
 
-		allSteps.add(new PanelDetails("Report back to Arianwyn",
+		allSteps.add(new PanelDetails(t("Report back to Arianwyn"),
 			Collections.singletonList(returnToArianwyn)));
 
 

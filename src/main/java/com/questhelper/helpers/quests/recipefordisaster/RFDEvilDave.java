@@ -101,8 +101,8 @@ public class RFDEvilDave extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		teleportLumbridge = new ItemRequirement("Teleport to Lumbridge", ItemID.POH_TABLET_LUMBRIDGETELEPORT);
-		teleportEdgeville = new ItemRequirement("Teleport to Edgeville", ItemCollections.AMULET_OF_GLORIES);
+		teleportLumbridge = new ItemRequirement(t("Teleport to Lumbridge"), ItemID.POH_TABLET_LUMBRIDGETELEPORT);
+		teleportEdgeville = new ItemRequirement(t("Teleport to Edgeville"), ItemCollections.AMULET_OF_GLORIES);
 
 		stew = new ItemRequirement("Stew", ItemID.STEW);
 		stews = new ItemRequirement("Many stews", ItemID.STEW, -1);

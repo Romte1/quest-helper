@@ -220,8 +220,8 @@ public class GardenOfTranquillity extends BasicQuestHelper
 		trowel = new ItemRequirement("Gardening trowel", ItemID.GARDENING_TROWEL).isNotConsumed();
 		plantCure2 = new ItemRequirement("Plant cure", ItemID.PLANT_CURE, 2);
 		marigoldSeed = new ItemRequirement("Marigold seed", ItemID.MARIGOLD_SEED);
-		cabbageSeed3 = new ItemRequirement("Cabbage seeds (6 to be safe)", ItemID.CABBAGE_SEED, 3);
-		onionSeed3 = new ItemRequirement("Onion seeds (6 to be safe)", ItemID.ONION_SEED, 3);
+		cabbageSeed3 = new ItemRequirement(t("Cabbage seeds (6 to be safe)"), ItemID.CABBAGE_SEED, 3);
+		onionSeed3 = new ItemRequirement(t("Onion seeds (6 to be safe)"), ItemID.ONION_SEED, 3);
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed();
 		essence = new ItemRequirement("Rune/Pure essence", ItemID.BLANKRUNE);
 		essence.addAlternates(ItemID.BLANKRUNE_HIGH);

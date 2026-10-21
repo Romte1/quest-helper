@@ -136,20 +136,20 @@ public class ValeTotems extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		knife = new ItemRequirement("Knife", ItemID.KNIFE);
-		knife.setTooltip("There's a knife upstairs in the General Store south of the miniquest start point");
+		knife.setTooltip(t("There's a knife upstairs in the General Store south of the miniquest start point"));
 		oneOakLog = new ItemRequirement("Oak log", ItemID.OAK_LOGS, 1);
-		oneOakLog.setTooltip("You can also use Willow, Maple, Yew, Magic, or Redwood logs, but it needs to match the decorative items you're bringing.");
+		oneOakLog.setTooltip(t("You can also use Willow, Maple, Yew, Magic, or Redwood logs, but it needs to match the decorative items you're bringing."));
 
 		var possibleDecorativeItems = List.of(ItemID.OAK_SHIELD, ItemID.UNSTRUNG_OAK_LONGBOW, ItemID.OAK_LONGBOW, ItemID.UNSTRUNG_OAK_SHORTBOW, ItemID.OAK_SHORTBOW);
 
 		fourDecorativeItems = new ItemRequirement("Oak shield/longbow/shortbow", possibleDecorativeItems, 4);
-		fourDecorativeItems.setTooltip("You can also use Willow, Maple, Yew, Magic, or Redwood decorative items, but it needs to match the logs you used to build the totem.");
+		fourDecorativeItems.setTooltip(t("You can also use Willow, Maple, Yew, Magic, or Redwood decorative items, but it needs to match the logs you used to build the totem."));
 		threeDecorativeItems = new ItemRequirement("Oak shield/longbow/shortbow", possibleDecorativeItems, 3);
-		threeDecorativeItems.setTooltip("You can also use Willow, Maple, Yew, Magic, or Redwood decorative items, but it needs to match the logs you used to build the totem.");
+		threeDecorativeItems.setTooltip(t("You can also use Willow, Maple, Yew, Magic, or Redwood decorative items, but it needs to match the logs you used to build the totem."));
 		twoDecorativeItems = new ItemRequirement("Oak shield/longbow/shortbow", possibleDecorativeItems, 2);
-		twoDecorativeItems.setTooltip("You can also use Willow, Maple, Yew, Magic, or Redwood decorative items, but it needs to match the logs you used to build the totem.");
+		twoDecorativeItems.setTooltip(t("You can also use Willow, Maple, Yew, Magic, or Redwood decorative items, but it needs to match the logs you used to build the totem."));
 		oneDecorativeItem = new ItemRequirement("Oak shield/longbow/shortbow", possibleDecorativeItems, 1);
-		oneDecorativeItem.setTooltip("You can also use Willow, Maple, Yew, Magic, or Redwood decorative items, but it needs to match the logs you used to build the totem.");
+		oneDecorativeItem.setTooltip(t("You can also use Willow, Maple, Yew, Magic, or Redwood decorative items, but it needs to match the logs you used to build the totem."));
 
 		needToBuildTotem = new VarbitRequirement(VarbitID.ENT_TOTEMS_BROKEN_CHAT, 1);
 		isTotemBaseBuilt = new VarbitRequirement(VarbitID.ENT_TOTEMS_SITE_1_BASE, 0, Operation.GREATER);
@@ -223,31 +223,31 @@ public class ValeTotems extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		startQuest = new NpcStep(this, new int[]{NpcID.ENT_TOTEMS_INTRO_RANULPH, NpcID.ENT_TOTEMS_INTRO_RANULPH_1OP, NpcID.ENT_TOTEMS_INTRO_RANULPH_2OP, NpcID.ENT_TOTEMS_INTRO_RANULPH_CS,}, new WorldPoint(1365, 3366, 0), "Talk to Ranulph in the west part of Auburnvale to start the quest.");
+		startQuest = new NpcStep(this, new int[]{NpcID.ENT_TOTEMS_INTRO_RANULPH, NpcID.ENT_TOTEMS_INTRO_RANULPH_1OP, NpcID.ENT_TOTEMS_INTRO_RANULPH_2OP, NpcID.ENT_TOTEMS_INTRO_RANULPH_CS,}, new WorldPoint(1365, 3366, 0), t("Talk to Ranulph in the west part of Auburnvale to start the quest."));
 		startQuest.addDialogStep("Yes.");
 
-		buildTotemBase = new ObjectStep(this, ObjectID.ENT_TOTEMS_BASE_NONE, new WorldPoint(1370, 3375, 0), "Build the totem site.", knife, oneOakLog);
+		buildTotemBase = new ObjectStep(this, ObjectID.ENT_TOTEMS_BASE_NONE, new WorldPoint(1370, 3375, 0), t("Build the totem site."), knife, oneOakLog);
 
-		talkToIsadoraToLearnAboutCarving = new NpcStep(this, NpcID.ENT_TOTEMS_INTRO_CHILD_VIS, new WorldPoint(1366, 3369, 0), "Talk to Isadora to learn about carving.");
-		talkToIsadoraAfterCarvingTotem = new NpcStep(this, NpcID.ENT_TOTEMS_INTRO_CHILD_VIS, new WorldPoint(1366, 3369, 0), "Return to Isadora after carving the spirit animals into the totem.");
+		talkToIsadoraToLearnAboutCarving = new NpcStep(this, NpcID.ENT_TOTEMS_INTRO_CHILD_VIS, new WorldPoint(1366, 3369, 0), t("Talk to Isadora to learn about carving."));
+		talkToIsadoraAfterCarvingTotem = new NpcStep(this, NpcID.ENT_TOTEMS_INTRO_CHILD_VIS, new WorldPoint(1366, 3369, 0), t("Return to Isadora after carving the spirit animals into the totem."));
 
-		var carveBuffalo = new ObjectStep(this, ObjectID.ENT_TOTEMS_SITE_1_BASE, new WorldPoint(1370, 3375, 0), "Carve a Buffalo into the totem base.");
+		var carveBuffalo = new ObjectStep(this, ObjectID.ENT_TOTEMS_SITE_1_BASE, new WorldPoint(1370, 3375, 0), t("Carve a Buffalo into the totem base."));
 		carveBuffalo.addWidgetHighlight(WidgetHighlight.createMultiskillByName("Buffalo"));
 
-		var carveJaguar = new ObjectStep(this, ObjectID.ENT_TOTEMS_SITE_1_BASE, new WorldPoint(1370, 3375, 0), "Carve a Jaguar into the totem base.");
+		var carveJaguar = new ObjectStep(this, ObjectID.ENT_TOTEMS_SITE_1_BASE, new WorldPoint(1370, 3375, 0), t("Carve a Jaguar into the totem base."));
 		carveJaguar.addWidgetHighlight(WidgetHighlight.createMultiskillByName("Jaguar"));
 
-		var carveEagle = new ObjectStep(this, ObjectID.ENT_TOTEMS_SITE_1_BASE, new WorldPoint(1370, 3375, 0), "Carve a Eagle into the totem base.");
+		var carveEagle = new ObjectStep(this, ObjectID.ENT_TOTEMS_SITE_1_BASE, new WorldPoint(1370, 3375, 0), t("Carve a Eagle into the totem base."));
 		carveEagle.addWidgetHighlight(WidgetHighlight.createMultiskillByName("Eagle"));
 
-		var carveSnake = new ObjectStep(this, ObjectID.ENT_TOTEMS_SITE_1_BASE, new WorldPoint(1370, 3375, 0), "Carve a Snake into the totem base.");
+		var carveSnake = new ObjectStep(this, ObjectID.ENT_TOTEMS_SITE_1_BASE, new WorldPoint(1370, 3375, 0), t("Carve a Snake into the totem base."));
 		carveSnake.addWidgetHighlight(WidgetHighlight.createMultiskillByName("Snake"));
 
-		var carveScorpion = new ObjectStep(this, ObjectID.ENT_TOTEMS_SITE_1_BASE, new WorldPoint(1370, 3375, 0), "Carve a Scorpion into the totem base.");
+		var carveScorpion = new ObjectStep(this, ObjectID.ENT_TOTEMS_SITE_1_BASE, new WorldPoint(1370, 3375, 0), t("Carve a Scorpion into the totem base."));
 		carveScorpion.addWidgetHighlight(WidgetHighlight.createMultiskillByName("Scorpion"));
 
 		// fallback step in case our detection fails
-		carveAnimalsYouSee = new ObjectStep(this, ObjectID.ENT_TOTEMS_SITE_1_BASE, new WorldPoint(1370, 3375, 0), "Carve spirit animals you see into the totem.");
+		carveAnimalsYouSee = new ObjectStep(this, ObjectID.ENT_TOTEMS_SITE_1_BASE, new WorldPoint(1370, 3375, 0), t("Carve spirit animals you see into the totem."));
 		carveAnimalsYouSee.addSubSteps(carveBuffalo, carveJaguar, carveEagle, carveSnake, carveScorpion);
 
 		carveTotem = new ConditionalStep(this, carveAnimalsYouSee);
@@ -257,12 +257,12 @@ public class ValeTotems extends BasicQuestHelper
 		carveTotem.addStep(and(isSnakeNearby, missingSnakeCarve), carveSnake);
 		carveTotem.addStep(and(isScorpionNearby, missingScorpionCarve), carveScorpion);
 
-		var decorateTotemOneShield = new ObjectStep(this, ObjectID.ENT_TOTEMS_SITE_1_BASE, new WorldPoint(1370, 3375, 0), "Decorate the totem with one decorative item (shield, longbow, or shortbow) of the same wood type you used to build/carve the totem.", oneDecorativeItem);
-		var decorateTotemTwoShields = new ObjectStep(this, ObjectID.ENT_TOTEMS_SITE_1_BASE, new WorldPoint(1370, 3375, 0), "Decorate the totem with two decorative items (shield, longbow, or shortbow) of the same wood type you used to build/carve the totem.", twoDecorativeItems);
-		var decorateTotemThreeShields = new ObjectStep(this, ObjectID.ENT_TOTEMS_SITE_1_BASE, new WorldPoint(1370, 3375, 0), "Decorate the totem with three decorative items (shield, longbow, or shortbow) of the same wood type you used to build/carve the totem.", threeDecorativeItems);
-		decorateTotemFourShields = new ObjectStep(this, ObjectID.ENT_TOTEMS_SITE_1_BASE, new WorldPoint(1370, 3375, 0), "Decorate the totem with four decorative items (shield, longbow, or shortbow) of the same wood type you used to build/carve the totem.", fourDecorativeItems);
+		var decorateTotemOneShield = new ObjectStep(this, ObjectID.ENT_TOTEMS_SITE_1_BASE, new WorldPoint(1370, 3375, 0), t("Decorate the totem with one decorative item (shield, longbow, or shortbow) of the same wood type you used to build/carve the totem."), oneDecorativeItem);
+		var decorateTotemTwoShields = new ObjectStep(this, ObjectID.ENT_TOTEMS_SITE_1_BASE, new WorldPoint(1370, 3375, 0), t("Decorate the totem with two decorative items (shield, longbow, or shortbow) of the same wood type you used to build/carve the totem."), twoDecorativeItems);
+		var decorateTotemThreeShields = new ObjectStep(this, ObjectID.ENT_TOTEMS_SITE_1_BASE, new WorldPoint(1370, 3375, 0), t("Decorate the totem with three decorative items (shield, longbow, or shortbow) of the same wood type you used to build/carve the totem."), threeDecorativeItems);
+		decorateTotemFourShields = new ObjectStep(this, ObjectID.ENT_TOTEMS_SITE_1_BASE, new WorldPoint(1370, 3375, 0), t("Decorate the totem with four decorative items (shield, longbow, or shortbow) of the same wood type you used to build/carve the totem."), fourDecorativeItems);
 		decorateTotemFourShields.addSubSteps(decorateTotemOneShield, decorateTotemTwoShields, decorateTotemThreeShields);
-		talkToIsadoraAfterDecoratingTotem = new NpcStep(this, NpcID.ENT_TOTEMS_INTRO_CHILD_VIS, new WorldPoint(1366, 3369, 0), "Return to Isadora to talk after decorating the totem.");
+		talkToIsadoraAfterDecoratingTotem = new NpcStep(this, NpcID.ENT_TOTEMS_INTRO_CHILD_VIS, new WorldPoint(1366, 3369, 0), t("Return to Isadora to talk after decorating the totem."));
 		decorateTotem = new ConditionalStep(this, decorateTotemFourShields);
 		decorateTotem.addStep(oneShieldAdded, decorateTotemThreeShields);
 		decorateTotem.addStep(twoShieldsAdded, decorateTotemTwoShields);
@@ -276,8 +276,8 @@ public class ValeTotems extends BasicQuestHelper
 		carveAndDecorateTotem.addStep(isTotemBaseBuilt, talkToIsadoraToLearnAboutCarving);
 		carveAndDecorateTotem.addStep(needToBuildTotem, buildTotemBase);
 
-		claimOffering = new ObjectStep(this, ObjectID.ENT_TOTEMS_OFFERINGS_B, new WorldPoint(1370, 3374, 0), "Claim the offering the Ent left next to your totem.");
-		finishQuest = new NpcStep(this, NpcID.ENT_TOTEMS_INTRO_CHILD_VIS, new WorldPoint(1366, 3369, 0), "Return to Isadora to finish the quest.");
+		claimOffering = new ObjectStep(this, ObjectID.ENT_TOTEMS_OFFERINGS_B, new WorldPoint(1370, 3374, 0), t("Claim the offering the Ent left next to your totem."));
+		finishQuest = new NpcStep(this, NpcID.ENT_TOTEMS_INTRO_CHILD_VIS, new WorldPoint(1366, 3369, 0), t("Return to Isadora to finish the quest."));
 	}
 
 	@Override
@@ -303,7 +303,7 @@ public class ValeTotems extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Unlocks the Auburnvale fletching minigame")
+			new UnlockReward(t("Unlocks the Auburnvale fletching minigame"))
 		);
 	}
 
@@ -312,7 +312,7 @@ public class ValeTotems extends BasicQuestHelper
 	{
 		var panels = new ArrayList<PanelDetails>();
 
-		panels.add(new PanelDetails("Repair the totem", List.of(
+		panels.add(new PanelDetails(t("Repair the totem"), List.of(
 			startQuest,
 			buildTotemBase,
 			talkToIsadoraToLearnAboutCarving,

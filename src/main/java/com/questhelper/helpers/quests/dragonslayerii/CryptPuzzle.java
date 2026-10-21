@@ -82,7 +82,7 @@ public class CryptPuzzle extends DetailedOwnerStep
 	// Find match, set bust to take to correct step, set bust to use to correct ItemRequirement
 	public CryptPuzzle(QuestHelper questHelper)
 	{
-		super(questHelper, "Solve the bust puzzle.");
+		super(questHelper, questHelper.t("Solve the bust puzzle."));
 
 		locations.put("Zartharim sat at the north of the table", AIVAS);
 		locations.put("Saranthium sat at the north of the table", CAMORRA);
@@ -219,17 +219,17 @@ public class CryptPuzzle extends DetailedOwnerStep
 	@Override
 	protected void setupSteps()
 	{
-		inspectTomb = new ObjectStep(getQuestHelper(), ObjectID.DS2_TOMBSTONE_CAMORRA, new WorldPoint(1504, 9939, 1), "Inspect the tomb in the south room.");
+		inspectTomb = new ObjectStep(getQuestHelper(), ObjectID.DS2_TOMBSTONE_CAMORRA, new WorldPoint(1504, 9939, 1), getQuestHelper().t("Inspect the tomb in the south room."));
 
 
-		takeTristanBust = new ObjectStep(getQuestHelper(), ObjectID.DS2_TOMB_BUST_TRISTAN, new WorldPoint(1507, 9941, 1), "Take Tristan's Bust.");
-		takeAivasBust = new ObjectStep(getQuestHelper(), ObjectID.DS2_TOMB_BUST_AIVAS, new WorldPoint(1500, 9941, 1), "Take Aivas' Bust.");
-		takeRobertBust = new ObjectStep(getQuestHelper(), ObjectID.DS2_TOMB_BUST_ROBERT, new WorldPoint(1500, 9936, 1), "Take Robert's Bust.");
-		takeCamorraBust = new ObjectStep(getQuestHelper(), ObjectID.DS2_TOMB_BUST_CAMORRA, new WorldPoint(1507, 9936, 1), "Take Camorra's Bust.");
-		placeBustNorth = new ObjectStep(getQuestHelper(), ObjectID.DS2_TOMB_PLINTH_NORTH, new WorldPoint(1504, 9941, 1), "Place the bust on the north plinth.");
-		placeBustEast = new ObjectStep(getQuestHelper(), ObjectID.DS2_TOMB_PLINTH_EAST, new WorldPoint(1506, 9939, 1), "Place the bust on the east plinth.");
-		placeBustSouth = new ObjectStep(getQuestHelper(), ObjectID.DS2_TOMB_PLINTH_SOUTH, new WorldPoint(1504, 9936, 1), "Place the bust on the south plinth.");
-		placeBustWest = new ObjectStep(getQuestHelper(), ObjectID.DS2_TOMB_PLINTH_WEST, new WorldPoint(1501, 9939, 1), "Place the bust on the west plinth.");
+		takeTristanBust = new ObjectStep(getQuestHelper(), ObjectID.DS2_TOMB_BUST_TRISTAN, new WorldPoint(1507, 9941, 1), getQuestHelper().t("Take Tristan's Bust."));
+		takeAivasBust = new ObjectStep(getQuestHelper(), ObjectID.DS2_TOMB_BUST_AIVAS, new WorldPoint(1500, 9941, 1), getQuestHelper().t("Take Aivas' Bust."));
+		takeRobertBust = new ObjectStep(getQuestHelper(), ObjectID.DS2_TOMB_BUST_ROBERT, new WorldPoint(1500, 9936, 1), getQuestHelper().t("Take Robert's Bust."));
+		takeCamorraBust = new ObjectStep(getQuestHelper(), ObjectID.DS2_TOMB_BUST_CAMORRA, new WorldPoint(1507, 9936, 1), getQuestHelper().t("Take Camorra's Bust."));
+		placeBustNorth = new ObjectStep(getQuestHelper(), ObjectID.DS2_TOMB_PLINTH_NORTH, new WorldPoint(1504, 9941, 1), getQuestHelper().t("Place the bust on the north plinth."));
+		placeBustEast = new ObjectStep(getQuestHelper(), ObjectID.DS2_TOMB_PLINTH_EAST, new WorldPoint(1506, 9939, 1), getQuestHelper().t("Place the bust on the east plinth."));
+		placeBustSouth = new ObjectStep(getQuestHelper(), ObjectID.DS2_TOMB_PLINTH_SOUTH, new WorldPoint(1504, 9936, 1), getQuestHelper().t("Place the bust on the south plinth."));
+		placeBustWest = new ObjectStep(getQuestHelper(), ObjectID.DS2_TOMB_PLINTH_WEST, new WorldPoint(1501, 9939, 1), getQuestHelper().t("Place the bust on the west plinth."));
 
 		setupItemRequirements();
 		setupConditions();

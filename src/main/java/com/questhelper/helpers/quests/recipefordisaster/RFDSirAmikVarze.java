@@ -130,14 +130,14 @@ public class RFDSirAmikVarze extends BasicQuestHelper
 		potOfCream = new ItemRequirement("Pot of cream", ItemID.POT_OF_CREAM);
 		potOfCream.setHighlightInInventory(true);
 		cornflour = new ItemRequirement("Pot of cornflour", ItemID.CHICKENQUEST_POT_CORNFLOUR);
-		cornflour.setTooltip("You can make this by grinding a sweetcorn in a windmill and collecting it with a pot");
+		cornflour.setTooltip(t("You can make this by grinding a sweetcorn in a windmill and collecting it with a pot"));
 		cornflour.setHighlightInInventory(true);
 
 		pot = new ItemRequirement("Pot", ItemID.POT_EMPTY);
 		sweetcorn = new ItemRequirement("Sweetcorn", ItemID.SWEETCORN);
 
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES).isNotConsumed();
-		machete = new ItemRequirement("Any machete", ItemCollections.MACHETE).isNotConsumed();
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).isNotConsumed();
+		machete = new ItemRequirement(t("Any machete"), ItemCollections.MACHETE).isNotConsumed();
 		radimusNotes = new ItemRequirement("Radimus notes", ItemID.THKARAMJAMAP).isNotConsumed();
 		radimusNotes.addAlternates(ItemID.THKARAMJAMAPCOMP);
 		if (client.getGameState() == GameState.LOGGED_IN && QuestHelperQuest.LEGENDS_QUEST.getState(client, configManager) == QuestState.FINISHED)
@@ -150,7 +150,7 @@ public class RFDSirAmikVarze extends BasicQuestHelper
 				machete, radimusNotes);
 		}
 		vanillaPod = new ItemRequirement("Vanilla pod", ItemID.CHICKENQUEST_VANILLA_POD);
-		vanillaPod.setTooltip("You can get a pod from the Kharazi Jungle. Bring an axe and machete to get in");
+		vanillaPod.setTooltip(t("You can get a pod from the Kharazi Jungle. Bring an axe and machete to get in"));
 		vanillaPod.setHighlightInInventory(true);
 
 		dramenStaffOrLunar = new ItemRequirement("Dramen/lunar staff", ItemID.DRAMEN_STAFF, 1, true).isNotConsumed();
@@ -159,23 +159,23 @@ public class RFDSirAmikVarze extends BasicQuestHelper
 
 		dramenBranch = new ItemRequirement("Dramen branch", ItemID.DRAMEN_BRANCH);
 		dramenBranch.setHighlightInInventory(true);
-		dramenBranch.setTooltip("You can get one from the dramen tree under Entrana");
+		dramenBranch.setTooltip(t("You can get one from the dramen tree under Entrana"));
 		pestleAndMortar = new ItemRequirement("Pestle and mortar", ItemID.PESTLE_AND_MORTAR).isNotConsumed();
 		pestleAndMortarHighlighted = pestleAndMortar.highlighted();
 
 		iceGloves = new ItemRequirement("Ice gloves or smiths gloves(i)", ItemID.ICE_GLOVES).equipped().isNotConsumed();
 		iceGloves.addAlternates(ItemID.SMITHING_UNIFORM_GLOVES_ICE);
-		iceGloves.setTooltip("Although optional, you'll take a lot of damage if you're not wearing them");
+		iceGloves.setTooltip(t("Although optional, you'll take a lot of damage if you're not wearing them"));
 		rawChicken = new ItemRequirement("Raw chicken", ItemID.RAW_CHICKEN);
 		rawChicken.setHighlightInInventory(true);
 		antidragonShield = new ItemRequirement("Anti-dragon shield", ItemCollections.ANTIFIRE_SHIELDS).isNotConsumed();
 		antifirePotion = new ItemRequirement("Antifire potion", ItemCollections.ANTIFIRE);
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		draynorVillageTele = new ItemRequirement("Draynor Village teleport", ItemCollections.AMULET_OF_GLORIES, 1);
+		draynorVillageTele = new ItemRequirement(t("Draynor Village teleport"), ItemCollections.AMULET_OF_GLORIES, 1);
 		draynorVillageTele.setChargedItem(true);
 		draynorVillageTele.showConditioned(new Conditions(LogicType.NOR, inDraynorVillage));
-		lumbridgeTele = new ItemRequirement("Lumbridge Teleport", ItemID.POH_TABLET_LUMBRIDGETELEPORT, 1);
+		lumbridgeTele = new ItemRequirement(t("Lumbridge Teleport"), ItemID.POH_TABLET_LUMBRIDGETELEPORT, 1);
 
 		milkyMixture = new ItemRequirement("Milky mixture", ItemID.CHICKENQUEST_MILKY_MIXTURE);
 		milkyMixture.setHighlightInInventory(true);
@@ -233,40 +233,40 @@ public class RFDSirAmikVarze extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		enterDiningRoom = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOUBLEDOORL, new WorldPoint(3213, 3221, 0), "Go inspect Sir Amik Varze in Lumbridge Castle.");
-		inspectAmik = new ObjectStep(this, ObjectID.HUNDRED_VARZE_BASE, new WorldPoint(1865, 5321, 0), "Inspect Sir Amik Varze.");
+		enterDiningRoom = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOUBLEDOORL, new WorldPoint(3213, 3221, 0), t("Go inspect Sir Amik Varze in Lumbridge Castle."));
+		inspectAmik = new ObjectStep(this, ObjectID.HUNDRED_VARZE_BASE, new WorldPoint(1865, 5321, 0), t("Inspect Sir Amik Varze."));
 		inspectAmik.addSubSteps(enterDiningRoom);
 
-		enterKitchen = new ObjectStep(this, ObjectID.HUNDRED_PORTAL_DOOR1, new WorldPoint(1861, 5316, 0), "Talk to the Lumbridge Cook.");
+		enterKitchen = new ObjectStep(this, ObjectID.HUNDRED_PORTAL_DOOR1, new WorldPoint(1861, 5316, 0), t("Talk to the Lumbridge Cook."));
 		talkToCook = new NpcStep(this, NpcID.COOK, new WorldPoint(3209, 3215, 0),
-			"Talk to the Lumbridge Cook and ask him all the options about Sir Amik Varze.");
+			t("Talk to the Lumbridge Cook and ask him all the options about Sir Amik Varze."));
 		talkToCook.addDialogSteps("More...", "Protecting Sir Amik Varze");
 		talkToCook.addSubSteps(enterKitchen);
 
-		talkToWom = new NpcStep(this, NpcID.WISE_OLD_MAN, new WorldPoint(3088, 3255, 0), "Talk to the Wise Old Man in Draynor Village about strange beasts and the Evil Chicken.");
+		talkToWom = new NpcStep(this, NpcID.WISE_OLD_MAN, new WorldPoint(3088, 3255, 0), t("Talk to the Wise Old Man in Draynor Village about strange beasts and the Evil Chicken."));
 		((NpcStep) talkToWom).addTeleport(draynorVillageTele.quantity(1).named("Amulet of glory (Draynor Village [3])"));
 		talkToWom.addDialogSteps("Draynor Village", "I'd just like to ask you something.", "Strange beasts", "The Evil Chicken");
 
-		useMilkOnCream = new DetailedQuestStep(this, "Use a bucket of milk on a pot of cream.", bucketOfMilk, potOfCream);
-		useCornflourOnMilky = new DetailedQuestStep(this, "Use cornflour on the milky mixture.", cornflour, milkyMixture);
-		addPodToCornflourMixture = new DetailedQuestStep(this, "Add a vanilla pod to the cornflour mixture.", vanillaPod, cornflourMixture);
-		enterZanaris = new DetailedQuestStep(this, "Travel to Zanaris.", dramenStaffOrLunar);
+		useMilkOnCream = new DetailedQuestStep(this, t("Use a bucket of milk on a pot of cream."), bucketOfMilk, potOfCream);
+		useCornflourOnMilky = new DetailedQuestStep(this, t("Use cornflour on the milky mixture."), cornflour, milkyMixture);
+		addPodToCornflourMixture = new DetailedQuestStep(this, t("Add a vanilla pod to the cornflour mixture."), vanillaPod, cornflourMixture);
+		enterZanaris = new DetailedQuestStep(this, t("Travel to Zanaris."), dramenStaffOrLunar);
 		useChickenOnShrine = new ObjectStep(this, ObjectID.FAIRY_CHICKEN_SHRINE, new WorldPoint(2453, 4477, 0),
-			"Use a raw chicken on the Chicken Shrine in the north east of Zanaris.", rawChicken, combatGear);
+			t("Use a raw chicken on the Chicken Shrine in the north east of Zanaris."), rawChicken, combatGear);
 		useChickenOnShrine.addIcon(ItemID.RAW_CHICKEN);
-		killEvilChicken = new NpcStep(this, NpcID.CHICKENQUEST_EVIL_CHICKEN, new WorldPoint(2455, 4399, 0), "Kill the Evil Chicken in the north of the range. Pray protect from magic against it.");
-		pickUpEgg = new ItemStep(this, "Pick up the evil chicken egg.", evilEgg);
-		useEggOnBrulee = new DetailedQuestStep(this, "Use the evil chickens egg on the brulee.", evilEgg, baseBrulee, pestleAndMortar);
-		killBlackDragon = new NpcStep(this, NpcID.BLACK_DRAGON, new WorldPoint(2461, 4367, 0), "Kill a black dragon.", combatGear, antidragonShield);
-		pickUpToken = new ItemStep(this, "Pick up the dragon token.", token);
-		grindBranch = new DetailedQuestStep(this, "Use a pestle and mortar on the dramen branch.", pestleAndMortarHighlighted, dramenBranch);
-		useCinnamonOnBrulee = new DetailedQuestStep(this, "Use the cinnamon on the brulee.", cinnamon, bruleeWithEgg);
-		rubToken = new DetailedQuestStep(this, "Equip your Ice Gloves and rub the dragon token in Lumbridge or Zanaris. Ask the fairy dragon to cook your brulee.", tokenHighlighted, uncookedBrulee, iceGloves);
+		killEvilChicken = new NpcStep(this, NpcID.CHICKENQUEST_EVIL_CHICKEN, new WorldPoint(2455, 4399, 0), t("Kill the Evil Chicken in the north of the range. Pray protect from magic against it."));
+		pickUpEgg = new ItemStep(this, t("Pick up the evil chicken egg."), evilEgg);
+		useEggOnBrulee = new DetailedQuestStep(this, t("Use the evil chickens egg on the brulee."), evilEgg, baseBrulee, pestleAndMortar);
+		killBlackDragon = new NpcStep(this, NpcID.BLACK_DRAGON, new WorldPoint(2461, 4367, 0), t("Kill a black dragon."), combatGear, antidragonShield);
+		pickUpToken = new ItemStep(this, t("Pick up the dragon token."), token);
+		grindBranch = new DetailedQuestStep(this, t("Use a pestle and mortar on the dramen branch."), pestleAndMortarHighlighted, dramenBranch);
+		useCinnamonOnBrulee = new DetailedQuestStep(this, t("Use the cinnamon on the brulee."), cinnamon, bruleeWithEgg);
+		rubToken = new DetailedQuestStep(this, t("Equip your Ice Gloves and rub the dragon token in Lumbridge or Zanaris. Ask the fairy dragon to cook your brulee."), tokenHighlighted, uncookedBrulee, iceGloves);
 		rubToken.addDialogStep("Please flambe this creme brulee for me.");
 
-		enterDiningRoomAgain = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOOR, new WorldPoint(3207, 3217, 0), "Go give the Brulee to Sir Amik Varze to finish the quest.", finishedBrulee);
+		enterDiningRoomAgain = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOOR, new WorldPoint(3207, 3217, 0), t("Go give the Brulee to Sir Amik Varze to finish the quest."), finishedBrulee);
 		((ObjectStep) enterDiningRoomAgain).addTeleport(lumbridgeTele);
-		useBruleeOnVarze = new ObjectStep(this, ObjectID.HUNDRED_VARZE_BASE, new WorldPoint(1865, 5321, 0), "Give the Brulee to Sir Amik Varze to finish the quest.", finishedBruleeHighlighted);
+		useBruleeOnVarze = new ObjectStep(this, ObjectID.HUNDRED_VARZE_BASE, new WorldPoint(1865, 5321, 0), t("Give the Brulee to Sir Amik Varze to finish the quest."), finishedBruleeHighlighted);
 		useBruleeOnVarze.addIcon(ItemID.CHICKENQUEST_BRULEE_MIXTURE_SUPREME);
 		useBruleeOnVarze.addSubSteps(enterDiningRoomAgain);
 	}
@@ -322,7 +322,7 @@ public class RFDSirAmikVarze extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Arrays.asList("Evil Chicken (level " + evilChickenLevel + ")", "Black dragon (level 227) (Can be safespotted)");
+		return Arrays.asList("Evil Chicken (" + t("level") + " " + evilChickenLevel + ")", t("Black dragon (level 227) (Can be safespotted)"));
 	}
 
 	@Override
@@ -358,21 +358,21 @@ public class RFDSirAmikVarze extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("Access to the Evil Chickens Lair"),
-			new UnlockReward("Further access to the Culinaromancer's Chest"));
+			new UnlockReward(t("Access to the Evil Chickens Lair")),
+			new UnlockReward(t("Further access to the Culinaromancer's Chest")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off", Arrays.asList(inspectAmik, talkToCook, talkToWom), null, Arrays.asList(draynorVillageTele.quantity(1))));
-		PanelDetails tokenAndEggPanel = new PanelDetails("Get token and egg", Arrays.asList(enterZanaris, useChickenOnShrine,
+		allSteps.add(new PanelDetails(t("Starting off"), Arrays.asList(inspectAmik, talkToCook, talkToWom), null, Arrays.asList(draynorVillageTele.quantity(1))));
+		PanelDetails tokenAndEggPanel = new PanelDetails(t("Get token and egg"), Arrays.asList(enterZanaris, useChickenOnShrine,
 			killEvilChicken, pickUpEgg, killBlackDragon, pickUpToken),
 			dramenStaffOrLunar, rawChicken, combatGear, antidragonShield, antifirePotion);
 		tokenAndEggPanel.setLockingStep(tokenAndEggSteps);
 		allSteps.add(tokenAndEggPanel);
-		allSteps.add(new PanelDetails("Making the brulee", Arrays.asList(useMilkOnCream, useCornflourOnMilky, addPodToCornflourMixture,
+		allSteps.add(new PanelDetails(t("Making the brulee"), Arrays.asList(useMilkOnCream, useCornflourOnMilky, addPodToCornflourMixture,
 			useEggOnBrulee, grindBranch, useCinnamonOnBrulee, rubToken, useBruleeOnVarze),
 			Arrays.asList(bucketOfMilk, potOfCream, cornflour, pestleAndMortar, dramenBranch, vanillaPod, evilEgg, token, iceGloves),
 			Arrays.asList(lumbridgeTele)));

@@ -163,18 +163,18 @@ public class TheHandInTheSand extends BasicQuestHelper
 
 		beerOr2Coins = new ItemRequirement("Beer or 2 gp", ItemID.BEER);
 		earthRunes5 = new ItemRequirement("Earth runes", ItemID.EARTHRUNE, 5);
-		coins = new ItemRequirement("Coins or more for boat travel", ItemCollections.COINS, 150);
+		coins = new ItemRequirement(t("Coins or more for boat travel"), ItemCollections.COINS, 150);
 
 		bucketOfSand = new ItemRequirement("Bucket of sand", ItemID.BUCKET_SAND);
 
 		wizardsHead = new ItemRequirement("Wizard's head", ItemID.HANDSAND_WIZHEAD);
 		wizardsHead.setTooltip(t("You can get another from Mazion on Entrana"));
 
-		teleportsToBrimhaven = new ItemRequirement("Teleports to Brimhaven, or to near a boat to Brimhaven",
+		teleportsToBrimhaven = new ItemRequirement(t("Teleports to Brimhaven, or to near a boat to Brimhaven"),
 			ItemID.NZONE_TELETAB_BRIMHAVEN, 2);
-		teleportsToYanille = new ItemRequirement("Teleports to Yanille, such as dueling ring or minigame teleport",
+		teleportsToYanille = new ItemRequirement(t("Teleports to Yanille, such as dueling ring or minigame teleport"),
 			ItemID.NZONE_TELETAB_YANILLE, 3);
-		teleportToPortSarim = new ItemRequirement("Teleport to Port Sarim", ItemCollections.EXPLORERS_RINGS);
+		teleportToPortSarim = new ItemRequirement(t("Teleport to Port Sarim"), ItemCollections.EXPLORERS_RINGS);
 		teleportToPortSarim.addAlternates(ItemCollections.AMULET_OF_GLORIES);
 	}
 

@@ -57,7 +57,7 @@ public abstract class RubbleSolver extends DetailedOwnerStep {
 	private int stepCounter;
 
     public RubbleSolver(TheCurseOfArrav theCurseOfArrav, @SuppressWarnings("unused") String number) {
-        super(theCurseOfArrav, "Make your way through the Trollweiss cave, mining rubble with your pickaxe from the direction indicated. Rubble can only be mined from the same direction once.");
+        super(theCurseOfArrav, theCurseOfArrav.t("Make your way through the Trollweiss cave, mining rubble with your pickaxe from the direction indicated. Rubble can only be mined from the same direction once."));
     }
 
     protected void addMineRubbleStep(int x, int y, RubbleType rubbleType, Direction direction) {
@@ -69,7 +69,7 @@ public abstract class RubbleSolver extends DetailedOwnerStep {
         var wp = new WorldPoint(x, y, 0);
 		// Useful for debugging
         // var stepCounter = this.stepCounter++;
-        var text = String.format("Mine the rubble from the %s side", direction.toString().toLowerCase());
+        var text = String.format(getQuestHelper().t("Mine the rubble from the %s side"), direction.toString().toLowerCase());
         var mainObjectID = validObjectIDs.get(0);
         var step = new ObjectStep(getQuestHelper(), mainObjectID, wp, text, ((TheCurseOfArrav) getQuestHelper()).anyPickaxe);
         var offsetX = x;
@@ -95,8 +95,8 @@ public abstract class RubbleSolver extends DetailedOwnerStep {
             step.addAlternateObjects(alternateIDs);
         }
 
-        var conditionText = String.format("Rubble mined from the %s side", direction.toString().toLowerCase());
-        var inverseConditionText = String.format("Rubble needs to be mined from the %s side", direction.toString().toLowerCase());
+        var conditionText = String.format(getQuestHelper().t("Rubble mined from the %s side"), direction.toString().toLowerCase());
+        var inverseConditionText = String.format(getQuestHelper().t("Rubble needs to be mined from the %s side"), direction.toString().toLowerCase());
         var conditionThatRubbleIsStillThere = new ObjectCondition(validIDSet, wp);
         var conditionThatRubbleHasBeenMined = new Conditions(true, LogicType.NAND, conditionThatRubbleIsStillThere);
         conditionThatRubbleIsStillThere.setText(inverseConditionText);

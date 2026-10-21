@@ -47,7 +47,7 @@ public class FindLongramble
 
 	public void setup(ThePathOfGlouphrie quest)
 	{
-		var teleToLongramble = new TeleportItemRequirement("Fairy Ring BKP or Ring of Dueling to Castle Wars",
+		var teleToLongramble = new TeleportItemRequirement(quest.t("Fairy Ring BKP or Ring of Dueling to Castle Wars"),
 			ItemCollections.RING_OF_DUELINGS, 1);
 		teleToLongramble.addAlternates(ItemCollections.FAIRY_STAFF);
 
@@ -60,24 +60,24 @@ public class FindLongramble
 
 
 		talkToLongramble = new ConditionalStep(quest, goToLongramble,
-			"Go to Longramble, make sure to head to a bank & gear up first. You can drop all leftover discs.",
+			quest.t("Go to Longramble, make sure to head to a bank & gear up first. You can drop all leftover discs."),
 			quest.combatGear, quest.crossbow.equipped().highlighted(), quest.mithGrapple.equipped().highlighted(),
 			quest.prayerPotions, quest.food, quest.crystalChime);
 		talkToLongramble.addStep(quest.nearLongramble, actuallyTalkToLongramble);
 
 		{
 			var talk = new ObjectStep(quest, ObjectID.POG_SPIRIT_TREE_MULTI, new WorldPoint(2339, 3111, 0), "");
-			talkToSpiritTree = new ConditionalStep(quest, talk, "Talk to the Spirit Tree.",
+			talkToSpiritTree = new ConditionalStep(quest, talk, quest.t("Talk to the Spirit Tree."),
 				quest.combatGear, quest.prayerPotions, quest.food, quest.crystalChime);
 		}
 
 		useCrystalChime = new ObjectStep(quest, ObjectID.POG_SPIRIT_TREE_MULTI, new WorldPoint(2339, 3111, 0),
-			"Use the Crystal Chime on the Spirit Tree.", quest.crystalChime.highlighted());
+			quest.t("Use the Crystal Chime on the Spirit Tree."), quest.crystalChime.highlighted());
 		useCrystalChime.addIcon(ItemID.CRYSTAL_CHIME);
 
 		{
 			var talk = new ObjectStep(quest, ObjectID.POG_SPIRIT_TREE_MULTI, new WorldPoint(2339, 3111, 0), "");
-			talkToSpiritTreeAgain = new ConditionalStep(quest, talk, "Talk to the Spirit Tree again.",
+			talkToSpiritTreeAgain = new ConditionalStep(quest, talk, quest.t("Talk to the Spirit Tree again."),
 				quest.combatGear, quest.prayerPotions, quest.food, quest.crystalChime);
 		}
 	}

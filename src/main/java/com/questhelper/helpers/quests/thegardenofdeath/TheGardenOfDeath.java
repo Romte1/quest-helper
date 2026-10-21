@@ -166,15 +166,15 @@ public class TheGardenOfDeath extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		// Required
-		secateurs = new ItemRequirement("Secateurs (Obtainable in quest)", ItemID.SECATEURS);
+		secateurs = new ItemRequirement(t("Secateurs (Obtainable in quest)"), ItemID.SECATEURS);
 		secateurs.canBeObtainedDuringQuest();
 		secateurs.addAlternates(ItemID.FAIRY_ENCHANTED_SECATEURS);
 
 		// Recommended
 		antipoison = new ItemRequirement("Antipoisons", ItemCollections.ANTIPOISONS);
-		kharedstMemoir = new ItemRequirement("Kharedst's memoirs or book of the dead for teleports", ItemID.VEOS_KHAREDSTS_MEMOIRS);
+		kharedstMemoir = new ItemRequirement(t("Kharedst's memoirs or book of the dead for teleports"), ItemID.VEOS_KHAREDSTS_MEMOIRS);
 		kharedstMemoir.addAlternates(ItemID.BOOK_OF_THE_DEAD);
-		fairyRingAccess = new ItemRequirement("Fairy ring access for quick access to Molch Island (DJR)", ItemCollections.FAIRY_STAFF);
+		fairyRingAccess = new ItemRequirement(t("Fairy ring access for quick access to Molch Island (DJR)"), ItemCollections.FAIRY_STAFF);
 		xericsTalisman = new ItemRequirement("Xeric's talisman", ItemID.XERIC_TALISMAN);
 
 		// Quest items

@@ -107,8 +107,8 @@ public class KaramjaElite extends ComplexStateQuestHelper
 		notMadePotion = new VarplayerRequirement(VarPlayerID.ATJUN_TASKS_4, false, 4);
 		notCheckedCalquat = new VarplayerRequirement(VarPlayerID.ATJUN_TASKS_4, false, 5);
 
-		natureTiaraOrAbyss = new ItemRequirement("Access to the Nature Altar", ItemCollections.NATURE_ALTAR_WEARABLE).showConditioned(notCraftedRunes).isNotConsumed();
-		natureTiaraOrAbyss.setTooltip("Nature Tiara, Catalytic Tiara, RC-skill cape or via Abyss");
+		natureTiaraOrAbyss = new ItemRequirement(t("Access to the Nature Altar"), ItemCollections.NATURE_ALTAR_WEARABLE).showConditioned(notCraftedRunes).isNotConsumed();
+		natureTiaraOrAbyss.setTooltip(t("Nature Tiara, Catalytic Tiara, RC-skill cape or via Abyss"));
 		pureEssence = new ItemRequirement("Pure essence", ItemID.BLANKRUNE_HIGH).showConditioned(notCraftedRunes);
 		fireCapeOrInfernal = new ItemRequirement("Fire cape or infernal cape", ItemID.TZHAAR_CAPE_FIRE)
 			.showConditioned(notEquippedCape).isNotConsumed();
@@ -138,27 +138,27 @@ public class KaramjaElite extends ComplexStateQuestHelper
 	public void setupSteps()
 	{
 		enterNatureAltar = new ObjectStep(this, ObjectID.NATURETEMPLE_RUINED, new WorldPoint(2869, 3019, 0),
-			"Enter the nature altar, either from the ruin or through the Abyss.", natureTiaraOrAbyss,
+			t("Enter the nature altar, either from the ruin or through the Abyss."), natureTiaraOrAbyss,
 			pureEssence.quantity(28));
 		craftRunes = new ObjectStep(this, ObjectID.NATURE_ALTAR, new WorldPoint(2400, 4841, 0),
-			"Craft a full inventory of nature runes.", pureEssence.quantity(28));
-		equipCape = new DetailedQuestStep(this, "Equip a fire or infernal cape.", fireCapeOrInfernal.equipped());
+			t("Craft a full inventory of nature runes."), pureEssence.quantity(28));
+		equipCape = new DetailedQuestStep(this, t("Equip a fire or infernal cape."), fireCapeOrInfernal.equipped());
 		checkPalm = new ObjectStep(this, ObjectID.FARMING_FRUIT_TREE_PATCH_3, new WorldPoint(2765, 3213, 0),
-			"Grow and check the health of a palm tree in the Brimhaven patch. " +
-				"If you're waiting for it to grow and want to complete further tasks, use the tick box on panel.",
+			t("Grow and check the health of a palm tree in the Brimhaven patch. " +
+				"If you're waiting for it to grow and want to complete further tasks, use the tick box on panel."),
 			palmTreeSapling, rake, spade);
 		checkCalquat = new ObjectStep(this, ObjectID.FARMING_CALQUAT_TREE_PATCH, new WorldPoint(2796, 3101, 0),
-			"Grow and check the health of a Calquat in Tai Bwo Wannai. " +
-				"If you're waiting for it to grow and want to complete further tasks, use the tick box on panel.",
+			t("Grow and check the health of a Calquat in Tai Bwo Wannai. " +
+				"If you're waiting for it to grow and want to complete further tasks, use the tick box on panel."),
 			calquatSapling, rake, spade);
 		moveToHorseShoe = new DetailedQuestStep(this, new WorldPoint(2734, 3224, 0),
-			"Go to the horse shoe mine north west of Brimhaven.");
+			t("Go to the horse shoe mine north west of Brimhaven."));
 		makePotion = new DetailedQuestStep(this, new WorldPoint(2734, 3224, 0),
-			"Make an antivenom potion whilst standing in the horse shoe mine.",
+			t("Make an antivenom potion whilst standing in the horse shoe mine."),
 			antidotePlusPlus.highlighted(), zulrahScales.quantity(20).highlighted());
 
 		claimReward = new NpcStep(this, NpcID.AGILITYARENA_TICKETTRADER_2OPS, new WorldPoint(2810, 3192, 0),
-			"Talk to Pirate Jackie the Fruit in Brimhaven to claim your reward!");
+			t("Talk to Pirate Jackie the Fruit in Brimhaven to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -192,13 +192,13 @@ public class KaramjaElite extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("10% chance of receiving 2 Agility arena tickets in the Brimhaven Agility Dungeon"),
-			new UnlockReward("Free usage of Shilo Village's furnace"),
-			new UnlockReward("Free cart rides on Hajedy's cart system"),
-			new UnlockReward("Free access to the Hardwood Grove"),
-			new UnlockReward("Red and Metal in Brimhaven Dungeon will drop noted dragonhide and bars"),
-			new UnlockReward("One free resurrection per day in the Fight Caves (Not the Inferno)"),
-			new UnlockReward("Double Tokkul from TzHaar Fight Caves, Inferno and Ket-Rak's Challenges"));
+			new UnlockReward(t("10% chance of receiving 2 Agility arena tickets in the Brimhaven Agility Dungeon")),
+			new UnlockReward(t("Free usage of Shilo Village's furnace")),
+			new UnlockReward(t("Free cart rides on Hajedy's cart system")),
+			new UnlockReward(t("Free access to the Hardwood Grove")),
+			new UnlockReward(t("Red and Metal in Brimhaven Dungeon will drop noted dragonhide and bars")),
+			new UnlockReward(t("One free resurrection per day in the Fight Caves (Not the Inferno)")),
+			new UnlockReward(t("Double Tokkul from TzHaar Fight Caves, Inferno and Ket-Rak's Challenges")));
 	}
 
 	@Override
@@ -206,37 +206,37 @@ public class KaramjaElite extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails calquatSteps = new PanelDetails("Check Calquat Tree Health",
+		PanelDetails calquatSteps = new PanelDetails(t("Check Calquat Tree Health"),
 			Collections.singletonList(checkCalquat), farming72, calquatSapling, rake, spade);
 		calquatSteps.setDisplayCondition(notCheckedCalquat);
 		calquatSteps.setLockingStep(checkedCalquatTask);
 		allSteps.add(calquatSteps);
 
-		PanelDetails palmSteps = new PanelDetails("Check Palm Tree Health", Collections.singletonList(checkPalm),
+		PanelDetails palmSteps = new PanelDetails(t("Check Palm Tree Health"), Collections.singletonList(checkPalm),
 			new SkillRequirement(Skill.FARMING, 68, true), palmTreeSapling, rake, spade);
 		palmSteps.setDisplayCondition(notCheckedPalm);
 		palmSteps.setLockingStep(checkedPalmTask);
 		allSteps.add(palmSteps);
 
-		PanelDetails equipCapeSteps = new PanelDetails("Equip Fire / Infernal Cape",
+		PanelDetails equipCapeSteps = new PanelDetails(t("Equip Fire / Infernal Cape"),
 			Collections.singletonList(equipCape), fireCapeOrInfernal);
 		equipCapeSteps.setDisplayCondition(notEquippedCape);
 		equipCapeSteps.setLockingStep(equippedCapeTask);
 		allSteps.add(equipCapeSteps);
 
-		PanelDetails potionSteps = new PanelDetails("Create Antivenom Potion", Arrays.asList(moveToHorseShoe,
+		PanelDetails potionSteps = new PanelDetails(t("Create Antivenom Potion"), Arrays.asList(moveToHorseShoe,
 			makePotion), herblore87, antidotePlusPlus, zulrahScales.quantity(20));
 		potionSteps.setDisplayCondition(notMadePotion);
 		potionSteps.setLockingStep(madePotionTask);
 		allSteps.add(potionSteps);
 
-		PanelDetails craftRunesSteps = new PanelDetails("Craft 56 Nature Runes", Arrays.asList(enterNatureAltar,
+		PanelDetails craftRunesSteps = new PanelDetails(t("Craft 56 Nature Runes"), Arrays.asList(enterNatureAltar,
 			craftRunes), runecraft91, pureEssence.quantity(28), natureTiaraOrAbyss);
 		craftRunesSteps.setDisplayCondition(notCraftedRunes);
 		craftRunesSteps.setLockingStep(craftedRunesTask);
 		allSteps.add(craftRunesSteps);
 
-		PanelDetails finishOffSteps = new PanelDetails("Finishing off", Collections.singletonList(claimReward));
+		PanelDetails finishOffSteps = new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward));
 		allSteps.add(finishOffSteps);
 
 		return allSteps;

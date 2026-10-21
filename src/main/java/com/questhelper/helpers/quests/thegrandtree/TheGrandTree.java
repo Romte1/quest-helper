@@ -201,13 +201,13 @@ public class TheGrandTree extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		oneThousandCoins = new ItemRequirement("Coins to enter the Stronghold if you didn't help Femi previously", ItemCollections.COINS, 1000)
+		oneThousandCoins = new ItemRequirement(t("Coins to enter the Stronghold if you didn't help Femi previously"), ItemCollections.COINS, 1000)
 			.hideConditioned(new QuestRequirement(QuestHelperQuest.TREE_GNOME_VILLAGE, QuestState.FINISHED));
 
 		accessToFairyRings = new ItemRequirement("Access to Fairy Rings", ItemCollections.FAIRY_STAFF).isNotConsumed();
 
 		energyOrStaminaPotions = new ItemRequirement("Energy restoration", ItemCollections.RUN_RESTORE_ITEMS, -1);
-		combatGear = new ItemRequirement("Combat gear. Safespotting is possible.", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear. Safespotting is possible."), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS, -1);

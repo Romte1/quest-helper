@@ -170,13 +170,13 @@ public class WesternHard extends ComplexStateQuestHelper
 		smallFishingNet = new ItemRequirement("Small fishing net", ItemID.NET).showConditioned(notMonkfishPisc).isNotConsumed();
 		coins = new ItemRequirement("Coins", ItemCollections.COINS, 500).showConditioned(notDashingKebbit);
 		ninjaGreegree = new ItemRequirement("Ninja greegree", ItemCollections.NINJA_GREEGREE).showConditioned(notApeAtollAgi).isNotConsumed();
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES).showConditioned(notMahoganyBurned).isNotConsumed();
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).showConditioned(notMahoganyBurned).isNotConsumed();
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).showConditioned(notMahoganyBurned).isNotConsumed();
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).showConditioned(notMineAddyOre).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).showConditioned(notMineAddyOre).isNotConsumed();
 		mahoganyPlank = new ItemRequirement("Mahogany planks", ItemID.PLANK_MAHOGANY, 3)
 			.showConditioned(notIsafdarPainting);
 		painting = new ItemRequirement("Isafdar (painting)", ItemID.POH_UNFRAMED_PAINTING_ISTAFAR).showConditioned(notIsafdarPainting);
-		painting.setTooltip("Can be bought from Sir Renitee in White Knights' Castle for 2,000 gold ");
+		painting.setTooltip(t("Can be bought from Sir Renitee in White Knights' Castle for 2,000 gold "));
 		saw = new ItemRequirement("Saw", ItemCollections.SAW).showConditioned(notIsafdarPainting).isNotConsumed();
 		hammer = new ItemRequirement("Hammer", ItemID.HAMMER).showConditioned(notIsafdarPainting).isNotConsumed();
 		lawRunes2 = new ItemRequirement("Law runes", ItemID.LAWRUNE, 2).showConditioned(notTPApe);
@@ -187,7 +187,7 @@ public class WesternHard extends ComplexStateQuestHelper
 		spade = new ItemRequirement("Spade", ItemID.SPADE).showConditioned(notLletyaPalm).isNotConsumed();
 		palmSapling = new ItemRequirement("Palm sapling", ItemID.PLANTPOT_PALM_SAPLING).showConditioned(notLletyaPalm);
 
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).showConditioned(notMineAddyOre).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).showConditioned(notMineAddyOre).isNotConsumed();
 		ogreBellows = new ItemRequirement("Ogre bellows", ItemCollections.OGRE_BELLOWS).showConditioned(notChompyHat).isNotConsumed();
 		ogreBow = new ItemRequirement("Ogre bow", ItemCollections.OGRE_BOW).showConditioned(notChompyHat).isNotConsumed();
 		ogreArrows = new ItemRequirement("Ogre / brutal arrows", ItemCollections.OGRE_BRUTAL_ARROWS).showConditioned(notChompyHat);
@@ -195,10 +195,10 @@ public class WesternHard extends ComplexStateQuestHelper
 		rawMonkfish = new ItemRequirement("Raw monkfish", ItemID.RAW_MONKFISH);
 		birdReady = new ItemRequirement("Falconer's glove", ItemID.FALCON_GLOVES).isNotConsumed();
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		papayas = new ItemRequirement("Papayas", ItemID.PAPAYA, 15);
 		zulrahTP = new ItemRequirement("Zul-andra teleport", ItemID.TELEPORTSCROLL_ZULANDRA);
 		tpCrystal = new ItemRequirement("Teleport Crystal", ItemCollections.TELEPORT_CRYSTAL).isNotConsumed();
@@ -250,70 +250,70 @@ public class WesternHard extends ComplexStateQuestHelper
 	public void setupSteps()
 	{
 		fishMonkfish = new NpcStep(this, NpcID.SWAN_FISHINGSPOT, new WorldPoint(2340, 3702, 0),
-			"Catch a monkfish in the Piscatoris Fishing Colony.", smallFishingNet);
+			t("Catch a monkfish in the Piscatoris Fishing Colony."), smallFishingNet);
 		monkfishPisc = new ObjectStep(this, ObjectID.SWAN_STOVE, new WorldPoint(2316, 3668, 0),
-			"Cook your monkfish in the Piscatoris Fishing Colony.", rawMonkfish);
+			t("Cook your monkfish in the Piscatoris Fishing Colony."), rawMonkfish);
 
 		getBird = new NpcStep(this, NpcID.HUNTING_NPC_FALCONER, new WorldPoint(2375, 3607, 0),
-			"Talk to Matthias to get a bird. Make sure to unequip any gloves and weapons.", coins);
+			t("Talk to Matthias to get a bird. Make sure to unequip any gloves and weapons."), coins);
 		getBird.addAlternateNpcs(NpcID.HUNTING_NPC_FALCONER_NOBIRD);
 		getBird.addDialogSteps("Could I have a go with your bird?", "Ok, that seems reasonable.");
 		dashingKebbit = new NpcStep(this, NpcID.HUNTINGBEAST_SPEEDY2, new WorldPoint(2372, 3581, 0),
-			"Catch a dashing kebbit with your falcon!");
+			t("Catch a dashing kebbit with your falcon!"));
 
-		pickpocketGnome = new NpcStep(this, NpcID.TWOCATS_GNOME_WOMAN, new WorldPoint(2466, 3460, 0), "Pickpocket a gnome.",
+		pickpocketGnome = new NpcStep(this, NpcID.TWOCATS_GNOME_WOMAN, new WorldPoint(2466, 3460, 0), t("Pickpocket a gnome."),
 			true);
 		((NpcStep) pickpocketGnome).setMaxRoamRange(2000);
 		((NpcStep) pickpocketGnome).addAlternateNpcs(NpcID.BROWCLOTHEDGNOME, NpcID.DARKSKINNED_GNOME, NpcID.GNOMEFEMALE,
 			NpcID.GNOMEFEMALE_DSKINNED);
 
-		tpApe = new DetailedQuestStep(this, "Cast teleport to Ape Atoll.", normalBook, lawRunes2, fireRunes2,
+		tpApe = new DetailedQuestStep(this, t("Cast teleport to Ape Atoll."), normalBook, lawRunes2, fireRunes2,
 			waterRunes2, banana);
 
-		moveToApeMahogany = new DetailedQuestStep(this, "Travel to Ape Atoll.", axe, tinderbox);
+		moveToApeMahogany = new DetailedQuestStep(this, t("Travel to Ape Atoll."), axe, tinderbox);
 		mahoganyChopped = new ObjectStep(this, ObjectID.MAHOGANYTREE, new WorldPoint(2718, 2710, 0),
-			"Chop some mahogany logs on Ape Atoll.", axe, tinderbox);
-		mahoganyBurned = new ItemStep(this, "Burn some mahogany logs on Ape Atoll.",
+			t("Chop some mahogany logs on Ape Atoll."), axe, tinderbox);
+		mahoganyBurned = new ItemStep(this, t("Burn some mahogany logs on Ape Atoll."),
 			mahoganyLogs.highlighted(), tinderbox.highlighted());
 
-		moveToApeAgi = new DetailedQuestStep(this, "Travel to Ape Atoll.", ninjaGreegree);
+		moveToApeAgi = new DetailedQuestStep(this, t("Travel to Ape Atoll."), ninjaGreegree);
 		apeAtollAgi = new ObjectStep(this, ObjectID._100_ILM_STEPPING_STONE, new WorldPoint(2754, 2742, 0),
-			" Complete a lap of the Ape Atoll Agility Course.", ninjaGreegree.equipped());
+			t("Complete a lap of the Ape Atoll Agility Course."), ninjaGreegree.equipped());
 
 		killZulrah = new ObjectStep(this, ObjectID.SNAKEBOSS_BOAT_1OP, new WorldPoint(2215, 3057, 0),
-			"Kill Zulrah.", combatGear, food);
+			t("Kill Zulrah."), combatGear, food);
 
 		mineAddyOre = new ObjectStep(this, ObjectID.ADAMANTITEROCK1, new WorldPoint(2277, 3160, 0),
-			"Mine some adamantite ore in Tirannwn.", true, pickaxe);
+			t("Mine some adamantite ore in Tirannwn."), true, pickaxe);
 		mineAddyOre.addAlternateObjects(ObjectID.ADAMANTITEROCK2);
 
-		elfCrystalBow = new NpcStep(this, NpcID.MOURNING_GUARD_RANGE, new WorldPoint(2333, 3171, 0), "Kill an elf with a crystal" +
-			" bow.", true, crystalBow.equipped());
+		elfCrystalBow = new NpcStep(this, NpcID.MOURNING_GUARD_RANGE, new WorldPoint(2333, 3171, 0), t("Kill an elf with a crystal" +
+			" bow."), true, crystalBow.equipped());
 		((NpcStep) elfCrystalBow).addAlternateNpcs(NpcID.MOURNING_GUARD_RANGE2, NpcID.MOURNING_GUARD_MELEE, NpcID.MOURNING_GUARD_MELEE2);
 		((NpcStep) elfCrystalBow).setMaxRoamRange(2000);
 
-		isafdarPainting = new DetailedQuestStep(this, "Build an Isafdar painting in your POH Quest Hall.",
+		isafdarPainting = new DetailedQuestStep(this, t("Build an Isafdar painting in your POH Quest Hall."),
 			mahoganyPlank, painting, saw, hammer);
 
 		moveToPest = new NpcStep(this, NpcID.PEST_SQUIRE_SHIP_PORTSARIM, new WorldPoint(3041, 3202, 0),
-			"Talk to the squire to travel to the Void Knights' Outpost. Alternatively, use the pest control minigame teleport.");
+			t("Talk to the squire to travel to the Void Knights' Outpost. Alternatively, use the pest control minigame teleport."));
 		moveToPest.addDialogStep("I'd like to go to your outpost.");
 		vetPest = new ObjectStep(this, ObjectID.PEST_LANDER_GANGPLANK_3, new WorldPoint(2637, 2653, 0),
-			"Complete a veteran game of Pest Control.");
+			t("Complete a veteran game of Pest Control."));
 
 		chompyHat = new NpcStep(this, NpcID.RANTZ, new WorldPoint(2628, 2979, 0),
-			"Claim any Chompy bird hat from Rantz. Kill chompy birds until you have 300 kills. \n \nYou can check " +
-				"your kill count by right clicking selecting 'Check Kills' on an ogre bow.",
+			t("Claim any Chompy bird hat from Rantz. Kill chompy birds until you have 300 kills. \n \nYou can check " +
+				"your kill count by right clicking selecting 'Check Kills' on an ogre bow."),
 			ogreBow, ogreArrows, ogreBellows);
 		chompyHat.addDialogStep("Can I have a hat please?");
 
 		lletyaPalm = new ObjectStep(this, ObjectID.FARMING_FRUIT_TREE_PATCH_5, new WorldPoint(2346, 3161, 0),
-			"Check the health of your palm tree in Lletya. It will take about 16 hours to grow fully. " +
-				"If you're waiting for it to grow and want to complete further tasks, use the tick box on panel.", rake, spade,
+			t("Check the health of your palm tree in Lletya. It will take about 16 hours to grow fully. " +
+				"If you're waiting for it to grow and want to complete further tasks, use the tick box on panel."), rake, spade,
 			palmSapling);
 
 		claimReward = new NpcStep(this, NpcID.WESTERN_GNOME_CHILD_DIARY, new WorldPoint(2466, 3460, 0),
-			"Talk to the Elder gnome child in Gnome Stronghold to claim your reward!");
+			t("Talk to the Elder gnome child in Gnome Stronghold to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -359,7 +359,7 @@ public class WesternHard extends ComplexStateQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Kill Zulrah (lvl 725) and an elf (lvl 90 or 108)");
+		return Collections.singletonList(t("Kill Zulrah (lvl 725) and an elf (lvl 90 or 108)"));
 	}
 
 	@Override
@@ -375,13 +375,13 @@ public class WesternHard extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("One free daily teleport to the Piscatoris Fishing Colony from Western banner 3"),
-			new UnlockReward("Ability to upgrade void knight armour into elite void knight armour"),
-			new UnlockReward("Access to the monkey skull room on Ape Atoll"),
-			new UnlockReward("Access to the Hunter master's private red chinchompa hunting ground"),
-			new UnlockReward("100 free ogre arrows every day from Rantz"),
-			new UnlockReward("Teleport crystals can hold up to 5 charges."),
-			new UnlockReward("Ability to purchase a crystal halberd from Islwyn for 750,000 coins.")
+			new UnlockReward(t("One free daily teleport to the Piscatoris Fishing Colony from Western banner 3")),
+			new UnlockReward(t("Ability to upgrade void knight armour into elite void knight armour")),
+			new UnlockReward(t("Access to the monkey skull room on Ape Atoll")),
+			new UnlockReward(t("Access to the Hunter master's private red chinchompa hunting ground")),
+			new UnlockReward(t("100 free ogre arrows every day from Rantz")),
+			new UnlockReward(t("Teleport crystals can hold up to 5 charges.")),
+			new UnlockReward(t("Ability to purchase a crystal halberd from Islwyn for 750,000 coins."))
 		);
 	}
 
@@ -390,86 +390,86 @@ public class WesternHard extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails palmSteps = new PanelDetails("Lletya Palm tree", Collections.singletonList(lletyaPalm),
+		PanelDetails palmSteps = new PanelDetails(t("Lletya Palm tree"), Collections.singletonList(lletyaPalm),
 			new SkillRequirement(Skill.FARMING, 68, true), mourningsEndPartI, palmSapling, rake, spade);
 		palmSteps.setDisplayCondition(notLletyaPalm);
 		palmSteps.setLockingStep(lletyaPalmTask);
 		allSteps.add(palmSteps);
 
-		PanelDetails fishSteps = new PanelDetails("Catch And Cook Monkfish", Arrays.asList(fishMonkfish, monkfishPisc),
+		PanelDetails fishSteps = new PanelDetails(t("Catch And Cook Monkfish"), Arrays.asList(fishMonkfish, monkfishPisc),
 			new SkillRequirement(Skill.COOKING, 62, true), new SkillRequirement(Skill.FISHING, 62, true),
 			swanSong, smallFishingNet);
 		fishSteps.setDisplayCondition(notMonkfishPisc);
 		fishSteps.setLockingStep(monkfishPiscTask);
 		allSteps.add(fishSteps);
 
-		PanelDetails kebbitSteps = new PanelDetails("Dashing Kebbit", Arrays.asList(getBird, dashingKebbit),
+		PanelDetails kebbitSteps = new PanelDetails(t("Dashing Kebbit"), Arrays.asList(getBird, dashingKebbit),
 			new SkillRequirement(Skill.HUNTER, 69, true), coins);
 		kebbitSteps.setDisplayCondition(notDashingKebbit);
 		kebbitSteps.setLockingStep(dashingKebbitTask);
 		allSteps.add(kebbitSteps);
 
-		PanelDetails gnomeSteps = new PanelDetails("Pickpocket A Gnome", Collections.singletonList(pickpocketGnome),
+		PanelDetails gnomeSteps = new PanelDetails(t("Pickpocket A Gnome"), Collections.singletonList(pickpocketGnome),
 			new SkillRequirement(Skill.THIEVING, 75, true), treeGnomeVillage);
 		gnomeSteps.setDisplayCondition(notPickpocketGnome);
 		gnomeSteps.setLockingStep(pickpocketGnomeTask);
 		allSteps.add(gnomeSteps);
 
-		PanelDetails tpSteps = new PanelDetails("Teleport To Ape Atoll", Collections.singletonList(tpApe),
+		PanelDetails tpSteps = new PanelDetails(t("Teleport To Ape Atoll"), Collections.singletonList(tpApe),
 			new SkillRequirement(Skill.MAGIC, 64, true), awowogeiRFD, normalBook, lawRunes2, fireRunes2, waterRunes2, banana);
 		tpSteps.setDisplayCondition(notTPApe);
 		tpSteps.setLockingStep(tpApeTask);
 		allSteps.add(tpSteps);
 
-		PanelDetails mahoSteps = new PanelDetails("Mahogany On Ape Atoll", Arrays.asList(moveToApeMahogany,
+		PanelDetails mahoSteps = new PanelDetails(t("Mahogany On Ape Atoll"), Arrays.asList(moveToApeMahogany,
 			mahoganyChopped, mahoganyBurned), new SkillRequirement(Skill.FIREMAKING, 50, true),
 			new SkillRequirement(Skill.WOODCUTTING, 50, true), monkeyMadnessI, axe, tinderbox);
 		mahoSteps.setDisplayCondition(notMahoganyBurned);
 		mahoSteps.setLockingStep(mahoganyBurnedTask);
 		allSteps.add(mahoSteps);
 
-		PanelDetails agiSteps = new PanelDetails("Ape Atoll Agility Course", Arrays.asList(moveToApeAgi, apeAtollAgi),
+		PanelDetails agiSteps = new PanelDetails(t("Ape Atoll Agility Course"), Arrays.asList(moveToApeAgi, apeAtollAgi),
 			new SkillRequirement(Skill.AGILITY, 48, true), monkeyMadnessI, ninjaGreegree);
 		agiSteps.setDisplayCondition(notApeAtollAgi);
 		agiSteps.setLockingStep(apeAtollAgiTask);
 		allSteps.add(agiSteps);
 
-		PanelDetails zulSteps = new PanelDetails("Kill Zulrah", Collections.singletonList(killZulrah), regicide,
+		PanelDetails zulSteps = new PanelDetails(t("Kill Zulrah"), Collections.singletonList(killZulrah), regicide,
 			combatGear);
 		zulSteps.setDisplayCondition(notKillZulrah);
 		zulSteps.setLockingStep(killZulrahTask);
 		allSteps.add(zulSteps);
 
-		PanelDetails addySteps = new PanelDetails("Mine Adamantite in Tirannwn", Collections.singletonList(mineAddyOre),
+		PanelDetails addySteps = new PanelDetails(t("Mine Adamantite in Tirannwn"), Collections.singletonList(mineAddyOre),
 			new SkillRequirement(Skill.MINING, 70, true), regicide, pickaxe);
 		addySteps.setDisplayCondition(notMineAddyOre);
 		addySteps.setLockingStep(mineAddyOreTask);
 		allSteps.add(addySteps);
 
-		PanelDetails elfSteps = new PanelDetails("Kill Elf With Crystal Bow", Collections.singletonList(elfCrystalBow));
+		PanelDetails elfSteps = new PanelDetails(t("Kill Elf With Crystal Bow"), Collections.singletonList(elfCrystalBow));
 		elfSteps.setDisplayCondition(notElfCystalBow);
 		elfSteps.setLockingStep(elfCystalBowTask);
 		allSteps.add(elfSteps);
 
-		PanelDetails pestSteps = new PanelDetails("Veteran Pest Control", Arrays.asList(moveToPest, vetPest),
+		PanelDetails pestSteps = new PanelDetails(t("Veteran Pest Control"), Arrays.asList(moveToPest, vetPest),
 			new CombatLevelRequirement(100), combatGear);
 		pestSteps.setDisplayCondition(notVetPest);
 		pestSteps.setLockingStep(vetPestTask);
 		allSteps.add(pestSteps);
 
-		PanelDetails isaSteps = new PanelDetails("Isafdar Painting In POH", Collections.singletonList(isafdarPainting),
+		PanelDetails isaSteps = new PanelDetails(t("Isafdar Painting In POH"), Collections.singletonList(isafdarPainting),
 			new SkillRequirement(Skill.CONSTRUCTION, 65, true), rovingElves, mahoganyPlank, painting, saw, hammer);
 		isaSteps.setDisplayCondition(notIsafdarPainting);
 		isaSteps.setLockingStep(isafdarPaintingTask);
 		allSteps.add(isaSteps);
 
-		PanelDetails hatSteps = new PanelDetails("Chompy Bird Hat", Collections.singletonList(chompyHat),
+		PanelDetails hatSteps = new PanelDetails(t("Chompy Bird Hat"), Collections.singletonList(chompyHat),
 			new SkillRequirement(Skill.RANGED, 30, false), bigChompy, ogreBellows, ogreBow, ogreArrows);
 		hatSteps.setDisplayCondition(notChompyHat);
 		hatSteps.setLockingStep(chompyHatTask);
 		allSteps.add(hatSteps);
 
-		allSteps.add(new PanelDetails("Finishing off", Collections.singletonList(claimReward)));
+		allSteps.add(new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward)));
 
 		return allSteps;
 	}

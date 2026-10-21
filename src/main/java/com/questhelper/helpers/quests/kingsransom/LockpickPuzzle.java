@@ -58,14 +58,14 @@ public class LockpickPuzzle extends QuestStep
 
 	public LockpickPuzzle(QuestHelper questHelper)
 	{
-		super(questHelper, "Click the highlighted boxes to solve the puzzle. The solution is:");
+		super(questHelper, questHelper.t("Click the highlighted boxes to solve the puzzle. The solution is:"));
 	}
 
 	@Override
 	public void startUp()
 	{
 		updateSolvedPositionState();
-		this.setText("Click the highlighted boxes to solve the puzzle. The solution is:");
+		this.setText(questHelper.t("Click the highlighted boxes to solve the puzzle. The solution is:"));
 		this.addText("Tumbler 1: " + client.getVarbitValue(TUMBLER_ANSWERS[0]) + ".");
 		this.addText("Tumbler 2: " + client.getVarbitValue(TUMBLER_ANSWERS[1]) + ".");
 		this.addText("Tumbler 3: " + client.getVarbitValue(TUMBLER_ANSWERS[2]) + ".");

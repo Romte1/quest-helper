@@ -192,23 +192,23 @@ public class FremennikMedium extends ComplexStateQuestHelper
 		coinsForFerry = new ItemRequirement("Coins", ItemCollections.COINS);
 		rope = new ItemRequirement("Rope", ItemID.ROPE).showConditioned(notSnowyHunter);
 		spade = new ItemRequirement("Spade", ItemID.SPADE).showConditioned(notSlayBrineRat).isNotConsumed();
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).showConditioned(
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).showConditioned(
 			new Conditions(LogicType.OR, notMineGold, notMineCoal)).isNotConsumed();
-		staff = new TeleportItemRequirement("Dramen or Lunar staff", ItemCollections.FAIRY_STAFF).showConditioned(notTravelMisc).isNotConsumed();
+		staff = new TeleportItemRequirement(t("Dramen or Lunar staff"), ItemCollections.FAIRY_STAFF).showConditioned(notTravelMisc).isNotConsumed();
 		butterFlyJar = new ItemRequirement("Butterfly Jar", ItemID.BUTTERFLY_JAR).showConditioned(notSnowyKnight).isNotConsumed();
 		butterFlyNet = new ItemRequirement("Butterfly Net", ItemID.HUNTING_BUTTERFLY_NET).showConditioned(notSnowyKnight).isNotConsumed();
 		butterFlyNet.addAlternates(ItemID.II_MAGIC_BUTTERFLY_NET);
-		butterFlyNet.setTooltip("Alternatively, use Magic Butterfly Net");
+		butterFlyNet.setTooltip(t("Alternatively, use Magic Butterfly Net"));
 		petRock = new ItemRequirement("Pet rock", ItemID.VT_USELESS_ROCK).showConditioned(new Conditions(LogicType.OR,
 			notPetRockPOH, notLighthouse)).isNotConsumed();
-		petRock.setTooltip("Obtained from Askeladden in Rellekka");
+		petRock.setTooltip(t("Obtained from Askeladden in Rellekka"));
 		goldHelm = new ItemRequirement("Gold helmet", ItemID.DWARF_GOLDROCK_HELMET).showConditioned(notMineGold).isNotConsumed();
 		oakPlanks = new ItemRequirement("Oak planks", ItemID.PLANK_OAK).showConditioned(notPetRockPOH);
 		saw = new ItemRequirement("Saw", ItemID.POH_SAW).showConditioned(notPetRockPOH).isNotConsumed();
 		hammer = new ItemRequirement("Hammer", ItemID.HAMMER).showConditioned(notPetRockPOH).isNotConsumed();
 		thrownaxe = new ItemRequirement("Rune thrownaxe", ItemID.RUNE_THROWNAXE).showConditioned(notLighthouse);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).showConditioned(new Conditions(LogicType.OR,
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).showConditioned(new Conditions(LogicType.OR,
 			notSlayBrineRat, notLighthouse)).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
@@ -304,97 +304,97 @@ public class FremennikMedium extends ComplexStateQuestHelper
 	public void setupSteps()
 	{
 		enterBrineCave = new DigStep(this, new WorldPoint(2749, 3732, 0),
-			"Use a spade to enter the Brine Rat Cavern.", spade, combatGear, olafsQuest);
+			t("Use a spade to enter the Brine Rat Cavern."), spade, combatGear, olafsQuest);
 		enterBrineCave.addIcon(ItemID.SPADE);
 		slayBrineRat = new NpcStep(this, NpcID.OLAF2_BRINE_RATS, new WorldPoint(2706, 10133, 0),
-			"Kill a brine rat then roll the boulder and exit the cave..", true);
+			t("Kill a brine rat then roll the boulder and exit the cave.."), true);
 		travelMisc = new ObjectStep(this, ObjectID.FAIRYRING_MINORHUB, new WorldPoint(2744, 3719, 0),
-			"Use a fairy ring and travel to (CIP).", fairyTaleII);
+			t("Use a fairy ring and travel to (CIP)."), fairyTaleII);
 		enterEaglesPeak = new ObjectStep(this, ObjectID.EAGLEPEAK_ENTRANCE_CAVE_MULTI, new WorldPoint(2329, 3495, 0),
-			"Enter the cave at the top of Eagles' Peak. Use fairy ring and travel to (AKQ), then head south.", rope);
+			t("Enter the cave at the top of Eagles' Peak. Use fairy ring and travel to (AKQ), then head south."), rope);
 		snowyHunter = new NpcStep(this, NpcID.EAGLEPEAK_EAGLE_TOPOLAR, new WorldPoint(2027, 4964, 3),
-			"Use rope on the Polar Eagle to travel to the Snowy Hunter area.", rope.highlighted());
+			t("Use rope on the Polar Eagle to travel to the Snowy Hunter area."), rope.highlighted());
 		snowyHunter.addIcon(ItemID.ROPE);
-		exitIceCave = new ObjectStep(this, ObjectID.EAGLEPEAK_ICE_CAVE_ENTRANCE, new WorldPoint(2706, 10205, 0), "Exit the cave.");
+		exitIceCave = new ObjectStep(this, ObjectID.EAGLEPEAK_ICE_CAVE_ENTRANCE, new WorldPoint(2706, 10205, 0), t("Exit the cave."));
 		snowyKnight0 = new NpcStep(this, NpcID.BUTTERFLY_SNOWY, new WorldPoint(2725, 3770, 0),
-			"Catch a Snowy Knight at the Fremennik Hunter Area.", butterFlyNet.equipped());
+			t("Catch a Snowy Knight at the Fremennik Hunter Area."), butterFlyNet.equipped());
 		snowyKnight1 = new NpcStep(this, NpcID.BUTTERFLY_SNOWY, new WorldPoint(2712, 3822, 1),
-			"Catch a Snowy Knight at the Fremennik Hunter Area.", butterFlyNet.equipped());
+			t("Catch a Snowy Knight at the Fremennik Hunter Area."), butterFlyNet.equipped());
 		stealFish = new ObjectStep(this, ObjectID.VIKING_FISH_MARKET, new WorldPoint(2648, 3677, 0),
-			"Steal from the Rellekka fish stall.");
+			t("Steal from the Rellekka fish stall."));
 		mineCoal = new ObjectStep(this, ObjectID.COALROCK2, new WorldPoint(2683, 3702, 0),
-			"Mine some coal.", pickaxe);
+			t("Mine some coal."), pickaxe);
 		mineCoal.addIcon(ItemID.RUNE_PICKAXE);
 		moveToCave = new ObjectStep(this, ObjectID.TROLLROMANCE_STRONGHOLD_EXIT_TUNNEL, new WorldPoint(2732, 3713, 0),
-			"Enter the tunnel that leads to the Arzinian Mine.", pickaxe, goldHelm, coinsForFerry.quantity(2));
+			t("Enter the tunnel that leads to the Arzinian Mine."), pickaxe, goldHelm, coinsForFerry.quantity(2));
 		moveToRiver = new ObjectStep(this, ObjectID.DWARF_CAVEWALL_TUNNEL, new WorldPoint(2781, 10161, 0),
-			"Go through the cave entrance.", pickaxe, goldHelm, coinsForFerry.quantity(2));
+			t("Go through the cave entrance."), pickaxe, goldHelm, coinsForFerry.quantity(2));
 		moveToCannon = new NpcStep(this, NpcID.DWARFROCK_FERRYMAN1, new WorldPoint(2842, 10129, 0),
-			"Speak with the Dwarven Ferryman to go to cross the river.", pickaxe, goldHelm, coinsForFerry.quantity(2));
+			t("Speak with the Dwarven Ferryman to go to cross the river."), pickaxe, goldHelm, coinsForFerry.quantity(2));
 		moveToCannon.addDialogStep("Yes please.");
 		moveToArzinian = new NpcStep(this, NpcID.DWARFROCK_DONDAKAN_NOAXE, new WorldPoint(2824, 10168, 0),
-			"Speak with Dondakan to enter the mine.", goldHelm.equipped(), pickaxe);
+			t("Speak with Dondakan to enter the mine."), goldHelm.equipped(), pickaxe);
 		moveToArzinian.addDialogStep("Can you shoot me into the rock again?");
 		mineGold = new ObjectStep(this, ObjectID.GOLDROCK1, new WorldPoint(2614, 4968, 0),
-			"Mine the nearby gold. Remove helmet to escape area.", pickaxe);
+			t("Mine the nearby gold. Remove helmet to escape area."), pickaxe);
 		mineGold.addIcon(ItemID.RUNE_PICKAXE);
 		moveToWaterbirth = new NpcStep(this, NpcID.VIKING_DAGGANOTH_CAVE_FERRYMAN_ISLAND, new WorldPoint(2620, 3686, 0),
-			"Speak with Jarvald to travel to Waterbirth Island.", petRock, thrownaxe);
+			t("Speak with Jarvald to travel to Waterbirth Island."), petRock, thrownaxe);
 		moveToWaterbirth.addDialogSteps("What Jarvald is doing.", "Can I come?", "YES");
 		moveToDagCave = new ObjectStep(this, ObjectID.DAGANNOTH_CAVEENTRANCE_ROCK, new WorldPoint(2521, 3740, 0),
-			"Enter the cave and pray melee. Make sure you are full stamina and prayer before entering.", protectMelee,
+			t("Enter the cave and pray melee. Make sure you are full stamina and prayer before entering."), protectMelee,
 			thrownaxe, petRock, food, stamPot, prayerPot);
 		dropPetRock = new ObjectStep(this, ObjectID.DAGANNOTH_PRESSURE_PAD_2, new WorldPoint(2490, 10162, 0),
-			"Drop your pet rock on one pressure pad then stand on the other pad to open the gate.", petRock);// item on tile req?
+			t("Drop your pet rock on one pressure pad then stand on the other pad to open the gate."), petRock);// item on tile req?
 		dropPetRock.addIcon(ItemID.VT_USELESS_ROCK);
 		dropPetRock.addTileMarker(new WorldPoint(2490, 10164, 0), SpriteID.Staticons.AGILITY);
 		moveToAxeSpot = new ObjectStep(this, ObjectID.DAGANNOTH_DUGUPSOIL_2, new WorldPoint(2545, 10146, 0),
-			"Continue onwards until you reach the barrier.", thrownaxe);
-		activateSpecial = new DetailedQuestStep(this, "Activate special attack with the rune thrownaxes equipped.",
+			t("Continue onwards until you reach the barrier."), thrownaxe);
+		activateSpecial = new DetailedQuestStep(this, t("Activate special attack with the rune thrownaxes equipped."),
 			thrownaxe.equipped(), specialAttackEnabled);
 		throwAxe = new NpcStep(this, NpcID.DAGANNOTH_WEAK_DOOR_WEST, new WorldPoint(2543, 10143, 0),
-			"Attack the Door-Support with a rune thrownaxe special attack. If done correctly the axe should ricochet" +
-				" and lower all 3 barriers.", thrownaxe.equipped(), specialAttackEnabled);
+			t("Attack the Door-Support with a rune thrownaxe special attack. If done correctly the axe should ricochet" +
+				" and lower all 3 barriers."), thrownaxe.equipped(), specialAttackEnabled);
 		moveToDagCave1 = new ObjectStep(this, ObjectID.DAGANNOTH_LADDER_BASE_EXT2, new WorldPoint(2546, 10143, 0),
-			"Enable magic protection then climb down the ladder.", protectMagic);
+			t("Enable magic protection then climb down the ladder."), protectMagic);
 		moveToDagCave1.addDialogSteps("Climb Down.");
 		moveToDagCave2 = new ObjectStep(this, ObjectID.DAGEXP_LADDER1, new WorldPoint(1808, 4405, 3),
 			"Enable melee protection then continue through the cave.", protectMelee);
 		moveToDagCave3 = new ObjectStep(this, ObjectID.DAGEXP_LADDER4, new WorldPoint(1823, 4404, 2),
-			"Keep current protection and continue through the cave.", protectMelee);
+			t("Keep current protection and continue through the cave."), protectMelee);
 		moveToDagCave4 = new ObjectStep(this, ObjectID.DAGEXP_LADDER5, new WorldPoint(1834, 4389, 3),
-			"Enable missile protection then continue through the cave.", protectMissiles);
+			t("Enable missile protection then continue through the cave."), protectMissiles);
 		moveToDagCave5 = new ObjectStep(this, ObjectID.DAGEXP_LADDER7, new WorldPoint(1811, 4394, 2),
-			"Enable magic protection and continue through the cave.", protectMagic);
+			t("Enable magic protection and continue through the cave."), protectMagic);
 		moveToDagCave6 = new ObjectStep(this, ObjectID.DAGEXP_LADDER9, new WorldPoint(1799, 4388, 1),
-			"Keep current protection and continue through the cave.", protectMagic);
+			t("Keep current protection and continue through the cave."), protectMagic);
 		moveToDagCave7 = new ObjectStep(this, ObjectID.DAGEXP_LADDER11, new WorldPoint(1797, 4382, 2),
-			"Keep current protection and continue through the cave.", protectMagic);
+			t("Keep current protection and continue through the cave."), protectMagic);
 		moveToDagCave8 = new ObjectStep(this, ObjectID.DAGEXP_LADDER13, new WorldPoint(1802, 4369, 1),
-			"Enable melee protection and continue through the cave.", protectMelee);
+			t("Enable melee protection and continue through the cave."), protectMelee);
 		moveToDagCave9 = new ObjectStep(this, ObjectID.DAGEXP_LADDER15, new WorldPoint(1826, 4362, 2),
-			"Keep current protection and continue through the cave.", protectMelee);
+			t("Keep current protection and continue through the cave."), protectMelee);
 		moveToDagCave10 = new ObjectStep(this, ObjectID.DAGEXP_LADDER17, new WorldPoint(1863, 4371, 1),
-			"Keep current protection and continue through the cave.", protectMelee);
+			t("Keep current protection and continue through the cave."), protectMelee);
 		moveToDagCave11 = new ObjectStep(this, ObjectID.DAGEXP_LADDER19, new WorldPoint(1864, 4388, 2),
-			"Keep current protection and continue through the cave.", protectMelee);
+			t("Keep current protection and continue through the cave."), protectMelee);
 		moveToDagCave12 = new ObjectStep(this, ObjectID.DAGEXP_LADDER21, new WorldPoint(1890, 4407, 1),
-			"Keep current protection and continue through the cave.", protectMelee);
+			t("Keep current protection and continue through the cave."), protectMelee);
 		moveToDagCave13 = new ObjectStep(this, ObjectID.DAGEXP_LADDER23, new WorldPoint(1957, 4371, 0),
-			"Keep current protection and continue through the cave. BE PREPARED TO EAT FOOD, YOU WILL GET HIT BY MISSILE / MAGIC.", protectMelee);
+			t("Keep current protection and continue through the cave. BE PREPARED TO EAT FOOD, YOU WILL GET HIT BY MISSILE / MAGIC."), protectMelee);
 		moveToDagCave14 = new ObjectStep(this, ObjectID.DAGEXP_LADDER32, new WorldPoint(1932, 4378, 1),
-			"Keep current protection and continue through the cave.", protectMelee);
+			t("Keep current protection and continue through the cave."), protectMelee);
 		moveToDagCave15 = new ObjectStep(this, ObjectID.DAGEXP_LADDER34, new WorldPoint(1961, 4391, 2),
-			"Keep current protection and continue through the cave.", protectMelee);
+			t("Keep current protection and continue through the cave."), protectMelee);
 		lighthouse = new ObjectStep(this, ObjectID.DAGEXP_EXIT_LADDER, new WorldPoint(1975, 4408, 3),
-			"Keep current protection and continue through the cave.", protectMelee);
+			t("Keep current protection and continue through the cave."), protectMelee);
 		petRockPOH = new DetailedQuestStep(this,
-			"Use a pet rock on your pet house in your menagerie in your player owned house and then pick it up off the GROUND." +
-				" You may need to re-enter your house after placing your pet rock in the pet house.",
+			t("Use a pet rock on your pet house in your menagerie in your player owned house and then pick it up off the GROUND." +
+				" You may need to re-enter your house after placing your pet rock in the pet house."),
 			petRock, oakPlanks.quantity(4), saw, hammer);
 
 		claimReward = new NpcStep(this, NpcID.VIKING_FREM_DIARY, new WorldPoint(2658, 3627, 0),
-			"Talk to Thorodin south of Rellekka to claim your reward!");
+			t("Talk to Thorodin south of Rellekka to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -433,7 +433,7 @@ public class FremennikMedium extends ComplexStateQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Brine rat (level 70) and tank many hits in the Waterbirth Island Dungeon");
+		return Collections.singletonList(t("Brine rat (level 70) and tank many hits in the Waterbirth Island Dungeon"));
 	}
 
 	@Override
@@ -448,8 +448,8 @@ public class FremennikMedium extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("Improved rate of gaining approval on Miscellania."),
-			new UnlockReward("Unlocking infinite charges for your lyre with Fossegrimen costs 600 of each fish rather than 800")
+			new UnlockReward(t("Improved rate of gaining approval on Miscellania.")),
+			new UnlockReward(t("Unlocking infinite charges for your lyre with Fossegrimen costs 600 of each fish rather than 800"))
 		);
 	}
 
@@ -458,50 +458,50 @@ public class FremennikMedium extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails brineRatSteps = new PanelDetails("Brine Rat Slayer", Arrays.asList(enterBrineCave, slayBrineRat),
+		PanelDetails brineRatSteps = new PanelDetails(t("Brine Rat Slayer"), Arrays.asList(enterBrineCave, slayBrineRat),
 			olafsQuest, new SkillRequirement(Skill.SLAYER, 47, true), spade, combatGear);
 		brineRatSteps.setDisplayCondition(notSlayBrineRat);
 		brineRatSteps.setLockingStep(slayBrineRatTask);
 		allSteps.add(brineRatSteps);
 
-		PanelDetails miscellaniaSteps = new PanelDetails("Travel to Miscellania", Collections.singletonList(travelMisc),
+		PanelDetails miscellaniaSteps = new PanelDetails(t("Travel to Miscellania"), Collections.singletonList(travelMisc),
 			fairyTaleII, fremennikTrials, staff);
 		miscellaniaSteps.setDisplayCondition(notTravelMisc);
 		miscellaniaSteps.setLockingStep(travelMiscTask);
 		allSteps.add(miscellaniaSteps);
 
-		PanelDetails snowyHunterSteps = new PanelDetails("Travel by Eagle", Arrays.asList(enterEaglesPeak, snowyHunter),
+		PanelDetails snowyHunterSteps = new PanelDetails(t("Travel by Eagle"), Arrays.asList(enterEaglesPeak, snowyHunter),
 			eaglesPeak, rope);
 		snowyHunterSteps.setDisplayCondition(notSnowyHunter);
 		snowyHunterSteps.setLockingStep(snowyHunterTask);
 		allSteps.add(snowyHunterSteps);
 
-		PanelDetails snowyKnightSteps = new PanelDetails("Catch Snowy Knight", Collections.singletonList(snowyKnight0),
+		PanelDetails snowyKnightSteps = new PanelDetails(t("Catch Snowy Knight"), Collections.singletonList(snowyKnight0),
 			new SkillRequirement(Skill.HUNTER, 35, true), butterFlyNet, butterFlyJar);
 		snowyKnightSteps.setDisplayCondition(notSnowyKnight);
 		snowyKnightSteps.setLockingStep(snowyKnightTask);
 		allSteps.add(snowyKnightSteps);
 
-		PanelDetails mineGoldSteps = new PanelDetails("Mine Gold", Arrays.asList(moveToCave, moveToRiver, moveToCannon,
+		PanelDetails mineGoldSteps = new PanelDetails(t("Mine Gold"), Arrays.asList(moveToCave, moveToRiver, moveToCannon,
 			moveToArzinian, mineGold), betweenARock, new SkillRequirement(Skill.MINING, 40, true), pickaxe, goldHelm,
 			coins.quantity(2));
 		mineGoldSteps.setDisplayCondition(notMineGold);
 		mineGoldSteps.setLockingStep(mineGoldTask);
 		allSteps.add(mineGoldSteps);
 
-		PanelDetails mineCoalSteps = new PanelDetails("Mine Coal", Collections.singletonList(mineCoal),
+		PanelDetails mineCoalSteps = new PanelDetails(t("Mine Coal"), Collections.singletonList(mineCoal),
 			fremennikTrials, new SkillRequirement(Skill.MINING, 30, true), pickaxe);
 		mineCoalSteps.setDisplayCondition(notMineCoal);
 		mineCoalSteps.setLockingStep(mineCoalTask);
 		allSteps.add(mineCoalSteps);
 
-		PanelDetails stealFishSteps = new PanelDetails("Steal Fish", Collections.singletonList(stealFish),
+		PanelDetails stealFishSteps = new PanelDetails(t("Steal Fish"), Collections.singletonList(stealFish),
 			fremennikTrials, new SkillRequirement(Skill.THIEVING, 42, true));
 		stealFishSteps.setDisplayCondition(notStealFish);
 		stealFishSteps.setLockingStep(stealFishTask);
 		allSteps.add(stealFishSteps);
 
-		PanelDetails lighthouseSteps = new PanelDetails("Waterbirth to Lighthouse", Arrays.asList(moveToWaterbirth,
+		PanelDetails lighthouseSteps = new PanelDetails(t("Waterbirth to Lighthouse"), Arrays.asList(moveToWaterbirth,
 			moveToDagCave, dropPetRock, moveToAxeSpot, throwAxe, moveToDagCave1, moveToDagCave2, moveToDagCave3,
 			moveToDagCave4, moveToDagCave5, moveToDagCave6, moveToDagCave7, moveToDagCave8, moveToDagCave9,
 			moveToDagCave10, moveToDagCave11, moveToDagCave12, moveToDagCave13, moveToDagCave14, moveToDagCave15,
@@ -510,14 +510,14 @@ public class FremennikMedium extends ComplexStateQuestHelper
 		lighthouseSteps.setLockingStep(lighthouseTask);
 		allSteps.add(lighthouseSteps);
 
-		PanelDetails petRockSteps = new PanelDetails("Pet Rock", Collections.singletonList(petRockPOH),
+		PanelDetails petRockSteps = new PanelDetails(t("Pet Rock"), Collections.singletonList(petRockPOH),
 			fremennikTrials, new SkillRequirement(Skill.CONSTRUCTION, 37, true), coins.quantity(30000),
 			petRock, saw, hammer, oakPlanks.quantity(4));
 		petRockSteps.setDisplayCondition(notPetRockPOH);
 		petRockSteps.setLockingStep(petRockPOHTask);
 		allSteps.add(petRockSteps);
 
-		PanelDetails finishOffSteps = new PanelDetails("Finishing off", Collections.singletonList(claimReward));
+		PanelDetails finishOffSteps = new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward));
 		allSteps.add(finishOffSteps);
 
 		return allSteps;

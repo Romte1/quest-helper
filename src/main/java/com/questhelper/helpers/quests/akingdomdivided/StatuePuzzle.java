@@ -86,7 +86,7 @@ public class StatuePuzzle extends DetailedOwnerStep
 
 	public StatuePuzzle(QuestHelper questHelper)
 	{
-		super(questHelper, "Solve the statue puzzle.");
+		super(questHelper, questHelper.t("Solve the statue puzzle."));
 	}
 
 	@Override
@@ -214,27 +214,27 @@ public class StatuePuzzle extends DetailedOwnerStep
 		cityOrder = new ArrayList<>();
 		statueMap = new HashMap<>();
 
-		checkPanel = new ObjectStep(getQuestHelper(), ObjectID.AKD_PISCARILIUS_PANEL_OP, new WorldPoint(1768, 3686, 1), "Check the panel on the wall.");
-		climbUpPillarLeglessFaun = new ObjectStep(getQuestHelper(), ObjectID.AKD_PISCARILIUS_PILLAR_BROKEN_OP, new WorldPoint(1772, 3680, 0), "Climb up the pillar west of Martin Holt.");
-		climbDownLeglessFaun = new ObjectStep(getQuestHelper(), ObjectID.AKD_PISCARILIUS_BATTLEMENT_OP, new WorldPoint(1772, 3679, 1), "Climb down the wall.");
+		checkPanel = new ObjectStep(getQuestHelper(), ObjectID.AKD_PISCARILIUS_PANEL_OP, new WorldPoint(1768, 3686, 1), getQuestHelper().t("Check the panel on the wall."));
+		climbUpPillarLeglessFaun = new ObjectStep(getQuestHelper(), ObjectID.AKD_PISCARILIUS_PILLAR_BROKEN_OP, new WorldPoint(1772, 3680, 0), getQuestHelper().t("Climb up the pillar west of Martin Holt."));
+		climbDownLeglessFaun = new ObjectStep(getQuestHelper(), ObjectID.AKD_PISCARILIUS_BATTLEMENT_OP, new WorldPoint(1772, 3679, 1), getQuestHelper().t("Climb down the wall."));
 
-		moveArceuusStatue = new ObjectStep(getQuestHelper(), ObjectID.KOUREND_ENTRANCE_STATUE_ARCEUUS_OP, new WorldPoint(1777, 3686, 0), "Inspect the Arceuus statue.");
+		moveArceuusStatue = new ObjectStep(getQuestHelper(), ObjectID.KOUREND_ENTRANCE_STATUE_ARCEUUS_OP, new WorldPoint(1777, 3686, 0), getQuestHelper().t("Inspect the Arceuus statue."));
 		moveArceuusStatue.addDialogStep("Press it in.");
 
-		movePiscStatue = new ObjectStep(getQuestHelper(), ObjectID.KOUREND_ENTRANCE_STATUE_PISCARILIUS_OP, new WorldPoint(1780, 3687, 0), "Inspect the Piscarilius statue.");
+		movePiscStatue = new ObjectStep(getQuestHelper(), ObjectID.KOUREND_ENTRANCE_STATUE_PISCARILIUS_OP, new WorldPoint(1780, 3687, 0), getQuestHelper().t("Inspect the Piscarilius statue."));
 		movePiscStatue.addDialogStep("Press it in.");
 
-		moveHosidiusStatue = new ObjectStep(getQuestHelper(), ObjectID.KOUREND_ENTRANCE_STATUE_HOSIDIUS_OP, new WorldPoint(1780, 3677, 0), "Inspect the Hosidius statue.");
+		moveHosidiusStatue = new ObjectStep(getQuestHelper(), ObjectID.KOUREND_ENTRANCE_STATUE_HOSIDIUS_OP, new WorldPoint(1780, 3677, 0), getQuestHelper().t("Inspect the Hosidius statue."));
 		moveHosidiusStatue.addDialogStep("Press it in.");
 
-		moveLovakengjStatue = new ObjectStep(getQuestHelper(), ObjectID.KOUREND_ENTRANCE_STATUE_LOVAKENGJ_OP, new WorldPoint(1776, 3682, 0), "Inspect the Lovakengj statue.");
+		moveLovakengjStatue = new ObjectStep(getQuestHelper(), ObjectID.KOUREND_ENTRANCE_STATUE_LOVAKENGJ_OP, new WorldPoint(1776, 3682, 0), getQuestHelper().t("Inspect the Lovakengj statue."));
 		moveLovakengjStatue.addDialogStep("Press it in.");
 
-		moveShayzienStatue = new ObjectStep(getQuestHelper(), ObjectID.KOUREND_ENTRANCE_STATUE_SHAYZIEN_OP, new WorldPoint(1777, 3678, 0), "Inspect the Shayzien statue.");
+		moveShayzienStatue = new ObjectStep(getQuestHelper(), ObjectID.KOUREND_ENTRANCE_STATUE_SHAYZIEN_OP, new WorldPoint(1777, 3678, 0), getQuestHelper().t("Inspect the Shayzien statue."));
 		moveShayzienStatue.addDialogStep("Press it in.");
 
-		invalidState = new DetailedQuestStep(getQuestHelper(), "You've inspected the statues in the wrong order." +
-			" Inspect the remaining statues to reset the puzzle.");
+		invalidState = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("You've inspected the statues in the wrong order." +
+			" Inspect the remaining statues to reset the puzzle."));
 
 		statueMap.put(KourendCities.ARCEUUS, moveArceuusStatue);
 		statueMap.put(KourendCities.HOSIDIUS, moveHosidiusStatue);

@@ -134,7 +134,7 @@ public class WhatLiesBelow extends BasicQuestHelper
 
 		folder = new ItemRequirement("Folder", ItemID.SUROK_RAT_EMPTYFOLDER);
 		folder.addAlternates(ItemID.SUROK_RAT_HALFFOLDER, ItemID.SUROK_RAT_FULLFOLDER);
-		folder.setTooltip("You can get another empty folder from Rat");
+		folder.setTooltip(t("You can get another empty folder from Rat"));
 		folder.setHighlightInInventory(true);
 
 		bowl = new ItemRequirement("Bowl", ItemID.BOWL_EMPTY);
@@ -144,20 +144,20 @@ public class WhatLiesBelow extends BasicQuestHelper
 		wandHighlight.setHighlightInInventory(true);
 
 		infusedWand = new ItemRequirement("Infused wand", ItemID.SUROK_GLOWINGWAND);
-		infusedWand.setTooltip("You can make another by getting a wand from Surok, and using it on the chaos altar with 15 chaos runes");
-		chaosTalismanOrAbyss = new ItemRequirement("Access to the Chaos Altar", ItemCollections.CHAOS_ALTAR).isNotConsumed();
-		chaosTalismanOrAbyss.setTooltip("Chaos Talisman/Tiara, Catalytic Talisman/Tiara, RC-skill cape or via Abyss. If using the Dagon'hai shortcut, Catalytic Talisman/Tiara won't work");
+		infusedWand.setTooltip(t("You can make another by getting a wand from Surok, and using it on the chaos altar with 15 chaos runes"));
+		chaosTalismanOrAbyss = new ItemRequirement(t("Access to the Chaos Altar"), ItemCollections.CHAOS_ALTAR).isNotConsumed();
+		chaosTalismanOrAbyss.setTooltip(t("Chaos Talisman/Tiara, Catalytic Talisman/Tiara, RC-skill cape or via Abyss. If using the Dagon'hai shortcut, Catalytic Talisman/Tiara won't work"));
 
 		beaconRing = new ItemRequirement("Beacon ring", ItemID.SUROK_RING);
-		beaconRing.setTooltip("You can get another from Zaff");
+		beaconRing.setTooltip(t("You can get another from Zaff"));
 
 		letterToSurok = new ItemRequirement("Letter to Surok", ItemID.SUROK_LETTER1);
-		letterToSurok.setTooltip("You can get another from Rat");
+		letterToSurok.setTooltip(t("You can get another from Rat"));
 
 		suroksLetter = new ItemRequirement("Surok's letter", ItemID.SUROK_LETTER2);
-		suroksLetter.setTooltip("You can get another from Surok");
+		suroksLetter.setTooltip(t("You can get another from Surok"));
 
-		chronicle = new ItemRequirement("Chronicle for teleports to south of Varrock", ItemID.CHRONICLE);
+		chronicle = new ItemRequirement(t("Chronicle for teleports to south of Varrock"), ItemID.CHRONICLE);
 	}
 
 	@Override
@@ -174,39 +174,39 @@ public class WhatLiesBelow extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToRat = new NpcStep(this, NpcID.SUROK_RAT, new WorldPoint(3266, 3333, 0), "Talk to Rat Burgiss south of Varrock.");
+		talkToRat = new NpcStep(this, NpcID.SUROK_RAT, new WorldPoint(3266, 3333, 0), t("Talk to Rat Burgiss south of Varrock."));
 		talkToRat.addDialogSteps("Yes.", "Shall I get them back for you?", "Of course! Tell me what you need me to do.");
 		killOutlaws = new NpcStep(this, NpcID.SUROK_OUTLAW1, new WorldPoint(3118, 3472, 0),
-			"Go to the Bandits west of the Grand Exchange and kill 5 for intel. Put the intel into the folder Rat gave you.", true, folder, intel5);
+			t("Go to the Bandits west of the Grand Exchange and kill 5 for intel. Put the intel into the folder Rat gave you."), true, folder, intel5);
 		killOutlaws.addAlternateNpcs(NpcID.SUROK_OUTLAW2, NpcID.SUROK_OUTLAW3, NpcID.SUROK_OUTLAW4, NpcID.SUROK_OUTLAW5, NpcID.SUROK_OUTLAW6, NpcID.SUROK_OUTLAW7, NpcID.SUROK_OUTLAW8, NpcID.SUROK_OUTLAW9, NpcID.SUROK_OUTLAW10);
-		bringFolderToRat = new NpcStep(this, NpcID.SUROK_RAT, new WorldPoint(3266, 3333, 0), "Return to Rat Burgiss south of Varrock.", fullFolder);
-		talkToRatAfterFolder = new NpcStep(this, NpcID.SUROK_RAT, new WorldPoint(3266, 3333, 0), "Return to Rat Burgiss south of Varrock.");
+		bringFolderToRat = new NpcStep(this, NpcID.SUROK_RAT, new WorldPoint(3266, 3333, 0), t("Return to Rat Burgiss south of Varrock."), fullFolder);
+		talkToRatAfterFolder = new NpcStep(this, NpcID.SUROK_RAT, new WorldPoint(3266, 3333, 0), t("Return to Rat Burgiss south of Varrock."));
 		bringFolderToRat.addSubSteps(talkToRatAfterFolder);
 
-		talkToSurok = new NpcStep(this, NpcID.SUROK_SUROK, new WorldPoint(3211, 3493, 0), "Talk to Surok Magis in the Varrock Library.", letterToSurok);
-		talkToSurokNoLetter = new NpcStep(this, NpcID.WGS_SUROK_TRANSITION, new WorldPoint(3211, 3493, 0), "Talk to Surok Magis in the Varrock Library.");
+		talkToSurok = new NpcStep(this, NpcID.SUROK_SUROK, new WorldPoint(3211, 3493, 0), t("Talk to Surok Magis in the Varrock Library."), letterToSurok);
+		talkToSurokNoLetter = new NpcStep(this, NpcID.WGS_SUROK_TRANSITION, new WorldPoint(3211, 3493, 0), t("Talk to Surok Magis in the Varrock Library."));
 		((NpcStep) talkToSurokNoLetter).addAlternateNpcs(NpcID.SUROK_SUROK_TYPE1);
 		talkToSurokNoLetter.addDialogSteps("Go on, then!", "Go on then!");
 
 		talkToSurok.addSubSteps(talkToSurokNoLetter);
 
 		enterChaosAltar = new DetailedQuestStep(this,
-			"Travel to the chaos altar with the wand and 15 chaos runes. You can either enter with a chaos talisman, or use the abyss.", wand, chaosRunes15, chaosTalismanOrAbyss);
-		useWandOnAltar = new ObjectStep(this, ObjectID.CHAOS_ALTAR, new WorldPoint(2271, 4842, 0), "Use the wand on the chaos altar.", wandHighlight, chaosRunes15);
+			t("Travel to the chaos altar with the wand and 15 chaos runes. You can either enter with a chaos talisman, or use the abyss."), wand, chaosRunes15, chaosTalismanOrAbyss);
+		useWandOnAltar = new ObjectStep(this, ObjectID.CHAOS_ALTAR, new WorldPoint(2271, 4842, 0), t("Use the wand on the chaos altar."), wandHighlight, chaosRunes15);
 		useWandOnAltar.addIcon(ItemID.SUROK_METALWAND);
-		bringWandToSurok = new NpcStep(this, NpcID.SUROK_SUROK, new WorldPoint(3211, 3493, 0), "Return to Surok Magis in the Varrock Library with the wand and a bowl.", infusedWand, bowl);
+		bringWandToSurok = new NpcStep(this, NpcID.SUROK_SUROK, new WorldPoint(3211, 3493, 0), t("Return to Surok Magis in the Varrock Library with the wand and a bowl."), infusedWand, bowl);
 		bringWandToSurok.addDialogStep("I have the things you wanted!");
-		talkToRatAfterSurok = new NpcStep(this, NpcID.SUROK_RAT, new WorldPoint(3266, 3333, 0), "Return to Rat Burgiss south of Varrock.", suroksLetter);
+		talkToRatAfterSurok = new NpcStep(this, NpcID.SUROK_RAT, new WorldPoint(3266, 3333, 0), t("Return to Rat Burgiss south of Varrock."), suroksLetter);
 		talkToRatAfterSurok.addDialogStep("Yes! I have a letter for you.");
 
-		talkToRatAfterSurokNoLetter = new NpcStep(this, NpcID.SUROK_RAT, new WorldPoint(3266, 3333, 0), "Return to Rat Burgiss south of Varrock.");
+		talkToRatAfterSurokNoLetter = new NpcStep(this, NpcID.SUROK_RAT, new WorldPoint(3266, 3333, 0), t("Return to Rat Burgiss south of Varrock."));
 
-		talkToZaff = new NpcStep(this, NpcID.ZAFF, new WorldPoint(3202, 3434, 0), "Talk to Zaff in the Varrock staff shop.");
+		talkToZaff = new NpcStep(this, NpcID.ZAFF, new WorldPoint(3202, 3434, 0), t("Talk to Zaff in the Varrock staff shop."));
 		talkToZaff.addDialogStep("Rat Burgiss sent me!");
-		talkToSurokToFight = new NpcStep(this, NpcID.SUROK_SUROK_TYPE2, new WorldPoint(3211, 3493, 0), "Prepare to fight King Roald (level 47), then go talk to Surok Magis in the Varrock Library.", beaconRing);
+		talkToSurokToFight = new NpcStep(this, NpcID.SUROK_SUROK_TYPE2, new WorldPoint(3211, 3493, 0), t("Prepare to fight King Roald (level 47), then go talk to Surok Magis in the Varrock Library."), beaconRing);
 		talkToSurokToFight.addDialogStep("Bring it on!");
-		fightRoald = new NpcStep(this, NpcID.SUROK_KING, new WorldPoint(3211, 3493, 0), "Fight King Roald. When he's at 1hp, right-click operate the beacon ring.", beaconRing);
-		talkToRatToFinish = new NpcStep(this, NpcID.SUROK_RAT, new WorldPoint(3266, 3333, 0), "Return to Rat Burgiss south of Varrock to finish the quest.");
+		fightRoald = new NpcStep(this, NpcID.SUROK_KING, new WorldPoint(3211, 3493, 0), t("Fight King Roald. When he's at 1hp, right-click operate the beacon ring."), beaconRing);
+		talkToRatToFinish = new NpcStep(this, NpcID.SUROK_RAT, new WorldPoint(3266, 3333, 0), t("Return to Rat Burgiss south of Varrock to finish the quest."));
 	}
 
 	@Override
@@ -231,8 +231,8 @@ public class WhatLiesBelow extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		ArrayList<String> reqs = new ArrayList<>();
-		reqs.add("5 outlaws (level 32)");
-		reqs.add("King Roald (level 47)");
+		reqs.add(t("5 outlaws (level 32)"));
+		reqs.add(t("King Roald (level 47)"));
 		return reqs;
 	}
 
@@ -270,17 +270,17 @@ public class WhatLiesBelow extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("Access to a shortcut to the Chaos Altar"));
+		return Collections.singletonList(new UnlockReward(t("Access to a shortcut to the Chaos Altar")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off", Collections.singletonList(talkToRat)));
-		allSteps.add(new PanelDetails("Help Rat", Arrays.asList(killOutlaws, bringFolderToRat)));
-		allSteps.add(new PanelDetails("Help Surok", Arrays.asList(talkToSurok, enterChaosAltar, useWandOnAltar, bringWandToSurok), chaosRunes15, chaosTalismanOrAbyss, bowl, wand));
-		allSteps.add(new PanelDetails("Defeat Surok", Arrays.asList(talkToRatAfterSurok, talkToZaff, talkToSurokToFight, fightRoald, talkToRatToFinish)));
+		allSteps.add(new PanelDetails(t("Starting off"), Collections.singletonList(talkToRat)));
+		allSteps.add(new PanelDetails(t("Help Rat"), Arrays.asList(killOutlaws, bringFolderToRat)));
+		allSteps.add(new PanelDetails(t("Help Surok"), Arrays.asList(talkToSurok, enterChaosAltar, useWandOnAltar, bringWandToSurok), chaosRunes15, chaosTalismanOrAbyss, bowl, wand));
+		allSteps.add(new PanelDetails(t("Defeat Surok"), Arrays.asList(talkToRatAfterSurok, talkToZaff, talkToSurokToFight, fightRoald, talkToRatToFinish)));
 		return allSteps;
 	}
 }

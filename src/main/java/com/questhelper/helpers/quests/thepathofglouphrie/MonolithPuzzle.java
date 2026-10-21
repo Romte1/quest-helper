@@ -71,7 +71,7 @@ public class MonolithPuzzle extends DetailedOwnerStep
 
 	public MonolithPuzzle(QuestHelper questHelper)
 	{
-		super(questHelper, "Unlock Yewnock's machine room in the Tree Gnome Village dungeon.");
+		super(questHelper, questHelper.t("Unlock Yewnock's machine room in the Tree Gnome Village dungeon."));
 	}
 
 	@Override
@@ -127,67 +127,67 @@ public class MonolithPuzzle extends DetailedOwnerStep
 		));
 
 		pushSouthernMonolithUp = new NpcStep(getQuestHelper(), NpcID.POG_GOLRIE_CRATE_2X2, regionPoint(37, 21),
-			"Push the monolith north once.");
+			getQuestHelper().t("Push the monolith north once."));
 		pushSouthernMonolithUp.setMaxRoamRange(3);
 
 		getFirstShapes = new ObjectStep(getQuestHelper(), ObjectID.POG_CHEST_CLOSED, regionPoint(39, 25),
-			"Open the chest for some shapes.");
+			getQuestHelper().t("Open the chest for some shapes."));
 		getFirstShapes.addSubSteps(pushSouthernMonolithUp);
 
 		pushSWMonolithNorth = new NpcStep(getQuestHelper(), NpcID.POG_GOLRIE_CRATE_2X2, regionPoint(35, 29),
-			"Push the south-west monolith north once.");
+			getQuestHelper().t("Push the south-west monolith north once."));
 		pushSWMonolithNorth.setMaxRoamRange(2);
 
 		pushNWMonolithEast = new NpcStep(getQuestHelper(), NpcID.POG_GOLRIE_CRATE_2X2, regionPoint(35, 33),
-			"Push the north-west monolith east once.");
+			getQuestHelper().t("Push the north-west monolith east once."));
 		pushNWMonolithEast.setMaxRoamRange(2);
 
 		getSecondShapes = new ObjectStep(getQuestHelper(), ObjectID.POG_CHEST_CLOSED, regionPoint(36, 38),
-			"Open the chest for some more shapes. If the chest doesn't give you any shapes, drop the shapes in your inventory first, then click the chest, then pick up the shapes from the ground.");
+			getQuestHelper().t("Open the chest for some more shapes. If the chest doesn't give you any shapes, drop the shapes in your inventory first, then click the chest, then pick up the shapes from the ground."));
 		getSecondShapes.addSubSteps(pushSWMonolithNorth, pushNWMonolithEast);
 
 		picklockChestForFirstKey = new ObjectStep(getQuestHelper(), ObjectID.POG_GOLRIE_SMALL_CHEST_PICKLOCK, regionPoint(33, 37),
-			"Picklock the chest for a key.");
+			getQuestHelper().t("Picklock the chest for a key."));
 		picklockChestForFirstKey.addAlternateObjects(ObjectID.POG_GOLRIE_SMALL_CHEST_NORMAL);
 		picklockChestForFirstKey.addSubSteps(pushSWMonolithNorth, pushNWMonolithEast);
 
 		pushSmallMonolithSouth = new NpcStep(getQuestHelper(), NpcID.POG_GOLRIE_CRATE_1X1, regionPoint(39, 33),
-			"Push the small monolith south once.");
+			getQuestHelper().t("Push the small monolith south once."));
 		pushSmallMonolithSouth.setMaxRoamRange(2);
 
 		// TODO: For this step, make sure it's actually possible to push the monolith west.
 		// If the user has messed up, they might need to push the SW monolith south first.
 		// The user might also need to push the monolith west twice in case they've pushed it too far - we don't handle that case.
 		pushNWMonolithWest = new NpcStep(getQuestHelper(), NpcID.POG_GOLRIE_CRATE_2X2, regionPoint(36, 33),
-			"Push the north-west monolith west once.");
+			getQuestHelper().t("Push the north-west monolith west once."));
 		pushNWMonolithWest.setMaxRoamRange(2);
 
 		openChestForCrystalChimeSeed = new ObjectStep(getQuestHelper(), ObjectID.POG_GOLRIE_BIG_CHEST, regionPoint(37, 34),
-			"Search the chest for the strongroom key and crystal chime seed.");
+			getQuestHelper().t("Search the chest for the strongroom key and crystal chime seed."));
 		openChestForCrystalChimeSeed.addSubSteps(pushSmallMonolithSouth, pushNWMonolithWest);
 
 		getThirdShapes = new ObjectStep(getQuestHelper(), ObjectID.POG_CHEST_CLOSED, regionPoint(41, 29),
-			"Open the chest for some more shapes. If the chest doesn't give you any shapes, drop the shapes in your inventory first, then click the chest, then pick up the shapes from the ground.");
+			getQuestHelper().t("Open the chest for some more shapes. If the chest doesn't give you any shapes, drop the shapes in your inventory first, then click the chest, then pick up the shapes from the ground."));
 		// getThirdShapes.addSubSteps(pushSmallMonolithSouth);
 
 		var crystalChimeSeed = new ItemRequirement("Crystal chime seed", ItemID.CRYSTAL_CHIME_SEED, 1);
-		crystalChimeSeed.setTooltip("You can get another one from the golden chest in Yewnock's storeroom");
+		crystalChimeSeed.setTooltip(getQuestHelper().t("You can get another one from the golden chest in Yewnock's storeroom"));
 
 		crystalChime = new ItemRequirement("Crystal chime", ItemID.CRYSTAL_CHIME, 1);
 
 		var machineRoomKey = new ItemRequirement("Strongroom key", ItemID.POG_STRONGROOM_KEY, 1);
 
 		inspectSingingBowl = new ObjectStep(getQuestHelper(), ObjectID.POG_SINGING_BOWL_INSPECT, regionPoint(41, 32),
-			"Inspect the Singing bowl, then click it again to create the Crystal chime.", crystalChimeSeed);
+			getQuestHelper().t("Inspect the Singing bowl, then click it again to create the Crystal chime."), crystalChimeSeed);
 		inspectSingingBowl.addAlternateObjects(ObjectID.POG_SINGING_BOWL_SING);
 		inspectSingingBowl.addDialogStep("Yes.");
 
 		pushSEMonolithWest = new NpcStep(getQuestHelper(), NpcID.POG_GOLRIE_CRATE_2X2, regionPoint(39, 29),
-			"Push the south-east monolith west once.");
+			getQuestHelper().t("Push the south-east monolith west once."));
 		pushSEMonolithWest.setMaxRoamRange(2);
 
 		unlockTheGate = new ObjectStep(getQuestHelper(), ObjectID.POG_GATE_DOOR, regionPoint(30, 31),
-			"Unlock the gate to Yewnock's machine room.", crystalChime, machineRoomKey);
+			getQuestHelper().t("Unlock the gate to Yewnock's machine room."), crystalChime, machineRoomKey);
 	}
 
 	@Override

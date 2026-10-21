@@ -182,7 +182,7 @@ public class ZogreFleshEaters extends BasicQuestHelper
 		ogreRelic = new ItemRequirement("Ogre artefact", ItemID.ZOGRE_ARTIFACTS);
 		ogreRelic.setTooltip(t("You can get another by searching the stand where you fought Slash Bash"));
 
-		combatGear = new ItemRequirement("Either brutal arrows or Crumble Undead for fighting Slash Bash", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Either brutal arrows or Crumble Undead for fighting Slash Bash"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 	}
 

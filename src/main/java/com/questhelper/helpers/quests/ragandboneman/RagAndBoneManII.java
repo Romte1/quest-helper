@@ -235,7 +235,7 @@ public class RagAndBoneManII extends BasicQuestHelper
 		karamjaTeleport.addAlternates(ItemID.NZONE_TELETAB_BRIMHAVEN, ItemID.TELEPORTSCROLL_TAIBWO);
 
 		antifireShield = new ItemRequirement("Antifire shield", ItemCollections.ANTIFIRE_SHIELDS).isNotConsumed();
-		inoculationBracelet = new ItemRequirement("Inoculation bracelet or a potion for Disease",
+		inoculationBracelet = new ItemRequirement(t("Inoculation bracelet or a potion for Disease"),
 			ItemCollections.ANTIDISEASE);
 		ectophial = new ItemRequirement("Ectophial", ItemID.ECTOPHIAL).isNotConsumed();
 		ringOfDueling = new ItemRequirement("Ring of dueling", ItemCollections.RING_OF_DUELINGS);
@@ -253,7 +253,7 @@ public class RagAndBoneManII extends BasicQuestHelper
 		dramenStaff.addAlternates(ItemID.LUNAR_MOONCLAN_LIMINAL_STAFF);
 		rellekkaNETeleport = new ItemRequirement("Fairy Ring (DKS)", ItemCollections.FAIRY_STAFF).isNotConsumed();
 
-		rangedWeapon = new ItemRequirement("Ranged weapon for killing vultures", ItemCollections.CROSSBOWS);
+		rangedWeapon = new ItemRequirement(t("Ranged weapon for killing vultures"), ItemCollections.CROSSBOWS);
 		rangedWeapon.setTooltip("Vultures can fly, making them unable to be attacked with melee");
 		rangedWeapon.addAlternates(ItemCollections.BOWS);
 
@@ -264,7 +264,7 @@ public class RagAndBoneManII extends BasicQuestHelper
 			new ItemRequirement("Pot of vinegar", ItemID.RAG_POT_VINEGAR, 8).alsoCheckBank().highlighted();
 		jugOfVinegarNeeded =
 			new ItemRequirement("Jug of vinegar", ItemID.RAG_VINEGAR, 8).alsoCheckBank().highlighted();
-		coinsOrVinegar = new ItemRequirement("Pots/Jugs of vinegar, or coins to buy", ItemID.RAG_POT_VINEGAR);
+		coinsOrVinegar = new ItemRequirement(t("Pots/Jugs of vinegar, or coins to buy"), ItemID.RAG_POT_VINEGAR);
 		coinsOrVinegar.addAlternates(ItemID.RAG_VINEGAR, ItemID.COINS);
 
 		List<Integer> bonesInVinegar = new ArrayList<>();

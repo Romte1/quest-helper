@@ -269,11 +269,11 @@ public class EnakhrasLament extends BasicQuestHelper
 		breadOrCake.setHighlightInInventory(true);
 		breadOrCake.setDisplayMatchedItemName(true);
 
-		airSpellRunes = new ItemRequirement("Runes to cast Wind Bolt or stronger", -1, -1);
+		airSpellRunes = new ItemRequirement(t("Runes to cast Wind Bolt or stronger"), -1, -1);
 		airSpellRunes.setDisplayItemId(ItemID.AIRRUNE);
-		fireSpellRunes = new ItemRequirement("Runes to cast Fire Bolt or stronger", -1, -1);
+		fireSpellRunes = new ItemRequirement(t("Runes to cast Fire Bolt or stronger"), -1, -1);
 		fireSpellRunes.setDisplayItemId(ItemID.FIRERUNE);
-		crumbleUndeadRunes = new ItemRequirement("Runes for crumble undead spell", -1, -1);
+		crumbleUndeadRunes = new ItemRequirement(t("Runes for crumble undead spell"), -1, -1);
 		crumbleUndeadRunes.setDisplayItemId(ItemID.SKULL);
 
 		log = new ItemRequirement("Logs", ItemID.LOGS);

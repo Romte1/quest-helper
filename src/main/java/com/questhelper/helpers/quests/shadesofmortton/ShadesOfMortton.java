@@ -142,7 +142,7 @@ public class ShadesOfMortton extends BasicQuestHelper
 		ashes2 = new ItemRequirement("Ashes", ItemID.ASHES, 2);
 		ashesHighlighted = new ItemRequirement("Ashes", ItemID.ASHES);
 		ashesHighlighted.setHighlightInInventory(true);
-		coins5000 = new ItemRequirement("Coins for building materials, or 18000 if you want to buy a Flamtaer hammer", ItemCollections.COINS, 5000);
+		coins5000 = new ItemRequirement(t("Coins for building materials, or 18000 if you want to buy a Flamtaer hammer"), ItemCollections.COINS, 5000);
 		hammerOrFlam = new ItemRequirement("Hammer or Flamtaer Hammer", ItemCollections.HAMMER).isNotConsumed();
 		hammerOrFlam.addAlternates(ItemID.FLAMTAER_HAMMER);
 		flamHammer = new ItemRequirement("Flamtaer hammer", ItemID.FLAMTAER_HAMMER).isNotConsumed();
@@ -153,13 +153,13 @@ public class ShadesOfMortton extends BasicQuestHelper
 
 		flamtaerBracelet = new ItemRequirement("Flamtaer bracelet", ItemID.FLAMTAER_BRACELET);
 		flamtaerBracelet.setTooltip(t("This speeds up the repair section of the quest considerably"));
-		log = new ItemRequirement("A log whose pyre version you can burn", ItemID.LOGS);
+		log = new ItemRequirement(t("A log whose pyre version you can burn"), ItemID.LOGS);
 		log.addAlternates(ItemID.OAK_LOGS, ItemID.MAPLE_LOGS, ItemID.WILLOW_LOGS, ItemID.YEW_LOGS, ItemID.MAGIC_LOGS, ItemID.REDWOOD_LOGS);
-		logHighlighted = new ItemRequirement("A log whose pyre version you can burn", ItemID.LOGS);
+		logHighlighted = new ItemRequirement(t("A log whose pyre version you can burn"), ItemID.LOGS);
 		logHighlighted.addAlternates(ItemID.OAK_LOGS, ItemID.MAPLE_LOGS, ItemID.WILLOW_LOGS, ItemID.YEW_LOGS, ItemID.MAGIC_LOGS, ItemID.REDWOOD_LOGS);
 		logHighlighted.setHighlightInInventory(true);
 
-		pyreLog = new ItemRequirement("A pyre log you can burn", ItemID.LOGS_PYRE);
+		pyreLog = new ItemRequirement(t("A pyre log you can burn"), ItemID.LOGS_PYRE);
 		pyreLog.addAlternates(ItemID.OAK_LOGS_PYRE, ItemID.MAPLE_LOGS_PYRE, ItemID.WILLOW_LOGS_PYRE, ItemID.YEW_LOGS_PYRE, ItemID.MAGIC_LOGS_PYRE,
 			ItemID.REDWOOD_LOGS_PYRE);
 		pyreLog.setHighlightInInventory(true);

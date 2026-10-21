@@ -41,7 +41,7 @@ public class SelectingCombatGear extends QuestStep
 
 	public SelectingCombatGear(QuestHelper questHelper)
 	{
-		super(questHelper, "Take the marked items out of the bank.");
+		super(questHelper, questHelper.t("Take the marked items out of the bank."));
 	}
 
 	@Override

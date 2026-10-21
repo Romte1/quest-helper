@@ -98,16 +98,16 @@ public class EnterTheAbyss extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		varrockTeleport = new ItemRequirement("Teleports to Varrock", ItemID.POH_TABLET_VARROCKTELEPORT, 2);
-		ardougneTeleport = new ItemRequirement("Teleport to Ardougne", ItemID.POH_TABLET_ARDOUGNETELEPORT);
-		edgevilleTeleport = new ItemRequirement("Teleport to Edgeville", ItemCollections.AMULET_OF_GLORIES);
-		passageTeleport = new ItemRequirement("Teleport to Wizards' Tower", ItemCollections.NECKLACE_OF_PASSAGES);
+		varrockTeleport = new ItemRequirement(t("Teleports to Varrock"), ItemID.POH_TABLET_VARROCKTELEPORT, 2);
+		ardougneTeleport = new ItemRequirement(t("Teleport to Ardougne"), ItemID.POH_TABLET_ARDOUGNETELEPORT);
+		edgevilleTeleport = new ItemRequirement(t("Teleport to Edgeville"), ItemCollections.AMULET_OF_GLORIES);
+		passageTeleport = new ItemRequirement(t("Teleport to Wizards' Tower"), ItemCollections.NECKLACE_OF_PASSAGES);
 
 		scryingOrb = new ItemRequirement("Scrying orb", ItemID.SCRYING_ORB_EMPTY);
-		scryingOrb.setTooltip("You can get another from the Mage of Zamorak in south east Varrock");
+		scryingOrb.setTooltip(t("You can get another from the Mage of Zamorak in south east Varrock"));
 
 		scryingOrbCharged = new ItemRequirement("Scrying orb", ItemID.SCRYING_ORB_FULL);
-		scryingOrbCharged.setTooltip("You can get another from the Mage of Zamorak in south east Varrock");
+		scryingOrbCharged.setTooltip(t("You can get another from the Mage of Zamorak in south east Varrock"));
 
 		freeInventorySpace = new FreeInventorySlotRequirement(1);
 
@@ -122,36 +122,36 @@ public class EnterTheAbyss extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToMageInWildy = new NpcStep(this, NpcID.RCU_ZAMMY_MAGE1A, new WorldPoint(3102, 3557, 0), "Talk to the Mage" +
-			" of Zamorak in the Wilderness north of Edgeville. BRING NOTHING AS YOU CAN BE KILLED BY OTHER PLAYERS HERE.");
+		talkToMageInWildy = new NpcStep(this, NpcID.RCU_ZAMMY_MAGE1A, new WorldPoint(3102, 3557, 0), t("Talk to the Mage" +
+			" of Zamorak in the Wilderness north of Edgeville. BRING NOTHING AS YOU CAN BE KILLED BY OTHER PLAYERS HERE."));
 
 		talkToMageInVarrock = new NpcStep(this, NpcID.RCU_ZAMMY_MAGE1_EDGEB, new WorldPoint(3259, 3383, 0),
-			"Talk to the Mage of Zamorak in south east Varrock.", freeInventorySpace);
+			t("Talk to the Mage of Zamorak in south east Varrock."), freeInventorySpace);
 		talkToMageInVarrock.addDialogSteps("Where do you get your runes from?", "Maybe I could make it worth your while?", "Yes, but I can still help you as well.",
 			"I did it so that I could then steal their secrets.", "Deal.",
 			"But I'm a loyal servant of Zamorak as well!", "Okay, fine. I don't really serve Zamorak.", "Because I can still help you.");
 
 		talkToAubury = new NpcStep(this, NpcID.AUBURY_3OP, new WorldPoint(3253, 3401, 0),
-			"Teleport to the essence mine with Aubury in south east Varrock.", scryingOrb);
+			t("Teleport to the essence mine with Aubury in south east Varrock."), scryingOrb);
 		talkToAubury.addDialogStep("Can you teleport me to the Rune Essence Mine?");
 
 		goDownInWizardsTower = new ObjectStep(this, ObjectID.WIZARDS_TOWER_LADDERTOP, new WorldPoint(3104, 3162, 0),
-			"Teleport to the essence mine with Sedridor in the Wizard Tower's basement.", scryingOrb);
+			t("Teleport to the essence mine with Sedridor in the Wizard Tower's basement."), scryingOrb);
 		goDownInWizardsTower.addDialogStep("Wizard's Tower");
 		talkToSedridor = new NpcStep(this, NpcID.HEAD_WIZARD_1OP, new WorldPoint(3104, 9571, 0),
-			"Teleport to the essence mine with Sedridor in the Wizard Tower's basement.", scryingOrb);
+			t("Teleport to the essence mine with Sedridor in the Wizard Tower's basement."), scryingOrb);
 		talkToSedridor.addAlternateNpcs(NpcID.HEAD_WIZARD);
 		talkToSedridor.addDialogStep("Can you teleport me to the Rune Essence Mine?");
 		talkToSedridor.addSubSteps(goDownInWizardsTower);
 
 		talkToCromperty = new NpcStep(this, NpcID.CROMPERTY_PRE_DIARY, new WorldPoint(2684, 3323, 0),
-			"Teleport to the essence mine with Wizard Cromperty in East Ardougne.", scryingOrb);
+			t("Teleport to the essence mine with Wizard Cromperty in East Ardougne."), scryingOrb);
 		talkToCromperty.addDialogStep("Can you teleport me to the Rune Essence Mine?");
 
 		talkToMageAfterTeleports = new NpcStep(this, NpcID.RCU_ZAMMY_MAGE1_EDGEB, new WorldPoint(3259, 3383, 0),
-			"Talk to the Mage of Zamorak in south east Varrock.", scryingOrbCharged);
+			t("Talk to the Mage of Zamorak in south east Varrock."), scryingOrbCharged);
 		talkToMageToFinish = new NpcStep(this, NpcID.RCU_ZAMMY_MAGE1_EDGEB, new WorldPoint(3259, 3383, 0),
-			"Talk to the Mage of Zamorak in south east Varrock.");
+			t("Talk to the Mage of Zamorak in south east Varrock."));
 		talkToMageAfterTeleports.addSubSteps(talkToMageToFinish);
 	}
 
@@ -201,8 +201,8 @@ public class EnterTheAbyss extends BasicQuestHelper
 	public List<String> getNotes()
 	{
 		return List.of(
-			"The start of this miniquest is in the Wilderness. Other players can " +
-				"attack you there, so make sure to not bring anything there!"
+			t("The start of this miniquest is in the Wilderness. Other players can " +
+				"attack you there, so make sure to not bring anything there!")
 		);
 	}
 
@@ -226,7 +226,7 @@ public class EnterTheAbyss extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Ability to enter The Abyss")
+			new UnlockReward(t("Ability to enter The Abyss"))
 		);
 	}
 
@@ -235,7 +235,7 @@ public class EnterTheAbyss extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Helping the Zamorakians", List.of(
+		sections.add(new PanelDetails(t("Helping the Zamorakians"), List.of(
 			talkToMageInWildy,
 			talkToMageInVarrock,
 			talkToAubury,

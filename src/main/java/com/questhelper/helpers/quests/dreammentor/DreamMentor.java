@@ -181,28 +181,28 @@ public class DreamMentor extends BasicQuestHelper
 		hammer.setHighlightInInventory(true);
 
 		goutweed = new ItemRequirement("Goutweed", ItemID.EADGAR_GOUTWEED_HERB);
-		goutweed.setTooltip("You can get one from the Troll Kitchen's Storeroom in Trollheim");
+		goutweed.setTooltip(t("You can get one from the Troll Kitchen's Storeroom in Trollheim"));
 		goutweed.setHighlightInInventory(true);
 
 		dreamPotion = new ItemRequirement("Dream potion", ItemID.DREAM_VIAL_FULL);
 
-		foodAll1 = new ItemRequirement("some type of food", -1, 7);
+		foodAll1 = new ItemRequirement(t("some type of food"), -1, 7);
 		foodAll1.setDisplayItemId(BankSlotIcons.getFood());
-		foodAll2 = new ItemRequirement("some other type of food", -1, 7);
+		foodAll2 = new ItemRequirement(t("some other type of food"), -1, 7);
 		foodAll2.setDisplayItemId(BankSlotIcons.getFood());
-		foodAll3 = new ItemRequirement("a third type of food", -1, 6);
+		foodAll3 = new ItemRequirement(t("a third type of food"), -1, 6);
 		foodAll3.setDisplayItemId(BankSlotIcons.getFood());
-		food14 = new ItemRequirement("food: 5x some type food, 5x some other type of food, 4x a third type of food", -1, 14);
+		food14 = new ItemRequirement(t("food: 5x some type food, 5x some other type of food, 4x a third type of food"), -1, 14);
 		food14.setDisplayItemId(BankSlotIcons.getFood());
-		food4 = new ItemRequirement("food: 1x some type of food, 1x some other type of food, 2x a third type of food", -1, 4);
+		food4 = new ItemRequirement(t("food: 1x some type of food, 1x some other type of food, 2x a third type of food"), -1, 4);
 		food4.setDisplayItemId(BankSlotIcons.getFood());
-		food6 = new ItemRequirement("food: 2x some type of food, 2x some other type of food, 2x a third type of food", -1, 6);
+		food6 = new ItemRequirement(t("food: 2x some type of food, 2x some other type of food, 2x a third type of food"), -1, 6);
 		food6.setDisplayItemId(BankSlotIcons.getFood());
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX);
 
 		chest = new ItemRequirement("Cyrisus's chest", ItemID.DREAM_CHEST);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		// Recommeneded
@@ -246,19 +246,19 @@ public class DreamMentor extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		goDownToCyrisus = new ObjectStep(this, ObjectID.LUNAR_MINE_SLANTY_LADDER_DOWN, new WorldPoint(2142, 3944, 0), "Enter the mine in the north east of Lunar Isle.", food14);
-		enterCyrisusCave = new ObjectStep(this, ObjectID.DREAM_CAVE_WALL_ENTRANCE, new WorldPoint(2335, 10346, 2), "Enter the cave entrance on the north wall.");
-		talkToCyrisus = new NpcStep(this, NpcID.DREAM_CYRISUS_UNCONSCIOUS, new WorldPoint(2346, 10360, 2), "Attempt to talk to the fallen man.");
+		goDownToCyrisus = new ObjectStep(this, ObjectID.LUNAR_MINE_SLANTY_LADDER_DOWN, new WorldPoint(2142, 3944, 0), t("Enter the mine in the north east of Lunar Isle."), food14);
+		enterCyrisusCave = new ObjectStep(this, ObjectID.DREAM_CAVE_WALL_ENTRANCE, new WorldPoint(2335, 10346, 2), t("Enter the cave entrance on the north wall."));
+		talkToCyrisus = new NpcStep(this, NpcID.DREAM_CYRISUS_UNCONSCIOUS, new WorldPoint(2346, 10360, 2), t("Attempt to talk to the fallen man."));
 		talkToCyrisus.addDialogStep("Yes.");
 
-		feed4Food = new NpcStep(this, NpcID.DREAM_CYRISUS_UNCONSCIOUS, new WorldPoint(2346, 10360, 2), "Feed the fallen man 4 food. You'll need to alternate between at least 3 different types of food.", food4);
+		feed4Food = new NpcStep(this, NpcID.DREAM_CYRISUS_UNCONSCIOUS, new WorldPoint(2346, 10360, 2), t("Feed the fallen man 4 food. You'll need to alternate between at least 3 different types of food."), food4);
 
-		talkToCyrisus2 = new NpcStep(this, NpcID.DREAM_CYRISUS_BARELY_CONSCIOUS, new WorldPoint(2346, 10360, 2), "Talk to the fallen man.");
+		talkToCyrisus2 = new NpcStep(this, NpcID.DREAM_CYRISUS_BARELY_CONSCIOUS, new WorldPoint(2346, 10360, 2), t("Talk to the fallen man."));
 		((NpcStep) (talkToCyrisus2)).addAlternateNpcs(NpcID.DREAM_CYRISUS_UNCONSCIOUS);
-		feed4Food2 = new NpcStep(this, NpcID.DREAM_CYRISUS_BARELY_CONSCIOUS, new WorldPoint(2346, 10360, 2), "Feed the fallen man 4 food. You'll need to alternate between at least 3 different types of food.", food4);
+		feed4Food2 = new NpcStep(this, NpcID.DREAM_CYRISUS_BARELY_CONSCIOUS, new WorldPoint(2346, 10360, 2), t("Feed the fallen man 4 food. You'll need to alternate between at least 3 different types of food."), food4);
 
 		// 3622 = spirit
-		talkToCyrisus3 = new NpcStep(this, NpcID.DREAM_CYRISUS_BARELY_CONSCIOUS, new WorldPoint(2346, 10360, 2), "Talk to the fallen man.");
+		talkToCyrisus3 = new NpcStep(this, NpcID.DREAM_CYRISUS_BARELY_CONSCIOUS, new WorldPoint(2346, 10360, 2), t("Talk to the fallen man."));
 		((NpcStep) (talkToCyrisus3)).addAlternateNpcs(NpcID.DREAM_CYRISUS_SITTING);
 		talkToCyrisus3.addDialogSteps("You're looking better now.", "Well, you look and sound more lively.");
 		talkToCyrisus3.addDialogSteps("Are you looking forward to getting out?", "That's the spirit!");
@@ -275,8 +275,8 @@ public class DreamMentor extends BasicQuestHelper
 		talkToCyrisus3.addDialogSteps("You're very safe in this little cave.", "The suqah will never fit through that tunnel.");
 		talkToCyrisus3.addDialogSteps("Tell me a bit about yourself.", "Fishing!");
 
-		feed6Food = new NpcStep(this, NpcID.DREAM_CYRISUS_SITTING, new WorldPoint(2346, 10360, 2), "Feed Cyrisus 6 food. You'll need to alternate between at least 3 different types of food.", food6);
-		talkToCyrisus4 = new NpcStep(this, NpcID.DREAM_CYRISUS_SITTING, new WorldPoint(2346, 10360, 2), "Talk to Cyrisus.");
+		feed6Food = new NpcStep(this, NpcID.DREAM_CYRISUS_SITTING, new WorldPoint(2346, 10360, 2), t("Feed Cyrisus 6 food. You'll need to alternate between at least 3 different types of food."), food6);
+		talkToCyrisus4 = new NpcStep(this, NpcID.DREAM_CYRISUS_SITTING, new WorldPoint(2346, 10360, 2), t("Talk to Cyrisus."));
 		((NpcStep) (talkToCyrisus4)).addAlternateNpcs(NpcID.DREAM_CYRISUS);
 		talkToCyrisus4.addDialogSteps("You're looking better now.", "Well, you look and sound more lively.");
 		talkToCyrisus4.addDialogSteps("Are you looking forward to getting out?", "That's the spirit!");
@@ -294,27 +294,27 @@ public class DreamMentor extends BasicQuestHelper
 		talkToCyrisus4.addDialogSteps("Tell me a bit about yourself.", "Fishing!");
 
 		leaveCave = new ObjectStep(this, ObjectID.DREAM_CAVE_WALL_ENTRANCE, new WorldPoint(12437, 2955, 0),
-			"Talk to 'Bird's-Eye' Jack in the Lunar Isle bank.", sealOfPassage);
-		goUpToSurface = new ObjectStep(this, ObjectID.LUNAR_MINE_SLANTY_LADDER_UP, new WorldPoint(2330, 10353, 2), "Talk to 'Bird's-Eye' Jack in the Lunar Isle bank.", sealOfPassage);
+			t("Talk to 'Bird's-Eye' Jack in the Lunar Isle bank."), sealOfPassage);
+		goUpToSurface = new ObjectStep(this, ObjectID.LUNAR_MINE_SLANTY_LADDER_UP, new WorldPoint(2330, 10353, 2), t("Talk to 'Bird's-Eye' Jack in the Lunar Isle bank."), sealOfPassage);
 		selectEquipment = new SelectingCombatGear(this);
 		talkToJack = new NpcStep(this, NpcID.DREAM_BIRDS_EYE_JACK, new WorldPoint(2099, 3921, 0),
-			"Talk to 'Bird's-Eye' Jack in the Lunar Isle bank for Cyrisus's equipment.", sealOfPassage);
+			t("Talk to 'Bird's-Eye' Jack in the Lunar Isle bank for Cyrisus's equipment."), sealOfPassage);
 		talkToJack.addDialogStep("Cyrisus in the mine");
 		talkToJack.addSubSteps(leaveCave, goUpToSurface, selectEquipment);
-		goBackDownToCyrisus = new ObjectStep(this, ObjectID.LUNAR_MINE_SLANTY_LADDER_DOWN, new WorldPoint(2142, 3944, 0), "Enter the mine in the north east of Lunar Isle.", chest, food6);
-		goBackDownAfterGearing = new ObjectStep(this, ObjectID.LUNAR_MINE_SLANTY_LADDER_DOWN, new WorldPoint(2142, 3944, 0), "Enter the mine in the north east of Lunar Isle.", food6);
-		enterCyrisusCaveAgain = new ObjectStep(this, ObjectID.DREAM_CAVE_WALL_ENTRANCE, new WorldPoint(2335, 10346, 2), "Enter the cave entrance on the north wall.");
-		giveCyrisusGear = new NpcStep(this, NpcID.DREAM_CYRISUS, new WorldPoint(2346, 10360, 2), "Give Cyrisus his equipment.", chest);
+		goBackDownToCyrisus = new ObjectStep(this, ObjectID.LUNAR_MINE_SLANTY_LADDER_DOWN, new WorldPoint(2142, 3944, 0), t("Enter the mine in the north east of Lunar Isle."), chest, food6);
+		goBackDownAfterGearing = new ObjectStep(this, ObjectID.LUNAR_MINE_SLANTY_LADDER_DOWN, new WorldPoint(2142, 3944, 0), t("Enter the mine in the north east of Lunar Isle."), food6);
+		enterCyrisusCaveAgain = new ObjectStep(this, ObjectID.DREAM_CAVE_WALL_ENTRANCE, new WorldPoint(2335, 10346, 2), t("Enter the cave entrance on the north wall."));
+		giveCyrisusGear = new NpcStep(this, NpcID.DREAM_CYRISUS, new WorldPoint(2346, 10360, 2), t("Give Cyrisus his equipment."), chest);
 		giveCyrisusGear.addDialogStep("Talk about the Armament");
 		giveCyrisusGear.addSubSteps(goBackDownToCyrisus, enterCyrisusCaveAgain);
 
-		useFood3 = new NpcStep(this, NpcID.DREAM_CYRISUS, new WorldPoint(2346, 10360, 2), "Feed Cyrisus alternating types of food.", food6);
+		useFood3 = new NpcStep(this, NpcID.DREAM_CYRISUS, new WorldPoint(2346, 10360, 2), t("Feed Cyrisus alternating types of food."), food6);
 		useFood3.addSubSteps(goBackDownAfterGearing);
 		((NpcStep) (useFood3)).addAlternateNpcs(NpcID.DREAM_CYRISUS_RANGER);
 		((NpcStep) (useFood3)).addAlternateNpcs(NpcID.DREAM_CYRISUS_MELEE);
 		((NpcStep) (useFood3)).addAlternateNpcs(NpcID.DREAM_CYRISUS_CASTER);
 
-		supportCyrisusToRecovery = new NpcStep(this, NpcID.DREAM_CYRISUS, new WorldPoint(2346, 10360, 2), "Talk to Cyrisus until he's fully recovered.");
+		supportCyrisusToRecovery = new NpcStep(this, NpcID.DREAM_CYRISUS, new WorldPoint(2346, 10360, 2), t("Talk to Cyrisus until he's fully recovered."));
 		((NpcStep) (supportCyrisusToRecovery)).addAlternateNpcs(NpcID.DREAM_CYRISUS_RANGER);
 		((NpcStep) (supportCyrisusToRecovery)).addAlternateNpcs(NpcID.DREAM_CYRISUS_MELEE);
 		((NpcStep) (supportCyrisusToRecovery)).addAlternateNpcs(NpcID.DREAM_CYRISUS_CASTER);
@@ -333,33 +333,33 @@ public class DreamMentor extends BasicQuestHelper
 		supportCyrisusToRecovery.addDialogSteps("You're very safe in this little cave.", "The suqah will never fit through that tunnel.");
 		supportCyrisusToRecovery.addDialogSteps("Tell me a bit about yourself.", "Fishing!");
 
-		talkAfterHelping = new NpcStep(this, NpcID.DREAM_CYRISUS, new WorldPoint(2346, 10360, 2), "Talk to Cyrisus.");
+		talkAfterHelping = new NpcStep(this, NpcID.DREAM_CYRISUS, new WorldPoint(2346, 10360, 2), t("Talk to Cyrisus."));
 		((NpcStep) (talkAfterHelping)).addAlternateNpcs(NpcID.DREAM_CYRISUS_RANGER, NpcID.DREAM_CYRISUS_MELEE, NpcID.DREAM_CYRISUS_CASTER);
 		supportCyrisusToRecovery.addSubSteps(talkAfterHelping);
 
-		talkToOneiromancer = new NpcStep(this, NpcID.LUNAR_ONEIROMANCER, new WorldPoint(2151, 3867, 0), "Talk to the Oneiromancer in the south east of Lunar Isle.", sealOfPassage);
+		talkToOneiromancer = new NpcStep(this, NpcID.LUNAR_ONEIROMANCER, new WorldPoint(2151, 3867, 0), t("Talk to the Oneiromancer in the south east of Lunar Isle."), sealOfPassage);
 		talkToOneiromancer.addDialogStep("Cyrisus.");
 
-		fillVialWithWater = new ObjectStep(this, ObjectID.LUNAR_MOONCLAN_SINK, new WorldPoint(2091, 3922, 0), "Fill the vial with water.", dreamVial);
+		fillVialWithWater = new ObjectStep(this, ObjectID.LUNAR_MOONCLAN_SINK, new WorldPoint(2091, 3922, 0), t("Fill the vial with water."), dreamVial);
 		fillVialWithWater.addIcon(ItemID.DREAM_VIAL_EMPTY);
 
-		addGoutweed = new DetailedQuestStep(this, "Add a goutweed to the dream vial.", dreamVialWater, goutweed);
-		useHammerOnAstralRune = new DetailedQuestStep(this, "Use a hammer on an astral rune.", hammer, astralRune);
-		usePestleOnShards = new DetailedQuestStep(this, "Use a pestle and mortar on the astral rune shards.", pestleAndMortar, astralRuneShards);
-		useGroundAstralOnVial = new DetailedQuestStep(this, "Add the ground astral rune to the dream vial.", groundAstralRune, dreamVialWithGoutweed);
+		addGoutweed = new DetailedQuestStep(this, t("Add a goutweed to the dream vial."), dreamVialWater, goutweed);
+		useHammerOnAstralRune = new DetailedQuestStep(this, t("Use a hammer on an astral rune."), hammer, astralRune);
+		usePestleOnShards = new DetailedQuestStep(this, t("Use a pestle and mortar on the astral rune shards."), pestleAndMortar, astralRuneShards);
+		useGroundAstralOnVial = new DetailedQuestStep(this, t("Add the ground astral rune to the dream vial."), groundAstralRune, dreamVialWithGoutweed);
 		lightBrazier = new ObjectStep(this, ObjectID.LUNAR_MOONCLAN_BRAZIER_MULTI, new WorldPoint(2073, 3912, 0),
-			"Equip your combat equipment, food, and light the Brazier in the west of Lunar Isle's town. The upcoming fight is hard, and you can only leave via the lecturn in the arena and cannot pray. Magic attacks are extremely effective for the fight.",
+			t("Equip your combat equipment, food, and light the Brazier in the west of Lunar Isle's town. The upcoming fight is hard, and you can only leave via the lecturn in the arena and cannot pray. Magic attacks are extremely effective for the fight."),
 			sealOfPassage, tinderbox.highlighted(), combatGear);
 		lightBrazier.addIcon(ItemID.TINDERBOX);
 
-		talkToCyrisusForDream = new NpcStep(this, NpcID.DREAM_CYRISUS, new WorldPoint(2075, 3912, 0), "Talk to Cyrisus to enter the dream.", combatGear, sealOfPassage);
+		talkToCyrisusForDream = new NpcStep(this, NpcID.DREAM_CYRISUS, new WorldPoint(2075, 3912, 0), t("Talk to Cyrisus to enter the dream."), combatGear, sealOfPassage);
 		((NpcStep) (talkToCyrisusForDream)).addAlternateNpcs(NpcID.DREAM_CYRISUS_RANGER, NpcID.DREAM_CYRISUS_MELEE, NpcID.DREAM_CYRISUS_CASTER);
 		talkToCyrisusForDream.addDialogStep("Yes, let's go!");
-		killInadaquacy = new NpcStep(this, NpcID.DREAM_INADEQUACY, new WorldPoint(1824, 5150, 2), "Kill The Inadequacy.");
-		killEverlasting = new NpcStep(this, NpcID.DREAM_EVERLASTING, new WorldPoint(1824, 5150, 2), "Kill The Everlasting. You can safe spot it by the entry book.");
-		killUntouchable = new NpcStep(this, NpcID.DREAM_UNTOUCHABLE, new WorldPoint(1824, 5150, 2), "Kill The Untouchable. You can safe spot it by the entry book.");
-		killIllusive = new NpcStep(this, NpcID.DREAM_ILLUSIVE, new WorldPoint(1824, 5150, 2), "Kill The Illusive.");
-		returnToOneiromancer = new NpcStep(this, NpcID.LUNAR_ONEIROMANCER, new WorldPoint(2151, 3867, 0), "Talk to the Oneiromancer to finish the quest!", sealOfPassage);
+		killInadaquacy = new NpcStep(this, NpcID.DREAM_INADEQUACY, new WorldPoint(1824, 5150, 2), t("Kill The Inadequacy."));
+		killEverlasting = new NpcStep(this, NpcID.DREAM_EVERLASTING, new WorldPoint(1824, 5150, 2), t("Kill The Everlasting. You can safe spot it by the entry book."));
+		killUntouchable = new NpcStep(this, NpcID.DREAM_UNTOUCHABLE, new WorldPoint(1824, 5150, 2), t("Kill The Untouchable. You can safe spot it by the entry book."));
+		killIllusive = new NpcStep(this, NpcID.DREAM_ILLUSIVE, new WorldPoint(1824, 5150, 2), t("Kill The Illusive."));
+		returnToOneiromancer = new NpcStep(this, NpcID.LUNAR_ONEIROMANCER, new WorldPoint(2151, 3867, 0), t("Talk to the Oneiromancer to finish the quest!"), sealOfPassage);
 		returnToOneiromancer.addDialogStep("Cyrisus.");
 	}
 
@@ -378,13 +378,13 @@ public class DreamMentor extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Arrays.asList("The Inadequacy (level 343)", "The Everlasting (level 223, safespottable)", "The Untouchable (level 274, safespottable)", "The Illusive (level 108, won't attack you)");
+		return Arrays.asList(t("The Inadequacy (level 343)"), t("The Everlasting (level 223, safespottable)"), t("The Untouchable (level 274, safespottable)"), t("The Illusive (level 108, won't attack you)"));
 	}
 
 	@Override
 	public List<String> getNotes()
 	{
-		return Collections.singletonList("To handle the food you could use Sack of Potatoes(10), Sack of Cabbages(10) and Sack of Onions(10). This would allow you to carry all the food in just three inventory spaces. You will need to fight all 4 bosses in a row without prayers. It's recommended that you use magic as they all have very low magic defence.");
+		return Collections.singletonList(t("To handle the food you could use Sack of Potatoes(10), Sack of Cabbages(10) and Sack of Onions(10). This would allow you to carry all the food in just three inventory spaces. You will need to fight all 4 bosses in a row without prayers. It's recommended that you use magic as they all have very low magic defence."));
 	}
 
 	@Override
@@ -411,18 +411,18 @@ public class DreamMentor extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("7 New Lunar Spells"),
-				new UnlockReward("Ability to bank without the Seal of Passage by talking to 'Birds-Eye-Jack'"));
+				new UnlockReward(t("7 New Lunar Spells")),
+				new UnlockReward(t("Ability to bank without the Seal of Passage by talking to 'Birds-Eye-Jack'")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Helping Cyrisus", Arrays.asList(goDownToCyrisus, enterCyrisusCave,
+		allSteps.add(new PanelDetails(t("Helping Cyrisus"), Arrays.asList(goDownToCyrisus, enterCyrisusCave,
 			talkToCyrisus, feed4Food, talkToCyrisus2, feed4Food2, talkToCyrisus3, feed6Food, talkToCyrisus4, talkToJack, giveCyrisusGear,
 			useFood3, supportCyrisusToRecovery), Arrays.asList(foodAll1, foodAll2, foodAll3, sealOfPassage), Arrays.asList(lunarIsleTeleport.quantity(3), stamina)));
-		allSteps.add(new PanelDetails("Defeating his fear", Arrays.asList(talkToOneiromancer, fillVialWithWater, addGoutweed,
+		allSteps.add(new PanelDetails(t("Defeating his fear"), Arrays.asList(talkToOneiromancer, fillVialWithWater, addGoutweed,
 			useHammerOnAstralRune, usePestleOnShards, useGroundAstralOnVial, lightBrazier, talkToCyrisusForDream, killInadaquacy,
 			killEverlasting, killUntouchable, killIllusive, returnToOneiromancer), sealOfPassage, goutweed, astralRune, hammer,
 			pestleAndMortar, tinderbox, combatGear));

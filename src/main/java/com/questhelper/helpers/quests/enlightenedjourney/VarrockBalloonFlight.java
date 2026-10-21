@@ -60,7 +60,7 @@ public class VarrockBalloonFlight extends ComplexStateQuestHelper
 		sections.put(14, section2);
 		sections.put(15, section3);
 
-		fly = new BalloonFlightStep(this, "Navigate the balloon on Entrana to Varrock.", sections, willowLogs);
+		fly = new BalloonFlightStep(this, t("Navigate the balloon on Entrana to Varrock."), sections, willowLogs);
 
 		return fly;
 	}
@@ -97,7 +97,7 @@ public class VarrockBalloonFlight extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Collections.singletonList(
-			new UnlockReward("Ability to fly via balloon to Varrock with 1 willow log")
+			new UnlockReward(t("Ability to fly via balloon to Varrock with 1 willow log"))
 		);
 	}
 
@@ -107,7 +107,7 @@ public class VarrockBalloonFlight extends ComplexStateQuestHelper
 	{
 		ArrayList<PanelDetails> allSteps = new ArrayList<>();
 
-		allSteps.add(new PanelDetails("Flying to Varrock", Collections.singletonList(fly), willowLogs));
+		allSteps.add(new PanelDetails(t("Flying to Varrock"), Collections.singletonList(fly), willowLogs));
 
 		return allSteps;
 	}

@@ -133,10 +133,10 @@ public class LockedChestPuzzle extends DetailedOwnerStep
 		setupItemRequirements();
 		setupConditions();
 
-        readBook = new DetailedQuestStep(getQuestHelper(), "Read the book.", book.highlighted())
+        readBook = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Read the book."), book.highlighted())
                 .puzzleWrapStep()
                 .withNoHelpHiddenInSidebar(true);
-        openChest = new ObjectStep(getQuestHelper(), ObjectID.VMQ3_TOWER_CHEST_LETTERS_CLOSED, new WorldPoint(1638, 3217, 1), "Search the south-west chest.")
+        openChest = new ObjectStep(getQuestHelper(), ObjectID.VMQ3_TOWER_CHEST_LETTERS_CLOSED, new WorldPoint(1638, 3217, 1), getQuestHelper().t("Search the south-west chest."))
                 .puzzleWrapStep()
                 .withNoHelpHiddenInSidebar(true);
         solveChest = new ChestCodeStep(getQuestHelper(), 10);

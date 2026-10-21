@@ -219,26 +219,25 @@ public class TheFremennikExiles extends BasicQuestHelper
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		mirrorShield = new ItemRequirement("Mirror shield", ItemID.SLAYER_MIRROR_SHIELD).isNotConsumed();
 		kegsOfBeer = new ItemRequirement("Kegs of beer", ItemID.KEG_OF_BEER);
-		kegsOfBeer.setTooltip("You can buy some from Rasolo south east of Baxtorian Falls");
+		kegsOfBeer.setTooltip(t("You can buy some from Rasolo south east of Baxtorian Falls"));
 		moltenGlass = new ItemRequirement("Molten glass", ItemID.MOLTEN_GLASS);
 		astralRunes = new ItemRequirement("Astral runes", ItemID.ASTRALRUNE);
 		petRock = new ItemRequirement("Pet rock", ItemID.VT_USELESS_ROCK).isNotConsumed();
-		petRock.setTooltip("You can get another from Askeladden in Rellekka");
+		petRock.setTooltip(t("You can get another from Askeladden in Rellekka"));
 		fishingOrFlyFishingRod = new ItemRequirement("Fishing rod", ItemID.FISHING_ROD).isNotConsumed();
 		fishingOrFlyFishingRod.addAlternates(ItemID.FLY_FISHING_ROD);
 		fremennikShield = new ItemRequirement("Fremennik shield", ItemID.VIKING_SHIELD);
-		fremennikShield.setTooltip("Obtainable during the quest for 150k, or free with a Ring of Charos(a)");
+		fremennikShield.setTooltip(t("Obtainable during the quest for 150k, or free with a Ring of Charos(a)"));
 		iceGloves = new ItemRequirement("Ice gloves or smiths gloves(i)", ItemID.ICE_GLOVES).isNotConsumed();
-		iceGloves.setTooltip("You can get another pair of ice gloves by killing the Ice Queen under White Wolf Mountain");
+		iceGloves.setTooltip(t("You can get another pair of ice gloves by killing the Ice Queen under White Wolf Mountain"));
 		iceGloves.addAlternates(ItemID.SMITHING_UNIFORM_GLOVES_ICE);
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed();
 		glassblowingPipe = new ItemRequirement("Glassblowing pipe", ItemID.GLASSBLOWINGPIPE).isNotConsumed();
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).isNotConsumed();
 		restorePot = new ItemRequirement("Restore potions", ItemCollections.RESTORE_POTIONS);
-		restorePot.setTooltip("Highly recommended to make up for mistakes");
+		restorePot.setTooltip(t("Highly recommended to make up for mistakes"));
 
-		runeThrowingaxeOrFriend = new ItemRequirement("Rune thrownaxe, or a friend to help enter Waterbirth Isle " +
-			"Dungeon",
+		runeThrowingaxeOrFriend = new ItemRequirement(t("Rune thrownaxe, or a friend to help enter Waterbirth Isle Dungeon"),
 			ItemID.RUNE_THROWNAXE);
 
 		sealOfPassage = new ItemRequirement("Seal of passage", ItemID.LUNAR_SEAL_OF_PASSAGE).isNotConsumed();
@@ -325,46 +324,46 @@ public class TheFremennikExiles extends BasicQuestHelper
 	public void setupSteps()
 	{
 		talkToBrundt = new NpcStep(this, NpcID.VIKING_BRUNDT_CHILD, new WorldPoint(2658, 3669, 0),
-			"Talk to Brundt in Rellekka's longhall.");
+			t("Talk to Brundt in Rellekka's longhall."));
 		talkToBrundt.addDialogSteps("Ask for a quest.", "Yes.");
 		buyKegs = new NpcStep(this, NpcID.VIKING_LONGHALL_BARKEEP, new WorldPoint(2662, 3673, 0),
-			"Buy 2 kegs of beer from Thora in Rellekka.  She will be unavailable to trade later in the quest.", coins650);
+			t("Buy 2 kegs of beer from Thora in Rellekka.  She will be unavailable to trade later in the quest."), coins650);
 		talkToFreygerd = new NpcStep(this, NpcID.VIKING_WOMAN, new WorldPoint(2668, 3703, 0),
-			"Talk to Freygerd in north Rellekka.", combatGear, mirrorShield.equipped());
+			t("Talk to Freygerd in north Rellekka."), combatGear, mirrorShield.equipped());
 		searchSandpit = new ObjectStep(this, ObjectID.VIKING_SANDPIT, new WorldPoint(2668, 3708, 0),
-			"Search the sand pit near Freygerd, ready to fight a basilisk youngling.", combatGear, mirrorShield.equipped());
+			t("Search the sand pit near Freygerd, ready to fight a basilisk youngling."), combatGear, mirrorShield.equipped());
 		searchSandpitForLetter = new ObjectStep(this, ObjectID.VIKING_SANDPIT, new WorldPoint(2668, 3708, 0),
-			"Search the sand pit near Freygerd for a letter.", letter.highlighted());
+			t("Search the sand pit near Freygerd for a letter."), letter.highlighted());
 		killYoungling = new NpcStep(this, NpcID.VIKINGEXILE_YOUNGLING, new WorldPoint(2666, 3708, 0),
-			"Defeat the Basilisk Youngling.", combatGear, mirrorShield.equipped());
-		pickupLetter = new ItemStep(this, "Pick up the letter.", letter);
+			t("Defeat the Basilisk Youngling."), combatGear, mirrorShield.equipped());
+		pickupLetter = new ItemStep(this, t("Pick up the letter."), letter);
 		pickupLetter.addSubSteps(searchSandpitForLetter);
-		readLetter = new DetailedQuestStep(this, "Read the letter.", letter.highlighted());
+		readLetter = new DetailedQuestStep(this, t("Read the letter."), letter.highlighted());
 		searchRockslide = new ObjectStep(this, ObjectID.VIKINGEXILE_ROCKS, new WorldPoint(2659, 3704, 0),
-			"Search the rockslide west of the sand pit.");
+			t("Search the rockslide west of the sand pit."));
 		searchBoxes = new ObjectStep(this, ObjectID.VIKINGEXILE_BOXES, new WorldPoint(2668, 3699, 0),
-			"Search the boxes south of Freygerd.");
+			t("Search the boxes south of Freygerd."));
 		talkToFreygardWithItems = new NpcStep(this, NpcID.VIKING_WOMAN, new WorldPoint(2668, 3703, 0),
-			"Return to Freygerd with the items you found.", letter, fang, venomGland);
+			t("Return to Freygerd with the items you found."), letter, fang, venomGland);
 		talkToBrundtAgain = new NpcStep(this, NpcID.VIKING_BRUNDT_CHILD, new WorldPoint(2658, 3669, 0),
-			"Return to Brundt in Rellekka's longhall.");
+			t("Return to Brundt in Rellekka's longhall."));
 		talkToBrundtAgain.addDialogStep("Ask about the investigation.");
 		talkToBrundtAgain.addDialogStep("Ask about the Jormungand.");
 
 		talkToBrundtSouthEastOfRellekka = new NpcStep(this, NpcID.VIKINGEXILE_BRUNDT_CHILD, new WorldPoint(2705, 3634, 0),
-			"Talk to Brundt south east of Rellekka, asking him all available questions.");
+			t("Talk to Brundt south east of Rellekka, asking him all available questions."));
 
 		askAboutShield = new NpcStep(this, NpcID.VIKINGEXILE_BRUNDT_CHILD, new WorldPoint(2705, 3634, 0),
-			"Talk to Brundt south east of Rellekka, asking him all available questions.");
+			t("Talk to Brundt south east of Rellekka, asking him all available questions."));
 		askAboutShield.addDialogStep("Where can I find a Fremennik Shield?");
 		askAboutGlass = new NpcStep(this, NpcID.VIKINGEXILE_BRUNDT_CHILD, new WorldPoint(2705, 3634, 0),
-			"Talk to Brundt south east of Rellekka, asking him all available questions.");
+			t("Talk to Brundt south east of Rellekka, asking him all available questions."));
 		askAboutGlass.addDialogSteps("Where can I get Lunar Glass?");
 		askAboutRock = new NpcStep(this, NpcID.VIKINGEXILE_BRUNDT_CHILD, new WorldPoint(2705, 3634, 0),
-			"Talk to Brundt south east of Rellekka, asking him all available questions.");
+			t("Talk to Brundt south east of Rellekka, asking him all available questions."));
 		askAboutRock.addDialogSteps("How do I make the Polishing Rock?");
 		askAboutSigil = new NpcStep(this, NpcID.VIKINGEXILE_BRUNDT_CHILD, new WorldPoint(2705, 3634, 0),
-			"Talk to Brundt south east of Rellekka, asking him all available questions.");
+			t("Talk to Brundt south east of Rellekka, asking him all available questions."));
 		askAboutSigil.addDialogSteps("How do I make V's Sigil?");
 		talkToBrundtSouthEastOfRellekka.addSubSteps(askAboutShield, askAboutGlass, askAboutRock, askAboutSigil);
 
@@ -375,88 +374,80 @@ public class TheFremennikExiles extends BasicQuestHelper
 		talkToBrundtSouthEastOfRellekkaCond.addStep(not(askedAboutSigil), askAboutSigil);
 
 		enterYagaHouse = new NpcStep(this, NpcID.LUNAR_BABA_YAGA_HOUSE, new WorldPoint(2085, 3931, 0),
-			"Talk to Baba Yaga in the chicken-legged house in the north of Lunar Isle's town.", sealOfPassage, moltenGlass);
-		talkToYaga = new NpcStep(this, NpcID.LUNAR_MOONCLAN_BABA_YAGA, new WorldPoint(2451, 4646, 0), "Talk to Baba Yaga.",
+			t("Talk to Baba Yaga in the chicken-legged house in the north of Lunar Isle's town."), sealOfPassage, moltenGlass);
+		talkToYaga = new NpcStep(this, NpcID.LUNAR_MOONCLAN_BABA_YAGA, new WorldPoint(2451, 4646, 0), t("Talk to Baba Yaga."),
 			sealOfPassage, moltenGlass);
 		talkToYaga.addDialogStep("I was wondering if you could help me make Lunar Glass?");
 		enterYagaHouse.addSubSteps(talkToYaga);
 
 		enterMine = new ObjectStep(this, ObjectID.LUNAR_MINE_SLANTY_LADDER_DOWN, new WorldPoint(2142, 3944, 0),
-			"Enter the mine in the north east of Lunar Isle.", pickaxe);
+			t("Enter the mine in the north east of Lunar Isle."), pickaxe);
 		mine3Ores = new ObjectStep(this, ObjectID.LUNAR_MINE_STALAGMITE_SMALL,
-			"Mine 3 lunar ores from the stalagmites in the area.", pickaxe);
+			t("Mine 3 lunar ores from the stalagmites in the area."), pickaxe);
 		((ObjectStep) mine3Ores).addAlternateObjects(ObjectID.LUNAR_MINE_STALAGMITE_TWIN);
 
 		leaveMine = new ObjectStep(this, ObjectID.LUNAR_MINE_SLANTY_LADDER_UP, new WorldPoint(2330, 10353, 2),
-			"Leave the mine.");
+			t("Leave the mine."));
 
-		makeLunarGlass = new ObjectStep(this, ObjectID.ASTRAL_ALTAR, new WorldPoint(2158, 3864, 0), "Use the Lunar " +
-			"Altar to make some lunar glass.", moltenGlassI, astralRunes.quantity(100));
-		smeltLunarBars = new DetailedQuestStep(this, "Smelt the lunar ore into bars at any furnace.",
+		makeLunarGlass = new ObjectStep(this, ObjectID.ASTRAL_ALTAR, new WorldPoint(2158, 3864, 0), t("Use the Lunar Altar to make some lunar glass."), moltenGlassI, astralRunes.quantity(100));
+		smeltLunarBars = new DetailedQuestStep(this, t("Smelt the lunar ore into bars at any furnace."),
 			lunarOre.quantity(3));
-		smithSigil = new DetailedQuestStep(this, "Make the V sigil on any anvil.", lunarBar.quantity(3));
+		smithSigil = new DetailedQuestStep(this, t("Make the V sigil on any anvil."), lunarBar.quantity(3));
 		smithSigil.addDialogStep("Yes.");
 		talkToFossegrimen = new NpcStep(this, NpcID.VIKING_LAKE_SPIRIT, new WorldPoint(2626, 3598, 0),
-			"Talk to the Fossegrimen south west of Rellekka to enchant the sigil.", sigil);
+			t("Talk to the Fossegrimen south west of Rellekka to enchant the sigil."), sigil);
 		talkToFossegrimen.addDialogStep("Ask about V's Sigil.");
 
 		inspectGeyser = new ObjectStep(this, ObjectID.VIKINGEXILE_GEYSER_LARGE, new WorldPoint(2766, 3675, 0),
-			"Inspect the geyser north of the Mountain Camp.", petRock);
+			t("Inspect the geyser north of the Mountain Camp."), petRock);
 		inspectGeyser.addDialogStep("It's for the good of the Province!");
 		talkToPeer = new NpcStep(this, NpcID.VIKING_PEER, new WorldPoint(2633, 3667, 0),
-			"Talk to Peer the Seer south west of the Rellekka market.");
+			t("Talk to Peer the Seer south west of the Rellekka market."));
 
 		inspectGeyserWithIceGloves = new ObjectStep(this, ObjectID.VIKINGEXILE_GEYSER_LARGE, new WorldPoint(2766, 3675, 0),
-			"Inspect the geyser again.", petRock, iceGloves.equipped(), fishingOrFlyFishingRod);
+			t("Inspect the geyser again."), petRock, iceGloves.equipped(), fishingOrFlyFishingRod);
 
 		retrieveRock = new ObjectStep(this, ObjectID.VIKINGEXILE_GEYSER_LARGE, new WorldPoint(2766, 3675, 0),
-			"Retrieve your rock from the geyser.", iceGloves.equipped(), fishingOrFlyFishingRod);
-		createShield = new DetailedQuestStep(this, "Use the shield parts together to make V's Shield.",
+			t("Retrieve your rock from the geyser."), iceGloves.equipped(), fishingOrFlyFishingRod);
+		createShield = new DetailedQuestStep(this, t("Use the shield parts together to make V's Shield."),
 			fremennikShield.highlighted(), lunarGlass.highlighted(), polishedRock.highlighted(), sigilE.highlighted()
 			, glassblowingPipe);
 
 		talkToBrundtWithShield = new NpcStep(this, NpcID.VIKINGEXILE_BRUNDT_CHILD, new WorldPoint(2705, 3634, 0),
-			"Talk to Brundt south east of Rellekka with V's shield.", vShield, kegsOfBeer.quantity(2));
+			t("Talk to Brundt south east of Rellekka with V's shield."), vShield, kegsOfBeer.quantity(2));
 		talkToBrundtWithBeers = new NpcStep(this, NpcID.VIKINGEXILE_BRUNDT_CHILD, new WorldPoint(2705, 3634, 0),
-			"Talk to Brundt with 2 kegs of beer.", kegsOfBeer.quantity(2));
+			t("Talk to Brundt with 2 kegs of beer."), kegsOfBeer.quantity(2));
 		talkToBrundtBackInRellekka = new NpcStep(this, NpcID.VIKING_BRUNDT_CHILD, new WorldPoint(2658, 3669, 0),
-			"Return to Brundt in Rellekka's longhall.", combatGear, food);
+			t("Return to Brundt in Rellekka's longhall."), combatGear, food);
 		talkToBrundtBackInRellekka.addDialogStep("Ask about the Jormungand.");
-		getFremennikShield = new DetailedQuestStep(this, "You can get a fremennik shield from dagannoths in " +
-			"Waterbirth Dungeon or Bardur in Waterbirth " +
-			"Dungeon for 150k, or for free with the Ring of Charos(a). You'll need a friend to get there, or a rune " +
-			"thrownaxe and a pet rock.", coins150kOrCharos);
+		getFremennikShield = new DetailedQuestStep(this, t("You can get a fremennik shield from dagannoths in Waterbirth Dungeon or Bardur in Waterbirth Dungeon for 150k, or for free with the Ring of Charos(a). You'll need a friend to get there, or a rune thrownaxe and a pet rock."), coins150kOrCharos);
 		killBasilisks = new NpcStep(this, NpcID.VIKINGEXILE_BASILISK, new WorldPoint(2644, 3677, 0),
-			"Kill basilisks until you're told to stop.", true, vShield.equipped(), combatGear, food);
+			t("Kill basilisks until you're told to stop."), true, vShield.equipped(), combatGear, food);
 		((NpcStep) killBasilisks).addAlternateNpcs(NpcID.VIKINGEXILE_BASILISK_HUNTPLAYER, NpcID.VIKINGEXILE_BASILISK_BABY, NpcID.VIKINGEXILE_BASILISK_BABY_HUNTPLAYER,
 			NpcID.VIKINGEXILE_BASILISK_SUPERIOR, NpcID.VIKINGEXILE_BASILISK_SUPERIOR_HUNTPLAYER);
 		travelToIsleOfStone = new ObjectStep(this, ObjectID.FREMENNIK_BOAT_STONE, new WorldPoint(2623, 3693, 0),
-			"Take the boat to the Isle of Stone.");
+			t("Take the boat to the Isle of Stone."));
 		talkToBrundtOutsidePuzzle = new NpcStep(this, NpcID.VIKINGEXILE_BRUNDT_CHILD_SHIELD, new WorldPoint(2466, 4010, 0),
-		"Talk to Brundt outside the cave entrance.");
+		t("Talk to Brundt outside the cave entrance."));
 
 		solvePuzzle = new ObjectStep(this, ObjectID.ISLAND_OF_STONE_CAVE, new WorldPoint(2465, 4012, 0),
-			"Attempt to open the door and solve the puzzle. It's Mastermind, where a red tick means you have one of " +
-				"the correct runes in the wrong position, and a green tick means a correct rune in the correct " +
-				"position.");
+			t("Attempt to open the door and solve the puzzle. It's Mastermind, where a red tick means you have one of the correct runes in the wrong position, and a green tick means a correct rune in the correct position."));
 
 		enterCaveToFight = new ObjectStep(this, ObjectID.ISLAND_OF_STONE_CAVE, new WorldPoint(2465, 4012, 0),
-			"Enter the door, ready to fight.", combatGear, vShield.equipped());
+			t("Enter the door, ready to fight."), combatGear, vShield.equipped());
 		enterCaveToFight.addDialogStep("Yes.");
-		fightTyphor = new NpcStep(this, NpcID.TYPHOR_CUTSCENE, new WorldPoint(2457, 10384, 0), "Fight Typhor, who attacks " +
-			"with both Melee and Magic. He is weak to crush.", vShield.equipped());
+		fightTyphor = new NpcStep(this, NpcID.TYPHOR_CUTSCENE, new WorldPoint(2457, 10384, 0), t("Fight Typhor, who attacks with both Melee and Magic. He is weak to crush."), vShield.equipped());
 		((NpcStep) fightTyphor).addAlternateNpcs(NpcID.TYPHOR_CUTSCENE);
 
 		PrayerRequirement protectFromMagic = new PrayerRequirement("Protect from Magic", Prayer.PROTECT_FROM_MAGIC);
-		fightJormungand = new NpcStep(this, NpcID.JORMUNGAND_FROZEN, new WorldPoint(2457, 10384, 0), "Defeat the " +
-			"Jormungand.", vShield.equipped(), protectFromMagic);
-		fightJormungand.addText("When the screen turns red, have your character face away from him.");
-		fightJormungand.addText("When frozen in rock, click repeatedly to break out.");
+		fightJormungand = new NpcStep(this, NpcID.JORMUNGAND_FROZEN, new WorldPoint(2457, 10384, 0), t("Defeat the Jormungand."), vShield.equipped(), protectFromMagic);
+		fightJormungand.addText(t("When the screen turns red, have your character face away from him."));
+		fightJormungand.addText(t("When frozen in rock, click repeatedly to break out."));
 		((NpcStep) fightJormungand).addAlternateNpcs(NpcID.JORMUNGAND_TURN, NpcID.JORMUNGAND, NpcID.JORMUNGAND_DEAD);
 
-		watchCutscenes = new DetailedQuestStep(this, "Watch the cutscenes.");
+		watchCutscenes = new DetailedQuestStep(this, t("Watch the cutscenes."));
 		talkToBrundtToFinish = new NpcStep(this, NpcID.VIKING_BRUNDT_CHILD, new WorldPoint(2658, 3669, 0),
-			"Talk to Brundt in Rellekka's longhall to finish the quest.");
+			t("Talk to Brundt in Rellekka's longhall to finish the quest."));
 		fightJormungand.addSubSteps(watchCutscenes, talkToBrundtToFinish);
 	}
 
@@ -477,11 +468,11 @@ public class TheFremennikExiles extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return Arrays.asList(
-			"Basilisk Youngling (level 53)",
-			"Basilisk (level 61)",
-			"Monstrous Basilisk (level 135)",
-			"Typhor (level 218)",
-			"The Jormungand (level 363)"
+			t("Basilisk Youngling (level 53)"),
+			t("Basilisk (level 61)"),
+			t("Monstrous Basilisk (level 135)"),
+			t("Typhor (level 218)"),
+			t("The Jormungand (level 363)")
 		);
 	}
 
@@ -527,44 +518,44 @@ public class TheFremennikExiles extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Access to the Isle of Stone"),
-				new UnlockReward("Ability to kill Basilisk Knights as a slayer task"),
-				new UnlockReward("Ability to craft and equip the Neitiznot faceguard."));
+				new UnlockReward(t("Access to the Isle of Stone")),
+				new UnlockReward(t("Ability to kill Basilisk Knights as a slayer task")),
+				new UnlockReward(t("Ability to craft and equip the Neitiznot faceguard.")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Investigating", Arrays.asList(buyKegs, talkToBrundt, talkToFreygerd,
+		allSteps.add(new PanelDetails(t("Investigating"), Arrays.asList(buyKegs, talkToBrundt, talkToFreygerd,
 			searchSandpit, killYoungling, pickupLetter, readLetter, searchRockslide, searchBoxes,
 			talkToFreygardWithItems, talkToBrundtAgain, talkToBrundtSouthEastOfRellekka), combatGear, mirrorShield));
 
-		PanelDetails shieldPanel = new PanelDetails("A Fremennik Shield", Collections.singletonList(getFremennikShield),
+		PanelDetails shieldPanel = new PanelDetails(t("A Fremennik Shield"), Collections.singletonList(getFremennikShield),
 			coins150kOrCharos, petRock, runeThrowingaxeOrFriend);
 		shieldPanel.setLockingStep(goGetShield);
 		allSteps.add(shieldPanel);
 
-		PanelDetails glassPanel = new PanelDetails("Making Lunar Glass", Arrays.asList(enterYagaHouse,
+		PanelDetails glassPanel = new PanelDetails(t("Making Lunar Glass"), Arrays.asList(enterYagaHouse,
 			makeLunarGlass), sealOfPassage, moltenGlass, astralRunes.quantity(100));
 		glassPanel.setLockingStep(goMakeGlass);
 		allSteps.add(glassPanel);
 
-		PanelDetails sigilPanel = new PanelDetails("Making V's Sigil", Arrays.asList(enterMine, mine3Ores,
+		PanelDetails sigilPanel = new PanelDetails(t("Making V's Sigil"), Arrays.asList(enterMine, mine3Ores,
 			smeltLunarBars, smithSigil, talkToFossegrimen), pickaxe, hammer);
 		sigilPanel.setLockingStep(goMakeSigil);
 		allSteps.add(sigilPanel);
 
-		PanelDetails rockPanel = new PanelDetails("Making a Polishing Rock", Arrays.asList(inspectGeyser, talkToPeer,
+		PanelDetails rockPanel = new PanelDetails(t("Making a Polishing Rock"), Arrays.asList(inspectGeyser, talkToPeer,
 			inspectGeyserWithIceGloves, retrieveRock), petRock, iceGloves, fishingOrFlyFishingRod);
 		rockPanel.setLockingStep(goMakeRock);
 		allSteps.add(rockPanel);
 
-		allSteps.add(new PanelDetails("Forging the shield", Arrays.asList(createShield, talkToBrundtWithShield,
+		allSteps.add(new PanelDetails(t("Forging the shield"), Arrays.asList(createShield, talkToBrundtWithShield,
 			talkToBrundtWithBeers), fremennikShield, lunarGlass, polishedRock, sigilE, glassblowingPipe,
 			kegsOfBeer.quantity(2)));
 
-		allSteps.add(new PanelDetails("Defending Rellekka", Arrays.asList(talkToBrundtBackInRellekka, killBasilisks,
+		allSteps.add(new PanelDetails(t("Defending Rellekka"), Arrays.asList(talkToBrundtBackInRellekka, killBasilisks,
 			travelToIsleOfStone, talkToBrundtOutsidePuzzle, solvePuzzle, enterCaveToFight, fightTyphor, fightJormungand),
 			combatGear));
 

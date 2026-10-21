@@ -49,7 +49,7 @@ public class GolemPuzzleStep extends QuestStep
 
 	public GolemPuzzleStep(QuestHelper questHelper)
 	{
-		super(questHelper, "Drag the charges to the right tiles.");
+		super(questHelper, questHelper.t("Drag the charges to the right tiles."));
 	}
 
 	@Override
@@ -80,7 +80,7 @@ public class GolemPuzzleStep extends QuestStep
 		}
 
 		completed = true;
-		setText("Click the power-on button to finish the puzzle.");
+		setText(questHelper.t("Click the power-on button to finish the puzzle."));
 	}
 
 	@Override

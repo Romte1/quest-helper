@@ -124,10 +124,10 @@ public class MakingHistory extends BasicQuestHelper
 		saphAmulet = new ItemRequirement("Sapphire amulet", ItemID.STRUNG_SAPPHIRE_AMULET);
 		ghostSpeakAmulet = new ItemRequirement("Ghostspeak amulet", ItemCollections.GHOSTSPEAK).equipped().isNotConsumed();
 		ghostSpeakAmulet.setTooltip(t("You can also wear the Morytania Legs 2 or higher."));
-		ardougneTeleport = new ItemRequirement("Teleports to Ardougne", ItemID.POH_TABLET_ARDOUGNETELEPORT, 3);
+		ardougneTeleport = new ItemRequirement(t("Teleports to Ardougne"), ItemID.POH_TABLET_ARDOUGNETELEPORT, 3);
 		ardougneTeleport.addAlternates(ItemID.ARDY_CAPE_EASY, ItemID.ARDY_CAPE_MEDIUM, ItemID.ARDY_CAPE_HARD, ItemID.ARDY_CAPE_ELITE);
 
-		ectophial = new ItemRequirement("Ectophial, or method of getting to Port Phasmatys", ItemID.ECTOPHIAL).isNotConsumed();
+		ectophial = new ItemRequirement(t("Ectophial, or method of getting to Port Phasmatys"), ItemID.ECTOPHIAL).isNotConsumed();
 		ectophial.addAlternates(ItemID.TELETAB_FENK, ItemID.TABLET_KHARYLL);
 		ectophial.addAlternates(ItemCollections.SLAYER_RINGS); // Slayer Tower
 		ectophial.addAlternates(ItemID.MORYTANIA_LEGS_MEDIUM, ItemID.MORYTANIA_LEGS_HARD, ItemID.MORYTANIA_LEGS_ELITE);
@@ -171,7 +171,7 @@ public class MakingHistory extends BasicQuestHelper
 		rellekaTeleport.addAlternates(ItemID.FREMENNIK_BOOTS_MEDIUM, ItemID.FREMENNIK_BOOTS_HARD, ItemID.FREMENNIK_BOOTS_ELITE);
 		rellekaTeleport.setTooltip(t("You can also use Fairy Rings (DKS or AJR) if you have those unlocked."));
 		rellekaTeleport.appendToTooltip(t("You can also teleport to Camelot and run North."));
-		runRestoreItems = new ItemRequirement("Potions/Items to restore run energy", ItemCollections.RUN_RESTORE_ITEMS);
+		runRestoreItems = new ItemRequirement(t("Potions/Items to restore run energy"), ItemCollections.RUN_RESTORE_ITEMS);
 
 	}
 

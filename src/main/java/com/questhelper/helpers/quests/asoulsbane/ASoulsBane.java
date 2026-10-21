@@ -130,7 +130,7 @@ public class ASoulsBane extends BasicQuestHelper
 	{
 		rope = new ItemRequirement("Rope", ItemID.ROPE);
 		rope.setHighlightInInventory(true);
-		combatGear = new ItemRequirement("Combat gear + food", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear + food"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		angerBattleaxe = new ItemRequirement("Anger battleaxe", ItemID.SOULBANE_ANGER_AXEQ);
@@ -142,7 +142,7 @@ public class ASoulsBane extends BasicQuestHelper
 		food.setDisplayItemId(BankSlotIcons.getFood());
 		digsiteTeleport = new ItemRequirement("Digsite Teleport", ItemID.TELEPORTSCROLL_DIGSITE);
 		digsiteTeleport.addAlternates(ItemCollections.DIGSITE_PENDANTS);
-		antipoison = new ItemRequirement("Antipoison (or equivalent)", ItemCollections.ANTIPOISONS);
+		antipoison = new ItemRequirement(t("Antipoison (or equivalent)"), ItemCollections.ANTIPOISONS);
 	}
 
 	public void setupConditions()

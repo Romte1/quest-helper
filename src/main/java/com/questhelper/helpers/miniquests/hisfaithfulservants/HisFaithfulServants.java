@@ -174,14 +174,14 @@ public class HisFaithfulServants extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		combatGear = new ItemRequirement("Combat gear to kill all 6 Barrows Brothers", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear to kill all 6 Barrows Brothers"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		spade = new ItemRequirement("Spade", ItemID.SPADE);
 		barrowsTeleport = new ItemRequirement("Barrows teleport", ItemID.TELETAB_BARROWS);
 		strangeOldLockpick = new ItemRequirement("Strange old lockpick", ItemID.STRANGE_OLD_LOCKPICK);
 		strangeOldLockpick.addAlternates(ItemID.STRANGE_OLD_LOCKPICK_FULL);
-		ghommalHilt2 = new ItemRequirement("Ghommal's hilt 2 or higher to remove prayer drain in crypts", ItemID.CA_OFFHAND_MEDIUM);
+		ghommalHilt2 = new ItemRequirement(t("Ghommal's hilt 2 or higher to remove prayer drain in crypts"), ItemID.CA_OFFHAND_MEDIUM);
 		ghommalHilt2.addAlternates(ItemID.CA_OFFHAND_HARD, ItemID.CA_OFFHAND_ELITE, ItemID.CA_OFFHAND_MASTER, ItemID.CA_OFFHAND_GRANDMASTER,
 			ItemID.INFERNAL_DEFENDER_GHOMMAL_5, ItemID.INFERNAL_DEFENDER_GHOMMAL_5_TROUVER, ItemID.INFERNAL_DEFENDER_GHOMMAL_6, ItemID.INFERNAL_DEFENDER_GHOMMAL_6_TROUVER);
 
@@ -310,46 +310,46 @@ public class HisFaithfulServants extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToStrangeOldMan = new NpcStep(this, NpcID.BARROWS_OLDMAN, new WorldPoint(3564, 3294, 0), "Talk to the Strange Old Man at Barrows east of Burgh de Rott.");
-		enterAhrim = new DigStep(this, new WorldPoint(3564, 3291, 0), "Dig on Ahrim's Barrow to enter it.", combatGear);
-		enterDharok = new DigStep(this, new WorldPoint(3575, 3299, 0), "Dig on Dharok's Barrow to enter it.", combatGear);
-		enterGuthan = new DigStep(this, new WorldPoint(3578, 3281, 0), "Dig on Guthan's Barrow to enter it.", combatGear);
-		enterKaril = new DigStep(this, new WorldPoint(3567, 3274, 0), "Dig on Karil's Barrow to enter it.", combatGear);
-		enterTorag = new DigStep(this, new WorldPoint(3553, 3281, 0), "Dig on Torag's Barrow to enter it.", combatGear);
-		enterVerac = new DigStep(this, new WorldPoint(3556, 3297, 0), "Dig on Verac's Barrow to enter it.", combatGear);
+		talkToStrangeOldMan = new NpcStep(this, NpcID.BARROWS_OLDMAN, new WorldPoint(3564, 3294, 0), t("Talk to the Strange Old Man at Barrows east of Burgh de Rott."));
+		enterAhrim = new DigStep(this, new WorldPoint(3564, 3291, 0), t("Dig on Ahrim's Barrow to enter it."), combatGear);
+		enterDharok = new DigStep(this, new WorldPoint(3575, 3299, 0), t("Dig on Dharok's Barrow to enter it."), combatGear);
+		enterGuthan = new DigStep(this, new WorldPoint(3578, 3281, 0), t("Dig on Guthan's Barrow to enter it."), combatGear);
+		enterKaril = new DigStep(this, new WorldPoint(3567, 3274, 0), t("Dig on Karil's Barrow to enter it."), combatGear);
+		enterTorag = new DigStep(this, new WorldPoint(3553, 3281, 0), t("Dig on Torag's Barrow to enter it."), combatGear);
+		enterVerac = new DigStep(this, new WorldPoint(3556, 3297, 0), t("Dig on Verac's Barrow to enter it."), combatGear);
 
 		searchAhrimSarc = new ObjectStep(this, ObjectID.BARROW_AHRIM_SARCOPHAGUS, new WorldPoint(3555, 9699, 3),
-			"Search Ahrim's Sarcophagus, ready to fight them. They use magic and are weak to ranged attacks.", combatGear);
+			t("Search Ahrim's Sarcophagus, ready to fight them. They use magic and are weak to ranged attacks."), combatGear);
 		searchDharokSarc = new ObjectStep(this, ObjectID.BARROW_DHAROK_SARCOPHAGUS, new WorldPoint(3555, 9714, 3),
-			"Search Dharok's Sarcophagus, ready to fight them. They use melee and are weak to magic attacks. Be careful as they hit VERY hard at low health.", combatGear);
+			t("Search Dharok's Sarcophagus, ready to fight them. They use melee and are weak to magic attacks. Be careful as they hit VERY hard at low health."), combatGear);
 		searchGuthanSarc = new ObjectStep(this, ObjectID.BARROW_GUTHAN_SARCOPHAGUS, new WorldPoint(3539, 9703, 3),
-			"Search Guthan's Sarcophagus, ready to fight them. hey use melee and are weak to magic attacks.", combatGear);
+			t("Search Guthan's Sarcophagus, ready to fight them. hey use melee and are weak to magic attacks."), combatGear);
 		searchToragSarc = new ObjectStep(this, ObjectID.BARROW_TORAG_SARCOPHAGUS, new WorldPoint(3569, 9686, 3),
-			"Search Ahrim's Sarcophagus, ready to fight them. hey use melee and are weak to magic attacks.", combatGear);
+			t("Search Ahrim's Sarcophagus, ready to fight them. hey use melee and are weak to magic attacks."), combatGear);
 		searchKarilSarc = new ObjectStep(this, ObjectID.BARROW_KARIL_SARCOPHAGUS, new WorldPoint(3550, 9683, 3),
-			"Search Karil's Sarcophagus, ready to fight them. They use ranged and are weak to melee attacks.", combatGear);
+			t("Search Karil's Sarcophagus, ready to fight them. They use ranged and are weak to melee attacks."), combatGear);
 		searchVeracSarc = new ObjectStep(this, ObjectID.BARROW_VERAC_SARCOPHAGUS, new WorldPoint(3573, 9706, 3),
-			"Search Ahrim's Sarcophagus, ready to fight them. hey use melee and are weak to magic attacks.", combatGear);
+			t("Search Ahrim's Sarcophagus, ready to fight them. hey use melee and are weak to magic attacks."), combatGear);
 
-		killAhrim = new NpcStep(this, NpcID.BARROWS_AHRIM, "Defeat Ahrim.");
+		killAhrim = new NpcStep(this, NpcID.BARROWS_AHRIM, t("Defeat Ahrim."));
 		((NpcStep) killAhrim).setMustBeFocusedOnPlayer(true);
-		killDharok = new NpcStep(this, NpcID.BARROWS_DHAROK, "Defeat Dharok.");
+		killDharok = new NpcStep(this, NpcID.BARROWS_DHAROK, t("Defeat Dharok."));
 		((NpcStep) killDharok).setMustBeFocusedOnPlayer(true);
-		killGuthan = new NpcStep(this, NpcID.BARROWS_GUTHAN, "Defeat Guthan.");
+		killGuthan = new NpcStep(this, NpcID.BARROWS_GUTHAN, t("Defeat Guthan."));
 		((NpcStep) killGuthan).setMustBeFocusedOnPlayer(true);
-		killKaril = new NpcStep(this, NpcID.BARROWS_KARIL, "Defeat Karil.");
+		killKaril = new NpcStep(this, NpcID.BARROWS_KARIL, t("Defeat Karil."));
 		((NpcStep) killKaril).setMustBeFocusedOnPlayer(true);
-		killTorag = new NpcStep(this, NpcID.BARROWS_TORAG, "Defeat Torag.");
+		killTorag = new NpcStep(this, NpcID.BARROWS_TORAG, t("Defeat Torag."));
 		((NpcStep) killTorag).setMustBeFocusedOnPlayer(true);
-		killVerac = new NpcStep(this, NpcID.BARROWS_VERAC, "Defeat Verac.");
+		killVerac = new NpcStep(this, NpcID.BARROWS_VERAC, t("Defeat Verac."));
 		((NpcStep) killVerac).setMustBeFocusedOnPlayer(true);
 
-		leaveAhrim = new ObjectStep(this, ObjectID.BARROWS_STAIRS_AHRIM, new WorldPoint(3559, 9703, 3), "Leave the barrow.");
-		leaveDharok = new ObjectStep(this, ObjectID.BARROWS_STAIRS_DHAROK, new WorldPoint(3558, 9718, 3), "Leave the barrow.");
-		leaveGuthan = new ObjectStep(this, ObjectID.BARROWS_STAIRS_GUTHAN, new WorldPoint(3534, 9706, 3), "Leave the barrow.");
-		leaveKaril = new ObjectStep(this, ObjectID.BARROWS_STAIRS_KARIL, new WorldPoint(3546, 9686, 3), "Leave the barrow.");
-		leaveTorag = new ObjectStep(this, ObjectID.BARROWS_STAIRS_TORAG, new WorldPoint(3566, 9683, 3), "Leave the barrow.");
-		leaveVerac = new ObjectStep(this, ObjectID.BARROWS_STAIRS_VERAC, new WorldPoint(3578, 9704, 3), "Leave the barrow.");
+		leaveAhrim = new ObjectStep(this, ObjectID.BARROWS_STAIRS_AHRIM, new WorldPoint(3559, 9703, 3), t("Leave the barrow."));
+		leaveDharok = new ObjectStep(this, ObjectID.BARROWS_STAIRS_DHAROK, new WorldPoint(3558, 9718, 3), t("Leave the barrow."));
+		leaveGuthan = new ObjectStep(this, ObjectID.BARROWS_STAIRS_GUTHAN, new WorldPoint(3534, 9706, 3), t("Leave the barrow."));
+		leaveKaril = new ObjectStep(this, ObjectID.BARROWS_STAIRS_KARIL, new WorldPoint(3546, 9686, 3), t("Leave the barrow."));
+		leaveTorag = new ObjectStep(this, ObjectID.BARROWS_STAIRS_TORAG, new WorldPoint(3566, 9683, 3), t("Leave the barrow."));
+		leaveVerac = new ObjectStep(this, ObjectID.BARROWS_STAIRS_VERAC, new WorldPoint(3578, 9704, 3), t("Leave the barrow."));
 
 		killAhrim.addSubSteps(enterAhrim, searchAhrimSarc, leaveAhrim);
 		killDharok.addSubSteps(enterDharok, searchDharokSarc, leaveDharok);
@@ -358,53 +358,53 @@ public class HisFaithfulServants extends BasicQuestHelper
 		killTorag.addSubSteps(enterTorag, searchToragSarc, leaveTorag);
 		killVerac.addSubSteps(enterVerac, searchVeracSarc, leaveVerac);
 
-		enterAhrim2 = new DigStep(this, new WorldPoint(3564, 3291, 0), "Dig on Ahrim's Barrow to enter it.", combatGear);
-		enterDharok2 = new DigStep(this, new WorldPoint(3575, 3299, 0), "Dig on Dharok's Barrow to enter it.", combatGear);
-		enterGuthan2 = new DigStep(this, new WorldPoint(3578, 3281, 0), "Dig on Guthan's Barrow to enter it.", combatGear);
-		enterKaril2 = new DigStep(this, new WorldPoint(3567, 3274, 0), "Dig on Karil's Barrow to enter it.", combatGear);
-		enterTorag2 = new DigStep(this, new WorldPoint(3553, 3281, 0), "Dig on Torag's Barrow to enter it.", combatGear);
-		enterVerac2 = new DigStep(this, new WorldPoint(3556, 3297, 0), "Dig on Verac's Barrow to enter it.", combatGear);
+		enterAhrim2 = new DigStep(this, new WorldPoint(3564, 3291, 0), t("Dig on Ahrim's Barrow to enter it."), combatGear);
+		enterDharok2 = new DigStep(this, new WorldPoint(3575, 3299, 0), t("Dig on Dharok's Barrow to enter it."), combatGear);
+		enterGuthan2 = new DigStep(this, new WorldPoint(3578, 3281, 0), t("Dig on Guthan's Barrow to enter it."), combatGear);
+		enterKaril2 = new DigStep(this, new WorldPoint(3567, 3274, 0), t("Dig on Karil's Barrow to enter it."), combatGear);
+		enterTorag2 = new DigStep(this, new WorldPoint(3553, 3281, 0), t("Dig on Torag's Barrow to enter it."), combatGear);
+		enterVerac2 = new DigStep(this, new WorldPoint(3556, 3297, 0), t("Dig on Verac's Barrow to enter it."), combatGear);
 
 		enterAhrimSarc = new ObjectStep(this, ObjectID.BARROW_AHRIM_SARCOPHAGUS, new WorldPoint(3555, 9699, 3),
-			"Search Ahrim's Sarcophagus to enter it.", combatGear);
+			t("Search Ahrim's Sarcophagus to enter it."), combatGear);
 		enterAhrimSarc.addDialogStep("Yeah I'm fearless!");
 		enterDharokSarc = new ObjectStep(this, ObjectID.BARROW_DHAROK_SARCOPHAGUS, new WorldPoint(3555, 9714, 3),
-			"Search Dharok's Sarcophagusto enter it.", combatGear);
+			t("Search Dharok's Sarcophagusto enter it."), combatGear);
 		enterDharokSarc.addDialogStep("Yeah I'm fearless!");
 		enterGuthanSarc = new ObjectStep(this, ObjectID.BARROW_GUTHAN_SARCOPHAGUS, new WorldPoint(3539, 9703, 3),
-			"Search Guthan's Sarcophagus to enter it.", combatGear);
+			t("Search Guthan's Sarcophagus to enter it."), combatGear);
 		enterGuthanSarc.addDialogStep("Yeah I'm fearless!");
 		enterToragSarc = new ObjectStep(this, ObjectID.BARROW_TORAG_SARCOPHAGUS, new WorldPoint(3569, 9686, 3),
-			"Search Torag's Sarcophagus to enter it.", combatGear);
+			t("Search Torag's Sarcophagus to enter it."), combatGear);
 		enterToragSarc.addDialogStep("Yeah I'm fearless!");
 		enterKarilSarc = new ObjectStep(this, ObjectID.BARROW_KARIL_SARCOPHAGUS, new WorldPoint(3550, 9683, 3),
-			"Search Karil's Sarcophagus to enter it.", combatGear);
+			t("Search Karil's Sarcophagus to enter it."), combatGear);
 		enterKarilSarc.addDialogStep("Yeah I'm fearless!");
 		enterVeracSarc = new ObjectStep(this, ObjectID.BARROW_VERAC_SARCOPHAGUS, new WorldPoint(3573, 9706, 3),
-			"Search Verac's Sarcophagus to enter it.", combatGear);
+			t("Search Verac's Sarcophagus to enter it."), combatGear);
 		enterVeracSarc.addDialogStep("Yeah I'm fearless!");
 
-		enterSarc = new DetailedQuestStep(this, "Enter the sarcophagus that was empty to enter the crypt.");
+		enterSarc = new DetailedQuestStep(this, t("Enter the sarcophagus that was empty to enter the crypt."));
 		enterSarc.addSubSteps(enterAhrimSarc, enterDharokSarc, enterGuthanSarc, enterToragSarc, enterKarilSarc, enterVeracSarc,
 			enterVerac2, enterDharok2, enterAhrim2, enterKaril2, enterTorag2, enterGuthan2);
 
 		openChest = new ObjectStep(this, ObjectID.BARROWS_STONE_CHEST_CLOSED, new WorldPoint(3551, 9695, 0),
-			"Open the chest in the middle of the crypt. DO NOT SEARCH IT until you've killed the 6th brother.");
+			t("Open the chest in the middle of the crypt. DO NOT SEARCH IT until you've killed the 6th brother."));
 
-		killFinalBrother = new NpcStep(this, NpcID.BARROWS_AHRIM, "Kill the final brother.");
+		killFinalBrother = new NpcStep(this, NpcID.BARROWS_AHRIM, t("Kill the final brother."));
 		((NpcStep) killFinalBrother).addAlternateNpcs(NpcID.BARROWS_DHAROK, NpcID.BARROWS_KARIL, NpcID.BARROWS_GUTHAN,
 			NpcID.BARROWS_TORAG, NpcID.BARROWS_VERAC);
 		((NpcStep) killFinalBrother).setMustBeFocusedOnPlayer(true);
 
 		searchChest = new ObjectStep(this, ObjectID.BARROWS_STONE_CHEST_CLOSED, new WorldPoint(3551, 9695, 0),
-			"Search the chest in the middle of the crypt for the strange icon.");
+			t("Search the chest in the middle of the crypt for the strange icon."));
 		((ObjectStep) searchChest).addAlternateObjects(ObjectID.BARROWS_STONE_CHEST_OPEN);
 
 		finishQuest = new NpcStep(this, NpcID.BARROWS_OLDMAN, new WorldPoint(3564, 3294, 0),
-			"Return to the Strange Old Man with the strange icon.", strangeIcon);
+			t("Return to the Strange Old Man with the strange icon."), strangeIcon);
 
 		continueTalkingToFinish = new NpcStep(this, NpcID.BARROWS_OLDMAN, new WorldPoint(3564, 3294, 0),
-			"Return to the Strange Old Man.");
+			t("Return to the Strange Old Man."));
 
 		finishQuest.addSubSteps(continueTalkingToFinish);
 	}
@@ -426,12 +426,12 @@ public class HisFaithfulServants extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return Arrays.asList(
-			"Ahrim the Blighted (level 98)",
-			"Dharok the Wretched (level 115)",
-			"Guthan the Infested (level 115)",
-			"Karil the Tainted (level 98)",
-			"Torag the Corrupted (level 115)",
-			"Verac the Defiled (level 115)"
+			t("Ahrim the Blighted (level 98)"),
+			t("Dharok the Wretched (level 115)"),
+			t("Guthan the Infested (level 115)"),
+			t("Karil the Tainted (level 98)"),
+			t("Torag the Corrupted (level 115)"),
+			t("Verac the Defiled (level 115)")
 		);
 	}
 
@@ -459,7 +459,7 @@ public class HisFaithfulServants extends BasicQuestHelper
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Helping Them",
+		allSteps.add(new PanelDetails(t("Helping Them"),
 			Arrays.asList(talkToStrangeOldMan, killDharok, killAhrim, killKaril, killGuthan, killTorag, killVerac,
 				enterSarc, openChest, killFinalBrother, searchChest, finishQuest),
 			Arrays.asList(combatGear, spade), Arrays.asList(barrowsTeleport, strangeOldLockpick, ghommalHilt2)));

@@ -263,7 +263,7 @@ public class EadgarsRuse extends BasicQuestHelper
 		vodkaHighlight.setTooltip(t("You can buy some from the Gnome Stronghold drinks shop"));
 		vodkaHighlight.setHighlightInInventory(true);
 		// TODO: Does this meet up the item aggregation?
-		climbingBootsOr12Coins = new ItemRequirements(LogicType.OR, "Climbing boots or 12 coins", coins12, climbingBoots).isNotConsumed();
+		climbingBootsOr12Coins = new ItemRequirements(LogicType.OR, t("Climbing boots or 12 coins"), coins12, climbingBoots).isNotConsumed();
 
 		pineappleChunksHighlight = new ItemRequirement("Pineapple chunks", ItemID.PINEAPPLE_CHUNKS);
 		pineappleChunksHighlight.setTooltip(t("You can cut a pineapple into chunks with a knife"));

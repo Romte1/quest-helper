@@ -405,9 +405,9 @@ public class OneSmallFavour extends BasicQuestHelper
 		khazardTeleports = new ItemRequirement("Teleports to Port Khazard", ItemID.LUNAR_TABLET_KHAZARD_TELEPORT, 2);
 		feldipHillsTeleports = new ItemRequirement("Teleports to Feldip Hills", ItemID.TELEPORTSCROLL_FELDIP, 2);
 
-		pickaxe = new ItemRequirement("Any pickaxe to kill Slagilith", ItemCollections.PICKAXES).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe to kill Slagilith"), ItemCollections.PICKAXES).isNotConsumed();
 
-		combatGear = new ItemRequirement("Combat gear to fight Slagilith and the dwarf gang members", -1, -1);
+		combatGear = new ItemRequirement(t("Combat gear to fight Slagilith and the dwarf gang members"), -1, -1);
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		opal2 = new ItemRequirement("Opal", ItemID.OPAL, 2);

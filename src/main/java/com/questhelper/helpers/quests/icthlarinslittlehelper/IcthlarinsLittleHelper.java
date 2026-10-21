@@ -211,9 +211,9 @@ public class IcthlarinsLittleHelper extends BasicQuestHelper
 
 		catFollower = new FollowerRequirement("Any cat following you", NpcCollections.getCats());
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
-		waterskin4 = new ItemRequirement("Waterskin(4), bring a few to avoid drinking it", ItemID.WATER_SKIN4);
-		coins600 = new ItemRequirement("Coins or more for various payments", ItemCollections.COINS, 600);
-		bagOfSaltOrBucket = new ItemRequirement("Bag of Salt from a Slayer Master, or an empty bucket to get some", ItemID.SLAYER_BAG_OF_SALT).hideConditioned(givenSalt);
+		waterskin4 = new ItemRequirement(t("Waterskin(4), bring a few to avoid drinking it"), ItemID.WATER_SKIN4);
+		coins600 = new ItemRequirement(t("Coins or more for various payments"), ItemCollections.COINS, 600);
+		bagOfSaltOrBucket = new ItemRequirement(t("Bag of Salt from a Slayer Master, or an empty bucket to get some"), ItemID.SLAYER_BAG_OF_SALT).hideConditioned(givenSalt);
 		bagOfSaltOrBucket.addAlternates(ItemID.ICS_LITTLE_PILEOFSALT, ItemID.BUCKET_EMPTY);
 		bucket = new ItemRequirement("Bucket", ItemID.BUCKET_EMPTY);
 		salt = new ItemRequirement("Salt", ItemID.SLAYER_BAG_OF_SALT).hideConditioned(givenSalt);
@@ -223,7 +223,7 @@ public class IcthlarinsLittleHelper extends BasicQuestHelper
 		coins30 = new ItemRequirement("Coins", ItemCollections.COINS, 30).hideConditioned(givenLinen);
 		linen = new ItemRequirement("Linen", ItemID.ICS_LITTLE_LINEN).hideConditioned(givenLinen);
 
-		coinsOrLinen = new ItemRequirements(LogicType.OR, "1 x Linen or 30 coins to buy some", coins30, linen).hideConditioned(givenLinen);
+		coinsOrLinen = new ItemRequirements(LogicType.OR, t("1 x Linen or 30 coins to buy some"), coins30, linen).hideConditioned(givenLinen);
 
 		willowLog = new ItemRequirement("Willow logs", ItemID.WILLOW_LOGS).hideConditioned(givenCarpenterLogs);
 		bucketOfSap = new ItemRequirement("Bucket of sap", ItemID.ICS_LITTLE_SAP_BUCKET).hideConditioned(givenSap);

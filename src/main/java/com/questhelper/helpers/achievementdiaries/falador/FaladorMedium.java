@@ -216,14 +216,14 @@ public class FaladorMedium extends ComplexStateQuestHelper
 		rake = new ItemRequirement("Rake", ItemID.RAKE).showConditioned(notPlacedScarecrow).isNotConsumed();
 		fishingExplosive = new ItemRequirement("Fishing explosive", ItemID.FISHING_EXPLOSIVE).showConditioned(notKilledMogre);
 		fishingExplosive.addAlternates(ItemID.SLAYERGUIDE_FISHING_EXPLOSIVE);
-		combatGear = new ItemRequirement("Combat Gear", -1, -1).showConditioned(notKilledMogre).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat Gear"), -1, -1).showConditioned(notKilledMogre).isNotConsumed();
 		mithGrapple = new ItemRequirement("Mith grapple", ItemID.XBOWS_GRAPPLE_TIP_BOLT_MITHRIL_ROPE, 1, true).showConditioned(notGrappleNorthWall).isNotConsumed();
-		anyCrossbow = new ItemRequirement("Any usable crossbow", ItemCollections.CROSSBOWS, 1, true).showConditioned(notGrappleNorthWall).isNotConsumed();
+		anyCrossbow = new ItemRequirement(t("Any usable crossbow"), ItemCollections.CROSSBOWS, 1, true).showConditioned(notGrappleNorthWall).isNotConsumed();
 		initiateHelm = new ItemRequirement("Initiate Helm", ItemID.BASIC_TK_HELM).showConditioned(notPrayAtAltar).isNotConsumed();
 		initiateChest = new ItemRequirement("Initiate Chest", ItemID.BASIC_TK_BODY).showConditioned(notPrayAtAltar).isNotConsumed();
 		initiateLegs = new ItemRequirement("Initiate Legs", ItemID.BASIC_TK_LEGS).showConditioned(notPrayAtAltar).isNotConsumed();
-		pickaxe = new ItemRequirement("Any Pickaxe", ItemCollections.PICKAXES).showConditioned(notMineGold).isNotConsumed();
-		axe = new ItemRequirement("Any Axe", ItemCollections.AXES).showConditioned(notChopBurnWillowTav).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any Pickaxe"), ItemCollections.PICKAXES).showConditioned(notMineGold).isNotConsumed();
+		axe = new ItemRequirement(t("Any Axe"), ItemCollections.AXES).showConditioned(notChopBurnWillowTav).isNotConsumed();
 		brownApron = new ItemRequirement("Brown Apron", ItemID.BROWN_APRON).showConditioned(notMineGold).isNotConsumed();
 		willowBranch6 = new ItemRequirement("Willow Branches", ItemID.WILLOW_BRANCH, 6).showConditioned(notBasketFalLoom);
 
@@ -232,7 +232,7 @@ public class FaladorMedium extends ComplexStateQuestHelper
 
 		initiateSet = new ItemRequirements(initiateChest, initiateLegs, initiateHelm);
 
-		faladorTeleport = new TeleportItemRequirement("Falador Teleports", ItemID.POH_TABLET_FALADORTELEPORT);
+		faladorTeleport = new TeleportItemRequirement(t("Falador Teleports"), ItemID.POH_TABLET_FALADORTELEPORT);
 		explorersRing = new TeleportItemRequirement("Explorer's Ring (2)", ItemID.LUMBRIDGE_RING_MEDIUM).isNotConsumed();
 		explorersRing.addAlternates(ItemID.LUMBRIDGE_RING_ELITE, ItemID.LUMBRIDGE_RING_HARD);
 		combatBracelet = new TeleportItemRequirement("Combat Bracelet", ItemCollections.COMBAT_BRACELETS).isNotConsumed();
@@ -281,100 +281,100 @@ public class FaladorMedium extends ComplexStateQuestHelper
 	{
 		//Bullseye Lantern - Rim Chemist
 		goToChemist = new DetailedQuestStep(this, new WorldPoint(2932, 3213, 0),
-			"Go to the Chemist's in Rimmington.", bullseyeLantern, tinderbox);
+			t("Go to the Chemist's in Rimmington."), bullseyeLantern, tinderbox);
 		lightLantern = new DetailedQuestStep(this,
-			"Use the tinderbox on the bullseye lantern.", bullseyeLantern.highlighted(), tinderbox.highlighted());
+			t("Use the tinderbox on the bullseye lantern."), bullseyeLantern.highlighted(), tinderbox.highlighted());
 
 		//Telegrab - Chaos Temple
 		goToChaosTemple = new DetailedQuestStep(this, new WorldPoint(2934, 3516, 0),
-			"Go to the Chaos Temple near the Goblin Village north of Falador.");
+			t("Go to the Chaos Temple near the Goblin Village north of Falador."));
 		telegrabWine = new DetailedQuestStep(this,
-			"Use the Telekinetic Grab Spell on the Wine of Zamorak.");
+			t("Use the Telekinetic Grab Spell on the Wine of Zamorak."));
 		telegrabWine.addIcon(ItemID.POH_TABLET_TELEGRAB);
 		telegrabWine.addSpellHighlight(NormalSpells.TELEKINETIC_GRAB);
 
 		//Crystal Chest
 		unlockCrystalChest = new ObjectStep(this, ObjectID.CRYSTAL_CHESTCLOSED, new WorldPoint(2914, 3452, 0),
-			"Use the crystal key to unlock the chest in Taverley", crystalKey);
+			t("Use the crystal key to unlock the chest in Taverley"), crystalKey);
 		unlockCrystalChest.addIcon(ItemID.CRYSTAL_KEY);
 
 		//Scarecrow
 		fillSack = new ObjectStep(this, ObjectID.HAY_BALE, new WorldPoint(3019, 3297, 0),
-			"Use the empty sack on the hay bale to fill it. You can buy an empty sack from Sarah for 5gp.", emptySack);
+			t("Use the empty sack on the hay bale to fill it. You can buy an empty sack from Sarah for 5gp."), emptySack);
 		fillSack.addIcon(ItemID.SACK_EMPTY);
 		useSackOnSpear = new DetailedQuestStep(this,
-			"Use the Hay sack on the Bronze Spear.", haySack.highlighted(), bronzeSpear.highlighted());
+			t("Use the Hay sack on the Bronze Spear."), haySack.highlighted(), bronzeSpear.highlighted());
 		useWatermelonOnSack = new DetailedQuestStep(this,
-			"Use the watermelon on the Hay Sack to make the Scarecrow.", scarecrowStep2.highlighted(), watermelon.highlighted());
+			t("Use the watermelon on the Hay Sack to make the Scarecrow."), scarecrowStep2.highlighted(), watermelon.highlighted());
 		placeScarecrow = new ObjectStep(this, ObjectID.FARMING_FLOWER_PATCH_1, new WorldPoint(3054, 3307, 0),
-			"Rake any weeds in the flower patch, then plant your scarecrow.", rake, scarecrow.highlighted());
+			t("Rake any weeds in the flower patch, then plant your scarecrow."), rake, scarecrow.highlighted());
 		placeScarecrow.addIcon(ItemID.SCARECROW_COMPLETE);
 
 		//Mogre
 		spawnMogre = new ObjectStep(this, ObjectID.OMINOUS_FISHING_SPOT_A, new WorldPoint(3005, 3117, 0),
-			"Go to Mudskipper Point south of Port Sarim and use your fishing explosive to spawn a Mogre.", true, fishingExplosive.highlighted());
+			t("Go to Mudskipper Point south of Port Sarim and use your fishing explosive to spawn a Mogre."), true, fishingExplosive.highlighted());
 		spawnMogre.addAlternateObjects(ObjectID.OMINOUS_FISHING_SPOT_B, ObjectID.OMINOUS_FISHING_SPOT_C);
 		spawnMogre.addIcon(ItemID.SLAYERGUIDE_FISHING_EXPLOSIVE);
 		killMogre = new NpcStep(this, NpcID.MUDSKIPPER_OGRE,
-			"Kill the Mogre", combatGear);
+			t("Kill the Mogre"), combatGear);
 
 		//Ratpits
 		visitRatPits = new ObjectStep(this, ObjectID.VC_MANHOLE_OPEN, new WorldPoint(3018, 3232, 0),
-			"Climb down the manhole in Port Sarim to visit the Rat Pits.");
+			t("Climb down the manhole in Port Sarim to visit the Rat Pits."));
 
 		//Grapple wall
 		grappleNorthWallStart = new ObjectStep(this, ObjectID.XBOWS_FAI_FALADOR_CASTLE_ARCHES_HILLSKEW, new WorldPoint(3032, 3389, 0),
-			"Equip your crossbow and grapple then climb the agility shortcut near the Falador Party Room.",
+			t("Equip your crossbow and grapple then climb the agility shortcut near the Falador Party Room."),
 			anyCrossbow.highlighted(), mithGrapple.highlighted());
 		grappleNorthWallEnd = new ObjectStep(this, ObjectID.XBOWS_FAI_FALADOR_CASTLE_WALLS_BATTLEMENT, new WorldPoint(3033, 3390, 1),
-			"Climb down the wall to finish the task.");
+			t("Climb down the wall to finish the task."));
 
 		//PickPocket
 		pickpocketGuard = new NpcStep(this, NpcID.FAI_FALADOR_GUARD1, new WorldPoint(2961, 3381, 0),
-			"Pickpocket a guard inside of Falador. If this doesn't complete, pickpocket a guard closer to the plinth.", true);
+			t("Pickpocket a guard inside of Falador. If this doesn't complete, pickpocket a guard closer to the plinth."), true);
 		pickpocketGuard.setHideWorldArrow(true);
 		pickpocketGuard.addAlternateNpcs(NpcID.FAI_FALADOR_GUARD3, NpcID.FAI_FALADOR_GUARD4, NpcID.FAI_FALADOR_GUARD6, NpcID.FAI_FALADOR_GUARD3_F, NpcID.FAI_FALADOR_GUARD1_F, NpcID.FAI_FALADOR_GUARD1_VARIANT02);
 
 		//Pray with Initiate Set
 		getInitiateSet = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, new WorldPoint(2997, 3373, 0),
-			"Speak to Sir Tiffy Cashien to purchase a set of Initiate Armor for 20,000 Coins for a full set.");
+			t("Speak to Sir Tiffy Cashien to purchase a set of Initiate Armor for 20,000 Coins for a full set."));
 		getInitiateSet.addDialogStep("Can I buy some armour?");
 		prayAtAltar = new ObjectStep(this, ObjectID.GUTHIX_ALTAR, new WorldPoint(2925, 3483, 0),
-			"Equip your Initiate armor and pray at the Altar of Guthix in Taverley", initiateHelm.equipped(),
+			t("Equip your Initiate armor and pray at the Altar of Guthix in Taverley"), initiateHelm.equipped(),
 			initiateChest.equipped(), initiateLegs.equipped());
 
 		//Mine Gold in Crafting Guild
 		goToCraftingGuild = new ObjectStep(this, ObjectID.CRAFTINGGUILDDOOR, new WorldPoint(2933, 3289, 0),
-			"Go to the Crafting Guild west of Falador. You will need to equip a brown apron to enter.", brownApron.equipped(), pickaxe);
+			t("Go to the Crafting Guild west of Falador. You will need to equip a brown apron to enter."), brownApron.equipped(), pickaxe);
 		mineGold = new ObjectStep(this, ObjectID.GOLDROCK1, new WorldPoint(2938, 3280, 0),
-			"Mine a gold ore.", pickaxe);
+			t("Mine a gold ore."), pickaxe);
 
 		//Dwarven Mines Shortcut
 		enterDwarvenMines = new ObjectStep(this, ObjectID.STAIRS_CELLAR, new WorldPoint(3059, 3376, 0),
-			"Go to the Dwarven Mines.");
+			t("Go to the Dwarven Mines."));
 		dwarfShortcut = new ObjectStep(this, ObjectID.DWARF_MINES_SC_WALL_CRACK, new WorldPoint(3034, 9806, 0),
-			"Squeeze through the crevice in the Dwarven Mines");
+			t("Squeeze through the crevice in the Dwarven Mines"));
 
 		//Chop and burn Willow in Tav
 		goToTav = new DetailedQuestStep(this, new WorldPoint(2921, 3431, 0),
-			"Go to Taverley, north west of Falador.", axe, tinderbox);
+			t("Go to Taverley, north west of Falador."), axe, tinderbox);
 		chopWillowLog = new ObjectStep(this, ObjectID.WILLOWTREE, new WorldPoint(2925, 3412, 0),
-			"Chop a Willow Tree while within Taverley.", axe, tinderbox);
+			t("Chop a Willow Tree while within Taverley."), axe, tinderbox);
 		burnWillowLog = new DetailedQuestStep(this,
-			"Use your tinderbox on the Willow Logs.", willowLog.highlighted(), tinderbox.highlighted());
+			t("Use your tinderbox on the Willow Logs."), willowLog.highlighted(), tinderbox.highlighted());
 
 		//Make Basket on Loom
 		makeBasketFalLoom = new ObjectStep(this, ObjectID.LOOM, new WorldPoint(3039, 3287, 0),
-			"Use Sarah's Loom in the Falador Farm to make a basket.", willowBranch6);
+			t("Use Sarah's Loom in the Falador Farm to make a basket."), willowBranch6);
 		makeBasketFalLoom.addIcon(ItemID.WILLOW_BRANCH);
 
 		//Teleport to Falador
 		teleportToFalador = new DetailedQuestStep(this,
-			"Use the Teleport to Falador spell to teleport to Falador");
+			t("Use the Teleport to Falador spell to teleport to Falador"));
 
 		//Claim Reward
 		claimReward = new NpcStep(this, NpcID.WHITE_KNIGHT_DIARY, new WorldPoint(2977, 3346, 0),
-			"Congratulations! Talk to Sir Rebral in the courtyard of The White Knight Castle to claim your reward!");
+			t("Congratulations! Talk to Sir Rebral in the courtyard of The White Knight Castle to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 
 	}
@@ -402,7 +402,7 @@ public class FaladorMedium extends ComplexStateQuestHelper
 		generalRequirements.add(new SkillRequirement(Skill.DEFENCE, 20, false));
 		if (questHelperPlugin.getPlayerStateManager().getAccountType().isAnyIronman())
 		{
-			// 47 Farming is required to get a Watermelon for the "Brain not included" step
+			// 47 Farming is required to get a Watermelon for the t("Brain not included") step
 			generalRequirements.add(new SkillRequirement(Skill.FARMING, 47, true));
 
 			// 59 Fletching & 59 Smithing is required to craft a Mithril Grapple
@@ -439,7 +439,7 @@ public class FaladorMedium extends ComplexStateQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		ArrayList<String> reqs = new ArrayList<>();
-		reqs.add("Mogre (level 60)");
+		reqs.add(t("Mogre (level 60)"));
 		return reqs;
 	}
 
@@ -455,9 +455,9 @@ public class FaladorMedium extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("10% more experience from the Falador Farming Patch"),
-			new UnlockReward("Access to a shortcut in the Motherlode Mine"),
-			new UnlockReward("Increased chance to receiving a clue scroll from a guard in Falador"));
+			new UnlockReward(t("10% more experience from the Falador Farming Patch")),
+			new UnlockReward(t("Access to a shortcut in the Motherlode Mine")),
+			new UnlockReward(t("Increased chance to receiving a clue scroll from a guard in Falador")));
 	}
 
 	@Override
@@ -465,65 +465,65 @@ public class FaladorMedium extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails initiateSteps = new PanelDetails("Initialising...", Arrays.asList(getInitiateSet, prayAtAltar),
+		PanelDetails initiateSteps = new PanelDetails(t("Initialising..."), Arrays.asList(getInitiateSet, prayAtAltar),
 			recDrive, initiateHelm, initiateChest, initiateLegs);
 		initiateSteps.setDisplayCondition(notPrayAtAltar);
 		initiateSteps.setLockingStep(prayAtAltarTask);
 		allSteps.add(initiateSteps);
 
-		PanelDetails crystalChestSteps = new PanelDetails("Lost Elven Treasure",
+		PanelDetails crystalChestSteps = new PanelDetails(t("Lost Elven Treasure"),
 			Collections.singletonList(unlockCrystalChest), crystalKey);
 		crystalChestSteps.setDisplayCondition(notUnlockedCrystalChest);
 		crystalChestSteps.setLockingStep(unlockedCrystalChestTask);
 		allSteps.add(crystalChestSteps);
 
-		PanelDetails willowTavSteps = new PanelDetails("Snoop Loggy-log", Arrays.asList(goToTav, chopWillowLog,
+		PanelDetails willowTavSteps = new PanelDetails(t("Snoop Loggy-log"), Arrays.asList(goToTav, chopWillowLog,
 			burnWillowLog), new SkillRequirement(Skill.WOODCUTTING, 30, true),
 			new SkillRequirement(Skill.FIREMAKING, 30, true), axe, tinderbox);
 		willowTavSteps.setDisplayCondition(notChopBurnWillowTav);
 		willowTavSteps.setLockingStep(chopBurnWillowTavTask);
 		allSteps.add(willowTavSteps);
 
-		PanelDetails mineGoldSteps = new PanelDetails("Au! I'm minin' here!", Arrays.asList(goToCraftingGuild,
+		PanelDetails mineGoldSteps = new PanelDetails(t("Au! I'm minin' here!"), Arrays.asList(goToCraftingGuild,
 			mineGold), new SkillRequirement(Skill.MINING, 40, true),
 			new SkillRequirement(Skill.CRAFTING, 40, true), pickaxe, brownApron);
 		mineGoldSteps.setDisplayCondition(notMineGold);
 		mineGoldSteps.setLockingStep(mineGoldTask);
 		allSteps.add(mineGoldSteps);
 
-		PanelDetails lanternSteps = new PanelDetails("Bullseye!", Arrays.asList(goToChemist, lightLantern),
+		PanelDetails lanternSteps = new PanelDetails(t("Bullseye!"), Arrays.asList(goToChemist, lightLantern),
 			new SkillRequirement(Skill.FIREMAKING, 49, true), tinderbox, bullseyeLantern);
 		lanternSteps.setDisplayCondition(notLitLantern);
 		lanternSteps.setLockingStep(litLanternTask);
 		allSteps.add(lanternSteps);
 
-		PanelDetails mogreSteps = new PanelDetails("Mogres have layers", Arrays.asList(spawnMogre, killMogre),
+		PanelDetails mogreSteps = new PanelDetails(t("Mogres have layers"), Arrays.asList(spawnMogre, killMogre),
 			skippyAndMogres, new SkillRequirement(Skill.SLAYER, 32, true), combatGear, fishingExplosive);
 		mogreSteps.setDisplayCondition(notKilledMogre);
 		mogreSteps.setLockingStep(killedMogreTask);
 		allSteps.add(mogreSteps);
 
-		PanelDetails visitRatsSteps = new PanelDetails("Ahh rats..", Collections.singletonList(visitRatPits),
+		PanelDetails visitRatsSteps = new PanelDetails(t("Ahh rats.."), Collections.singletonList(visitRatPits),
 			ratCatchers);
 		visitRatsSteps.setDisplayCondition(notVisitRatPits);
 		visitRatsSteps.setLockingStep(visitRatPitsTask);
 		allSteps.add(visitRatsSteps);
 
-		PanelDetails basketSteps = new PanelDetails("I never knew this existed",
+		PanelDetails basketSteps = new PanelDetails(t("I never knew this existed"),
 			Collections.singletonList(makeBasketFalLoom), new SkillRequirement(Skill.CRAFTING, 36, true),
 			willowBranch6);
 		basketSteps.setDisplayCondition(notBasketFalLoom);
 		basketSteps.setLockingStep(basketFalLoomTask);
 		allSteps.add(basketSteps);
 
-		PanelDetails scarecrowSteps = new PanelDetails("Brain not included", Arrays.asList(fillSack, useSackOnSpear,
+		PanelDetails scarecrowSteps = new PanelDetails(t("Brain not included"), Arrays.asList(fillSack, useSackOnSpear,
 			useWatermelonOnSack, placeScarecrow), new SkillRequirement(Skill.FARMING, 23, true),
 			bronzeSpear, emptySack, watermelon, rake);
 		scarecrowSteps.setDisplayCondition(notPlacedScarecrow);
 		scarecrowSteps.setLockingStep(placedScarecrowTask);
 		allSteps.add(scarecrowSteps);
 
-		PanelDetails grappleSteps = new PanelDetails("To the window.. To the wall!",
+		PanelDetails grappleSteps = new PanelDetails(t("To the window.. To the wall!"),
 			Arrays.asList(grappleNorthWallStart, grappleNorthWallEnd), new SkillRequirement(Skill.AGILITY, 11, true),
 			new SkillRequirement(Skill.STRENGTH, 37, true), new SkillRequirement(Skill.RANGED, 19, true),
 			mithGrapple, anyCrossbow);
@@ -531,32 +531,32 @@ public class FaladorMedium extends ComplexStateQuestHelper
 		grappleSteps.setLockingStep(grappleNorthWallTask);
 		allSteps.add(grappleSteps);
 
-		PanelDetails dwarfShortcutSteps = new PanelDetails("To Middle Earth", Arrays.asList(enterDwarvenMines,
+		PanelDetails dwarfShortcutSteps = new PanelDetails(t("To Middle Earth"), Arrays.asList(enterDwarvenMines,
 			dwarfShortcut), new SkillRequirement(Skill.AGILITY, 42, true));
 		dwarfShortcutSteps.setDisplayCondition(notDwarfShortcut);
 		dwarfShortcutSteps.setLockingStep(dwarfShortcutTask);
 		allSteps.add(dwarfShortcutSteps);
 
-		PanelDetails teleFallySteps = new PanelDetails("Beam me up Scotty!",
+		PanelDetails teleFallySteps = new PanelDetails(t("Beam me up Scotty!"),
 			Collections.singletonList(teleportToFalador), new SkillRequirement(Skill.MAGIC, 37, true),
 			lawRune.quantity(1), airRune.quantity(3), waterRune1);
 		teleFallySteps.setDisplayCondition(notTeleportFalador);
 		teleFallySteps.setLockingStep(teleportFaladorTask);
 		allSteps.add(teleFallySteps);
 
-		PanelDetails pickGuardSteps = new PanelDetails("Cor blimey mate!", Collections.singletonList(pickpocketGuard),
+		PanelDetails pickGuardSteps = new PanelDetails(t("Cor blimey mate!"), Collections.singletonList(pickpocketGuard),
 			new SkillRequirement(Skill.THIEVING, 40, true));
 		pickGuardSteps.setDisplayCondition(notPickpocketGuard);
 		pickGuardSteps.setLockingStep(pickpocketGuardTask);
 		allSteps.add(pickGuardSteps);
 
-		PanelDetails teleGrabSteps = new PanelDetails("Yoink!", Arrays.asList(goToChaosTemple, telegrabWine),
+		PanelDetails teleGrabSteps = new PanelDetails(t("Yoink!"), Arrays.asList(goToChaosTemple, telegrabWine),
 			new SkillRequirement(Skill.MAGIC, 33, true), normalBook, lawRune.quantity(1), airRune.quantity(1));
 		teleGrabSteps.setDisplayCondition(notTelegrabbedWine);
 		teleGrabSteps.setLockingStep(telegrabbedWineTask);
 		allSteps.add(teleGrabSteps);
 
-		PanelDetails finishOffSteps = new PanelDetails("Finishing off", Collections.singletonList(claimReward));
+		PanelDetails finishOffSteps = new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward));
 		allSteps.add(finishOffSteps);
 
 		return allSteps;

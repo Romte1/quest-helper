@@ -143,11 +143,11 @@ public class DwarfCannon extends BasicQuestHelper
 		hammer.setTooltip(t("Can be found in the small building east of Captain Lawgof."));
 
 		staminas = new ItemRequirement("Stamina Potions", ItemCollections.STAMINA_POTIONS);
-		teleToAsg = new ItemRequirement("Teleport to Falador, Amulet of Glory, or Combat Bracelet",
+		teleToAsg = new ItemRequirement(t("Teleport to Falador, Amulet of Glory, or Combat Bracelet"),
 			ItemID.POH_TABLET_FALADORTELEPORT);
 		teleToAsg.addAlternates(ItemCollections.AMULET_OF_GLORIES);
 		teleToAsg.addAlternates(ItemCollections.COMBAT_BRACELETS);
-		teleToKand = new ItemRequirement("Teleport to Ardougne, Skills Necklace, or Games Necklace",
+		teleToKand = new ItemRequirement(t("Teleport to Ardougne, Skills Necklace, or Games Necklace"),
 			ItemCollections.GAMES_NECKLACES);
 		teleToKand.addAlternates(ItemCollections.SKILLS_NECKLACES);
 		teleToKand.addAlternates(ItemID.POH_TABLET_ARDOUGNETELEPORT);

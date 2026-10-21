@@ -145,48 +145,48 @@ public class ArdougneEasy extends ComplexStateQuestHelper
 
 	public void setupSteps()
 	{
-		alecksEmporium = new NpcStep(this, NpcID.HUNTING_SHOP_OWNER_YANILLE, new WorldPoint(2566, 3083, 0), "View Aleck's Hunter Emporium in Yanille.");
+		alecksEmporium = new NpcStep(this, NpcID.HUNTING_SHOP_OWNER_YANILLE, new WorldPoint(2566, 3083, 0), t("View Aleck's Hunter Emporium in Yanille."));
 		alecksEmporium.addDialogStep("Ok, let's see what you've got!");
 		alecksEmporiumTask = new ConditionalStep(this, alecksEmporium);
 
-		identifySword = new NpcStep(this, NpcID.TINDEL_MARCHANT, new WorldPoint(2676, 3152, 0), "Have Tindel Marchant identify a rusty sword for you. Note: there is about a 1% chance this fails and you'll need another sword and more coins.", rustySword, coins);
+		identifySword = new NpcStep(this, NpcID.TINDEL_MARCHANT, new WorldPoint(2676, 3152, 0), t("Have Tindel Marchant identify a rusty sword for you. Note: there is about a 1% chance this fails and you'll need another sword and more coins."), rustySword, coins);
 		identifySword.addDialogStep("Ok, I'll give it a go!");
 		identifySwordTask = new ConditionalStep(this, identifySword);
 
-		fishingTrawler = new ObjectStep(this, ObjectID.TRAWLER_GANGPLANK, new WorldPoint(2675, 3170, 0), "Go out fishing on the Fishing Trawler.");
+		fishingTrawler = new ObjectStep(this, ObjectID.TRAWLER_GANGPLANK, new WorldPoint(2675, 3170, 0), t("Go out fishing on the Fishing Trawler."));
 		fishingTrawlerTask = new ConditionalStep(this, fishingTrawler);
 
-		probitaPet = new NpcStep(this, NpcID.PET_INSURANCE_BROKER, new WorldPoint(2621, 3294, 0), "Check what pets you have insured with Probita in East Ardougne (right-click her to Check).");
+		probitaPet = new NpcStep(this, NpcID.PET_INSURANCE_BROKER, new WorldPoint(2621, 3294, 0), t("Check what pets you have insured with Probita in East Ardougne (right-click her to Check)."));
 		probitaPet.addDialogStep("What pets have I insured?");
 		probitaPet.addDialogStepWithExclusion("More options...", "What pets have I insured?");
 		probitaPetTask = new ConditionalStep(this, probitaPet);
 
-		eastArdyAltar = new ObjectStep(this, ObjectID.ALTAR, new WorldPoint(2618, 3309, 0), "Use the altar in East Ardougne's church (requires less than full Prayer points).");
+		eastArdyAltar = new ObjectStep(this, ObjectID.ALTAR, new WorldPoint(2618, 3309, 0), t("Use the altar in East Ardougne's church (requires less than full Prayer points)."));
 		eastArdyAltarTask = new ConditionalStep(this, eastArdyAltar);
 
-		sellSilk = new NpcStep(this, NpcID.SILK_MERCHANT_ARDOUGNE, new WorldPoint(2655, 3300, 0), "Sell silk to the Silk trader in East Ardougne for 60 coins each.");
+		sellSilk = new NpcStep(this, NpcID.SILK_MERCHANT_ARDOUGNE, new WorldPoint(2655, 3300, 0), t("Sell silk to the Silk trader in East Ardougne for 60 coins each."));
 		sellSilk.addDialogSteps("120 coins.", "I'll give it to you for 60.");
 		sellSilkTask = new ConditionalStep(this, sellSilk);
 
-		stealCake = new ObjectStep(this, ObjectID.CAKETHIEFSTALL, new WorldPoint(2668, 3311, 0), "Steal a cake from the East Ardougne market stalls.");
+		stealCake = new ObjectStep(this, ObjectID.CAKETHIEFSTALL, new WorldPoint(2668, 3311, 0), t("Steal a cake from the East Ardougne market stalls."));
 		stealCakeTask = new ConditionalStep(this, stealCake);
 
-		essMine = new NpcStep(this, NpcID.CROMPERTY_PRE_DIARY, new WorldPoint(2683, 3326, 0), "Have Wizard Cromperty teleport you to the Rune essence mine.");
+		essMine = new NpcStep(this, NpcID.CROMPERTY_PRE_DIARY, new WorldPoint(2683, 3326, 0), t("Have Wizard Cromperty teleport you to the Rune essence mine."));
 		essMine.addDialogStep("Can you teleport me to the Rune Essence Mine?");
 		essMineTask = new ConditionalStep(this, essMine);
 
-		wildyLever = new ObjectStep(this, ObjectID.WILDINLEVER, new WorldPoint(2561, 3311, 0), "Use the Ardougne lever to teleport to the Wilderness (you may pull the lever there to return). This will take you to DEEP Wilderness, bank anything you aren't willing to lose.");
+		wildyLever = new ObjectStep(this, ObjectID.WILDINLEVER, new WorldPoint(2561, 3311, 0), t("Use the Ardougne lever to teleport to the Wilderness (you may pull the lever there to return). This will take you to DEEP Wilderness, bank anything you aren't willing to lose."));
 		// We don't add a dialog highlight on purpose here to make sure people don't mindlessly click blue and lose items
 		wildyLeverTask = new ConditionalStep(this, wildyLever);
 
-		useWildyLever = new ObjectStep(this, ObjectID.WILDOUTLEVER, new WorldPoint(3153, 3923, 0), "Click the lever to return to Ardougne.");
-		enterCombatCamp = new ObjectStep(this, ObjectID.LATHASTRAINING_GATER, new WorldPoint(2518, 3356, 0), "Enter the Combat Training Camp north of West Ardougne.");
+		useWildyLever = new ObjectStep(this, ObjectID.WILDOUTLEVER, new WorldPoint(3153, 3923, 0), t("Click the lever to return to Ardougne."));
+		enterCombatCamp = new ObjectStep(this, ObjectID.LATHASTRAINING_GATER, new WorldPoint(2518, 3356, 0), t("Enter the Combat Training Camp north of West Ardougne."));
 		enterCombatCampTask = new ConditionalStep(this, enterCombatCamp);
 		enterCombatCampTask.addStep(nearWildyLever, useWildyLever);
 
 		enterCombatCamp.addSubSteps(useWildyLever);
 
-		claimReward = new NpcStep(this, NpcID.ARDY_TWOPINTS_DIARY, new WorldPoint(2574, 3323, 0), "Talk to Two-pints in the Flying Horse Inn at East Ardougne to claim your reward!");
+		claimReward = new NpcStep(this, NpcID.ARDY_TWOPINTS_DIARY, new WorldPoint(2574, 3323, 0), t("Talk to Two-pints in the Flying Horse Inn at East Ardougne to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -254,10 +254,10 @@ public class ArdougneEasy extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Unlimited teleports to the Ardougne Monastery with the Ardougne cloak 1"),
-			new UnlockReward("Double death runes (200) when trading in cats to civilians"),
-			new UnlockReward("10% increased chance to successfully steal from stalls in Ardougne"),
-			new UnlockReward("Jubster and Frogeel drops will be noted at the Tower of Life")
+			new UnlockReward(t("Unlimited teleports to the Ardougne Monastery with the Ardougne cloak 1")),
+			new UnlockReward(t("Double death runes (200) when trading in cats to civilians")),
+			new UnlockReward(t("10% increased chance to successfully steal from stalls in Ardougne")),
+			new UnlockReward(t("Jubster and Frogeel drops will be noted at the Tower of Life"))
 		);
 	}
 
@@ -267,7 +267,7 @@ public class ArdougneEasy extends ComplexStateQuestHelper
 		var sections = new ArrayList<PanelDetails>();
 
 		sections.add(PanelDetails.lockedPanel(
-			"Aleck's Hunter Emporium",
+			t("Aleck's Hunter Emporium"),
 			notAlecksEmporium,
 			alecksEmporiumTask,
 			List.of(
@@ -276,7 +276,7 @@ public class ArdougneEasy extends ComplexStateQuestHelper
 		));
 
 		sections.add(PanelDetails.lockedPanel(
-			"Identify Sword",
+			t("Identify Sword"),
 			notIdentifySword,
 			identifySwordTask,
 			List.of(
@@ -287,7 +287,7 @@ public class ArdougneEasy extends ComplexStateQuestHelper
 		));
 
 		sections.add(PanelDetails.lockedPanel(
-			"Fishing Trawler",
+			t("Fishing Trawler"),
 			notFishingTrawler,
 			fishingTrawlerTask,
 			List.of(
@@ -296,7 +296,7 @@ public class ArdougneEasy extends ComplexStateQuestHelper
 		));
 
 		sections.add(PanelDetails.lockedPanel(
-			"Pet Insurance",
+			t("Pet Insurance"),
 			notProbitaPet,
 			probitaPetTask,
 			List.of(
@@ -305,7 +305,7 @@ public class ArdougneEasy extends ComplexStateQuestHelper
 		));
 
 		sections.add(PanelDetails.lockedPanel(
-			"Restore Prayer",
+			t("Restore Prayer"),
 			notEastArdyAltar,
 			eastArdyAltarTask,
 			List.of(
@@ -314,7 +314,7 @@ public class ArdougneEasy extends ComplexStateQuestHelper
 		));
 
 		sections.add(PanelDetails.lockedPanel(
-			"Sell Silk",
+			t("Sell Silk"),
 			notSellSilk,
 			sellSilkTask,
 			List.of(
@@ -324,7 +324,7 @@ public class ArdougneEasy extends ComplexStateQuestHelper
 		));
 
 		sections.add(PanelDetails.lockedPanel(
-			"Steal Cake",
+			t("Steal Cake"),
 			notStealCake,
 			stealCakeTask,
 			List.of(
@@ -334,7 +334,7 @@ public class ArdougneEasy extends ComplexStateQuestHelper
 		));
 
 		sections.add(PanelDetails.lockedPanel(
-			"Essence Mine",
+			t("Essence Mine"),
 			notEssMine,
 			essMineTask,
 			List.of(
@@ -344,7 +344,7 @@ public class ArdougneEasy extends ComplexStateQuestHelper
 		));
 
 		sections.add(PanelDetails.lockedPanel(
-			"Wilderness Lever",
+			t("Wilderness Lever"),
 			notWildyLever,
 			wildyLeverTask,
 			List.of(
@@ -353,7 +353,7 @@ public class ArdougneEasy extends ComplexStateQuestHelper
 		));
 
 		sections.add(PanelDetails.lockedPanel(
-			"Combat Camp",
+			t("Combat Camp"),
 			notEnterCombatCamp,
 			enterCombatCampTask,
 			List.of(
@@ -361,7 +361,7 @@ public class ArdougneEasy extends ComplexStateQuestHelper
 			)
 		));
 
-		sections.add(new PanelDetails("Finishing off", List.of(
+		sections.add(new PanelDetails(t("Finishing off"), List.of(
 			claimReward
 		)));
 

@@ -214,21 +214,21 @@ public class ThroneOfMiscellania extends BasicQuestHelper
 		axe = new ItemRequirement("Any axe", ItemCollections.AXES).isNotConsumed();
 		harpoon = new ItemRequirement("Harpoon", ItemCollections.HARPOONS).isNotConsumed();
 		lobsterPot = new ItemRequirement("Lobster pot", ItemID.LOBSTER_POT).isNotConsumed();
-		ring = new ItemRequirement("Any non-silver ring you are willing to lose", ItemID.GOLD_RING);
+		ring = new ItemRequirement(t("Any non-silver ring you are willing to lose"), ItemID.GOLD_RING);
 		ring.addAlternates(ItemID.SAPPHIRE_RING, ItemID.EMERALD_RING, ItemID.RUBY_RING, ItemID.DIAMOND_RING);
 
 		flowers = new ItemRequirement("Flowers", ItemCollections.FLOWERS);
 		flowers.setTooltip(t("You can buy some from the Flower Girl on Miscellania for 15 coins"));
 		flowers.setHighlightInInventory(true);
-		cake = new ItemRequirement("Cake (if courting Brand)", ItemID.CAKE);
+		cake = new ItemRequirement(t("Cake (if courting Brand)"), ItemID.CAKE);
 		cake.addAlternates(ItemID.CHOCOLATE_CAKE);
-		bow = new ItemRequirement("Any normal/oak/willow/maple/yew shortbow or longbow (if courting Astrid)", ItemID.SHORTBOW);
+		bow = new ItemRequirement(t("Any normal/oak/willow/maple/yew shortbow or longbow (if courting Astrid)"), ItemID.SHORTBOW);
 		bow.addAlternates(ItemID.LONGBOW, ItemID.OAK_SHORTBOW, ItemID.OAK_LONGBOW, ItemID.WILLOW_SHORTBOW, ItemID.WILLOW_LONGBOW, ItemID.MAPLE_SHORTBOW, ItemID.MAPLE_LONGBOW, ItemID.YEW_SHORTBOW, ItemID.YEW_LONGBOW);
 		bow.setTooltip(t("You will lose this bow"));
 		bow.setHighlightInInventory(true);
-		runRestoreItems = new ItemRequirement("Potions/Items to restore run energy", ItemCollections.RUN_RESTORE_ITEMS);
-		dramenStaff = new ItemRequirement("Dramen staff if travelling via Fairy Ring CIP", ItemCollections.FAIRY_STAFF).isNotConsumed();
-		rellekkaTeleport = new ItemRequirement("Miscellania teleport (Fairy Ring (CIP), tablet, lyre)", ItemCollections.FAIRY_STAFF);
+		runRestoreItems = new ItemRequirement(t("Potions/Items to restore run energy"), ItemCollections.RUN_RESTORE_ITEMS);
+		dramenStaff = new ItemRequirement(t("Dramen staff if travelling via Fairy Ring CIP"), ItemCollections.FAIRY_STAFF).isNotConsumed();
+		rellekkaTeleport = new ItemRequirement(t("Miscellania teleport (Fairy Ring (CIP), tablet, lyre)"), ItemCollections.FAIRY_STAFF);
 		rellekkaTeleport.addAlternates(ItemID.NZONE_TELETAB_RELLEKKA, ItemID.MAGIC_STRUNG_LYRE_INFINITE, ItemID.MAGIC_STRUNG_LYRE_5, ItemID.MAGIC_STRUNG_LYRE_4, ItemID.MAGIC_STRUNG_LYRE_3, ItemID.MAGIC_STRUNG_LYRE_2, ItemID.MAGIC_STRUNG_LYRE);
 
 		giantNib = new ItemRequirement("Giant nib", ItemID.MISC_GIANT_NIB);
@@ -238,25 +238,25 @@ public class ThroneOfMiscellania extends BasicQuestHelper
 		goodAnthem = new ItemRequirement("Good anthem", ItemID.MISC_GOOD_ANTHEM);
 		treaty = new ItemRequirement("Treaty", ItemID.MISC_TREATY);
 
-		reputationItems = new ItemRequirement("One of: ", ItemID.LOBSTER_POT);
+		reputationItems = new ItemRequirement(t("One of: "), ItemID.LOBSTER_POT);
 		if (client.getRealSkillLevel(Skill.FARMING) >= 10)
 		{
-			reputationItems.setName(reputationItems.getName() + "a rake, ");
+			reputationItems.setName(reputationItems.getName() + t("a rake, "));
 			// Set ID so it's first recommended item
 			reputationItems.setId(ItemID.RAKE);
 		}
 		if (client.getRealSkillLevel(Skill.MINING) >= 30)
 		{
-			reputationItems.setName(reputationItems.getName() + "a pickaxe, ");
+			reputationItems.setName(reputationItems.getName() + t("a pickaxe, "));
 			reputationItems.addAlternates(ItemCollections.PICKAXES);
 		}
 		if (client.getRealSkillLevel(Skill.WOODCUTTING) >= 45)
 		{
-			reputationItems.setName(reputationItems.getName() + "an axe, ");
+			reputationItems.setName(reputationItems.getName() + t("an axe, "));
 			reputationItems.addAlternates(ItemCollections.AXES);
 		}
 		// The player requires Heroes' Quest, thus can do this
-		reputationItems.setName(reputationItems.getName() + "a harpoon or lobster pot.");
+		reputationItems.setName(reputationItems.getName() + t("a harpoon or lobster pot."));
 		reputationItems.addAlternates(ItemID.HARPOON, ItemID.LOBSTER_POT);
 	}
 

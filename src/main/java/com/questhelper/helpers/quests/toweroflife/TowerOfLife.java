@@ -117,8 +117,8 @@ public class TowerOfLife extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		rawSwordfish = new ItemRequirement("Raw swordfish (for diary task)", ItemID.RAW_SWORDFISH);
-		rawChicken = new ItemRequirement("Raw chicken (for diary task)", ItemID.RAW_CHICKEN);
+		rawSwordfish = new ItemRequirement(t("Raw swordfish (for diary task)"), ItemID.RAW_SWORDFISH);
+		rawChicken = new ItemRequirement(t("Raw chicken (for diary task)"), ItemID.RAW_CHICKEN);
 
 		beer = new ItemRequirement("Beer", ItemID.BEER);
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed();

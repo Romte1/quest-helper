@@ -171,7 +171,7 @@ public class TheCorsairCurse extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		combatGear = new ItemRequirement("Combat gear + food to defeat Ithoi (level 34), who uses magic", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear + food to defeat Ithoi (level 34), who uses magic"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		spade = new ItemRequirement("Spade", ItemID.SPADE).isNotConsumed();
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();

@@ -164,18 +164,18 @@ public class FaladorHard extends ComplexStateQuestHelper
 		notDwarvenHelmetDwarvenMines = new VarplayerRequirement(VarPlayerID.FALADOR_ACHIEVEMENT_DIARY2, false, 4);
 
 		pureEss28 = new ItemRequirement("Pure Essence", ItemID.BLANKRUNE_HIGH, 28).showConditioned(notCraftedMindRunes);
-		mindTiara = new ItemRequirement("Access to the Mind Altar", ItemCollections.MIND_ALTAR_WEARABLE, 1, true).showConditioned(notCraftedMindRunes);
-		mindTiara.setTooltip("Mind Tiara, Catalytic Tiara, RC-skill cape or via Abyss");
+		mindTiara = new ItemRequirement(t("Access to the Mind Altar"), ItemCollections.MIND_ALTAR_WEARABLE, 1, true).showConditioned(notCraftedMindRunes);
+		mindTiara.setTooltip(t("Mind Tiara, Catalytic Tiara, RC-skill cape or via Abyss"));
 		coins10000 = new ItemRequirement("Coins", ItemCollections.COINS, 10000).showConditioned(notChangedFamilyCrest);
-		combatGear = new ItemRequirement("Combat Gear", -1, -1).isNotConsumed();
-		food = new ItemRequirement("Good healing food.", ItemCollections.GOOD_EATING_FOOD, -1);
-		lightSource = new ItemRequirement("Light Source", ItemCollections.LIGHT_SOURCES, -1).showConditioned(notKilledMole).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat Gear"), -1, -1).isNotConsumed();
+		food = new ItemRequirement(t("Good healing food."), ItemCollections.GOOD_EATING_FOOD, -1);
+		lightSource = new ItemRequirement(t("Light Source"), ItemCollections.LIGHT_SOURCES, -1).showConditioned(notKilledMole).isNotConsumed();
 		spade = new ItemRequirement("Spade", ItemID.SPADE).showConditioned(notKilledMole).isNotConsumed();
-		wyvernProtection = new ItemRequirement("Wyvern Protection", ItemCollections.ANTI_WYVERN_SHIELDS)
+		wyvernProtection = new ItemRequirement(t("Wyvern Protection"), ItemCollections.ANTI_WYVERN_SHIELDS)
 			.showConditioned(notKilledWyvern).isNotConsumed();
 		prospectorHelm = new ItemRequirement("Prospector Helm", ItemCollections.PROSPECTOR_HELMET, 1, true)
 			.showConditioned(notEnterMiningGuildWithProspector).isNotConsumed();
-		dragonfireProtection = new ItemRequirement("Protection from Dragonfire", ItemCollections.ANTIFIRE_SHIELDS)
+		dragonfireProtection = new ItemRequirement(t("Protection from Dragonfire"), ItemCollections.ANTIFIRE_SHIELDS)
 			.showConditioned(notKilledBlueDragon).isNotConsumed();
 		prosyHelm = new ItemRequirement("Proselyte Helmet", ItemID.BASIC_TK_RANK2_HELM).showConditioned(notPraySarimAltarProsy).isNotConsumed();
 		prosyChest = new ItemRequirement("Proselyte Chest", ItemID.BASIC_TK_RANK2_BODY).showConditioned(notPraySarimAltarProsy).isNotConsumed();
@@ -184,7 +184,7 @@ public class FaladorHard extends ComplexStateQuestHelper
 		dwarvenHelmet = new ItemRequirement("Dwarven Helmet", ItemID.GRIM_WEAR_HELMET, 1)
 			.showConditioned(notDwarvenHelmetDwarvenMines).isNotConsumed();
 
-		faladorTeleport = new TeleportItemRequirement("Multiple teleports to Falador", ItemID.POH_TABLET_FALADORTELEPORT, -1);
+		faladorTeleport = new TeleportItemRequirement(t("Multiple teleports to Falador"), ItemID.POH_TABLET_FALADORTELEPORT, -1);
 		combatBracelet = new TeleportItemRequirement("Combat Bracelet", ItemCollections.COMBAT_BRACELETS);
 		combatBracelet.addAlternates(ItemCollections.GAMES_NECKLACES);
 
@@ -226,17 +226,17 @@ public class FaladorHard extends ComplexStateQuestHelper
 	{
 		//Mind Runes
 		enterMindAltar = new ObjectStep(this, ObjectID.MINDTEMPLE_RUINED_OLD, new WorldPoint(2982, 3514, 0),
-			"Click on the Mysterious Ruins, with the Mind Tiara equipped to access the Mind Altar.", mindTiara, pureEss28);
+			t("Click on the Mysterious Ruins, with the Mind Tiara equipped to access the Mind Altar."), mindTiara, pureEss28);
 		craftMindRunes = new ObjectStep(this, ObjectID.MIND_ALTAR, new WorldPoint(2786, 4841, 0),
-			"Click the altar to craft the mind runes.", mindTiara, pureEss28);
+			t("Click the altar to craft the mind runes."), mindTiara, pureEss28);
 		craftMindRunes.addIcon(ItemID.BLANKRUNE_HIGH);
 		enterMindAltar.addSubSteps(craftMindRunes);
 
 		//Change Family Crest to Saradomin
 		climbLadderWhiteKnightCastle = new ObjectStep(this, ObjectID.FAI_FALADOR_CASTLE_LADDER_UP, new WorldPoint(2994, 3341, 0),
-			"Climb the ladder in The White Knights Castle.", coins10000);
+			t("Climb the ladder in The White Knights Castle."), coins10000);
 		changeFamilyCrest = new NpcStep(this, NpcID.POH_HERALD_OF_FALADOR, new WorldPoint(2982, 3341, 1),
-			"Speak to Sir Renitee to change your family crest to Saradomin.", coins10000);
+			t("Speak to Sir Renitee to change your family crest to Saradomin."), coins10000);
 		changeFamilyCrest.addDialogStep("I don't know, what can you do for me?");
 		changeFamilyCrest.addDialogStep("Can you see if I have a family crest?");
 		changeFamilyCrest.addDialogStep("I don't like that crest. Can I have a different one?");
@@ -245,63 +245,63 @@ public class FaladorHard extends ComplexStateQuestHelper
 
 		//Giant Mole
 		goToGiantMole = new ObjectStep(this, ObjectID.MOLE_HILL, new WorldPoint(2989, 3378, 0),
-			"Use a spade on one of the Mole Hills in Falador Park", combatGear, food, lightSource, spade);
+			t("Use a spade on one of the Mole Hills in Falador Park"), combatGear, food, lightSource, spade);
 		killGiantMole = new NpcStep(this, NpcID.MOLE_GIANT,
-			"Kill the Giant Mole.", combatGear, food, lightSource);
+			t("Kill the Giant Mole."), combatGear, food, lightSource);
 
 		//Wyvern
 		goToIceDungeon = new ObjectStep(this, ObjectID.FAI_TRAPDOOR, new WorldPoint(3008, 3150, 0),
-			"Go down the ladder south of Port Sarim.", combatGear, food, wyvernProtection);
+			t("Go down the ladder south of Port Sarim."), combatGear, food, wyvernProtection);
 		enterWyvernCavern = new ObjectStep(this, ObjectID.WYVERN_SNOW_CAVE_ENTRANCE, new WorldPoint(3055, 9560, 0),
-			"Enter the Icy Cavern at the back of the dungeon.", combatGear, food, wyvernProtection);
+			t("Enter the Icy Cavern at the back of the dungeon."), combatGear, food, wyvernProtection);
 		killWyvern = new NpcStep(this, NpcID.SKELETAL_WYVERN1,
-			"Kill a Skeletal Wyvern.", combatGear, food, wyvernProtection);
+			t("Kill a Skeletal Wyvern."), combatGear, food, wyvernProtection);
 
 		//Agi Course
 		completeAgiCourse = new ObjectStep(this, ObjectID.ROOFTOPS_FALADOR_WALLCLIMB, new WorldPoint(3036, 3341, 0),
-			"Complete a lap of the Falador Agility Course");
+			t("Complete a lap of the Falador Agility Course"));
 
 		//Prospectors in Mining Guild
 		enterDwarvenMines = new ObjectStep(this, ObjectID.STAIRS_CELLAR, new WorldPoint(3059, 3376, 0),
-			"Go to the Dwarven Mines.", prospectorHelm);
+			t("Go to the Dwarven Mines."), prospectorHelm);
 		enterMiningGuild = new ObjectStep(this, ObjectID.MGUILD_DOOR, new WorldPoint(3046, 9756, 0),
-			"Equip your prospector helmet and then enter the Mining Guild", prospectorHelm);
+			t("Equip your prospector helmet and then enter the Mining Guild"), prospectorHelm);
 
 		//Blue Dragon
 		enterHerosGuild = new ObjectStep(this, ObjectID.HERODOOR_L, new WorldPoint(2902, 3501, 0),
-			"Go to the Hero's Guild south of Burthorpe. You can get here faster by teleporting with a Combat Bracelet to the Warriors Guild.", combatGear, food, dragonfireProtection);
+			t("Go to the Hero's Guild south of Burthorpe. You can get here faster by teleporting with a Combat Bracelet to the Warriors Guild."), combatGear, food, dragonfireProtection);
 		enterHerosGuildBasement = new ObjectStep(this, ObjectID.LADDER_CELLAR, new WorldPoint(2892, 3507, 0),
-			"Climb down the ladder in the Hero's Guild.");
+			t("Climb down the ladder in the Hero's Guild."));
 		killBlueDragon = new NpcStep(this, NpcID.BLUE_DRAGON2,
-			"Kill the Blue Dragon to complete your task.");
+			t("Kill the Blue Dragon to complete your task."));
 
 		//Rogues Den
 		enterRoguesDen = new ObjectStep(this, ObjectID.ROGUESDEN_TRAPDOOR_ENTRANCE, new WorldPoint(2905, 3537, 0),
-			"Go to the Rogues Den in Burthorpe.");
+			t("Go to the Rogues Den in Burthorpe."));
 		crackWallSafe = new ObjectStep(this, ObjectID.ROGUESDEN_WALLDECOR_SAFE, new WorldPoint(3055, 4977, 1),
-			"Crack the Wall Safe inside of the Rogues Den.");
+			t("Crack the Wall Safe inside of the Rogues Den."));
 
 		//Pray in Port Sarim in Proselyte
 		getProsySet = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, new WorldPoint(2997, 3373, 0),
-			"Speak to Sir Tiffy Cashien to purchase a set of Proselyte Armor for 28,000 Coins for a full set.");
+			t("Speak to Sir Tiffy Cashien to purchase a set of Proselyte Armor for 28,000 Coins for a full set."));
 		getProsySet.addDialogStep("Can I buy some armor?");
 		prayAtAltarSarim = new ObjectStep(this, ObjectID.ALTAR, new WorldPoint(2995, 3177, 0),
-			"Equip your Proselyte armor and pray at the altar in Port Sarim.", prosyHelm, prosyChest, prosyLegs);
+			t("Equip your Proselyte armor and pray at the altar in Port Sarim."), prosyHelm, prosyChest, prosyLegs);
 
 		//Warriors Guild
 		enterWarriorsGuild = new ObjectStep(this, ObjectID.WARGUILD_DOOR_FRONT, new WorldPoint(2877, 3546, 0),
-			"Enter the Warriors Guild, in Burthorpe. You can get here faster by teleporting with a combat bracelet or a games necklace.");
+			t("Enter the Warriors Guild, in Burthorpe. You can get here faster by teleporting with a combat bracelet or a games necklace."));
 
 		//Dwarven Helm
 		//Prospectors in Mining Guild
 		enterDwarvenMinesHelmet = new ObjectStep(this, ObjectID.STAIRS_CELLAR, new WorldPoint(3059, 3376, 0),
-			"Go to the Dwarven Mines.", dwarvenHelmet);
+			t("Go to the Dwarven Mines."), dwarvenHelmet);
 		equipDwarvenHelmet = new DetailedQuestStep(this,
-			"Equip the Dwarven Helmet.", dwarvenHelmet.equipped());
+			t("Equip the Dwarven Helmet."), dwarvenHelmet.equipped());
 
 		//Fin
 		claimReward = new NpcStep(this, NpcID.WHITE_KNIGHT_DIARY, new WorldPoint(2977, 3346, 0),
-			"Congratulations! Talk to Sir Rebral in the courtyard of The White Knight Castle to claim your reward!");
+			t("Congratulations! Talk to Sir Rebral in the courtyard of The White Knight Castle to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 
 	}
@@ -309,7 +309,7 @@ public class FaladorHard extends ComplexStateQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Arrays.asList("Giant Mole (lvl 230)", "Skeletal Wyvern (lvl 140)", "Blue dragon (lvl 111)");
+		return Arrays.asList(t("Giant Mole (lvl 230)"), t("Skeletal Wyvern (lvl 140)"), t("Blue dragon (lvl 111)"));
 	}
 
 	@Override
@@ -365,9 +365,9 @@ public class FaladorHard extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("Access to the bank in the Crafting Guild"),
-			new UnlockReward("Giant Moles primary drops are now noted"),
-			new UnlockReward("Access to shortcut to Fountain of Heroes"));
+			new UnlockReward(t("Access to the bank in the Crafting Guild")),
+			new UnlockReward(t("Giant Moles primary drops are now noted")),
+			new UnlockReward(t("Access to shortcut to Fountain of Heroes")));
 	}
 
 	@Override
@@ -375,74 +375,74 @@ public class FaladorHard extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails changeCrestSteps = new PanelDetails("To Saradomin!", Arrays.asList(climbLadderWhiteKnightCastle,
+		PanelDetails changeCrestSteps = new PanelDetails(t("To Saradomin!"), Arrays.asList(climbLadderWhiteKnightCastle,
 			changeFamilyCrest), new SkillRequirement(Skill.PRAYER, 70, false), coins10000);
 		changeCrestSteps.setDisplayCondition(notChangedFamilyCrest);
 		changeCrestSteps.setLockingStep(changedFamilyCrestTask);
 		allSteps.add(changeCrestSteps);
 
-		PanelDetails moleSteps = new PanelDetails("Holy Moley!", Arrays.asList(goToGiantMole, killGiantMole),
+		PanelDetails moleSteps = new PanelDetails(t("Holy Moley!"), Arrays.asList(goToGiantMole, killGiantMole),
 			lightSource, spade, combatGear, food);
 		moleSteps.setDisplayCondition(notKilledMole);
 		moleSteps.setLockingStep(killedMoleTask);
 		allSteps.add(moleSteps);
 
-		PanelDetails fallyRoofSteps = new PanelDetails("Make sure to stretch!",
+		PanelDetails fallyRoofSteps = new PanelDetails(t("Make sure to stretch!"),
 			Collections.singletonList(completeAgiCourse), new SkillRequirement(Skill.AGILITY, 50, true));
 		fallyRoofSteps.setDisplayCondition(notCompleteAgiCourse);
 		fallyRoofSteps.setLockingStep(completeAgiCourseTask);
 		allSteps.add(fallyRoofSteps);
 
-		PanelDetails dwarvenHelmSteps = new PanelDetails("A snug fit", Arrays.asList(enterDwarvenMinesHelmet,
+		PanelDetails dwarvenHelmSteps = new PanelDetails(t("A snug fit"), Arrays.asList(enterDwarvenMinesHelmet,
 			equipDwarvenHelmet), new SkillRequirement(Skill.DEFENCE, 50, false), dwarvenHelmet, grimTales);
 		dwarvenHelmSteps.setDisplayCondition(notDwarvenHelmetDwarvenMines);
 		dwarvenHelmSteps.setLockingStep(dwarvenHelmetDwarvenMinesTask);
 		allSteps.add(dwarvenHelmSteps);
 
-		PanelDetails miningGuildSteps = new PanelDetails("Gold Rush!", Arrays.asList(enterDwarvenMines,
+		PanelDetails miningGuildSteps = new PanelDetails(t("Gold Rush!"), Arrays.asList(enterDwarvenMines,
 			enterMiningGuild), new SkillRequirement(Skill.MINING, 60, true), prospectorHelm);
 		miningGuildSteps.setDisplayCondition(notEnterMiningGuildWithProspector);
 		miningGuildSteps.setLockingStep(enterMiningGuildWithProspectorTask);
 		allSteps.add(miningGuildSteps);
 
-		PanelDetails warriorsGuildSteps = new PanelDetails("The Dragon Defender",
+		PanelDetails warriorsGuildSteps = new PanelDetails(t("The Dragon Defender"),
 			Collections.singletonList(enterWarriorsGuild), new WarriorsGuildAccessRequirement());
 		warriorsGuildSteps.setDisplayCondition(notEnterWarriorsGuild);
 		warriorsGuildSteps.setLockingStep(enterWarriorsGuildTask);
 		allSteps.add(warriorsGuildSteps);
 
-		PanelDetails blueDragonSteps = new PanelDetails("The Dragon Slayer", Arrays.asList(enterHerosGuild,
+		PanelDetails blueDragonSteps = new PanelDetails(t("The Dragon Slayer"), Arrays.asList(enterHerosGuild,
 			enterHerosGuildBasement, killBlueDragon), heroesQuest, combatGear, food, dragonfireProtection);
 		blueDragonSteps.setDisplayCondition(notKilledBlueDragon);
 		blueDragonSteps.setLockingStep(killedBlueDragonTask);
 		allSteps.add(blueDragonSteps);
 
-		PanelDetails crackSafeSteps = new PanelDetails("The cat burglar", Arrays.asList(enterRoguesDen, crackWallSafe),
+		PanelDetails crackSafeSteps = new PanelDetails(t("The cat burglar"), Arrays.asList(enterRoguesDen, crackWallSafe),
 			new SkillRequirement(Skill.THIEVING, 50, true));
 		crackSafeSteps.setDisplayCondition(notCrackedWallSafe);
 		crackSafeSteps.setLockingStep(crackedWallSafeTask);
 		allSteps.add(crackSafeSteps);
 
-		PanelDetails mindRunesSteps = new PanelDetails("Do you mind?", Arrays.asList(enterMindAltar, craftMindRunes),
+		PanelDetails mindRunesSteps = new PanelDetails(t("Do you mind?"), Arrays.asList(enterMindAltar, craftMindRunes),
 			new SkillRequirement(Skill.RUNECRAFT, 56, true), mindTiara, pureEss28);
 		mindRunesSteps.setDisplayCondition(notCraftedMindRunes);
 		mindRunesSteps.setLockingStep(craftedMindRunesTask);
 		allSteps.add(mindRunesSteps);
 
-		PanelDetails praySteps = new PanelDetails("Praise the Lord!", Arrays.asList(getProsySet, prayAtAltarSarim),
+		PanelDetails praySteps = new PanelDetails(t("Praise the Lord!"), Arrays.asList(getProsySet, prayAtAltarSarim),
 			new SkillRequirement(Skill.DEFENCE, 30, false), slugMenace, prosyHelm, prosyChest, prosyLegs);
 		praySteps.setDisplayCondition(notPraySarimAltarProsy);
 		praySteps.setLockingStep(praySarimAltarProsyTask);
 		allSteps.add(praySteps);
 
-		PanelDetails wyvernSteps = new PanelDetails("This ain't no dragon!", Arrays.asList(goToIceDungeon,
+		PanelDetails wyvernSteps = new PanelDetails(t("This ain't no dragon!"), Arrays.asList(goToIceDungeon,
 			enterWyvernCavern, killWyvern), new SkillRequirement(Skill.SLAYER, 72, true), combatGear, food,
 			wyvernProtection);
 		wyvernSteps.setDisplayCondition(notKilledWyvern);
 		wyvernSteps.setLockingStep(killedWyvernTask);
 		allSteps.add(wyvernSteps);
 
-		PanelDetails finishOffSteps = new PanelDetails("Finishing off", Collections.singletonList(claimReward));
+		PanelDetails finishOffSteps = new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward));
 		allSteps.add(finishOffSteps);
 
 		return allSteps;

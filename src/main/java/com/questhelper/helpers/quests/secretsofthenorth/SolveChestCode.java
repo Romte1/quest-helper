@@ -58,7 +58,7 @@ public class SolveChestCode extends QuestStep
 
 	public SolveChestCode(QuestHelper questHelper)
 	{
-		super(questHelper, "Open the north chest using the code \"7402\".");
+		super(questHelper, questHelper.t("Open the north chest using the code \"7402\"."));
 		highlightButtons.put(1, ARROW_ONE_DOWN);
 		highlightButtons.put(2, ARROW_TWO_DOWN);
 		highlightButtons.put(3, ARROW_THREE_DOWN);

@@ -144,7 +144,7 @@ public class CreatureOfFenkenstrain extends BasicQuestHelper
 
 		// TODO: Add magic req once rebased
 		telegrabOrCoins = new ItemRequirements(LogicType.OR,
-			"33 Magic and runes to cast telegrab, or 50 coins",
+			t("33 Magic and runes to cast telegrab, or 50 coins"),
 			coins50, telegrab);
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed();
 		ghostSpeakAmulet = new ItemRequirement("Ghostspeak amulet", ItemCollections.GHOSTSPEAK).isNotConsumed();
@@ -162,7 +162,7 @@ public class CreatureOfFenkenstrain extends BasicQuestHelper
 		starAmulet = new ItemRequirement("Star Amulet", ItemID.FENK_STAR_AMULET);
 		decapitatedHead = new ItemRequirement("Decapitated Head", ItemID.FENK_HEAD_EMPTY);
 		decapitatedHeadWithBrain = new ItemRequirement("Decapitated Head (with brain)", ItemID.FENK_HEAD_FULL);
-		armor = new ItemRequirement("Armour and weapons defeat a level 51 monster and run past level 72 monsters", -1, -1).isNotConsumed();
+		armor = new ItemRequirement(t("Armour and weapons defeat a level 51 monster and run past level 72 monsters"), -1, -1).isNotConsumed();
 		armor.setDisplayItemId(BankSlotIcons.getCombatGear());
 		cavernKey = new ItemRequirement("Cavern Key", ItemID.FENK_MAUSOLEUM_KEY);
 		torso = new ItemRequirement("Torso", ItemID.FENK_TORSO);
@@ -178,7 +178,7 @@ public class CreatureOfFenkenstrain extends BasicQuestHelper
 		towerKey = new ItemRequirement("Tower Key", ItemID.FENK_TOWER_KEY);
 
 		fenkenstrainTeleports = new ItemRequirement("Fenkenstrain's Castle Teleport", ItemID.TELETAB_FENK, 2);
-		teleportToFurnace = new ItemRequirement("Teleport to any furnace such as glory for Edgeville teleport, Ectophial to Port Phasmatys or a Falador teleport",
+		teleportToFurnace = new ItemRequirement(t("Teleport to any furnace such as glory for Edgeville teleport, Ectophial to Port Phasmatys or a Falador teleport"),
 			ItemCollections.AMULET_OF_GLORIES);
 		teleportToFurnace.addAlternates(ItemID.ECTOPHIAL, ItemID.POH_TABLET_FALADORTELEPORT);
 		staminaPotion = new ItemRequirement("Stamina potions", ItemCollections.STAMINA_POTIONS, -1);

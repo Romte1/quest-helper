@@ -163,20 +163,20 @@ public class DesertMedium extends ComplexStateQuestHelper
 		rope = new ItemRequirement("Rope", ItemID.ROPE).showConditioned(new Conditions(LogicType.OR, notOrangeSally,
 			notEagleTravel, notVisitGenie)).isNotConsumed();
 		smallFishingNet = new ItemRequirement("Small fishing net", ItemID.NET).showConditioned(notOrangeSally).isNotConsumed();
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES).showConditioned(notChopTeak).isNotConsumed();
-		lightSource = new ItemRequirement("Light source", ItemCollections.LIGHT_SOURCES)
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).showConditioned(notChopTeak).isNotConsumed();
+		lightSource = new ItemRequirement(t("Light source"), ItemCollections.LIGHT_SOURCES)
 			.showConditioned(notVisitGenie).isNotConsumed();
 		scrollOfRedir = new ItemRequirement("Scroll of redirection", ItemID.NZONE_REDIRECTION)
 			.showConditioned(new Conditions(notTPPollnivneach, notIronman));
-		teleToHouse = new TeleportItemRequirement("Teleport to house", ItemID.POH_TABLET_TELEPORTTOHOUSE)
+		teleToHouse = new TeleportItemRequirement(t("Teleport to house"), ItemID.POH_TABLET_TELEPORTTOHOUSE)
 			.showConditioned(new Conditions(notTPPollnivneach, notIronman));
 		harraPot = new ItemRequirement("Harralander potion (unf)", ItemID.HARRALANDERVIAL)
 			.showConditioned(notCombatPot);
 		goatHornDust = new ItemRequirement("Goat horn dust", ItemID.GROUND_DESERT_GOAT_HORN).showConditioned(notCombatPot);
 		camulet = new TeleportItemRequirement("Camulet", ItemID.CAMULET).showConditioned(notTPEnakhra);
-		iceCooler = new ItemRequirement("Ice cooler (bring multiple just in case)", ItemID.SLAYER_ICY_WATER).showConditioned(notDesertLizard);
+		iceCooler = new ItemRequirement(t("Ice cooler (bring multiple just in case)"), ItemID.SLAYER_ICY_WATER).showConditioned(notDesertLizard);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1);
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1);
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		desertBoots = new ItemRequirement("Desert boots", ItemID.DESERT_BOOTS).isNotConsumed();
@@ -184,7 +184,7 @@ public class DesertMedium extends ComplexStateQuestHelper
 		desertShirt = new ItemRequirement("Desert shirt", ItemID.DESERT_SHIRT).isNotConsumed();
 		waterskin = new ItemRequirement("Waterskin", ItemCollections.WATERSKIN).isNotConsumed();
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
 		inDesert = new ZoneRequirement(desert);
 		inEagleArea = new ZoneRequirement(eagleArea);
@@ -209,61 +209,61 @@ public class DesertMedium extends ComplexStateQuestHelper
 	public void setupSteps()
 	{
 		moveToEagle = new ObjectStep(this, ObjectID.EAGLEPEAK_ENTRANCE_CAVE_MULTI, new WorldPoint(2329, 3495, 0),
-			"Enter the cave at the top of Eagles' Peak. You can use a fairy ring to (AKQ), then head " +
-				"south to get there easily.");
+			t("Enter the cave at the top of Eagles' Peak. You can use a fairy ring to (AKQ), then head " +
+				"south to get there easily."));
 		eagleTravel = new NpcStep(this, NpcID.EAGLEPEAK_EAGLE_TODESERT, new WorldPoint(2027, 4964, 3),
-			"Use a rope on the Desert Eagle to travel to the Desert area.", rope.highlighted());
+			t("Use a rope on the Desert Eagle to travel to the Desert area."), rope.highlighted());
 
 		magicCarpet = new NpcStep(this, NpcID.MAGIC_CARPET_SELLER1, new WorldPoint(3310, 3108, 0),
-			"Talk to the rug merchant and travel to Uzer.", coins.quantity(200));
+			t("Talk to the rug merchant and travel to Uzer."), coins.quantity(200));
 		magicCarpet.addDialogSteps("Yes please.", "I want to travel to Uzer.", "Uzer");
 
 		phoenixFeather = new NpcStep(this, NpcID.GOLEM_PHOENIX, new WorldPoint(3417, 3154, 0),
-			"Pluck a feather from a Desert Phoenix.");
+			t("Pluck a feather from a Desert Phoenix."));
 
 		orangeSally = new ObjectStep(this, ObjectID.HUNTING_SAPLING_UP_ORANGE, new WorldPoint(3404, 3134, 0),
-			"Setup a net trap and catch an Orange Salamander in the Uzer hunting area.", rope, smallFishingNet);
+			t("Setup a net trap and catch an Orange Salamander in the Uzer hunting area."), rope, smallFishingNet);
 
-		combatPot = new ItemStep(this, "Create a combat potion in the desert. Note: Do not be within a city.",
+		combatPot = new ItemStep(this, t("Create a combat potion in the desert. Note: Do not be within a city."),
 			harraPot.highlighted(), goatHornDust.highlighted());
 		moveToDesert = new TileStep(this, new WorldPoint(3305, 3112, 0),
-			"Enter the desert and be out of any city limits (You must be losing health or water from the heat).");
+			t("Enter the desert and be out of any city limits (You must be losing health or water from the heat)."));
 
 		chopTeak = new ObjectStep(this, ObjectID.TEAKTREE, new WorldPoint(3510, 3073, 0),
-			"Chop some teak logs near Uzer.", axe);
+			t("Chop some teak logs near Uzer."), axe);
 
 		desertLizard = new NpcStep(this, NpcID.SLAYER_LIZARD_SMALL1_GREEN, new WorldPoint(3437, 3067, 0),
-			"Use an Ice cooler on a low hp Lizard in the desert.", iceCooler, combatGear);
+			t("Use an Ice cooler on a low hp Lizard in the desert."), iceCooler, combatGear);
 
 		prayElidinis = new ObjectStep(this, ObjectID.ELID_STATUETTE_PLACED, new WorldPoint(3427, 2930, 0),
-			"Pray at the Elidinis Statuette in Nardah. If it doesn't complete expend some prayer points then try again.");
+			t("Pray at the Elidinis Statuette in Nardah. If it doesn't complete expend some prayer points then try again."));
 
 		visitGenie = new NpcStep(this, NpcID.ELID_GENIE, new WorldPoint(3371, 9320, 0),
-			"Visit the genie.");
+			t("Visit the genie."));
 		moveToGenie = new ObjectStep(this, ObjectID.ELID_FALLOFF_5, new WorldPoint(3374, 2904, 0),
-			"Climb down the crevice west of Nardah.", rope, lightSource);
+			t("Climb down the crevice west of Nardah."), rope, lightSource);
 
 		talkToSimon = new NpcStep(this, NpcID.AGILITY_PYRAMID_SIMON, new WorldPoint(3346, 2827, 0),
-			"Talk to Simon Templeton.");
+			t("Talk to Simon Templeton."));
 		moveToPyramid = new ObjectStep(this, ObjectID.NTK_AGILITY_CLIMBING_ROCKS_1, new WorldPoint(3335, 2829, 0),
-			"Go to the Agility Pyramid.");
+			t("Go to the Agility Pyramid."));
 		agiPyramid = new ObjectStep(this, ObjectID.AGILITY_PYRAMID_STEPS1, new WorldPoint(3355, 2832, 0),
-			"Climb the Agility Pyramid and collect the pyramid top. Be sure to click continue in the dialog.");
+			t("Climb the Agility Pyramid and collect the pyramid top. Be sure to click continue in the dialog."));
 
-		tpEnakhra = new DetailedQuestStep(this, "Teleport to Enakhra's Temple with the Camulet.", camulet);
+		tpEnakhra = new DetailedQuestStep(this, t("Teleport to Enakhra's Temple with the Camulet."), camulet);
 
 		if (questHelperPlugin.getPlayerStateManager().getAccountType().isAnyIronman())
 		{
-			tpPollnivneach = new DetailedQuestStep(this, "Move your house to Pollnivneach, then enter your house " +
-				"there.", coins.quantity(7500));
+			tpPollnivneach = new DetailedQuestStep(this, t("Move your house to Pollnivneach, then enter your house " +
+				"there."), coins.quantity(7500));
 		}
 		else
 		{
-			tpPollnivneach = new DetailedQuestStep(this, "Teleport to Pollnivneach with a redirected house tablet.", scrollOfRedir, teleToHouse);
+			tpPollnivneach = new DetailedQuestStep(this, t("Teleport to Pollnivneach with a redirected house tablet."), scrollOfRedir, teleToHouse);
 		}
 
 		claimReward = new NpcStep(this, NpcID.JARR_DESERT_DIARY, new WorldPoint(3303, 3124, 0),
-			"Talk to Jarr at the Shantay pass to claim your reward!");
+			t("Talk to Jarr at the Shantay pass to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -303,7 +303,7 @@ public class DesertMedium extends ComplexStateQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Kill a Desert lizard (lvl 24)");
+		return Collections.singletonList(t("Kill a Desert lizard (lvl 24)"));
 	}
 
 	@Override
@@ -319,8 +319,8 @@ public class DesertMedium extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("Pharaoh's sceptre can hold up to 25 charges"),
-			new UnlockReward("One teleport to Nardah per day on desert amulet")
+			new UnlockReward(t("Pharaoh's sceptre can hold up to 25 charges")),
+			new UnlockReward(t("One teleport to Nardah per day on desert amulet"))
 		);
 	}
 
@@ -329,80 +329,80 @@ public class DesertMedium extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails combatPotionSteps = new PanelDetails("Combat Potion", Arrays.asList(moveToDesert, combatPot),
+		PanelDetails combatPotionSteps = new PanelDetails(t("Combat Potion"), Arrays.asList(moveToDesert, combatPot),
 			new SkillRequirement(Skill.HERBLORE, 36, true), harraPot, goatHornDust);
 		combatPotionSteps.setDisplayCondition(notCombatPot);
 		combatPotionSteps.setLockingStep(combatPotTask);
 		allSteps.add(combatPotionSteps);
 
-		PanelDetails phoenixFeatherSteps = new PanelDetails("Phoenix Feather",
+		PanelDetails phoenixFeatherSteps = new PanelDetails(t("Phoenix Feather"),
 			Collections.singletonList(phoenixFeather), new SkillRequirement(Skill.THIEVING, 25, true));
 		phoenixFeatherSteps.setDisplayCondition(notPhoenixFeather);
 		phoenixFeatherSteps.setLockingStep(phoenixFeatherTask);
 		allSteps.add(phoenixFeatherSteps);
 
-		PanelDetails orangeSalamanderSteps = new PanelDetails("Orange Salamander",
+		PanelDetails orangeSalamanderSteps = new PanelDetails(t("Orange Salamander"),
 			Collections.singletonList(orangeSally), new SkillRequirement(Skill.HUNTER, 47, true), rope, smallFishingNet);
 		orangeSalamanderSteps.setDisplayCondition(notOrangeSally);
 		orangeSalamanderSteps.setLockingStep(orangeSallyTask);
 		allSteps.add(orangeSalamanderSteps);
 
-		PanelDetails magicCarpetSteps = new PanelDetails("Magic Carpet to Uzer",
+		PanelDetails magicCarpetSteps = new PanelDetails(t("Magic Carpet to Uzer"),
 			Collections.singletonList(magicCarpet), theGolem, coins.quantity(200));
 		magicCarpetSteps.setDisplayCondition(notMagicCarpet);
 		magicCarpetSteps.setLockingStep(magicCarpetTask);
 		allSteps.add(magicCarpetSteps);
 
-		PanelDetails chopTeakAtUzerSteps = new PanelDetails("Chop Teak at Uzer", Collections.singletonList(chopTeak),
+		PanelDetails chopTeakAtUzerSteps = new PanelDetails(t("Chop Teak at Uzer"), Collections.singletonList(chopTeak),
 			new SkillRequirement(Skill.WOODCUTTING, 35, true), axe);
 		chopTeakAtUzerSteps.setDisplayCondition(notChopTeak);
 		chopTeakAtUzerSteps.setLockingStep(chopTeakTask);
 		allSteps.add(chopTeakAtUzerSteps);
 
-		PanelDetails desertLizardSteps = new PanelDetails("Desert Lizard", Collections.singletonList(desertLizard),
+		PanelDetails desertLizardSteps = new PanelDetails(t("Desert Lizard"), Collections.singletonList(desertLizard),
 			combatGear, iceCooler);
 		desertLizardSteps.setDisplayCondition(notDesertLizard);
 		desertLizardSteps.setLockingStep(desertLizardTask);
 		allSteps.add(desertLizardSteps);
 
-		PanelDetails elidinisStatuetteSteps = new PanelDetails("Pray at Elidinis Statuette",
+		PanelDetails elidinisStatuetteSteps = new PanelDetails(t("Pray at Elidinis Statuette"),
 			Collections.singletonList(prayElidinis), spiritsOfTheElid);
 		elidinisStatuetteSteps.setDisplayCondition(notPrayElidinis);
 		elidinisStatuetteSteps.setLockingStep(prayElidinisTask);
 		allSteps.add(elidinisStatuetteSteps);
 
-		PanelDetails visitTheGenieSteps = new PanelDetails("Visit the Genie", Arrays.asList(moveToGenie, visitGenie),
+		PanelDetails visitTheGenieSteps = new PanelDetails(t("Visit the Genie"), Arrays.asList(moveToGenie, visitGenie),
 			spiritsOfTheElid, rope, lightSource);
 		visitTheGenieSteps.setDisplayCondition(notVisitGenie);
 		visitTheGenieSteps.setLockingStep(visitGenieTask);
 		allSteps.add(visitTheGenieSteps);
 
-		PanelDetails agilityPyramidSteps = new PanelDetails("Agility Pyramid", Arrays.asList(moveToPyramid,
+		PanelDetails agilityPyramidSteps = new PanelDetails(t("Agility Pyramid"), Arrays.asList(moveToPyramid,
 			talkToSimon, agiPyramid), new SkillRequirement(Skill.AGILITY, 30, true));
 		agilityPyramidSteps.setDisplayCondition(notAgiPyramid);
 		agilityPyramidSteps.setLockingStep(agiPyramidTask);
 		allSteps.add(agilityPyramidSteps);
 
-		PanelDetails tpEnakhraSteps = new PanelDetails("Camulet to Enakhra's Temple",
+		PanelDetails tpEnakhraSteps = new PanelDetails(t("Camulet to Enakhra's Temple"),
 			Collections.singletonList(tpEnakhra), enakhrasLament, camulet);
 		tpEnakhraSteps.setDisplayCondition(notTPEnakhra);
 		tpEnakhraSteps.setLockingStep(tpEnakhraTask);
 		allSteps.add(tpEnakhraSteps);
 
-		PanelDetails eagleSteps = new PanelDetails("Eagle Travel to Desert", Arrays.asList(moveToEagle, eagleTravel),
+		PanelDetails eagleSteps = new PanelDetails(t("Eagle Travel to Desert"), Arrays.asList(moveToEagle, eagleTravel),
 			rope);
 		eagleSteps.setDisplayCondition(notEagleTravel);
 		eagleSteps.setLockingStep(eagleTravelTask);
 		allSteps.add(eagleSteps);
 
-		PanelDetails teleportToPollnivneachSteps = new PanelDetails("Pollnivneach House",
+		PanelDetails teleportToPollnivneachSteps = new PanelDetails(t("Pollnivneach House"),
 			Collections.singletonList(tpPollnivneach), new SkillRequirement(Skill.CONSTRUCTION, 20, false), teleToHouse,
 			scrollOfRedir);
 		teleportToPollnivneachSteps.setDisplayCondition(notTPPollnivneach);
 		teleportToPollnivneachSteps.setLockingStep(tpPollnivneachTask);
 		allSteps.add(teleportToPollnivneachSteps);
 
-		allSteps.add(new PanelDetails("Finishing off", Collections.singletonList(claimReward)));
+		allSteps.add(new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward)));
 
 		return allSteps;
 	}

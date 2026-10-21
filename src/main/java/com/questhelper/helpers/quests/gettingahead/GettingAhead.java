@@ -150,7 +150,7 @@ public class GettingAhead extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		itemsTip = new ItemRequirement("You can get all the required items during the quest.", -1, -1);
+		itemsTip = new ItemRequirement(t("You can get all the required items during the quest."), -1, -1);
 
 		//Recommended
 		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();

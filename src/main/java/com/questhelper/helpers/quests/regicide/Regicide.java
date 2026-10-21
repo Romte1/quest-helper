@@ -221,8 +221,8 @@ public class Regicide extends BasicQuestHelper
 		food = new ItemRequirement("Food", -1, -1);
 		food.setDisplayItemId(ItemID.SHARK);
 		staminaPotions = new ItemRequirement("Stamina Potions", ItemCollections.STAMINA_POTIONS);
-		coins = new ItemRequirement("Coins (to buy food, 75 ea)", ItemCollections.COINS, 750);
-		agilityPotions = new ItemRequirement("Agility boosting items like Summer Pie (+5) or Agility potion (+3)",
+		coins = new ItemRequirement(t("Coins (to buy food, 75 ea)"), ItemCollections.COINS, 750);
+		agilityPotions = new ItemRequirement(t("Agility boosting items like Summer Pie (+5) or Agility potion (+3)"),
 			ItemID.SUMMER_PIE, 5).hideConditioned(new SkillRequirement(Skill.AGILITY, 56));
 		agilityPotions.addAlternates(ItemID.UNFINISHED_SUMMER_PIE_1);
 		agilityPotions.addAlternates(ItemCollections.AGILITY_POTIONS);
@@ -246,7 +246,7 @@ public class Regicide extends BasicQuestHelper
 		stripOfCloth.appendToTooltip(t("There is a loom available at the Falador Farm"));
 		pestle = new ItemRequirement("Pestle and mortar", ItemID.PESTLE_AND_MORTAR).isNotConsumed();
 
-		gloves = new ItemRequirement("Gloves which fully cover your hand", ItemCollections.QUICKLIME_GLOVES).isNotConsumed();
+		gloves = new ItemRequirement(t("Gloves which fully cover your hand"), ItemCollections.QUICKLIME_GLOVES).isNotConsumed();
 		gloves.addAlternates(ItemCollections.GRACEFUL_GLOVES);
 		gloves.setUrlSuffix("Quicklime#Gloves");
 		gloves.setTooltip(t("'Go to wiki..' to see valid options for handling Quicklime"));
@@ -261,10 +261,10 @@ public class Regicide extends BasicQuestHelper
 		antipoisons.setTooltip(t("No amount specified. Bring as many doses as you feel comfortable bringing."));
 		faladorTeleport = new ItemRequirement("Falador teleport", ItemID.POH_TABLET_FALADORTELEPORT);
 		westArdougneTeleport = new ItemRequirement("West Ardougne teleport", ItemID.TELETAB_WESTARDY, 4);
-		summerPie = new ItemRequirement("Summer pie as food + agility boost", ItemID.SUMMER_PIE, -1);
+		summerPie = new ItemRequirement(t("Summer pie as food + agility boost"), ItemID.SUMMER_PIE, -1);
 		summerPie.addAlternates(ItemID.HALF_SUMMER_PIE);
 		summerPie.setTooltip(t("This is, most likely, not needed if you have 70+ Agility. Bring more if you have lower Agility."));
-		axe = new ItemRequirement("An Axe to cook raw rabbit in case you fail too many obstacles.", ItemCollections.AXES).isNotConsumed();
+		axe = new ItemRequirement(t("An Axe to cook raw rabbit in case you fail too many obstacles."), ItemCollections.AXES).isNotConsumed();
 
 		crystalPendant = new ItemRequirement("Crystal pendant", ItemID.REGICIDE_CRYSTAL_PENDANT);
 		crystalPendant.setTooltip(t("You can get another from Lord Iorwerth"));

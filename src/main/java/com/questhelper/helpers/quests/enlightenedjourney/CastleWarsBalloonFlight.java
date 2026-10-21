@@ -59,7 +59,7 @@ public class CastleWarsBalloonFlight extends ComplexStateQuestHelper
 		sections.put(11, section2);
 		sections.put(12, section3);
 
-		fly = new BalloonFlightStep(this, "Fly the balloon on Entrana to Castle Wars.", sections, yewLogs);
+		fly = new BalloonFlightStep(this, t("Fly the balloon on Entrana to Castle Wars."), sections, yewLogs);
 		return fly;
 	}
 
@@ -95,7 +95,7 @@ public class CastleWarsBalloonFlight extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Collections.singletonList(
-			new UnlockReward("Ability to fly via balloon to Castle Wars with 1 yew log")
+			new UnlockReward(t("Ability to fly via balloon to Castle Wars with 1 yew log"))
 		);
 	}
 
@@ -105,7 +105,7 @@ public class CastleWarsBalloonFlight extends ComplexStateQuestHelper
 	{
 		ArrayList<PanelDetails> allSteps = new ArrayList<>();
 
-		allSteps.add(new PanelDetails("Flying to Castle Wars", Collections.singletonList(fly), yewLogs));
+		allSteps.add(new PanelDetails(t("Flying to Castle Wars"), Collections.singletonList(fly), yewLogs));
 
 		return allSteps;
 	}

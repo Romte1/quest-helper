@@ -314,13 +314,13 @@ public class DesertTreasureII extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		waterSource = new ItemRequirement("Full waterskin, or any protection from the desert", ItemID.WATER_CIRCLET_CHARGED);
+		waterSource = new ItemRequirement(t("Full waterskin, or any protection from the desert"), ItemID.WATER_CIRCLET_CHARGED);
 		waterSource.addAlternates(ItemID.DESERT_AMULET_ELITE, ItemID.WATER_SKIN4, ItemID.WATER_SKIN3, ItemID.WATER_SKIN2, ItemID.WATER_SKIN1);
 		ancientMagicksActive = new SpellbookRequirement(Spellbook.ANCIENT);
 
 		// TODO: Add check where IF you have nardah teleport in scroll box, show scroll box as requirement
 		VarbitRequirement nardahTeleportInBook = new VarbitRequirement(VarbitID.BOOKOFSCROLLS_NARDAH, 1, Operation.GREATER_EQUAL);
-		nardahTeleport = new ItemRequirement("Nardah teleport, or Fairy Ring to DLQ", ItemID.DESERT_AMULET_ELITE);
+		nardahTeleport = new ItemRequirement(t("Nardah teleport, or Fairy Ring to DLQ"), ItemID.DESERT_AMULET_ELITE);
 		nardahTeleport.setAdditionalOptions(nardahTeleportInBook);
 		nardahTeleport.addAlternates(ItemID.DESERT_AMULET_HARD, ItemID.TELEPORTSCROLL_NARDAH, ItemID.DESERT_AMULET_MEDIUM);
 		nardahTeleport.addAlternates(ItemCollections.FAIRY_STAFF);
@@ -340,7 +340,7 @@ public class DesertTreasureII extends BasicQuestHelper
 			digsitePendant
 		);
 
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES);
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES);
 
 		combatGear = new ItemRequirement("Combat gear", -1, -1);
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
@@ -363,7 +363,7 @@ public class DesertTreasureII extends BasicQuestHelper
 			new ItemRequirement("Chaos runes", ItemID.CHAOSRUNE, 4),
 			new ItemRequirement("Fire runes", ItemID.FIRERUNE, 2),
 			new ItemRequirement("Air runes", ItemID.AIRRUNE, 2));
-		allBursts = new ItemRequirements("Runes for shadow, smoke, blood, and ice burst",
+		allBursts = new ItemRequirements(t("Runes for shadow, smoke, blood, and ice burst"),
 			new ItemRequirement("Death runes", ItemID.DEATHRUNE, 8),
 			new ItemRequirement("Chaos runes", ItemID.CHAOSRUNE, 16),
 			new ItemRequirement("Blood runes", ItemID.BLOODRUNE, 2),
@@ -372,7 +372,7 @@ public class DesertTreasureII extends BasicQuestHelper
 			new ItemRequirement("Air runes", ItemID.AIRRUNE, 3),
 			new ItemRequirement("Fire runes", ItemID.FIRERUNE, 2));
 
-		freezes = new ItemRequirement("Freezing spells STRONGLY recommended + reasonable mage accuracy", -1);
+		freezes = new ItemRequirement(t("Freezing spells STRONGLY recommended + reasonable mage accuracy"), -1);
 
 		rangedCombatGear = new ItemRequirement("Ranged combat gear", -1);
 		rangedCombatGear.setDisplayItemId(BankSlotIcons.getRangedCombatGear());
@@ -384,7 +384,7 @@ public class DesertTreasureII extends BasicQuestHelper
 		facemask = new ItemRequirement("Facemask", ItemCollections.SLAYER_HELMETS);
 		facemask.addAlternates(ItemID.SLAYER_FACEMASK, ItemID.GASMASK);
 
-		eyeTeleport = new ItemRequirement("Teleport to Temple of the Eye via minigame teleport or Amulet of the Eye", ItemID.GOTR_AMULET_OF_THE_EYE_RED);
+		eyeTeleport = new ItemRequirement(t("Teleport to Temple of the Eye via minigame teleport or Amulet of the Eye"), ItemID.GOTR_AMULET_OF_THE_EYE_RED);
 		eyeTeleport.addAlternates(ItemID.GOTR_AMULET_OF_THE_EYE, ItemID.GOTR_AMULET_OF_THE_EYE_GREEN, ItemID.GOTR_AMULET_OF_THE_EYE_BLUE);
 
 		arclight = new ItemRequirement("Arclight", ItemID.ARCLIGHT);
@@ -394,7 +394,7 @@ public class DesertTreasureII extends BasicQuestHelper
 		meleeCombatGear.setDisplayItemId(BankSlotIcons.getMeleeCombatGear());
 		magicCombatGear = new ItemRequirement("Magic combat gear", -1, -1);
 		magicCombatGear.setDisplayItemId(BankSlotIcons.getMagicCombatGear());
-		lassarTeleport = new ItemRequirement("Mind altar or lassar teleport", ItemID.TELETAB_MIND_ALTAR);
+		lassarTeleport = new ItemRequirement(t("Mind altar or lassar teleport"), ItemID.TELETAB_MIND_ALTAR);
 		lassarTeleport.addAlternates(ItemID.TABLET_LASSAR);
 
 		ringOfVisibility = new ItemRequirement("Ring of visibility", ItemID.FD_RING_VISIBILITY);
@@ -577,160 +577,160 @@ public class DesertTreasureII extends BasicQuestHelper
 	{
 		attemptToEnterVaultDoor = new ObjectStep(this, ObjectID.DT2_DESERT_VAULT_DOOR,
 			new WorldPoint(3511, 2971, 0),
-			"Attempt to enter the Vault door north-east of Nardah.", ancientMagicksActive);
+			t("Attempt to enter the Vault door north-east of Nardah."), ancientMagicksActive);
 		attemptToEnterVaultDoor.addTeleport(nardahTeleport);
 		attemptToEnterVaultDoor.addDialogStep("Yes.");
 
 		attemptToEnterVaultDoor2 = new ObjectStep(this, ObjectID.DT2_DESERT_VAULT_DOOR,
 			new WorldPoint(3511, 2971, 0),
-			"Attempt to enter the Vault door north-east of Nardah.");
+			t("Attempt to enter the Vault door north-east of Nardah."));
 		attemptToEnterVaultDoor.addSubSteps(attemptToEnterVaultDoor2);
 
 		talkToAsgarnia = new NpcStep(this, NpcID.DT2_ASGARNIA_SMITH_VIS,
-			new WorldPoint(3932, 9631, 1), "Talk to Asgarnia Smith inside the Vault.");
+			new WorldPoint(3932, 9631, 1), t("Talk to Asgarnia Smith inside the Vault."));
 
 		inspectPlaque = new ObjectStep(this, ObjectID.DT2_VAULT_PLAQUE,
-			new WorldPoint(3944, 9631, 1), "Inspect the plaque.");
+			new WorldPoint(3944, 9631, 1), t("Inspect the plaque."));
 
 		inspectStatueNE = new ObjectStep(this, ObjectID.DT2_VAULT_VARDORVIS_STATUE, new WorldPoint(3942, 9636, 1),
-			"Inspect the north-east statue.");
+			t("Inspect the north-east statue."));
 		inspectStatueNW = new ObjectStep(this, ObjectID.DT2_VAULT_WHISPERER_STATUE, new WorldPoint(3932, 9636, 1),
-			"Inspect the north-west statue.");
+			t("Inspect the north-west statue."));
 		inspectStatueSW = new ObjectStep(this, ObjectID.DT2_VAULT_SUCELLUS_STATUE, new WorldPoint(3932, 9626, 1),
-			"Inspect the south-west statue.");
+			t("Inspect the south-west statue."));
 		inspectStatueSE = new ObjectStep(this, ObjectID.DT2_VAULT_PERSERIYA_STATUE, new WorldPoint(3942, 9626, 1),
-			"Inspect the south-east statue.");
+			t("Inspect the south-east statue."));
 
 		talkToAsgarniaAgain = new NpcStep(this, NpcID.DT2_ASGARNIA_SMITH_VIS,
-			new WorldPoint(3932, 9631, 1), "Talk to Asgarnia Smith inside the Vault.");
+			new WorldPoint(3932, 9631, 1), t("Talk to Asgarnia Smith inside the Vault."));
 
 		talkToBalando = new NpcStep(this, NpcID.ARCHAEOLOGICAL_EXPERT, new WorldPoint(3359, 3334, 0),
-			"Talk to the Terry Balando in the Exam Centre found south-east of Varrock, " +
-				"directly south of the Digsite.");
+			t("Talk to the Terry Balando in the Exam Centre found south-east of Varrock, " +
+				"directly south of the Digsite."));
 		talkToBalando.addTeleport(senntistenTeleport);
 
 		operateWinch = new ObjectStep(this, ObjectID.DT2_DIGSITE_WINCH, new WorldPoint(3384, 3418, 0),
-			"Enter the winch on the east side of the Digsite.", combatGear);
+			t("Enter the winch on the east side of the Digsite."), combatGear);
 		talkToBanikan = new NpcStep(this, NpcID.DT2_BANIKAN_VIS, new WorldPoint(3409, 9815, 0),
-			"Talk to Dr Banikan.");
+			t("Talk to Dr Banikan."));
 
 		getPickaxe = new ObjectStep(this, ObjectID.DT2_DIGSITE_PICKAXE_CRATE, new WorldPoint(3414, 9819, 0),
-			"Get a pickaxe from the crate in the north-east of the cavern.");
+			t("Get a pickaxe from the crate in the north-east of the cavern."));
 
 		mineRocks = new ObjectStep(this, ObjectID.DT2_DIGSITE_CREVICE, new WorldPoint(3411, 9811, 0),
-			"Mine the rocks in the south-east of the cavern.", pickaxe);
+			t("Mine the rocks in the south-east of the cavern."), pickaxe);
 
 		enterDigsiteHole = new ObjectStep(this, ObjectID.DT2_DIGSITE_CREVICE, new WorldPoint(3411, 9811, 0),
-			"Enter the hole in the south-east of the cavern, ready for a fight.", combatGear);
+			t("Enter the hole in the south-east of the cavern, ready for a fight."), combatGear);
 
 		enterDigsiteHoleAgain = new ObjectStep(this, ObjectID.DT2_DIGSITE_CREVICE, new WorldPoint(3411, 9811, 0),
-			"Enter the hole in the south-east of the cavern.");
+			t("Enter the hole in the south-east of the cavern."));
 
 		killAncientGuardian = new NpcStep(this, NpcID.DT2_ANCIENT_GUARDIAN_SHIELD, new WorldPoint(2783, 6431, 0)
-			, "Kill the Ancient Guardian. The shield needs to be broken to hurt it, " +
-			"and it will regenerate the shield unless you are using melee attacks with a pickaxe in the inventory.", combatGear);
+			, t("Kill the Ancient Guardian. The shield needs to be broken to hurt it, " +
+			"and it will regenerate the shield unless you are using melee attacks with a pickaxe in the inventory."), combatGear);
 		((NpcStep) killAncientGuardian).addAlternateNpcs(NpcID.DT2_ANCIENT_GUARDIAN);
 
 		talkToBanikanInGolemRoom = new NpcStep(this, NpcID.DT2_BANIKAN_VIS, new WorldPoint(2783, 6431, 0),
-			"Talk to Dr Banikan in the room you defeated the Ancient Guardian.");
+			t("Talk to Dr Banikan in the room you defeated the Ancient Guardian."));
 		talkToBanikanInGolemRoom.addSubSteps(enterDigsiteHoleAgain);
 
 		inspectGolem = new ObjectStep(this, ObjectID.DT2_WAR_ROOM_WARMIND, new WorldPoint(2783, 6444, 0),
-			"Inspect the golem to the north.");
+			t("Inspect the golem to the north."));
 		inspectAltar = new ObjectStep(this, ObjectID.DT2_WAR_ROOM_ALTAR, new WorldPoint(2773, 6442, 0),
-			"Inspect the altar to the north-west.");
+			t("Inspect the altar to the north-west."));
 
 		castOnBloodStatue = new NpcStep(this, NpcID.DT2_WAR_ROOM_BLOOD_TOTEM_INACTIVE, new WorldPoint(2775, 6445, 0),
-			"Cast blood burst or higher on the blood totem.", bloodBurstRunes);
+			t("Cast blood burst or higher on the blood totem."), bloodBurstRunes);
 		castOnBloodStatue.addIcon(ItemID.FD_BLOOD_DIAMOND);
 		castOnBloodStatue.addSpellHighlight(AncientSpells.BLOOD_BURST);
 		castOnBloodStatue.addSpellHighlight(AncientSpells.BLOOD_BLITZ);
 		castOnBloodStatue.addSpellHighlight(AncientSpells.BLOOD_BARRAGE);
 
 		castOnShadowStatue = new NpcStep(this, NpcID.DT2_WAR_ROOM_SHADOW_TOTEM_INACTIVE, new WorldPoint(2771, 6445, 0),
-			"Cast shadow burst or higher on the shadow totem.", shadowBurstRunes);
+			t("Cast shadow burst or higher on the shadow totem."), shadowBurstRunes);
 		castOnShadowStatue.addIcon(ItemID.FD_DARK_DIAMOND);
 		castOnShadowStatue.addSpellHighlight(AncientSpells.SHADOW_BURST);
 		castOnShadowStatue.addSpellHighlight(AncientSpells.SHADOW_BLITZ);
 		castOnShadowStatue.addSpellHighlight(AncientSpells.SHADOW_BARRAGE);
 
 		castOnSmokeStatue = new NpcStep(this, NpcID.DT2_WAR_ROOM_SMOKE_TOTEM_INACTIVE, new WorldPoint(2771, 6439, 0),
-			"Cast smoke burst or higher on the smoke totem.", smokeBurstRunes);
+			t("Cast smoke burst or higher on the smoke totem."), smokeBurstRunes);
 		castOnSmokeStatue.addIcon(ItemID.FD_DIAMOND_FIRE);
 		castOnSmokeStatue.addSpellHighlight(AncientSpells.SMOKE_BURST);
 		castOnSmokeStatue.addSpellHighlight(AncientSpells.SMOKE_BLITZ);
 		castOnSmokeStatue.addSpellHighlight(AncientSpells.SMOKE_BARRAGE);
 
 		castOnIceStatue = new NpcStep(this, NpcID.DT2_WAR_ROOM_ICE_TOTEM_INACTIVE, new WorldPoint(2775, 6439, 0),
-			"Cast ice burst or higher on the smoke totem.", iceBurstRunes);
+			t("Cast ice burst or higher on the smoke totem."), iceBurstRunes);
 		castOnIceStatue.addIcon(ItemID.FD_ICEDIAMOND);
 		castOnIceStatue.addSpellHighlight(AncientSpells.ICE_BURST);
 		castOnIceStatue.addSpellHighlight(AncientSpells.ICE_BLITZ);
 		castOnIceStatue.addSpellHighlight(AncientSpells.ICE_BARRAGE);
 
 		searchCrateForCharges = new ObjectStep(this, ObjectID.DT2_WAR_ROOM_CELL_CRATE,
-			new WorldPoint(2780, 6440, 0), "Search the crate in the room with the golem.");
+			new WorldPoint(2780, 6440, 0), t("Search the crate in the room with the golem."));
 		imbueAtAltar = new ObjectStep(this, ObjectID.DT2_WAR_ROOM_ALTAR, new WorldPoint(2773, 6442, 0),
-			"Imbue the cells at the altar.", uncharedCells);
+			t("Imbue the cells at the altar."), uncharedCells);
 
 		chargeGolem = new ObjectStep(this, ObjectID.DT2_WAR_ROOM_WARMIND, new WorldPoint(2783, 6444, 0),
-			"Inspect the golem again.");
+			t("Inspect the golem again."));
 
 		solveGolemPuzzle = new GolemPuzzleStep(this);
 
 		operateGolem = new ObjectStep(this, ObjectID.DT2_WAR_ROOM_WARMIND, new WorldPoint(2783, 6444, 0),
-			"Operate the golem, and search for the terms : \"Vardorvis\", \"Perseriya\", \"Sucellus\", and \"Whisperer\". " +
-				"Make sure to talk to Banikan about each one!");
+			t("Operate the golem, and search for the terms : \"Vardorvis\", \"Perseriya\", \"Sucellus\", and \"Whisperer\". " +
+				"Make sure to talk to Banikan about each one!"));
 		operateGolem.addDialogStep("Yes.");
 
 		searchVardorvis = new ObjectStep(this, ObjectID.DT2_WAR_ROOM_WARMIND, new WorldPoint(2783, 6444, 0),
-			"Operate the golem, and search for the term : \"Vardorvis\".");
+			t("Operate the golem, and search for the term : \"Vardorvis\"."));
 		searchVardorvis.addDialogStep("Yes.");
 		searchPerseriya = new ObjectStep(this, ObjectID.DT2_WAR_ROOM_WARMIND, new WorldPoint(2783, 6444, 0),
-			"Operate the golem, and search for the terms : \"Perseriya\".");
+			t("Operate the golem, and search for the terms : \"Perseriya\"."));
 		searchPerseriya.addDialogStep("Yes.");
 		searchSucellus = new ObjectStep(this, ObjectID.DT2_WAR_ROOM_WARMIND, new WorldPoint(2783, 6444, 0),
-			"Operate the golem, and search for the terms : \"Sucellus\".");
+			t("Operate the golem, and search for the terms : \"Sucellus\"."));
 		searchSucellus.addDialogStep("Yes.");
 		searchWhisperer = new ObjectStep(this, ObjectID.DT2_WAR_ROOM_WARMIND, new WorldPoint(2783, 6444, 0),
-			"Operate the golem, and search for the terms : \"Whisperer\".");
+			t("Operate the golem, and search for the terms : \"Whisperer\"."));
 		searchWhisperer.addDialogStep("Yes.");
 
 		askAboutVardorvis = new NpcStep(this, NpcID.DT2_BANIKAN_VIS, new WorldPoint(2783, 6444, 0),
-			"Ask Dr Banikan about Vardorvis.");
+			t("Ask Dr Banikan about Vardorvis."));
 		askAboutVardorvis.addDialogStep("Any thoughts on Vardorvis?");
 		askAboutPerseriya = new NpcStep(this, NpcID.DT2_BANIKAN_VIS, new WorldPoint(2783, 6444, 0),
-			"Ask Dr Banikan about Perseriya.");
+			t("Ask Dr Banikan about Perseriya."));
 		askAboutPerseriya.addDialogStep("Any thoughts on Perseriya?");
 		askAboutSucellus = new NpcStep(this, NpcID.DT2_BANIKAN_VIS, new WorldPoint(2783, 6444, 0),
-			"Ask Dr Banikan about Sucellus.");
+			t("Ask Dr Banikan about Sucellus."));
 		askAboutSucellus.addDialogStep("Any thoughts on Vardorvis?");
 		askAboutWhisperer = new NpcStep(this, NpcID.DT2_BANIKAN_VIS, new WorldPoint(2783, 6444, 0),
-			"Ask Dr Banikan about Whisperer.");
+			t("Ask Dr Banikan about Whisperer."));
 		askAboutWhisperer.addDialogStep("Any thoughts on Whisperer?");
 
 		operateGolem.addSubSteps(searchVardorvis, searchPerseriya, searchSucellus, searchWhisperer, askAboutVardorvis,
 			askAboutPerseriya, askAboutSucellus, askAboutWhisperer);
 
 		talkToBanikanAfterGolem = new NpcStep(this, NpcID.DT2_BANIKAN_VIS, new WorldPoint(2783, 6444, 0),
-			"Talk to Banikan about what to do next.");
+			t("Talk to Banikan about what to do next."));
 
 		operateGolemFrostenhorn = new ObjectStep(this, ObjectID.DT2_WAR_ROOM_WARMIND, new WorldPoint(2783, 6444, 0),
-			"Try operating the golem again until Banikan leaves, and the golem lets you know the last search term.");
+			t("Try operating the golem again until Banikan leaves, and the golem lets you know the last search term."));
 
 		/* Vardorvis */
-		NpcStep talkToElissa = new NpcStep(this, NpcID.GOLEM_ELISSA, new WorldPoint(3378, 3428, 0), "Talk to Elissa in the north-east of the Digsite on the surface.");
+		NpcStep talkToElissa = new NpcStep(this, NpcID.GOLEM_ELISSA, new WorldPoint(3378, 3428, 0), t("Talk to Elissa in the north-east of the Digsite on the surface."));
 		talkToElissa.addDialogStep("I hear you visited Lovakengj recently.");
 		talkToElissa.addTeleport(senntistenTeleport);
 
 		vardorvisSteps = new VardorvisSteps(this, talkToElissa);
-		perseriyaSteps = new PerseriyaSteps(this, new DetailedQuestStep(this, "Do Perseriya steps."));
-		sucellusSteps = new SucellusSteps(this, new DetailedQuestStep(this, "Do Sucellus steps."));
-		whispererSteps = new WhispererSteps(this, new DetailedQuestStep(this, "Do Whisperer steps."));
+		perseriyaSteps = new PerseriyaSteps(this, new DetailedQuestStep(this, t("Do Perseriya steps.")));
+		sucellusSteps = new SucellusSteps(this, new DetailedQuestStep(this, t("Do Sucellus steps.")));
+		whispererSteps = new WhispererSteps(this, new DetailedQuestStep(this, t("Do Whisperer steps.")));
 
 		returnToDesertWithFinalMedallion = new ObjectStep(this, ObjectID.DT2_DESERT_VAULT_DOOR,
 			new WorldPoint(3511, 2971, 0),
-			"Return to the Vault door north-east of Nardah with the final medallion. Come equipped with two combat styles.",
+			t("Return to the Vault door north-east of Nardah with the final medallion. Come equipped with two combat styles."),
 			whisperersMedallion.hideConditioned(finishedWhisperer),
 			vardorvisMedallion.hideConditioned(finishedVardorvis),
 			sucellusMedallion.hideConditioned(finishedSucellus),
@@ -739,17 +739,17 @@ public class DesertTreasureII extends BasicQuestHelper
 		returnToDesertWithFinalMedallion.addTeleport(nardahTeleport);
 
 		searchBedForHairClip = new ObjectStep(this, ObjectID.DT2_HIDEOUT_BED, new WorldPoint(3103, 9246, 0),
-			"Search the bed for a hairclip.");
+			t("Search the bed for a hairclip."));
 		unlockCell = new ObjectStep(this, ObjectID.DT2_HIDEOUT_PRISONGATE, new WorldPoint(3107, 9248, 0),
-			"Escape the cell. Guess the correct code to open, with correct numbers in the correct place being marked in green, and correct numbers in the wrong places being marked with blue.", hairClip);
+			t("Escape the cell. Guess the correct code to open, with correct numbers in the correct place being marked in green, and correct numbers in the wrong places being marked with blue."), hairClip);
 		getItemsFromCell = new ObjectStep(this, ObjectID.DT2_HIDEOUT_CHEST, new WorldPoint(3115, 9263, 0),
-			"Retrieve your items from the chest in the north-east room.");
+			t("Retrieve your items from the chest in the north-east room."));
 		investigateAltar = new ObjectStep(this, ObjectID.DT2_HIDEOUT_ALTAR_OP, new WorldPoint(3086, 9260, 0),
-			"Inspect the altar in the north-west room.");
-		fightMysteriousFigure = new NpcStep(this, NpcID.DT2_PURSUER_HIDEOUT_COMBAT, "Fight the Mysterious Figure. " +
-			"When frozen, spam-click to move away to avoid taking damage. Use Protect from Magic for the entire fight.", protectFromMagic);
+			t("Inspect the altar in the north-west room."));
+		fightMysteriousFigure = new NpcStep(this, NpcID.DT2_PURSUER_HIDEOUT_COMBAT, t("Fight the Mysterious Figure. " +
+			"When frozen, spam-click to move away to avoid taking damage. Use Protect from Magic for the entire fight."), protectFromMagic);
 		enterAncientVault = new ObjectStep(this, ObjectID.DT2_DESERT_VAULT_DOOR, new WorldPoint(3511, 2971, 0),
-			"Enter to the Vault door north-east of Nardah with the final medallion, ready to fight.",
+			t("Enter to the Vault door north-east of Nardah with the final medallion, ready to fight."),
 			whisperersMedallion.hideConditioned(finishedWhisperer),
 			vardorvisMedallion.hideConditioned(finishedVardorvis),
 			sucellusMedallion.hideConditioned(finishedSucellus),
@@ -758,42 +758,42 @@ public class DesertTreasureII extends BasicQuestHelper
 		enterAncientVault.addTeleport(nardahTeleport);
 
 		returnToMysteriousFigure = new ObjectStep(this, ObjectID.DT2_HIDEOUT_ENTRY, new WorldPoint(3175, 2887, 0),
-			"Return to fight the Mysterious Figure, through the portal south of the Quarry in the desert.", meleeCombatGear, rangedCombatGear,
+			t("Return to fight the Mysterious Figure, through the portal south of the Quarry in the desert."), meleeCombatGear, rangedCombatGear,
 			food, prayerPotions);
 		fightMysteriousFigure.addSubSteps(returnToMysteriousFigure);
 
 		returnToPickUpMedallion = new ObjectStep(this, ObjectID.DT2_HIDEOUT_ENTRY, new WorldPoint(3175, 2887, 0),
-			"Retrieve the medallion from the portal south of the Quarry.");
+			t("Retrieve the medallion from the portal south of the Quarry."));
 		getMedallionFromChest = new ObjectStep(this, ObjectID.DT2_HIDEOUT_CHEST, new WorldPoint(3115, 9263, 0),
-			"Retrieve the medallion from the chest in the north-east room.");
+			t("Retrieve the medallion from the chest in the north-east room."));
 
-		pickUpMedallion = new ItemStep(this, "Pick up the medallion.", medallion);
+		pickUpMedallion = new ItemStep(this, t("Pick up the medallion."), medallion);
 		pickUpMedallion.addSubSteps(returnToPickUpMedallion, getMedallionFromChest);
 
 		enterVaultFinalSteps = new ObjectStep(this, ObjectID.DT2_DESERT_VAULT_DOOR, new WorldPoint(3511, 2971, 0),
-			"Enter to the Vault door north-east of Nardah, ready to fight.",
+			t("Enter to the Vault door north-east of Nardah, ready to fight."),
 			combatGear, food, prayerPotions);
 		enterVaultFinalSteps.addTeleport(nardahTeleport);
 		enterAncientVault.addSubSteps(enterVaultFinalSteps);
 
 		goDownSteps = new ObjectStep(this, ObjectID.DT2_VAULT_MAIN_STAIRCASE, new WorldPoint(3169, 6431, 1),
-			"Go deeper into the Vault down the steps.", combatGear);
+			t("Go deeper into the Vault down the steps."), combatGear);
 
 		defeatAssassin = new NpcStep(this, NpcID.DT2_ASSASSIN_WIGHT_COMBAT, new WorldPoint(3296, 6444, 0),
-			"Defeat The Forsaken Assassin. Protect from ranged, and lure him into the white smoke. He will sometimes throw 3 vials, avoid them, as they will poison you and deal large damage.");
+			t("Defeat The Forsaken Assassin. Protect from ranged, and lure him into the white smoke. He will sometimes throw 3 vials, avoid them, as they will poison you and deal large damage."));
 		defeatKetla = new NpcStep(this, NpcID.DT2_KETLA_WIGHT_COMBAT, new WorldPoint(3296, 6444, 0),
-			"Defeat Ketla the Unworthy. Protect from ranged. She will spawn shadow clones, which you should hide behind whenever she has a skull above her.");
+			t("Defeat Ketla the Unworthy. Protect from ranged. She will spawn shadow clones, which you should hide behind whenever she has a skull above her."));
 		((NpcStep) defeatKetla).addAlternateNpcs(NpcID.DT2_KETLA_WIGHT_COMBAT_CLONE);
 		defeatKasonde = new NpcStep(this, NpcID.DT2_KASONDE_WIGHT_COMBAT, new WorldPoint(3296, 6444, 0),
-			"Defeat Kasonde the Craven. Protect from ranged if at a distance or melee if up close. The fight is similar to earlier in the quest.");
+			t("Defeat Kasonde the Craven. Protect from ranged if at a distance or melee if up close. The fight is similar to earlier in the quest."));
 		((NpcStep) defeatKasonde).addAlternateNpcs(NpcID.DT2_KASONDE_WIGHT_COMBAT_OPBREAK);
 		defeatPersten = new NpcStep(this, NpcID.DT2_PERSTEN_WIGHT_COMBAT, new WorldPoint(3296, 6444, 0),
-			"Defeat Persten the Deceitful. Protect from Magic. Avoid the lighting strikes by moving. Destroy any portals she spawns, or run from corner to corner avoiding the leeches that spawn from the portal.");
+			t("Defeat Persten the Deceitful. Protect from Magic. Avoid the lighting strikes by moving. Destroy any portals she spawns, or run from corner to corner avoiding the leeches that spawn from the portal."));
 
-		cutsceneThenWights = new DetailedQuestStep(this, "Watch the cutscene, then defeat the wights.");
+		cutsceneThenWights = new DetailedQuestStep(this, t("Watch the cutscene, then defeat the wights."));
 
 		talkToAzzanandra = new NpcStep(this, NpcID.DT2_AZZANADRA_VIS, new WorldPoint(3298, 6441, 0),
-			"Talk to Azzanadra.");
+			t("Talk to Azzanadra."));
 	}
 
 	@Override
@@ -814,19 +814,19 @@ public class DesertTreasureII extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		ArrayList<String> reqs = new ArrayList<>();
-		reqs.add("Ancient Guardian (level 153)");
-		reqs.add("Vardorvis (level 553)");
-		reqs.add("Kasonde (level 193)");
-		reqs.add("A number of lesser demons, black demons, and abyssal creatures");
-		reqs.add("The Leviathan (level 577)");
-		reqs.add("Jhallan (level 491)");
-		reqs.add("Duke Sucellus (level 519)");
-		reqs.add("The Whisperer (level 568)");
-		reqs.add("Mysterious Figure (level 271)");
-		reqs.add("The Forsaken Assassin (level 252)");
-		reqs.add("Ketla the Unworthy (level 236)");
-		reqs.add("Kasonde the Craven (level 221)");
-		reqs.add("Persten the Deceitful (level 264)");
+		reqs.add(t("Ancient Guardian (level 153)"));
+		reqs.add(t("Vardorvis (level 553)"));
+		reqs.add(t("Kasonde (level 193)"));
+		reqs.add(t("A number of lesser demons, black demons, and abyssal creatures"));
+		reqs.add(t("The Leviathan (level 577)"));
+		reqs.add(t("Jhallan (level 491)"));
+		reqs.add(t("Duke Sucellus (level 519)"));
+		reqs.add(t("The Whisperer (level 568)"));
+		reqs.add(t("Mysterious Figure (level 271)"));
+		reqs.add(t("The Forsaken Assassin (level 252)"));
+		reqs.add(t("Ketla the Unworthy (level 236)"));
+		reqs.add(t("Kasonde the Craven (level 221)"));
+		reqs.add(t("Persten the Deceitful (level 264)"));
 		return reqs;
 	}
 
@@ -849,21 +849,21 @@ public class DesertTreasureII extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("Ability to use Ancient Rings."),
-			new UnlockReward("Access to four new bosses"));
+			new UnlockReward(t("Ability to use Ancient Rings.")),
+			new UnlockReward(t("Access to four new bosses")));
 	}
 
 	private void prepopulateSidebarPanels()
 	{
 		allSteps.clear();
 
-		allSteps.add(new PanelDetails("The Vault",
+		allSteps.add(new PanelDetails(t("The Vault"),
 			Arrays.asList(attemptToEnterVaultDoor, talkToAsgarnia, inspectPlaque, inspectStatueNE,
 				inspectStatueNW, inspectStatueSW, inspectStatueSE, talkToAsgarniaAgain),
 			List.of(ancientMagicksActive),
 			Arrays.asList(nardahTeleport, waterSource, senntistenTeleport)));
 
-		allSteps.add(new PanelDetails("Learning of the Ancients",
+		allSteps.add(new PanelDetails(t("Learning of the Ancients"),
 			Arrays.asList(talkToBalando, operateWinch, talkToBanikan, getPickaxe, mineRocks,
 				enterDigsiteHole, killAncientGuardian, talkToBanikanInGolemRoom, inspectGolem,
 				inspectAltar, castOnBloodStatue, castOnShadowStatue, castOnSmokeStatue, castOnIceStatue,
@@ -872,62 +872,62 @@ public class DesertTreasureII extends BasicQuestHelper
 			Arrays.asList(combatGear, allBursts),
 			List.of(senntistenTeleport)));
 
-		PanelDetails vardorvisPanel = new PanelDetails("Vardorvis",
+		PanelDetails vardorvisPanel = new PanelDetails(t("Vardorvis"),
 			vardorvisSteps.getDisplaySteps(),
 			Collections.singletonList(combatGear),
 			Arrays.asList(xericTalisman, freezes)).withId(0);
 		vardorvisPanel.setLockingStep(vardorvisSteps);
 		vardorvisSteps.withId(0);
 
-		PanelDetails perseriyaPanel = new PanelDetails("Perseriya - The Abyss",
+		PanelDetails perseriyaPanel = new PanelDetails(t("Perseriya - The Abyss"),
 			perseriyaSteps.getStartSteps(),
 			Arrays.asList(combatGear, facemask),
 			Arrays.asList(eyeTeleport, staminaPotions, arclight));
-		PanelDetails perseriyaPanel2 = new PanelDetails("Perseriya - Room 1",
+		PanelDetails perseriyaPanel2 = new PanelDetails(t("Perseriya - Room 1"),
 			perseriyaSteps.getRoom1Steps(),
 			Collections.singletonList(facemask),
 			Arrays.asList(eyeTeleport, staminaPotions, arclight));
-		PanelDetails perseriyaPanel3 = new PanelDetails("Perseriya - Room 2",
+		PanelDetails perseriyaPanel3 = new PanelDetails(t("Perseriya - Room 2"),
 			perseriyaSteps.getRoom2Steps(),
 			List.of(facemask),
 			Arrays.asList(eyeTeleport, staminaPotions, arclight));
-		PanelDetails perseriyaPanel4 = new PanelDetails("Perseriya - Room 3",
+		PanelDetails perseriyaPanel4 = new PanelDetails(t("Perseriya - Room 3"),
 			perseriyaSteps.getRoom3Steps(),
 			List.of(facemask),
 			Arrays.asList(eyeTeleport, staminaPotions, arclight));
-		PanelDetails perseriyaPanel5 = new PanelDetails("Perseriya - The battle",
+		PanelDetails perseriyaPanel5 = new PanelDetails(t("Perseriya - The battle"),
 			perseriyaSteps.getBattleSteps(),
 			Arrays.asList(rangedCombatGear, shadowBurstRunes),
 			Arrays.asList(eyeTeleport, staminaPotions, food, prayerPotions));
 
-		var perseriyaPanels = new TopLevelPanelDetails("Perseriya", perseriyaPanel, perseriyaPanel2, perseriyaPanel3, perseriyaPanel4, perseriyaPanel5).withId(1);
+		var perseriyaPanels = new TopLevelPanelDetails(t("Perseriya"), perseriyaPanel, perseriyaPanel2, perseriyaPanel3, perseriyaPanel4, perseriyaPanel5).withId(1);
 		perseriyaPanels.setLockingStep(perseriyaSteps);
 		perseriyaSteps.withId(1);
-		PanelDetails sucellusPanel = new PanelDetails("Sucellus",
+		PanelDetails sucellusPanel = new PanelDetails(t("Sucellus"),
 			sucellusSteps.getDisplaySteps(),
 			Arrays.asList(meleeCombatGear, food),
 			Arrays.asList(prayerPotions, staminaPotions, icyBasalt)).withId(2);
 		sucellusSteps.withId(2);
 		sucellusPanel.setLockingStep(sucellusSteps);
 
-		PanelDetails whispererPanel = new PanelDetails("The Whisperer - The Unknown",
+		PanelDetails whispererPanel = new PanelDetails(t("The Whisperer - The Unknown"),
 			whispererSteps.getDisplaySteps(),
 			Arrays.asList(magicCombatGear, ringOfVisibility, food),
 			Arrays.asList(prayerPotions, staminaPotions, lassarTeleport));
 
-		var whispererPanel2 = new PanelDetails("The Whisperer - Choir",
+		var whispererPanel2 = new PanelDetails(t("The Whisperer - Choir"),
 			whispererSteps.getDisplayStepsSilentChoir(),
 			Arrays.asList(magicCombatGear, ringOfVisibility, food),
 			Arrays.asList(prayerPotions, staminaPotions, lassarTeleport));
 
-		var whispererPanels = new TopLevelPanelDetails("The Whisperer", whispererPanel, whispererPanel2).withId(3);
+		var whispererPanels = new TopLevelPanelDetails(t("The Whisperer"), whispererPanel, whispererPanel2).withId(3);
 		whispererPanels.setLockingStep(whispererSteps);
 		whispererSteps.withId(3);
 
-		var theForgottenFourSections = new TopLevelPanelDetails("The Forgotten Four", vardorvisPanel, perseriyaPanels, sucellusPanel, whispererPanels);
+		var theForgottenFourSections = new TopLevelPanelDetails(t("The Forgotten Four"), vardorvisPanel, perseriyaPanels, sucellusPanel, whispererPanels);
 		allSteps.add(theForgottenFourSections);
 
-		allSteps.add(new PanelDetails("Secrets",
+		allSteps.add(new PanelDetails(t("Secrets"),
 			Arrays.asList(returnToDesertWithFinalMedallion, searchBedForHairClip, unlockCell,
 				getItemsFromCell, investigateAltar, fightMysteriousFigure, pickUpMedallion, enterAncientVault,
 				goDownSteps, cutsceneThenWights, defeatAssassin, defeatKetla, defeatKasonde, defeatPersten,

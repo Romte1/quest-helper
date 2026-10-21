@@ -103,13 +103,13 @@ public class InSearchOfKnowledge extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		food5 = new ItemRequirement("Food", ItemCollections.FISH_FOOD, 5);
-		food5Highlighted = new ItemRequirement("Food", ItemCollections.FISH_FOOD, 5);
+		food5 = new ItemRequirement(t("Food"), ItemCollections.FISH_FOOD, 5);
+		food5Highlighted = new ItemRequirement(t("Food"), ItemCollections.FISH_FOOD, 5);
 		food5Highlighted.setHighlightInInventory(true);
-		knife = new ItemRequirement("Knife or slash weapon to cut through a web", ItemID.KNIFE).isNotConsumed();
+		knife = new ItemRequirement(t("Knife or slash weapon to cut through a web"), ItemID.KNIFE).isNotConsumed();
 		knife.addAlternates(ItemID.CERT_REINITIALISATION_15_INACTIVE, ItemID.WILDERNESS_SWORD_EASY, ItemID.WILDERNESS_SWORD_MEDIUM,
 			ItemID.WILDERNESS_SWORD_HARD, ItemID.WILDERNESS_SWORD_ELITE);
 
@@ -120,13 +120,13 @@ public class InSearchOfKnowledge extends BasicQuestHelper
 		templePage = new ItemRequirement("Tattered temple page", ItemID.HOSDUN_TEMPLE_PAGE);
 
 		sunTome = new ItemRequirement("Tome of the sun", ItemID.HOSDUN_SUN_TOME);
-		sunTome.setTooltip("You can get another from the bookshelves in the Forthos Dungeon");
+		sunTome.setTooltip(t("You can get another from the bookshelves in the Forthos Dungeon"));
 		sunTome.setHighlightInInventory(true);
 		moonTome = new ItemRequirement("Tome of the moon", ItemID.HOSDUN_MOON_TOME);
-		moonTome.setTooltip("You can get another from the bookshelves in the Forthos Dungeon");
+		moonTome.setTooltip(t("You can get another from the bookshelves in the Forthos Dungeon"));
 		moonTome.setHighlightInInventory(true);
 		templeTome = new ItemRequirement("Tome of the temple", ItemID.HOSDUN_TEMPLE_TOME);
-		templeTome.setTooltip("You can get another from the bookshelves in the Forthos Dungeon");
+		templeTome.setTooltip(t("You can get another from the bookshelves in the Forthos Dungeon"));
 		templeTome.setHighlightInInventory(true);
 	}
 
@@ -164,49 +164,49 @@ public class InSearchOfKnowledge extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		enterDungeon = new ObjectStep(this, ObjectID.HOSDUN_ENTRANCE_LADDER_HOLE, new WorldPoint(1702, 3574, 0), "Enter the Forthos " +
-			"Dungeon.", knife, food5);
+		enterDungeon = new ObjectStep(this, ObjectID.HOSDUN_ENTRANCE_LADDER_HOLE, new WorldPoint(1702, 3574, 0), t("Enter the Forthos " +
+			"Dungeon."), knife, food5);
 
 		useFoodOnAimeri = new FeedingAimeri(this);
 
-		talkToAimeriAgain = new NpcStep(this, NpcID.HOSDUN_AIMERI_HEALED, new WorldPoint(1840, 9926, 0), "Talk to Aimeri " +
-			"again.");
+		talkToAimeriAgain = new NpcStep(this, NpcID.HOSDUN_AIMERI_HEALED, new WorldPoint(1840, 9926, 0), t("Talk to Aimeri " +
+			"again."));
 		talkToAimeriAgain.addDialogStep("Who are you?");
 
 		searchBookcasesForTemple = new ObjectStep(this, ObjectID.HOSDUN_TEMPLE_BOOKCASE, new WorldPoint(1796, 9935, 0),
-			"Search the musty bookshelves to the west of Aimeri for the tomes of moon, sun, and temple.",
+			t("Search the musty bookshelves to the west of Aimeri for the tomes of moon, sun, and temple."),
 			protectFromMagic);
 
 		searchBookcasesForSun = new ObjectStep(this, ObjectID.HOSDUN_SUN_BOOKCASE, new WorldPoint(1805, 9935, 0),
-			"Search the musty bookshelves to the west of Aimeri for the tomes of moon, sun, and temple.",
+			t("Search the musty bookshelves to the west of Aimeri for the tomes of moon, sun, and temple."),
 			protectFromMagic);
 
 		searchBookcasesForMoon = new ObjectStep(this, ObjectID.HOSDUN_MOON_BOOKCASE, new WorldPoint(1804, 9943, 0),
-			"Search the musty bookshelves to the west of Aimeri for the tomes of moon, sun, and temple.",
+			t("Search the musty bookshelves to the west of Aimeri for the tomes of moon, sun, and temple."),
 			protectFromMagic);
 
 		enterDungeonAgain = new ObjectStep(this, ObjectID.HOSDUN_ENTRANCE_LADDER_HOLE, new WorldPoint(1702, 3574, 0),
-			"Kill any monsters in the Forthos Dungeon for pages for the tomes. You'll need 4 page for each tome.",
+			t("Kill any monsters in the Forthos Dungeon for pages for the tomes. You'll need 4 page for each tome."),
 			combatGear);
 
-		getPages = new DetailedQuestStep(this, "Kill any monsters in the Forthos Dungeon for pages for the tomes. " +
-			"You'll need to use 4 pages on each tome.", combatGear);
+		getPages = new DetailedQuestStep(this, t("Kill any monsters in the Forthos Dungeon for pages for the tomes. " +
+			"You'll need to use 4 pages on each tome."), combatGear);
 		getPages.addSubSteps(enterDungeonAgain);
 
 		useMoonOnLogosia = new NpcStep(this, NpcID.ARCEUUS_LIBRARY_LIBRARIAN, new WorldPoint(1633, 3808, 0),
-			"Give the tomes to Logosia in the Arceuus library.", moonTome);
+			t("Give the tomes to Logosia in the Arceuus library."), moonTome);
 		useMoonOnLogosia.addIcon(ItemID.HOSDUN_MOON_TOME);
 
 		useSunOnLogosia = new NpcStep(this, NpcID.ARCEUUS_LIBRARY_LIBRARIAN, new WorldPoint(1633, 3808, 0),
-			"Give the tomes to Logosia in the Arceuus library.", sunTome);
+			t("Give the tomes to Logosia in the Arceuus library."), sunTome);
 		useSunOnLogosia.addIcon(ItemID.HOSDUN_SUN_TOME);
 
 		useTempleOnLogosia = new NpcStep(this, NpcID.ARCEUUS_LIBRARY_LIBRARIAN, new WorldPoint(1633, 3808, 0),
-			"Give the tomes to Logosia in the Arceuus library.", templeTome);
+			t("Give the tomes to Logosia in the Arceuus library."), templeTome);
 		useTempleOnLogosia.addIcon(ItemID.HOSDUN_TEMPLE_TOME);
 
 		talkToLogosia = new NpcStep(this, NpcID.ARCEUUS_LIBRARY_LIBRARIAN, new WorldPoint(1633, 3808, 0),
-			"Talk to Logosia in the Arceuus library.");
+			t("Talk to Logosia in the Arceuus library."));
 
 		useMoonOnLogosia.addSubSteps(useSunOnLogosia, useTempleOnLogosia, talkToLogosia);
 	}
@@ -220,7 +220,7 @@ public class InSearchOfKnowledge extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Many monsters in the Forthos Dungeon");
+		return Collections.singletonList(t("Many monsters in the Forthos Dungeon"));
 	}
 
 	@Override
@@ -233,21 +233,21 @@ public class InSearchOfKnowledge extends BasicQuestHelper
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Helping Aimeri",
+		allSteps.add(new PanelDetails(t("Helping Aimeri"),
 			Arrays.asList(enterDungeon, useFoodOnAimeri, talkToAimeriAgain),
 			knife, food5, combatGear));
 
-		PanelDetails getBookPanel = new PanelDetails("Getting the books",
+		PanelDetails getBookPanel = new PanelDetails(t("Getting the books"),
 			Collections.singletonList(searchBookcasesForTemple));
 		getBookPanel.setLockingStep(goTalkToAimeri);
 		allSteps.add(getBookPanel);
 
-		PanelDetails getPagesPanel = new PanelDetails("Repairing the books",
+		PanelDetails getPagesPanel = new PanelDetails(t("Repairing the books"),
 			Collections.singletonList(getPages), combatGear);
 		getPagesPanel.setLockingStep(repairTomes);
 		allSteps.add(getPagesPanel);
 
-		allSteps.add(new PanelDetails("Document the Tomes",
+		allSteps.add(new PanelDetails(t("Document the Tomes"),
 			Collections.singletonList(useMoonOnLogosia), moonTome, sunTome,
 				templeTome));
 

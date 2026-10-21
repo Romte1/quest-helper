@@ -302,7 +302,7 @@ public class TheFremennikTrials extends BasicQuestHelper
 		petRock = new ItemRequirement("Pet rock", ItemID.VT_USELESS_ROCK).isNotConsumed();
 		petRock.setTooltip(t("You can get another from Askeladden"));
 
-		emptySlot4 = new ItemRequirement("Empty inventory slots for vegetables and a pet rock", -1, 4);
+		emptySlot4 = new ItemRequirement(t("Empty inventory slots for vegetables and a pet rock"), -1, 4);
 
 		goldenWool = new ItemRequirement("Golden wool", ItemID.VIKING_GOLDEN_WOOL);
 		goldenFleece = new ItemRequirement("Golden fleece", ItemID.VIKING_GOLDEN_FLEECE);
@@ -332,9 +332,9 @@ public class TheFremennikTrials extends BasicQuestHelper
 		sturdyBoots = new ItemRequirement("Sturdy boots", ItemID.VIKING_NEW_BOOTS);
 		ballad = new ItemRequirement("Fremennik ballad", ItemID.VIKING_SONG);
 		exoticFlower = new ItemRequirement("Exotic flower", ItemID.VIKING_RARE_FLOWER);
-		optionalKoscheiGear = new ItemRequirements(LogicType.AND, "Optionally a Dramen branch + knife to make a dramen staff once inside Koschei's arena",
+		optionalKoscheiGear = new ItemRequirements(LogicType.AND, t("Optionally a Dramen branch + knife to make a dramen staff once inside Koschei's arena"),
 			new ItemRequirement("Knife", ItemID.KNIFE), new ItemRequirement("Dramen branch", ItemID.DRAMEN_BRANCH));
-		koscheiGear = new ItemRequirement("Nothing except for food, potions, and rings of recoil", -1, -1).isNotConsumed();
+		koscheiGear = new ItemRequirement(t("Nothing except for food, potions, and rings of recoil"), -1, -1).isNotConsumed();
 		koscheiGear.setDisplayItemId(ItemID._100GUIDE_GUIDECAKE);
 		redHerring = new ItemRequirement(true, "Red herring", ItemID.VIKING_RED_HERRING);
 		woodenDisk = new ItemRequirement(true, "Wooden disk", ItemID.VIKING_UNCOLOURED_WOODEN_COIN);

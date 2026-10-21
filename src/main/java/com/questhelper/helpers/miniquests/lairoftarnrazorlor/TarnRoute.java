@@ -77,8 +77,8 @@ public class TarnRoute extends ConditionalStep
 
 	public TarnRoute(QuestHelper questHelper)
 	{
-		super(questHelper, new ObjectStep(questHelper, ObjectID.HAUNTEDMINE_SECONDARY_ENTRANCE, new WorldPoint(3440, 3232, 0), "Enter the Haunted Mine. " +
-			"If you have a Slayer Ring, instead teleport to Tarn's Lair to skip most of this."));
+		super(questHelper, new ObjectStep(questHelper, ObjectID.HAUNTEDMINE_SECONDARY_ENTRANCE, new WorldPoint(3440, 3232, 0),
+			questHelper.t("Enter the Haunted Mine. If you have a Slayer Ring, instead teleport to Tarn's Lair to skip most of this.")));
 		setupRequirements();
 		setupZones();
 		setupConditions();
@@ -112,7 +112,7 @@ public class TarnRoute extends ConditionalStep
 
 	public void setupRequirements()
 	{
-		combatGear = new ItemRequirement("Combat gear", -1, -1);
+		combatGear = new ItemRequirement(questHelper.t("Combat gear"), -1, -1);
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		diary = new ItemRequirement("Tarn's diary", ItemID.LOTR_DIARY);
 		diary.setHighlightInInventory(true);
@@ -197,9 +197,9 @@ public class TarnRoute extends ConditionalStep
 	public void setupSteps()
 	{
 		enterHauntedMine = steps.get(null);
-		enterLair = new ObjectStep(questHelper, ObjectID.LOTR_ENTRANCE_DOOR_UNBLOCKED, new WorldPoint(3424, 9661, 0), "Enter the entrance to the north.");
+		enterLair = new ObjectStep(questHelper, ObjectID.LOTR_ENTRANCE_DOOR_UNBLOCKED, new WorldPoint(3424, 9661, 0), questHelper.t("Enter the entrance to the north."));
 
-		searchWallRoom1 = new ObjectStep(questHelper, ObjectID.LOTR_TRAP_SPEAR_WALL, new WorldPoint(3196, 4557, 0), "Follow the path east then north, and go through the door you reach.");
+		searchWallRoom1 = new ObjectStep(questHelper, ObjectID.LOTR_TRAP_SPEAR_WALL, new WorldPoint(3196, 4557, 0), questHelper.t("Follow the path east then north, and go through the door you reach."));
 		searchWallRoom1.setLinePoints(Arrays.asList(
 			new WorldPoint(3166, 4547, 0),
 			new WorldPoint(3166, 4550, 0),
@@ -216,12 +216,12 @@ public class TarnRoute extends ConditionalStep
 			new WorldPoint(3196, 4556, 0)
 		));
 
-		searchWall2Room1 = new ObjectStep(questHelper, ObjectID.LOTR_TRAP_SPEAR_WALL, new WorldPoint(3197, 4562, 0), "Follow the path west then north, and go through the door you reach.");
+		searchWall2Room1 = new ObjectStep(questHelper, ObjectID.LOTR_TRAP_SPEAR_WALL, new WorldPoint(3197, 4562, 0), questHelper.t("Follow the path west then north, and go through the door you reach."));
 
-		goThroughRoom1 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_DOOR_19A, new WorldPoint(3195, 4571, 0), "Follow the path west then north, and go through the door you reach.");
+		goThroughRoom1 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_DOOR_19A, new WorldPoint(3195, 4571, 0), questHelper.t("Follow the path west then north, and go through the door you reach."));
 		goThroughRoom1.addSubSteps(searchWallRoom1, searchWall2Room1);
 
-		goThroughRoom2 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_DOOR_17A, new WorldPoint(3174, 4577, 1), "Continue to the west of the room.");
+		goThroughRoom2 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_DOOR_17A, new WorldPoint(3174, 4577, 1), questHelper.t("Continue to the west of the room."));
 		goThroughRoom2.setLinePoints(Arrays.asList(
 			new WorldPoint(3195, 4575, 1),
 			new WorldPoint(3195, 4579, 1),
@@ -236,46 +236,46 @@ public class TarnRoute extends ConditionalStep
 			new WorldPoint(3175, 4577, 1)
 		));
 
-		goThroughRoom3 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_DOOR_22A, new WorldPoint(3168, 4580, 0), "Go through the north door.");
-		goThroughRoom4 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_DOOR_23A, new WorldPoint(3165, 4589, 0), "Go through the west door.");
+		goThroughRoom3 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_DOOR_22A, new WorldPoint(3168, 4580, 0), questHelper.t("Go through the north door."));
+		goThroughRoom4 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_DOOR_23A, new WorldPoint(3165, 4589, 0), questHelper.t("Go through the west door."));
 
-		leaveExtraRoom1 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_DOOR_26A, new WorldPoint(3168, 4596, 0), "Go into the south door.");
-		leaveExtraRoom2 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_DOOR_25A, new WorldPoint(3150, 4598, 0), "Go into the east passageway.");
+		leaveExtraRoom1 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_DOOR_26A, new WorldPoint(3168, 4596, 0), questHelper.t("Go into the south door."));
+		leaveExtraRoom2 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_DOOR_25A, new WorldPoint(3150, 4598, 0), questHelper.t("Go into the east passageway."));
 
-		goThroughRoom5 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_DOOR_27A, new WorldPoint(3154, 4597, 1), "Go through the north door.");
+		goThroughRoom5 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_DOOR_27A, new WorldPoint(3154, 4597, 1), questHelper.t("Go through the north door."));
 		goThroughRoom5.addSubSteps(leaveExtraRoom1, leaveExtraRoom2);
 
-		jumpToPillar1 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_PILLAR_JUMP_04, new WorldPoint(3148, 4595, 1), "Jump across the pillars to the west ledge.");
-		jumpToPillar2 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_PILLAR_JUMP_05, new WorldPoint(3146, 4595, 1), "Jump across the pillars.");
-		jumpToPillar3 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_PILLAR_JUMP_06, new WorldPoint(3144, 4595, 1), "Jump across the pillars.");
-		jumpToPillar4 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_PILLAR_JUMP_07, new WorldPoint(3142, 4595, 1), "Jump across the pillars.");
+		jumpToPillar1 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_PILLAR_JUMP_04, new WorldPoint(3148, 4595, 1), questHelper.t("Jump across the pillars to the west ledge."));
+		jumpToPillar2 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_PILLAR_JUMP_05, new WorldPoint(3146, 4595, 1), questHelper.t("Jump across the pillars."));
+		jumpToPillar3 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_PILLAR_JUMP_06, new WorldPoint(3144, 4595, 1), questHelper.t("Jump across the pillars."));
+		jumpToPillar4 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_PILLAR_JUMP_07, new WorldPoint(3142, 4595, 1), questHelper.t("Jump across the pillars."));
 
-		jumpToSwitch = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_FLOOR_EDGE_JUMP_05, new WorldPoint(3140, 4595, 1), "Jump to the ledge.");
+		jumpToSwitch = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_FLOOR_EDGE_JUMP_05, new WorldPoint(3140, 4595, 1), questHelper.t("Jump to the ledge."));
 		jumpToPillar1.addSubSteps(jumpToPillar2, jumpToPillar3, jumpToPillar4, jumpToSwitch);
 
-		pressSwitch = new ObjectStep(questHelper, ObjectID.LOTR_TRAP_BUTTON_LVL1, new WorldPoint(3138, 4595, 1), "Search the floor.");
+		pressSwitch = new ObjectStep(questHelper, ObjectID.LOTR_TRAP_BUTTON_LVL1, new WorldPoint(3138, 4595, 1), questHelper.t("Search the floor."));
 
-		jumpBackToPillar4 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_PILLAR_JUMP_07, new WorldPoint(3142, 4595, 1), "Jump across the pillars to the north side.");
-		jumpBackToPillar3 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_PILLAR_JUMP_06, new WorldPoint(3144, 4595, 1), "Jump across the pillars to the north side.");
-		jumpToPillar5 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_PILLAR_JUMP_08, new WorldPoint(3144, 4597, 1), "Jump across the pillars to the north side.");
-		jumpToPillar6 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_PILLAR_JUMP_09, new WorldPoint(3144, 4599, 1), "Jump across the pillars to the north side.");
+		jumpBackToPillar4 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_PILLAR_JUMP_07, new WorldPoint(3142, 4595, 1), questHelper.t("Jump across the pillars to the north side."));
+		jumpBackToPillar3 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_PILLAR_JUMP_06, new WorldPoint(3144, 4595, 1), questHelper.t("Jump across the pillars to the north side."));
+		jumpToPillar5 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_PILLAR_JUMP_08, new WorldPoint(3144, 4597, 1), questHelper.t("Jump across the pillars to the north side."));
+		jumpToPillar6 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_PILLAR_JUMP_09, new WorldPoint(3144, 4599, 1), questHelper.t("Jump across the pillars to the north side."));
 
-		jumpToNorthLedge = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_FLOOR_EDGE_JUMP_06, new WorldPoint(3144, 4601, 1), "Jump across the pillars to the north side.");
+		jumpToNorthLedge = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_FLOOR_EDGE_JUMP_06, new WorldPoint(3144, 4601, 1), questHelper.t("Jump across the pillars to the north side."));
 		jumpToNorthLedge.addSubSteps(jumpBackToPillar3, jumpBackToPillar4, jumpToPillar5, jumpToPillar6);
 
-		searchWallRoom6 = new ObjectStep(questHelper, ObjectID.LOTR_TRAP_SPEAR_WALL_LVL1, new WorldPoint(3149, 4604, 1), "Follow the path to the east.");
-		searchWall2Room6 = new ObjectStep(questHelper, ObjectID.LOTR_TRAP_SPEAR_WALL_LVL1, new WorldPoint(3154, 4605, 1), "Follow the path to the east.");
+		searchWallRoom6 = new ObjectStep(questHelper, ObjectID.LOTR_TRAP_SPEAR_WALL_LVL1, new WorldPoint(3149, 4604, 1), questHelper.t("Follow the path to the east."));
+		searchWall2Room6 = new ObjectStep(questHelper, ObjectID.LOTR_TRAP_SPEAR_WALL_LVL1, new WorldPoint(3154, 4605, 1), questHelper.t("Follow the path to the east."));
 
-		goThroughRoom6 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_DOOR_28A, new WorldPoint(3176, 4598, 1), "Follow the path to the east. Avoid the walls which will occasionally stick out and knock you down, marked with a skull.");
+		goThroughRoom6 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_DOOR_28A, new WorldPoint(3176, 4598, 1), questHelper.t("Follow the path to the east. Avoid the walls which will occasionally stick out and knock you down, marked with a skull."));
 		goThroughRoom6.addTileMarker(new WorldPoint(3162, 4600, 1), SpriteID.HEADICONS_PK);
 		goThroughRoom6.addTileMarker(new WorldPoint(3164, 4600, 1), SpriteID.HEADICONS_PK);
 		goThroughRoom6.addTileMarker(new WorldPoint(3171, 4600, 1), SpriteID.HEADICONS_PK);
 		goThroughRoom6.addTileMarker(new WorldPoint(3173, 4600, 1), SpriteID.HEADICONS_PK);
 		goThroughRoom6.addSubSteps(searchWallRoom6, searchWall2Room6);
 
-		goThroughRoom7 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_STAIRS_LVL1, new WorldPoint(3193, 4598, 1), "Activate Protect from Magic and jump across the pillars. Go down the stairs.", protectFromMagic);
+		goThroughRoom7 = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_STAIRS_LVL1, new WorldPoint(3193, 4598, 1), questHelper.t("Activate Protect from Magic and jump across the pillars. Go down the stairs."), protectFromMagic);
 
-		enterBossRoom = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_DOOR_30, new WorldPoint(3185, 4602, 0), "Enter the north passageway, and be prepared to fight.");
+		enterBossRoom = new ObjectStep(questHelper, ObjectID.LOTR_RUINS_DOOR_30, new WorldPoint(3185, 4602, 0), questHelper.t("Enter the north passageway, and be prepared to fight."));
 	}
 
 	public List<QuestStep> getDisplaySteps()

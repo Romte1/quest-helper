@@ -264,9 +264,9 @@ public class ElementalWorkshopII extends BasicQuestHelper
 
 		elementalOre = new ItemRequirement("Elemental ore", ItemID.ELEMENTAL_WORKSHOP_ORE);
 		elementalOre.addAlternates(ItemID.ELEMENTAL_WORKSHOP_BAR);
-		elementalBar = new ItemRequirement("Elemental metal. Bring an additional elemental metal if you want to smith a mind shield after this quest", ItemID.ELEMENTAL_WORKSHOP_BAR);
+		elementalBar = new ItemRequirement(t("Elemental metal. Bring an additional elemental metal if you want to smith a mind shield after this quest"), ItemID.ELEMENTAL_WORKSHOP_BAR);
 		mindBar = new ItemRequirement("Primed mind bar", ItemID.ELEM_MIND_BAR);
-		primedBar = new ItemRequirement("Primed bar. Bring an additional primed bar if you want to smith a mind shield after this quest", ItemID.ELEM_PRIMED_BAR);
+		primedBar = new ItemRequirement(t("Primed bar. Bring an additional primed bar if you want to smith a mind shield after this quest"), ItemID.ELEM_PRIMED_BAR);
 
 		beatenBook = new ItemRequirement("Beaten book", ItemID.ELEMENTAL_WORKSHOP_HELM_BOOK);
 		beatenBook.setTooltip(t("You can get another from a bookcase in the Exam Center"));
@@ -286,7 +286,7 @@ public class ElementalWorkshopII extends BasicQuestHelper
 
 		magic20 = new SkillRequirement(Skill.MAGIC, 20, true);
 
-		slashedBook = new ItemRequirement("Slashed book if you want to smith a mind shield after this quest", ItemID.ELEMENTAL_WORKSHOP_SHIELD_BOOK_SLASHED);
+		slashedBook = new ItemRequirement(t("Slashed book if you want to smith a mind shield after this quest"), ItemID.ELEMENTAL_WORKSHOP_SHIELD_BOOK_SLASHED);
 		slashedBook.setTooltip(t("If you've lost it you can get another by searching the bookcase in the building south of the odd wall"));
 	}
 

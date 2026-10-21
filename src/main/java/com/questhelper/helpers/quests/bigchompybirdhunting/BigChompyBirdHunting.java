@@ -160,7 +160,7 @@ public class BigChompyBirdHunting extends BasicQuestHelper
 		knifeHighlighted.setHighlightInInventory(true);
 		feathersHighlighted = new ItemRequirement("Feathers", ItemID.FEATHER);
 		feathersHighlighted.setHighlightInInventory(true);
-		shaftsHighlighted = new ItemRequirement("Ogre arrow shafts (make more for later)", ItemID.OGRE_ARROW_SHAFT, 6);
+		shaftsHighlighted = new ItemRequirement(t("Ogre arrow shafts (make more for later)"), ItemID.OGRE_ARROW_SHAFT, 6);
 		shaftsHighlighted.setHighlightInInventory(true);
 		wolfBonesHighlighted = new ItemRequirement("Wolf bones", ItemID.WOLF_BONES);
 		wolfBonesHighlighted.setHighlightInInventory(true);

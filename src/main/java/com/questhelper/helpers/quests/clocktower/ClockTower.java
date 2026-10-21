@@ -214,15 +214,15 @@ public class ClockTower extends BasicQuestHelper
 			new ChatMessageRequirement(inSecondFloor, "The cog fits perfectly.")
 		);
 
-		bucketOfWater = new ItemRequirement("Bucket of Water or a pair of ice gloves or smiths gloves(i)", ItemID.BUCKET_WATER);
+		bucketOfWater = new ItemRequirement(t("Bucket of Water or a pair of ice gloves or smiths gloves(i)"), ItemID.BUCKET_WATER);
 		bucketOfWater.addAlternates(ItemID.ICE_GLOVES, ItemID.SMITHING_UNIFORM_GLOVES_ICE);
-		bucketOfWater.setTooltip("There is a bucket spawn next to the well east of the Clock Tower. You can fill it on the well");
+		bucketOfWater.setTooltip(t("There is a bucket spawn next to the well east of the Clock Tower. You can fill it on the well"));
 
 		emptyBucket = new ItemRequirement("Bucket", ItemID.BUCKET_EMPTY);
 
-		noteAboutWater = new ItemRequirement("There's a bucket and a well and just next to brother cedric for the black cog", -1, -1);
+		noteAboutWater = new ItemRequirement(t("There's a bucket and a well and just next to brother cedric for the black cog"), -1, -1);
 		staminaPotions = new ItemRequirement("Stamina Potions", ItemCollections.STAMINA_POTIONS);
-		ardougneCloak = new ItemRequirement("Ardougne Cloak to teleport to monastery", ItemID.ARDY_CAPE_EASY);
+		ardougneCloak = new ItemRequirement(t("Ardougne Cloak to teleport to monastery"), ItemID.ARDY_CAPE_EASY);
 		ardougneCloak.addAlternates(ItemID.ARDY_CAPE_MEDIUM, ItemID.ARDY_CAPE_HARD, ItemID.ARDY_CAPE_ELITE);
 		redCog = new ItemRequirement("Red Cog", ItemID.REDCOG);
 		blueCog = new ItemRequirement("Blue Cog", ItemID.BLUECOG);
@@ -234,45 +234,45 @@ public class ClockTower extends BasicQuestHelper
 	public void setupSteps()
 	{
 		// TODO: Need to determine to what degree PuzzleWrapperStep should be used in this quest
-		talkToKojo = new NpcStep(this, NpcID.BROTHER_KOJO, new WorldPoint(2570, 3245, 0), "Talk to Brother Kojo in the Clock Tower to start the quest.");
+		talkToKojo = new NpcStep(this, NpcID.BROTHER_KOJO, new WorldPoint(2570, 3245, 0), t("Talk to Brother Kojo in the Clock Tower to start the quest."));
 		talkToKojo.addDialogStep("Yes.");
 
-		syncStep = new DetailedQuestStep(this, "Open your Quest Journal to sync your current state.");
+		syncStep = new DetailedQuestStep(this, t("Open your Quest Journal to sync your current state."));
 
 		pickUpRedCog = new DetailedQuestStep(this, new WorldPoint(2583, 9613, 0),
-			"Go through the south east door and pick up the red cog.", redCog);
+			t("Go through the south east door and pick up the red cog."), redCog);
 		redCogOnRedSpindle = new ObjectStep(this, ObjectID.BROKECLOCKPOLE_RED, new WorldPoint(2568, 3243, 0),
-			"Use the red cog on the red spindle.", redCog.highlighted());
+			t("Use the red cog on the red spindle."), redCog.highlighted());
 		redCogOnRedSpindle.addIcon(ItemID.REDCOG);
 
-		getBucket = new ItemStep(this, new WorldPoint(2616, 3255, 0), "Get the bucket next to Brother Cedric, north of the monastery, and fill it up on the well next to it for the Black cog step. If you have other plans for the black cog, you can ignore this step by going down the nearby ladder.", emptyBucket);
-		fillBucket = new ObjectStep(this, ObjectID.WELL, new WorldPoint(2612, 3254, 0), "Get the bucket next to Brother Cedric, north of the monastery, and fill it up on the well next to it for the Black cog step. If you have other plans for the black cog, you can ignore this step by going down the nearby ladder.", emptyBucket);
+		getBucket = new ItemStep(this, new WorldPoint(2616, 3255, 0), t("Get the bucket next to Brother Cedric, north of the monastery, and fill it up on the well next to it for the Black cog step. If you have other plans for the black cog, you can ignore this step by going down the nearby ladder."), emptyBucket);
+		fillBucket = new ObjectStep(this, ObjectID.WELL, new WorldPoint(2612, 3254, 0), t("Get the bucket next to Brother Cedric, north of the monastery, and fill it up on the well next to it for the Black cog step. If you have other plans for the black cog, you can ignore this step by going down the nearby ladder."), emptyBucket);
 
 		getBucket.addSubSteps(fillBucket);
 
 		goToLadderCedric = new ObjectStep(this, ObjectID.LADDER_CELLAR, new WorldPoint(2621, 3261, 0), "");
-		pushWall = new ObjectStep(this, ObjectID.SECRETDOOR2, new WorldPoint(2575, 9631, 0), "Follow the tunnel and push the wall at the end.");
-		pickUpBlueCog = new DetailedQuestStep(this, new WorldPoint(2574, 9633, 0), "Pick up the blue cog.", blueCog);
+		pushWall = new ObjectStep(this, ObjectID.SECRETDOOR2, new WorldPoint(2575, 9631, 0), t("Follow the tunnel and push the wall at the end."));
+		pickUpBlueCog = new DetailedQuestStep(this, new WorldPoint(2574, 9633, 0), t("Pick up the blue cog."), blueCog);
 		climbCellLadder = new ObjectStep(this, ObjectID.LADDER_FROM_CELLAR, new WorldPoint(2572, 9631, 0), "");
 		blueCogOnBlueSpindle = new ObjectStep(this, ObjectID.BROKECLOCKPOLE_BLUE, new WorldPoint(2569, 3240, 1),
-			"Use the blue cog on the blue spindle.", blueCog.highlighted());
+			t("Use the blue cog on the blue spindle."), blueCog.highlighted());
 		blueCogOnBlueSpindle.addIcon(ItemID.BLUECOG);
 
-		pickupBlackCog = new DetailedQuestStep(this, new WorldPoint(2613, 9639, 0), "Enter the north east door, and pick up the black cog with a bucket of water, alternatively you can equip ice gloves or smith gloves(i).", bucketOfWater, blackCog);
+		pickupBlackCog = new DetailedQuestStep(this, new WorldPoint(2613, 9639, 0), t("Enter the north east door, and pick up the black cog with a bucket of water, alternatively you can equip ice gloves or smith gloves(i)."), bucketOfWater, blackCog);
 		blackCogOnBlackSpindle = new ObjectStep(this, ObjectID.BROKECLOCKPOLE_BLACK, new WorldPoint(2570, 9642, 0),
 			"", blackCog.highlighted());
 		blackCogOnBlackSpindle.addIcon(ItemID.BLACKCOG);
 
-		northWesternDoor = new ObjectStep(this, ObjectID.POORDOOR, new WorldPoint(2575, 9651, 0), "Go through the north-western door.");
-		pickUpRatPoison = new DetailedQuestStep(this, new WorldPoint(2564, 9662, 0), "Pick up the rat poison in the north west of the dungeon.", ratPoison);
+		northWesternDoor = new ObjectStep(this, ObjectID.POORDOOR, new WorldPoint(2575, 9651, 0), t("Go through the north-western door."));
+		pickUpRatPoison = new DetailedQuestStep(this, new WorldPoint(2564, 9662, 0), t("Pick up the rat poison in the north west of the dungeon."), ratPoison);
 		pullFirstLever = new ObjectStep(this, ObjectID.CTLEVERA, new WorldPoint(2591, 9661, 0),
-			"Pull the marked lever up.");
+			t("Pull the marked lever up."));
 		ratPoisonFood = new ObjectStep(this, ObjectID.CTFOODTROUGH, new WorldPoint(2587, 9654, 0),
-			"Use the rat poison on the food trough. Wait till the rats have died.", ratPoison.highlighted());
+			t("Use the rat poison on the food trough. Wait till the rats have died."), ratPoison.highlighted());
 		ratPoisonFood.addIcon(ItemID.RAT_POISON);
-		westernGate = new ObjectStep(this, ObjectID.CTRATGATEC, new WorldPoint(2579, 9656, 0), "Go through the gate.");
-		pickUpWhiteCog = new DetailedQuestStep(this, new WorldPoint(2577, 9655, 0), "Pick up the white cog.", whiteCog);
-		climbWhiteLadder = new ObjectStep(this, ObjectID.LADDER_FROM_CELLAR, new WorldPoint(2575, 9655, 0), "Head up the ladder.");
+		westernGate = new ObjectStep(this, ObjectID.CTRATGATEC, new WorldPoint(2579, 9656, 0), t("Go through the gate."));
+		pickUpWhiteCog = new DetailedQuestStep(this, new WorldPoint(2577, 9655, 0), t("Pick up the white cog."), whiteCog);
+		climbWhiteLadder = new ObjectStep(this, ObjectID.LADDER_FROM_CELLAR, new WorldPoint(2575, 9655, 0), t("Head up the ladder."));
 		whiteCogOnWhiteSpindle = new ObjectStep(this, ObjectID.BROKECLOCKPOLE_WHITE, new WorldPoint(2567, 3241, 2),
 			"", whiteCog.highlighted());
 		whiteCogOnWhiteSpindle.addIcon(ItemID.WHITECOG);
@@ -313,30 +313,30 @@ public class ClockTower extends BasicQuestHelper
 		goToSecondFloor.addStep(inBasement, climbToGroundFloorFromBasement);
 		goToSecondFloor.addStep(inFirstFloor, climbToSecondFloor);
 
-		goToBasementForRed = new ConditionalStep(this, goToBasementSteps, "Enter the Clock Tower basement for the red cog.");
-		goToBasementForBlue = new ConditionalStep(this, goToCellSteps, "Climb down the ladder to the east of the Clock Tower, next to Brother Cedric.");
-		goToBasementForWhite = new ConditionalStep(this, goToBasementSteps, "Enter the Clock Tower basement for the white cog.");
-		goToBasementForBlack = new ConditionalStep(this, goToBasementSteps, "Enter the Clock Tower basement for the black cog.", bucketOfWater);
+		goToBasementForRed = new ConditionalStep(this, goToBasementSteps, t("Enter the Clock Tower basement for the red cog."));
+		goToBasementForBlue = new ConditionalStep(this, goToCellSteps, t("Climb down the ladder to the east of the Clock Tower, next to Brother Cedric."));
+		goToBasementForWhite = new ConditionalStep(this, goToBasementSteps, t("Enter the Clock Tower basement for the white cog."));
+		goToBasementForBlack = new ConditionalStep(this, goToBasementSteps, t("Enter the Clock Tower basement for the black cog."), bucketOfWater);
 
-		goToFirstFloorWithBlueCog = new ConditionalStep(this, goToFirstFloor, "Place the blue cog on the peg on the first floor.");
+		goToFirstFloorWithBlueCog = new ConditionalStep(this, goToFirstFloor, t("Place the blue cog on the peg on the first floor."));
 		goToFirstFloorWithBlueCog.addStep(inFirstFloor, blueCogOnBlueSpindle);
 
 		goToGroundFloorWithRedCog = goToGroundFloor.copy();
-		goToGroundFloorWithRedCog.setText("Place the red cog on the peg on the ground floor.");
+		goToGroundFloorWithRedCog.setText(t("Place the red cog on the peg on the ground floor."));
 		goToGroundFloorWithRedCog.addStep(null, redCogOnRedSpindle);
 
-		goToBasementWithBlackCog = new ConditionalStep(this, goToBasementSteps, "Place the black cog on the peg in the basement.");
+		goToBasementWithBlackCog = new ConditionalStep(this, goToBasementSteps, t("Place the black cog on the peg in the basement."));
 		goToBasementWithBlackCog.addStep(and(inBasement, nor(inSecretPath, inCell)),
 			blackCogOnBlackSpindle);
 
-		goToSecondFloorWithWhiteCog = new ConditionalStep(this, goToSecondFloor, "Place the white cog on the peg on the second floor.");
+		goToSecondFloorWithWhiteCog = new ConditionalStep(this, goToSecondFloor, t("Place the white cog on the peg on the second floor."));
 		goToSecondFloorWithWhiteCog.addStep(inSecondFloor, whiteCogOnWhiteSpindle);
 		goToSecondFloorWithWhiteCog.addSubSteps(climbWhiteLadder);
 
 		finishQuest = new NpcStep(this, NpcID.BROTHER_KOJO, new WorldPoint(2570, 3245, 0), "");
 
 		goFinishQuest = goToGroundFloor.copy();
-		goFinishQuest.setText("Talk to Brother Kojo in the Clock Tower for your reward.");
+		goFinishQuest.setText(t("Talk to Brother Kojo in the Clock Tower for your reward."));
 		goFinishQuest.addStep(null, finishQuest);
 	}
 
@@ -415,7 +415,7 @@ public class ClockTower extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"Able to survive a hit or 2 from an Ogre (level 53)"
+			t("Able to survive a hit or 2 from an Ogre (level 53)")
 		);
 	}
 
@@ -438,18 +438,18 @@ public class ClockTower extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Getting Started", List.of(
+		sections.add(new PanelDetails(t("Getting Started"), List.of(
 			talkToKojo,
 			syncStep
 		)));
 
-		sections.add(new PanelDetails("Obtaining the red cog", List.of(
+		sections.add(new PanelDetails(t("Obtaining the red cog"), List.of(
 			goToBasementForRed,
 			pickUpRedCog,
 			goToGroundFloorWithRedCog
 		)));
 
-		sections.add(new PanelDetails("Obtaining the blue cog", List.of(
+		sections.add(new PanelDetails(t("Obtaining the blue cog"), List.of(
 			getBucket,
 			goToBasementForBlue,
 			pushWall,
@@ -459,7 +459,7 @@ public class ClockTower extends BasicQuestHelper
 			noteAboutWater
 		)));
 
-		sections.add(new PanelDetails("Obtaining the black cog", List.of(
+		sections.add(new PanelDetails(t("Obtaining the black cog"), List.of(
 			goToBasementForBlack,
 			pickupBlackCog,
 			goToBasementWithBlackCog
@@ -467,7 +467,7 @@ public class ClockTower extends BasicQuestHelper
 			bucketOfWater
 		)));
 
-		sections.add(new PanelDetails("Obtaining the white cog", List.of(
+		sections.add(new PanelDetails(t("Obtaining the white cog"), List.of(
 			goToBasementForWhite,
 			pickUpRatPoison,
 			pullFirstLever,
@@ -477,7 +477,7 @@ public class ClockTower extends BasicQuestHelper
 			goToSecondFloorWithWhiteCog
 		)));
 
-		sections.add(new PanelDetails("Finishing off", List.of(
+		sections.add(new PanelDetails(t("Finishing off"), List.of(
 			goFinishQuest
 		)));
 

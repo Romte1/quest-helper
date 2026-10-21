@@ -63,7 +63,7 @@ public class StonePuzzleStep extends DetailedOwnerStep
 
 	public StonePuzzleStep(QuestHelper questHelper)
 	{
-		super(questHelper, "Solve the wall panel puzzle.");
+		super(questHelper, questHelper.t("Solve the wall panel puzzle."));
 	}
 
 	@Override
@@ -184,14 +184,14 @@ public class StonePuzzleStep extends DetailedOwnerStep
 		setupConditions();
 
 
-		checkRStone = new ObjectStep(getQuestHelper(), ObjectID.AKD_FORTHOS_STONE_PILE_OP, new WorldPoint(1678, 3567, 0), "Check the south east stone pile.");
-		checkOStone = new ObjectStep(getQuestHelper(), ObjectID.AKD_FORTHOS_STONE_PILE_OP, new WorldPoint(1670, 3575, 0), "Check the north west stone pile.");
-		checkSStone = new ObjectStep(getQuestHelper(), ObjectID.AKD_FORTHOS_STONE_PILE_OP, new WorldPoint(1672, 3571, 0), "Check the south west stone pile.");
-		checkEStone = new ObjectStep(getQuestHelper(), ObjectID.AKD_FORTHOS_STONE_PILE_OP, new WorldPoint(1680, 3576, 0), "Check the north east stone pile.");
+		checkRStone = new ObjectStep(getQuestHelper(), ObjectID.AKD_FORTHOS_STONE_PILE_OP, new WorldPoint(1678, 3567, 0), getQuestHelper().t("Check the south east stone pile."));
+		checkOStone = new ObjectStep(getQuestHelper(), ObjectID.AKD_FORTHOS_STONE_PILE_OP, new WorldPoint(1670, 3575, 0), getQuestHelper().t("Check the north west stone pile."));
+		checkSStone = new ObjectStep(getQuestHelper(), ObjectID.AKD_FORTHOS_STONE_PILE_OP, new WorldPoint(1672, 3571, 0), getQuestHelper().t("Check the south west stone pile."));
+		checkEStone = new ObjectStep(getQuestHelper(), ObjectID.AKD_FORTHOS_STONE_PILE_OP, new WorldPoint(1680, 3576, 0), getQuestHelper().t("Check the north east stone pile."));
 
-		chopVines = new ObjectStep(getQuestHelper(), ObjectID.AKD_FORTHOS_VINES_OP, new WorldPoint(1671, 3577, 0), "Chop the vines south of Martin Holt.");
-		squeezeThroughVines = new ObjectStep(getQuestHelper(), ObjectID.AKD_FORTHOS_VINES_CUT, new WorldPoint(1671, 3577, 0), "Squeeze through the vines.");
-		checkPanel = new ObjectStep(getQuestHelper(), ObjectID.AKD_FORTHOS_PANEL_OP, new WorldPoint(1672, 3579, 0), "Check the panel on the wall.");
+		chopVines = new ObjectStep(getQuestHelper(), ObjectID.AKD_FORTHOS_VINES_OP, new WorldPoint(1671, 3577, 0), getQuestHelper().t("Chop the vines south of Martin Holt."));
+		squeezeThroughVines = new ObjectStep(getQuestHelper(), ObjectID.AKD_FORTHOS_VINES_CUT, new WorldPoint(1671, 3577, 0), getQuestHelper().t("Squeeze through the vines."));
+		checkPanel = new ObjectStep(getQuestHelper(), ObjectID.AKD_FORTHOS_PANEL_OP, new WorldPoint(1672, 3579, 0), getQuestHelper().t("Check the panel on the wall."));
 	}
 
 	@Override

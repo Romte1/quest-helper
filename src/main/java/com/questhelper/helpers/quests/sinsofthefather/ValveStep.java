@@ -74,7 +74,7 @@ public class ValveStep extends DetailedOwnerStep
 
 	public ValveStep(QuestHelper questHelper)
 	{
-		super(questHelper, "Turn the valves to solve the water puzzle.");
+		super(questHelper, questHelper.t("Turn the valves to solve the water puzzle."));
 	}
 
 	@Override
@@ -211,13 +211,13 @@ public class ValveStep extends DetailedOwnerStep
 			solved = true;
 			northTurns = currentNorthTurns;
 			southTurns = (remainderNorth / GALLONS_SOUTH);
-			setNorthValve.setText("Set the north valve to " + northTurns + ".");
-			setNorthValveNoHighlight.setText("Set the north valve to " + northTurns + ".");
+			setNorthValve.setText(String.format(questHelper.t("Set the north valve to %s."), northTurns));
+			setNorthValveNoHighlight.setText(String.format(questHelper.t("Set the north valve to %s."), northTurns));
 			setNorthValve.addWidgetChoice(String.valueOf(northTurns), 187, 3);
 			setNorthValve.addWidgetChoice(northTurns + " (current)", 187, 3);
 
-			setSouthValve.setText("Set the south valve to " + southTurns + ".");
-			setSouthValveNoHighlight.setText("Set the south valve to " + southTurns + ".");
+			setSouthValve.setText(String.format(questHelper.t("Set the south valve to %s."), southTurns));
+			setSouthValveNoHighlight.setText(String.format(questHelper.t("Set the south valve to %s."), southTurns));
 			setSouthValve.addWidgetChoice(String.valueOf(southTurns), 187, 3);
 			setSouthValve.addWidgetChoice(southTurns + " (current)", 187, 3);
 		}
@@ -231,11 +231,11 @@ public class ValveStep extends DetailedOwnerStep
 	protected  void setupRequirements()
 	{
 		scentedTop = new ItemRequirement("Vyre noble top", ItemID.VYRELORD_TORSO, 1, true);
-		scentedTop.setTooltip("You can get a replacement from a chest in Old Man Ral's basement.");
+		scentedTop.setTooltip(questHelper.t("You can get a replacement from a chest in Old Man Ral's basement."));
 		scentedLegs = new ItemRequirement("Vyre noble legs", ItemID.VYRELORD_LEGS, 1, true);
-		scentedLegs.setTooltip("You can get a replacement from a chest in Old Man Ral's basement.");
+		scentedLegs.setTooltip(questHelper.t("You can get a replacement from a chest in Old Man Ral's basement."));
 		scentedShoes = new ItemRequirement("Vyre noble shoes", ItemID.VYRELORD_SHOES, 1, true);
-		scentedShoes.setTooltip("You can get a replacement from a chest in Old Man Ral's basement.");
+		scentedShoes.setTooltip(questHelper.t("You can get a replacement from a chest in Old Man Ral's basement."));
 		oldNote = new ItemRequirement("Old note", ItemID.MYQ5_ARBORETUM_NOTE);
 		oldNote.setHighlightInInventory(true);
 	}
@@ -259,15 +259,15 @@ public class ValveStep extends DetailedOwnerStep
 		setupZones();
 		setupConditions();
 
-		readNote = new DetailedQuestStep(getQuestHelper(), "Read the Old Note to find out the amount of water the Blisterwood Tree needs.", oldNote, scentedTop, scentedLegs, scentedShoes);
+		readNote = new DetailedQuestStep(getQuestHelper(), questHelper.t("Read the Old Note to find out the amount of water the Blisterwood Tree needs."), oldNote, scentedTop, scentedLegs, scentedShoes);
 
-		setNorthValve = new ObjectStep(getQuestHelper(), ObjectID.MYQ5_VALVE_NORTH, new WorldPoint(3621, 3364, 0), "Turn the northern valve to the highlighted value.");
-		setSouthValve = new ObjectStep(getQuestHelper(), ObjectID.MYQ5_VALVE_SOUTH, new WorldPoint(3621, 3359, 0), "Turn the southern valve to the highlighted value.");
-		setNorthValveNoHighlight = new ObjectStep(getQuestHelper(), ObjectID.MYQ5_VALVE_NORTH, new WorldPoint(3621, 3364, 0), "Turn the northern valve to the highlighted value.");
-		setSouthValveNoHighlight = new ObjectStep(getQuestHelper(), ObjectID.MYQ5_VALVE_SOUTH, new WorldPoint(3621, 3359, 0), "Turn the southern valve to the highlighted value.");
+		setNorthValve = new ObjectStep(getQuestHelper(), ObjectID.MYQ5_VALVE_NORTH, new WorldPoint(3621, 3364, 0), questHelper.t("Turn the northern valve to the highlighted value."));
+		setSouthValve = new ObjectStep(getQuestHelper(), ObjectID.MYQ5_VALVE_SOUTH, new WorldPoint(3621, 3359, 0), questHelper.t("Turn the southern valve to the highlighted value."));
+		setNorthValveNoHighlight = new ObjectStep(getQuestHelper(), ObjectID.MYQ5_VALVE_NORTH, new WorldPoint(3621, 3364, 0), questHelper.t("Turn the northern valve to the highlighted value."));
+		setSouthValveNoHighlight = new ObjectStep(getQuestHelper(), ObjectID.MYQ5_VALVE_SOUTH, new WorldPoint(3621, 3359, 0), questHelper.t("Turn the southern valve to the highlighted value."));
 
 		cutTree =  new ObjectStep(getQuestHelper(), ObjectID.BLISTERWOOD_TREE, new WorldPoint(3635, 3362, 0),
-			"Gather 8 logs from the Blisterwood tree.", scentedTop, scentedLegs, scentedShoes);
+			questHelper.t("Gather 8 logs from the Blisterwood tree."), scentedTop, scentedLegs, scentedShoes);
 	}
 
 	@Override

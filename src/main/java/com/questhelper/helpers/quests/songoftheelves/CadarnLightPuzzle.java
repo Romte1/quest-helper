@@ -84,39 +84,39 @@ public class CadarnLightPuzzle extends ConditionalStep
 		setupZones();
 		setupConditions();
 
-		collectMirrors = new ObjectStep(getQuestHelper(), ObjectID.SOTE_LIBRARY_DISPENSER, new WorldPoint(2623, 6118, 1), "Collect 7 mirrors and a red crystal from the dispenser in the central room.");
+		collectMirrors = new ObjectStep(getQuestHelper(), ObjectID.SOTE_LIBRARY_DISPENSER, new WorldPoint(2623, 6118, 1), getQuestHelper().t("Collect 7 mirrors and a red crystal from the dispenser in the central room."));
 		collectMirrors.addDialogStep("Take everything.");
 
 		p1Pillar1 = new ObjectStep(getQuestHelper(), ObjectID.SOTE_PILLAR_1_D_5, new WorldPoint(2609, 6158, 1),
-			"Add a mirror to a pillar to the north. Rotate it to point the light east.", handMirrorHighlighted);
+			getQuestHelper().t("Add a mirror to a pillar to the north. Rotate it to point the light east."), handMirrorHighlighted);
 		p1Pillar1.addIcon(ItemID.SOTE_MIRROR);
 
 		p1Pillar2 = new ObjectStep(getQuestHelper(), ObjectID.SOTE_PILLAR_1_E_5, new WorldPoint(2623, 6158, 1),
-			"Add a mirror to a pillar to the east. Rotate it to point the light down.", handMirrorHighlighted);
+			getQuestHelper().t("Add a mirror to a pillar to the east. Rotate it to point the light down."), handMirrorHighlighted);
 		p1Pillar2.addIcon(ItemID.SOTE_MIRROR);
 
 		p1Pillar3 = new ObjectStep(getQuestHelper(), ObjectID.SOTE_PILLAR_0_E_5, new WorldPoint(2623, 6158, 0),
-			"Add a mirror to the pillar near the stairs. Rotate it to point the light south.", handMirrorHighlighted);
+			getQuestHelper().t("Add a mirror to the pillar near the stairs. Rotate it to point the light south."), handMirrorHighlighted);
 		p1Pillar3.addIcon(ItemID.SOTE_MIRROR);
 
 		p1Pillar4 = new ObjectStep(getQuestHelper(), ObjectID.SOTE_PILLAR_0_E_3, new WorldPoint(2623, 6130,0),
-			"Add a mirror to the pillar to the south. Rotate it to point the light west.", handMirrorHighlighted);
+			getQuestHelper().t("Add a mirror to the pillar to the south. Rotate it to point the light west."), handMirrorHighlighted);
 		p1Pillar4.addIcon(ItemID.SOTE_MIRROR);
 
 		p1Pillar5 = new ObjectStep(getQuestHelper(), ObjectID.SOTE_PILLAR_0_D_3, new WorldPoint(2609, 6130,0),
-			"Add a mirror to the pillar to the west. Rotate it to point the light south.", handMirrorHighlighted);
+			getQuestHelper().t("Add a mirror to the pillar to the west. Rotate it to point the light south."), handMirrorHighlighted);
 		p1Pillar5.addIcon(ItemID.SOTE_MIRROR);
 
 		p1Pillar6 = new ObjectStep(getQuestHelper(), ObjectID.SOTE_PILLAR_0_D_2, new WorldPoint(2609, 6116,0),
-			"Add the red crystal to the pillar to the south.", redCrystalHighlighted);
+			getQuestHelper().t("Add the red crystal to the pillar to the south."), redCrystalHighlighted);
 		p1Pillar6.addIcon(ItemID.SOTE_CRYSTAL_RED);
 
 		p1Pillar7 = new ObjectStep(getQuestHelper(), ObjectID.SOTE_PILLAR_0_D_1, new WorldPoint(2609, 6102,0),
-			"Add a mirror to the pillar to the south. Rotate it to point the light east.", handMirrorHighlighted);
+			getQuestHelper().t("Add a mirror to the pillar to the south. Rotate it to point the light east."), handMirrorHighlighted);
 		p1Pillar7.addIcon(ItemID.SOTE_MIRROR);
 
 		p1Pillar8 = new ObjectStep(getQuestHelper(), ObjectID.SOTE_PILLAR_0_E_1, new WorldPoint(2623, 6102,0),
-			"Add a mirror to the pillar to the east. Rotate it to point the light south at the Seal of Cadarn.", handMirrorHighlighted);
+			getQuestHelper().t("Add a mirror to the pillar to the east. Rotate it to point the light south at the Seal of Cadarn."), handMirrorHighlighted);
 		p1Pillar8.addIcon(ItemID.SOTE_MIRROR);
 	}
 

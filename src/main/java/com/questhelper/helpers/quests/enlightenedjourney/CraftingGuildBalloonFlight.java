@@ -61,7 +61,7 @@ public class CraftingGuildBalloonFlight extends ComplexStateQuestHelper
 		sections.put(5, section2);
 		sections.put(6, section3);
 
-		fly = new BalloonFlightStep(this, "Navigate the balloon on Entrana to the Crafting Guild.", sections, oakLogs);
+		fly = new BalloonFlightStep(this, t("Navigate the balloon on Entrana to the Crafting Guild."), sections, oakLogs);
 		return fly;
 	}
 
@@ -97,7 +97,7 @@ public class CraftingGuildBalloonFlight extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Collections.singletonList(
-			new UnlockReward("Ability to fly via balloon to the Crafting Guild with 1 oak log")
+			new UnlockReward(t("Ability to fly via balloon to the Crafting Guild with 1 oak log"))
 		);
 	}
 
@@ -106,7 +106,7 @@ public class CraftingGuildBalloonFlight extends ComplexStateQuestHelper
 	{
 		ArrayList<PanelDetails> allSteps = new ArrayList<>();
 
-		allSteps.add(new PanelDetails("Flying to the Crafting Guild", Collections.singletonList(fly), oakLogs));
+		allSteps.add(new PanelDetails(t("Flying to the Crafting Guild"), Collections.singletonList(fly), oakLogs));
 
 		return allSteps;
 	}

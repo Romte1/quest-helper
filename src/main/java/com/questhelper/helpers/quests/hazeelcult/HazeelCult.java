@@ -169,7 +169,7 @@ public class HazeelCult extends BasicQuestHelper
 		talkedToCerilAfterPoison = new VarbitRequirement(VarbitID.HAZEELCULT_POISON_SUCCESS, 1);
 		butlerArrested = new VarbitRequirement(VarbitID.HAZEELCULT_JONES_CUTSCENE, 1);
 
-		ardougneCloak = new ItemRequirement("Ardougne cloak for Monastery teleport", ItemID.ARDY_CAPE_EASY).isNotConsumed();
+		ardougneCloak = new ItemRequirement(t("Ardougne cloak for Monastery teleport"), ItemID.ARDY_CAPE_EASY).isNotConsumed();
 		ardougneCloak.addAlternates(ItemID.ARDY_CAPE_MEDIUM, ItemID.ARDY_CAPE_HARD, ItemID.ARDY_CAPE_ELITE);
 
 		poison = new ItemRequirement("Poison", ItemID.POISON);

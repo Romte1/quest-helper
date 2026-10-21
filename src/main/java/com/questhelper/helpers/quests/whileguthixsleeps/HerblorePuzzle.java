@@ -58,10 +58,6 @@ public class HerblorePuzzle extends ConditionalStep
 	// 1 -> 100011
 	// newt/???/???/guam???
 
-	private static final String START_TEXT = "Use the ";
-	private static final String MIDDLE_TEXT = " potion ingredients on the statue up the ";
-	private static final String END_TEXT = " You can get ingredients by using your druid pouch on the druid spirits around the area.";
-
 	private boolean haveSetupSteps;
 
 	public HerblorePuzzle(QuestHelper questHelper, QuestStep step, Requirement... requirements)
@@ -76,7 +72,7 @@ public class HerblorePuzzle extends ConditionalStep
 		dolmens.addAlternates(ItemID.WGS_HENGE_PIECE_ENERGY, ItemID.WGS_HENGE_PIECE_RESTORE, ItemID.WGS_HENGE_PIECE_ATTACK, ItemID.WGS_HENGE_PIECE_STRENGTH, ItemID.WGS_HENGE_PIECE_DEFENCE, ItemID.WGS_HENGE_PIECE_COMBAT,
 			ItemID.WGS_HENGE_PIECE_RANGED, ItemID.WGS_HENGE_PIECE_PRAYER, ItemID.WGS_HENGE_PIECE_HUNTING, ItemID.WGS_HENGE_PIECE_FISHING, ItemID.WGS_HENGE_PIECE_MAGIC, ItemID.WGS_HENGE_PIECE_BALANCE);
 
-		placeDolmens = new ObjectStep(questHelper, ObjectID.LUC2_GT_HENGE_TABLE_MULTI, new WorldPoint(4076, 4437, 0), "Use all the dolmens on the stone table in the middle of the area.", dolmens.highlighted());
+		placeDolmens = new ObjectStep(questHelper, ObjectID.LUC2_GT_HENGE_TABLE_MULTI, new WorldPoint(4076, 4437, 0), questHelper.t("Use all the dolmens on the stone table in the middle of the area."), dolmens.highlighted());
 		steps[8] = placeDolmens;
 
 		int[] HERB_ORDER = new int[]{3, 0, 6, 1, 7, 4, 2, 5};
@@ -101,7 +97,7 @@ public class HerblorePuzzle extends ConditionalStep
 
 		for (int i : HERB_ORDER)
 		{
-			steps[i] = new ObjectStep(questHelper, 0, "Unknown state.");
+			steps[i] = new ObjectStep(questHelper, 0, questHelper.t("Unknown state."));
 			this.addStep(conditions[i], steps[i]);
 		}
 	}
@@ -130,7 +126,7 @@ public class HerblorePuzzle extends ConditionalStep
 			DolmenType dolmenType = DolmenType.values()[statueTypeIndex];
 			StatueLocation statueLocation = StatueLocation.values()[i];
 
-			String text = START_TEXT + dolmenType.name().toLowerCase() + MIDDLE_TEXT + statueLocation.getDirectionText() + END_TEXT;
+			String text = questHelper.t("Use the ") + dolmenType.name().toLowerCase() + " " + questHelper.t("potion ingredients on the statue up the ") + getDirectionText(statueLocation) + " " + questHelper.t("You can get ingredients by using your druid pouch on the druid spirits around the area.");
 
 			if (dolmenType.getCompleteState() != -1)
 			{
@@ -146,9 +142,33 @@ public class HerblorePuzzle extends ConditionalStep
 		}
 	}
 
+	private String getDirectionText(StatueLocation statueLocation)
+	{
+		switch (statueLocation)
+		{
+			case NW:
+				return questHelper.t("north-west path.");
+			case W:
+				return questHelper.t("west path.");
+			case SW_N:
+				return questHelper.t("south-west path, up the north branch.");
+			case SW_S:
+				return questHelper.t("south-west path, down the south branch.");
+			case NE:
+				return questHelper.t("north-east path.");
+			case E:
+				return questHelper.t("east path.");
+			case SE_N:
+				return questHelper.t("south-east path, up the north branch.");
+			case SE_S:
+				return questHelper.t("south-east path, down the south branch.");
+			default:
+				return "";
+		}
+	}
+
 	public QuestStep[] getSidebarSteps()
 	{
 		return steps;
-
 	}
 }

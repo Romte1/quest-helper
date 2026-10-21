@@ -140,7 +140,7 @@ public class TheSlugMenace extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		commorb = new ItemRequirement("Commorb (can get another from Sir Tiffy)", ItemID.WANTED_CRYSTAL_BALL).isNotConsumed();
+		commorb = new ItemRequirement(t("Commorb (can get another from Sir Tiffy)"), ItemID.WANTED_CRYSTAL_BALL).isNotConsumed();
 		commorb.addAlternates(ItemID.SLUG2_CRYSTAL_BALL);
 
 		commorb2 = new ItemRequirement("Commorb v2", ItemID.SLUG2_CRYSTAL_BALL).isNotConsumed();
@@ -192,13 +192,13 @@ public class TheSlugMenace extends BasicQuestHelper
 		fireRune = new ItemRequirement("Fire rune", ItemID.SLUG2_RUNE_FIRE).hideConditioned(usedFireRune);
 		mindRune = new ItemRequirement("Mind rune", ItemID.SLUG2_RUNE_MIND).hideConditioned(usedMindRune);
 
-		meleeGear = new ItemRequirement("Melee weapon to fight the Slug Prince", -1, -1).isNotConsumed();
+		meleeGear = new ItemRequirement(t("Melee weapon to fight the Slug Prince"), -1, -1).isNotConsumed();
 		meleeGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		doorTranscript = new ItemRequirement("Door transcription", ItemID.SLUG2_TRANSCRIPT);
 
 		ardougneTeleports = new ItemRequirement("Ardougne teleports", ItemID.POH_TABLET_ARDOUGNETELEPORT, 3);
-		essence5 = new ItemRequirement("Rune/pure essence, 15 to be safe", ItemID.BLANKRUNE_HIGH, 5);
+		essence5 = new ItemRequirement(t("Rune/pure essence, 15 to be safe"), ItemID.BLANKRUNE_HIGH, 5);
 		essence5.addAlternates(ItemID.BLANKRUNE);
 
 		ItemRequirement airTalisman = new ItemRequirement("Access to the Air Altar", ItemCollections.AIR_ALTAR).isNotConsumed();

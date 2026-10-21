@@ -57,6 +57,7 @@ public class FillBurghCrate extends DetailedQuestStep
 	public FillBurghCrate(QuestHelper questHelper)
 	{
 		super(questHelper, questHelper.t("Fill the crate with 3 tinderboxes, 10 bronze axes, and either 10 raw snails or 10 raw mackerel."), tinderbox3, bronzeAxe10, rawSnailsOrMackerel);
+		rawSnailsOrMackerel.setName(questHelper.t("Raw mackerel or raw snail meat (random for each player)"));
 	}
 
 	@Subscribe

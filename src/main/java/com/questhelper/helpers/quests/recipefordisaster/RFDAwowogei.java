@@ -128,19 +128,19 @@ public class RFDAwowogei extends BasicQuestHelper
 		mAmulet = new ItemRequirement("M'speak amulet", ItemID.MM_AMULET_OF_MONKEY_SPEAK, 1, true);
 		gorillaGreegree = new ItemRequirement("Gorilla greegree", ItemID.MM_MONKEY_GREEGREE_FOR_NORMAL_GORILLA, 1, true).isNotConsumed();
 		gorillaGreegree.addAlternates(ItemID.MM_MONKEY_GREEGREE_FOR_ANCIENT_MONKEY_SKULL, ItemID.MM_MONKEY_GREEGREE_FOR_BEARDED_GORILLA);
-		gorillaGreegree.setTooltip("Kill a gorilla in the monkey temple for their bones, and make a greegree from them");
+		gorillaGreegree.setTooltip(t("Kill a gorilla in the monkey temple for their bones, and make a greegree from them"));
 		ninjaGreegree = new ItemRequirement("Ninja greegree", ItemID.MM_MONKEY_GREEGREE_FOR_SMALL_NINJA_MONKEY, 1, true).isNotConsumed();
-		ninjaGreegree.setTooltip("Kill a monkey archer in the monkey market for its bones and make a greegree from them");
+		ninjaGreegree.setTooltip(t("Kill a monkey archer in the monkey market for its bones and make a greegree from them"));
 		ninjaGreegree.addAlternates(ItemID.MM_MONKEY_GREEGREE_FOR_MEDIUM_NINJA_MONKEY, ItemID.MM2_KRUK_GREEGREE);
 		zombieGreegree = new ItemRequirement("Zombie greegree", ItemID.MM_MONKEY_GREEGREE_FOR_SMALL_ZOMBIE_MONKEY, 1, true).isNotConsumed();
-		zombieGreegree.setTooltip("Kill a zombie monkey under the monkey temple and make a greegree from them");
+		zombieGreegree.setTooltip(t("Kill a zombie monkey under the monkey temple and make a greegree from them"));
 		zombieGreegree.addAlternates(ItemID.MM_MONKEY_GREEGREE_FOR_LARGE_ZOMBIE_MONKEY);
 		greegreeEquipped = new ItemRequirement("Any greegree", ItemCollections.GREEGREES).equipped().isNotConsumed();
 		bananaHighlighted = new ItemRequirement("Banana", ItemID.BANANA);
 		bananaHighlighted.setHighlightInInventory(true);
 		monkeyNutsHighlighted = new ItemRequirement("Monkey nuts", ItemID.MM_MONKEY_NUTS);
 		monkeyNutsHighlighted.setHighlightInInventory(true);
-		monkeyNutsHighlighted.setTooltip("You can buy some from Solihib in the monkey market");
+		monkeyNutsHighlighted.setTooltip(t("You can buy some from Solihib in the monkey market"));
 		ropeHighlighted = new ItemRequirement("Rope", ItemID.ROPE).isNotConsumed();
 		ropeHighlighted.setHighlightInInventory(true);
 		knife = new ItemRequirement("Knife", ItemID.KNIFE).isNotConsumed();
@@ -166,7 +166,7 @@ public class RFDAwowogei extends BasicQuestHelper
 		paste = new ItemRequirement("Tchiki nut paste", ItemID.HUNDRED_ILM_TCHIKI_MONKEY_NUT_PASTE);
 		paste.setHighlightInInventory(true);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		antipoison = new ItemRequirement("Antipoison", ItemCollections.ANTIPOISONS);
 
@@ -205,44 +205,44 @@ public class RFDAwowogei extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		enterDiningRoom = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOUBLEDOORL, new WorldPoint(3213, 3221, 0), "Go inspect Awowogei in Lumbridge Castle.");
-		inspectAwowogei = new ObjectStep(this, ObjectID.HUNDRED_MONKEY_BASE, new WorldPoint(1865, 5319, 0), "Inspect Awowogei.");
+		enterDiningRoom = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOUBLEDOORL, new WorldPoint(3213, 3221, 0), t("Go inspect Awowogei in Lumbridge Castle."));
+		inspectAwowogei = new ObjectStep(this, ObjectID.HUNDRED_MONKEY_BASE, new WorldPoint(1865, 5319, 0), t("Inspect Awowogei."));
 		inspectAwowogei.addSubSteps(enterDiningRoom);
 
-		talkToAwowogei = new ObjectStep(this, ObjectID.MM_THRONE, new WorldPoint(2803, 2765, 0), "Talk to Awowogei on Ape Atoll.", greegreeEquipped, mAmulet);
-		talkToWiseMonkeys = new NpcStep(this, NpcID.HUNDRED_ILM_IWAZARU, new WorldPoint(2789, 2795, 0), "Talk to the three monkeys sat in the temple.", greegreeEquipped, mAmulet);
+		talkToAwowogei = new ObjectStep(this, ObjectID.MM_THRONE, new WorldPoint(2803, 2765, 0), t("Talk to Awowogei on Ape Atoll."), greegreeEquipped, mAmulet);
+		talkToWiseMonkeys = new NpcStep(this, NpcID.HUNDRED_ILM_IWAZARU, new WorldPoint(2789, 2795, 0), t("Talk to the three monkeys sat in the temple."), greegreeEquipped, mAmulet);
 		talkToWiseMonkeys.addDialogStep("Do you know anything about the King's favourite dish?");
-		useBananaOnWiseMonkeys = new NpcStep(this, NpcID.HUNDRED_ILM_IWAZARU, new WorldPoint(2789, 2795, 0), "Use a banana on the one of the three monkeys.", bananaHighlighted, greegreeEquipped, mAmulet);
+		useBananaOnWiseMonkeys = new NpcStep(this, NpcID.HUNDRED_ILM_IWAZARU, new WorldPoint(2789, 2795, 0), t("Use a banana on the one of the three monkeys."), bananaHighlighted, greegreeEquipped, mAmulet);
 		useBananaOnWiseMonkeys.addIcon(ItemID.BANANA);
-		useNutsOnWiseMonkeys = new NpcStep(this, NpcID.HUNDRED_ILM_IWAZARU, new WorldPoint(2789, 2795, 0), "Use some monkey nuts on the one of the three monkeys.", monkeyNutsHighlighted, greegreeEquipped, mAmulet);
+		useNutsOnWiseMonkeys = new NpcStep(this, NpcID.HUNDRED_ILM_IWAZARU, new WorldPoint(2789, 2795, 0), t("Use some monkey nuts on the one of the three monkeys."), monkeyNutsHighlighted, greegreeEquipped, mAmulet);
 		useNutsOnWiseMonkeys.addIcon(ItemID.MM_MONKEY_NUTS);
 
-		goToCrashIsland = new NpcStep(this, NpcID.MM_LUMDO_2OPS, new WorldPoint(2802, 2706, 0), "Travel to Crash Island with Lumdo.", combatGear);
-		enterCrashHole = new ObjectStep(this, ObjectID._100_ILM_SNAKEPIT_ENTRANCE, new WorldPoint(2922, 2722, 0), "Enter the hole on Crash Island. Protect melee when entering as you'll be attacked straight away by snakes.", combatGear, protectMelee);
+		goToCrashIsland = new NpcStep(this, NpcID.MM_LUMDO_2OPS, new WorldPoint(2802, 2706, 0), t("Travel to Crash Island with Lumdo."), combatGear);
+		enterCrashHole = new ObjectStep(this, ObjectID._100_ILM_SNAKEPIT_ENTRANCE, new WorldPoint(2922, 2722, 0), t("Enter the hole on Crash Island. Protect melee when entering as you'll be attacked straight away by snakes."), combatGear, protectMelee);
 		enterCrashHole.addDialogStep("Yes, I'm as hard as nails.");
-		killSnake = new NpcStep(this, NpcID.HUNDRED_ILM_SNAKE, new WorldPoint(3019, 5485, 0), "Kill a Big Snake for its corpse. Kill a few in case you burn it.", snakeCorpse);
-		leaveSnakeHole = new ObjectStep(this, ObjectID._100_ILM_LIGHT_STREAMING_WITH_ROPE, new WorldPoint(3024, 5489, 0), "Leave the hole.");
-		returnToApeAtoll = new NpcStep(this, NpcID.MM_LUMDO_2OPS, new WorldPoint(2892, 2723, 0), "Travel back to Ape Atoll with Lumdo.");
+		killSnake = new NpcStep(this, NpcID.HUNDRED_ILM_SNAKE, new WorldPoint(3019, 5485, 0), t("Kill a Big Snake for its corpse. Kill a few in case you burn it."), snakeCorpse);
+		leaveSnakeHole = new ObjectStep(this, ObjectID._100_ILM_LIGHT_STREAMING_WITH_ROPE, new WorldPoint(3024, 5489, 0), t("Leave the hole."));
+		returnToApeAtoll = new NpcStep(this, NpcID.MM_LUMDO_2OPS, new WorldPoint(2892, 2723, 0), t("Travel back to Ape Atoll with Lumdo."));
 
-		useRopeOnTree = new ObjectStep(this, ObjectID._100_ILM_BANANA_TREE_MULTILOC, new WorldPoint(2697, 2786, 0), "Use a rope on the red banana tree on the north west of Ape Atoll as a gorilla.", gorillaGreegree, ropeHighlighted);
+		useRopeOnTree = new ObjectStep(this, ObjectID._100_ILM_BANANA_TREE_MULTILOC, new WorldPoint(2697, 2786, 0), t("Use a rope on the red banana tree on the north west of Ape Atoll as a gorilla."), gorillaGreegree, ropeHighlighted);
 		useRopeOnTree.addIcon(ItemID.ROPE);
 
-		enterNutHole = new ObjectStep(this, ObjectID._100_ILM_VINE_HOLE, new WorldPoint(2758, 2729, 0), "Go around the monkey agility course until you reach a hole, and go down it.", ninjaGreegree);
-		takeNuts = new ObjectStep(this, ObjectID._100_ILM_MONKEY_NUT_BUSH_01, new WorldPoint(3021, 5458, 0), "Take a nut from the bush.");
+		enterNutHole = new ObjectStep(this, ObjectID._100_ILM_VINE_HOLE, new WorldPoint(2758, 2729, 0), t("Go around the monkey agility course until you reach a hole, and go down it."), ninjaGreegree);
+		takeNuts = new ObjectStep(this, ObjectID._100_ILM_MONKEY_NUT_BUSH_01, new WorldPoint(3021, 5458, 0), t("Take a nut from the bush."));
 
-		grindNuts = new DetailedQuestStep(this, "Use a pestle and mortar on the tchiki nuts. Get more tchiki nut paste as desired in case you burn the final meal.", pestleAndMortar, tchikiNutsHighlighted);
-		sliceBanana = new DetailedQuestStep(this, "Use a knife/slash weapon on the red banana. Get more sliced red bananas as desired in case you burn the final meal.", knife, redBananaHighlighted);
+		grindNuts = new DetailedQuestStep(this, t("Use a pestle and mortar on the tchiki nuts. Get more tchiki nut paste as desired in case you burn the final meal."), pestleAndMortar, tchikiNutsHighlighted);
+		sliceBanana = new DetailedQuestStep(this, t("Use a knife/slash weapon on the red banana. Get more sliced red bananas as desired in case you burn the final meal."), knife, redBananaHighlighted);
 
-		stuffSnake = new DetailedQuestStep(this, "Use the paste on the snake to stuff it.", paste, slicedRedBanana, snakeCorpseHighlighted);
+		stuffSnake = new DetailedQuestStep(this, t("Use the paste on the snake to stuff it."), paste, slicedRedBanana, snakeCorpseHighlighted);
 
-		enterZombieDungeon = new ObjectStep(this, ObjectID.MM_TEMPLE_TRAPDOOR_OPEN, new WorldPoint(2807, 2785, 0), "Enter the trapdoor in the monkey temple.", zombieGreegree, rawStuffedSnake);
+		enterZombieDungeon = new ObjectStep(this, ObjectID.MM_TEMPLE_TRAPDOOR_OPEN, new WorldPoint(2807, 2785, 0), t("Enter the trapdoor in the monkey temple."), zombieGreegree, rawStuffedSnake);
 		((ObjectStep) (enterZombieDungeon)).addAlternateObjects(ObjectID.MM_TEMPLE_TRAPDOOR);
-		enterCookingHole = new ObjectStep(this, ObjectID._100_ILM_ZOMBIE_CAVE_CRACK, new WorldPoint(2805, 9199, 0), "Enter the hole just under where you entered.", zombieGreegree, rawStuffedSnake);
-		cookSnake = new ObjectStep(this, ObjectID._100_ILM_LONG_HOT_ROCK_MULTI, new WorldPoint(3056, 5485, 0), "Go across the hot rocks with the zombie greegree equipped. Cook the stuffed snake on the rock at the end of the room.", zombieGreegree, rawStuffedSnakeHighlighted);
+		enterCookingHole = new ObjectStep(this, ObjectID._100_ILM_ZOMBIE_CAVE_CRACK, new WorldPoint(2805, 9199, 0), t("Enter the hole just under where you entered."), zombieGreegree, rawStuffedSnake);
+		cookSnake = new ObjectStep(this, ObjectID._100_ILM_LONG_HOT_ROCK_MULTI, new WorldPoint(3056, 5485, 0), t("Go across the hot rocks with the zombie greegree equipped. Cook the stuffed snake on the rock at the end of the room."), zombieGreegree, rawStuffedSnakeHighlighted);
 		cookSnake.addIcon(ItemID.HUNDRED_ILM_CORRECTLY_STUFFED_SNAKE);
 
-		enterDiningRoomAgain = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOOR, new WorldPoint(3207, 3217, 0), "Go give the snake to Awowogei to finish the quest.", cookedSnake);
-		useSnakeOnAwowogei = new ObjectStep(this, ObjectID.HUNDRED_MONKEY_BASE, new WorldPoint(1865, 5319, 0), "Give the snake to Awowogei to finish the quest.", cookedSnakeHighlighted);
+		enterDiningRoomAgain = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOOR, new WorldPoint(3207, 3217, 0), t("Go give the snake to Awowogei to finish the quest."), cookedSnake);
+		useSnakeOnAwowogei = new ObjectStep(this, ObjectID.HUNDRED_MONKEY_BASE, new WorldPoint(1865, 5319, 0), t("Give the snake to Awowogei to finish the quest."), cookedSnakeHighlighted);
 		useSnakeOnAwowogei.addIcon(ItemID.HUNDRED_ILM_COOKED_STUFFED_SNAKE);
 		useSnakeOnAwowogei.addSubSteps(enterDiningRoomAgain);
 	}
@@ -262,13 +262,13 @@ public class RFDAwowogei extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Arrays.asList("Big Snake (level 84)", "If you need the greegrees still, a zombie, ninja, and guard monkey");
+		return Arrays.asList(t("Big Snake (level 84)"), t("If you need the greegrees still, a zombie, ninja, and guard monkey"));
 	}
 
 	@Override
 	public List<String> getNotes()
 	{
-		return Collections.singletonList("If you don't have the ninja/gorilla/zombie greegrees ready, it's recommended you get them all in a single run to Zooknock to save time.");
+		return Collections.singletonList(t("If you don't have the ninja/gorilla/zombie greegrees ready, it's recommended you get them all in a single run to Zooknock to save time."));
 	}
 
 	@Override
@@ -301,16 +301,16 @@ public class RFDAwowogei extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Ability to teleport to Ape Atoll"),
-				new UnlockReward("Increased access to the Culinaromancer's Chest"));
+				new UnlockReward(t("Ability to teleport to Ape Atoll")),
+				new UnlockReward(t("Increased access to the Culinaromancer's Chest")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off", Collections.singletonList(inspectAwowogei)));
-		allSteps.add(new PanelDetails("Saving Awowogei", Arrays.asList(talkToAwowogei, talkToWiseMonkeys, useBananaOnWiseMonkeys, useNutsOnWiseMonkeys, goToCrashIsland, enterCrashHole, killSnake, leaveSnakeHole,
+		allSteps.add(new PanelDetails(t("Starting off"), Collections.singletonList(inspectAwowogei)));
+		allSteps.add(new PanelDetails(t("Saving Awowogei"), Arrays.asList(talkToAwowogei, talkToWiseMonkeys, useBananaOnWiseMonkeys, useNutsOnWiseMonkeys, goToCrashIsland, enterCrashHole, killSnake, leaveSnakeHole,
 			returnToApeAtoll, useRopeOnTree, sliceBanana, enterNutHole, takeNuts, grindNuts, stuffSnake, enterZombieDungeon, enterCookingHole, cookSnake, useSnakeOnAwowogei),
 			Arrays.asList(mAmulet, bananaHighlighted, monkeyNutsHighlighted, ropeHighlighted, knife, pestleAndMortar, zombieGreegree, ninjaGreegree, gorillaGreegree),
 			Arrays.asList(combatGear, antipoison)));

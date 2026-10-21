@@ -180,13 +180,13 @@ public class KandarinEasy extends ComplexStateQuestHelper
         rake = new ItemRequirement("Rake", ItemID.RAKE).showConditioned(notPlantJute).isNotConsumed();
         var needSeedDibber = not(new VarbitRequirement(VarbitID.BRUT_FARMING_PLANTING, 3));
         seedDibber = new ItemRequirement("Seed dibber", ItemID.DIBBER).showConditioned(and(notPlantJute, needSeedDibber)).isNotConsumed();
-        spade = new ItemRequirement("Spade (if existing plant in hops patch)", ItemID.SPADE).showConditioned(notPlantJute).isNotConsumed();
+        spade = new ItemRequirement(t("Spade (if existing plant in hops patch)"), ItemID.SPADE).showConditioned(notPlantJute).isNotConsumed();
 
 		batteredKey = new KeyringRequirement("Battered Key", KeyringCollection.BATTERED_KEY).showConditioned(notKillEle).isNotConsumed();
-        batteredKey.setTooltip("You can get another by searching the bookcase in the house south of the Elemental " +
-			"Workshop, then reading the book you get from it");
+        batteredKey.setTooltip(t("You can get another by searching the bookcase in the house south of the Elemental " +
+			"Workshop, then reading the book you get from it"));
 
-        combatGear = new ItemRequirement("Combat gear to defeat all types of elementals (level 35)", -1, -1)
+        combatGear = new ItemRequirement(t("Combat gear to defeat all types of elementals (level 35)"), -1, -1)
 			.showConditioned(notKillEle).isNotConsumed();
         combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
@@ -202,7 +202,7 @@ public class KandarinEasy extends ComplexStateQuestHelper
 			new VarplayerRequirement(VarPlayerID.ELEMENTAL_WORKSHOP_BITS, true, 15),
 			new QuestRequirement(QuestHelperQuest.ELEMENTAL_WORKSHOP_I, QuestState.FINISHED)
 		);
-		((Conditions) eleWorkI).setText("Partial completion of Elemental Workshop I");
+		((Conditions) eleWorkI).setText(t("Partial completion of Elemental Workshop I"));
 	}
 
 	@Override
@@ -214,51 +214,51 @@ public class KandarinEasy extends ComplexStateQuestHelper
 	public void setupSteps()
 	{
 		catchMackerel = new NpcStep(this, NpcID._0_44_53_MEMBERFISH, new WorldPoint(2841, 3432, 0),
-			"Fish on Catherby beach at the Big Net fishing spots for a mackerel.", true, bigFishingNet);
+			t("Fish on Catherby beach at the Big Net fishing spots for a mackerel."), true, bigFishingNet);
 		buyCandle = new NpcStep(this, NpcID.CANDLE_MAKER, new WorldPoint(2799, 3439, 0),
-			"Buy a candle from the candle maker in Catherby.", coins.quantity(3));
+			t("Buy a candle from the candle maker in Catherby."), coins.quantity(3));
 
 		fillFishbowl = new ObjectStep(this, ObjectID.SINK2, new WorldPoint(2830, 3441, 0),
-			"Fill an empty fish bowl at a sink.", emptyFishbowl.highlighted(), seaweed, coins.quantity(10));
+			t("Fill an empty fish bowl at a sink."), emptyFishbowl.highlighted(), seaweed, coins.quantity(10));
 		fillFishbowl.addIcon(ItemID.FISHBOWL_EMPTY);
 		petFish = new NpcStep(this, NpcID.HARRY, new WorldPoint(2833, 3443, 0),
-			"Speak with Harry in the Catherby Fishing Shop to get a tiny net.", fishBowlSeaweed, coins.quantity(10));
+			t("Speak with Harry in the Catherby Fishing Shop to get a tiny net."), fishBowlSeaweed, coins.quantity(10));
 		petFish.addDialogSteps("Can I get a fish for this bowl?", "I'll take it!");
-		petFishMix = new ItemStep(this, "Put seaweed into the fishbowl.", fishBowl.highlighted(), seaweed.highlighted());
+		petFishMix = new ItemStep(this, t("Put seaweed into the fishbowl."), fishBowl.highlighted(), seaweed.highlighted());
 		petFishFish = new ObjectStep(this, ObjectID.AQUARIUM, new WorldPoint(2831, 3445, 0),
-			"Fish in the aquarium near Harry.", tinyNet);
+			t("Fish in the aquarium near Harry."), tinyNet);
 		collectFlax = new ObjectStep(this, ObjectID.FLAX, new WorldPoint(2742, 3446, 0),
-			"Pick 5 flax at the flax field west of Catherby.");
+			t("Pick 5 flax at the flax field west of Catherby."));
 		talkSherlock = new NpcStep(this, NpcID.SHERLOCK, new WorldPoint(2735, 3413, 0),
-			"Speak with Sherlock west of Catherby.");
+			t("Speak with Sherlock west of Catherby."));
 		moveToWorkshop = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_SPIRALSTAIRSTOP, new WorldPoint(2711, 3498, 0),
-			"Enter the Elemental Workshop in Seers' Village.", batteredKey, combatGear, food);
+			t("Enter the Elemental Workshop in Seers' Village."), batteredKey, combatGear, food);
 		killFire = new NpcStep(this, NpcID.ELEMENTAL_FIRE, new WorldPoint(2719, 9877, 0),
-			"Kill one of the fire elementals.", true, combatGear, food);
+			t("Kill one of the fire elementals."), true, combatGear, food);
 		killEarth = new NpcStep(this, NpcID.ELEMENTAL_EARTH, new WorldPoint(2700, 9903, 0),
-			"Kill one of the earth elementals. Only the roaming ones work for this.", true, combatGear, food);
+			t("Kill one of the earth elementals. Only the roaming ones work for this."), true, combatGear, food);
 		killWater = new NpcStep(this, NpcID.ELEMENTAL_WATER, new WorldPoint(2719, 9903, 0),
-			"Kill one of the water elementals.", true, combatGear, food);
+			t("Kill one of the water elementals."), true, combatGear, food);
 		killAir = new NpcStep(this, NpcID.ELEMENTAL_AIR, new WorldPoint(2735, 9891, 0),
-			"Kill one of the air elementals.", true, combatGear, food);
+			t("Kill one of the air elementals."), true, combatGear, food);
 
 		buyStew = new NpcStep(this, NpcID.FORESTERS_BARTENDER, new WorldPoint(2691, 3494, 0),
-			"Talk with the bartender in Seers' Village and buy a stew.", coins.quantity(20));
+			t("Talk with the bartender in Seers' Village and buy a stew."), coins.quantity(20));
 		buyStew.addDialogSteps("What do you have?", "Could I have some stew please?");
 		playOrgan = new ObjectStep(this, ObjectID.KR_CHURCHORGAN, new WorldPoint(2692, 3463, 0),
-			"Play the organ in Seers' Village Church.");
+			t("Play the organ in Seers' Village Church."));
 		plantJute = new ObjectStep(this, ObjectID.FARMING_HOPS_PATCH_4, new WorldPoint(2669, 3523, 0),
-			"Plant 3 jute seeds in the hops patch north west of Seers' Village.", juteSeed.quantity(3),
+			t("Plant 3 jute seeds in the hops patch north west of Seers' Village."), juteSeed.quantity(3),
 			seedDibber, rake, spade);
 		plantJute.addIcon(ItemID.JUTE_SEED);
 		cupTea = new NpcStep(this, NpcID.BROTHER_GALAHAD, new WorldPoint(2612, 3474, 0),
-			"Talk with Galahad west of McGrubor's Wood until he gives you some tea.");
+			t("Talk with Galahad west of McGrubor's Wood until he gives you some tea."));
 		cupTea.addDialogStep("Do you get lonely here on your own?");
 		logShortcut = new ObjectStep(this, ObjectID.MINE_LOG_BALANCE1, new WorldPoint(2602, 3477, 0),
-			"Cross the log shortcut near to Galahad.");
+			t("Cross the log shortcut near to Galahad."));
 
 		claimReward = new NpcStep(this, NpcID.SEERS_DIARY_WEDGE, new WorldPoint(2760, 3476, 0),
-			"Talk to the 'Wedge' in front of Camelot Castle to claim your reward!");
+			t("Talk to the 'Wedge' in front of Camelot Castle to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -278,7 +278,7 @@ public class KandarinEasy extends ComplexStateQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("4 level 35 elementals");
+		return Collections.singletonList(t("4 level 35 elementals"));
 	}
 
 	@Override
@@ -307,9 +307,9 @@ public class KandarinEasy extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("Coal trucks can hold up to 140 coal."),
-			new UnlockReward("The Flax keeper will exchange 30 noted flax for 30 noted bow strings daily"),
-			new UnlockReward("5% more marks of grace on Seers' Village Rooftop Course"));
+			new UnlockReward(t("Coal trucks can hold up to 140 coal.")),
+			new UnlockReward(t("The Flax keeper will exchange 30 noted flax for 30 noted bow strings daily")),
+			new UnlockReward(t("5% more marks of grace on Seers' Village Rooftop Course")));
 	}
 
 	@Override
@@ -317,69 +317,69 @@ public class KandarinEasy extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails catchMackSteps = new PanelDetails("Catch a Mackerel", Collections.singletonList(catchMackerel),
+		PanelDetails catchMackSteps = new PanelDetails(t("Catch a Mackerel"), Collections.singletonList(catchMackerel),
 			new SkillRequirement(Skill.FISHING, 16, true), bigFishingNet);
 		catchMackSteps.setDisplayCondition(notCatchMackerel);
 		catchMackSteps.setLockingStep(catchMackerelTask);
 		allSteps.add(catchMackSteps);
 
-		PanelDetails getPetFishSteps = new PanelDetails("Get a Pet Fish", Arrays.asList(fillFishbowl, petFishMix,
+		PanelDetails getPetFishSteps = new PanelDetails(t("Get a Pet Fish"), Arrays.asList(fillFishbowl, petFishMix,
 			petFish, petFishFish), coins.quantity(10), genericFishbowl, seaweed);
 		getPetFishSteps.setDisplayCondition(notPetFish);
 		getPetFishSteps.setLockingStep(petFishTask);
 		allSteps.add(getPetFishSteps);
 
-		PanelDetails buyCandleSteps = new PanelDetails("Buy a Candle", Collections.singletonList(buyCandle),
+		PanelDetails buyCandleSteps = new PanelDetails(t("Buy a Candle"), Collections.singletonList(buyCandle),
 			coins.quantity(3));
 		buyCandleSteps.setDisplayCondition(notBuyCandle);
 		buyCandleSteps.setLockingStep(buyCandleTask);
 		allSteps.add(buyCandleSteps);
 
-		PanelDetails talkSherlockSteps = new PanelDetails("Talk to Sherlock", Collections.singletonList(talkSherlock));
+		PanelDetails talkSherlockSteps = new PanelDetails(t("Talk to Sherlock"), Collections.singletonList(talkSherlock));
 		talkSherlockSteps.setDisplayCondition(notTalkSherlock);
 		talkSherlockSteps.setLockingStep(talkSherlockTask);
 		allSteps.add(talkSherlockSteps);
 
-		PanelDetails collectFlaxSteps = new PanelDetails("Collect 5 Flax", Collections.singletonList(collectFlax));
+		PanelDetails collectFlaxSteps = new PanelDetails(t("Collect 5 Flax"), Collections.singletonList(collectFlax));
 		collectFlaxSteps.setDisplayCondition(notCollectFlax);
 		collectFlaxSteps.setLockingStep(collectFlaxTask);
 		allSteps.add(collectFlaxSteps);
 
-		PanelDetails playOrganSteps = new PanelDetails("Play the Church Organ", Collections.singletonList(playOrgan));
+		PanelDetails playOrganSteps = new PanelDetails(t("Play the Church Organ"), Collections.singletonList(playOrgan));
 		playOrganSteps.setDisplayCondition(notPlayOrgan);
 		playOrganSteps.setLockingStep(playOrganTask);
 		allSteps.add(playOrganSteps);
 
-		PanelDetails buyStewSteps = new PanelDetails("Buy Stew", Collections.singletonList(buyStew),
+		PanelDetails buyStewSteps = new PanelDetails(t("Buy Stew"), Collections.singletonList(buyStew),
 			coins.quantity(20));
 		buyStewSteps.setDisplayCondition(notBuyStew);
 		buyStewSteps.setLockingStep(buyStewTask);
 		allSteps.add(buyStewSteps);
 
-		PanelDetails killElesSteps = new PanelDetails("Defeat Elementals", Arrays.asList(moveToWorkshop, killFire, killEarth, killWater, killAir),
+		PanelDetails killElesSteps = new PanelDetails(t("Defeat Elementals"), Arrays.asList(moveToWorkshop, killFire, killEarth, killWater, killAir),
 			eleWorkI, batteredKey, combatGear, food);
 		killElesSteps.setDisplayCondition(notKillEle);
 		killElesSteps.setLockingStep(killEleTask);
 		allSteps.add(killElesSteps);
 
-		PanelDetails plantJuteSteps = new PanelDetails("Plant Jute", Collections.singletonList(plantJute),
+		PanelDetails plantJuteSteps = new PanelDetails(t("Plant Jute"), Collections.singletonList(plantJute),
 			new SkillRequirement(Skill.FARMING, 13, true), juteSeed.quantity(3), seedDibber, rake, spade);
 		plantJuteSteps.setDisplayCondition(notPlantJute);
 		plantJuteSteps.setLockingStep(plantJuteTask);
 		allSteps.add(plantJuteSteps);
 
-		PanelDetails getTeaSteps = new PanelDetails("Cup of Tea with Galahad", Collections.singletonList(cupTea));
+		PanelDetails getTeaSteps = new PanelDetails(t("Cup of Tea with Galahad"), Collections.singletonList(cupTea));
 		getTeaSteps.setDisplayCondition(notCupTea);
 		getTeaSteps.setLockingStep(cupTeaTask);
 		allSteps.add(getTeaSteps);
 
-		PanelDetails takeShortcutSteps = new PanelDetails("Log Shortcut", Collections.singletonList(logShortcut),
+		PanelDetails takeShortcutSteps = new PanelDetails(t("Log Shortcut"), Collections.singletonList(logShortcut),
 			new SkillRequirement(Skill.AGILITY, 20, true));
 		takeShortcutSteps.setDisplayCondition(notLogShortcut);
 		takeShortcutSteps.setLockingStep(logShortcutTask);
 		allSteps.add(takeShortcutSteps);
 
-		PanelDetails finishOffSteps = new PanelDetails("Finishing off", Collections.singletonList(claimReward));
+		PanelDetails finishOffSteps = new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward));
 		allSteps.add(finishOffSteps);
 
 		return allSteps;

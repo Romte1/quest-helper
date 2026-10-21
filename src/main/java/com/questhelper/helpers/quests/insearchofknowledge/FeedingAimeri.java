@@ -42,8 +42,8 @@ public class FeedingAimeri extends NpcStep
 
 	public FeedingAimeri(QuestHelper questHelper)
 	{
-		super(questHelper, NpcID.HOSDUN_AIMERI_INJURED, new WorldPoint(1840, 9926, 0), "Cut through the web to" +
-				" the south, and use 5 pieces of food on Aimeri there.", food5Highlighted, knife);
+		super(questHelper, NpcID.HOSDUN_AIMERI_INJURED, new WorldPoint(1840, 9926, 0), questHelper.t("Cut through the web to" +
+				" the south, and use 5 pieces of food on Aimeri there."), food5Highlighted, knife);
 		food5Highlighted.setHighlightInInventory(true);
 	}
 

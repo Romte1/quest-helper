@@ -139,7 +139,7 @@ public class WitchsHouse extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		cheese = new ItemRequirement("Cheese (multiple if you mess up)", ItemID.CHEESE);
+		cheese = new ItemRequirement(t("Cheese (multiple if you mess up)"), ItemID.CHEESE);
 		leatherGloves = new ItemRequirement("Leather gloves", ItemID.LEATHER_GLOVES, 1, true).isNotConsumed();
 		leatherGloves.setHighlightInInventory(true);
 		leatherGloves.canBeObtainedDuringQuest();
@@ -148,7 +148,7 @@ public class WitchsHouse extends BasicQuestHelper
 		shedKey = new ItemRequirement("Key", ItemID.WITCHES_SHEDKEY);
 		shedKey.setHighlightInInventory(true);
 		ball = new ItemRequirement("Ball", ItemID.BALL);
-		armourAndWeapon = new ItemRequirement("Combat gear and food for monsters up to level 53", -1, -1).isNotConsumed();
+		armourAndWeapon = new ItemRequirement(t("Combat gear and food for monsters up to level 53"), -1, -1).isNotConsumed();
 		armourAndWeapon.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		inHouse = new ZoneRequirement(house);

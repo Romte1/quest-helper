@@ -519,9 +519,9 @@ public class PuzzleStep extends DetailedOwnerStep
 
 	public void setupShapes()
 	{
-		slot1Item = new ItemRequirement("For part 1 get:", -1, -1);
-		slot2Item = new ItemRequirement("For part 2 get:", -1, -1);
-		slot3Item = new ItemRequirement("For part 3 get:", -1, -1);
+		slot1Item = new ItemRequirement(getQuestHelper().t("For part 1 get:"), -1, -1);
+		slot2Item = new ItemRequirement(getQuestHelper().t("For part 2 get:"), -1, -1);
+		slot3Item = new ItemRequirement(getQuestHelper().t("For part 3 get:"), -1, -1);
 
 		shapes.put(ItemID.EYEGLO_RED_CIRCLE, new ItemRequirement("Red circle", ItemID.EYEGLO_RED_CIRCLE));
 		shapes.put(ItemID.EYEGLO_ORANGE_CIRCLE, new ItemRequirement("Orange circle", ItemID.EYEGLO_ORANGE_CIRCLE));

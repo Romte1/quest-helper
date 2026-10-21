@@ -65,11 +65,11 @@ public class BalloonFlightStep extends DetailedOwnerStep
 	protected void setupSteps()
 	{
 		startFlight = new NpcStep(getQuestHelper(), NpcID.ZEP_PICCARD, new WorldPoint(2809, 3354, 0), "");
-		dropSand = new WidgetStep(getQuestHelper(),  "Drop a sandbag.", 471, 2);
-		burnLog = new WidgetStep(getQuestHelper(),  "Burn a log.", 471, 3);
-		pullRope = new WidgetStep(getQuestHelper(),  "Pull the brown rope.", 471, 6);
-		pullRedRope = new WidgetStep(getQuestHelper(),  "Pull the red rope.", 471, 9);
-		goStraight = new WidgetStep(getQuestHelper(),  "Press relax.", 471, 4);
+		dropSand = new WidgetStep(getQuestHelper(),  getQuestHelper().t("Drop a sandbag."), 471, 2);
+		burnLog = new WidgetStep(getQuestHelper(),  getQuestHelper().t("Burn a log."), 471, 3);
+		pullRope = new WidgetStep(getQuestHelper(),  getQuestHelper().t("Pull the brown rope."), 471, 6);
+		pullRedRope = new WidgetStep(getQuestHelper(),  getQuestHelper().t("Pull the red rope."), 471, 9);
+		goStraight = new WidgetStep(getQuestHelper(),  getQuestHelper().t("Press relax."), 471, 4);
 	}
 
 	@Override

@@ -163,19 +163,19 @@ public class KaramjaHard extends ComplexStateQuestHelper
 		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).showConditioned(notKilledDeathwing).isNotConsumed();
 		coins = new ItemRequirement("Coins", ItemCollections.COINS).showConditioned(notKilledDragon);
 		oomlieWrap = new ItemRequirement("Oomlie wrap", ItemID.COOKED_OOMLIE).showConditioned(notEatenWrap);
-		oomlieWrap.setTooltip("You can make one by using a palm leaf on a raw oomlie and cooking it. Both are " +
-			"obtained from the Kharazi Jungle");
+		oomlieWrap.setTooltip(t("You can make one by using a palm leaf on a raw oomlie and cooking it. Both are " +
+			"obtained from the Kharazi Jungle"));
 		pureEssence = new ItemRequirement("Pure essence", ItemID.BLANKRUNE_HIGH).showConditioned(notCraftedNature);
-		natureTalismanOrAbyss = new ItemRequirement("Access to the Nature Altar", ItemCollections.NATURE_ALTAR)
+		natureTalismanOrAbyss = new ItemRequirement(t("Access to the Nature Altar"), ItemCollections.NATURE_ALTAR)
 			.showConditioned(notCraftedNature).isNotConsumed();
-		natureTalismanOrAbyss.setTooltip("Nature Talisman/Tiara, Catalytic Talisman/Tiara, RC-skill cape or via Abyss");
+		natureTalismanOrAbyss.setTooltip(t("Nature Talisman/Tiara, Catalytic Talisman/Tiara, RC-skill cape or via Abyss"));
 		rawKarambwan = new ItemRequirement("Raw karambwan", ItemID.TBWT_RAW_KARAMBWAN).showConditioned(notCookedKarambwan);
 		axe = new ItemRequirement("Any axe", ItemCollections.AXES).showConditioned(new Conditions(LogicType.OR,
 			notCollectedLeaves, notKilledDeathwing, notKilledDragon)).isNotConsumed();
 		machete = new ItemRequirement("Any machete", ItemID.MACHETTE).showConditioned(new Conditions(LogicType.OR,
 			notCollectedLeaves, notKilledDeathwing)).isNotConsumed();
 		machete.addAlternates(ItemID.MACHETTE_OPAL, ItemID.MACHETTE_JADE, ItemID.MACHETTE_REDTOPAZ);
-		lockpick = new ItemRequirement("Lockpick, more in case it breaks", ItemID.LOCKPICK)
+		lockpick = new ItemRequirement(t("Lockpick, more in case it breaks"), ItemID.LOCKPICK)
 			.showConditioned(notKilledDeathwing).isNotConsumed();
 		crossbow = new ItemRequirement("Any crossbow", ItemID.CROSSBOW).showConditioned(notUsedShortcut).isNotConsumed();
 		crossbow.addAlternates(ItemID.XBOWS_CROSSBOW_BRONZE, ItemID.XBOWS_CROSSBOW_IRON, ItemID.XBOWS_CROSSBOW_STEEL,
@@ -188,10 +188,10 @@ public class KaramjaHard extends ComplexStateQuestHelper
 		antifirePotions = new ItemRequirement("Antifire potions", ItemCollections.ANTIFIRE)
 			.showConditioned(notKilledDragon);
 
-		combatGear = new ItemRequirement("Combat gear to defeat a deathwing and a metal dragon", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear to defeat a deathwing and a metal dragon"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		fightCaveCombatGear = new ItemRequirement("Combat gear to reach wave 31 in the Fight Caves and defeat a " +
-			"Ket-Zek", -1, -1).isNotConsumed();
+		fightCaveCombatGear = new ItemRequirement(t("Combat gear to reach wave 31 in the Fight Caves and defeat a " +
+			"Ket-Zek"), -1, -1).isNotConsumed();
 		fightCaveCombatGear.setDisplayItemId(BankSlotIcons.getRangedCombatGear());
 		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
 		antipoison = new ItemRequirement("Antipoison", ItemCollections.ANTIPOISONS, -1);
@@ -210,7 +210,7 @@ public class KaramjaHard extends ComplexStateQuestHelper
 		agility53 = new SkillRequirement(Skill.AGILITY, 53, true);
 		cooking30 = new SkillRequirement(Skill.COOKING, 30, true);
 		cooking50 = new SkillRequirement(Skill.COOKING, 50, false);
-		cooking50.setTooltip("To cook a wrapped oomlie");
+		cooking50.setTooltip(t("To cook a wrapped oomlie"));
 		mining52 = new SkillRequirement(Skill.MINING, 52, true);
 		ranged42 = new SkillRequirement(Skill.RANGED, 42, true);
 		runecrafting44 = new SkillRequirement(Skill.RUNECRAFT, 44, true);
@@ -242,60 +242,60 @@ public class KaramjaHard extends ComplexStateQuestHelper
 	public void setupSteps()
 	{
 		enterHole = new ObjectStep(this, ObjectID.VOLCANO_ENTRANCE, new WorldPoint(2857, 3169, 0),
-			"Enter Mor Ul Rek under the Karamja Volcano.");
+			t("Enter Mor Ul Rek under the Karamja Volcano."));
 		enterTzhaar = new ObjectStep(this, ObjectID.TZHAAR_KARAMJADUNGEON_WALL_ENTRANCE, new WorldPoint(2864, 9572, 0),
-			"Enter Mor Ul Rek under the Karamja Volcano.");
+			t("Enter Mor Ul Rek under the Karamja Volcano."));
 		enterFightCaves = new ObjectStep(this, ObjectID.TZHAAR_FIGHTCAVE_WALL_ENTRANCE, new WorldPoint(2438, 5167, 0),
-			"Enter the fight caves in Mor Ul Rek, ready to reach at least wave 31 to defeat a Ket-Zek.",
+			t("Enter the fight caves in Mor Ul Rek, ready to reach at least wave 31 to defeat a Ket-Zek."),
 			fightCaveCombatGear);
 		enterFightCaves.addSubSteps(enterHole, enterTzhaar);
 
 		enterHoleChampion = new ObjectStep(this, ObjectID.VOLCANO_ENTRANCE, new WorldPoint(2857, 3169, 0),
-			"Enter Mor Ul Rek under the Karamja Volcano.");
+			t("Enter Mor Ul Rek under the Karamja Volcano."));
 		enterTzhaarChampion = new ObjectStep(this, ObjectID.TZHAAR_KARAMJADUNGEON_WALL_ENTRANCE, new WorldPoint(2864, 9572, 0),
-			"Enter the cave that leads to Mor Ul Rek under the Karamja Volcano.");
-		becomeChampion = new DetailedQuestStep(this, new WorldPoint(2399, 5173, 0), "Win in the Fight Pits in the " +
-			"north west of Mor Ul Rek. You can ask a friend to come lose to you.");
+			t("Enter the cave that leads to Mor Ul Rek under the Karamja Volcano."));
+		becomeChampion = new DetailedQuestStep(this, new WorldPoint(2399, 5173, 0), t("Win in the Fight Pits in the " +
+			"north west of Mor Ul Rek. You can ask a friend to come lose to you."));
 		becomeChampion.addSubSteps(enterHoleChampion, enterTzhaarChampion);
-		defeatZek = new NpcStep(this, NpcID.TZHAAR_FIGHTCAVE_SWARM_5A, "Reach at least wave 31 to defeat Ket-Zek.");
-		eatOomlie = new DetailedQuestStep(this, "Eat an oomlie wrap.", oomlieWrap.highlighted());
+		defeatZek = new NpcStep(this, NpcID.TZHAAR_FIGHTCAVE_SWARM_5A, t("Reach at least wave 31 to defeat Ket-Zek."));
+		eatOomlie = new DetailedQuestStep(this, t("Eat an oomlie wrap."), oomlieWrap.highlighted());
 		enterNatureAltar = new ObjectStep(this, ObjectID.NATURETEMPLE_RUINED, new WorldPoint(2869, 3019, 0),
-			"Enter the nature altar, either from the ruin or through the Abyss.", natureTalismanOrAbyss, pureEssence);
+			t("Enter the nature altar, either from the ruin or through the Abyss."), natureTalismanOrAbyss, pureEssence);
 		craftNatureRune = new ObjectStep(this, ObjectID.NATURE_ALTAR, new WorldPoint(2400, 4841, 0),
-			"Craft a nature rune.", pureEssence);
-		cookKarambwan = new DetailedQuestStep(this, "Cook a raw karambwan.", rawKarambwan);
+			t("Craft a nature rune."), pureEssence);
+		cookKarambwan = new DetailedQuestStep(this, t("Cook a raw karambwan."), rawKarambwan);
 
-		enterKharaziHole = new ObjectStep(this, ObjectID.LGSHAMANCAVEROCK1, new WorldPoint(2782, 2937, 0), "Search and then enter the " +
-			"Mossy Rocks in the north west of the Kharazi, and follow the cavern to kill a deathwing.", machete, axe,
+		enterKharaziHole = new ObjectStep(this, ObjectID.LGSHAMANCAVEROCK1, new WorldPoint(2782, 2937, 0), t("Search and then enter the " +
+			"Mossy Rocks in the north west of the Kharazi, and follow the cavern to kill a deathwing."), machete, axe,
 			pickaxe, lockpick);
 		enterKharaziHole.addDialogStep("Yes, I'll crawl through, I'm very athletic.");
 
-		enterBookcase = new ObjectStep(this, ObjectID.SHAMAN_BOOKCASE, new WorldPoint(2796, 9339, 0), "Right-click search the bookcase and slide past it.");
+		enterBookcase = new ObjectStep(this, ObjectID.SHAMAN_BOOKCASE, new WorldPoint(2796, 9339, 0), t("Right-click search the bookcase and slide past it."));
 		enterBookcase.addDialogStep("Yes please!");
-		enterGates = new ObjectStep(this, ObjectID.LGSTRENGTHTRIALGATEL, new WorldPoint(2810, 9314, 0), "Smash through " +
-			"the boulders and enter the gate at the end of the corridor.", pickaxe, lockpick);
+		enterGates = new ObjectStep(this, ObjectID.LGSTRENGTHTRIALGATEL, new WorldPoint(2810, 9314, 0), t("Smash through " +
+			"the boulders and enter the gate at the end of the corridor."), pickaxe, lockpick);
 		enterGates.addDialogStep("Yes, I'm very strong, I'll force them open.");
 		killDeathwing = new NpcStep(this, NpcID.DEATHWING, new WorldPoint(2810, 9300, 0),
-			"Kill a death wing.");
+			t("Kill a death wing."));
 		enterKharaziHole.addSubSteps(enterBookcase, enterGates, killDeathwing);
 
 		useShortcut = new ObjectStep(this, ObjectID.XBOWS_JUNGLETREE_KARAMJA_BASIC, new WorldPoint(2874, 3135, 0),
-			"Grapple across the shortcut south of Musa Point.", crossbow.equipped(), mithGrapple.equipped());
+			t("Grapple across the shortcut south of Musa Point."), crossbow.equipped(), mithGrapple.equipped());
 		collectPalmLeaves = new ObjectStep(this, ObjectID.KHARAZI_BAMBOO_TREE_BASE_LEAFY, new WorldPoint(2845, 2915, 0),
-			"Shake leafy palm trees in the Kharazi Jungle and pick up 5 palm leaves. You can pick up and drop the " +
-				"same leaf for this task."
+			t("Shake leafy palm trees in the Kharazi Jungle and pick up 5 palm leaves. You can pick up and drop the " +
+				"same leaf for this task.")
 			, axe, machete, pickaxe, lockpick);
 		goUpToDuradel = new ObjectStep(this, ObjectID.LADDER, new WorldPoint(2871, 2971, 0),
-			"Climb the ladder to Duradel.");
+			t("Climb the ladder to Duradel."));
 		getTask = new NpcStep(this, NpcID.WGS_HEROES_DURADEL, new WorldPoint(2869, 2982, 1),
-			"Get a task from Duradel.");
+			t("Get a task from Duradel."));
 		enterBrimhavenDungeon = new ObjectStep(this, ObjectID.DUNGEON_TREE_OPEN, new WorldPoint(2745, 3155, 0),
-			"Enter Brimhaven Dungeon.", axe, coins.quantity(875), combatGear, antidragonShield);
+			t("Enter Brimhaven Dungeon."), axe, coins.quantity(875), combatGear, antidragonShield);
 		killDragon = new NpcStep(this, NpcID.BRONZE_DRAGON, new WorldPoint(2735, 9488, 0),
-			"Kill any metal dragon in the south of the dungeon.", combatGear, antidragonShield);
+			t("Kill any metal dragon in the south of the dungeon."), combatGear, antidragonShield);
 
 		claimReward = new NpcStep(this, NpcID.AGILITYARENA_TICKETTRADER_2OPS, new WorldPoint(2810, 3192, 0),
-			"Talk to Pirate Jackie the Fruit in Brimhaven to claim your reward!");
+			t("Talk to Pirate Jackie the Fruit in Brimhaven to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -354,14 +354,14 @@ public class KaramjaHard extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("Unlimited Teleports to the underground Shilo Village mine"));
+			new UnlockReward(t("Unlimited Teleports to the underground Shilo Village mine")));
 	}
 
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Arrays.asList("Multiple enemies in the Fight Caves up to a Ket-Zek (level 360)",
-			"Death wing (level 83)", "Bronze (level 131), iron (level 189) or steel dragon (level 246)");
+		return Arrays.asList(t("Multiple enemies in the Fight Caves up to a Ket-Zek (level 360)"),
+			t("Death wing (level 83)"), t("Bronze (level 131), iron (level 189) or steel dragon (level 246)"));
 	}
 	
 	@Override
@@ -369,71 +369,71 @@ public class KaramjaHard extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails championSteps = new PanelDetails("Fight Pit Champion", Arrays.asList(enterHoleChampion,
+		PanelDetails championSteps = new PanelDetails(t("Fight Pit Champion"), Arrays.asList(enterHoleChampion,
 			enterTzhaarChampion, becomeChampion));
 		championSteps.setDisplayCondition(notBecomeChampion);
 		championSteps.setLockingStep(becomeChampionTask);
 		allSteps.add(championSteps);
 
-		PanelDetails ketZekSteps = new PanelDetails("Kill Ket-Zek", Arrays.asList(enterTzhaar, enterFightCaves,
+		PanelDetails ketZekSteps = new PanelDetails(t("Kill Ket-Zek"), Arrays.asList(enterTzhaar, enterFightCaves,
 			defeatZek), fightCaveCombatGear, food);
 		ketZekSteps.setDisplayCondition(notKilledZek);
 		ketZekSteps.setLockingStep(killedZekTask);
 		allSteps.add(ketZekSteps);
 
-		PanelDetails cookedKaramSteps = new PanelDetails("Thoroughly Cook Karambwan",
+		PanelDetails cookedKaramSteps = new PanelDetails(t("Thoroughly Cook Karambwan"),
 			Collections.singletonList(cookKarambwan), cooking30, taiBwoWannaiTrio, rawKarambwan);
 		cookedKaramSteps.setDisplayCondition(notCookedKarambwan);
 		cookedKaramSteps.setLockingStep(cookedKarambwanTask);
 		allSteps.add(cookedKaramSteps);
 
-		PanelDetails killDragonSteps = new PanelDetails("Kill Metal Dragon", Arrays.asList(enterBrimhavenDungeon,
+		PanelDetails killDragonSteps = new PanelDetails(t("Kill Metal Dragon"), Arrays.asList(enterBrimhavenDungeon,
 			killDragon), combatGear, antidragonShield, axe, coins.quantity(875));
 		killDragonSteps.setDisplayCondition(notKilledDragon);
 		killDragonSteps.setLockingStep(killedDragonTask);
 		allSteps.add(killDragonSteps);
 
-		PanelDetails natureRuneSteps = new PanelDetails("Craft Nature Rune", Arrays.asList(enterNatureAltar,
+		PanelDetails natureRuneSteps = new PanelDetails(t("Craft Nature Rune"), Arrays.asList(enterNatureAltar,
 			craftNatureRune), runecrafting44, pureEssence, natureTalismanOrAbyss);
 		natureRuneSteps.setDisplayCondition(notCraftedNature);
 		natureRuneSteps.setLockingStep(craftedNatureTask);
 		allSteps.add(natureRuneSteps);
 
-		PanelDetails assignedTaskSteps = new PanelDetails("Get Task From Duradel", Arrays.asList(goUpToDuradel,
+		PanelDetails assignedTaskSteps = new PanelDetails(t("Get Task From Duradel"), Arrays.asList(goUpToDuradel,
 			getTask), combat100, slayer50, shiloVillage);
 		assignedTaskSteps.setDisplayCondition(notAssignedTask);
 		assignedTaskSteps.setLockingStep(assignedTaskTask);
 		allSteps.add(assignedTaskSteps);
 
-		PanelDetails collectLeavesSteps = new PanelDetails("Collect 5 Palm Leaves",
+		PanelDetails collectLeavesSteps = new PanelDetails(t("Collect 5 Palm Leaves"),
 			Collections.singletonList(collectPalmLeaves), legendsQuest, axe, machete);
 		collectLeavesSteps.setDisplayCondition(notCollectedLeaves);
 		collectLeavesSteps.setLockingStep(collectedLeavesTask);
 		allSteps.add(collectLeavesSteps);
 
-		PanelDetails deathwingSteps = new PanelDetails("Kill a Deathwing", Arrays.asList(enterKharaziHole,
+		PanelDetails deathwingSteps = new PanelDetails(t("Kill a Deathwing"), Arrays.asList(enterKharaziHole,
 			enterBookcase, enterGates, killDeathwing), woodcutting34, strength50, agility53, thieving50, mining52,
 			legendsQuest, axe, machete, pickaxe, lockpick);
 		deathwingSteps.setDisplayCondition(notKilledDeathwing);
 		deathwingSteps.setLockingStep(killedDeathwingTask);
 		allSteps.add(deathwingSteps);
 
-		PanelDetails shortcutSteps = new PanelDetails("Use Crossbow Shortcut", Collections.singletonList(useShortcut),
+		PanelDetails shortcutSteps = new PanelDetails(t("Use Crossbow Shortcut"), Collections.singletonList(useShortcut),
 			crossbow, mithGrapple);
 		shortcutSteps.setDisplayCondition(notUsedShortcut);
 		shortcutSteps.setLockingStep(usedShortcutTask);
 		allSteps.add(shortcutSteps);
 
 		PanelDetails eatOomlieWrapSteps = questHelperPlugin.getPlayerStateManager().getAccountType().isAnyIronman()
-			? new PanelDetails("Eat Oomlie Wrap", Collections.singletonList(eatOomlie),
+			? new PanelDetails(t("Eat Oomlie Wrap"), Collections.singletonList(eatOomlie),
 			cooking50, oomlieWrap)
-			: new PanelDetails("Eat Oomlie Wrap", Collections.singletonList(eatOomlie),
+			: new PanelDetails(t("Eat Oomlie Wrap"), Collections.singletonList(eatOomlie),
 			oomlieWrap);
 		eatOomlieWrapSteps.setDisplayCondition(notEatenWrap);
 		eatOomlieWrapSteps.setLockingStep(eatenWrapTask);
 		allSteps.add(eatOomlieWrapSteps);
 
-		PanelDetails finishOffSteps = new PanelDetails("Finishing off", Collections.singletonList(claimReward));
+		PanelDetails finishOffSteps = new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward));
 		allSteps.add(finishOffSteps);
 
 		return allSteps;

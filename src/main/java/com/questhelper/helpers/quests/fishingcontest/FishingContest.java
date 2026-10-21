@@ -116,7 +116,7 @@ public class FishingContest extends BasicQuestHelper
 		spade = new ItemRequirement("Spade", ItemID.SPADE).isNotConsumed();
 		redVineWorm = new ItemRequirement("Red Vine Worm", ItemID.RED_VINE_WORM, 1);
 		redVineWorm.setTooltip(t("This can be obtained during the quest."));
-		food = new ItemRequirement("Food for low levels", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food for low levels"), ItemCollections.GOOD_EATING_FOOD, -1);
 		winningFish = new ItemRequirement("Raw Giant Carp", ItemID.RAW_GIANT_CARP);
 		winningFish.setHighlightInInventory(true);
 		trophy = new ItemRequirement("Fishing Trophy", ItemID.HEMENSTER_FISHING_TROPHY);

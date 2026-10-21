@@ -70,7 +70,7 @@ public class MapPuzzle extends QuestStep
 
 	public MapPuzzle(QuestHelper questHelper)
 	{
-		super(questHelper, "Drag to swap the highlighted tiles.");
+		super(questHelper, questHelper.t("Drag to swap the highlighted tiles."));
 	}
 
 	@Override
@@ -118,7 +118,7 @@ public class MapPuzzle extends QuestStep
 					if (currentTilePositions[j] == expectedTileValue)
 					{
 						secondTileForSwapping = j;
-						setText("Drag to swap the highlighted tiles.");
+						setText(questHelper.t("Drag to swap the highlighted tiles."));
 						return;
 					}
 				}
@@ -138,7 +138,7 @@ public class MapPuzzle extends QuestStep
 			currentRotationValueTmp[i] = client.getVarbitValue(currentRotationVarbits[i]);
 		}
 		currentRotationValue = currentRotationValueTmp;
-		setText("Click the highlighted tiles to rotate them to complete the puzzle.");
+		setText(questHelper.t("Click the highlighted tiles to rotate them to complete the puzzle."));
 	}
 
 	@Override

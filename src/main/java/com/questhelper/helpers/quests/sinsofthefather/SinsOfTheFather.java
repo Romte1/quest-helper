@@ -358,48 +358,47 @@ public class SinsOfTheFather extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		haemBook = new ItemRequirement("Haemalchemy volume 2", ItemID.MYQ5_HAEMALCHEMY_VOL_2);
-		haemBook.setTooltip("If you lost the book, search the bookshelf in the room west of Safalaan to get it back");
+		haemBook.setTooltip(t("If you lost the book, search the bookshelf in the room west of Safalaan to get it back"));
 
 		chisel = new ItemRequirement("Chisel", ItemCollections.CHISEL).isNotConsumed();
 
 		vyreTop = new ItemRequirement("Vyrewatch top", ItemID.VYRE_TORSO);
-		vyreTop.setTooltip("You can get this from Trader Sven in southern Meiyerditch near Old Man Ral's house for 650gp");
+		vyreTop.setTooltip(t("You can get this from Trader Sven in southern Meiyerditch near Old Man Ral's house for 650gp"));
 		vyreLegs = new ItemRequirement("Vyrewatch legs", ItemID.VYRE_LEGS);
-		vyreLegs.setTooltip("You can get this from Trader Sven in southern Meiyerditch near Old Man Ral's house for 650gp");
+		vyreLegs.setTooltip(t("You can get this from Trader Sven in southern Meiyerditch near Old Man Ral's house for 650gp"));
 		vyreShoes = new ItemRequirement("Vyrewatch shoes", ItemID.VYRE_SHOES);
-		vyreShoes.setTooltip("You can get this from Trader Sven in southern Meiyerditch near Old Man Ral's house for 650gp");
+		vyreShoes.setTooltip(t("You can get this from Trader Sven in southern Meiyerditch near Old Man Ral's house for 650gp"));
 
 		unscentedTop = new ItemRequirement("Vyre noble top unscented", ItemID.VYRELORD_TORSO_UNF);
-		unscentedTop.setTooltip("You can get a replacement from a chest in Old Man Ral's basement");
+		unscentedTop.setTooltip(t("You can get a replacement from a chest in Old Man Ral's basement"));
 		unscentedLegs = new ItemRequirement("Vyre noble legs unscented", ItemID.VYRELORD_LEGS_UNF);
-		unscentedLegs.setTooltip("You can get a replacement from a chest in Old Man Ral's basement");
+		unscentedLegs.setTooltip(t("You can get a replacement from a chest in Old Man Ral's basement"));
 		unscentedShoes = new ItemRequirement("Vyre noble shoes unscented", ItemID.VYRELORD_SHOES_UNF);
-		unscentedShoes.setTooltip("You can get a replacement from a chest in Old Man Ral's basement");
+		unscentedShoes.setTooltip(t("You can get a replacement from a chest in Old Man Ral's basement"));
 
 		ivandisFlail = new ItemRequirement("Ivandis flail", ItemID.IVANDIS_FLAIL);
-		ivandisFlail.setTooltip("You can buy another from Vertida in the Myreque base for 20k");
+		ivandisFlail.setTooltip(t("You can buy another from Vertida in the Myreque base for 20k"));
 
 		ivandisFlailEquipped = new ItemRequirement("Ivandis flail", ItemID.IVANDIS_FLAIL, 1, true);
-		ivandisFlailEquipped.setTooltip("You can buy another from Vertida in the Myreque base for 20k");
+		ivandisFlailEquipped.setTooltip(t("You can buy another from Vertida in the Myreque base for 20k"));
 
 		ivandisFlailHighlighted = new ItemRequirement("Ivandis flail", ItemID.IVANDIS_FLAIL);
 		ivandisFlailHighlighted.setHighlightInInventory(true);
-		ivandisFlailHighlighted.setTooltip("You can buy another from Vertida in the Myreque base for 20k");
+		ivandisFlailHighlighted.setTooltip(t("You can buy another from Vertida in the Myreque base for 20k"));
 
 		scentedTop = new ItemRequirement("Vyre noble top", ItemID.VYRELORD_TORSO, 1, true);
-		scentedTop.setTooltip("You can get a replacement from a chest in Old Man Ral's basement");
+		scentedTop.setTooltip(t("You can get a replacement from a chest in Old Man Ral's basement"));
 		scentedLegs = new ItemRequirement("Vyre noble legs", ItemID.VYRELORD_LEGS, 1, true);
-		scentedLegs.setTooltip("You can get a replacement from a chest in Old Man Ral's basement");
+		scentedLegs.setTooltip(t("You can get a replacement from a chest in Old Man Ral's basement"));
 		scentedShoes = new ItemRequirement("Vyre noble shoes", ItemID.VYRELORD_SHOES, 1, true);
-		scentedShoes.setTooltip("You can get a replacement from a chest in Old Man Ral's basement");
+		scentedShoes.setTooltip(t("You can get a replacement from a chest in Old Man Ral's basement"));
 
 		blisterwood8 = new ItemRequirement("Blisterwood logs", ItemID.BLISTERWOOD_LOGS, 8);
 
 		blisterwoodFlail = new ItemRequirement("Blisterwood flail", ItemID.BLISTERWOOD_FLAIL);
-		blisterwoodFlail.setTooltip("You can get another Blisterwood Flail from Vertida in the Myreque Hideout in Old" +
-			" Man Ral's basement or Veliaf Hurtz at the Icyene Graveyard");
+		blisterwoodFlail.setTooltip(t("You can get another Blisterwood Flail from Vertida in the Myreque Hideout in Old Man Ral's basement or Veliaf Hurtz at the Icyene Graveyard"));
 
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES).isNotConsumed();
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).isNotConsumed();
 		axeEquipped = axe.equipped();
 
 		knife = new ItemRequirement("Knife", ItemID.KNIFE).isNotConsumed();
@@ -431,7 +430,7 @@ public class SinsOfTheFather extends BasicQuestHelper
 
 		enchantRunes = new ItemRequirements("Ruby enchant runes", new ItemRequirements(LogicType.OR, "3 air runes", fireRune5, fireStaff), cosmicRune);
 		enchantTablet = new ItemRequirement("Ruby enchant tablet", ItemID.POH_TABLET_ENCHANTRUBY);
-		enchantRubyRunesOrTablet = new ItemRequirements(LogicType.OR, "Runes or tablet for Enchant Ruby", enchantRunes, enchantTablet);
+		enchantRubyRunesOrTablet = new ItemRequirements(LogicType.OR, t("Runes or tablet for Enchant Ruby"), enchantRunes, enchantTablet);
 
 		rubySickle = new ItemRequirement("Ruby sickle", ItemID.SILVER_SICKLE_RUBY);
 		rubySickle.setHighlightInInventory(true);
@@ -442,13 +441,13 @@ public class SinsOfTheFather extends BasicQuestHelper
 		blisterwoodSickle = new ItemRequirement("Blisterwood sickle", ItemID.BLISTERWOOD_SICKLE);
 		blisterwoodSickle.setHighlightInInventory(true);
 
-		combatGear = new ItemRequirement("Combat gear + food", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear + food"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		rangedWeaponForBloodveld = new ItemRequirement("Anything to range the bloodveld during bossfight", -1, -1).isNotConsumed();
+		rangedWeaponForBloodveld = new ItemRequirement(t("Anything to range the bloodveld during bossfight"), -1, -1).isNotConsumed();
 		rangedWeaponForBloodveld.setDisplayItemId(BankSlotIcons.getRangedCombatGear());
 		antipoison = new ItemRequirement("Antipoison", ItemCollections.ANTIPOISONS);
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
-		pickaxe.setTooltip("You can get one from one of the miners in the mine");
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).isNotConsumed();
+		pickaxe.setTooltip(t("You can get one from one of the miners in the mine"));
 		ItemRequirements vyrewatchOutfit = new ItemRequirements("Vyrewatch outfit",
 			new ItemRequirement("Vyrewatch top", ItemID.VYRE_TORSO),
 			new ItemRequirement("Vyrewatch legs", ItemID.VYRE_LEGS),
@@ -465,23 +464,23 @@ public class SinsOfTheFather extends BasicQuestHelper
 	public void setupSteps()
 	{
 		startQuest = new NpcStep(this, NpcID.MYQ5_VELIAF_CHILD, new WorldPoint(3729, 3318, 0),
-			"Talk to Veliaf in Slepe.");
+			t("Talk to Veliaf in Slepe."));
 		startQuest.addDialogStep("Yes.");
 
 		talkToHameln = new NpcStep(this, NpcID.SLEPE_JESTER_CHILD, new WorldPoint(3736, 3316, 0),
-			"Go to the church and talk Hameln the Jester about how his friend fell ill.");
+			t("Go to the church and talk Hameln the Jester about how his friend fell ill."));
 		talkToHameln.addDialogStep("I'd better get going.");
 		talkToHameln.addDialogStep("Do you know how he fell ill?");
 
 		talkToCarl = new NpcStep(this, NpcID.SLEPE_BARTENDER_CARL, new WorldPoint(3750, 3296, 0),
-			"Go to The Rat & Bat pub south east of the church and speak to Carl.");
+			t("Go to The Rat & Bat pub south east of the church and speak to Carl."));
 		talkToCarl.addDialogStep("Where do you get your Bloody Bracers from?");
 
 		inspectBarrel = new ObjectStep(this, ObjectID.MYQ5_BARREL, new WorldPoint(3749, 3291, 0),
-			"Inspect the barrel south of the Rat & Bat Pub.");
+			t("Inspect the barrel south of the Rat & Bat Pub."));
 
 		followCarl = new NpcStep(this, NpcID.MYQ5_CARL_FOLLOW, new WorldPoint(3714, 3328, 0),
-			"Follow Carl, hiding behind objects when he turns around.");
+			t("Follow Carl, hiding behind objects when he turns around."));
 		((NpcStep) (followCarl)).setMaxRoamRange(200);
 		((NpcStep) (followCarl)).setLinePoints(Arrays.asList(
 			new WorldPoint(3750, 3308, 0),
@@ -507,301 +506,300 @@ public class SinsOfTheFather extends BasicQuestHelper
 			new WorldPoint(3731, 3307, 0)
 		));
 
-		goDownToKroy = new ObjectStep(this, ObjectID.SLP_CHURCH_CRYPT_SOUTH_LADDER_DOWN, new WorldPoint(3728, 3301, 0), "Go down the stairs to fight Kroy.");
+		goDownToKroy = new ObjectStep(this, ObjectID.SLP_CHURCH_CRYPT_SOUTH_LADDER_DOWN, new WorldPoint(3728, 3301, 0), t("Go down the stairs to fight Kroy."));
 		goDownToKroy.addDialogStep("Continue the Sins of the Father quest.");
 
 		killKroy = new NpcStep(this, NpcID.MYQ5_KROY_COMBAT, new WorldPoint(3734, 9763, 1),
-			"Kill Kroy. Dodge the potion he sometimes throws to avoid damage and your attack rate being reduced.");
+			t("Kill Kroy. Dodge the potion he sometimes throws to avoid damage and your attack rate being reduced."));
 		killKroy.addSubSteps(goDownToKroy);
 
 		destroyLab = new ObjectStep(this, ObjectID.MYQ5_KROY_TABLE_1, new WorldPoint(3730, 9760, 1),
-			"Destroy both the Lab tables.");
+			t("Destroy both the Lab tables."));
 
 		destroyLab2 = new ObjectStep(this, ObjectID.MYQ5_KROY_TABLE_2, new WorldPoint(3725, 9760, 1),
-			"Destroy both the Lab tables.");
+			t("Destroy both the Lab tables."));
 		destroyLab.addSubSteps(destroyLab2);
 
 		talkToVeliafAfterKroy = new NpcStep(this, NpcID.MYQ5_VELIAF_CHILD, new WorldPoint(3729, 3318, 0),
-			"Return to Veliaf in Slepe.");
+			t("Return to Veliaf in Slepe."));
 		talkToVeliafAfterKroy.addDialogStep("Fair enough, so what now?");
 
-		enterPater = new ObjectStep(this, ObjectID.PIPEASTSIDETRAPDOOR_OPEN, new WorldPoint(3422, 3485, 0), "Talk to Veliaf in Paterdomus.");
+		enterPater = new ObjectStep(this, ObjectID.PIPEASTSIDETRAPDOOR_OPEN, new WorldPoint(3422, 3485, 0), t("Talk to Veliaf in Paterdomus."));
 		((ObjectStep) (enterPater)).addAlternateObjects(ObjectID.PIPEASTSIDETRAPDOOR);
 
 		talkToVeliafInPater = new NpcStep(this, NpcID.MYQ5_VELIAF_CHILD, new WorldPoint(3438, 9897, 0),
-			"Talk to Veliaf in Paterdomus.");
+			t("Talk to Veliaf in Paterdomus."));
 		talkToVeliafInPater.addDialogStep("I see. So that's why you want to keep him safe, Veliaf?");
 		talkToVeliafInPater.addSubSteps(enterPater);
 
 		talkToIvan = new NpcStep(this, NpcID.MYQ5_IVAN_CHILD, new WorldPoint(3548, 3516, 0),
-			"Speak to Ivan Strom south of Fenkenstrain's Castle.");
+			t("Speak to Ivan Strom south of Fenkenstrain's Castle."));
 
 		listenToMeeting = new NpcStep(this, NpcID.MYQ5_IVAN_CHILD, new WorldPoint(3548, 3516, 0),
-			"Listen to the meeting.");
+			t("Listen to the meeting."));
 
 		talkToIvanAfterMeeting = new NpcStep(this, NpcID.MYQ5_IVAN_CHILD, new WorldPoint(3444, 3485, 0),
-			"Speak to Ivan Strom outside the east entrance of Paterdomus.");
+			t("Speak to Ivan Strom outside the east entrance of Paterdomus."));
 		talkToIvanAfterMeeting.addDialogStep("I'm ready.");
 
 		/* Vine swing section */
-		searchForKnife = new ObjectStep(this, ObjectID.TEMPLETREK_SWING_RUCKSACK, "Search the nearby backpack for a knife.");
-		cutVines = new ObjectStep(this, ObjectID.TEMPLETREK_SWAMPTREE_SMALL_VINES, new WorldPoint(2096, 5011, 0), "Cut 3 vines from the nearby tree.", knife);
-		combineVines = new DetailedQuestStep(this, "Combine the vines together.", vine3);
-		useVineOnBranch = new ObjectStep(this, ObjectID.MYQ5_SWAMPTREE_BRANCH, new WorldPoint(2093, 5015, 0), "Use the long vine on the nearby branch.", longVine);
+		searchForKnife = new ObjectStep(this, ObjectID.TEMPLETREK_SWING_RUCKSACK, t("Search the nearby backpack for a knife."));
+		cutVines = new ObjectStep(this, ObjectID.TEMPLETREK_SWAMPTREE_SMALL_VINES, new WorldPoint(2096, 5011, 0), t("Cut 3 vines from the nearby tree."), knife);
+		combineVines = new DetailedQuestStep(this, t("Combine the vines together."), vine3);
+		useVineOnBranch = new ObjectStep(this, ObjectID.MYQ5_SWAMPTREE_BRANCH, new WorldPoint(2093, 5015, 0), t("Use the long vine on the nearby branch."), longVine);
 		useVineOnBranch.addIcon(ItemID.TEMPLETREK_LONG_VINE);
-		swingOnVine = new ObjectStep(this, ObjectID.MYQ5_SWAMPTREE_BRANCH_VINE, new WorldPoint(2093, 5015, 0), "Swing on the vine.");
-		leaveSwingArea = new ObjectStep(this, ObjectID.MYQ5_SWAMP_SUCCESS_PATH_1, new WorldPoint(2091, 5024, 0), "Continue the trek.");
+		swingOnVine = new ObjectStep(this, ObjectID.MYQ5_SWAMPTREE_BRANCH_VINE, new WorldPoint(2093, 5015, 0), t("Swing on the vine."));
+		leaveSwingArea = new ObjectStep(this, ObjectID.MYQ5_SWAMP_SUCCESS_PATH_1, new WorldPoint(2091, 5024, 0), t("Continue the trek."));
 		leaveSwingArea.addDialogStep("Yes.");
 
 		/* Nail beast section */
-		killNailBeasts = new NpcStep(this, NpcID.MYQ5_NAIL_BEAST_1, new WorldPoint(2332, 5012, 0), "Kill the nail beasts.", true);
+		killNailBeasts = new NpcStep(this, NpcID.MYQ5_NAIL_BEAST_1, new WorldPoint(2332, 5012, 0), t("Kill the nail beasts."), true);
 		((NpcStep) (killNailBeasts)).addAlternateNpcs(NpcID.MYQ5_NAIL_BEAST_2);
-		leaveNailBeastArea = new ObjectStep(this, ObjectID.MYQ5_SWAMP_SUCCESS_PATH_2, new WorldPoint(2334, 5021, 0), "Continue the trek.");
+		leaveNailBeastArea = new ObjectStep(this, ObjectID.MYQ5_SWAMP_SUCCESS_PATH_2, new WorldPoint(2334, 5021, 0), t("Continue the trek."));
 		leaveNailBeastArea.addDialogStep("Yes.");
 
 		/* Bridge section */
-		killZombieForAxe = new NpcStep(this, NpcID.TEMPLETREK_ZOMBIE, new WorldPoint(2084, 5040, 0), "Kill the nearby zombie for an axe.", axe);
-		get3LogsForBridge = new ObjectStep(this, ObjectID.DEADTREE2_SWAMP, "Chop the nearby dead trees for 3 logs.", axe);
-		repairBridge1 = new ObjectStep(this, ObjectID.TEMPLETREK_BRIDGE_BROKEN, new WorldPoint(2090, 5039, 0), "Repair the bridge.", axeEquipped, log3);
+		killZombieForAxe = new NpcStep(this, NpcID.TEMPLETREK_ZOMBIE, new WorldPoint(2084, 5040, 0), t("Kill the nearby zombie for an axe."), axe);
+		get3LogsForBridge = new ObjectStep(this, ObjectID.DEADTREE2_SWAMP, t("Chop the nearby dead trees for 3 logs."), axe);
+		repairBridge1 = new ObjectStep(this, ObjectID.TEMPLETREK_BRIDGE_BROKEN, new WorldPoint(2090, 5039, 0), t("Repair the bridge."), axeEquipped, log3);
 		repairBridge1.addIcon(ItemID.LOGS);
-		repairBridge2 = new ObjectStep(this, ObjectID.TEMPLETREK_BRIDGE_FIXED_1, new WorldPoint(2090, 5039, 0), "Repair the bridge.", axeEquipped, log2);
+		repairBridge2 = new ObjectStep(this, ObjectID.TEMPLETREK_BRIDGE_FIXED_1, new WorldPoint(2090, 5039, 0), t("Repair the bridge."), axeEquipped, log2);
 		repairBridge2.addIcon(ItemID.LOGS);
-		repairBridge3 = new ObjectStep(this, ObjectID.TEMPLETREK_BRIDGE_FIXED_2, new WorldPoint(2090, 5039, 0), "Repair the bridge.", axeEquipped, log1);
+		repairBridge3 = new ObjectStep(this, ObjectID.TEMPLETREK_BRIDGE_FIXED_2, new WorldPoint(2090, 5039, 0), t("Repair the bridge."), axeEquipped, log1);
 		repairBridge3.addIcon(ItemID.LOGS);
 		repairBridge1.addSubSteps(repairBridge2, repairBridge3);
-		crossBridge = new ObjectStep(this, ObjectID.TEMPLETREK_BRIDGE_FIXED_3, new WorldPoint(2090, 5039, 0), "Cross the bridge.");
-		leaveBridgeArea = new ObjectStep(this, ObjectID.MYQ5_SWAMP_SUCCESS_PATH_3, new WorldPoint(2103, 5038, 0), "Continue the trek.");
+		crossBridge = new ObjectStep(this, ObjectID.TEMPLETREK_BRIDGE_FIXED_3, new WorldPoint(2090, 5039, 0), t("Cross the bridge."));
+		leaveBridgeArea = new ObjectStep(this, ObjectID.MYQ5_SWAMP_SUCCESS_PATH_3, new WorldPoint(2103, 5038, 0), t("Continue the trek."));
 		leaveBridgeArea.addDialogStep("Yes.");
 
 		/* Vampyre Juvinate section */
-		killJuvinates = new NpcStep(this, NpcID.MYQ5_TREK_JUVINATE_2, new WorldPoint(2396, 5011, 0), "Kill the juvinates with the Ivandis Flail. Try to attack the one near Ivan before it can attack him.", true, ivandisFlailEquipped);
+		killJuvinates = new NpcStep(this, NpcID.MYQ5_TREK_JUVINATE_2, new WorldPoint(2396, 5011, 0), t("Kill the juvinates with the Ivandis Flail. Try to attack the one near Ivan before it can attack him."), true, ivandisFlailEquipped);
 		((NpcStep) (killJuvinates)).addAlternateNpcs(NpcID.MYQ5_TREK_JUVINATE_1);
-		leaveJuvinateArea = new ObjectStep(this, ObjectID.MYQ5_SWAMP_SUCCESS_PATH_4, new WorldPoint(2397, 5023, 0), "Continue the trek.");
+		leaveJuvinateArea = new ObjectStep(this, ObjectID.MYQ5_SWAMP_SUCCESS_PATH_4, new WorldPoint(2397, 5023, 0), t("Continue the trek."));
 		leaveJuvinateArea.addDialogStep("Yes.");
 
 		/* Post trek section */
 		talkToIvanAfterTrek = new NpcStep(this, NpcID.MYQ5_IVAN_CHILD, new WorldPoint(3486, 3241, 0),
-			"Finish speaking to Ivan Strom.");
+			t("Finish speaking to Ivan Strom."));
 
 		talkToVeliafInBoatHouse = new NpcStep(this, NpcID.MYQ5_VELIAF_CHILD, new WorldPoint(3529, 3168, 0),
-			"Talk to Veliaf at the boat house in the south of Burgh de Rott.");
+			t("Talk to Veliaf at the boat house in the south of Burgh de Rott."));
 
 		travelToGraveyard = new ObjectStep(this, ObjectID.SANG_BOAT_WATER_MULTILOC, new WorldPoint(3523, 3170, 0),
-			"Get into the boat to the Icyene Graveyard.");
+			t("Get into the boat to the Icyene Graveyard."));
 		travelToGraveyard.addDialogStep("Icyene Graveyard.");
 
 		talkToVeliafInGraveyard = new NpcStep(this, NpcID.MYQ5_SAFALAAN_CHILD, new WorldPoint(3684, 3181, 0),
-			"Finish talking to Veliaf and Safalaan.");
+			t("Finish talking to Veliaf and Safalaan."));
 		talkToVeliafInGraveyard.addDialogStep("Icyene Graveyard.");
 
 		talkToVanescula = new NpcStep(this, NpcID.MYQ5_VANESCULA_HUMAN_CHILD, new WorldPoint(3705, 3188, 0),
-			"Talk with Vanescula Drakan.");
+			t("Talk with Vanescula Drakan."));
 		talkToVanescula.addDialogStep("Icyene Graveyard.");
 
-		openPuzzleDoor = new ObjectStep(this, ObjectID.IG_MAUSOLEUM_DOOR, new WorldPoint(3704, 3190, 0), "Try opening the door to the mausoleum.");
+		openPuzzleDoor = new ObjectStep(this, ObjectID.IG_MAUSOLEUM_DOOR, new WorldPoint(3704, 3190, 0), t("Try opening the door to the mausoleum."));
 
 		talkToVanesculaAfterPuzzle = new NpcStep(this, NpcID.MYQ5_VANESCULA_HUMAN_CHILD, new WorldPoint(3705, 3188, 0),
-			"Finish the cutscene in the Icyene Graveyard.");
+			t("Finish the cutscene in the Icyene Graveyard."));
 		talkToVanesculaAfterPuzzle.addDialogStep("Icyene Graveyard.");
 		openPuzzleDoor.addSubSteps(talkToVanesculaAfterPuzzle);
 
 		convinceKael = new NpcStep(this, NpcID.MYQ5_KAEL_CHILD, new WorldPoint(3685, 3184, 0),
-			"Speak to Kael Forshaw in the Icyene Graveyard. If you already have, open the quest journal to re-sync.");
+			t("Speak to Kael Forshaw in the Icyene Graveyard. If you already have, open the quest journal to re-sync."));
 		convinceVertida = new NpcStep(this, NpcID.MYQ5_VERTIDA_CHILD, new WorldPoint(3694, 3185, 0),
-			"Speak to Verdita Sefalatis in the Icyene Graveyard.");
+			t("Speak to Verdita Sefalatis in the Icyene Graveyard."));
 		convincePolmafi = new NpcStep(this, NpcID.MYQ5_POLMAFI_CHILD, new WorldPoint(3704, 3182, 0),
-			"Speak to Polmafi Ferdygris in the Icyene Graveyard.");
+			t("Speak to Polmafi Ferdygris in the Icyene Graveyard."));
 		convinceRadigad = new NpcStep(this, NpcID.MYQ5_RADIGAD_CHILD, new WorldPoint(3689, 3188, 0),
-			"Speak to Radigad Ponfit in the Icyene Graveyard.");
+			t("Speak to Radigad Ponfit in the Icyene Graveyard."));
 		convinceIvan = new NpcStep(this, NpcID.MYQ5_IVAN_CHILD, new WorldPoint(3696, 3182, 0),
-			"Speak to Ivan Strom in the Icyene Graveyard.");
+			t("Speak to Ivan Strom in the Icyene Graveyard."));
 		convinceVeliaf = new NpcStep(this, NpcID.MYQ5_VELIAF_CHILD, new WorldPoint(3690, 3183, 0),
-			"Speak to Veliaf Hurtz in the Icyene Graveyard.");
+			t("Speak to Veliaf Hurtz in the Icyene Graveyard."));
 
 		talkToVanesculaAfterTeam = new NpcStep(this, NpcID.MYQ5_VANESCULA_HUMAN_CHILD, new WorldPoint(3708, 3187, 0),
-			"Speak to Vanescula in the Icyene Graveyard.");
+			t("Speak to Vanescula in the Icyene Graveyard."));
 		talkToVanesculaAfterTeam.addDialogStep("Icyene Graveyard.");
 
-		goToLab = new ObjectStep(this, ObjectID.MYQ3_LAB_STAIRS_DOWN, new WorldPoint(3643, 3305, 0), "Enter the Meiyerditch lab. The fastest way here is to have a Vyrewatch take you to the mines, mine 15 Daeyalt Ore, then leave.");
+		goToLab = new ObjectStep(this, ObjectID.MYQ3_LAB_STAIRS_DOWN, new WorldPoint(3643, 3305, 0), t("Enter the Meiyerditch lab. The fastest way here is to have a Vyrewatch take you to the mines, mine 15 Daeyalt Ore, then leave."));
 		goToLab.addDialogStep("Meiyerditch.");
 		talkToSafalaanInLab = new NpcStep(this, NpcID.MYQ5_SAFALAAN_CHILD, new WorldPoint(3635, 9689, 0),
-			"Speak to Safalaan at the Lab.");
+			t("Speak to Safalaan at the Lab."));
 		talkToSafalaanInLab.addDialogStep("Shall we get going then?");
 		talkToSafalaanInLab.addDialogStep("Let's go.");
-		enterDeepLab = new ObjectStep(this, ObjectID.MYQ3_LAB_DOOR_LOCKED_L, new WorldPoint(3629, 9680, 0), "Enter the door to the deeper labs.");
+		enterDeepLab = new ObjectStep(this, ObjectID.MYQ3_LAB_DOOR_LOCKED_L, new WorldPoint(3629, 9680, 0), t("Enter the door to the deeper labs."));
 		killBloodveld = new NpcStep(this, NpcID.MYQ5_BLOODVELD, new WorldPoint(3611, 9737, 0),
-			"Defeat the Mutated Bloodveld (lvl-123).");
+			t("Defeat the Mutated Bloodveld (lvl-123)."));
 		talkToSafalaanInDeepLab = new NpcStep(this, NpcID.MYQ5_SAFALAAN_CHILD, new WorldPoint(3611, 9737, 0),
-			"Finish speaking with Safalaan in the Lab.");
+			t("Finish speaking with Safalaan in the Lab."));
 		searchLabBookcase = new ObjectStep(this, ObjectID.MYQ5_LAB_SHELF, new WorldPoint(3589, 9745, 0),
-			"Search the bookshelf in the room west of Safalaan in the Lab.");
+			t("Search the bookshelf in the room west of Safalaan in the Lab."));
 		searchLabBookcase.addDialogStep("I'll be back soon.");
 		takeBookToSafalaan = new NpcStep(this, NpcID.MYQ5_SAFALAAN_CHILD, new WorldPoint(3611, 9737, 0),
-			"Go show Safalaan the Haemalchemy book 2 you found.", haemBook);
+			t("Go show Safalaan the Haemalchemy book 2 you found."), haemBook);
 		takeBookToSafalaan.addDialogStep("Sure. Here you go.");
 
 		talkToVanesculaAfterLab = new NpcStep(this, NpcID.MYQ5_VANESCULA_HUMAN_CHILD, new WorldPoint(3708, 3187, 0),
-			"Speak to Vanescula in the Icyene Graveyard. Take the boat south of Burgh de Rott to get there.");
+			t("Speak to Vanescula in the Icyene Graveyard. Take the boat south of Burgh de Rott to get there."));
 		talkToVanesculaAfterLab.addDialogStep("Okay. I'll see you soon.");
 		talkToVanesculaAfterLab.addDialogStep("Icyene Graveyard.");
 
-		goDownToPolmafi = new ObjectStep(this, ObjectID.MYQ4_HIDEOUT_TRAPDOOR_OPEN, new WorldPoint(3605, 3215, 0), "Climb down the trapdoor in Old Man Ral's house in south west Meiyerditch.",
+		goDownToPolmafi = new ObjectStep(this, ObjectID.MYQ4_HIDEOUT_TRAPDOOR_OPEN, new WorldPoint(3605, 3215, 0), t("Climb down the trapdoor in Old Man Ral's house in south west Meiyerditch."),
 			vyreTop, vyreLegs, vyreShoes);
 		((ObjectStep) (goDownToPolmafi)).addAlternateObjects(ObjectID.MYQ4_HIDEOUT_TRAPDOOR);
 		goDownToPolmafi.addDialogStep("Meiyerditch.");
-		goDownToPolmafiNoItems = new ObjectStep(this, ObjectID.MYQ4_HIDEOUT_TRAPDOOR_OPEN, new WorldPoint(3605, 3215, 0), "Climb down the trapdoor in Old Man Ral's house in south west Meiyerditch.",
+		goDownToPolmafiNoItems = new ObjectStep(this, ObjectID.MYQ4_HIDEOUT_TRAPDOOR_OPEN, new WorldPoint(3605, 3215, 0), t("Climb down the trapdoor in Old Man Ral's house in south west Meiyerditch."),
 			vyreTop, vyreLegs, vyreShoes);
 		((ObjectStep) (goDownToPolmafiNoItems)).addAlternateObjects(ObjectID.MYQ4_HIDEOUT_TRAPDOOR);
 		goDownToPolmafiNoItems.addDialogStep("Meiyerditch.");
 		talkToPolmafi = new NpcStep(this, NpcID.MYQ5_POLMAFI_CHILD, new WorldPoint(3599, 9612, 0),
-			"Bring a Vyrewatch disguise to Polmafi in the Meiyerditch hideout in Old Man Ral's basement.", vyreTop, vyreLegs, vyreShoes);
+			t("Bring a Vyrewatch disguise to Polmafi in the Meiyerditch hideout in Old Man Ral's basement."), vyreTop, vyreLegs, vyreShoes);
 		talkToPolmafi.addDialogStep("Here you go.");
 		talkToPolmafiMore = new NpcStep(this, NpcID.MYQ5_POLMAFI_CHILD, new WorldPoint(3599, 9612, 0),
-			"Finish speaking to Polmafi in the Meiyerditch hideout.");
+			t("Finish speaking to Polmafi in the Meiyerditch hideout."));
 		talkToPolmafiMore.addDialogStep("Here you go.");
 		talkToPolmafi.addSubSteps(talkToPolmafiMore, goDownToPolmafi, goDownToPolmafiNoItems);
 
 		bringUnscentedToVanescula = new NpcStep(this, NpcID.MYQ5_VANESCULA_HUMAN_CHILD, new WorldPoint(3708, 3187, 0),
-			"Return to Vanescula in the Icyene Graveyard with the Vyre noble outfit.",
+			t("Return to Vanescula in the Icyene Graveyard with the Vyre noble outfit."),
 			unscentedTop, unscentedLegs, unscentedShoes);
 		bringUnscentedToVanescula.addDialogStep("Icyene Graveyard.");
 
 		talkToVeliafForFight = new NpcStep(this, NpcID.MYQ5_VELIAF_CHILD, new WorldPoint(3729, 3318, 0),
-			"Talk to Veliaf outside the church in Slepe.",
+			t("Talk to Veliaf outside the church in Slepe."),
 			unscentedTop, unscentedLegs, unscentedShoes, ivandisFlailEquipped);
 		talkToVeliafForFight.addDialogSteps("Slepe.", "Let's do this.");
 
 		killDamien = new NpcStep(this, NpcID.MYQ5_DAMIEN_COMBAT, new WorldPoint(3717, 3358, 1),
-			"Kill Damien Leucurte (lvl-204). He can poison you. Stomp out any of the fires he spawns.",
+			t("Kill Damien Leucurte (lvl-204). He can poison you. Stomp out any of the fires he spawns."),
 			unscentedTop, unscentedLegs, unscentedShoes, ivandisFlailEquipped);
 		killDamien.addDialogSteps("Slepe.", "Let's do this.");
 
 		talkToVeliafAfterDamien = new NpcStep(this, NpcID.MYQ5_VELIAF_FLAIL_BATTLE_DONE, new WorldPoint(3720, 3357, 1),
-			"Talk to Veliaf in Slepe.");
+			t("Talk to Veliaf in Slepe."));
 
 		talkToVanesculaAfterDamien = new NpcStep(this, NpcID.MYQ5_VANESCULA_HUMAN_CHILD, new WorldPoint(3708, 3187, 0),
-			"Return to Vanescula in the Icyene Graveyard with the Vyre noble outfit.",
+			t("Return to Vanescula in the Icyene Graveyard with the Vyre noble outfit."),
 			scentedTop, scentedLegs, scentedShoes);
 		talkToVanesculaAfterDamien.addDialogSteps("I'll see you there.", "Icyene Graveyard.");
 
 		enterDarkmeyer = new ObjectStep(this, ObjectID.DARKM_OUTER_WALL_3H_CRACK, new WorldPoint(3627, 3329, 0),
-			"Go to Darkmeyer. You can take the boat to Meiyerditch, talk to a Vyrewatch to be sent to the mines, get out and you'll be right next to the entrance. If you're wearing the outfit you won't need to mine anything.",
+			t("Go to Darkmeyer. You can take the boat to Meiyerditch, talk to a Vyrewatch to be sent to the mines, get out and you'll be right next to the entrance. If you're wearing the outfit you won't need to mine anything."),
 			scentedTop, scentedLegs, scentedShoes);
 		enterDarkmeyer.addDialogSteps("Meiyerditch.", "Send me to the mines.");
 
 		talkToDesmodus = new NpcStep(this, NpcID.DESMODUS_LASIURUS, new WorldPoint(3612, 3362, 0),
-			"Speak to Desmodus Lasiurus outside the Arboretum in Darkmeyer.",
+			t("Speak to Desmodus Lasiurus outside the Arboretum in Darkmeyer."),
 			scentedTop, scentedLegs, scentedShoes);
 
 		talkToMordan = new NpcStep(this, NpcID.MORDAN_NIKAZSI, new WorldPoint(3662, 3347, 0),
-			"Speak to Mordan Mikazsi in lower Darkmeyer.", scentedTop, scentedLegs, scentedShoes);
+			t("Speak to Mordan Mikazsi in lower Darkmeyer."), scentedTop, scentedLegs, scentedShoes);
 
 		talkToMaria = new NpcStep(this, NpcID.MYQ5_MARIA_VIS, new WorldPoint(3618, 3378, 0),
-			"Speak to Maria Gadderanks in the jail north of the Arboretum in Darkmeyer.",
+			t("Speak to Maria Gadderanks in the jail north of the Arboretum in Darkmeyer."),
 			scentedTop, scentedLegs, scentedShoes);
 
 		talkToDesmodusAgain = new NpcStep(this, NpcID.DESMODUS_LASIURUS, new WorldPoint(3612, 3362, 0),
-			"Speak to Desmodus Lasiurus outside the Arboretum in Darkmeyer.",
+			t("Speak to Desmodus Lasiurus outside the Arboretum in Darkmeyer."),
 			scentedTop, scentedLegs, scentedShoes);
 
 		getNote = new ObjectStep(this, ObjectID.MYQ5_ARBORETUM_SHELVES, new WorldPoint(3625, 3358, 0),
-			"Search the shelves in the Arboretum in Darkmeyer. Read the Old Note you get.",
+			t("Search the shelves in the Arboretum in Darkmeyer. Read the Old Note you get."),
 			scentedTop, scentedLegs, scentedShoes);
 
-		readNote = new DetailedQuestStep(this, "Read the note.", oldNote);
+		readNote = new DetailedQuestStep(this, t("Read the note."), oldNote);
 
 		bringVanesculaLogs = new NpcStep(this, NpcID.MYQ5_VANESCULA_HUMAN_CHILD, new WorldPoint(3708, 3187, 0),
-			"Return to Vanescula in the Icyene Graveyard with the 8 Blisterwood logs.",
+			t("Return to Vanescula in the Icyene Graveyard with the 8 Blisterwood logs."),
 			blisterwood8);
 		bringVanesculaLogs.addDialogStep("Icyene Graveyard.");
 
 		goDownToVerditaWithLogs = new ObjectStep(this, ObjectID.MYQ4_HIDEOUT_TRAPDOOR_OPEN, new WorldPoint(3605, 3215, 0),
-			"Climb down the trapdoor in Old Man Ral's house in south west Meiyerditch.", blisterwood8);
+			t("Climb down the trapdoor in Old Man Ral's house in south west Meiyerditch."), blisterwood8);
 		((ObjectStep) (goDownToVerditaWithLogs)).addAlternateObjects(ObjectID.MYQ4_HIDEOUT_TRAPDOOR);
 		goDownToVerditaWithLogs.addDialogStep("Meiyerditch.");
 
 		bringVertidaLogs = new NpcStep(this, NpcID.MYQ4_VERTIDA_VISIBLE, new WorldPoint(3598, 9612, 0),
-			"Go speak to Vertida in Old Man Ral's basement with the 8 Blisterwood logs.",
+			t("Go speak to Vertida in Old Man Ral's basement with the 8 Blisterwood logs."),
 			blisterwood8);
 		bringVertidaLogs.addDialogSteps("Meiyerditch.", "Here you go.");
 		bringVertidaLogs.addSubSteps(goDownToVerditaWithLogs);
 
 		talkToVertidaForFlail = new NpcStep(this, NpcID.MYQ4_VERTIDA_VISIBLE, new WorldPoint(3598, 9612, 0),
-			"Speak to Vertida Sefalatis.");
+			t("Speak to Vertida Sefalatis."));
 
 		goDownToMakeFlail = new ObjectStep(this, ObjectID.MYQ4_HIDEOUT_TRAPDOOR_OPEN, new WorldPoint(3605, 3215, 0),
-			"Climb down the trapdoor in Old Man Ral's house in south west Meiyerditch.", blisterwoodLog, ruby, chisel, knife, ivandisFlail, enchantRubyRunesOrTablet);
+			t("Climb down the trapdoor in Old Man Ral's house in south west Meiyerditch."), blisterwoodLog, ruby, chisel, knife, ivandisFlail, enchantRubyRunesOrTablet);
 		((ObjectStep) (goDownToMakeFlail)).addAlternateObjects(ObjectID.MYQ4_HIDEOUT_TRAPDOOR);
 		goDownToMakeFlail.addDialogStep("Meiyerditch.");
 
-		getSickle = new ObjectStep(this, ObjectID.MYQ4_SICKLE_CRATE, new WorldPoint(3597, 9615, 0), "Search the nearby crate for a silver sickle.");
-		addRubyToSickle = new DetailedQuestStep(this, "Use a ruby on the sickle.", rubyHighlighted, sickle, chisel);
+		getSickle = new ObjectStep(this, ObjectID.MYQ4_SICKLE_CRATE, new WorldPoint(3597, 9615, 0), t("Search the nearby crate for a silver sickle."));
+		addRubyToSickle = new DetailedQuestStep(this, t("Use a ruby on the sickle."), rubyHighlighted, sickle, chisel);
 		addRubyToSickle.addDialogStep("Yes.");
-		enchantRubySickle = new DetailedQuestStep(this, "Cast enchant ruby on the sickle.", enchantRubyRunesOrTablet, rubySickle);
-		useLogOnSickle = new DetailedQuestStep(this, "Use a blisterwood log on the enchanted sickle.", blisterwoodLog, enchantedSickle, knife);
+		enchantRubySickle = new DetailedQuestStep(this, t("Cast enchant ruby on the sickle."), enchantRubyRunesOrTablet, rubySickle);
+		useLogOnSickle = new DetailedQuestStep(this, t("Use a blisterwood log on the enchanted sickle."), blisterwoodLog, enchantedSickle, knife);
 		useLogOnSickle.addDialogStep("Yes.");
-		useFlailOnSickle = new DetailedQuestStep(this, "Use the flail on the blisterwood sickle.", ivandisFlailHighlighted, blisterwoodSickle);
+		useFlailOnSickle = new DetailedQuestStep(this, t("Use the flail on the blisterwood sickle."), ivandisFlailHighlighted, blisterwoodSickle);
 		useFlailOnSickle.addDialogStep("Yes.");
 
 		talkToVanesculaWithFlail = new NpcStep(this, NpcID.MYQ5_VANESCULA_HUMAN_CHILD, new WorldPoint(3708, 3187, 0),
-			"Return to Vanescula in the Icyene Graveyard with the Blisterwood Flail.", blisterwoodFlail);
+			t("Return to Vanescula in the Icyene Graveyard with the Blisterwood Flail."), blisterwoodFlail);
 		talkToVanesculaWithFlail.addDialogStep("Icyene Graveyard.");
 
 		talkToSafalaanWithFlail = new NpcStep(this, NpcID.MYQ5_SAFALAAN_CHILD, new WorldPoint(3719, 3215, 0),
-			"Speak to Safalaan north of the Icyene Graveyard.", blisterwoodFlail);
+			t("Speak to Safalaan north of the Icyene Graveyard."), blisterwoodFlail);
 		talkToSafalaanWithFlail.addDialogStep("Icyene Graveyard.");
 
 		talkToVanesculaBeforeFight = new NpcStep(this, NpcID.MYQ5_VANESCULA_HUMAN_CHILD, new WorldPoint(3708, 3187, 0),
-			"Speak to Vanescula in the Icyene Graveyard.", blisterwoodFlail);
+			t("Speak to Vanescula in the Icyene Graveyard."), blisterwoodFlail);
 		talkToVanesculaBeforeFight.addDialogStep("Icyene Graveyard.");
 
 		talkToVanesculaForFight = new NpcStep(this, NpcID.MYQ5_VANESCULA_HUMAN_CHILD, new WorldPoint(3708, 3187, 0),
-			"Prepare for a challenging fight. Speak to Vanescula to enter the fight.", blisterwoodFlail);
+			t("Prepare for a challenging fight. Speak to Vanescula to enter the fight."), blisterwoodFlail);
 		talkToVanesculaForFight.addDialogSteps("Icyene Graveyard.", "I'm ready.");
 
 		talkToVeliafForFinalFight = new NpcStep(this, NpcID.MYQ5_VELIAF_CHILD, new WorldPoint(3707, 3188, 0),
-			"Prepare for a challenging fight. Speak to Veliaf to enter the fight.", blisterwoodFlail);
+			t("Prepare for a challenging fight. Speak to Veliaf to enter the fight."), blisterwoodFlail);
 		((NpcStep) (talkToVeliafForFinalFight)).addAlternateNpcs(NpcID.MYQ5_VELIAF_CHILD_COLLECT);
 		talkToVeliafForFinalFight.addDialogSteps("Icyene Graveyard.", "Let's go.");
 
 		fightVanstrom = new NpcStep(this, NpcID.MYQ5_VANSTROM_COMBAT, new WorldPoint(3567, 3358, 0),
-			"Fight Vanstrom Klause. Check the sidebar for more details.", blisterwoodFlail);
+			t("Fight Vanstrom Klause. Check the sidebar for more details."), blisterwoodFlail);
 		((NpcStep) (fightVanstrom)).addAlternateNpcs(NpcID.MYQ5_VANSTROM_COMBAT_NOOP, NpcID.MYQ5_VANSTROM_COMBAT_ENRAGE);
 
 
 		fightVanstromSidebar = new DetailedQuestStep(this,
-			"Fight Vanstrom Klause. Protect from Magic. He has various special attacks indicated by what he says:",
+			t("Fight Vanstrom Klause. Protect from Magic. He has various special attacks indicated by what he says:"),
 			blisterwoodFlail);
-		fightVanstromSidebar.addText("My pets will feast on your corpse: A bloodveld will appear which you need to kill from a distance.");
-		fightVanstromSidebar.addText("Blood will be my strength: An orb appears that heals Vanstrom. Lure Vanstrom onto it.");
-		fightVanstromSidebar.addText("Stare into the darkness: Face away from Vanstrom.");
-		fightVanstromSidebar.addText("Once he hits 0hp, he'll heal to 200 and start summoning lightning bolts. Move off " +
-			"tiles where they appear.");
+		fightVanstromSidebar.addText(t("My pets will feast on your corpse: A bloodveld will appear which you need to kill from a distance."));
+		fightVanstromSidebar.addText(t("Blood will be my strength: An orb appears that heals Vanstrom. Lure Vanstrom onto it."));
+		fightVanstromSidebar.addText(t("Stare into the darkness: Face away from Vanstrom."));
+		fightVanstromSidebar.addText(t("Once he hits 0hp, he'll heal to 200 and start summoning lightning bolts. Move off tiles where they appear."));
 		fightVanstromSidebar.addSubSteps(fightVanstrom);
 
 		talkToVeliafAfterFight = new NpcStep(this, NpcID.MYQ5_VELIAF_CHILD_COLLECT, new WorldPoint(3707, 3188, 0),
-			"Speak to Veliaf in the Icyene graveyard to re-enter the cutscene.");
+			t("Speak to Veliaf in the Icyene graveyard to re-enter the cutscene."));
 		fightVanstrom.addSubSteps(talkToVeliafAfterFight);
 
 		talkToVeliafAfterFight.addDialogSteps("Icyene Graveyard.", "Let's go.");
 		talkToVanesculaBeforeFight.addSubSteps(talkToVanesculaForFight, talkToVeliafForFinalFight);
 
-		enterBaseToFinish = new ObjectStep(this, ObjectID.MYQ4_HIDEOUT_TRAPDOOR_OPEN, new WorldPoint(3605, 3215, 0), "Climb down the trapdoor in Old Man Ral's house in south west Meiyerditch.");
+		enterBaseToFinish = new ObjectStep(this, ObjectID.MYQ4_HIDEOUT_TRAPDOOR_OPEN, new WorldPoint(3605, 3215, 0), t("Climb down the trapdoor in Old Man Ral's house in south west Meiyerditch."));
 		((ObjectStep) (enterBaseToFinish)).addAlternateObjects(ObjectID.MYQ4_HIDEOUT_TRAPDOOR);
 
 		finishQuest = new NpcStep(this, NpcID.MYQ5_VELIAF_CHILD_BLISTERWOOD, new WorldPoint(3598, 9613, 0),
-			"Speak to Veliaf in the Myreque Hideout to complete the quest.");
+			t("Speak to Veliaf in the Myreque Hideout to complete the quest."));
 		finishQuest.addSubSteps(enterBaseToFinish);
 
 		cutLogs = new ObjectStep(this, ObjectID.BLISTERWOOD_TREE, new WorldPoint(3635, 3362, 0),
-			"Gather 8 logs from the Blisterwood tree.", scentedTop, scentedLegs, scentedShoes, blisterwood8, axe);
+			t("Gather 8 logs from the Blisterwood tree."), scentedTop, scentedLegs, scentedShoes, blisterwood8, axe);
 
 		templeTrek = new NpcStep(this, NpcID.MYQ5_IVAN_CHILD, new WorldPoint(3444, 3485, 0),
-			"Speak to Ivan Strom outside the east entrance of Paterdomus to go temple treking with him.");
-		talkToTeamSteps = new DetailedQuestStep(this, "Convince the Myreque to take on Drakan.");
-		valveStep = new PuzzleWrapperStep(this, new ValveStep(this), "Set the valves in the rooms to the values calculated from the note.");
-		createFlailSteps = new DetailedQuestStep(this, "Create the blisterwood flail.", blisterwoodFlail);
-		doDoorPuzzle = new PuzzleWrapperStep(this, new DoorPuzzleStep(this), "Open the mausoleum's door.");
+			t("Speak to Ivan Strom outside the east entrance of Paterdomus to go temple treking with him."));
+		talkToTeamSteps = new DetailedQuestStep(this, t("Convince the Myreque to take on Drakan."));
+		valveStep = new PuzzleWrapperStep(this, new ValveStep(this), t("Set the valves in the rooms to the values calculated from the note."));
+		createFlailSteps = new DetailedQuestStep(this, t("Create the blisterwood flail."), blisterwoodFlail);
+		doDoorPuzzle = new PuzzleWrapperStep(this, new DoorPuzzleStep(this), t("Open the mausoleum's door."));
 	}
 
 	@Override
@@ -819,7 +817,7 @@ public class SinsOfTheFather extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Arrays.asList("Kroy (level 133)", "Vampyre juveniles (level 122 and 119)", "Nail beasts (level 143 and 67)", "Mutated bloodveld (level 123)", "Damien Leucurte (level 204)", "Vanstrom Klause (level 413)");
+		return Arrays.asList(t("Kroy (level 133)"), t("Vampyre juveniles (level 122 and 119)"), t("Nail beasts (level 143 and 67)"), t("Mutated bloodveld (level 123)"), t("Damien Leucurte (level 204)"), t("Vanstrom Klause (level 413)"));
 	}
 
 	@Override
@@ -856,35 +854,35 @@ public class SinsOfTheFather extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Access to Darkmeyer and the Daeyalt Essence Mine"),
-				new UnlockReward("Darkmeyer teleport via Drakan's Medallion."));
+				new UnlockReward(t("Access to Darkmeyer and the Daeyalt Essence Mine")),
+				new UnlockReward(t("Darkmeyer teleport via Drakan's Medallion.")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Investigating Slepe",
+		allSteps.add(new PanelDetails(t("Investigating Slepe"),
 			Arrays.asList(startQuest, talkToHameln, talkToCarl, inspectBarrel, followCarl, killKroy, destroyLab, talkToVeliafAfterKroy), combatGear));
-		allSteps.add(new PanelDetails("Helping the Myreque",
+		allSteps.add(new PanelDetails(t("Helping the Myreque"),
 			Arrays.asList(talkToVeliafInPater, talkToIvan, listenToMeeting)));
-		allSteps.add(new PanelDetails("Escorting Ivan",
+		allSteps.add(new PanelDetails(t("Escorting Ivan"),
 			Arrays.asList(talkToIvanAfterMeeting, searchForKnife, cutVines, combineVines, useVineOnBranch, swingOnVine, leaveSwingArea, killNailBeasts,
 				leaveNailBeastArea, killZombieForAxe, get3LogsForBridge, repairBridge1, crossBridge, leaveBridgeArea, killJuvinates, leaveJuvinateArea), combatGear, ivandisFlail));
-		allSteps.add(new PanelDetails("Learning of the Icyene",
+		allSteps.add(new PanelDetails(t("Learning of the Icyene"),
 			Arrays.asList(talkToIvanAfterTrek, talkToVeliafInBoatHouse, travelToGraveyard, talkToVeliafInGraveyard, talkToVanescula, doDoorPuzzle,
 				convinceVertida, convinceKael, convinceRadigad, convincePolmafi, convinceIvan, convinceVeliaf, talkToVanesculaAfterTeam)));
-		allSteps.add(new PanelDetails("Investigating the lab",
+		allSteps.add(new PanelDetails(t("Investigating the lab"),
 			Arrays.asList(goToLab, talkToSafalaanInLab, killBloodveld,
 				talkToSafalaanInDeepLab, searchLabBookcase, takeBookToSafalaan), combatGear, pickaxe));
-		allSteps.add(new PanelDetails("Making a disguise",
+		allSteps.add(new PanelDetails(t("Making a disguise"),
 			Arrays.asList(talkToVanesculaAfterLab, talkToPolmafi, bringUnscentedToVanescula, talkToVeliafForFight, killDamien, talkToVeliafAfterDamien,
 				talkToVanesculaAfterDamien), combatGear, vyrewatchOutfitOrCoins, ivandisFlail, antipoison));
-		allSteps.add(new PanelDetails("Infiltrating Darkmeyer",
+		allSteps.add(new PanelDetails(t("Infiltrating Darkmeyer"),
 			Arrays.asList(enterDarkmeyer, talkToDesmodus, talkToMordan, talkToMaria, talkToDesmodusAgain, getNote, valveStep, cutLogs, bringVanesculaLogs), axe));
-		allSteps.add(new PanelDetails("Creating a weapon",
+		allSteps.add(new PanelDetails(t("Creating a weapon"),
 			Arrays.asList(bringVertidaLogs, talkToVertidaForFlail, getSickle, addRubyToSickle, enchantRubySickle, useLogOnSickle, useFlailOnSickle), blisterwood8, chisel, knife, ruby, ivandisFlail, enchantRubyRunesOrTablet));
-		allSteps.add(new PanelDetails("Taking on Drakan",
+		allSteps.add(new PanelDetails(t("Taking on Drakan"),
 			Arrays.asList(talkToVanesculaWithFlail, talkToSafalaanWithFlail, talkToVanesculaBeforeFight,
 				fightVanstromSidebar, finishQuest), combatGear, rangedWeaponForBloodveld, blisterwoodFlail));
 

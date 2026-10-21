@@ -175,12 +175,12 @@ public class GhostsAhoy extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		ectoToken2 = new ItemRequirement("Ecto-token, or travel by Charter Ship", ItemID.ECTOTOKEN, 2);
+		ectoToken2 = new ItemRequirement(t("Ecto-token, or travel by Charter Ship"), ItemID.ECTOTOKEN, 2);
 		charos = new ItemRequirement("Ring of Charos (a)", ItemID.RING_OF_CHAROS_UNLOCKED).isNotConsumed();
-		ectoTokensCharos = new ItemRequirement("Ecto-token, OR 10 Ecto-Tokens and coins to travel by Charter Ship", ItemID.ECTOTOKEN, 20);
-		ectoTokensNoCharos = new ItemRequirement("Ecto-token, OR 25 Ecto-Tokens and coins to travel by Charter Ship", ItemID.ECTOTOKEN, 31);ectoToken4 = new ItemRequirement("Ecto-token, or travel by Charter Ship", ItemID.ECTOTOKEN, 4);
-		ectoToken12 = new ItemRequirement("Ecto-token, or travel by Charter Ship and 10 ecto-tokens", ItemID.ECTOTOKEN, 12);
-		ectoToken27 = new ItemRequirement("Ecto-token, or travel by Charter Ship and 25 ecto-tokens", ItemID.ECTOTOKEN, 27);
+		ectoTokensCharos = new ItemRequirement(t("Ecto-token, OR 10 Ecto-Tokens and coins to travel by Charter Ship"), ItemID.ECTOTOKEN, 20);
+		ectoTokensNoCharos = new ItemRequirement(t("Ecto-token, OR 25 Ecto-Tokens and coins to travel by Charter Ship"), ItemID.ECTOTOKEN, 31);ectoToken4 = new ItemRequirement(t("Ecto-token, or travel by Charter Ship"), ItemID.ECTOTOKEN, 4);
+		ectoToken12 = new ItemRequirement(t("Ecto-token, or travel by Charter Ship and 10 ecto-tokens"), ItemID.ECTOTOKEN, 12);
+		ectoToken27 = new ItemRequirement(t("Ecto-token, or travel by Charter Ship and 25 ecto-tokens"), ItemID.ECTOTOKEN, 27);
 		ectoToken10 = new ItemRequirement("Ecto-token", ItemID.ECTOTOKEN, 10);
 		ectoToken25 = new ItemRequirement("Ecto-token", ItemID.ECTOTOKEN, 25);
 		chestKey = new ItemRequirement("Chest key", ItemID.AHOY_CHEST_KEY);
@@ -219,7 +219,7 @@ public class GhostsAhoy extends BasicQuestHelper
 		ItemRequirement redDye = new ItemRequirement("Red dye", ItemID.REDDYE, 3);
 		ItemRequirement blueDye = new ItemRequirement("Blue dye", ItemID.BLUEDYE, 3);
 		ItemRequirement yellowDye = new ItemRequirement("Yellow dye", ItemID.YELLOWDYE, 3);
-		dyes = new ItemRequirements("3 colours of dyes. Which you'll need is random. To be prepared, bring 3 red/blue/yellow dyes",
+		dyes = new ItemRequirements(t("3 colours of dyes. Which you'll need is random. To be prepared, bring 3 red/blue/yellow dyes"),
 			redDye, blueDye, yellowDye);
 
 		spade = new ItemRequirement("Spade", ItemID.SPADE).isNotConsumed();

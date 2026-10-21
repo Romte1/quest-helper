@@ -200,8 +200,8 @@ public class MountainDaughter extends BasicQuestHelper
 		corpse = new ItemRequirement("Corpse of woman", ItemID.MDAUGHTER_DAUGHTER_CORPSE);
 		corpse.setTooltip(t("You can find this corpse again in the Kendal's cave."));
 		muddyRocks5 = new ItemRequirement("Muddy rock", ItemID.MDAUGHTER_ROCK, 5);
-		slayerRing = new ItemRequirement("Slayer ring for teleports", ItemCollections.SLAYER_RINGS);
-		combatGear = new ItemRequirement("Combat gear for The Kendal fight", -1, -1).isNotConsumed();
+		slayerRing = new ItemRequirement(t("Slayer ring for teleports"), ItemCollections.SLAYER_RINGS);
+		combatGear = new ItemRequirement(t("Combat gear for The Kendal fight"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		necklace = new ItemRequirement("Asleif's necklace", ItemID.MDAUGHTER_NECKLACE);

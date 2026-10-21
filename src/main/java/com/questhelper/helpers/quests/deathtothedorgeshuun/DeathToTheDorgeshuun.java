@@ -212,7 +212,7 @@ public class DeathToTheDorgeshuun extends BasicQuestHelper
 		crate = new ItemRequirement("Crate with Zanik", ItemID.DTTD_ZANIK_CRATE, 1, true);
 
 		combatGear = new ItemRequirement("Magic or melee combat gear", -1, -1).isNotConsumed();
-		gamesNecklace = new ItemRequirement("Games necklace (requires Tears of Guthix to teleport to Juna)", ItemID.NECKLACE_OF_MINIGAMES_8);
+		gamesNecklace = new ItemRequirement(t("Games necklace (requires Tears of Guthix to teleport to Juna)"), ItemID.NECKLACE_OF_MINIGAMES_8);
 	}
 
 	@Override

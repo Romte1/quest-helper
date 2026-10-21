@@ -146,7 +146,7 @@ public class PriestInPeril extends BasicQuestHelper
 		runeEssence.addAlternates(ItemID.BLANKRUNE_HIGH);
 		bucket = new ItemRequirement("Bucket", ItemID.BUCKET_EMPTY).isNotConsumed();
 		bucketHighlighted = bucket.highlighted();
-		runePouches = new ItemRequirements(LogicType.OR, "Essence pouches for carrying essence",
+		runePouches = new ItemRequirements(LogicType.OR, t("Essence pouches for carrying essence"),
 			new ItemRequirement("Small pouch", ItemID.RCU_POUCH_SMALL),
 			new ItemRequirement("Medium pouch", ItemID.RCU_POUCH_MEDIUM),
 			new ItemRequirement("Large pouch", ItemID.RCU_POUCH_LARGE),
@@ -158,9 +158,9 @@ public class PriestInPeril extends BasicQuestHelper
 		goldenKey = new ItemRequirement("Golden key", ItemID.PIPKEY_GOLD);
 		goldenKeyHighlighted = new ItemRequirement("Golden key", ItemID.PIPKEY_GOLD);
 		goldenKeyHighlighted.setHighlightInInventory(true);
-		rangedMagedGear = new ItemRequirement("Combat gear, ranged or mage to safespot", -1, -1).isNotConsumed();
+		rangedMagedGear = new ItemRequirement(t("Combat gear, ranged or mage to safespot"), -1, -1).isNotConsumed();
 		rangedMagedGear.setDisplayItemId(BankSlotIcons.getRangedCombatGear());
-		lotsOfRuneEssence = new ItemRequirement("As much essence as you can carry, you'll need to bring 50 UNNOTED in total", ItemID.BLANKRUNE_HIGH, -1);
+		lotsOfRuneEssence = new ItemRequirement(t("As much essence as you can carry, you'll need to bring 50 UNNOTED in total"), ItemID.BLANKRUNE_HIGH, -1);
 		murkyWater = new ItemRequirement("Murky water", ItemID.BUCKET_MURKYWATER);
 		murkyWater.addAlternates(ItemID.BUCKET_BLESSEDWATER);
 		ironKey = new ItemRequirement("Iron key", ItemID.PIPKEY_IRON);

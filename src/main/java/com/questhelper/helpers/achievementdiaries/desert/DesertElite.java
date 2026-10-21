@@ -144,10 +144,10 @@ public class DesertElite extends ComplexStateQuestHelper
 		desertShirt = new ItemRequirement("Desert shirt", ItemID.DESERT_SHIRT).isNotConsumed();
 		waterskin = new ItemRequirement("Waterskin", ItemCollections.WATERSKIN).isNotConsumed();
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
 		inBed = new ZoneRequirement(bed);
 		inLastRoom = new ZoneRequirement(lastRoom);
@@ -172,16 +172,16 @@ public class DesertElite extends ComplexStateQuestHelper
 	public void setupSteps()
 	{
 		moveToPyramidPlunder = new ObjectStep(this, ObjectID.NTK_PYRAMID_DOOR_NORTH_MULTI, new WorldPoint(3289, 2800, 0),
-			"Enter the Pyramid plunder minigame. If you don't see a Guardian mummy exit and try a different " +
-				"entrance.", true);
+			t("Enter the Pyramid plunder minigame. If you don't see a Guardian mummy exit and try a different " +
+				"entrance."), true);
 		((ObjectStep) moveToPyramidPlunder).addAlternateObjects(ObjectID.NTK_PYRAMID_DOOR_EAST_MULTI, ObjectID.NTK_PYRAMID_DOOR_SOUTH_MULTI,
 			ObjectID.NTK_PYRAMID_DOOR_WEST_MULTI);
 		startPyramidPlunder = new NpcStep(this, NpcID.NTK_MUMMY_GUARDIAN, new WorldPoint(1934, 4427, 3),
-			"Talk to the guardian mummy to start the minigame.");
+			t("Talk to the guardian mummy to start the minigame."));
 		startPyramidPlunder.addDialogStep("I know what I'm doing - let's get on with it.");
 
 		traversePyramid = new ObjectStep(this, ObjectID.NTK_TOMB_DOOR1, new WorldPoint(1951, 4452, 0),
-			"Go through each of the pyramid rooms until the final room.", true);
+			t("Go through each of the pyramid rooms until the final room."), true);
 		((ObjectStep) traversePyramid).setMaxObjectDistance(40);
 		((ObjectStep) traversePyramid).setMaxRenderDistance(10);
 		for (int i = 26619; i < 26651; i++)
@@ -194,29 +194,29 @@ public class DesertElite extends ComplexStateQuestHelper
 		}
 
 		grandGoldChest = new ObjectStep(this, ObjectID.NTK_GOLDEN_CHEST_CLOSED, new WorldPoint(1973, 4431, 0),
-			"Loot the grand gold chest.", true);// Can't test the coords but should be close / correct
+			t("Loot the grand gold chest."), true);// Can't test the coords but should be close / correct
 
 		restorePrayer = new ObjectStep(this, ObjectID.CONTACT_HIGH_PRIEST_TEMPLE_ALTAR, new WorldPoint(3281, 2774, 0),
-			"Pray at the altar in Sophanem restoring at least 85 prayer points.");
+			t("Pray at the altar in Sophanem restoring at least 85 prayer points."));
 
 		iceBarrage = new NpcStep(this, NpcID.RAG_VULTURE, new WorldPoint(3334, 2865, 0),
-			"Cast Ice barrage against any foe in the Desert (away from any city). You must not splash.", true,
+			t("Cast Ice barrage against any foe in the Desert (away from any city). You must not splash."), true,
 			waterRune.quantity(6), bloodRune.quantity(2), deathRune.quantity(4));
 		iceBarrage.addAlternateNpcs(NpcID.RAG_VULTURE_FLYING);
 
 		wildPie = new ObjectStep(this, ObjectID.ELID_CLAY_OVEN, new WorldPoint(3434, 2886, 0),
-			"Cook a wild pie on the clay oven in Nardah.", rawPie);
+			t("Cook a wild pie on the clay oven in Nardah."), rawPie);
 
 		moveToBed = new TileStep(this, new WorldPoint(3175, 3041, 0),
-			"Go to Bedabin Camp south-west of Al Kharid.");
-		dragonDarts = new ItemStep(this, "Fletch a dragon dart.", dragonDartTip.highlighted(), feather.highlighted());
+			t("Go to Bedabin Camp south-west of Al Kharid."));
+		dragonDarts = new ItemStep(this, t("Fletch a dragon dart."), dragonDartTip.highlighted(), feather.highlighted());
 
-		talkKQHead = new DetailedQuestStep(this, "Mount and then talk to a Kalphite Queen head in your POH. The 50k " +
-			"is necessary to stuff the KQ head at the taxidermist in Canifis.",
+		talkKQHead = new DetailedQuestStep(this, t("Mount and then talk to a Kalphite Queen head in your POH. The 50k " +
+			"is necessary to stuff the KQ head at the taxidermist in Canifis."),
 			kqHead, mahoganyPlank.quantity(2), goldLeaves.quantity(2), saw, hammer, coins.quantity(50000));
 
 		claimReward = new NpcStep(this, NpcID.JARR_DESERT_DIARY, new WorldPoint(3303, 3124, 0),
-			"Talk to Jarr at the Shantay pass to claim your reward!");
+			t("Talk to Jarr at the Shantay pass to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -247,17 +247,17 @@ public class DesertElite extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("Unlimited teleports to Nardah and the Kalphite Cave on the " +
-				"desert amulet"),
-			new UnlockReward("The Nardah teleport on the desert amulet now takes players " +
+			new UnlockReward(t("Unlimited teleports to Nardah and the Kalphite Cave on the " +
+				"desert amulet")),
+			new UnlockReward(t("The Nardah teleport on the desert amulet now takes players " +
 				"directly inside the Elidinis" +
-				" shrine"),
-			new UnlockReward("100% protection against desert heat when the desert amulet is worn"),
-			new UnlockReward("Pharaoh's sceptre can hold up to 100 charges"),
-			new UnlockReward("Free pass-through of the Shantay Pass"),
-			new UnlockReward("Access to a crevice shortcut, requiring 86 Agility, " +
+				" shrine")),
+			new UnlockReward(t("100% protection against desert heat when the desert amulet is worn")),
+			new UnlockReward(t("Pharaoh's sceptre can hold up to 100 charges")),
+			new UnlockReward(t("Free pass-through of the Shantay Pass")),
+			new UnlockReward(t("Access to a crevice shortcut, requiring 86 Agility, " +
 				"in the Kalphite Lair from the entrance to the antechamber before the " +
-				"Kalphite Queen boss room.")
+				"Kalphite Queen boss room."))
 		);
 	}
 
@@ -286,45 +286,45 @@ public class DesertElite extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails wildPieSteps = new PanelDetails("Bake Wild Pie", Collections.singletonList(wildPie),
+		PanelDetails wildPieSteps = new PanelDetails(t("Bake Wild Pie"), Collections.singletonList(wildPie),
 			new SkillRequirement(Skill.COOKING, 85, true), rawPie);
 		wildPieSteps.setDisplayCondition(notWildPie);
 		wildPieSteps.setLockingStep(wildPieTask);
 		allSteps.add(wildPieSteps);
 
-		PanelDetails iceBarrageSteps = new PanelDetails("Ice Barrage", Collections.singletonList(iceBarrage),
+		PanelDetails iceBarrageSteps = new PanelDetails(t("Ice Barrage"), Collections.singletonList(iceBarrage),
 			new SkillRequirement(Skill.MAGIC, 94, true), desertTreasure, ancientBook, waterRune.quantity(6),
 			bloodRune.quantity(2), deathRune.quantity(4));
 		iceBarrageSteps.setDisplayCondition(notIceBarrage);
 		iceBarrageSteps.setLockingStep(iceBarrageTask);
 		allSteps.add(iceBarrageSteps);
 
-		PanelDetails grandGoldChestSteps = new PanelDetails("Grand Gold Chest", Arrays.asList(moveToPyramidPlunder,
+		PanelDetails grandGoldChestSteps = new PanelDetails(t("Grand Gold Chest"), Arrays.asList(moveToPyramidPlunder,
 			startPyramidPlunder, grandGoldChest), new SkillRequirement(Skill.THIEVING, 91, false), icthlarinsLittleHelper);
 		grandGoldChestSteps.setDisplayCondition(notGrandGoldChest);
 		grandGoldChestSteps.setLockingStep(grandGoldChestTask);
 		allSteps.add(grandGoldChestSteps);
 
-		PanelDetails restorePrayerSteps = new PanelDetails("Restore 85 Prayer",
+		PanelDetails restorePrayerSteps = new PanelDetails(t("Restore 85 Prayer"),
 			Collections.singletonList(restorePrayer), new SkillRequirement(Skill.PRAYER, 85, false), icthlarinsLittleHelper);
 		restorePrayerSteps.setDisplayCondition(notRestorePrayer);
 		restorePrayerSteps.setLockingStep(restorePrayerTask);
 		allSteps.add(restorePrayerSteps);
 
-		PanelDetails dragonDartsSteps = new PanelDetails("Dragon Darts", Arrays.asList(moveToBed, dragonDarts),
+		PanelDetails dragonDartsSteps = new PanelDetails(t("Dragon Darts"), Arrays.asList(moveToBed, dragonDarts),
 			new SkillRequirement(Skill.FLETCHING, 95, true), touristTrap, dragonDartTip, feather);
 		dragonDartsSteps.setDisplayCondition(notDragonDarts);
 		dragonDartsSteps.setLockingStep(dragonDartsTask);
 		allSteps.add(dragonDartsSteps);
 
-		PanelDetails kqHeadSteps = new PanelDetails("Kalphite Queen Head", Collections.singletonList(talkKQHead),
+		PanelDetails kqHeadSteps = new PanelDetails(t("Kalphite Queen Head"), Collections.singletonList(talkKQHead),
 			new SkillRequirement(Skill.CONSTRUCTION, 78, true), priestInPeril, kqHead, coins.quantity(50000),
 			mahoganyPlank.quantity(2), goldLeaves.quantity(2), saw, hammer);
 		kqHeadSteps.setDisplayCondition(notTalkKQHead);
 		kqHeadSteps.setLockingStep(talkKQHeadTask);
 		allSteps.add(kqHeadSteps);
 
-		allSteps.add(new PanelDetails("Finishing off", Collections.singletonList(claimReward)));
+		allSteps.add(new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward)));
 
 		return allSteps;
 	}

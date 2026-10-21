@@ -149,7 +149,7 @@ public class FremennikHard extends ComplexStateQuestHelper
 		notTPWaterbirth = new VarplayerRequirement(VarPlayerID.FREMENNIK_ACHIEVEMENT_DIARY, false, 29);
 		notFreeBlast = new VarplayerRequirement(VarPlayerID.FREMENNIK_ACHIEVEMENT_DIARY, false, 30);
 
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).showConditioned(notMineAddy).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).showConditioned(notMineAddy).isNotConsumed();
 		bronzeNail = new ItemRequirement("Bronze nails", ItemID.NAILS_BRONZE).showConditioned(notCraftShield);
 		rope = new ItemRequirement("Rope", ItemID.ROPE).showConditioned(notCraftShield).isNotConsumed();
 		lawRune = new ItemRequirement("Law rune", ItemID.LAWRUNE).showConditioned(notTPTroll);
@@ -159,7 +159,7 @@ public class FremennikHard extends ComplexStateQuestHelper
 		fireRune = new ItemRequirement("Fire runes", ItemID.FIRERUNE).showConditioned(notTPTroll);
 		teasingStick = new ItemRequirement("Teasing Stick", ItemID.HUNTING_TEASING_STICK).showConditioned(notCatchKyatt).isNotConsumed();
 		knife = new ItemRequirement("Knife", ItemID.KNIFE).showConditioned(notCatchKyatt).isNotConsumed();
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES).showConditioned(notCraftShield).isNotConsumed();
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).showConditioned(notCraftShield).isNotConsumed();
 		hammer = new ItemRequirement("Hammer", ItemID.HAMMER).showConditioned(notCraftShield).isNotConsumed();
 		arcticLog = new ItemRequirement("Arctic pine logs", ItemID.ARCTIC_PINE_LOG).showConditioned(notCraftShield);
 		cadantineUnfPot = new ItemRequirement("Cadantine unf pot", ItemID.CADANTINEVIAL).showConditioned(notMixSuperDef);
@@ -208,62 +208,62 @@ public class FremennikHard extends ComplexStateQuestHelper
 	public void setupSteps()
 	{
 		tpTroll = new DetailedQuestStep(this,
-			"Teleport to Trollheim.", lawRune.quantity(2), fireRune.quantity(2), normalBook);
+			t("Teleport to Trollheim."), lawRune.quantity(2), fireRune.quantity(2), normalBook);
 		catchKyatt = new NpcStep(this, NpcID.HUNTING_SNOW_TIGER, new WorldPoint(2725, 3770, 0),
-			"Place logs over a pit in the hunter area, and poke a kyatt with a teasing stick. " +
-				"Jump over the pits until the kyatt falls in and loot it.", teasingStick, log, knife);
+			t("Place logs over a pit in the hunter area, and poke a kyatt with a teasing stick. " +
+				"Jump over the pits until the kyatt falls in and loot it."), teasingStick, log, knife);
 		moveToRellekka = new DetailedQuestStep(this, new WorldPoint(2659, 3671, 0),
-			"Enter the Relleka province.");
+			t("Enter the Relleka province."));
 		mixSuperDef = new ItemStep(this, new WorldPoint(2662, 3657, 0),
-			"Mix a Super defence potion within the Fremennik Province (only near Rellekka).", cadantineUnfPot.highlighted(), whiteBerries.highlighted());
+			t("Mix a Super defence potion within the Fremennik Province (only near Rellekka)."), cadantineUnfPot.highlighted(), whiteBerries.highlighted());
 		moveToCaveGem = new ObjectStep(this, ObjectID.TROLLROMANCE_STRONGHOLD_EXIT_TUNNEL, new WorldPoint(2732, 3713, 0),
-			"Enter the tunnel that leads to Keldagrim. Alternatively teleport to Varrock and take a minecart near the Grand Exchange.");
+			t("Enter the tunnel that leads to Keldagrim. Alternatively teleport to Varrock and take a minecart near the Grand Exchange."));
 		moveToRiverGem = new ObjectStep(this, ObjectID.DWARF_CAVEWALL_TUNNEL, new WorldPoint(2781, 10161, 0),
-			"Go through the cave entrance.");
+			t("Go through the cave entrance."));
 		moveToKeldagrimGem = new NpcStep(this, NpcID.DWARF_CITY_BOATMAN_MINES_POSTQUEST, new WorldPoint(2842, 10129, 0),
-			"Speak with the Dwarven Boatman to go to Keldagrim.");
+			t("Speak with the Dwarven Boatman to go to Keldagrim."));
 		moveToKeldagrimGem.addDialogStep("Yes, please take me.");
 		moveToKeldagrimVarrockGem = new ObjectStep(this, ObjectID.GE_KELDAGRIM_TRAPDOOR, new WorldPoint(3140, 3504, 0),
-			"Enter the trapdoor near the Grand Exchange.");
+			t("Enter the trapdoor near the Grand Exchange."));
 		moveToCaveBlast = new ObjectStep(this, ObjectID.TROLLROMANCE_STRONGHOLD_EXIT_TUNNEL, new WorldPoint(2732, 3713, 0),
-			"Enter the tunnel that leads to Keldagrim. Alternatively teleport to Varrock and take a minecart near the Grand Exchange.");
+			t("Enter the tunnel that leads to Keldagrim. Alternatively teleport to Varrock and take a minecart near the Grand Exchange."));
 		moveToRiverBlast = new ObjectStep(this, ObjectID.DWARF_CAVEWALL_TUNNEL, new WorldPoint(2781, 10161, 0),
-			"Go through the cave entrance.");
+			t("Go through the cave entrance."));
 		moveToKeldagrimBlast = new NpcStep(this, NpcID.DWARF_CITY_BOATMAN_MINES_POSTQUEST, new WorldPoint(2842, 10129, 0),
-			"Speak with the Dwarven Boatman to go to Keldagrim.");
+			t("Speak with the Dwarven Boatman to go to Keldagrim."));
 		moveToKeldagrimBlast.addDialogStep("Yes, please take me.");
 		moveToKeldagrimVarrockBlast = new ObjectStep(this, ObjectID.GE_KELDAGRIM_TRAPDOOR, new WorldPoint(3140, 3504, 0),
-			"Enter the trapdoor near the Grand Exchange.");
+			t("Enter the trapdoor near the Grand Exchange."));
 		stealGem = new ObjectStep(this, ObjectID.DWARF_MARKET_GEMS, new WorldPoint(2888, 10211, 0),
-			"Steal from the gem stall.");
+			t("Steal from the gem stall."));
 		moveToNeitiznot = new NpcStep(this, NpcID.FRIS_R_FERRY_RELLIKKA, new WorldPoint(2644, 3710, 0),
-			"Speak with Maria Gunnars to travel to Neitiznot.");
+			t("Speak with Maria Gunnars to travel to Neitiznot."));
 		craftShield = new ObjectStep(this, ObjectID.IZNOT_SHIELD_STUMP, new WorldPoint(2342, 3807, 0),
-			"Craft a shield on the woodcutting stump.", axe, arcticLog.quantity(2), hammer, rope, bronzeNail);
+			t("Craft a shield on the woodcutting stump."), axe, arcticLog.quantity(2), hammer, rope, bronzeNail);
 		craftShield.addIcon(ItemID.FREMMENIK_ROUND_SHIELD);
 		moveToJatizso = new NpcStep(this, NpcID.FRIS_R_FERRYMAN_RELLEKKA, new WorldPoint(2644, 3709, 0),
-			"Speak with Mord Gunnars to go to Jatizso.");
+			t("Speak with Mord Gunnars to go to Jatizso."));
 		moveToJatizso.addDialogStep("Can you ferry me to Jatizso?");
 		moveToMine = new ObjectStep(this, ObjectID.FRISD_IZSO_MINE_ENTRANCE, new WorldPoint(2398, 3813, 0),
-			"Go down the staircase.");
+			t("Go down the staircase."));
 		mineAddy = new ObjectStep(this, ObjectID.ADAMANTITEROCK1, new WorldPoint(2402, 10189, 0),
-			"Mine 5 Adamantite ores.", pickaxe);
+			t("Mine 5 Adamantite ores."), pickaxe);
 		mineAddy.addIcon(ItemID.RUNE_PICKAXE);
 		moveToMisc = new NpcStep(this, NpcID.VIKING_SAILOR, new WorldPoint(2630, 3692, 0),
-			"Speak to the sailor to go to Miscellania.");
+			t("Speak to the sailor to go to Miscellania."));
 		miscSupport = new ObjectStep(this, ObjectID.MISC_HERB_MULTILOC, new WorldPoint(2527, 3849, 0),
-			"Rake the herb and flax patch until 100% support.", true, rake);
+			t("Rake the herb and flax patch until 100% support."), true, rake);
 		miscSupport.addAlternateObjects(ObjectID.MISC_FLAX_MULTILOC);
 		tpWaterbirth = new DetailedQuestStep(this,
-			"Teleport to Waterbirth.", waterRune.quantity(1), astralRune.quantity(2), lawRune2.quantity(1), lunarBook);
+			t("Teleport to Waterbirth."), waterRune.quantity(1), astralRune.quantity(2), lawRune2.quantity(1), lunarBook);
 		moveToBlast = new ObjectStep(this, ObjectID.DWARF_KELDAGRIM_FACTORY_STAIRS, new WorldPoint(2930, 10197, 0),
-			"Enter the blast furnace.");
+			t("Enter the blast furnace."));
 		freeBlast = new NpcStep(this, NpcID.BLAST_FURNACE_INSTRUCTOR, new WorldPoint(1942, 4958, 0),
-			"Speak with the Foreman.");
+			t("Speak with the Foreman."));
 		freeBlast.addDialogSteps("What?", "Can I use the furnace to smelt ore?", "I have level 60!");
 
 		claimReward = new NpcStep(this, NpcID.VIKING_FREM_DIARY, new WorldPoint(2658, 3627, 0),
-			"Talk to Thorodin south of Rellekka to claim your reward!");
+			t("Talk to Thorodin south of Rellekka to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -286,7 +286,7 @@ public class FremennikHard extends ComplexStateQuestHelper
 		req.add(new SkillRequirement(Skill.SMITHING, 60, false));
 		req.add(new SkillRequirement(Skill.THIEVING, 75, true));
 		req.add(new SkillRequirement(Skill.WOODCUTTING, 56, true));
-		req.add(new ItemRequirement("Normal and Lunar spellbooks", -1, -1));
+		req.add(new ItemRequirement(t("Normal and Lunar spellbooks"), -1, -1));
 
 
 		req.add(eadgarsRuse);
@@ -310,11 +310,11 @@ public class FremennikHard extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("Ability to change enchanted lyre teleport destination to Waterbirth Island."),
-			new UnlockReward("Aviansies in the God Wars Dungeon will drop noted adamantite bars."),
-			new UnlockReward("Stony Basalt teleport destination can be changed to the roof of Troll Stronghold"),
-			new UnlockReward("Access to 2 new Lunar Spells, Charge Dragonstone and Tan Leather"),
-			new UnlockReward("The Rellekka Rooftop Course will give additional experience upon completion")
+			new UnlockReward(t("Ability to change enchanted lyre teleport destination to Waterbirth Island.")),
+			new UnlockReward(t("Aviansies in the God Wars Dungeon will drop noted adamantite bars.")),
+			new UnlockReward(t("Stony Basalt teleport destination can be changed to the roof of Troll Stronghold")),
+			new UnlockReward(t("Access to 2 new Lunar Spells, Charge Dragonstone and Tan Leather")),
+			new UnlockReward(t("The Rellekka Rooftop Course will give additional experience upon completion"))
 		);
 	}
 
@@ -323,64 +323,64 @@ public class FremennikHard extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails miscSupportSteps = new PanelDetails("Miscellania 100% Support", Arrays.asList(moveToMisc,
+		PanelDetails miscSupportSteps = new PanelDetails(t("Miscellania 100% Support"), Arrays.asList(moveToMisc,
 			miscSupport), throneOfMisc, rake);
 		miscSupportSteps.setDisplayCondition(notMiscSupport);
 		miscSupportSteps.setLockingStep(miscSupportTask);
 		allSteps.add(miscSupportSteps);
 
-		PanelDetails mineAdamantiteOnJatizsoSteps = new PanelDetails("Mine Adamantite on Jatizso", Arrays.asList(moveToJatizso, moveToMine,
+		PanelDetails mineAdamantiteOnJatizsoSteps = new PanelDetails(t("Mine Adamantite on Jatizso"), Arrays.asList(moveToJatizso, moveToMine,
 			mineAddy), fremIsles, new SkillRequirement(Skill.MINING, 70, true), pickaxe);
 		mineAdamantiteOnJatizsoSteps.setDisplayCondition(notMineAddy);
 		mineAdamantiteOnJatizsoSteps.setLockingStep(mineAddyTask);
 		allSteps.add(mineAdamantiteOnJatizsoSteps);
 
-		PanelDetails shieldOnNeitiznotSteps = new PanelDetails("Craft Shield on Neitiznot", Arrays.asList(moveToNeitiznot,
+		PanelDetails shieldOnNeitiznotSteps = new PanelDetails(t("Craft Shield on Neitiznot"), Arrays.asList(moveToNeitiznot,
 			craftShield), fremIsles, new SkillRequirement(Skill.WOODCUTTING, 56, true), axe, arcticLog.quantity(2),
 			hammer, rope, bronzeNail);
 		shieldOnNeitiznotSteps.setDisplayCondition(notCraftShield);
 		shieldOnNeitiznotSteps.setLockingStep(craftShieldTask);
 		allSteps.add(shieldOnNeitiznotSteps);
 
-		PanelDetails superDefenseSteps = new PanelDetails("Mix a Super Defense", Arrays.asList(moveToRellekka,
+		PanelDetails superDefenseSteps = new PanelDetails(t("Mix a Super Defense"), Arrays.asList(moveToRellekka,
 			mixSuperDef),
 			new SkillRequirement(Skill.HERBLORE, 66, true), cadantineUnfPot, whiteBerries);
 		superDefenseSteps.setDisplayCondition(notMixSuperDef);
 		superDefenseSteps.setLockingStep(mixSuperDefTask);
 		allSteps.add(superDefenseSteps);
 
-		PanelDetails kyattSteps = new PanelDetails("Catch a saber-toothed kyatt", Collections.singletonList(catchKyatt),
+		PanelDetails kyattSteps = new PanelDetails(t("Catch a saber-toothed kyatt"), Collections.singletonList(catchKyatt),
 			new SkillRequirement(Skill.HUNTER, 55, true), teasingStick, log, knife);
 		kyattSteps.setDisplayCondition(notCatchKyatt);
 		kyattSteps.setLockingStep(catchKyattTask);
 		allSteps.add(kyattSteps);
 
-		PanelDetails gemStallSteps = new PanelDetails("Steal from Gem Stall", Arrays.asList(moveToCaveGem, moveToRiverGem,
+		PanelDetails gemStallSteps = new PanelDetails(t("Steal from Gem Stall"), Arrays.asList(moveToCaveGem, moveToRiverGem,
 			moveToKeldagrimGem, moveToKeldagrimVarrockGem, stealGem), giantDwarf, new SkillRequirement(Skill.THIEVING, 75, true));
 		gemStallSteps.setDisplayCondition(notStealGem);
 		gemStallSteps.setLockingStep(stealGemTask);
 		allSteps.add(gemStallSteps);
 
-		PanelDetails freeBlastFurnaceSteps = new PanelDetails("Free Blast Furnace", Arrays.asList(moveToCaveBlast,
+		PanelDetails freeBlastFurnaceSteps = new PanelDetails(t("Free Blast Furnace"), Arrays.asList(moveToCaveBlast,
 			moveToRiverBlast, moveToKeldagrimBlast, moveToKeldagrimVarrockBlast, moveToBlast, freeBlast), giantDwarf,
 			new SkillRequirement(Skill.SMITHING, 60, false));
 		freeBlastFurnaceSteps.setDisplayCondition(notFreeBlast);
 		freeBlastFurnaceSteps.setLockingStep(freeBlastTask);
 		allSteps.add(freeBlastFurnaceSteps);
 
-		PanelDetails teleportToTrollheimSteps = new PanelDetails("Teleport to Trollheim", Collections.singletonList(tpTroll),
+		PanelDetails teleportToTrollheimSteps = new PanelDetails(t("Teleport to Trollheim"), Collections.singletonList(tpTroll),
 			eadgarsRuse, new SkillRequirement(Skill.MAGIC, 61, true), normalBook, fireRune.quantity(2), lawRune.quantity(2));
 		teleportToTrollheimSteps.setDisplayCondition(notTPTroll);
 		teleportToTrollheimSteps.setLockingStep(tpTrollTask);
 		allSteps.add(teleportToTrollheimSteps);
 
-		PanelDetails teleportToWaterbirthSteps = new PanelDetails("Teleport to Waterbirth", Collections.singletonList(tpWaterbirth),
+		PanelDetails teleportToWaterbirthSteps = new PanelDetails(t("Teleport to Waterbirth"), Collections.singletonList(tpWaterbirth),
 			lunarDiplomacy, new SkillRequirement(Skill.MAGIC, 72, true), lunarBook, waterRune.quantity(1), astralRune.quantity(2), lawRune2.quantity(1));
 		teleportToWaterbirthSteps.setDisplayCondition(notTPWaterbirth);
 		teleportToWaterbirthSteps.setLockingStep(tpWaterbirthTask);
 		allSteps.add(teleportToWaterbirthSteps);
 
-		PanelDetails finishOffSteps = new PanelDetails("Finishing off", Collections.singletonList(claimReward));
+		PanelDetails finishOffSteps = new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward));
 		allSteps.add(finishOffSteps);
 
 		return allSteps;

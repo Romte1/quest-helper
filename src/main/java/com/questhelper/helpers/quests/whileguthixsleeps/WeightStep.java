@@ -206,25 +206,25 @@ public class WeightStep extends DetailedOwnerStep
 		weightRoom = new Zone(new WorldPoint(4177, 4944, 1), new WorldPoint(4181, 4946, 1));
 		inWeightRoom = new ZoneRequirement(weightRoom);
 
-		take1Kg = new ObjectStep(getQuestHelper(), ObjectID.LUC2_MOV_WEIGHTS, new WorldPoint(4177, 4945, 1), "Take 1 kg from the pile of weights in the room.");
+		take1Kg = new ObjectStep(getQuestHelper(), ObjectID.LUC2_MOV_WEIGHTS, new WorldPoint(4177, 4945, 1), getQuestHelper().t("Take 1 kg from the pile of weights in the room."));
 		take1Kg.addDialogStep("1kg weight.");
-		take2Kg = new ObjectStep(getQuestHelper(), ObjectID.LUC2_MOV_WEIGHTS, new WorldPoint(4177, 4945, 1), "Take 2 kg from the pile of weights in the room.");
+		take2Kg = new ObjectStep(getQuestHelper(), ObjectID.LUC2_MOV_WEIGHTS, new WorldPoint(4177, 4945, 1), getQuestHelper().t("Take 2 kg from the pile of weights in the room."));
 		take2Kg.addDialogStep("2kg weight.");
-		take5Kg = new ObjectStep(getQuestHelper(), ObjectID.LUC2_MOV_WEIGHTS, new WorldPoint(4177, 4945, 1), "Take 5 kg from the pile of weights in the room.");
+		take5Kg = new ObjectStep(getQuestHelper(), ObjectID.LUC2_MOV_WEIGHTS, new WorldPoint(4177, 4945, 1), getQuestHelper().t("Take 5 kg from the pile of weights in the room."));
 		take5Kg.addDialogStep("5kg weight.");
 		crossOverBrokenWallNorth = new ObjectStep(getQuestHelper(), ObjectID.LUC2_MOVARIO_BASE_PAINTING_WALL_CLICK, new WorldPoint(4179, 4947, 1),
-			"Cross over the broken wall into the north room.");
-		useWeights = new ObjectStep(getQuestHelper(), ObjectID.LUC2_MOV_STATUE_ATLAS_MULTI, new WorldPoint(4182, 4956, 1), "Use all your weights on the statue in the north-east of the room.", weights.highlighted());
+			getQuestHelper().t("Cross over the broken wall into the north room."));
+		useWeights = new ObjectStep(getQuestHelper(), ObjectID.LUC2_MOV_STATUE_ATLAS_MULTI, new WorldPoint(4182, 4956, 1), getQuestHelper().t("Use all your weights on the statue in the north-east of the room."), weights.highlighted());
 		useWeights.addSubSteps(crossOverBrokenWallNorth);
-		openDoor = new ObjectStep(getQuestHelper(), ObjectID.LUC2_MOV_BARRACKS_DOOR_BACKING_01, new WorldPoint(4187, 4953, 1), "Leave through the door in the north-east.");
-		takeWeightFromStatue = new ObjectStep(getQuestHelper(), ObjectID.LUC2_MOV_STATUE_ATLAS_MULTI, new WorldPoint(4182, 4956, 1), "Remove weights from the statue in the north-east of the room.");
+		openDoor = new ObjectStep(getQuestHelper(), ObjectID.LUC2_MOV_BARRACKS_DOOR_BACKING_01, new WorldPoint(4187, 4953, 1), getQuestHelper().t("Leave through the door in the north-east."));
+		takeWeightFromStatue = new ObjectStep(getQuestHelper(), ObjectID.LUC2_MOV_STATUE_ATLAS_MULTI, new WorldPoint(4182, 4956, 1), getQuestHelper().t("Remove weights from the statue in the north-east of the room."));
 		takeWeightFromStatue.addDialogStep("Remove the weights from the statue.");
-		dropWeights = new DetailedQuestStep(getQuestHelper(), "Drop some of the weights on you.");
+		dropWeights = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Drop some of the weights on you."));
 
 		crossOverBrokenWall = new ObjectStep(getQuestHelper(), ObjectID.LUC2_MOVARIO_BASE_PAINTING_WALL_CLICK, new WorldPoint(4179, 4947, 1),
-			"Cross over the broken wall into the south room.");
+			getQuestHelper().t("Cross over the broken wall into the south room."));
 
-		takeWeights = new DetailedQuestStep(getQuestHelper(), "Take weights to equal the difference between you on entering and now.");
+		takeWeights = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Take weights to equal the difference between you on entering and now."));
 		takeWeights.addSubSteps(crossOverBrokenWall, take1Kg, take2Kg, take5Kg, takeWeightFromStatue, dropWeights);
 	}
 

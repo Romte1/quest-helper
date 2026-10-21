@@ -42,17 +42,17 @@ public class MimicChallenge extends DetailedOwnerStep
 
 	public MimicChallenge(QuestHelper questHelper)
 	{
-		super(questHelper, "Copy the emotes that the NPC does.");
+		super(questHelper, questHelper.t("Copy the emotes that the NPC does."));
 	}
 
 	public void setupSteps()
 	{
-		cry = new EmoteStep(getQuestHelper(), QuestEmote.CRY, new WorldPoint(1769, 5058, 2), "Perform the cry emote.");
-		bow = new EmoteStep(getQuestHelper(), QuestEmote.BOW, new WorldPoint(1770, 5063, 2), "Perform the bow emote.");
-		dance = new EmoteStep(getQuestHelper(), QuestEmote.DANCE, new WorldPoint(1772, 5070, 2), "Perform the dance emote.");
-		wave = new EmoteStep(getQuestHelper(), QuestEmote.WAVE, new WorldPoint(1767, 5061, 2), "Perform the wave emote.");
-		think = new EmoteStep(getQuestHelper(), QuestEmote.THINK, new WorldPoint(1772, 5070, 2), "Perform the think emote.");
-		talk = new NpcStep(getQuestHelper(), NpcID.LUNAR_MOON_DREAM_MUSIC_GAME_MAN, "Talk to the Ethereal Mimic.");
+		cry = new EmoteStep(getQuestHelper(), QuestEmote.CRY, new WorldPoint(1769, 5058, 2), getQuestHelper().t("Perform the cry emote."));
+		bow = new EmoteStep(getQuestHelper(), QuestEmote.BOW, new WorldPoint(1770, 5063, 2), getQuestHelper().t("Perform the bow emote."));
+		dance = new EmoteStep(getQuestHelper(), QuestEmote.DANCE, new WorldPoint(1772, 5070, 2), getQuestHelper().t("Perform the dance emote."));
+		wave = new EmoteStep(getQuestHelper(), QuestEmote.WAVE, new WorldPoint(1767, 5061, 2), getQuestHelper().t("Perform the wave emote."));
+		think = new EmoteStep(getQuestHelper(), QuestEmote.THINK, new WorldPoint(1772, 5070, 2), getQuestHelper().t("Perform the think emote."));
+		talk = new NpcStep(getQuestHelper(), NpcID.LUNAR_MOON_DREAM_MUSIC_GAME_MAN, getQuestHelper().t("Talk to the Ethereal Mimic."));
 		talk.addDialogStep("Suppose I may as well have a go.");
 	}
 

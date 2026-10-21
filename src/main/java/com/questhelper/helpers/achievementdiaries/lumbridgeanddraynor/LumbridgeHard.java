@@ -173,9 +173,9 @@ public class LumbridgeHard extends ComplexStateQuestHelper
 		earthRune = new ItemRequirement("Earth runes", ItemID.EARTHRUNE);
 		waterRune = new ItemRequirement("Water rune", ItemID.WATERRUNE, 4).showConditioned(notBonesToPeachesPalace);
 		natureRune = new ItemRequirement("Nature rune", ItemID.NATURERUNE, 2).showConditioned(notBonesToPeachesPalace);
-		fairyAccess = new ItemRequirement("Lunar or Dramen staff", ItemCollections.FAIRY_STAFF)
+		fairyAccess = new ItemRequirement(t("Lunar or Dramen staff"), ItemCollections.FAIRY_STAFF)
 			.showConditioned(new Conditions(LogicType.OR, notCosmics, notJuttingWall)).isNotConsumed();
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES).showConditioned(notWakaToEdge).isNotConsumed();
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).showConditioned(notWakaToEdge).isNotConsumed();
 		goldBar = new ItemRequirement("Gold bar", ItemID.GOLD_BAR).showConditioned(notPowerAmmy);
 		cutDiamond = new ItemRequirement("Diamond", ItemID.DIAMOND).showConditioned(notPowerAmmy);
 		amuletMould = new ItemRequirement("Amulet mould", ItemID.AMULET_MOULD).showConditioned(notPowerAmmy).isNotConsumed();
@@ -188,10 +188,10 @@ public class LumbridgeHard extends ComplexStateQuestHelper
 		coins = new ItemRequirement("Coins", ItemCollections.COINS, 130000).showConditioned(notBarrowsGloves);
 		gamesNeck = new ItemRequirement("Games Necklace", ItemCollections.GAMES_NECKLACES).showConditioned(notHundredTears);
 		dorgSphere = new ItemRequirement("Dorgesh-kaan Sphere", ItemID.DORGESH_TELEPORT_ARTIFACT).showConditioned(notTrainToKeld);
-		essence = new ItemRequirement("Pure or Daeyalt essence", ItemCollections.ESSENCE_HIGH, 28).showConditioned(notCosmics);
-		cosmicAccessOrAbyss = new ItemRequirement("Access to the Cosmic Altar",
+		essence = new ItemRequirement(t("Pure or Daeyalt essence"), ItemCollections.ESSENCE_HIGH, 28).showConditioned(notCosmics);
+		cosmicAccessOrAbyss = new ItemRequirement(t("Access to the Cosmic Altar"),
 			ItemCollections.COSMIC_ALTAR).showConditioned(notCosmics).isNotConsumed();
-		cosmicAccessOrAbyss.setTooltip("Cosmic Talisman/Tiara, Catalytic Talisman/Tiara, RC-skill cape or via Abyss");
+		cosmicAccessOrAbyss.setTooltip(t("Cosmic Talisman/Tiara, Catalytic Talisman/Tiara, RC-skill cape or via Abyss"));
 		bellaSeed = new ItemRequirement("Belladonna seed", ItemID.BELLADONNA_SEED).showConditioned(notBelladonna);
 		seedDib = new ItemRequirement("Seed dibber", ItemID.DIBBER).showConditioned(notBelladonna).isNotConsumed();
 		spade = new ItemRequirement("Spade", ItemID.SPADE).showConditioned(notBelladonna).isNotConsumed();
@@ -199,8 +199,8 @@ public class LumbridgeHard extends ComplexStateQuestHelper
 		gloves = new ItemRequirement("Gloves", ItemCollections.BELLADONNA_GLOVES).showConditioned(notBelladonna).isNotConsumed();
 		gloves.addAlternates(ItemCollections.GRACEFUL_GLOVES);
 		gloves.setUrlSuffix("Belladonna#Gloves");
-		gloves.setTooltip("'Go to wiki..' to see valid options for handling belladonna");
-		lightsource = new ItemRequirement("A lightsource", ItemCollections.LIGHT_SOURCES)
+		gloves.setTooltip(t("'Go to wiki..' to see valid options for handling belladonna"));
+		lightsource = new ItemRequirement(t("A lightsource"), ItemCollections.LIGHT_SOURCES)
 			.showConditioned(new Conditions(LogicType.OR, notHundredTears, notTrainToKeld)).isNotConsumed();
 
 		inZanaris = new ZoneRequirement(zanaris);
@@ -248,75 +248,75 @@ public class LumbridgeHard extends ComplexStateQuestHelper
 	public void setupSteps()
 	{
 		smiteAltar = new ObjectStep(this, ObjectID.ALTAR, new WorldPoint(3377, 3285, 0),
-			"Pray at the altar at the Emir's Arena with smite active.", smiteActive);
+			t("Pray at the altar at the Emir's Arena with smite active."), smiteActive);
 
 		moveToPalace = new DetailedQuestStep(this, new WorldPoint(3293, 3164, 0),
-			"Enter the Al Kharid palace.");
-		bonesToPeachesPalace = new DetailedQuestStep(this, "Cast bones to peaches.", bones, earthRune4,
+			t("Enter the Al Kharid palace."));
+		bonesToPeachesPalace = new DetailedQuestStep(this, t("Cast bones to peaches."), bones, earthRune4,
 			waterRune, natureRune);
-		unlockBonesToPeaches = new DetailedQuestStep(this, "Unlock bones to peaches from the Mage Training Arena.");
+		unlockBonesToPeaches = new DetailedQuestStep(this, t("Unlock bones to peaches from the Mage Training Arena."));
 
 		wakaToEdge = new ObjectStep(this, ObjectID.CANOEING_CANOESTATION_LUMBRIDGE, new WorldPoint(3242, 3237, 0),
-			"Use the canoe station in lumbridge to make a Waka and travel to Edgeville.", axe);
+			t("Use the canoe station in lumbridge to make a Waka and travel to Edgeville."), axe);
 
 		smeltAmmy = new ObjectStep(this, ObjectID.FAI_FALADOR_FURNACE, new WorldPoint(3227, 3257, 0),
-			"Smelt a Diamond Amulet (u), at the furnace in Lumbridge.", goldBar.highlighted(), cutDiamond);
+			t("Smelt a Diamond Amulet (u), at the furnace in Lumbridge."), goldBar.highlighted(), cutDiamond);
 		smeltAmmy.addIcon(ItemID.GOLD_BAR);
-		stringAmmy = new ItemStep(this, "String the diamond amulet.", ballOfWool.highlighted(), diamondAmuletU.highlighted());
-		powerAmmy = new ItemStep(this, "Enchant the strung diamond amulet.", diamondAmulet, cosmicRune.quantity(1),
+		stringAmmy = new ItemStep(this, t("String the diamond amulet."), ballOfWool.highlighted(), diamondAmuletU.highlighted());
+		powerAmmy = new ItemStep(this, t("Enchant the strung diamond amulet."), diamondAmulet, cosmicRune.quantity(1),
 			earthRune10);
 		moveToLumby = new ObjectStep(this, ObjectID.FAI_FALADOR_FURNACE, new WorldPoint(3227, 3257, 0),
-			"Move to the Lumbridge furnace.", ballOfWool, cutDiamond, goldBar);
+			t("Move to the Lumbridge furnace."), ballOfWool, cutDiamond, goldBar);
 
 		moveToBasementForHelm = new ObjectStep(this, ObjectID.QIP_COOK_TRAPDOOR_OPEN, new WorldPoint(3209, 3216, 0),
-			"Climb down the trapdoor in the Lumbridge Castle.", miningHelm, tinderbox);
-		lightMiningHelm = new ItemStep(this, "Light your mining helmet.", miningHelm.highlighted(), tinderbox.highlighted());
+			t("Climb down the trapdoor in the Lumbridge Castle."), miningHelm, tinderbox);
+		lightMiningHelm = new ItemStep(this, t("Light your mining helmet."), miningHelm.highlighted(), tinderbox.highlighted());
 
 		moveToBasementForGloves = new ObjectStep(this, ObjectID.QIP_COOK_TRAPDOOR_OPEN, new WorldPoint(3209, 3216, 0),
-			"Climb down the trapdoor in the Lumbridge Castle.", coins);
+			t("Climb down the trapdoor in the Lumbridge Castle."), coins);
 		barrowsGloves = new ObjectStep(this, ObjectID.HUNDRED_GOODCHEST, new WorldPoint(3219, 9623, 0),
-			"Purchase the barrows gloves from the bank chest. Right click and select 'Buy-items'.",
+			t("Purchase the barrows gloves from the bank chest. Right click and select 'Buy-items'."),
 			coins);
 		// 12308 is mine and I only have FULL access, and the ELITE version wouldn't make sense here
 
 		moveToBasementForTears = new ObjectStep(this, ObjectID.QIP_COOK_TRAPDOOR_OPEN, new WorldPoint(3209, 3216, 0),
-			"Climb down the trapdoor in the Lumbridge Castle.");
+			t("Climb down the trapdoor in the Lumbridge Castle."));
 		hundredTears = new ObjectStep(this, ObjectID.TOG_JUNA_2OPS, new WorldPoint(3252, 9517, 2),
-			"Talk to Juna to start collecting tears. You MUST collect 100 or more and only have one try a week.");
+			t("Talk to Juna to start collecting tears. You MUST collect 100 or more and only have one try a week."));
 		hundredTears.addDialogStep("Okay...");
 
 		moveToBasementForTrain = new ObjectStep(this, ObjectID.QIP_COOK_TRAPDOOR_OPEN, new WorldPoint(3209, 3216, 0),
-			"Climb down the trapdoor in the Lumbridge Castle.");
+			t("Climb down the trapdoor in the Lumbridge Castle."));
 		moveToDorg = new ObjectStep(this, ObjectID.CAVE_GOBLIN_CITY_DOORR, new WorldPoint(3317, 9601, 0),
-			"Go through the doors to Dorgesh-Kaan.");
+			t("Go through the doors to Dorgesh-Kaan."));
 		dorgStairs = new ObjectStep(this, ObjectID.DORGESH_1STAIRS, new WorldPoint(2714, 5283, 0),
-			"Climb the stairs to the second level of Dorgesh-Kaan.");
+			t("Climb the stairs to the second level of Dorgesh-Kaan."));
 		stationDoor = new ObjectStep(this, ObjectID.SLICE_GOBLIN_STATION_ENTRANCE, new WorldPoint(2695, 5277, 1),
-			"Enter the Dorgesh-Kaan train station.");
+			t("Enter the Dorgesh-Kaan train station."));
 		trainToKeld = new TileStep(this, new WorldPoint(2480, 5538, 0),
-			"Board the train and wait for it to leave.");
+			t("Board the train and wait for it to leave."));
 
 		moveToZanarisForWall = new ObjectStep(this, ObjectID.ZANARISDOOR, new WorldPoint(3202, 3169, 0),
-			"Go to Zanaris through the shed in Lumbridge swamp " +
-				"or any fairy ring in the world if you've partially completed Fairytale II.", fairyAccess.equipped());
+			t("Go to Zanaris through the shed in Lumbridge swamp " +
+				"or any fairy ring in the world if you've partially completed Fairytale II."), fairyAccess.equipped());
 		juttingWall = new ObjectStep(this, ObjectID.FAIRY_SC_JUTTINGWALL, new WorldPoint(2400, 4403, 0),
-			"Squeeze-through the jutting wall.");
+			t("Squeeze-through the jutting wall."));
 
 		moveToZanarisForCosmics = new ObjectStep(this, ObjectID.ZANARISDOOR, new WorldPoint(3202, 3169, 0),
-			"Go to Zanaris through the shed in Lumbridge swamp " +
-				"or any fairy ring in the world if you've partially completed Fairytale II.", fairyAccess.equipped());
+			t("Go to Zanaris through the shed in Lumbridge swamp " +
+				"or any fairy ring in the world if you've partially completed Fairytale II."), fairyAccess.equipped());
 		moveToCosmic = new ObjectStep(this, ObjectID.COSMICTEMPLE_RUINED_OLD, new WorldPoint(2408, 4377, 0),
-			"Enter the cosmic altar.", cosmicAccessOrAbyss.highlighted());
+			t("Enter the cosmic altar."), cosmicAccessOrAbyss.highlighted());
 		moveToCosmic.addIcon(ItemID.COSMIC_TALISMAN);
 		cosmics = new ObjectStep(this, ObjectID.COSMIC_ALTAR, new WorldPoint(2142, 4833, 0),
-			"Craft 56 cosmic runes.", essence);
+			t("Craft 56 cosmic runes."), essence);
 		belladonna = new ObjectStep(this, ObjectID.FARMING_BELLADONNA_PATCH, new WorldPoint(3087, 3355, 0),
-			"Grow and pick some belladonna from the Draynor Manor farming patch. " +
-				"If you're waiting for it to grow and want to complete further tasks, use the tick box on panel.",
+			t("Grow and pick some belladonna from the Draynor Manor farming patch. " +
+				"If you're waiting for it to grow and want to complete further tasks, use the tick box on panel."),
 			bellaSeed, rake, spade, gloves, seedDib);
 
 		claimReward = new NpcStep(this, NpcID.HATIUS_LUMBRIDGE_DIARY, new WorldPoint(3235, 3213, 0),
-			"Talk to Hatius Cosaintus in Lumbridge to claim your reward!");
+			t("Talk to Hatius Cosaintus in Lumbridge to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -369,9 +369,9 @@ public class LumbridgeHard extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("50% run energy replenish 4 times a day from Explorer's ring"),
-			new UnlockReward("Unlimited teleports to cabbage patch near Falador farm for Explorer's ring"),
-			new UnlockReward("10% increased experience from Tears of Guthix")
+			new UnlockReward(t("50% run energy replenish 4 times a day from Explorer's ring")),
+			new UnlockReward(t("Unlimited teleports to cabbage patch near Falador farm for Explorer's ring")),
+			new UnlockReward(t("10% increased experience from Tears of Guthix"))
 		);
 	}
 
@@ -380,19 +380,19 @@ public class LumbridgeHard extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails belladonnaSteps = new PanelDetails("Belladonna", Collections.singletonList(belladonna),
+		PanelDetails belladonnaSteps = new PanelDetails(t("Belladonna"), Collections.singletonList(belladonna),
 			bellaSeed, seedDib, spade, rake, gloves);
 		belladonnaSteps.setDisplayCondition(notBelladonna);
 		belladonnaSteps.setLockingStep(belladonnaTask);
 		allSteps.add(belladonnaSteps);
 
-		PanelDetails smiteAltarSteps = new PanelDetails("Smite Altar", Collections.singletonList(smiteAltar),
+		PanelDetails smiteAltarSteps = new PanelDetails(t("Smite Altar"), Collections.singletonList(smiteAltar),
 			new SkillRequirement(Skill.PRAYER, 52, false));
 		smiteAltarSteps.setDisplayCondition(notSmiteAltar);
 		smiteAltarSteps.setLockingStep(smiteAltarTask);
 		allSteps.add(smiteAltarSteps);
 
-		PanelDetails peachesPalaceSteps = new PanelDetails("Bones to Peaches Palace",
+		PanelDetails peachesPalaceSteps = new PanelDetails(t("Bones to Peaches Palace"),
 			Arrays.asList(unlockBonesToPeaches, moveToPalace, bonesToPeachesPalace),
 			new SkillRequirement(Skill.MAGIC, 60, true), bonesToPeaches, bones, earthRune.quantity(4),
 			waterRune, natureRune);
@@ -400,13 +400,13 @@ public class LumbridgeHard extends ComplexStateQuestHelper
 		peachesPalaceSteps.setLockingStep(bonesToPeachesPalaceTask);
 		allSteps.add(peachesPalaceSteps);
 
-		PanelDetails wakaToEdgevilleSteps = new PanelDetails("Waka to Edgeville",
+		PanelDetails wakaToEdgevilleSteps = new PanelDetails(t("Waka to Edgeville"),
 			Collections.singletonList(wakaToEdge), new SkillRequirement(Skill.WOODCUTTING, 57, true), axe);
 		wakaToEdgevilleSteps.setDisplayCondition(notWakaToEdge);
 		wakaToEdgevilleSteps.setLockingStep(wakaToEdgeTask);
 		allSteps.add(wakaToEdgevilleSteps);
 
-		PanelDetails powerAmuletSteps = new PanelDetails("Power Amulet", Arrays.asList(moveToLumby, smeltAmmy,
+		PanelDetails powerAmuletSteps = new PanelDetails(t("Power Amulet"), Arrays.asList(moveToLumby, smeltAmmy,
 			stringAmmy, powerAmmy), new SkillRequirement(Skill.CRAFTING, 70, true),
 			new SkillRequirement(Skill.MAGIC, 57, true), goldBar, cutDiamond, amuletMould, ballOfWool,
 			cosmicRune.quantity(1), earthRune.quantity(10));
@@ -414,44 +414,44 @@ public class LumbridgeHard extends ComplexStateQuestHelper
 		powerAmuletSteps.setLockingStep(powerAmmyTask);
 		allSteps.add(powerAmuletSteps);
 
-		PanelDetails miningHelmetSteps = new PanelDetails("Mining Helmet", Arrays.asList(moveToBasementForHelm,
+		PanelDetails miningHelmetSteps = new PanelDetails(t("Mining Helmet"), Arrays.asList(moveToBasementForHelm,
 			lightMiningHelm), new SkillRequirement(Skill.FIREMAKING, 65, true), miningHelm, tinderbox);
 		miningHelmetSteps.setDisplayCondition(notLightMiningHelm);
 		miningHelmetSteps.setLockingStep(lightMiningHelmTask);
 		allSteps.add(miningHelmetSteps);
 
-		PanelDetails barrowsGlovesSteps = new PanelDetails("Barrows Gloves", Arrays.asList(moveToBasementForGloves,
+		PanelDetails barrowsGlovesSteps = new PanelDetails(t("Barrows Gloves"), Arrays.asList(moveToBasementForGloves,
 			barrowsGloves), recipeForDisaster, coins);
 		barrowsGlovesSteps.setDisplayCondition(notBarrowsGloves);
 		barrowsGlovesSteps.setLockingStep(barrowsGlovesTask);
 		allSteps.add(barrowsGlovesSteps);
 
-		PanelDetails hundredTearsSteps = new PanelDetails("100 Tears", Arrays.asList(moveToBasementForTears, hundredTears),
+		PanelDetails hundredTearsSteps = new PanelDetails(t("100 Tears"), Arrays.asList(moveToBasementForTears, hundredTears),
 			tearOfGuth);
 		hundredTearsSteps.setDisplayCondition(notHundredTears);
 		hundredTearsSteps.setLockingStep(hundredTearsTask);
 		allSteps.add(hundredTearsSteps);
 
-		PanelDetails dorgeshTrainSteps = new PanelDetails("Dorgesh Train", Arrays.asList(moveToBasementForTrain,
+		PanelDetails dorgeshTrainSteps = new PanelDetails(t("Dorgesh Train"), Arrays.asList(moveToBasementForTrain,
 			moveToDorg, dorgStairs, stationDoor, trainToKeld), anotherSliceOfHAM);
 		dorgeshTrainSteps.setDisplayCondition(notTrainToKeld);
 		dorgeshTrainSteps.setLockingStep(trainToKeldTask);
 		allSteps.add(dorgeshTrainSteps);
 
-		PanelDetails juttingWallSteps = new PanelDetails("Jutting Wall", Arrays.asList(moveToZanarisForWall, juttingWall),
+		PanelDetails juttingWallSteps = new PanelDetails(t("Jutting Wall"), Arrays.asList(moveToZanarisForWall, juttingWall),
 			new SkillRequirement(Skill.AGILITY, 46, true), lostCity, fairyAccess);
 		juttingWallSteps.setDisplayCondition(notJuttingWall);
 		juttingWallSteps.setLockingStep(juttingWallTask);
 		allSteps.add(juttingWallSteps);
 
-		PanelDetails cosmicsSteps = new PanelDetails("56 Cosmic Runes", Arrays.asList(moveToZanarisForCosmics, moveToCosmic,
+		PanelDetails cosmicsSteps = new PanelDetails(t("56 Cosmic Runes"), Arrays.asList(moveToZanarisForCosmics, moveToCosmic,
 			cosmics), new SkillRequirement(Skill.RUNECRAFT, 59, true), lostCity, essence,
 			cosmicAccessOrAbyss, fairyAccess);
 		cosmicsSteps.setDisplayCondition(notCosmics);
 		cosmicsSteps.setLockingStep(cosmicsTask);
 		allSteps.add(cosmicsSteps);
 
-		allSteps.add(new PanelDetails("Finishing off", Collections.singletonList(claimReward)));
+		allSteps.add(new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward)));
 
 		return allSteps;
 	}

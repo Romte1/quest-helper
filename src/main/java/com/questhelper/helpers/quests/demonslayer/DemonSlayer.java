@@ -151,7 +151,7 @@ public class DemonSlayer extends BasicQuestHelper
 		key1 = new ItemRequirement("Silverlight key", ItemID.SILVERLIGHT_KEY_2);
 		key2 = new ItemRequirement("Silverlight key", ItemID.SILVERLIGHT_KEY_3);
 		key3 = new ItemRequirement("Silverlight key", ItemID.SILVERLIGHT_KEY_1);
-		bones = new ItemRequirement("Bones (UNNOTED)", ItemID.BONES, 25);
+		bones = new ItemRequirement(t("Bones (UNNOTED)"), ItemID.BONES, 25);
 		silverlight = new ItemRequirement("Silverlight", ItemID.SILVERLIGHT).isNotConsumed();
 		silverlightEquipped = new ItemRequirement("Silverlight", ItemID.SILVERLIGHT, 1, true).isNotConsumed();
 		combatGear = new ItemRequirement("Armour", -1, -1).isNotConsumed();
@@ -161,7 +161,7 @@ public class DemonSlayer extends BasicQuestHelper
 		bucketOfWaterOptional.canBeObtainedDuringQuest();
 
 		varrockTeleport = new ItemRequirement("Varrock teleport", ItemID.POH_TABLET_VARROCKTELEPORT);
-		wizardsTowerTeleport = new ItemRequirement("Teleport to the Wizards' Tower", ItemID.NECKLACE_OF_PASSAGE_5);
+		wizardsTowerTeleport = new ItemRequirement(t("Teleport to the Wizards' Tower"), ItemID.NECKLACE_OF_PASSAGE_5);
 		coin = new ItemRequirement("Coin", ItemCollections.COINS);
 		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
 

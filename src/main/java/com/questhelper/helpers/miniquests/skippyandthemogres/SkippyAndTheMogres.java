@@ -80,7 +80,7 @@ public class SkippyAndTheMogres extends BasicQuestHelper
 		chocolateDust = new ItemRequirement("Chocolate dust", ItemID.CHOCOLATE_DUST);
 		chocolateDust.setHighlightInInventory(true);
 		nettleTea = new ItemRequirement("Nettle tea", ItemID.BOWL_NETTLETEA);
-		nettleTea.setTooltip("You can make this by using nettles on a bowl of water, then cooking it");
+		nettleTea.setTooltip(t("You can make this by using nettles on a bowl of water, then cooking it"));
 		snapeGrass = new ItemRequirement("Snape grass", ItemID.SNAPE_GRASS);
 		snapeGrass.setHighlightInInventory(true);
 		chocolateMilk = new ItemRequirement("Chocolatey milk", ItemID.CHOCOLATY_MILK);
@@ -89,13 +89,13 @@ public class SkippyAndTheMogres extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		soberSkippy = new NpcStep(this, NpcID.SKIPPY, new WorldPoint(2982, 3194, 0), "Right-click 'sober-up' on Skippy south west of Port Sarim.", bucketOfWater);
+		soberSkippy = new NpcStep(this, NpcID.SKIPPY, new WorldPoint(2982, 3194, 0), t("Right-click 'sober-up' on Skippy south west of Port Sarim."), bucketOfWater);
 		soberSkippy.addIcon(ItemID.BUCKET_WATER);
 		soberSkippy.addDialogStep("Throw the water!");
-		useTeaOnSkippy = new NpcStep(this, NpcID.DAMP_SKIPPY, new WorldPoint(2982, 3194, 0), "Talk to Skippy.", nettleTea);
-		useChocolateDustOnMilk = new DetailedQuestStep(this, "Use some chocolate dust on a bucket of milk.", chocolateDust, bucketOfMilk);
-		useSnapeGrassOnMilk = new DetailedQuestStep(this, "Use some snape grass on the chocolatey milk.", snapeGrass, chocolateMilk);
-		useHangoverCure = new NpcStep(this, NpcID.HUNGOVER_SKIPPY, new WorldPoint(2982, 3194, 0), "Use the hangover cure on Skippy.", hangoverCure);
+		useTeaOnSkippy = new NpcStep(this, NpcID.DAMP_SKIPPY, new WorldPoint(2982, 3194, 0), t("Talk to Skippy."), nettleTea);
+		useChocolateDustOnMilk = new DetailedQuestStep(this, t("Use some chocolate dust on a bucket of milk."), chocolateDust, bucketOfMilk);
+		useSnapeGrassOnMilk = new DetailedQuestStep(this, t("Use some snape grass on the chocolatey milk."), snapeGrass, chocolateMilk);
+		useHangoverCure = new NpcStep(this, NpcID.HUNGOVER_SKIPPY, new WorldPoint(2982, 3194, 0), t("Use the hangover cure on Skippy."), hangoverCure);
 		useHangoverCure.addIcon(ItemID.HANGOVER_CURE);
 	}
 
@@ -123,15 +123,15 @@ public class SkippyAndTheMogres extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Ability to kill Mogres"),
-				new UnlockReward("Ability to receive Mogres as a Slayer task"));
+				new UnlockReward(t("Ability to kill Mogres")),
+				new UnlockReward(t("Ability to receive Mogres as a Slayer task")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Help Skippy", Arrays.asList(soberSkippy, useTeaOnSkippy, useChocolateDustOnMilk, useSnapeGrassOnMilk, useHangoverCure), bucketOfWater, nettleTea, bucketOfMilk, chocolateDust, snapeGrass));
+		allSteps.add(new PanelDetails(t("Help Skippy"), Arrays.asList(soberSkippy, useTeaOnSkippy, useChocolateDustOnMilk, useSnapeGrassOnMilk, useHangoverCure), bucketOfWater, nettleTea, bucketOfMilk, chocolateDust, snapeGrass));
 		return allSteps;
 	}
 }

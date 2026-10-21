@@ -57,9 +57,9 @@ public class DoricsQuest extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		clay = new ItemRequirement("Clay (UNNOTED)", ItemID.CLAY, 6);
-		copper = new ItemRequirement("Copper ore (UNNOTED)", ItemID.COPPER_ORE, 4);
-		iron = new ItemRequirement("Iron ore (UNNOTED)", ItemID.IRON_ORE, 2);
+		clay = new ItemRequirement(t("Clay (UNNOTED)"), ItemID.CLAY, 6);
+		copper = new ItemRequirement(t("Copper ore (UNNOTED)"), ItemID.COPPER_ORE, 4);
+		iron = new ItemRequirement(t("Iron ore (UNNOTED)"), ItemID.IRON_ORE, 2);
 	}
 
 	public void setupSteps()

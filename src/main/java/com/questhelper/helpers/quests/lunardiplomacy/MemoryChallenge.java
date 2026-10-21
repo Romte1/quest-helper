@@ -51,7 +51,7 @@ public class MemoryChallenge extends DetailedQuestStep
 	public MemoryChallenge(QuestHelper questHelper)
 	{
 		super(questHelper, new WorldPoint(1737, 5083, 2),
-			"Work out the route across the cloud tiles through trial and error.");
+			questHelper.t("Work out the route across the cloud tiles through trial and error."));
 	}
 
 	@Override

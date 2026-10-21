@@ -114,25 +114,25 @@ public class TheMageArenaII extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		zamorakStaff = new ItemRequirement("Zamorak staff", ItemID.ZAMORAK_STAFF).isNotConsumed();
-		zamorakStaff.setTooltip("You can buy one from the Chamber Guardian in the Mage Arena Cavern for 80k");
+		zamorakStaff.setTooltip(t("You can buy one from the Chamber Guardian in the Mage Arena Cavern for 80k"));
 		guthixStaff = new ItemRequirement("Guthix staff", ItemID.GUTHIX_STAFF).isNotConsumed();
-		guthixStaff.setTooltip("You can buy one from the Chamber Guardian in the Mage Arena Cavern for 80k");
+		guthixStaff.setTooltip(t("You can buy one from the Chamber Guardian in the Mage Arena Cavern for 80k"));
 		saradominStaff = new ItemRequirement("Saradomin staff", ItemID.SARADOMIN_STAFF).isNotConsumed();
-		saradominStaff.setTooltip("You can buy one from the Chamber Guardian in the Mage Arena Cavern for 80k");
-		runesForCasts = new ItemRequirements("Runes for 50+ casts of god spells",
+		saradominStaff.setTooltip(t("You can buy one from the Chamber Guardian in the Mage Arena Cavern for 80k"));
+		runesForCasts = new ItemRequirements(t("Runes for 50+ casts of god spells"),
 			new ItemRequirement("Blood runes", ItemID.BLOODRUNE, -1),
 			new ItemRequirement("Air runes", ItemID.AIRRUNE, -1),
 			new ItemRequirement("Fire runes", ItemID.FIRERUNE, -1));
-		magicCombatGear = new ItemRequirement("Magic combat gear", -1, 1).isNotConsumed();
+		magicCombatGear = new ItemRequirement(t("Magic combat gear"), -1, 1).isNotConsumed();
 		magicCombatGear.setDisplayItemId(BankSlotIcons.getMagicCombatGear());
-		knife = new ItemRequirement("Knife or sharp weapon to cut through a web", ItemCollections.SLASH_WEB_KNIFE).isNotConsumed();
+		knife = new ItemRequirement(t("Knife or sharp weapon to cut through a web"), ItemCollections.SLASH_WEB_KNIFE).isNotConsumed();
 		brews =  new ItemRequirement("Saradomin brews", ItemCollections.SARADOMIN_BREWS, -1);
 		restores = new ItemRequirement("Super restores", ItemCollections.SUPER_RESTORE_POTIONS, -1);
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		recoils = new ItemRequirement("Rings of recoil", ItemID.RING_OF_RECOIL);
 
 		enchantedSymbol = new ItemRequirement("Enchanted symbol", ItemID.MA2_SYMBOL);
-		enchantedSymbol.setTooltip("You can get another from Kolodion in the Mage Arena Cavern.");
+		enchantedSymbol.setTooltip(t("You can get another from Kolodion in the Mage Arena Cavern."));
 		justicarsHand = new ItemRequirement("Justicar's hand", ItemID.MA2_SARADOMIN_HEART);
 		demonsHeart = new ItemRequirement("Demon's heart", ItemID.MA2_ZAMORAK_HEART);
 		entRoots = new ItemRequirement("Ent's roots", ItemID.MA2_GUTHIX_HEART);
@@ -142,11 +142,11 @@ public class TheMageArenaII extends BasicQuestHelper
 		godCape.setHighlightInInventory(true);
 
 		unlockedSaradominStrike = new VarplayerRequirement(VarPlayerID.SARAMAGE, 100, Operation.GREATER_EQUAL, "Unlocked Saradomin Strike");
-		unlockedSaradominStrike.setTooltip("Unlocked by casting the Saradomin Strike 100 times within the mage arena");
+		unlockedSaradominStrike.setTooltip(t("Unlocked by casting the Saradomin Strike 100 times within the mage arena"));
 		unlockedClawsOfGuthix = new VarplayerRequirement(VarPlayerID.GUTHMAGE, 100, Operation.GREATER_EQUAL, "Unlocked Claws of Guthix");
-		unlockedClawsOfGuthix.setTooltip("Unlocked by casting the Claws of Guthix 100 times within the mage arena");
+		unlockedClawsOfGuthix.setTooltip(t("Unlocked by casting the Claws of Guthix 100 times within the mage arena"));
 		unlockedFlamesOfZamorak = new VarplayerRequirement(VarPlayerID.ZAMOMAGE, 100, Operation.GREATER_EQUAL, "Unlocked Flames of Zamorak");
-		unlockedFlamesOfZamorak.setTooltip("Unlocked by casting the Flames of Zamorak 100 times within the mage arena");
+		unlockedFlamesOfZamorak.setTooltip(t("Unlocked by casting the Flames of Zamorak 100 times within the mage arena"));
 	}
 
 	@Override
@@ -169,54 +169,54 @@ public class TheMageArenaII extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		enterCavern = new ObjectStep(this, ObjectID.MAGEARENA_LEVER_TO_CELLAR, new WorldPoint(3090, 3956, 0), "Pull the lever in the" +
+		enterCavern = new ObjectStep(this, ObjectID.MAGEARENA_LEVER_TO_CELLAR, new WorldPoint(3090, 3956, 0), t("Pull the lever in the" +
 			" building north of the Mage Arena. This is IN THE WILDERNESS, so don't bring anything you don't want to " +
-			"lose.", knife);
-		talkToKolodion = new NpcStep(this, NpcID.ARENAMAGE1, new WorldPoint(2539, 4716, 0), "Talk to Kolodion.");
+			"lose."), knife);
+		talkToKolodion = new NpcStep(this, NpcID.ARENAMAGE1, new WorldPoint(2539, 4716, 0), t("Talk to Kolodion."));
 		talkToKolodion.addDialogSteps("Are there any more challenges available?", "Great, I've been waiting for an " +
 			"improvement!");
 
-		locateFollowerSara = new MageArenaBossStep(this, saradominStaff, "Saradomin", "If he fires a blue wave at " +
-			"you, move off your tile to avoid it. If you don't, he will pull you into melee distance.",
+		locateFollowerSara = new MageArenaBossStep(this, saradominStaff, "Saradomin", t("If he fires a blue wave at " +
+			"you, move off your tile to avoid it. If you don't, he will pull you into melee distance."),
 			givenHand, givenRoots, givenHeart, enchantedSymbol, food);
 		locateFollowerSara.addDialogStep("Saradomin");
-		locateFollowerGuthix = new MageArenaBossStep(this, guthixStaff, "Guthix", "If he spawns green orbs, destroy " +
-			"them to stop them healing him.",
+		locateFollowerGuthix = new MageArenaBossStep(this, guthixStaff, "Guthix", t("If he spawns green orbs, destroy " +
+			"them to stop them healing him."),
 			givenHand, givenRoots, givenHeart, enchantedSymbol, food);
 		locateFollowerGuthix.addDialogStep("Guthix");
-		locateFollowerZammy = new MageArenaBossStep(this, zamorakStaff, "Zamorak", "If he fires an energy ball at " +
-			"you, move away away from the boss to reduce the damage you take.",
+		locateFollowerZammy = new MageArenaBossStep(this, zamorakStaff, "Zamorak", t("If he fires an energy ball at " +
+			"you, move away away from the boss to reduce the damage you take."),
 			givenHand, givenRoots, givenHeart, enchantedSymbol, food);
 		locateFollowerZammy.addDialogStep("Zamorak");
 
-		enterCavernWithHand = new ObjectStep(this, ObjectID.MAGEARENA_LEVER_TO_CELLAR, new WorldPoint(3090, 3956, 0), "Return with" +
-			" the hand to Kolodion.", justicarsHand, knife);
-		enterCavernWithRoots = new ObjectStep(this, ObjectID.MAGEARENA_LEVER_TO_CELLAR, new WorldPoint(3090, 3956, 0), "Return with" +
-			" the roots to Kolodion.", entRoots, knife);
-		enterCavernWithHeart = new ObjectStep(this, ObjectID.MAGEARENA_LEVER_TO_CELLAR, new WorldPoint(3090, 3956, 0), "Return with" +
-			" the heart to Kolodion.", demonsHeart, knife);
+		enterCavernWithHand = new ObjectStep(this, ObjectID.MAGEARENA_LEVER_TO_CELLAR, new WorldPoint(3090, 3956, 0), t("Return with" +
+			" the hand to Kolodion."), justicarsHand, knife);
+		enterCavernWithRoots = new ObjectStep(this, ObjectID.MAGEARENA_LEVER_TO_CELLAR, new WorldPoint(3090, 3956, 0), t("Return with" +
+			" the roots to Kolodion."), entRoots, knife);
+		enterCavernWithHeart = new ObjectStep(this, ObjectID.MAGEARENA_LEVER_TO_CELLAR, new WorldPoint(3090, 3956, 0), t("Return with" +
+			" the heart to Kolodion."), demonsHeart, knife);
 
-		giveKolodionHand = new NpcStep(this, NpcID.ARENAMAGE1, new WorldPoint(2539, 4716, 0), "Return with" +
-			" the hand to Kolodion.", justicarsHand);
-		giveKolodionRoots = new NpcStep(this, NpcID.ARENAMAGE1, new WorldPoint(2539, 4716, 0), "Return with" +
-			" the roots to Kolodion.", entRoots);
-		giveKolodionHeart = new NpcStep(this, NpcID.ARENAMAGE1, new WorldPoint(2539, 4716, 0), "Return with" +
-			" the heart to Kolodion.", demonsHeart);
+		giveKolodionHand = new NpcStep(this, NpcID.ARENAMAGE1, new WorldPoint(2539, 4716, 0), t("Return with" +
+			" the hand to Kolodion."), justicarsHand);
+		giveKolodionRoots = new NpcStep(this, NpcID.ARENAMAGE1, new WorldPoint(2539, 4716, 0), t("Return with" +
+			" the roots to Kolodion."), entRoots);
+		giveKolodionHeart = new NpcStep(this, NpcID.ARENAMAGE1, new WorldPoint(2539, 4716, 0), t("Return with" +
+			" the heart to Kolodion."), demonsHeart);
 
-		enterCavernAfterMinions = new ObjectStep(this, ObjectID.MAGEARENA_LEVER_TO_CELLAR, new WorldPoint(3090, 3956, 0), "Pull the " +
-			"lever in the building north of the Mage Arena. This is IN THE WILDERNESS, so don't bring anything you don't want to lose.", knife);
-		talkToKolodionAfterMinions = new NpcStep(this, NpcID.ARENAMAGE1, new WorldPoint(2539, 4716, 0), "Talk to Kolodion.");
+		enterCavernAfterMinions = new ObjectStep(this, ObjectID.MAGEARENA_LEVER_TO_CELLAR, new WorldPoint(3090, 3956, 0), t("Pull the " +
+			"lever in the building north of the Mage Arena. This is IN THE WILDERNESS, so don't bring anything you don't want to lose."), knife);
+		talkToKolodionAfterMinions = new NpcStep(this, NpcID.ARENAMAGE1, new WorldPoint(2539, 4716, 0), t("Talk to Kolodion."));
 
-		locateAndKillMinions = new DetailedQuestStep(this, "Use the Enchanted Symbol to locate the 3 bosses. It's " +
+		locateAndKillMinions = new DetailedQuestStep(this, t("Use the Enchanted Symbol to locate the 3 bosses. It's " +
 			"recommended to find where a boss is with just food and the symbol, then once you have the location gear " +
 			"up and come fight it. Fight bosses with their respective god staff and spell, food, potions, and armour " +
-			"you're willing to risk. Protect from Magic, and once you've killed them take their drop to Kolodion.");
+			"you're willing to risk. Protect from Magic, and once you've killed them take their drop to Kolodion."));
 		locateAndKillMinions.addSubSteps(locateFollowerGuthix, locateFollowerZammy, locateFollowerSara,
 			enterCavernWithRoots, enterCavernWithHeart, enterCavernWithHand, giveKolodionHand, giveKolodionRoots,
 			giveKolodionHeart, enterCavernAfterMinions, talkToKolodionAfterMinions);
 
-		useGodCapeOnKolidion = new NpcStep(this, NpcID.ARENAMAGE1, new WorldPoint(2539, 4716, 0), "Use a god cape of " +
-			"your choice on Kolodion to have it imbued.", godCape);
+		useGodCapeOnKolidion = new NpcStep(this, NpcID.ARENAMAGE1, new WorldPoint(2539, 4716, 0), t("Use a god cape of " +
+			"your choice on Kolodion to have it imbued."), godCape);
 		useGodCapeOnKolidion.addIcon(ItemID.GUTHIX_CAPE);
 		useGodCapeOnKolidion.addDialogStep("Yes.");
 
@@ -237,16 +237,16 @@ public class TheMageArenaII extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Arrays.asList("Porazdir (level 235)", "Justiciar Zachariah (level 348)", "Derwen " +
-			"(level 235)");
+		return Arrays.asList(t("Porazdir (level 235)"), t("Justiciar Zachariah (level 348)"), t("Derwen " +
+			"(level 235)"));
 	}
 
 	@Override
 	public List<String> getNotes()
 	{
-		return Collections.singletonList("This miniquest is in deep Wilderness. Don't bring anything you're not " +
+		return Collections.singletonList(t("This miniquest is in deep Wilderness. Don't bring anything you're not " +
 			"willing to risk! It's recommended to turn off player attack options to avoid potentially getting " +
-			"skulled.");
+			"skulled."));
 	}
 
 	@Override
@@ -264,14 +264,14 @@ public class TheMageArenaII extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("Ability to upgrade your God Cape"));
+		return Collections.singletonList(new UnlockReward(t("Ability to upgrade your God Cape")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Upgrading the God Cape", Arrays.asList(enterCavern,
+		allSteps.add(new PanelDetails(t("Upgrading the God Cape"), Arrays.asList(enterCavern,
 			talkToKolodion, locateAndKillMinions, useGodCapeOnKolidion), knife, saradominStaff, guthixStaff, zamorakStaff, unlockedSaradominStrike, unlockedClawsOfGuthix, unlockedFlamesOfZamorak, runesForCasts));
 		return allSteps;
 	}

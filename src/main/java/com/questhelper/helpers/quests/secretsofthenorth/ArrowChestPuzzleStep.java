@@ -58,7 +58,7 @@ public class ArrowChestPuzzleStep extends QuestStep
 
 	public ArrowChestPuzzleStep(QuestHelper questHelper)
 	{
-		super(questHelper, "Solve the arrow puzzle by clicking them in the right order.");
+		super(questHelper, questHelper.t("Solve the arrow puzzle by clicking them in the right order."));
 		directionsFromValue.put(0, "Up");
 		directionsFromValue.put(1, "Right");
 		directionsFromValue.put(2, "Down");

@@ -138,8 +138,8 @@ public class RFDGoblins extends BasicQuestHelper
 		slopHighlighted = new ItemRequirement("Slop of compromise", ItemID._100GOBLIN_COMPROMISE_MUSH);
 		slopHighlighted.setHighlightInInventory(true);
 
-		teleportFalador = new ItemRequirement("Teleport to Falador", ItemID.POH_TABLET_FALADORTELEPORT);
-		teleportLumbridge = new ItemRequirement("Teleport to Lumbridge", ItemID.POH_TABLET_LUMBRIDGETELEPORT);
+		teleportFalador = new ItemRequirement(t("Teleport to Falador"), ItemID.POH_TABLET_FALADORTELEPORT);
+		teleportLumbridge = new ItemRequirement(t("Teleport to Lumbridge"), ItemID.POH_TABLET_LUMBRIDGETELEPORT);
 	}
 
 	@Override

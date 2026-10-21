@@ -80,7 +80,7 @@ public class TilePuzzleSolver extends DetailedOwnerStep
 
 	public TilePuzzleSolver(TheCurseOfArrav theCurseOfArrav)
 	{
-		super(theCurseOfArrav, "Solve the floor tile puzzle. Follow the instructions in the overlay.");
+		super(theCurseOfArrav, theCurseOfArrav.t("Solve the floor tile puzzle. Follow the instructions in the overlay."));
 	}
 
 	/**
@@ -300,11 +300,11 @@ public class TilePuzzleSolver extends DetailedOwnerStep
 	@Override
 	protected void setupSteps()
 	{
-		pathStep = new DetailedQuestStep(getQuestHelper(), new WorldPoint(3734, 4714, 0), "Click the tiles to pass through the puzzle.");
+		pathStep = new DetailedQuestStep(getQuestHelper(), new WorldPoint(3734, 4714, 0), getQuestHelper().t("Click the tiles to pass through the puzzle."));
 
-		fallbackStep = new DetailedQuestStep(getQuestHelper(), new WorldPoint(3734, 4714, 0), "Unable to figure out a path, click your way across lol"); // TODO
+		fallbackStep = new DetailedQuestStep(getQuestHelper(), new WorldPoint(3734, 4714, 0), getQuestHelper().t("Unable to figure out a path, click your way across lol")); // TODO
 
-		finishPuzzleStep = new ObjectStep(getQuestHelper(), ObjectID.COA_MASTABA_LEVER_OFF, new WorldPoint(3735, 4719, 0), "Finish the puzzle by clicking the lever.");
+		finishPuzzleStep = new ObjectStep(getQuestHelper(), ObjectID.COA_MASTABA_LEVER_OFF, new WorldPoint(3735, 4719, 0), getQuestHelper().t("Finish the puzzle by clicking the lever."));
 	}
 
 	protected void updateSteps()

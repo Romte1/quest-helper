@@ -467,17 +467,17 @@ public class TaiBwoWannaiTrio extends BasicQuestHelper
 
 		smallFishingNet = new ItemRequirement("Small Fishing Net", ItemID.NET).isNotConsumed();
 		pestleAndMortar = new ItemRequirement("Pestle And Mortar", ItemID.PESTLE_AND_MORTAR).isNotConsumed();
-		logsForFire = new ItemRequirement("Any logs to make a fire", ItemCollections.LOGS_FOR_FIRE);
-		spear = new ItemRequirement("Iron spear or better (You will lose the spear)", ItemID.IRON_SPEAR);
+		logsForFire = new ItemRequirement(t("Any logs to make a fire"), ItemCollections.LOGS_FOR_FIRE);
+		spear = new ItemRequirement(t("Iron spear or better (You will lose the spear)"), ItemID.IRON_SPEAR);
 		spear.setTooltip(t("Bone and black spear does NOT work"));
 		spear.addAlternates(ItemID.STEEL_SPEAR, ItemID.MITHRIL_SPEAR, ItemID.ADAMANT_SPEAR, ItemID.RUNE_SPEAR,
 			ItemID.DRAGON_SPEAR);
-		poisonedSpear = new ItemRequirement("Iron spear or better (kp) (You will lose the spear)", ItemID.TBWT_IRON_SPEAR_KP);
+		poisonedSpear = new ItemRequirement(t("Iron spear or better (kp) (You will lose the spear)"), ItemID.TBWT_IRON_SPEAR_KP);
 		poisonedSpear.addAlternates(ItemID.TBWT_STEEL_SPEAR_KP, ItemID.TBWT_MITHRIL_SPEAR_KP, ItemID.TBWT_ADAMANT_SPEAR_KP, ItemID.TBWT_RUNE_SPEAR_KP,
 			ItemID.TBWT_DRAGON_SPEAR_KP);
 
 		agilityPotion4 = new ItemRequirement("Agility Potion (4)", ItemID._4DOSE1AGILITY);
-		rangedOrMagic = new ItemRequirement("Ranged or Magic equipment to kill a level 3 monkey", -1, -1).isNotConsumed();
+		rangedOrMagic = new ItemRequirement(t("Ranged or Magic equipment to kill a level 3 monkey"), -1, -1).isNotConsumed();
 		rangedOrMagic.setDisplayItemId(BankSlotIcons.getMagicCombatGear());
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
 
@@ -528,11 +528,11 @@ public class TaiBwoWannaiTrio extends BasicQuestHelper
 	{
 		ArrayList<ItemRequirement> reqs = new ArrayList<>();
 		reqs.add(jogreBones);
-		reqs.add(new ItemRequirement("Extra Raw Karambwans in case you burn the one given", ItemID.TBWT_RAW_KARAMBWAN));
+		reqs.add(new ItemRequirement(t("Extra Raw Karambwans in case you burn the one given"), ItemID.TBWT_RAW_KARAMBWAN));
 		reqs.add(new ItemRequirement("Any Antipoisons", ItemCollections.ANTIPOISONS));
 		reqs.add(new ItemRequirement("Stamina potions", ItemCollections.STAMINA_POTIONS));
-		reqs.add(new ItemRequirement("Dramen staff if you have access to fairy rings", ItemCollections.FAIRY_STAFF));
-		reqs.add(new ItemRequirement("Sliced Banana (Use a knife on a banana)", ItemID.TBWT_SLICED_BANANA));
+		reqs.add(new ItemRequirement(t("Dramen staff if you have access to fairy rings"), ItemCollections.FAIRY_STAFF));
+		reqs.add(new ItemRequirement(t("Sliced Banana (Use a knife on a banana)"), ItemID.TBWT_SLICED_BANANA));
 		reqs.add(new ItemRequirement("Food", -1, -1));
 		return reqs;
 	}
@@ -546,7 +546,7 @@ public class TaiBwoWannaiTrio extends BasicQuestHelper
 		req.add(new SkillRequirement(Skill.AGILITY, 15, false));
 		req.add(new SkillRequirement(Skill.COOKING, 30, false));
 		req.add(new SkillRequirement(Skill.FISHING, 5, false));
-		req.add(new ItemRequirement("65 Fishing for Raw Karambwan if any type of Ironman account, if you burn the one given to you.", -1, -1));
+		req.add(new ItemRequirement(t("65 Fishing for Raw Karambwan if any type of Ironman account, if you burn the one given to you."), -1, -1));
 		return req;
 	}
 

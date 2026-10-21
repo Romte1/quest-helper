@@ -378,12 +378,12 @@ public class TheHeartOfDarkness extends BasicQuestHelper
 
         // Recommended items
         quetzalFeed = new ItemRequirement("Quetzal feed", ItemID.HG_SEEDSACK);
-        quetzalFeed.setTooltip("Optional for the Salvager Overlook landing site");
+        quetzalFeed.setTooltip(t("Optional for the Salvager Overlook landing site"));
         limestoneBrick = new ItemRequirement("Limestone brick", ItemID.LIMESTONEBRICK);
-        limestoneBrick.setTooltip("Optional for the Salvager Overlook landing site");
+        limestoneBrick.setTooltip(t("Optional for the Salvager Overlook landing site"));
         softClay = new ItemRequirement("Soft clay", ItemID.SOFTCLAY);
-        softClay.setTooltip("Optional for the Salvager Overlook landing site");
-        pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES);
+        softClay.setTooltip(t("Optional for the Salvager Overlook landing site"));
+        pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES);
         civitasIllaFortisTeleport = new ItemRequirement("Civitas illa fortis teleport", ItemID.POH_TABLET_FORTISTELEPORT);
         civitasIllaFortisTeleport.addAlternates(ItemID.HG_QUETZALWHISTLE_PERFECTED, ItemID.HG_QUETZALWHISTLE_ENHANCED, ItemID.HG_QUETZALWHISTLE_BASIC);
         prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS);
@@ -545,24 +545,24 @@ public class TheHeartOfDarkness extends BasicQuestHelper
 
     private void setupSteps()
     {
-        talkToItzlaAtTeomat = new NpcStep(this, NpcID.VMQ2_ITZLA_VIS, new WorldPoint(1454, 3173, 0), "Talk to Prince Itzla Arkan at the Teomat. You" +
-                " can travel here using Renu the quetzal.");
+        talkToItzlaAtTeomat = new NpcStep(this, NpcID.VMQ2_ITZLA_VIS, new WorldPoint(1454, 3173, 0), t("Talk to Prince Itzla Arkan at the Teomat. You" +
+                " can travel here using Renu the quetzal."));
         talkToItzlaAtTeomat.addWidgetHighlight(WidgetHighlight.createQuetzalHighlight(QuetzalDestination.THE_TEOMAT));
         talkToItzlaAtTeomat.addDialogStep("Yes.");
-        travelToGorge = new NpcStep(this, NpcID.QUETZAL_CHILD_GREEN_NOOP, new WorldPoint(1437, 3169, 0), "Travel on Renu to the Quetzacalli Gorge.");
+        travelToGorge = new NpcStep(this, NpcID.QUETZAL_CHILD_GREEN_NOOP, new WorldPoint(1437, 3169, 0), t("Travel on Renu to the Quetzacalli Gorge."));
         ((NpcStep) travelToGorge).addAlternateNpcs(NpcID.QUETZAL_CHILD_GREEN_FEED, NpcID.QUETZAL_CHILD_GREEN, NpcID.QUETZAL_CHILD_ORANGE, NpcID.QUETZAL_CHILD_BLUE, NpcID.QUETZAL_CHILD_CYAN, NpcID.QUETZAL_CHILD_GREEN_ORANGE);
         travelToGorge.addWidgetHighlight(WidgetHighlight.createQuetzalHighlight(QuetzalDestination.QUETZACALLI_GORGE));
-        talkToBartender = new NpcStep(this, NpcID.QUETZACALLI_BARTENDER, new WorldPoint(1499, 3224, 0), "Talk to the Bartender in the pub in the Gorge.",
+        talkToBartender = new NpcStep(this, NpcID.QUETZACALLI_BARTENDER, new WorldPoint(1499, 3224, 0), t("Talk to the Bartender in the pub in the Gorge."),
                 coins.quantity(30));
         // Told about ground room, 11123 1->0
         talkToBartender.addDialogSteps("I'd like to rent the basement room.", "I'll take it.");
-        restOnBed = new ObjectStep(this, ObjectID.VMQ3_PUB_BED, new WorldPoint(1505, 3225, 0), "Rest in the bed in the south-eastern room of the pub.");
+        restOnBed = new ObjectStep(this, ObjectID.VMQ3_PUB_BED, new WorldPoint(1505, 3225, 0), t("Rest in the bed in the south-eastern room of the pub."));
         // 11123 0->3, prince in room
-        talkToPrinceAfterRest = new NpcStep(this, NpcID.VMQ3_ITZLA_VIS_CITIZEN, new WorldPoint(1505, 3223, 0), "Talk to Prince Itzla Arkan in the bedroom.");
-        talkToShopkeeper = new NpcStep(this, NpcID.QUETZACALLI_GENERAL_STORE, new WorldPoint(1517, 3223, 0), "Talk to the shopkeeper east of the pub.");
+        talkToPrinceAfterRest = new NpcStep(this, NpcID.VMQ3_ITZLA_VIS_CITIZEN, new WorldPoint(1505, 3223, 0), t("Talk to Prince Itzla Arkan in the bedroom."));
+        talkToShopkeeper = new NpcStep(this, NpcID.QUETZACALLI_GENERAL_STORE, new WorldPoint(1517, 3223, 0), t("Talk to the shopkeeper east of the pub."));
         talkToShopkeeper.addDialogStep("I hear you can offer help to those in need.");
-        talkToPrinceInPubAgain = new NpcStep(this, NpcID.VMQ3_ITZLA_VIS_CITIZEN, new WorldPoint(1505, 3223, 0), "Return to Prince Itzla Arkan in the " +
-                "bedroom.");
+        talkToPrinceInPubAgain = new NpcStep(this, NpcID.VMQ3_ITZLA_VIS_CITIZEN, new WorldPoint(1505, 3223, 0), t("Return to Prince Itzla Arkan in the " +
+                "bedroom."));
         // Gone through gate, varp 4411 60->124
 
         List<WorldPoint> pathFromPubToOverlook = List.of(
@@ -618,44 +618,44 @@ public class TheHeartOfDarkness extends BasicQuestHelper
         pathFromOverlookToTower.addAll(Lists.reverse(pathFromChasmToOverlook));
         pathFromOverlookToTower.addAll(pathFromChasmToTower);
 
-        talkToPrinceAtTower = new NpcStep(this, NpcID.VMQ3_ITZLA_VIS_CITIZEN, new WorldPoint(1656, 3219, 0), "Travel past the proudspire to the east to the" +
-                " Tower of Ascension. Talk to the prince there.");
+        talkToPrinceAtTower = new NpcStep(this, NpcID.VMQ3_ITZLA_VIS_CITIZEN, new WorldPoint(1656, 3219, 0), t("Travel past the proudspire to the east to the" +
+                " Tower of Ascension. Talk to the prince there."));
         talkToPrinceAtTower.setLinePoints(pathFromPubToTower);
 
-        buildSalvagerOverlookLandingSite = new ObjectStep(this, ObjectID.QUETZAL_LANDING_SITE_UNBUILT, new WorldPoint(1613, 3302, 0), "Before going to the tower, " +
-                "build the landing site in the north of the salvager overlook.", quetzalFeed.quantity(10), limestoneBrick.quantity(3), softClay.quantity(4));
+        buildSalvagerOverlookLandingSite = new ObjectStep(this, ObjectID.QUETZAL_LANDING_SITE_UNBUILT, new WorldPoint(1613, 3302, 0), t("Before going to the tower, " +
+                "build the landing site in the north of the salvager overlook."), quetzalFeed.quantity(10), limestoneBrick.quantity(3), softClay.quantity(4));
         buildSalvagerOverlookLandingSite.setLinePoints(pathFromPubToOverlook);
 
-        talkToPrinceAtTowerAfterLanding = new NpcStep(this, NpcID.VMQ3_ITZLA_VIS_CITIZEN, new WorldPoint(1656, 3219, 0), "Talk to the prince at the Tower " +
-                "of Ascension to the south-east of the salvager overlook.");
+        talkToPrinceAtTowerAfterLanding = new NpcStep(this, NpcID.VMQ3_ITZLA_VIS_CITIZEN, new WorldPoint(1656, 3219, 0), t("Talk to the prince at the Tower " +
+                "of Ascension to the south-east of the salvager overlook."));
         talkToPrinceAtTowerAfterLanding.setLinePoints(pathFromOverlookToTower);
         talkToPrinceAtTower.addSubSteps(talkToPrinceAtTowerAfterLanding);
 
-        talkToNova = new NpcStep(this, NpcID.VMQ3_RECRUIT_4_VIS, new WorldPoint(1659, 3224, 0), "Talk to Nova outside the tower.");
-        talkToSergius = new NpcStep(this, NpcID.VMQ3_RECRUIT_3_VIS, new WorldPoint(1659, 3224, 0), "Talk to Sergius outside the tower.");
-        talkToFelius = new NpcStep(this, NpcID.VMQ3_RECRUIT_1_VIS, new WorldPoint(1659, 3224, 0), "Talk to Felius outside the tower.");
-        talkToCaritta = new NpcStep(this, NpcID.VMQ3_RECRUIT_2_VIS, new WorldPoint(1659, 3224, 0), "Talk to Caritta outside the tower.");
-        talkToPrinceAfterRecruits = new NpcStep(this, NpcID.VMQ3_ITZLA_VIS_CITIZEN, new WorldPoint(1656, 3219, 0), "Talk to the prince at the Tower " +
-                "of Ascension to the south-east of the salvager overlook again.", noFollower);
+        talkToNova = new NpcStep(this, NpcID.VMQ3_RECRUIT_4_VIS, new WorldPoint(1659, 3224, 0), t("Talk to Nova outside the tower."));
+        talkToSergius = new NpcStep(this, NpcID.VMQ3_RECRUIT_3_VIS, new WorldPoint(1659, 3224, 0), t("Talk to Sergius outside the tower."));
+        talkToFelius = new NpcStep(this, NpcID.VMQ3_RECRUIT_1_VIS, new WorldPoint(1659, 3224, 0), t("Talk to Felius outside the tower."));
+        talkToCaritta = new NpcStep(this, NpcID.VMQ3_RECRUIT_2_VIS, new WorldPoint(1659, 3224, 0), t("Talk to Caritta outside the tower."));
+        talkToPrinceAfterRecruits = new NpcStep(this, NpcID.VMQ3_ITZLA_VIS_CITIZEN, new WorldPoint(1656, 3219, 0), t("Talk to the prince at the Tower " +
+                "of Ascension to the south-east of the salvager overlook again."), noFollower);
         talkToPrinceAfterRecruits.addDialogStep("Could you remind me what Ximoua is?");
-        talkToJanus = new NpcStep(this, NpcID.VMQ3_FOREBEARER_JANUS_VIS, new WorldPoint(1638, 3224, 0), "Talk to Forebearer Janus inside the tower.");
+        talkToJanus = new NpcStep(this, NpcID.VMQ3_FOREBEARER_JANUS_VIS, new WorldPoint(1638, 3224, 0), t("Talk to Forebearer Janus inside the tower."));
 
         final String PUZZLE_1_TEXT = "Work out the passcode to tell Janus by solving the room's puzzles.";
 
         // First trial section
-        climbUpToFirstTrial = new ObjectStep(this, ObjectID.VMQ3_TOWER_STAIRS_START, new WorldPoint(1635, 3221, 0), "Climb up the staircase in the tower to the first" +
-                " challenge.");
+        climbUpToFirstTrial = new ObjectStep(this, ObjectID.VMQ3_TOWER_STAIRS_START, new WorldPoint(1635, 3221, 0), t("Climb up the staircase in the tower to the first" +
+                " challenge."));
 
-        pickpocketAscended = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_PICKPOCKET_VARIANT_2, new WorldPoint(1641, 3225, 1), "Pickpocket one of the emissary ascended.", true)
+        pickpocketAscended = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_PICKPOCKET_VARIANT_2, new WorldPoint(1641, 3225, 1), t("Pickpocket one of the emissary ascended."), true)
                 .addAlternateNpcs(NpcID.VMQ3_TOWER_TWILIGHT_PICKPOCKET_VARIANT_1)
                 .puzzleWrapStep(PUZZLE_1_TEXT);
 
-        useKeyOnSouthEastGate = new ObjectStep(this, ObjectID.VMQ3_TOWER_DOOR_LOCKED, new WorldPoint(1644, 3220, 1), "Use the key to open the gate in the south-east " +
-                "corner of the room.", towerKey)
+        useKeyOnSouthEastGate = new ObjectStep(this, ObjectID.VMQ3_TOWER_DOOR_LOCKED, new WorldPoint(1644, 3220, 1), t("Use the key to open the gate in the south-east " +
+                "corner of the room."), towerKey)
                 .puzzleWrapStep(PUZZLE_1_TEXT)
                 .withNoHelpHiddenInSidebar(true);
 
-        searchChestForBookAndPaper = new ObjectStep(this, ObjectID.VMQ3_TOWER_CHEST_BOOK_CLOSED, new WorldPoint(1644, 3217, 1), "Search the south-east chest for a book and some paper.")
+        searchChestForBookAndPaper = new ObjectStep(this, ObjectID.VMQ3_TOWER_CHEST_BOOK_CLOSED, new WorldPoint(1644, 3217, 1), t("Search the south-east chest for a book and some paper."))
                 .puzzleWrapStep(PUZZLE_1_TEXT)
                 .withNoHelpHiddenInSidebar(true);
 
@@ -664,16 +664,16 @@ public class TheHeartOfDarkness extends BasicQuestHelper
                 .puzzleWrapStep(PUZZLE_1_TEXT)
                 .withNoHelpHiddenInSidebar(true);
 
-        readPoem = new DetailedQuestStep(this, "Read the poem.", poem.highlighted())
+        readPoem = new DetailedQuestStep(this, t("Read the poem."), poem.highlighted())
                 .puzzleWrapStep(PUZZLE_1_TEXT)
                 .withNoHelpHiddenInSidebar(true);
 
-        talkToPrinceAfterPoem = new NpcStep(this, NpcID.VMQ3_ITZLA_TOWER_TRIALS, new WorldPoint(1638, 3218, 1), "Talk to the prince in the room.")
+        talkToPrinceAfterPoem = new NpcStep(this, NpcID.VMQ3_ITZLA_TOWER_TRIALS, new WorldPoint(1638, 3218, 1), t("Talk to the prince in the room."))
                 .addDialogSteps("Makt.", "Takam.", "Silam.", "Thanks! Could you translate another?")
                 .puzzleWrapStep(PUZZLE_1_TEXT)
                 .withNoHelpHiddenInSidebar(true);
 
-        openKeywordChestNorthWest = new ObjectStep(this, ObjectID.VMQ3_TOWER_CHEST_DIRECTION_CLOSED, new WorldPoint(1636, 3225, 1), "Open the north-west chest.")
+        openKeywordChestNorthWest = new ObjectStep(this, ObjectID.VMQ3_TOWER_CHEST_DIRECTION_CLOSED, new WorldPoint(1636, 3225, 1), t("Open the north-west chest."))
                 .puzzleWrapStep(PUZZLE_1_TEXT)
                 .withNoHelpHiddenInSidebar(true);
 
@@ -682,15 +682,15 @@ public class TheHeartOfDarkness extends BasicQuestHelper
                 .puzzleWrapStep(PUZZLE_1_TEXT)
                 .withNoHelpHiddenInSidebar(true);
 
-        combineScraps = new DetailedQuestStep(this,  "Inspect one of the scraps to combine them.", scrapOfPaper1.highlighted(), scrapOfPaper2.highlighted(), scrapOfPaper3.highlighted())
+        combineScraps = new DetailedQuestStep(this,  t("Inspect one of the scraps to combine them."), scrapOfPaper1.highlighted(), scrapOfPaper2.highlighted(), scrapOfPaper3.highlighted())
                 .puzzleWrapStep(PUZZLE_1_TEXT)
                 .withNoHelpHiddenInSidebar(true);
 
-        readCompletedNote = new DetailedQuestStep(this, "Read the completed note.", completedNote.highlighted())
+        readCompletedNote = new DetailedQuestStep(this, t("Read the completed note."), completedNote.highlighted())
                 .puzzleWrapStep(PUZZLE_1_TEXT)
                 .withNoHelpHiddenInSidebar(true);
 
-        tellJanusPasscode = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_FOREMAN_TRIALS, new WorldPoint(1644, 3226, 1), "Talk to Janus and tell him the passcode.")
+        tellJanusPasscode = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_FOREMAN_TRIALS, new WorldPoint(1644, 3226, 1), t("Talk to Janus and tell him the passcode."))
                         .addDialogSteps("About that passphrase...", "Yes.")
                         .puzzleWrapStep(PUZZLE_1_TEXT)
                         .withNoHelpHiddenInSidebar(true);
@@ -699,95 +699,95 @@ public class TheHeartOfDarkness extends BasicQuestHelper
                 readPoem, talkToPrinceAfterPoem, openKeywordChestNorthWest, inputArrows, inputArrowsPuzzleWrapped, combineScraps, readCompletedNote, tellJanusPasscode);
 
         // Second trial section
-        startCombatTrial = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_FOREMAN_TRIALS, new WorldPoint(1644, 3225, 2), "Talk to Forebearer Janus, ready to fight.");
+        startCombatTrial = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_FOREMAN_TRIALS, new WorldPoint(1644, 3225, 2), t("Talk to Forebearer Janus, ready to fight."));
         startCombatTrial.addDialogStep("Yes! I'm ready.");
-        completeCombatTrial = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_MELEE_VARIANT_1A, new WorldPoint(1644, 3225, 2), "Defeat the waves of enemies. Use Protect from " +
-                "Melee. You can heal yourself and the prince using bandages from the chests in the area.", true);
+        completeCombatTrial = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_MELEE_VARIANT_1A, new WorldPoint(1644, 3225, 2), t("Defeat the waves of enemies. Use Protect from " +
+                "Melee. You can heal yourself and the prince using bandages from the chests in the area."), true);
         completeCombatTrial.setMustBeFocusedOnPlayer(true);
         completeCombatTrial.setMustBeFocusedOnNpcs(NpcID.VMQ3_ITZLA_TOWER_TRIALS_COMBAT);
         completeCombatTrial.addAlternateNpcs(NpcID.VMQ3_TOWER_TWILIGHT_MELEE_VARIANT_1B, NpcID.VMQ3_TOWER_TWILIGHT_MELEE_VARIANT_2A, NpcID.VMQ3_TOWER_TWILIGHT_MELEE_VARIANT_2B,
                 NpcID.VMQ3_TOWER_TWILIGHT_MAGIC_VARIANT_1, NpcID.VMQ3_TOWER_TWILIGHT_MAGIC_VARIANT_2);
         talkToJanusAfterTrial = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_FOREMAN_TRIALS, new WorldPoint(1644, 3225, 2),
-                "Talk to Forebearer Janus again to progress to the third trial.");
+                t("Talk to Forebearer Janus again to progress to the third trial."));
         talkToJanusAfterTrial.addDialogSteps("Yes.", "Proceed to the next trial.");
 
         // Third trial section
-        talkToPrinceToStartThirdTrial = new NpcStep(this, NpcID.VMQ3_ITZLA_TOWER_TRIALS, new WorldPoint(1638, 3218, 2), "Talk to the prince in the room.");
+        talkToPrinceToStartThirdTrial = new NpcStep(this, NpcID.VMQ3_ITZLA_TOWER_TRIALS, new WorldPoint(1638, 3218, 2), t("Talk to the prince in the room."));
 
-        talkToTenoch = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_SUSPECT_VARIANT_1, new WorldPoint(1643, 3225, 2), "Talk to Tenoch.")
+        talkToTenoch = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_SUSPECT_VARIANT_1, new WorldPoint(1643, 3225, 2), t("Talk to Tenoch."))
                 .addDialogSteps("Interrogate Tenoch.", "Tell me about the Final Dawn.")
-                .puzzleWrapStep("Work out who the guilty emissary is.")
+                .puzzleWrapStep(t("Work out who the guilty emissary is."))
                 .withNoHelpHiddenInSidebar(true);
 
-        talkToSilia = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_SUSPECT_VARIANT_2, new WorldPoint(1645, 3223, 2), "Talk to Silia.")
+        talkToSilia = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_SUSPECT_VARIANT_2, new WorldPoint(1645, 3223, 2), t("Talk to Silia."))
                 .addDialogSteps("Interrogate Silia.", "Tell me about the Final Dawn.")
-                .puzzleWrapStep("Work out who the guilty emissary is.")
+                .puzzleWrapStep(t("Work out who the guilty emissary is."))
                 .withNoHelpHiddenInSidebar(true);
 
-        talkToAdrius = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_SUSPECT_VARIANT_3, new WorldPoint(1645, 3220, 2), "Talk to Adrius.")
+        talkToAdrius = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_SUSPECT_VARIANT_3, new WorldPoint(1645, 3220, 2), t("Talk to Adrius."))
                 .addDialogSteps("Interrogate Adrius.", "Tell me about the Final Dawn.")
-                .puzzleWrapStep("Work out who the guilty emissary is.")
+                .puzzleWrapStep(t("Work out who the guilty emissary is."))
                 .withNoHelpHiddenInSidebar(true);
 
-        talkToEleuia = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_SUSPECT_VARIANT_4, new WorldPoint(1643, 3218, 2), "Talk to Eleuia.")
+        talkToEleuia = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_SUSPECT_VARIANT_4, new WorldPoint(1643, 3218, 2), t("Talk to Eleuia."))
                 .addDialogSteps("Interrogate Eleuia.", "Tell me about the Final Dawn.")
-                .puzzleWrapStep("Work out who the guilty emissary is.")
+                .puzzleWrapStep(t("Work out who the guilty emissary is."))
                 .withNoHelpHiddenInSidebar(true);
 
-        accuseTenoch = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_SUSPECT_VARIANT_1, new WorldPoint(1643, 3225, 2), "Accuse Tenoch.")
+        accuseTenoch = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_SUSPECT_VARIANT_1, new WorldPoint(1643, 3225, 2), t("Accuse Tenoch."))
                 .addDialogSteps("Yes.", "Choose Tenoch.")
-                .puzzleWrapStep("Work out who the guilty emissary is.")
+                .puzzleWrapStep(t("Work out who the guilty emissary is."))
                 .withNoHelpHiddenInSidebar(true);
 
-        accuseSilia = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_SUSPECT_VARIANT_2, new WorldPoint(1645, 3223, 2), "Accuse Silia.")
+        accuseSilia = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_SUSPECT_VARIANT_2, new WorldPoint(1645, 3223, 2), t("Accuse Silia."))
                 .addDialogSteps("Yes.", "Choose Silia.")
-                .puzzleWrapStep("Work out who the guilty emissary is.")
+                .puzzleWrapStep(t("Work out who the guilty emissary is."))
                 .withNoHelpHiddenInSidebar(true);
 
-        accuseEleuia = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_SUSPECT_VARIANT_4, new WorldPoint(1643, 3218, 2), "Accuse Eleuia.")
+        accuseEleuia = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_SUSPECT_VARIANT_4, new WorldPoint(1643, 3218, 2), t("Accuse Eleuia."))
                 .addDialogSteps("Yes.", "Choose Eleuia.")
-                .puzzleWrapStep("Work out who the guilty emissary is.")
+                .puzzleWrapStep(t("Work out who the guilty emissary is."))
                 .withNoHelpHiddenInSidebar(true);
 
-        accuseGuiltyIndividual = new DetailedQuestStep(this, "Accuse the guilty individual.");
+        accuseGuiltyIndividual = new DetailedQuestStep(this, t("Accuse the guilty individual."));
         accuseGuiltyIndividual.addSubSteps(accuseTenoch, accuseSilia, accuseEleuia);
         accuseGuiltyIndividualPuzzleWrapped = accuseGuiltyIndividual
-                .puzzleWrapStep("Work out who the guilty emissary is.");
+                .puzzleWrapStep(t("Work out who the guilty emissary is."));
         accuseGuiltyIndividualPuzzleWrapped.addSubSteps(talkToTenoch, talkToSilia, talkToAdrius, talkToEleuia, accuseTenoch, accuseSilia, accuseEleuia);
 
-        goUpToFinalTrial = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_FOREMAN_TRIALS, new WorldPoint(1640, 3226, 2), "Talk to Janus to go to the final trial, ready for " +
-                "a fight.");
+        goUpToFinalTrial = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_FOREMAN_TRIALS, new WorldPoint(1640, 3226, 2), t("Talk to Janus to go to the final trial, ready for " +
+                "a fight."));
         goUpToFinalTrial.addDialogStep("Yes.");
 
         // Final trial section
-        fightPrince = new NpcStep(this, NpcID.VMQ3_TOWER_TRIAL_4_BOSS, new WorldPoint(1644, 3225, 2), "Defeat the prince. Use protect from melee. See " +
-                "sidebar for more details.");
-        fightPrinceSidebar = new DetailedQuestStep(this, "Defeat the prince. Use Protect from Melee.");
-        fightPrinceSidebar.addText("He will protect from any special attacks you do.");
-        fightPrinceSidebar.addText("He can do a sword swipe to turn off your prayers. Simply re-activate them straight away.");
-        fightPrinceSidebar.addText("If he says he's doing a slam attack, step on the tile behind him to dodge it.");
+        fightPrince = new NpcStep(this, NpcID.VMQ3_TOWER_TRIAL_4_BOSS, new WorldPoint(1644, 3225, 2), t("Defeat the prince. Use protect from melee. See " +
+                "sidebar for more details."));
+        fightPrinceSidebar = new DetailedQuestStep(this, t("Defeat the prince. Use Protect from Melee."));
+        fightPrinceSidebar.addText(t("He will protect from any special attacks you do."));
+        fightPrinceSidebar.addText(t("He can do a sword swipe to turn off your prayers. Simply re-activate them straight away."));
+        fightPrinceSidebar.addText(t("If he says he's doing a slam attack, step on the tile behind him to dodge it."));
         fightPrinceSidebar.addSubSteps(fightPrince);
 
         // Cult section
-        talkToJanusAfterPrinceFight = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_FOREMAN_TRIALS, new WorldPoint(1640, 3226, 2), "Talk to Janus to wrap up the final " +
-                "trial.");
-        talkToJanusAfterAllTrials = new NpcStep(this, NpcID.VMQ3_FOREBEARER_JANUS_VIS, new WorldPoint(1640, 3226, 0), "Talk to Janus at the bottom of the tower.");
-        searchChestForEmissaryRobes = new ObjectStep(this, ObjectID.VMQ3_CULTIST_OUTFIT_CHEST, new WorldPoint(1638, 3217, 0), "Search the chest in the south of the tower " +
-                "for some emissary robes.", freeInvSlots4);
-        talkToItzlaToFollow = new NpcStep(this, NpcID.VMQ3_ITZLA_VIS_CULTIST, new WorldPoint(1638, 3222, 0), "Talk to the prince to have him follow you.");
-        enterTemple = new DetailedQuestStep(this, new WorldPoint(1687, 3247, 0), "Enter the temple to the east of the tower for a cutscene.",
+        talkToJanusAfterPrinceFight = new NpcStep(this, NpcID.VMQ3_TOWER_TWILIGHT_FOREMAN_TRIALS, new WorldPoint(1640, 3226, 2), t("Talk to Janus to wrap up the final " +
+                "trial."));
+        talkToJanusAfterAllTrials = new NpcStep(this, NpcID.VMQ3_FOREBEARER_JANUS_VIS, new WorldPoint(1640, 3226, 0), t("Talk to Janus at the bottom of the tower."));
+        searchChestForEmissaryRobes = new ObjectStep(this, ObjectID.VMQ3_CULTIST_OUTFIT_CHEST, new WorldPoint(1638, 3217, 0), t("Search the chest in the south of the tower " +
+                "for some emissary robes."), freeInvSlots4);
+        talkToItzlaToFollow = new NpcStep(this, NpcID.VMQ3_ITZLA_VIS_CULTIST, new WorldPoint(1638, 3222, 0), t("Talk to the prince to have him follow you."));
+        enterTemple = new DetailedQuestStep(this, new WorldPoint(1687, 3247, 0), t("Enter the temple to the east of the tower for a cutscene."),
                 emissaryRobesEquipped);
-        talkToItzlaAfterSermon = new NpcStep(this, NpcID.VMQ3_ITZLA_VIS_CULTIST, new WorldPoint(1688, 3247, 0), "Talk to the prince in the temple.",
+        talkToItzlaAfterSermon = new NpcStep(this, NpcID.VMQ3_ITZLA_VIS_CULTIST, new WorldPoint(1688, 3247, 0), t("Talk to the prince in the temple."),
                 emissaryRobesEquipped);
-        talkToFides = new NpcStep(this, NpcID.VMQ3_FOREBEARER_FIDES_VIS, new WorldPoint(1685, 3247, 0), "Talk to Forebearer Fides in the temple.", emissaryRobesEquipped);
-        enterRuins = new ObjectStep(this, ObjectID.TAPOYAUIK_TEMPLE_ENTRANCE, new WorldPoint(1693, 3231, 0), "Go down the stairs south-east of the temple. Be equipped for" +
-                " a fight.");
+        talkToFides = new NpcStep(this, NpcID.VMQ3_FOREBEARER_FIDES_VIS, new WorldPoint(1685, 3247, 0), t("Talk to Forebearer Fides in the temple."), emissaryRobesEquipped);
+        enterRuins = new ObjectStep(this, ObjectID.TAPOYAUIK_TEMPLE_ENTRANCE, new WorldPoint(1693, 3231, 0), t("Go down the stairs south-east of the temple. Be equipped for" +
+                " a fight."));
 
         // Ice dungeon section
-        takePickaxe = new ObjectStep(this, ObjectID.VMQ3_PICKAXE_BARREL, new WorldPoint(1696, 9633, 2), "Take a pickaxe from the nearby barrel.");
-        mineRocks = new ObjectStep(this, ObjectID.VMQ3_RUINS_BLOCKAGE_START, new WorldPoint(1690, 9634, 2), "Mine the nearby rocks.", pickaxe);
-        pullFirstLever = new ObjectStep(this, ObjectID.VMQ3_RUINS_WALL_LEVER_3, new WorldPoint(1695, 9604, 2), "Pull the lever in the south-east of the area. Make sure to avoid the " +
-                "wall spikes.");
+        takePickaxe = new ObjectStep(this, ObjectID.VMQ3_PICKAXE_BARREL, new WorldPoint(1696, 9633, 2), t("Take a pickaxe from the nearby barrel."));
+        mineRocks = new ObjectStep(this, ObjectID.VMQ3_RUINS_BLOCKAGE_START, new WorldPoint(1690, 9634, 2), t("Mine the nearby rocks."), pickaxe);
+        pullFirstLever = new ObjectStep(this, ObjectID.VMQ3_RUINS_WALL_LEVER_3, new WorldPoint(1695, 9604, 2), t("Pull the lever in the south-east of the area. Make sure to avoid the " +
+                "wall spikes."));
         pullFirstLever.addTileMarkers(SpriteID.PvpwIcons.DEADMAN_EXCLAMATION_MARK_SKULLED_WARNING,
                 new WorldPoint(1682, 9603, 2), new WorldPoint(1682, 9604, 2), new WorldPoint(1682, 9605, 2),
                 new WorldPoint(1682, 9606, 2), new WorldPoint(1684, 9603, 2), new WorldPoint(1684, 9604, 2),
@@ -796,11 +796,11 @@ public class TheHeartOfDarkness extends BasicQuestHelper
                 new WorldPoint(1688, 9603, 2), new WorldPoint(1688, 9604, 2), new WorldPoint(1688, 9605, 2),
                 new WorldPoint(1688, 9606, 2), new WorldPoint(1690, 9603, 2), new WorldPoint(1690, 9604, 2),
                 new WorldPoint(1690, 9605, 2), new WorldPoint(1690, 9606, 2));
-        climbDownLedge = new ObjectStep(this, ObjectID.TAPOYAUIK_TRAVERSE_1_TOP, new WorldPoint(1701, 9607, 2), "Climb down the ledge east of the lever.");
-        climbUpLedgeToFirstLever = new ObjectStep(this, ObjectID.TAPOYAUIK_TRAVERSE_1_BOTTOM, new WorldPoint(1702, 9606, 1), "Climb back up the ice to the south-west to pull " +
-                "the first lever.");
-        slideAlongIceLedge = new ObjectStep(this, ObjectID.TAPOYAUIK_TRAVERSE_WALL_START, new WorldPoint(1714, 9632, 1), "Climb across the ice ledge to the north. Avoid the " +
-                "floor spike traps on the way.");
+        climbDownLedge = new ObjectStep(this, ObjectID.TAPOYAUIK_TRAVERSE_1_TOP, new WorldPoint(1701, 9607, 2), t("Climb down the ledge east of the lever."));
+        climbUpLedgeToFirstLever = new ObjectStep(this, ObjectID.TAPOYAUIK_TRAVERSE_1_BOTTOM, new WorldPoint(1702, 9606, 1), t("Climb back up the ice to the south-west to pull " +
+                "the first lever."));
+        slideAlongIceLedge = new ObjectStep(this, ObjectID.TAPOYAUIK_TRAVERSE_WALL_START, new WorldPoint(1714, 9632, 1), t("Climb across the ice ledge to the north. Avoid the " +
+                "floor spike traps on the way."));
         slideAlongIceLedge.setLinePoints(List.of(
                 new WorldPoint(1707, 9607, 1),
                 new WorldPoint(1719, 9607, 1),
@@ -809,11 +809,11 @@ public class TheHeartOfDarkness extends BasicQuestHelper
                 new WorldPoint(1716, 9629, 1)
         ));
 
-        slideAlongIceLedgeBackToSecondLever = new ObjectStep(this, ObjectID.TAPOYAUIK_TRAVERSE_WALL_END, new WorldPoint(1714, 9641, 1), "Climb back across the icy ledge.");
-        climbUpLedgeToSecondLever = new ObjectStep(this, ObjectID.TAPOYAUIK_TRAVERSE_2_BOTTOM, new WorldPoint(1684, 9659, 0), "Climb back up to pull a lever you missed.");
+        slideAlongIceLedgeBackToSecondLever = new ObjectStep(this, ObjectID.TAPOYAUIK_TRAVERSE_WALL_END, new WorldPoint(1714, 9641, 1), t("Climb back across the icy ledge."));
+        climbUpLedgeToSecondLever = new ObjectStep(this, ObjectID.TAPOYAUIK_TRAVERSE_2_BOTTOM, new WorldPoint(1684, 9659, 0), t("Climb back up to pull a lever you missed."));
         pullFirstLever.addSubSteps(slideAlongIceLedgeBackToSecondLever, climbUpLedgeToFirstLever, climbUpLedgeToSecondLever);
-        pullSecondLever = new ObjectStep(this, ObjectID.VMQ3_RUINS_WALL_LEVER_4, new WorldPoint(1711, 9660, 1), "Pull the lever in the north-east room. Avoid the " +
-                "floor traps.");
+        pullSecondLever = new ObjectStep(this, ObjectID.VMQ3_RUINS_WALL_LEVER_4, new WorldPoint(1711, 9660, 1), t("Pull the lever in the north-east room. Avoid the " +
+                "floor traps."));
         pullSecondLever.setLinePoints(List.of(
                 new WorldPoint(1710, 9648, 1),
                 new WorldPoint(1710, 9653, 1),
@@ -821,8 +821,8 @@ public class TheHeartOfDarkness extends BasicQuestHelper
                 new WorldPoint(1713, 9658, 1),
                 new WorldPoint(1711, 9660, 1)
         ));
-        jumpOverFrozenPlatforms = new ObjectStep(this, ObjectID.TAPOYAUIK_TRAVERSE_2_TOP, new WorldPoint(1686, 9659, 1), "Jump over the frozen platforms to the " +
-                "north-west, and climb down the ledge there.");
+        jumpOverFrozenPlatforms = new ObjectStep(this, ObjectID.TAPOYAUIK_TRAVERSE_2_TOP, new WorldPoint(1686, 9659, 1), t("Jump over the frozen platforms to the " +
+                "north-west, and climb down the ledge there."));
         jumpOverFrozenPlatforms.setLinePoints(List.of(
                 new WorldPoint(1711, 9660, 1),
                 new WorldPoint(1713, 9658, 1),
@@ -837,7 +837,7 @@ public class TheHeartOfDarkness extends BasicQuestHelper
                 new WorldPoint(1686, 9659, 1)
         ));
 
-        pullThirdLever = new ObjectStep(this, ObjectID.VMQ3_RUINS_WALL_LEVER_2, new WorldPoint(1671, 9661, 0), "Pull the third lever in the north-west room.");
+        pullThirdLever = new ObjectStep(this, ObjectID.VMQ3_RUINS_WALL_LEVER_2, new WorldPoint(1671, 9661, 0), t("Pull the third lever in the north-west room."));
         pullThirdLever.setLinePoints(List.of(
                 new WorldPoint(1681, 9656, 0),
                 new WorldPoint(1677, 9653, 0),
@@ -846,7 +846,7 @@ public class TheHeartOfDarkness extends BasicQuestHelper
                 new WorldPoint(1671, 9659, 0),
                 new WorldPoint(1671, 9661, 0)
         ));
-        pullFourthLever = new ObjectStep(this, ObjectID.VMQ3_RUINS_WALL_LEVER_1, new WorldPoint(1662, 9636, 0), "Pull the final lever in the south-west, near the gate.");
+        pullFourthLever = new ObjectStep(this, ObjectID.VMQ3_RUINS_WALL_LEVER_1, new WorldPoint(1662, 9636, 0), t("Pull the final lever in the south-west, near the gate."));
         pullFourthLever.setLinePoints(List.of(
                 new WorldPoint(1671, 9659, 0),
                 new WorldPoint(1671, 9658, 0),
@@ -859,91 +859,91 @@ public class TheHeartOfDarkness extends BasicQuestHelper
                 new WorldPoint(1667, 9636, 0),
                 new WorldPoint(1663, 9636, 0)
         ));
-        pullChain = new ObjectStep(this, ObjectID.TAPOYAUIK_POST_QUEST_SHORTCUT_BOTTOM, new WorldPoint(1670, 9631, 0), "Pull the chain to unlock a shortcut.");
+        pullChain = new ObjectStep(this, ObjectID.TAPOYAUIK_POST_QUEST_SHORTCUT_BOTTOM, new WorldPoint(1670, 9631, 0), t("Pull the chain to unlock a shortcut."));
 
-        climbDownIceShortcut = new ObjectStep(this, ObjectID.TAPOYAUIK_POST_QUEST_SHORTCUT_TOP, new WorldPoint(1670, 9631, 2), "Climb down the shortcut chain to the west of the " +
-                "entrance.");
+        climbDownIceShortcut = new ObjectStep(this, ObjectID.TAPOYAUIK_POST_QUEST_SHORTCUT_TOP, new WorldPoint(1670, 9631, 2), t("Climb down the shortcut chain to the west of the " +
+                "entrance."));
 
-        searchAirUrn = new ObjectStep(this, ObjectID.VMQ3_RUINS_AIR_URN, new WorldPoint(1647, 9622, 0), "Search the urn with an air symbol on it near to the " +
-                "earth markings in the south-east of the area.")
-                .puzzleWrapStep("Work out how to open the door to the far west.")
+        searchAirUrn = new ObjectStep(this, ObjectID.VMQ3_RUINS_AIR_URN, new WorldPoint(1647, 9622, 0), t("Search the urn with an air symbol on it near to the " +
+                "earth markings in the south-east of the area."))
+                .puzzleWrapStep(t("Work out how to open the door to the far west."))
                 .withNoHelpHiddenInSidebar(true);
-        searchEarthUrn = new ObjectStep(this, ObjectID.VMQ3_RUINS_EARTH_URN, new WorldPoint(1652, 9622, 0), "Search the urn with an earth symbol on it near to the " +
-                "earth markings in the south-east of the area.")
-                .puzzleWrapStep("Work out how to open the door to the far west.")
+        searchEarthUrn = new ObjectStep(this, ObjectID.VMQ3_RUINS_EARTH_URN, new WorldPoint(1652, 9622, 0), t("Search the urn with an earth symbol on it near to the " +
+                "earth markings in the south-east of the area."))
+                .puzzleWrapStep(t("Work out how to open the door to the far west."))
                 .withNoHelpHiddenInSidebar(true);
-        searchWaterUrn = new ObjectStep(this, ObjectID.VMQ3_RUINS_WATER_URN, new WorldPoint(1610, 9622, 0), "Search the urn with an water symbol on it near to the " +
-                "water markings in the south-west of the area.")
-                .puzzleWrapStep("Work out how to open the door to the far west.")
+        searchWaterUrn = new ObjectStep(this, ObjectID.VMQ3_RUINS_WATER_URN, new WorldPoint(1610, 9622, 0), t("Search the urn with an water symbol on it near to the " +
+                "water markings in the south-west of the area."))
+                .puzzleWrapStep(t("Work out how to open the door to the far west."))
                 .withNoHelpHiddenInSidebar(true);
-        searchFireUrn = new ObjectStep(this, ObjectID.VMQ3_RUINS_FIRE_URN, new WorldPoint(1615, 9622, 0), "Search the urn with an fire symbol on it near to the " +
-                "water markings in the south-west of the area.")
-                .puzzleWrapStep("Work out how to open the door to the far west.")
+        searchFireUrn = new ObjectStep(this, ObjectID.VMQ3_RUINS_FIRE_URN, new WorldPoint(1615, 9622, 0), t("Search the urn with an fire symbol on it near to the " +
+                "water markings in the south-west of the area."))
+                .puzzleWrapStep(t("Work out how to open the door to the far west."))
                 .withNoHelpHiddenInSidebar(true);
-        fixAirStatue = new ObjectStep(this, ObjectID.VMQ3_RUINS_AIR_STATUE_MULTI, new WorldPoint(1608, 9638, 0), "Fix the broken air statue in the west of the area.",
+        fixAirStatue = new ObjectStep(this, ObjectID.VMQ3_RUINS_AIR_STATUE_MULTI, new WorldPoint(1608, 9638, 0), t("Fix the broken air statue in the west of the area."),
                 airIcon.highlighted())
                 .addDialogStep("Yes.")
                 .addIcon(ItemID.VMQ3_RUINS_AIR_STATUE_REPAIR)
-                .puzzleWrapStep("Work out how to open the door to the far west.")
+                .puzzleWrapStep(t("Work out how to open the door to the far west."))
                 .withNoHelpHiddenInSidebar(true);
-        fixWaterStatue = new ObjectStep(this, ObjectID.VMQ3_RUINS_WATER_STATUE_MULTI, new WorldPoint(1608, 9624, 0), "Fix the broken water statue in the west of the area.",
+        fixWaterStatue = new ObjectStep(this, ObjectID.VMQ3_RUINS_WATER_STATUE_MULTI, new WorldPoint(1608, 9624, 0), t("Fix the broken water statue in the west of the area."),
                 waterIcon.highlighted())
                 .addDialogStep("Yes.")
                 .addIcon(ItemID.VMQ3_RUINS_WATER_STATUE_REPAIR)
-                .puzzleWrapStep("Work out how to open the door to the far west.")
+                .puzzleWrapStep(t("Work out how to open the door to the far west."))
                 .withNoHelpHiddenInSidebar(true);
 
-        fixEarthStatue = new ObjectStep(this, ObjectID.VMQ3_RUINS_EARTH_STATUE_MULTI, new WorldPoint(1605, 9635, 0), "Fix the broken earth statue in the west of the area.",
+        fixEarthStatue = new ObjectStep(this, ObjectID.VMQ3_RUINS_EARTH_STATUE_MULTI, new WorldPoint(1605, 9635, 0), t("Fix the broken earth statue in the west of the area."),
                 earthIcon.highlighted())
                 .addDialogStep("Yes.")
                 .addIcon(ItemID.VMQ3_RUINS_EARTH_STATUE_REPAIR)
-                .puzzleWrapStep("Work out how to open the door to the far west.")
+                .puzzleWrapStep(t("Work out how to open the door to the far west."))
                 .withNoHelpHiddenInSidebar(true);
-        fixFireStatue = new ObjectStep(this, ObjectID.VMQ3_RUINS_FIRE_STATUE_MULTI, new WorldPoint(1605, 9627, 0), "Fix the broken fire statue in the west of the area.",
+        fixFireStatue = new ObjectStep(this, ObjectID.VMQ3_RUINS_FIRE_STATUE_MULTI, new WorldPoint(1605, 9627, 0), t("Fix the broken fire statue in the west of the area."),
                 fireIcon.highlighted())
                 .addDialogStep("Yes.")
                 .addIcon(ItemID.VMQ3_RUINS_FIRE_STATUE_REPAIR)
-                .puzzleWrapStep("Work out how to open the door to the far west.")
+                .puzzleWrapStep(t("Work out how to open the door to the far west."))
                 .withNoHelpHiddenInSidebar(true);
 
-        inspectAirMarkings = new ObjectStep(this, ObjectID.VMQ3_RUINS_WALL_CLUE_AIR, new WorldPoint(1650, 9642, 0), "Inspect the air markings in the north-east of " +
-                "the area.")
-                .puzzleWrapStep("Work out how to open the door to the far west.")
+        inspectAirMarkings = new ObjectStep(this, ObjectID.VMQ3_RUINS_WALL_CLUE_AIR, new WorldPoint(1650, 9642, 0), t("Inspect the air markings in the north-east of " +
+                "the area."))
+                .puzzleWrapStep(t("Work out how to open the door to the far west."))
                 .withNoHelpHiddenInSidebar(true);
-        inspectWaterMarkings = new ObjectStep(this, ObjectID.VMQ3_RUINS_WALL_CLUE_WATER, new WorldPoint(1613, 9621, 0), "Inspect the water markings in the south-west of " +
-                "the area.")
-                .puzzleWrapStep("Work out how to open the door to the far west.")
+        inspectWaterMarkings = new ObjectStep(this, ObjectID.VMQ3_RUINS_WALL_CLUE_WATER, new WorldPoint(1613, 9621, 0), t("Inspect the water markings in the south-west of " +
+                "the area."))
+                .puzzleWrapStep(t("Work out how to open the door to the far west."))
                 .withNoHelpHiddenInSidebar(true);
-        inspectEarthMarkings = new ObjectStep(this, ObjectID.VMQ3_RUINS_WALL_CLUE_EARTH, new WorldPoint(1650, 9621, 0), "Inspect the earth markings in the south-east of " +
-                "the area.")
-                .puzzleWrapStep("Work out how to open the door to the far west.")
+        inspectEarthMarkings = new ObjectStep(this, ObjectID.VMQ3_RUINS_WALL_CLUE_EARTH, new WorldPoint(1650, 9621, 0), t("Inspect the earth markings in the south-east of " +
+                "the area."))
+                .puzzleWrapStep(t("Work out how to open the door to the far west."))
                 .withNoHelpHiddenInSidebar(true);
-        inspectFireMarkings = new ObjectStep(this, ObjectID.VMQ3_RUINS_WALL_CLUE_FIRE, new WorldPoint(1613, 9642, 0), "Inspect the fire markings in the north-west of " +
-                "the area.")
-                .puzzleWrapStep("Work out how to open the door to the far west.")
+        inspectFireMarkings = new ObjectStep(this, ObjectID.VMQ3_RUINS_WALL_CLUE_FIRE, new WorldPoint(1613, 9642, 0), t("Inspect the fire markings in the north-west of " +
+                "the area."))
+                .puzzleWrapStep(t("Work out how to open the door to the far west."))
                 .withNoHelpHiddenInSidebar(true);
 
-        ObjectStep firstStatueStep = new ObjectStep(this, ObjectID.VMQ3_RUINS_FIRE_STATUE_MULTI, new WorldPoint(1650, 9642, 0), "Activate the first statue in the order.")
+        ObjectStep firstStatueStep = new ObjectStep(this, ObjectID.VMQ3_RUINS_FIRE_STATUE_MULTI, new WorldPoint(1650, 9642, 0), t("Activate the first statue in the order."))
                 .addAlternateObjects(ObjectID.VMQ3_RUINS_WATER_STATUE_MULTI, ObjectID.VMQ3_RUINS_AIR_STATUE_MULTI, ObjectID.VMQ3_RUINS_EARTH_STATUE_MULTI);
         activateFirstStatue = firstStatueStep
-                .puzzleWrapStep("Work out how to open the door to the far west.")
+                .puzzleWrapStep(t("Work out how to open the door to the far west."))
                 .withNoHelpHiddenInSidebar(true);
 
-        ObjectStep secondStatueStep = new ObjectStep(this, ObjectID.VMQ3_RUINS_FIRE_STATUE_MULTI, new WorldPoint(1650, 9642, 0), "Activate the second statue in the order.")
+        ObjectStep secondStatueStep = new ObjectStep(this, ObjectID.VMQ3_RUINS_FIRE_STATUE_MULTI, new WorldPoint(1650, 9642, 0), t("Activate the second statue in the order."))
                 .addAlternateObjects(ObjectID.VMQ3_RUINS_WATER_STATUE_MULTI, ObjectID.VMQ3_RUINS_AIR_STATUE_MULTI, ObjectID.VMQ3_RUINS_EARTH_STATUE_MULTI);
         activateSecondStatue = secondStatueStep
-                .puzzleWrapStep("Work out how to open the door to the far west.")
+                .puzzleWrapStep(t("Work out how to open the door to the far west."))
                 .withNoHelpHiddenInSidebar(true);
 
-        ObjectStep thirdStatueStep = new ObjectStep(this, ObjectID.VMQ3_RUINS_FIRE_STATUE_MULTI, new WorldPoint(1650, 9642, 0), "Activate the third statue in the order.")
+        ObjectStep thirdStatueStep = new ObjectStep(this, ObjectID.VMQ3_RUINS_FIRE_STATUE_MULTI, new WorldPoint(1650, 9642, 0), t("Activate the third statue in the order."))
                 .addAlternateObjects(ObjectID.VMQ3_RUINS_WATER_STATUE_MULTI, ObjectID.VMQ3_RUINS_AIR_STATUE_MULTI, ObjectID.VMQ3_RUINS_EARTH_STATUE_MULTI);
         activateThirdStatue = thirdStatueStep
-                .puzzleWrapStep("Work out how to open the door to the far west.")
+                .puzzleWrapStep(t("Work out how to open the door to the far west."))
                 .withNoHelpHiddenInSidebar(true);
-        ObjectStep fourthStatueStep = new ObjectStep(this, ObjectID.VMQ3_RUINS_FIRE_STATUE_MULTI, new WorldPoint(1650, 9642, 0), "Activate the fourth statue in the order.")
+        ObjectStep fourthStatueStep = new ObjectStep(this, ObjectID.VMQ3_RUINS_FIRE_STATUE_MULTI, new WorldPoint(1650, 9642, 0), t("Activate the fourth statue in the order."))
                 .addAlternateObjects(ObjectID.VMQ3_RUINS_WATER_STATUE_MULTI, ObjectID.VMQ3_RUINS_AIR_STATUE_MULTI, ObjectID.VMQ3_RUINS_EARTH_STATUE_MULTI);
         activateFourthStatue = fourthStatueStep
-                .puzzleWrapStep("Work out how to open the door to the far west.");
+                .puzzleWrapStep(t("Work out how to open the door to the far west."));
 
         activateFourthStatue.addSubSteps(searchAirUrn, searchEarthUrn, searchWaterUrn, searchFireUrn, fixAirStatue, fixWaterStatue, fixEarthStatue, fixFireStatue,
                 inspectAirMarkings, inspectWaterMarkings, inspectEarthMarkings, inspectFireMarkings, activateSecondStatue, activateFirstStatue,
@@ -954,19 +954,19 @@ public class TheHeartOfDarkness extends BasicQuestHelper
         statueActivateSteps[2] = thirdStatueStep;
         statueActivateSteps[3] = fourthStatueStep;
 
-        enterFinalBossRoom = new ObjectStep(this, ObjectID.VMQ3_RUINS_DOOR_MULTI, new WorldPoint(1601, 9631, 0), "Enter the door to the west, ready for the boss.");
+        enterFinalBossRoom = new ObjectStep(this, ObjectID.VMQ3_RUINS_DOOR_MULTI, new WorldPoint(1601, 9631, 0), t("Enter the door to the west, ready for the boss."));
 
-        defeatAmoxliatl = new NpcStep(this, NpcID.AMOXLIATL, new WorldPoint(1365, 4510,  0), "Defeat Amoxliatl. See the sidebar for more details.");
+        defeatAmoxliatl = new NpcStep(this, NpcID.AMOXLIATL, new WorldPoint(1365, 4510,  0), t("Defeat Amoxliatl. See the sidebar for more details."));
         ((NpcStep) defeatAmoxliatl).addAlternateNpcs(NpcID.AMOXLIATL_QUEST, NpcID.AMOXLIATL_QUEST_INACTIVE, NpcID.AMOXLIATL_CUTSCENE);
 
-        defeatAmoxliatlSidebar = new DetailedQuestStep(this, "Defeat Amoxliatl. Use Protect from Magic.");
-        defeatAmoxliatlSidebar.addText("Ice spikes will appear on the floor, move off the tile to avoid them.");
-        defeatAmoxliatlSidebar.addText("She may disable your prayers and shoot an icicle at you. Simply turn back on Protect from Magic.");
-        defeatAmoxliatlSidebar.addText("Ice blocks may appear. Use melee to destroy them all before they explode and heal the boss.");
+        defeatAmoxliatlSidebar = new DetailedQuestStep(this, t("Defeat Amoxliatl. Use Protect from Magic."));
+        defeatAmoxliatlSidebar.addText(t("Ice spikes will appear on the floor, move off the tile to avoid them."));
+        defeatAmoxliatlSidebar.addText(t("She may disable your prayers and shoot an icicle at you. Simply turn back on Protect from Magic."));
+        defeatAmoxliatlSidebar.addText(t("Ice blocks may appear. Use melee to destroy them all before they explode and heal the boss."));
         defeatAmoxliatlSidebar.addSubSteps(defeatAmoxliatl);
 
-        talkToServius = new NpcStep(this, NpcID.VMQ3_SERVIUS_VIS, new WorldPoint(1681, 3168, 0), "Talk to Servius, Teokan of Ralos in the palace" +
-                " in Civitas illa Fortis to complete the quest.");
+        talkToServius = new NpcStep(this, NpcID.VMQ3_SERVIUS_VIS, new WorldPoint(1681, 3168, 0), t("Talk to Servius, Teokan of Ralos in the palace" +
+                " in Civitas illa Fortis to complete the quest."));
         talkToServius.addWidgetHighlight(WidgetHighlight.createQuetzalHighlight(QuetzalDestination.CIVITAS_ILLA_FORTIS));
         talkToServius.addTeleport(civitasIllaFortisTeleport);
     }
@@ -995,7 +995,7 @@ public class TheHeartOfDarkness extends BasicQuestHelper
                         statueDetails.setPosInOrder(pos);
                         statueDetails.getHasBeenInspected().setShouldPass(true);
                         ObjectStep stepToChange = statueActivateSteps[pos - 1];
-                        stepToChange.setText("Activate the "  + statueDetails.getElementName() + " statue in the west of the room.");
+                        stepToChange.setText(t("Activate the ") + statueDetails.getElementName() + " " + t("statue in the west of the room."));
                         stepToChange.setWorldPoint(statueDetails.getStatuePos());
                         activateStatueRequirements[pos - 1].setRequiredValue(i + 1);
                         // set the step of the pos to be this element's info
@@ -1101,10 +1101,10 @@ public class TheHeartOfDarkness extends BasicQuestHelper
     public List<String> getCombatRequirements()
     {
         return List.of(
-                "Several Emissary Brawlers (levels 74 and 86)",
-                "Several Emissary Conjurers (level 71)",
-                "Prince Itzla Arkan (level 167)",
-                "Amoxliatl (level 263)"
+                t("Several Emissary Brawlers (levels 74 and 86)"),
+                t("Several Emissary Conjurers (level 71)"),
+                t("Prince Itzla Arkan (level 167)"),
+                t("Amoxliatl (level 263)")
         );
     }
 
@@ -1128,7 +1128,7 @@ public class TheHeartOfDarkness extends BasicQuestHelper
     @Override
     public List<UnlockReward> getUnlockRewards()
     {
-        return Collections.singletonList(new UnlockReward("Access to Tapoyauik"));
+        return Collections.singletonList(new UnlockReward(t("Access to Tapoyauik")));
     }
 
     @Override
@@ -1136,9 +1136,9 @@ public class TheHeartOfDarkness extends BasicQuestHelper
     {
         List<PanelDetails> allSteps = new ArrayList<>();
 
-        allSteps.add(new PanelDetails("Starting off", List.of(talkToItzlaAtTeomat, travelToGorge, talkToBartender, restOnBed, talkToPrinceAfterRest,
+        allSteps.add(new PanelDetails(t("Starting off"), List.of(talkToItzlaAtTeomat, travelToGorge, talkToBartender, restOnBed, talkToPrinceAfterRest,
                 talkToShopkeeper, talkToPrinceInPubAgain), List.of(coins.quantity(30))));
-        allSteps.add(new PanelDetails("The Tower", List.of(talkToPrinceAtTower, buildSalvagerOverlookLandingSite, talkToPrinceAtTowerAfterLanding,
+        allSteps.add(new PanelDetails(t("The Tower"), List.of(talkToPrinceAtTower, buildSalvagerOverlookLandingSite, talkToPrinceAtTowerAfterLanding,
                 talkToFelius, talkToCaritta, talkToSergius, talkToNova, talkToPrinceAfterRecruits, talkToJanus, climbUpToFirstTrial), List.of(combatGear, food),
                 List.of(staminaPotions, quetzalFeed.quantity(10), limestoneBrick.quantity(3), softClay.quantity(4))));
 
@@ -1147,15 +1147,15 @@ public class TheHeartOfDarkness extends BasicQuestHelper
         firstTrialSteps.addAll(chestSteps);
         firstTrialSteps.addAll(List.of(readPoem, talkToPrinceAfterPoem, openKeywordChestNorthWest, inputArrowsPuzzleWrapped, combineScraps, readCompletedNote,
                 tellJanusPasscode));
-        PanelDetails firstTrial = new PanelDetails("First Trial", firstTrialSteps);
+        PanelDetails firstTrial = new PanelDetails(t("First Trial"), firstTrialSteps);
         allSteps.add(firstTrial);
 
-        allSteps.add(new PanelDetails("Second Trial", List.of(startCombatTrial, completeCombatTrial, talkToJanusAfterTrial), List.of(combatGear)));
-        allSteps.add(new PanelDetails("Third Trial", List.of(talkToPrinceToStartThirdTrial, talkToTenoch, talkToSilia, talkToAdrius, talkToEleuia,
+        allSteps.add(new PanelDetails(t("Second Trial"), List.of(startCombatTrial, completeCombatTrial, talkToJanusAfterTrial), List.of(combatGear)));
+        allSteps.add(new PanelDetails(t("Third Trial"), List.of(talkToPrinceToStartThirdTrial, talkToTenoch, talkToSilia, talkToAdrius, talkToEleuia,
                 accuseGuiltyIndividualPuzzleWrapped, goUpToFinalTrial)));
-        allSteps.add(new PanelDetails("Final Trial", List.of(fightPrinceSidebar, talkToJanusAfterPrinceFight)));
-        allSteps.add(new PanelDetails("Cult", List.of(talkToJanusAfterAllTrials, searchChestForEmissaryRobes, talkToItzlaToFollow, enterTemple, talkToItzlaAfterSermon, talkToFides)));
-        allSteps.add(new PanelDetails("The Old Ones", List.of(enterRuins, takePickaxe, mineRocks, pullFirstLever, climbDownLedge, slideAlongIceLedge, pullSecondLever, jumpOverFrozenPlatforms, pullThirdLever,
+        allSteps.add(new PanelDetails(t("Final Trial"), List.of(fightPrinceSidebar, talkToJanusAfterPrinceFight)));
+        allSteps.add(new PanelDetails(t("Cult"), List.of(talkToJanusAfterAllTrials, searchChestForEmissaryRobes, talkToItzlaToFollow, enterTemple, talkToItzlaAfterSermon, talkToFides)));
+        allSteps.add(new PanelDetails(t("The Old Ones"), List.of(enterRuins, takePickaxe, mineRocks, pullFirstLever, climbDownLedge, slideAlongIceLedge, pullSecondLever, jumpOverFrozenPlatforms, pullThirdLever,
                 pullFourthLever, pullChain, climbDownIceShortcut, inspectAirMarkings, inspectEarthMarkings, searchAirUrn, searchEarthUrn, inspectWaterMarkings, inspectFireMarkings,
                 searchFireUrn, searchWaterUrn, fixWaterStatue, fixFireStatue, fixEarthStatue, fixAirStatue, activateFirstStatue, activateSecondStatue,
                 activateThirdStatue, activateFourthStatue, enterFinalBossRoom, defeatAmoxliatlSidebar, talkToServius), List.of(combatGear, freeInvSlots4),

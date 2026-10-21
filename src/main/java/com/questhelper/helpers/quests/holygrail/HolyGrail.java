@@ -224,7 +224,7 @@ public class HolyGrail extends BasicQuestHelper
 		antipoison = new ItemRequirement("Antipoison", ItemCollections.ANTIPOISONS);
 		antipoison.setTooltip(t("If you're below Combat level 41, the poisonous scorpions on Karamja are aggressive"));
 		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
-		combatGear = new ItemRequirement("A weapon and armour (melee recommended)", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("A weapon and armour (melee recommended)"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		emptyInvSpot = new ItemRequirement("Empty Inventory Spot", -1, 1);
 		goldFeather = new ItemRequirement("Magic gold feather", ItemID.MAGIC_GOLDEN_FEATHER);

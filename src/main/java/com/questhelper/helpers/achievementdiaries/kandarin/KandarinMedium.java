@@ -192,8 +192,8 @@ public class KandarinMedium extends ComplexStateQuestHelper
 		iritLeaf = new ItemRequirement("Irit leaf", ItemID.IRIT_LEAF, 1).showConditioned(notSuperAnti);
 		dustyKey = new KeyringRequirement("Dusty Key", KeyringCollection.DUSTY_KEY).showConditioned(new Conditions(not70Agility,
 			notGrapOb)).isNotConsumed();
-		dustyKey.setTooltip("You can get this by killing the Jailer in the Black Knights Base in Taverley Dungeon and" +
-			" using the key he drops to enter the jail cell there to talk to Velrak for the dusty key");
+		dustyKey.setTooltip(t("You can get this by killing the Jailer in the Black Knights Base in Taverley Dungeon and" +
+			" using the key he drops to enter the jail cell there to talk to Velrak for the dusty key"));
 		bigFishingNet = new ItemRequirement("Big fishing net", ItemID.BIG_NET).showConditioned(notCatchCookBass).isNotConsumed();
 		lawRune = new ItemRequirement("Law rune", ItemID.LAWRUNE, 1).showConditioned(notTPCam);
 		airRune = new ItemRequirement("Air Rune", ItemID.AIRRUNE, 5).showConditioned(notTPCam);
@@ -207,8 +207,8 @@ public class KandarinMedium extends ComplexStateQuestHelper
 		hammer = new ItemRequirement("Hammer", ItemID.HAMMER).showConditioned(notMindHelm).isNotConsumed();
 		beatenBook = new ItemRequirement("Beaten Book", ItemID.ELEMENTAL_WORKSHOP_HELM_BOOK).showConditioned(notMindHelm);
 		batteredKey = new KeyringRequirement("Battered Key", KeyringCollection.BATTERED_KEY).showConditioned(notMindHelm);
-		batteredKey.setTooltip("You can get another by searching the bookcase in the house south of the Elemental " +
-			"Workshop, then reading the book you get from it");
+		batteredKey.setTooltip(t("You can get another by searching the bookcase in the house south of the Elemental " +
+			"Workshop, then reading the book you get from it"));
 
 		rope = new ItemRequirement("Rope", ItemID.ROPE).showConditioned(notFireGiant).isNotConsumed();
 		lockpick = new ItemRequirement("Lockpick", ItemID.LOCKPICK).showConditioned(notStealHemen).isNotConsumed();
@@ -217,7 +217,7 @@ public class KandarinMedium extends ComplexStateQuestHelper
 		rawBass = new ItemRequirement("Raw bass", ItemID.RAW_BASS).showConditioned(notCatchCookBass);
 		compost = new ItemRequirement("Compost", ItemCollections.COMPOST).showConditioned(notPickLimp);
 
-		combatGear = new ItemRequirement("Combat gear to kill a fire giant and complete a wave of Barbarian Assault", -1, -1)
+		combatGear = new ItemRequirement(t("Combat gear to kill a fire giant and complete a wave of Barbarian Assault"), -1, -1)
 			.showConditioned(new Conditions(LogicType.OR, notFireGiant, notBarbAss)).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
@@ -249,71 +249,71 @@ public class KandarinMedium extends ComplexStateQuestHelper
 	public void setupSteps()
 	{
 		barbAgi = new ObjectStep(this, ObjectID.AGILITY_OBSTICAL_PIPE_BARBARIAN, new WorldPoint(2552, 3560, 0),
-			"Complete a lap of the Barbarian Outpost agility course.");
+			t("Complete a lap of the Barbarian Outpost agility course."));
 		barbAss = new ObjectStep(this, ObjectID.BARBASSAULT_RECRUITMENT_ENTRANCE, new WorldPoint(2534, 3572, 0),
-			"Complete a wave of Barbarian Assault. If it's your first time here, speak with Captain Cain for the " +
-				"tutorial.");
+			t("Complete a wave of Barbarian Assault. If it's your first time here, speak with Captain Cain for the " +
+				"tutorial."));
 		enterRange = new ObjectStep(this, ObjectID.RANGING_GUILD_DOOR, new WorldPoint(2658, 3438, 0),
-			"Enter the Ranging Guild.");
+			t("Enter the Ranging Guild."));
 		stealHemen = new ObjectStep(this, ObjectID.PICKCHEST3, new WorldPoint(2639, 3424, 0),
-			"Steal from the chest in Hemenster.", lockpick);
+			t("Steal from the chest in Hemenster."), lockpick);
 		mineCoal = new ObjectStep(this, ObjectID.COALROCK1, new WorldPoint(2590, 3476, 0),
-			"Mine coal near the Coal Trucks.", pickaxe);
+			t("Mine coal near the Coal Trucks."), pickaxe);
 		mineCoal.addIcon(ItemID.RUNE_PICKAXE);
 		moveToWaterfall = new ObjectStep(this, ObjectID.WATERFALL_LEDGE_DOOR, new WorldPoint(2511, 3464, 0),
-			"Enter the waterfall dungeon.", rope, combatGear);
+			t("Enter the waterfall dungeon."), rope, combatGear);
 		fireGiant = new NpcStep(this, NpcID.FIREGIANT3, new WorldPoint(2566, 9887, 0),
-			"Kill a Fire giant.", true, combatGear);
+			t("Kill a Fire giant."), true, combatGear);
 		fireGiant.addAlternateNpcs(NpcID.FIREGIANT2, NpcID.FIREGIANT);
 		moveToWorkshop = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_SPIRALSTAIRSTOP, new WorldPoint(2711, 3498, 0),
-			"Enter the Elemental Workshop.", batteredKey, primedMind);
+			t("Enter the Elemental Workshop."), batteredKey, primedMind);
 		makeMindHelmet = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_WORKBENCH, new WorldPoint(2717, 9888, 0),
-			"Make a mind helm.", beatenBook, primedMind);
+			t("Make a mind helm."), beatenBook, primedMind);
 		moveToBank = new DetailedQuestStep(this, new WorldPoint(2725, 3492, 0),
-			"Go to Seers' Village bank to string a maple shortbow.");
-		stringMaple = new DetailedQuestStep(this, "String a maple shortbow.", mapleUnstrung.highlighted(),
+			t("Go to Seers' Village bank to string a maple shortbow."));
+		stringMaple = new DetailedQuestStep(this, t("String a maple shortbow."), mapleUnstrung.highlighted(),
 			bowString.highlighted());
 
 		int agilityLevel = client.getRealSkillLevel(Skill.AGILITY);
 		if (agilityLevel >= 65 && agilityLevel < 70)
 		{
 			moveToTavDungeon = new ObjectStep(this, ObjectID.LADDER_OUTSIDE_TO_UNDERGROUND, new WorldPoint(2884, 3397, 0),
-				"Enter the Taverley Dungeon. Bring a summer pie to boost for the 70 Agility shortcut if you'd like to save time.", dustyKey, mithGrap, crossbow);
+				t("Enter the Taverley Dungeon. Bring a summer pie to boost for the 70 Agility shortcut if you'd like to save time."), dustyKey, mithGrap, crossbow);
 		}
 		else
 		{
 			moveToTavDungeon = new ObjectStep(this, ObjectID.LADDER_OUTSIDE_TO_UNDERGROUND, new WorldPoint(2884, 3397, 0),
-				"Enter the Taverley Dungeon.", dustyKey, mithGrap, crossbow);
+				t("Enter the Taverley Dungeon."), dustyKey, mithGrap, crossbow);
 		}
 
 		moveToOb = new ObjectStep(this, ObjectID.LADDER_FROM_CELLAR, new WorldPoint(2842, 9824, 0),
-			"Make your way through Taverley Dungeon to the end, and climb the ladder there. If you're 70+ " +
-				"Agility, use one of the shortcuts near the entrance to get there quickly.",
+			t("Make your way through Taverley Dungeon to the end, and climb the ladder there. If you're 70+ " +
+				"Agility, use one of the shortcuts near the entrance to get there quickly."),
 			dustyKey, mithGrap.equipped(), crossbow.equipped());
 		grapOb = new ObjectStep(this, ObjectID.XBOWS_BEACH_TO_ISLAND_TREE_BASIC, new WorldPoint(2842, 3435, 0),
-			"Grapple across!", mithGrap.equipped(), crossbow.equipped());
+			t("Grapple across!"), mithGrap.equipped(), crossbow.equipped());
 		moveToSeersCath = new DetailedQuestStep(this, new WorldPoint(2755, 3475, 0),
-			"Move to the Seers' Village / Catherby area.", iritLeaf, vialOfWater, unicornHorn, mortarPest);
+			t("Move to the Seers' Village / Catherby area."), iritLeaf, vialOfWater, unicornHorn, mortarPest);
 		mixUnf = new DetailedQuestStep(this,
-			"Create an unfinished Irit potion.", iritLeaf.highlighted(), vialOfWater.highlighted());
+			t("Create an unfinished Irit potion."), iritLeaf.highlighted(), vialOfWater.highlighted());
 		crushHorn = new DetailedQuestStep(this,
-			"Crush a unicorn horn.", unicornHorn.highlighted(), mortarPest.highlighted());
+			t("Crush a unicorn horn."), unicornHorn.highlighted(), mortarPest.highlighted());
 		superAnti = new DetailedQuestStep(this,
-			"Create a super antipoison potion.", hornDust.highlighted(), unfIrit.highlighted());
+			t("Create a super antipoison potion."), hornDust.highlighted(), unfIrit.highlighted());
 		plantAndPickLimp = new ObjectStep(this, ObjectID.FARMING_FLOWER_PATCH_2, new WorldPoint(2810, 3464, 0),
-			"Plant a limpwurt seed in the Catherby Flower Patch, wait for it to grow then pick it. " +
-				"If you're waiting for it to grow and want to complete further tasks, use the tick box on panel.",
+			t("Plant a limpwurt seed in the Catherby Flower Patch, wait for it to grow then pick it. " +
+				"If you're waiting for it to grow and want to complete further tasks, use the tick box on panel."),
 			rake, limpSeed, seedDib);
 		catchBass = new NpcStep(this, NpcID._0_44_53_MEMBERFISH, new WorldPoint(2837, 3431, 0),
-			"Catch a bass on Catherby Beach.", bigFishingNet);
+			t("Catch a bass on Catherby Beach."), bigFishingNet);
 		cookBass = new ObjectStep(this, ObjectID.RANGE, new WorldPoint(2818, 3444, 0),
-			"Cook the bass on the range in Catherby.", rawBass);
-		travelMcGrubor = new DetailedQuestStep(this, "Take a fairy ring to McGrubor's Woods (ALS)", staff.equipped());
-		tpCAM = new DetailedQuestStep(this, "Teleport to Camelot.", lawRune.quantity(1), airRune.quantity(5),
+			t("Cook the bass on the range in Catherby."), rawBass);
+		travelMcGrubor = new DetailedQuestStep(this, t("Take a fairy ring to McGrubor's Woods (ALS)"), staff.equipped());
+		tpCAM = new DetailedQuestStep(this, t("Teleport to Camelot."), lawRune.quantity(1), airRune.quantity(5),
 			normalBook);
 
 		claimReward = new NpcStep(this, NpcID.SEERS_DIARY_WEDGE, new WorldPoint(2760, 3476, 0),
-			"Talk to the 'Wedge' in front of Camelot Castle to claim your reward!");
+			t("Talk to the 'Wedge' in front of Camelot Castle to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -370,7 +370,7 @@ public class KandarinMedium extends ComplexStateQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Fire giant (Level 86)");
+		return Collections.singletonList(t("Fire giant (Level 86)"));
 	}
 
 	@Override
@@ -385,10 +385,10 @@ public class KandarinMedium extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("Coal trucks can hold up to 280 coal."),
-			new UnlockReward("The Flax keeper will exchange 60 noted flax for 60 noted bow strings daily"),
-			new UnlockReward("10% more marks of grace on Seers' Village Rooftop Course"),
-			new UnlockReward("5% increased chance to save a harvest life from the Catherby herb patch"));
+			new UnlockReward(t("Coal trucks can hold up to 280 coal.")),
+			new UnlockReward(t("The Flax keeper will exchange 60 noted flax for 60 noted bow strings daily")),
+			new UnlockReward(t("10% more marks of grace on Seers' Village Rooftop Course")),
+			new UnlockReward(t("5% increased chance to save a harvest life from the Catherby herb patch")));
 	}
 
 	@Override
@@ -396,52 +396,52 @@ public class KandarinMedium extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails pickLimpSteps = new PanelDetails("Pick Limpwurt in Catherby", Collections.singletonList(plantAndPickLimp),
+		PanelDetails pickLimpSteps = new PanelDetails(t("Pick Limpwurt in Catherby"), Collections.singletonList(plantAndPickLimp),
 			new SkillRequirement(Skill.FARMING, 26, true), limpSeed, seedDib, compost, rake);
 		pickLimpSteps.setDisplayCondition(notPickLimp);
 		pickLimpSteps.setLockingStep(pickLimpTask);
 		allSteps.add(pickLimpSteps);
 
-		PanelDetails grappleStep = new PanelDetails("Grapple from Water Obelisk", Arrays.asList(moveToTavDungeon, moveToOb, grapOb),
+		PanelDetails grappleStep = new PanelDetails(t("Grapple from Water Obelisk"), Arrays.asList(moveToTavDungeon, moveToOb, grapOb),
 			new SkillRequirement(Skill.AGILITY, 36, true), new SkillRequirement(Skill.STRENGTH, 22, true),
 			new SkillRequirement(Skill.RANGED, 39, true), mithGrap, crossbow, dustyKey);
 		grappleStep.setDisplayCondition(notGrapOb);
 		grappleStep.setLockingStep(grapObTask);
 		allSteps.add(grappleStep);
 
-		PanelDetails catchCookBassSteps = new PanelDetails("Catch and Cook Bass", Arrays.asList(catchBass, cookBass),
+		PanelDetails catchCookBassSteps = new PanelDetails(t("Catch and Cook Bass"), Arrays.asList(catchBass, cookBass),
 			new SkillRequirement(Skill.FISHING, 46, true), new SkillRequirement(Skill.COOKING, 43, true),
 			bigFishingNet);
 		catchCookBassSteps.setDisplayCondition(notCatchCookBass);
 		catchCookBassSteps.setLockingStep(catchCookBassTask);
 		allSteps.add(catchCookBassSteps);
 
-		PanelDetails stringMapleShortbow = new PanelDetails("String Maple Shortbow in Seers' Bank",
+		PanelDetails stringMapleShortbow = new PanelDetails(t("String Maple Shortbow in Seers' Bank"),
 			Arrays.asList(moveToBank, stringMaple), new SkillRequirement(Skill.FLETCHING, 50, true),
 			mapleUnstrung, bowString);
 		stringMapleShortbow.setDisplayCondition(notStringMaple);
 		stringMapleShortbow.setLockingStep(stringMapleTask);
 		allSteps.add(stringMapleShortbow);
 
-		PanelDetails mixSuperantiSteps = new PanelDetails("Mix Superantipoison", Arrays.asList(moveToSeersCath, mixUnf, crushHorn, superAnti),
+		PanelDetails mixSuperantiSteps = new PanelDetails(t("Mix Superantipoison"), Arrays.asList(moveToSeersCath, mixUnf, crushHorn, superAnti),
 			new SkillRequirement(Skill.HERBLORE, 48, true), unicornHorn, mortarPest, vialOfWater, iritLeaf);
 		mixSuperantiSteps.setDisplayCondition(notSuperAnti);
 		mixSuperantiSteps.setLockingStep(superAntiTask);
 		allSteps.add(mixSuperantiSteps);
 
-		PanelDetails makeMindHelmStep = new PanelDetails("Make a Mind Helm", Arrays.asList(moveToWorkshop,
+		PanelDetails makeMindHelmStep = new PanelDetails(t("Make a Mind Helm"), Arrays.asList(moveToWorkshop,
 			makeMindHelmet), eleWorkII, primedMind, batteredKey, beatenBook, hammer);
 		makeMindHelmStep.setDisplayCondition(notMindHelm);
 		makeMindHelmStep.setLockingStep(mindHelmTask);
 		allSteps.add(makeMindHelmStep);
 
-		PanelDetails enterRangeSteps = new PanelDetails("Enter the Ranging Guild", Collections.singletonList(enterRange),
+		PanelDetails enterRangeSteps = new PanelDetails(t("Enter the Ranging Guild"), Collections.singletonList(enterRange),
 			new SkillRequirement(Skill.RANGED, 40, true));
 		enterRangeSteps.setDisplayCondition(notEnterRange);
 		enterRangeSteps.setLockingStep(enterRangeTask);
 		allSteps.add(enterRangeSteps);
 
-		PanelDetails stealHemSteps = new PanelDetails("Steal from Hemenster Chest",
+		PanelDetails stealHemSteps = new PanelDetails(t("Steal from Hemenster Chest"),
 			Collections.singletonList(stealHemen),
 			new SkillRequirement(Skill.THIEVING, 47, true),
 			lockpick);
@@ -449,43 +449,43 @@ public class KandarinMedium extends ComplexStateQuestHelper
 		stealHemSteps.setLockingStep(stealHemenTask);
 		allSteps.add(stealHemSteps);
 
-		PanelDetails mineCoalSteps = new PanelDetails("Mine Coal", Collections.singletonList(mineCoal),
+		PanelDetails mineCoalSteps = new PanelDetails(t("Mine Coal"), Collections.singletonList(mineCoal),
 			new SkillRequirement(Skill.MINING, 30, true), pickaxe);
 		mineCoalSteps.setDisplayCondition(notMineCoal);
 		mineCoalSteps.setLockingStep(mineCoalTask);
 		allSteps.add(mineCoalSteps);
 
-		PanelDetails killFireGiantSteps = new PanelDetails("Kill a Fire Giant", Arrays.asList(moveToWaterfall, fireGiant), waterfallQuest,
+		PanelDetails killFireGiantSteps = new PanelDetails(t("Kill a Fire Giant"), Arrays.asList(moveToWaterfall, fireGiant), waterfallQuest,
 			combatGear, food, rope);
 		killFireGiantSteps.setDisplayCondition(notFireGiant);
 		killFireGiantSteps.setLockingStep(fireGiantTask);
 		allSteps.add(killFireGiantSteps);
 
-		PanelDetails barbAgiSteps = new PanelDetails("Barbarian Agility Course Lap", Collections.singletonList(barbAgi),
+		PanelDetails barbAgiSteps = new PanelDetails(t("Barbarian Agility Course Lap"), Collections.singletonList(barbAgi),
 			alfredBar,
 			new SkillRequirement(Skill.AGILITY, 35, true));
 		barbAgiSteps.setDisplayCondition(notBarbAgi);
 		barbAgiSteps.setLockingStep(barbAgiTask);
 		allSteps.add(barbAgiSteps);
 
-		PanelDetails barbAssSteps = new PanelDetails("Barbarian Assault Wave", Collections.singletonList(barbAss));
+		PanelDetails barbAssSteps = new PanelDetails(t("Barbarian Assault Wave"), Collections.singletonList(barbAss));
 		barbAssSteps.setDisplayCondition(notBarbAss);
 		barbAssSteps.setLockingStep(barbAssTask);
 		allSteps.add(barbAssSteps);
 
-		PanelDetails travelGrubSteps = new PanelDetails("Fairy Ring to McGrubor's Woods",
+		PanelDetails travelGrubSteps = new PanelDetails(t("Fairy Ring to McGrubor's Woods"),
 			Collections.singletonList(travelMcGrubor), fairyTaleII, staff);
 		travelGrubSteps.setDisplayCondition(notTravelMcGrubor);
 		travelGrubSteps.setLockingStep(travelMcGruborTask);
 		allSteps.add(travelGrubSteps);
 
-		PanelDetails teleCamSteps = new PanelDetails("Teleport to Camelot", Collections.singletonList(tpCAM),
+		PanelDetails teleCamSteps = new PanelDetails(t("Teleport to Camelot"), Collections.singletonList(tpCAM),
 			new SkillRequirement(Skill.MAGIC, 45, true), lawRune.quantity(1), airRune.quantity(5), normalBook);
 		teleCamSteps.setDisplayCondition(notTPCam);
 		teleCamSteps.setLockingStep(tpCamTask);
 		allSteps.add(teleCamSteps);
 
-		PanelDetails finishingOffSteps = new PanelDetails("Finishing off", Collections.singletonList(claimReward));
+		PanelDetails finishingOffSteps = new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward));
 		allSteps.add(finishingOffSteps);
 
 		return allSteps;

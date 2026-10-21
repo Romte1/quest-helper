@@ -116,12 +116,12 @@ public class TheDepthsOfDespair extends BasicQuestHelper
 	{
 		xericsTalisman = new ItemRequirement("Xeric's Talisman", ItemID.XERIC_TALISMAN).isNotConsumed();
 		skillsNecklace = new ItemRequirement("Skills necklace", ItemCollections.SKILLS_NECKLACES).isNotConsumed();
-		superEnergyOrStamina = new ItemRequirement("Super Energy or Stamina potions", -1, -1);
+		superEnergyOrStamina = new ItemRequirement(t("Super Energy or Stamina potions"), -1, -1);
 
-		dramenStaff = new ItemRequirement("Access to Fairy Rings", ItemID.DRAMEN_STAFF).isNotConsumed();
+		dramenStaff = new ItemRequirement(t("Access to Fairy Rings"), ItemID.DRAMEN_STAFF).isNotConsumed();
 		dramenStaff.addAlternates(ItemID.LUNAR_MOONCLAN_LIMINAL_STAFF);
 
-		foodIfLowLevel = new ItemRequirement("Food (if low level)", -1, -1);
+		foodIfLowLevel = new ItemRequirement(t("Food (if low level)"), -1, -1);
 		foodIfLowLevel.setDisplayItemId(BankSlotIcons.getFood());
 
 		weapon = new ItemRequirement("A Weapon", -1, -1).isNotConsumed();

@@ -231,7 +231,7 @@ public class MyArmsBigAdventure extends BasicQuestHelper
 		superCompost = new ItemRequirement("Supercompost", ItemID.BUCKET_SUPERCOMPOST);
 		hardyGout = new ItemRequirement("Hardy gout tubers", ItemID.MYARM_HARDYTUBERS);
 		hardyGout.setTooltip(t("You can get more from Murcaily"));
-		combatGear = new ItemRequirement("Combat gear, preferably magic", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear, preferably magic"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS, -1);
@@ -251,7 +251,7 @@ public class MyArmsBigAdventure extends BasicQuestHelper
 		superCompost8 = new ItemRequirement("Supercompost", ItemID.BUCKET_SUPERCOMPOST, 8);
 		climbingBoots = new ItemRequirement("Climbing boots", ItemCollections.CLIMBING_BOOTS).isNotConsumed();
 
-		cureOrCompost = new ItemRequirement("Either super/ultra compost, or a plant cure", ItemID.PLANT_CURE);
+		cureOrCompost = new ItemRequirement(t("Either super/ultra compost, or a plant cure"), ItemID.PLANT_CURE);
 		cureOrCompost.addAlternates(ItemID.BUCKET_SUPERCOMPOST, ItemID.BUCKET_ULTRACOMPOST);
 
 		rakeHead = new ItemRequirement("Rake head", ItemID.RAKE_HEAD);
@@ -259,7 +259,7 @@ public class MyArmsBigAdventure extends BasicQuestHelper
 		rakeHandle = new ItemRequirement("Rake handle", ItemID.RAKE_HANDLE);
 		rakeHandle.setHighlightInInventory(true);
 
-		gamesNecklace = new ItemRequirement("Games necklace for Burthorpe teleport",
+		gamesNecklace = new ItemRequirement(t("Games necklace for Burthorpe teleport"),
 			ItemCollections.GAMES_NECKLACES);
 	}
 

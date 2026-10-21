@@ -171,7 +171,7 @@ public class HauntedMine extends BasicQuestHelper
 		glowingFungusHighlight = new ItemRequirement("Glowing fungus", ItemID.GLOWING_FUNGUS);
 		glowingFungusHighlight.setHighlightInInventory(true);
 
-		emptyInvSpots = new ItemRequirement("Empty Inventory Spot", -1, 3);
+		emptyInvSpots = new ItemRequirement(t("Empty Inventory Spot"), -1, 3);
 
 		crystalMineKey = new ItemRequirement("Crystal-mine key", ItemID.HAUNTEDMINE_REWARD_KEY);
 

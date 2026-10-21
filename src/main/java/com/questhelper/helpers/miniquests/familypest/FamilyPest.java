@@ -102,21 +102,21 @@ public class FamilyPest extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToDimintheis = new NpcStep(this, NpcID.DIMINTHEIS, new WorldPoint(3280, 3404, 0), "Talk to Dimintheis (south-east of Varrock).");
+		talkToDimintheis = new NpcStep(this, NpcID.DIMINTHEIS, new WorldPoint(3280, 3404, 0), t("Talk to Dimintheis (south-east of Varrock)."));
 		talkToDimintheis.addDialogSteps("Have you got any quests for me?", "Oh come on, however menial, I want to help!");
 
-		talkToAvan = new NpcStep(this, NpcID.AVAN_FITZHARMON_AVAN_2OPS, new WorldPoint(3294, 3282, 0), "Talk to Avan (Entrance to the Al Kharid Mine).");
+		talkToAvan = new NpcStep(this, NpcID.AVAN_FITZHARMON_AVAN_2OPS, new WorldPoint(3294, 3282, 0), t("Talk to Avan (Entrance to the Al Kharid Mine)."));
 		talkToAvan.addDialogStep("Family Pest");
 
-		talkToCaleb = new NpcStep(this, NpcID.CALEB_FITZHARMON_2OPS, new WorldPoint(2819, 3453, 0), "Talk to Caleb (Northeast of Catherby bank).");
+		talkToCaleb = new NpcStep(this, NpcID.CALEB_FITZHARMON_2OPS, new WorldPoint(2819, 3453, 0), t("Talk to Caleb (Northeast of Catherby bank)."));
 		talkToCaleb.addDialogStep("Family Pest");
 
-		talkToJohnathon = new NpcStep(this, NpcID.JOHNATHON_FITZHARMON_2OPS, new WorldPoint(3281, 3505, 1), "Talk to Johnathon.");
+		talkToJohnathon = new NpcStep(this, NpcID.JOHNATHON_FITZHARMON_2OPS, new WorldPoint(3281, 3505, 1), t("Talk to Johnathon."));
 		talkToJohnathon.addDialogStep("Family Pest");
-		goUpstairs = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS_TALLER, new WorldPoint(3286, 3494, 0), "Go upstairs in the Jolly Boar Inn (Northeast of Varrock) and talk to Johnathon.");
+		goUpstairs = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS_TALLER, new WorldPoint(3286, 3494, 0), t("Go upstairs in the Jolly Boar Inn (Northeast of Varrock) and talk to Johnathon."));
 		goUpstairs.addSubSteps(talkToJohnathon);
 
-		talkToDimintheis2 = new NpcStep(this, NpcID.DIMINTHEIS, new WorldPoint(3280, 3404, 0), "Return to Dimintheis and pay him 500k.");
+		talkToDimintheis2 = new NpcStep(this, NpcID.DIMINTHEIS, new WorldPoint(3280, 3404, 0), t("Return to Dimintheis and pay him 500k."));
 		talkToDimintheis2.addDialogSteps("Family Pest", "Yes");
 	}
 
@@ -150,14 +150,14 @@ public class FamilyPest extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("Ability to own all three Steel Gauntlets simultaneously"));
+		return Collections.singletonList(new UnlockReward(t("Ability to own all three Steel Gauntlets simultaneously")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Talk to the Brothers", Arrays.asList(talkToDimintheis,
+		allSteps.add(new PanelDetails(t("Talk to the Brothers"), Arrays.asList(talkToDimintheis,
 			talkToAvan, talkToCaleb, goUpstairs, talkToDimintheis2), coins));
 		return allSteps;
 	}

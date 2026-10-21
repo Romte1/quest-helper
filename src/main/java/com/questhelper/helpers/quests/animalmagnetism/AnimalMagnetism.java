@@ -159,10 +159,10 @@ public class AnimalMagnetism extends BasicQuestHelper
 		polishedButtons = new ItemRequirement("Polished Buttons", ItemID.ANMA_P_BUTTONS);
 		polishedButtons.setHighlightInInventory(true);
 
-		draynorTeleport = new ItemRequirement("Teleport to Draynor", ItemID.TELETAB_DRAYNOR, 5);
+		draynorTeleport = new ItemRequirement(t("Teleport to Draynor"), ItemID.TELETAB_DRAYNOR, 5);
 		draynorTeleport.addAlternates(ItemCollections.AMULET_OF_GLORIES);
-		burthorpeTeleport = new ItemRequirement("Teleport to Burthorpe", ItemCollections.GAMES_NECKLACES);
-		portPhasmatysTeleport = new ItemRequirement("Teleport to Port Phasmatys", ItemID.ECTOPHIAL);
+		burthorpeTeleport = new ItemRequirement(t("Teleport to Burthorpe"), ItemCollections.GAMES_NECKLACES);
+		portPhasmatysTeleport = new ItemRequirement(t("Teleport to Port Phasmatys"), ItemID.ECTOPHIAL);
 		portPhasmatysTeleport.addAlternates(ItemID.TELETAB_FENK);
 
 		pattern = new ItemRequirement("A pattern", ItemID.ANMA_PATTERN);

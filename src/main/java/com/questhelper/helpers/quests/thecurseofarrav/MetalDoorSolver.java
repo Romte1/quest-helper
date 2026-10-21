@@ -155,7 +155,7 @@ public class MetalDoorSolver extends DetailedOwnerStep
 
 	public MetalDoorSolver(TheCurseOfArrav theCurseOfArrav)
 	{
-		super(theCurseOfArrav, "Solve the Metal door puzzle by following the instructions in the overlay.");
+		super(theCurseOfArrav, theCurseOfArrav.t("Solve the Metal door puzzle by following the instructions in the overlay."));
 	}
 
 	/**
@@ -373,13 +373,13 @@ public class MetalDoorSolver extends DetailedOwnerStep
 	{
 		this.shouldClickDownInteadOfUp = new ManualRequirement();
 		var codeKey = new ItemRequirement("Code key", ItemID.COA_CODE_KEY);
-		readCode = new ItemStep(getQuestHelper(), "Read the Code key in your inventory.", codeKey.highlighted());
+		readCode = new ItemStep(getQuestHelper(), getQuestHelper().t("Read the Code key in your inventory."), codeKey.highlighted());
 
-		clickMetalDoors = new ObjectStep(getQuestHelper(), ObjectID.MAH3_BASE_DOOR, new WorldPoint(3612, 4582, 0), "Open the metal doors and solve the puzzle.", codeKey);
+		clickMetalDoors = new ObjectStep(getQuestHelper(), ObjectID.MAH3_BASE_DOOR, new WorldPoint(3612, 4582, 0), getQuestHelper().t("Open the metal doors and solve the puzzle."), codeKey);
 
 		var puzzleWidgetOpen = new WidgetPresenceRequirement(PUZZLE_GROUP_ID, PUZZLE_BTN_UP_CHILD_ID);
 
-		solvePuzzleFallback = new DetailedQuestStep(getQuestHelper(), "solve the puzzle somehow");
+		solvePuzzleFallback = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("solve the puzzle somehow"));
 
 		var firstNumberEmpty = new WidgetTextRequirement(PUZZLE_GROUP_ID, PUZZLE_PASSWORD_1_CHILD_ID, "-");
 		var secondNumberEmpty = new WidgetTextRequirement(PUZZLE_GROUP_ID, PUZZLE_PASSWORD_2_CHILD_ID, "-");
@@ -395,12 +395,12 @@ public class MetalDoorSolver extends DetailedOwnerStep
 		inputThirdCorrect = new WidgetModelRequirement(PUZZLE_GROUP_ID, PUZZLE_PASSWORD_CURRENT_CHILD_ID, -1);
 		inputFourthCorrect = new WidgetModelRequirement(PUZZLE_GROUP_ID, PUZZLE_PASSWORD_CURRENT_CHILD_ID, -1);
 
-		var clickUp = new WidgetStep(getQuestHelper(), "Click the Up button.", new WidgetDetails(PUZZLE_GROUP_ID, PUZZLE_BTN_UP_CHILD_ID));
+		var clickUp = new WidgetStep(getQuestHelper(), getQuestHelper().t("Click the Up button."), new WidgetDetails(PUZZLE_GROUP_ID, PUZZLE_BTN_UP_CHILD_ID));
 		clickUp.addExtraWidgetOverlayHintFunction(this::drawDistanceUp);
-		var clickDown = new WidgetStep(getQuestHelper(), "Click the Down button.", new WidgetDetails(PUZZLE_GROUP_ID, PUZZLE_BTN_DOWN_CHILD_ID));
+		var clickDown = new WidgetStep(getQuestHelper(), getQuestHelper().t("Click the Down button."), new WidgetDetails(PUZZLE_GROUP_ID, PUZZLE_BTN_DOWN_CHILD_ID));
 		clickDown.addExtraWidgetOverlayHintFunction(this::drawDistanceDown);
-		var submitNumber = new WidgetStep(getQuestHelper(), "Click the Enter button.", new WidgetDetails(PUZZLE_GROUP_ID, PUZZLE_ENTER_CHILD_ID));
-		var pressBack = new WidgetStep(getQuestHelper(), "Click the Back button.", new WidgetDetails(PUZZLE_GROUP_ID, PUZZLE_BACK_CHILD_ID));
+		var submitNumber = new WidgetStep(getQuestHelper(), getQuestHelper().t("Click the Enter button."), new WidgetDetails(PUZZLE_GROUP_ID, PUZZLE_ENTER_CHILD_ID));
+		var pressBack = new WidgetStep(getQuestHelper(), getQuestHelper().t("Click the Back button."), new WidgetDetails(PUZZLE_GROUP_ID, PUZZLE_BACK_CHILD_ID));
 
 		var clickUpOrDown = new ConditionalStep(getQuestHelper(), clickUp);
 		clickUpOrDown.addStep(shouldClickDownInteadOfUp, clickDown);

@@ -150,11 +150,11 @@ public class RFDPiratePete extends BasicQuestHelper
 
 		pestleHighlighted = new ItemRequirement("Pestle and mortar", ItemID.PESTLE_AND_MORTAR).isNotConsumed();
 		pestleHighlighted.setHighlightInInventory(true);
-		rawCodHighlighted = new ItemRequirement("Raw cod (more if you burn cake)", ItemID.RAW_COD);
+		rawCodHighlighted = new ItemRequirement(t("Raw cod (more if you burn cake)"), ItemID.RAW_COD);
 		rawCodHighlighted.setHighlightInInventory(true);
 		knifeHighlighted = new ItemRequirement("Knife", ItemID.KNIFE).isNotConsumed();
 		knifeHighlighted.setHighlightInInventory(true);
-		breadHighlighted = new ItemRequirement("Bread (more if you burn cake)", ItemID.BREAD);
+		breadHighlighted = new ItemRequirement(t("Bread (more if you burn cake)"), ItemID.BREAD);
 		breadHighlighted.setTooltip(t("You can make this by using a knife on bread"));
 		breadHighlighted.setHighlightInInventory(true);
 		divingAparatus = new ItemRequirement("Diving apparatus", ItemID.HUNDRED_PIRATE_DIVING_BACKPACK, 1, true).isNotConsumed();
@@ -283,8 +283,8 @@ public class RFDPiratePete extends BasicQuestHelper
 	{
 		ArrayList<ItemRequirement> req = new ArrayList<>();
 		req.add(combatGear);
-		req.add(new ItemRequirement("Teleport to Khazard", ItemID.LUNAR_TABLET_KHAZARD_TELEPORT));
-		req.add(new ItemRequirement("Teleport to Lumbridge", ItemID.POH_TABLET_LUMBRIDGETELEPORT));
+		req.add(new ItemRequirement(t("Teleport to Khazard"), ItemID.LUNAR_TABLET_KHAZARD_TELEPORT));
+		req.add(new ItemRequirement(t("Teleport to Lumbridge"), ItemID.POH_TABLET_LUMBRIDGETELEPORT));
 
 		return req;
 	}

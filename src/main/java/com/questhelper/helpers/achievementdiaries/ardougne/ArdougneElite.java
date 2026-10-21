@@ -144,7 +144,7 @@ public class ArdougneElite extends ComplexStateQuestHelper
 		ancientBook = new SpellbookRequirement(Spellbook.ANCIENT);
 		enoughNMZPoints = new VarplayerRequirement(VarPlayerID.NZONE_REWARDPOINTS, 800000, Operation.GREATER_EQUAL, 			"800,000 Nightmare Zone reward points");
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		bloodRune = new ItemRequirement("Blood runes", ItemID.BLOODRUNE).showConditioned(notIceBarrage);
 		waterRune = new ItemRequirement("Water runes", ItemID.WATERRUNE).showConditioned(notIceBarrage);
@@ -164,7 +164,7 @@ public class ArdougneElite extends ComplexStateQuestHelper
 		runeBar = new ItemRequirement("Runite bar", ItemID.RUNITE_BAR).showConditioned(notRuneCrossbow);
 		sinew = new ItemRequirement("Sinew", ItemID.XBOWS_SINEW).showConditioned(notRuneCrossbow);
 		root = new ItemRequirement("Root", ItemCollections.NON_MAGIC_TREE_ROOT).showConditioned(notRuneCrossbow);
-		sinewOrRoot = new ItemRequirements(LogicType.OR, "Sinew or non-magic tree root", root, sinew)
+		sinewOrRoot = new ItemRequirements(LogicType.OR, t("Sinew or non-magic tree root"), root, sinew)
 			.showConditioned(notRuneCrossbow);
 		hammer = new ItemRequirement("Hammer", ItemID.HAMMER).showConditioned(notRuneCrossbow).isNotConsumed();
 		knife = new ItemRequirement("Knife", ItemID.KNIFE).showConditioned(notRuneCrossbow).isNotConsumed();
@@ -174,7 +174,7 @@ public class ArdougneElite extends ComplexStateQuestHelper
 		yewStock = new ItemRequirement("Yew stock", ItemID.XBOWS_CROSSBOW_STOCK_YEW).showConditioned(notRuneCrossbow);
 		runeLimbs = new ItemRequirement("Runite limbs", ItemID.XBOWS_CROSSBOW_LIMBS_RUNITE).showConditioned(notRuneCrossbow);
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
 		inYanAgilityCave = new ZoneRequirement(yanAgilityCave);
 		inYanille = new ZoneRequirement(yanille);
@@ -239,50 +239,50 @@ public class ArdougneElite extends ComplexStateQuestHelper
 	public void setupSteps()
 	{
 		iceBarrage = new DetailedQuestStep(this, new WorldPoint(2441, 3089, 0),
-			"Cast Ice Barrage on a Player within Castle Wars.", ancientBook, waterRune.quantity(6),
+			t("Cast Ice Barrage on a Player within Castle Wars."), ancientBook, waterRune.quantity(6),
 			bloodRune.quantity(2), deathRune.quantity(4));
 
 		moveToYanAgi = new ObjectStep(this, ObjectID.STAIRS_CELLAR, new WorldPoint(2604, 3079, 0),
-			"Climb down the stairs to enter the Yanille Agility Dungeon.", lockpick);
+			t("Climb down the stairs to enter the Yanille Agility Dungeon."), lockpick);
 		yanAgi = new ObjectStep(this, ObjectID.TOOLLOCK5, new WorldPoint(2601, 9482, 0),
-			"Lockpick the door to the Yanille Agility Dungeon.", lockpick);
+			t("Lockpick the door to the Yanille Agility Dungeon."), lockpick);
 		yanAgi.addIcon(ItemID.LOCKPICK);
 
 		farmMorePoints = new NpcStep(this, NpcID.NZONE_HOST, new WorldPoint(2608, 3116, 0),
-			"Farm more Nightmare Zone points. Speak with Dominic Onion and buy a dream.", combatGear, food);
+			t("Farm more Nightmare Zone points. Speak with Dominic Onion and buy a dream."), combatGear, food);
 		imbueSalve = new ObjectStep(this, ObjectID.NZONE_LOBBY_CHEST, new WorldPoint(2609, 3119, 0),
-			"Imbue a salve amulet at Nightmare Zone.", enoughNMZPoints, salveAmmy);
-		equipSalve = new ItemStep(this, "Equip your salve amulet.", imbuedSalve);
+			t("Imbue a salve amulet at Nightmare Zone."), enoughNMZPoints, salveAmmy);
+		equipSalve = new ItemStep(this, t("Equip your salve amulet."), imbuedSalve);
 
 		trawlerRay = new DetailedQuestStep(this, new WorldPoint(2659, 3160, 0),
-			"Catch a manta ray in the Fishing Trawler and cook it in Port Khazard.");
+			t("Catch a manta ray in the Fishing Trawler and cook it in Port Khazard."));
 
 		ardyRooftops = new ObjectStep(this, ObjectID.ROOFTOPS_ARDY_WALLCLIMB, new WorldPoint(2673, 3298, 0),
-			"Complete a lap of Ardougne's rooftop agility course.");
+			t("Complete a lap of Ardougne's rooftop agility course."));
 
 		pickHero = new NpcStep(this, NpcID.HERO, new WorldPoint(2630, 3292, 0),
-			"Pickpocket a Hero in East Ardougne.");
+			t("Pickpocket a Hero in East Ardougne."));
 
 		spinString = new ObjectStep(this, ObjectID.ELF_VILLAGE_SPINNING_WHEEL, new WorldPoint(2731, 3278, 0),
-			"Spin a crossbow string in Witchaven. Do not complete any other diary tasks while completing this.", sinewOrRoot);
+			t("Spin a crossbow string in Witchaven. Do not complete any other diary tasks while completing this."), sinewOrRoot);
 		moveToYan = new DetailedQuestStep(this, new WorldPoint(2603, 3088, 0),
-			"Enter Yanille to continue the task.");
+			t("Enter Yanille to continue the task."));
 		smithLimbs = new ObjectStep(this, ObjectID.ANVIL, new WorldPoint(2613, 3081, 0),
-			"Smith some rune limbs in Yanille.", runeBar, hammer);
-		fletchStock = new ItemStep(this, "Use your knife on the  yew logs to make a yew stock.", knife.highlighted(),
+			t("Smith some rune limbs in Yanille."), runeBar, hammer);
+		fletchStock = new ItemStep(this, t("Use your knife on the  yew logs to make a yew stock."), knife.highlighted(),
 			yewLog.highlighted());
-		makeUnstrungCross = new ItemStep(this, "Combine the rune limbs with the yew stock.", runeLimbs.highlighted(),
+		makeUnstrungCross = new ItemStep(this, t("Combine the rune limbs with the yew stock."), runeLimbs.highlighted(),
 			yewStock.highlighted());
-		runeCrossbow = new ItemStep(this, "String the rune crossbow (u).", runeCrossbowU.highlighted(),
+		runeCrossbow = new ItemStep(this, t("String the rune crossbow (u)."), runeCrossbowU.highlighted(),
 			crossbowString.highlighted());
 
 		pickTorstol = new ObjectStep(this, ObjectID.FARMING_HERB_PATCH_3, new WorldPoint(2670, 3374, 0),
-			"Plant and harvest the Torstol from the north Ardougne herb patch. " +
-				"If you're waiting for it to grow and want to complete further tasks, use the tick box on panel.",
+			t("Plant and harvest the Torstol from the north Ardougne herb patch. " +
+				"If you're waiting for it to grow and want to complete further tasks, use the tick box on panel."),
 			rake, spade, seedDib, torstolSeed);
 
 		claimReward = new NpcStep(this, NpcID.ARDY_TWOPINTS_DIARY, new WorldPoint(2574, 3323, 0),
-			"Talk to Two-pints in the Flying Horse Inn at East Ardougne to claim your reward!");
+			t("Talk to Two-pints in the Flying Horse Inn at East Ardougne to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -323,7 +323,7 @@ public class ArdougneElite extends ComplexStateQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Nightmare Zone monsters (levels vary)");
+		return Collections.singletonList(t("Nightmare Zone monsters (levels vary)"));
 	}
 
 	@Override
@@ -341,11 +341,11 @@ public class ArdougneElite extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("Unlimited teleports to Ardougne farm patch with the Ardougne cloak 4"),
-			new UnlockReward("250 free noted pure essence every day from Wizard Cromperty"),
-			new UnlockReward("50% more fish from Fishing Trawler"),
-			new UnlockReward("25% more marks of grace from the Ardougne Rooftop Course"),
-			new UnlockReward("Bert will automatically deliver 84 buckets of sand to your bank each day you log in (unless you are an Ultimate Ironman), even if you cancel membership")
+			new UnlockReward(t("Unlimited teleports to Ardougne farm patch with the Ardougne cloak 4")),
+			new UnlockReward(t("250 free noted pure essence every day from Wizard Cromperty")),
+			new UnlockReward(t("50% more fish from Fishing Trawler")),
+			new UnlockReward(t("25% more marks of grace from the Ardougne Rooftop Course")),
+			new UnlockReward(t("Bert will automatically deliver 84 buckets of sand to your bank each day you log in (unless you are an Ultimate Ironman), even if you cancel membership"))
 		);
 	}
 
@@ -354,50 +354,50 @@ public class ArdougneElite extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails torstolSteps = new PanelDetails("Ardougne Torstol", Collections.singletonList(pickTorstol),
+		PanelDetails torstolSteps = new PanelDetails(t("Ardougne Torstol"), Collections.singletonList(pickTorstol),
 			new SkillRequirement(Skill.FARMING, 85, true), torstolSeed, compost, rake, seedDib, spade);
 		torstolSteps.setDisplayCondition(notPickTorstol);
 		torstolSteps.setLockingStep(pickTorstolTask);
 		allSteps.add(torstolSteps);
 
-		PanelDetails iceSteps = new PanelDetails("Ice Barrage in Castle Wars", Collections.singletonList(iceBarrage),
+		PanelDetails iceSteps = new PanelDetails(t("Ice Barrage in Castle Wars"), Collections.singletonList(iceBarrage),
 			new SkillRequirement(Skill.MAGIC, 94, true), desertTreasure, ancientBook, waterRune.quantity(6),
 			bloodRune.quantity(2), deathRune.quantity(4));
 		iceSteps.setDisplayCondition(notIceBarrage);
 		iceSteps.setLockingStep(iceBarrageTask);
 		allSteps.add(iceSteps);
 
-		PanelDetails yanSteps = new PanelDetails("Yanille Agility Dungeon", Arrays.asList(moveToYanAgi, yanAgi),
+		PanelDetails yanSteps = new PanelDetails(t("Yanille Agility Dungeon"), Arrays.asList(moveToYanAgi, yanAgi),
 			new SkillRequirement(Skill.THIEVING, 82, true), lockpick);
 		yanSteps.setDisplayCondition(notYanAgi);
 		yanSteps.setLockingStep(yanAgiTask);
 		allSteps.add(yanSteps);
 
-		PanelDetails salveSteps = new PanelDetails("Imbued Salve Amulet", Arrays.asList(farmMorePoints, imbueSalve),
+		PanelDetails salveSteps = new PanelDetails(t("Imbued Salve Amulet"), Arrays.asList(farmMorePoints, imbueSalve),
 			hauntedMine, salveAmmy, enoughNMZPoints);
 		salveSteps.setDisplayCondition(notImbueSalve);
 		salveSteps.setLockingStep(imbueSalveTask);
 		allSteps.add(salveSteps);
 
-		PanelDetails raySteps = new PanelDetails("Fishing Trawler Manta Ray", Collections.singletonList(trawlerRay),
+		PanelDetails raySteps = new PanelDetails(t("Fishing Trawler Manta Ray"), Collections.singletonList(trawlerRay),
 			new SkillRequirement(Skill.COOKING, 91, true), new SkillRequirement(Skill.FISHING, 81, false));
 		raySteps.setDisplayCondition(notTrawlerRay);
 		raySteps.setLockingStep(trawlerRayTask);
 		allSteps.add(raySteps);
 
-		PanelDetails roofSteps = new PanelDetails("Ardougne Rooftop Agility", Collections.singletonList(ardyRooftops),
+		PanelDetails roofSteps = new PanelDetails(t("Ardougne Rooftop Agility"), Collections.singletonList(ardyRooftops),
 			new SkillRequirement(Skill.AGILITY, 90, true));
 		roofSteps.setDisplayCondition(notArdyRooftops);
 		roofSteps.setLockingStep(ardyRooftopsTask);
 		allSteps.add(roofSteps);
 
-		PanelDetails heroSteps = new PanelDetails("Pickpocket Hero", Collections.singletonList(pickHero),
+		PanelDetails heroSteps = new PanelDetails(t("Pickpocket Hero"), Collections.singletonList(pickHero),
 			new SkillRequirement(Skill.THIEVING, 80, true));
 		heroSteps.setDisplayCondition(notPickHero);
 		heroSteps.setLockingStep(pickHeroTask);
 		allSteps.add(heroSteps);
 
-		PanelDetails crossSteps = new PanelDetails("Rune Crossbow in Yanille / Witchaven", Arrays.asList(spinString,
+		PanelDetails crossSteps = new PanelDetails(t("Rune Crossbow in Yanille / Witchaven"), Arrays.asList(spinString,
 			smithLimbs, fletchStock, makeUnstrungCross, runeCrossbow), new SkillRequirement(Skill.CRAFTING, 10, true),
 			new SkillRequirement(Skill.SMITHING, 91, true), new SkillRequirement(Skill.FLETCHING, 69, true),
 			yewLog, runeBar, hammer, knife, sinewOrRoot);
@@ -405,7 +405,7 @@ public class ArdougneElite extends ComplexStateQuestHelper
 		crossSteps.setLockingStep(runeCrossbowTask);
 		allSteps.add(crossSteps);
 
-		allSteps.add(new PanelDetails("Finishing off", Collections.singletonList(claimReward)));
+		allSteps.add(new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward)));
 
 		return allSteps;
 	}

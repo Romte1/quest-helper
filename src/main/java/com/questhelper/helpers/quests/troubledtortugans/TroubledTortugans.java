@@ -173,15 +173,15 @@ public class TroubledTortugans extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		anyAxe = new ItemRequirement("Any axe", ItemCollections.AXES).canBeObtainedDuringQuest();
-		anyAxe.appendToTooltip("A bronze axe can be found to the west of The Summer Shore. You need to cut down multiple things, so bring the best woodcutting axe you can use.");
+		anyAxe.appendToTooltip(t("A bronze axe can be found to the west of The Summer Shore. You need to cut down multiple things, so bring the best woodcutting axe you can use."));
 
 		// NOTE: Haven't tested other hammers
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).canBeObtainedDuringQuest();
-		hammer.appendToTooltip("Can be found inside the smith's house to the north-east.");
+		hammer.appendToTooltip(t("Can be found inside the smith's house to the north-east."));
 
 		// NOTE: Haven't tested other saws
 		saw = new ItemRequirement("Saw", ItemCollections.SAW).canBeObtainedDuringQuest();
-		saw.appendToTooltip("Can be found inside Elder Raley's house to the south-east.");
+		saw.appendToTooltip(t("Can be found inside Elder Raley's house to the south-east."));
 
 		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
@@ -207,54 +207,54 @@ public class TroubledTortugans extends BasicQuestHelper
 	void setupSteps()
 	{
 		// 0
-		startQuest = new NpcStep(this, NpcID.TT_FLOOPA_INJURED_VIS, new WorldPoint(2962, 2605, 0), "Talk to the Injured Tortugan on the small island north-west of The Great Conch to start the quest.");
+		startQuest = new NpcStep(this, NpcID.TT_FLOOPA_INJURED_VIS, new WorldPoint(2962, 2605, 0), t("Talk to the Injured Tortugan on the small island north-west of The Great Conch to start the quest."));
 		startQuest.addDialogStep("Yes.");
 
 		// 2 + 4
-		getPalmLeaf = new ObjectStep(this, ObjectID.TT_PALM_1, new WorldPoint(2964, 2604, 0), "Shake a nearby palm for a palm leaf.");
+		getPalmLeaf = new ObjectStep(this, ObjectID.TT_PALM_1, new WorldPoint(2964, 2604, 0), t("Shake a nearby palm for a palm leaf."));
 		getPalmLeaf.addAlternateObjects(ObjectID.TT_PALM_2, ObjectID.TT_PALM_3);
-		pickUpPalmLeaf = new ItemStep(this, "Pick up the palm leaf from the ground", palmLeaf);
-		getSeaweed = new ItemStep(this, "Pick up seaweed from the shore.", seaweed);
-		makeBandage = new DetailedQuestStep(this, "Use the seaweed on the palm leaf to create makeshift bandages.", seaweed.highlighted(), palmLeaf.highlighted());
-		giveBandage = new NpcStep(this, NpcID.TT_FLOOPA_INJURED_VIS, new WorldPoint(2962, 2605, 0), "Talk to the Injured Tortugan and give her the makeshift bandages.", makeshiftBandages);
-		cMakeBandages = new ConditionalStep(this, giveBandage, "Help the Injured Tortugan with her wounds.");
+		pickUpPalmLeaf = new ItemStep(this, t("Pick up the palm leaf from the ground"), palmLeaf);
+		getSeaweed = new ItemStep(this, t("Pick up seaweed from the shore."), seaweed);
+		makeBandage = new DetailedQuestStep(this, t("Use the seaweed on the palm leaf to create makeshift bandages."), seaweed.highlighted(), palmLeaf.highlighted());
+		giveBandage = new NpcStep(this, NpcID.TT_FLOOPA_INJURED_VIS, new WorldPoint(2962, 2605, 0), t("Talk to the Injured Tortugan and give her the makeshift bandages."), makeshiftBandages);
+		cMakeBandages = new ConditionalStep(this, giveBandage, t("Help the Injured Tortugan with her wounds."));
 		cMakeBandages.addStep(and(not(makeshiftBandages), seaweed, palmLeaf), makeBandage);
 		cMakeBandages.addStep(and(not(makeshiftBandages), new ItemOnTileRequirement(palmLeaf)), pickUpPalmLeaf);
 		cMakeBandages.addStep(nor(makeshiftBandages, palmLeaf), getPalmLeaf);
 		cMakeBandages.addStep(nor(makeshiftBandages, seaweed), getSeaweed);
 
 		// 6 + 7
-		talkToInjuredTortuganAfterBandaging = new NpcStep(this, NpcID.TT_FLOOPA_ISLAND, new WorldPoint(2962, 2605, 0), "Talk to the Injured Tortugan again.");
+		talkToInjuredTortuganAfterBandaging = new NpcStep(this, NpcID.TT_FLOOPA_ISLAND, new WorldPoint(2962, 2605, 0), t("Talk to the Injured Tortugan again."));
 
 		// 8 + 10
 		// NOTE: We are assuming that the player has their boat here. I think there's no way this can be wrong
-		boardBoat = new ObjectStep(this, ObjectID.SAILING_MOORING_REMOTE_ISLAND, "Board your boat with Floopa.");
-		sailToGreatConch = new ObjectStep(this, ObjectID.SAILING_GANGPLANK_DISEMBARK, new WorldPoint(3174, 2367, 0), "Sail to the docks at the southern edge of The Great Conch with Floopa.");
+		boardBoat = new ObjectStep(this, ObjectID.SAILING_MOORING_REMOTE_ISLAND, t("Board your boat with Floopa."));
+		sailToGreatConch = new ObjectStep(this, ObjectID.SAILING_GANGPLANK_DISEMBARK, new WorldPoint(3174, 2367, 0), t("Sail to the docks at the southern edge of The Great Conch with Floopa."));
 
 		cSailToGreatConch = new ConditionalStep(this, sailToGreatConch);
 		sailToGreatConch.addSubSteps(boardBoat);
 		cSailToGreatConch.addStep(onRemoteIsland, boardBoat);
 
 		// 12 + 13
-		talkToElderKorelAtDocks = new NpcStep(this, NpcID.TT_KOREL_CONCH_DOCKS, new WorldPoint(3185, 2371, 0), "Talk to Elder Korel at the docks of The Great Conch.");
+		talkToElderKorelAtDocks = new NpcStep(this, NpcID.TT_KOREL_CONCH_DOCKS, new WorldPoint(3185, 2371, 0), t("Talk to Elder Korel at the docks of The Great Conch."));
 
 		// 14 + 16
-		talkToElderRaley = new NpcStep(this, NpcID.TT_RALEY_CONCH, new WorldPoint(3186, 2405, 0), "Head into The Summer Shore to the north and talk to Elder Raley in the south-east building.");
+		talkToElderRaley = new NpcStep(this, NpcID.TT_RALEY_CONCH, new WorldPoint(3186, 2405, 0), t("Head into The Summer Shore to the north and talk to Elder Raley in the south-east building."));
 
 		// 18
 		repairTown = new RepairTown(this, anyAxe, hammer, saw);
 
 		// 20
-		talkToElderAfterRepairs = new NpcStep(this, NpcID.TT_RALEY_CONCH, new WorldPoint(3186, 2405, 0), "Talk to Elder Raley after completing the town repairs.");
+		talkToElderAfterRepairs = new NpcStep(this, NpcID.TT_RALEY_CONCH, new WorldPoint(3186, 2405, 0), t("Talk to Elder Raley after completing the town repairs."));
 
 		// 22
-		inspectMonument = new ObjectStep(this, ObjectID.TT_HUNTING_MONUMENT_OP, new WorldPoint(3167, 2411, 0), "Inspect the monument in the middle of town to pick up the Gryphon's trail.", anyAxe, combatGear, food, prayer);
+		inspectMonument = new ObjectStep(this, ObjectID.TT_HUNTING_MONUMENT_OP, new WorldPoint(3167, 2411, 0), t("Inspect the monument in the middle of town to pick up the Gryphon's trail."), anyAxe, combatGear, food, prayer);
 
 		// 24
-		followTrailPlant1 = new ObjectStep(this, ObjectID.TT_HUNTING_PLANT_03, new WorldPoint(3128, 2423, 0), "Follow the Gryphon tracks west of town and inspect the red plant.", anyAxe, combatGear, food, prayer);
-		followTrailRockslide = new ObjectStep(this, ObjectID.TT_HUNTING_ROCKS_01_OP, new WorldPoint(3127, 2448, 0), "Follow the Gryphon tracks north and inspect the rockslide.", anyAxe, combatGear, food, prayer);
-		followTrailPlant2 = new ObjectStep(this, ObjectID.TT_HUNTING_PLANT_05_OP, new WorldPoint(3138, 2469, 0), "Follow the Gryphon tracks north up the hill and inspect the plant on the east side.", anyAxe, combatGear, food, prayer);
-		followTrailPlant3 = new ObjectStep(this, ObjectID.TT_HUNTING_PLANT_05_OP, new WorldPoint(3151, 2474, 0), "Follow the Gryphon tracks east and inspect the plant to reveal the final set of tracks.", anyAxe, combatGear, food, prayer);
+		followTrailPlant1 = new ObjectStep(this, ObjectID.TT_HUNTING_PLANT_03, new WorldPoint(3128, 2423, 0), t("Follow the Gryphon tracks west of town and inspect the red plant."), anyAxe, combatGear, food, prayer);
+		followTrailRockslide = new ObjectStep(this, ObjectID.TT_HUNTING_ROCKS_01_OP, new WorldPoint(3127, 2448, 0), t("Follow the Gryphon tracks north and inspect the rockslide."), anyAxe, combatGear, food, prayer);
+		followTrailPlant2 = new ObjectStep(this, ObjectID.TT_HUNTING_PLANT_05_OP, new WorldPoint(3138, 2469, 0), t("Follow the Gryphon tracks north up the hill and inspect the plant on the east side."), anyAxe, combatGear, food, prayer);
+		followTrailPlant3 = new ObjectStep(this, ObjectID.TT_HUNTING_PLANT_05_OP, new WorldPoint(3151, 2474, 0), t("Follow the Gryphon tracks east and inspect the plant to reveal the final set of tracks."), anyAxe, combatGear, food, prayer);
 
 		cFollowTrail = new ConditionalStep(this, followTrailPlant3);
 		cFollowTrail.addStep(new VarbitRequirement(VarbitID.TT_HUNTING_TRAIL_1, 0), inspectMonument);
@@ -263,43 +263,43 @@ public class TroubledTortugans extends BasicQuestHelper
 		cFollowTrail.addStep(new VarbitRequirement(VarbitID.TT_HUNTING_TRAIL_4, 0), followTrailPlant2);
 
 		// 26
-		unblockCave = new ObjectStep(this, ObjectID.TT_LAIR_ENTRANCE_BLOCKED, new WorldPoint(3177, 2477, 0), "Follow the Gryphon tracks east and unblock the cave entrance.", anyAxe, combatGear, food, prayer);
+		unblockCave = new ObjectStep(this, ObjectID.TT_LAIR_ENTRANCE_BLOCKED, new WorldPoint(3177, 2477, 0), t("Follow the Gryphon tracks east and unblock the cave entrance."), anyAxe, combatGear, food, prayer);
 
 		// 28
-		enterGryphonCave = new ObjectStep(this, ObjectID.TT_LAIR_ENTRANCE_CLEAR, new WorldPoint(3177, 2477, 0), "Enter the Gryphon's cave, prepared for a fight.", combatGear, food, prayer);
+		enterGryphonCave = new ObjectStep(this, ObjectID.TT_LAIR_ENTRANCE_CLEAR, new WorldPoint(3177, 2477, 0), t("Enter the Gryphon's cave, prepared for a fight."), combatGear, food, prayer);
 		enterGryphonCave.addDialogStep("Yes.");
 
 		// 30
 		// TODO: Confirm this Npc ID is correct
-		fightGryphon = new NpcStep(this, NpcID.TT_CONCH_GRYPHON, "Defeat the Gryphon. It hits with melee, and does a special attack if your worn weight is less than 40kg.", combatGear, food, prayer);
+		fightGryphon = new NpcStep(this, NpcID.TT_CONCH_GRYPHON, t("Defeat the Gryphon. It hits with melee, and does a special attack if your worn weight is less than 40kg."), combatGear, food, prayer);
 		cFightGryphon = new ConditionalStep(this, enterGryphonCave);
 		cFightGryphon.addStep(inGryphonCave, fightGryphon);
 
 		// 32
-		exitGryphonCave = new ObjectStep(this, ObjectID.TT_LAIR_EXIT_FIGHT, new WorldPoint(3167, 8874, 0), "Return to Elder Raley with news about the Gryphon's defeat.");
-		returnToElder = new NpcStep(this, NpcID.TT_RALEY_CONCH, new WorldPoint(3186, 2405, 0), "Return to Elder Raley with news about the Gryphon's defeat.");
+		exitGryphonCave = new ObjectStep(this, ObjectID.TT_LAIR_EXIT_FIGHT, new WorldPoint(3167, 8874, 0), t("Return to Elder Raley with news about the Gryphon's defeat."));
+		returnToElder = new NpcStep(this, NpcID.TT_RALEY_CONCH, new WorldPoint(3186, 2405, 0), t("Return to Elder Raley with news about the Gryphon's defeat."));
 		returnToElder.addSubSteps(exitGryphonCave);
 		cReturnToElder = new ConditionalStep(this, returnToElder);
 		cReturnToElder.addStep(inGryphonCave, exitGryphonCave);
 
 		// 34 + 36 + 38
-		getShield = new NpcStep(this, NpcID.TORTUGAN_BLUNN_1OP, new WorldPoint(3172, 2417, 0), "Get a Tortugan shield from Elder Blunn.");
-		boardBoatAtConch = new ObjectStep(this, ObjectID.SAILING_GANGPLANK_EMBARK, new WorldPoint(3174, 2367, 0), "Sail to Little Pearl island, south-east of The Great Conch, to confront the Shellbane gryphon.", combatGear, food, prayer, tortuganShield);
-		sailToLittlePearl = new ObjectStep(this, ObjectID.SAILING_MOORING_DISEMBARK, new WorldPoint(3354, 2216, 0), "Sail to Little Pearl island, south-east of The Great Conch, to confront the Shellbane gryphon.", combatGear, food, prayer, tortuganShield.equipped());
+		getShield = new NpcStep(this, NpcID.TORTUGAN_BLUNN_1OP, new WorldPoint(3172, 2417, 0), t("Get a Tortugan shield from Elder Blunn."));
+		boardBoatAtConch = new ObjectStep(this, ObjectID.SAILING_GANGPLANK_EMBARK, new WorldPoint(3174, 2367, 0), t("Sail to Little Pearl island, south-east of The Great Conch, to confront the Shellbane gryphon."), combatGear, food, prayer, tortuganShield);
+		sailToLittlePearl = new ObjectStep(this, ObjectID.SAILING_MOORING_DISEMBARK, new WorldPoint(3354, 2216, 0), t("Sail to Little Pearl island, south-east of The Great Conch, to confront the Shellbane gryphon."), combatGear, food, prayer, tortuganShield.equipped());
 		sailToLittlePearl.addSubSteps(boardBoatAtConch);
-		fightShellbane = new NpcStep(this, NpcID.TT_PEARL_GRYPHON, "Defeat the Shellbane gryphon. Have your worn weight be at least 40kg to avoid some damage. Protect from ranged if you're ranging it, and protect from melee when in melee range. Avoid tornadoes. Move when it spits a slow blob at you.", combatGear, food, prayer, tortuganShield.equipped());
+		fightShellbane = new NpcStep(this, NpcID.TT_PEARL_GRYPHON, t("Defeat the Shellbane gryphon. Have your worn weight be at least 40kg to avoid some damage. Protect from ranged if you're ranging it, and protect from melee when in melee range. Avoid tornadoes. Move when it spits a slow blob at you."), combatGear, food, prayer, tortuganShield.equipped());
 		cGetToTheLittlePearl = new ConditionalStep(this, boardBoatAtConch);
 		cGetToTheLittlePearl.addStep(not(tortuganShield), getShield);
 		cGetToTheLittlePearl.addStep(onBoat, sailToLittlePearl);
 		cGetToTheLittlePearl.addStep(onLittlePearl, fightShellbane);
 
 		// 40
-		talkToElderKorelAfterBeatingShellbaneGryphon = new NpcStep(this, NpcID.TT_KOREL_PEARL_COMBAT_DONE, new WorldPoint(3352, 2211, 0), "Talk to Elder Korel after defeating the Shellbane gryphon.");
+		talkToElderKorelAfterBeatingShellbaneGryphon = new NpcStep(this, NpcID.TT_KOREL_PEARL_COMBAT_DONE, new WorldPoint(3352, 2211, 0), t("Talk to Elder Korel after defeating the Shellbane gryphon."));
 
 		// 42
-		boardBoatFromLittlePearl = new ObjectStep(this, ObjectID.SAILING_MOORING_EMBARK, new WorldPoint(3355, 2218, 0), "Return to Elder Raley at The Great Conch to complete the quest.");
-		dockAtTheGreatConch = new ObjectStep(this, ObjectID.SAILING_GANGPLANK_DISEMBARK, new WorldPoint(3174, 2367, 0), "Return to Elder Raley at The Great Conch to complete the quest.");
-		finishQuest = new NpcStep(this, NpcID.TT_RALEY_CONCH, new WorldPoint(3186, 2405, 0), "Return to Elder Raley at The Great Conch to complete the quest.");
+		boardBoatFromLittlePearl = new ObjectStep(this, ObjectID.SAILING_MOORING_EMBARK, new WorldPoint(3355, 2218, 0), t("Return to Elder Raley at The Great Conch to complete the quest."));
+		dockAtTheGreatConch = new ObjectStep(this, ObjectID.SAILING_GANGPLANK_DISEMBARK, new WorldPoint(3174, 2367, 0), t("Return to Elder Raley at The Great Conch to complete the quest."));
+		finishQuest = new NpcStep(this, NpcID.TT_RALEY_CONCH, new WorldPoint(3186, 2405, 0), t("Return to Elder Raley at The Great Conch to complete the quest."));
 		finishQuest.addSubSteps(boardBoatFromLittlePearl, dockAtTheGreatConch);
 		cFinishQuest = new ConditionalStep(this, finishQuest);
 		cFinishQuest.addStep(onBoat, dockAtTheGreatConch);
@@ -391,8 +391,8 @@ public class TroubledTortugans extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"Gryphon (lvl 95)",
-			"Shellbane gryphon (lvl 235)"
+			t("Gryphon (lvl 95)"),
+			t("Shellbane gryphon (lvl 235)")
 		);
 	}
 
@@ -421,7 +421,7 @@ public class TroubledTortugans extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Access to the Great Conch")
+			new UnlockReward(t("Access to the Great Conch"))
 		);
 	}
 
@@ -430,19 +430,19 @@ public class TroubledTortugans extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Find the stranded Tortugan", List.of(
+		sections.add(new PanelDetails(t("Find the stranded Tortugan"), List.of(
 			startQuest,
 			cMakeBandages,
 			talkToInjuredTortuganAfterBandaging
 		)));
 
-		sections.add(new PanelDetails("The Great Conch", List.of(
+		sections.add(new PanelDetails(t("The Great Conch"), List.of(
 			sailToGreatConch,
 			talkToElderKorelAtDocks,
 			talkToElderRaley
 		)));
 
-		sections.add(new PanelDetails("Making repairs", List.of(
+		sections.add(new PanelDetails(t("Making repairs"), List.of(
 			repairTown,
 			talkToElderAfterRepairs
 		), List.of(
@@ -453,7 +453,7 @@ public class TroubledTortugans extends BasicQuestHelper
 			repairTown.freeInvSlotRequirement
 		)));
 
-		sections.add(new PanelDetails("Tracking the Gryphon", List.of(
+		sections.add(new PanelDetails(t("Tracking the Gryphon"), List.of(
 			inspectMonument,
 			followTrailPlant1,
 			followTrailRockslide,
@@ -470,7 +470,7 @@ public class TroubledTortugans extends BasicQuestHelper
 			prayer
 		)));
 
-		sections.add(new PanelDetails("Attack on the Little Pearl", List.of(
+		sections.add(new PanelDetails(t("Attack on the Little Pearl"), List.of(
 			getShield,
 			sailToLittlePearl,
 			fightShellbane,

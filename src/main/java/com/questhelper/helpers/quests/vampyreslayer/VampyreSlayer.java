@@ -111,7 +111,7 @@ public class VampyreSlayer extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		varrockTeleport = new ItemRequirement("Teleport to Varrock", ItemID.POH_TABLET_VARROCKTELEPORT);
+		varrockTeleport = new ItemRequirement(t("Teleport to Varrock"), ItemID.POH_TABLET_VARROCKTELEPORT);
 		draynorManorTeleport = new ItemRequirement("Draynor manor teleport", ItemID.TELETAB_DRAYNOR);
 		stake = new ItemRequirement("Stake", ItemID.STAKE);
 		stake.setTooltip(t("You can get another from Dr. Harlow in the Blue Moon Inn in Varrock."));
@@ -120,8 +120,8 @@ public class VampyreSlayer extends BasicQuestHelper
 		garlic.setTooltip(t("Weakens Count Draynor"));
 		beer = new ItemRequirement("Beer", ItemID.BEER);
 		twoCoins = new ItemRequirement("Coins", ItemID.COINS, 2);
-		beerOrTwoCoins = new ItemRequirements(LogicType.OR, "A beer, or 2 coins to buy one", beer, twoCoins);
-		combatGear = new ItemRequirement("Combat gear + food to defeat Count Draynor", -1, -1).isNotConsumed();
+		beerOrTwoCoins = new ItemRequirements(LogicType.OR, t("A beer, or 2 coins to buy one"), beer, twoCoins);
+		combatGear = new ItemRequirement(t("Combat gear + food to defeat Count Draynor"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		garlicObtainable = garlic.copy();
 		garlicObtainable.canBeObtainedDuringQuest();

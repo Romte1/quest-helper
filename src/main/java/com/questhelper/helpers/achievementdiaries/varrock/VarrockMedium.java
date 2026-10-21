@@ -194,7 +194,7 @@ public class VarrockMedium extends ComplexStateQuestHelper
 		willowLog = new ItemRequirement("Willow logs", ItemID.WILLOW_LOGS).showConditioned(notBalloon);
 		log = new ItemRequirement("Logs", ItemID.LOGS).showConditioned(notBalloon);
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
 		inStronghold1 = new ZoneRequirement(stronghold1);
 		inStronghold2 = new ZoneRequirement(stronghold2);
@@ -226,65 +226,65 @@ public class VarrockMedium extends ComplexStateQuestHelper
 	public void setupSteps()
 	{
 		apothStr = new NpcStep(this, NpcID.APOTHECARY, new WorldPoint(3195, 3404, 0),
-			"Speak with the apothecary to create a strength potion.", limpRoot, redSpiderEgg, coins.quantity(5));
+			t("Speak with the apothecary to create a strength potion."), limpRoot, redSpiderEgg, coins.quantity(5));
 		apothStr.addDialogSteps("Can you make potions for me?");
 		champs = new ObjectStep(this, ObjectID.CHAMPIONDOOR, new WorldPoint(3191, 3363, 0),
-			"Enter the Champions' Guild.", qp);
+			t("Enter the Champions' Guild."), qp);
 		colourCat = new NpcStep(this, NpcID.GERTRUDE_POST, new WorldPoint(3151, 3415, 0),
-			"Check your bank if you own a cat/kitten and either store them in the POH Menagerie or shoo them. Then speak with Gertrude for a new kitten.",
+			t("Check your bank if you own a cat/kitten and either store them in the POH Menagerie or shoo them. Then speak with Gertrude for a new kitten."),
 			coins.quantity(100), ringOfCharos.equipped());
 		colourCat.addDialogSteps("Do you have any more kittens?", "[Charm] I'm quite fussy over cats - can I pick my own?");
 		geSpirit = new ObjectStep(this, ObjectID.SPIRITTREE_SMALL, new WorldPoint(3185, 3510, 0),
-			"Use the spirit tree in the Grand Exchange.");
+			t("Use the spirit tree in the Grand Exchange."));
 
 		moveToStronghold = new ObjectStep(this, ObjectID.SOS_DUNG_ENT_OPEN, new WorldPoint(3081, 3420, 0),
-			"Enter the Security Stronghold.");
+			t("Enter the Security Stronghold."));
 		moveToStronghold2 = new ObjectStep(this, ObjectID.SOS_WAR_LADD_DOWN, new WorldPoint(1902, 5222, 0),
-			"Go to the 2nd floor of the stronghold.");
+			t("Go to the 2nd floor of the stronghold."));
 		moveToStronghold3 = new ObjectStep(this, ObjectID.SOS_FAM_LADD_DOWN, new WorldPoint(2026, 5218, 0),
-			"Go to the 3rd floor of the stronghold.");
+			t("Go to the 3rd floor of the stronghold."));
 		moveToStronghold4 = new ObjectStep(this, ObjectID.SOS_PEST_LADD_DOWN, new WorldPoint(2148, 5284, 0),
-			"Go to the 4th floor of the stronghold.");
+			t("Go to the 4th floor of the stronghold."));
 		peace = new ObjectStep(this, ObjectID.SOS_WAR_CHEST, new WorldPoint(1907, 5222, 0),
-			"Collect the gift of peace.");
+			t("Collect the gift of peace."));
 		grain = new ObjectStep(this, ObjectID.SOS_FAM_SACK, new WorldPoint(2022, 5216, 0),
-			"Collect the grain of plenty.");
+			t("Collect the grain of plenty."));
 		health = new ObjectStep(this, ObjectID.SOS_PEST_CHEST, new WorldPoint(2144, 5280, 0),
-			"Collect the box of health.");
+			t("Collect the box of health."));
 		cradle = new ObjectStep(this, ObjectID.SOS_DEATH_PRAM, new WorldPoint(2344, 5214, 0),
-			"Collect the cradle of life.");
-		emote = new DetailedQuestStep(this, "Use the flap, slap head, idea, and stamp emotes.");
+			t("Collect the cradle of life."));
+		emote = new DetailedQuestStep(this, t("Use the flap, slap head, idea, and stamp emotes."));
 		moveToEdge = new ObjectStep(this, ObjectID.TRAPDOOR_OPEN, new WorldPoint(3097, 3468, 0),
-			"Move to the Edgeville dungeon.");
+			t("Move to the Edgeville dungeon."));
 
 		//TODO find a better way to check for slayer task
 		vannaka = new NpcStep(this, NpcID.SLAYER_MASTER_3, new WorldPoint(3146, 9913, 0),
-			"Get a task from Vannaka.");
+			t("Get a task from Vannaka."));
 		tolna = new ObjectStep(this, ObjectID.SOULBANE_FALLOFF2_ROPE_MULTI, new WorldPoint(3310, 3452, 0),
-			"Enter the Tolna dungeon.");
+			t("Enter the Tolna dungeon."));
 
-		tpDigsite = new DetailedQuestStep(this, "Rub the digsite pendant and select the 'Digsite' teleport.",
+		tpDigsite = new DetailedQuestStep(this, t("Rub the digsite pendant and select the 'Digsite' teleport."),
 			digsitePend.highlighted());
 
 		maho20 = new NpcStep(this, NpcID.POH_SAWMILL_OPP, new WorldPoint(3302, 3492, 0),
-			"Make 20 mahogany planks at the sawmill in ONE run.", mahoLog.quantity(20), coins.quantity(30000));
+			t("Make 20 mahogany planks at the sawmill in ONE run."), mahoLog.quantity(20), coins.quantity(30000));
 
 		balloon = new ObjectStep(this, ObjectID.ZEP_MULTI_BASKET_VARR, new WorldPoint(3297, 3482, 0),
-			"Use the basket east of Varrock to fly to any available destination.", willowLog1);
+			t("Use the basket east of Varrock to fly to any available destination."), willowLog1);
 		moveToEntrana = new NpcStep(this, NpcID.SHIPMONK1_C, new WorldPoint(3048, 3236, 0),
-			"Speak with a monk to travel to Entrana.", true, willowLog11);
+			t("Speak with a monk to travel to Entrana."), true, willowLog11);
 		moveToEntrana.addAlternateNpcs(NpcID.SHIPMONK1_B, NpcID.SHIPMONK);
 		talkToAug = new NpcStep(this, NpcID.ZEP_PICCARD, new WorldPoint(2810, 3356, 0),
-			"Speak with Augustine and travel to Varrock.", willowLog11);
+			t("Speak with Augustine and travel to Varrock."), willowLog11);
 
 		whiteFruit = new ObjectStep(this, ObjectID.GARDEN_WHITE_TREE_PATCH, new WorldPoint(3230, 3475, 0),
-			"Pick a white tree fruit at Varrock Castle.");
+			t("Pick a white tree fruit at Varrock Castle."));
 		varrAgi = new ObjectStep(this, ObjectID.ROOFTOPS_VARROCK_WALLCLIMB, new WorldPoint(3221, 3414, 0),
-			"Complete a lap of the Varrock rooftop course.");
-		tpVarrock = new DetailedQuestStep(this, "Cast Teleport to Varrock", airRune.quantity(3), fireRune.quantity(1), lawRune.quantity(1));
+			t("Complete a lap of the Varrock rooftop course."));
+		tpVarrock = new DetailedQuestStep(this, t("Cast Teleport to Varrock"), airRune.quantity(3), fireRune.quantity(1), lawRune.quantity(1));
 
 		claimReward = new NpcStep(this, NpcID.TOBY_VARROCK_DIARY, new WorldPoint(3225, 3415, 0),
-			"Talk to Toby in Varrock to claim your reward!");
+			t("Talk to Toby in Varrock to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -335,11 +335,11 @@ public class VarrockMedium extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("10% Chance to mine 2 ores at once up to mithril ore"),
-			new UnlockReward("10% Chance of smelting 2 bars at once up to mithril when using the Edgeville furnace"),
-			new UnlockReward("Zaff will sell 30 Battlestaves per day for 7,000 Coins each"),
-			new UnlockReward("The Skull sceptre will now hold 18 charges"),
-			new UnlockReward("Ability to toggle the Varrock Teleport to go to The Grand Exchange"));
+			new UnlockReward(t("10% Chance to mine 2 ores at once up to mithril ore")),
+			new UnlockReward(t("10% Chance of smelting 2 bars at once up to mithril when using the Edgeville furnace")),
+			new UnlockReward(t("Zaff will sell 30 Battlestaves per day for 7,000 Coins each")),
+			new UnlockReward(t("The Skull sceptre will now hold 18 charges")),
+			new UnlockReward(t("Ability to toggle the Varrock Teleport to go to The Grand Exchange")));
 	}
 
 	@Override
@@ -347,90 +347,90 @@ public class VarrockMedium extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails apothSteps = new PanelDetails("Apothecary Strength Potion", Collections.singletonList(apothStr),
+		PanelDetails apothSteps = new PanelDetails(t("Apothecary Strength Potion"), Collections.singletonList(apothStr),
 			limpRoot, redSpiderEgg, coins.quantity(5));
 		apothSteps.setDisplayCondition(notApothStr);
 		apothSteps.setLockingStep(apothStrTask);
 		allSteps.add(apothSteps);
 
-		PanelDetails champsSteps = new PanelDetails("Enter Champions' Guild", Collections.singletonList(champs), qp);
+		PanelDetails champsSteps = new PanelDetails(t("Enter Champions' Guild"), Collections.singletonList(champs), qp);
 		champsSteps.setDisplayCondition(notChamps);
 		champsSteps.setLockingStep(champsTask);
 		allSteps.add(champsSteps);
 
-		PanelDetails catColourSteps = new PanelDetails("Select Cat's Colour", Collections.singletonList(colourCat),
+		PanelDetails catColourSteps = new PanelDetails(t("Select Cat's Colour"), Collections.singletonList(colourCat),
 			gardenOfTranq, gertCat, coins.quantity(100), ringOfCharos);
 		catColourSteps.setDisplayCondition(notCatColour);
 		catColourSteps.setLockingStep(colourCatTask);
 		allSteps.add(catColourSteps);
 
-		PanelDetails geSpiritSteps = new PanelDetails("Use The Spirit Tree", Collections.singletonList(geSpirit),
+		PanelDetails geSpiritSteps = new PanelDetails(t("Use The Spirit Tree"), Collections.singletonList(geSpirit),
 			treeGnomeVillage);
 		geSpiritSteps.setDisplayCondition(notGESpirit);
 		geSpiritSteps.setLockingStep(geSpiritTask);
 		allSteps.add(geSpiritSteps);
 
-		PanelDetails strongEmotesSteps = new PanelDetails("Use 4 Stronghold Emotes", Arrays.asList(moveToStronghold,
+		PanelDetails strongEmotesSteps = new PanelDetails(t("Use 4 Stronghold Emotes"), Arrays.asList(moveToStronghold,
 			peace, moveToStronghold2, grain, moveToStronghold3, health, moveToStronghold4, cradle, emote), food);
 		strongEmotesSteps.setDisplayCondition(notStrongholdEmote);
 		strongEmotesSteps.setLockingStep(stongholdEmoteTask);
 		allSteps.add(strongEmotesSteps);
 
-		PanelDetails vannakaSteps = new PanelDetails("Slayer Task From Vannaka", Arrays.asList(moveToEdge, vannaka));
+		PanelDetails vannakaSteps = new PanelDetails(t("Slayer Task From Vannaka"), Arrays.asList(moveToEdge, vannaka));
 		vannakaSteps.setDisplayCondition(notVannaka);
 		vannakaSteps.setLockingStep(vannakaTask);
 		allSteps.add(vannakaSteps);
 
-		PanelDetails tpDigsiteSteps = new PanelDetails("Teleport to The Digsite", Collections.singletonList(tpDigsite),
+		PanelDetails tpDigsiteSteps = new PanelDetails(t("Teleport to The Digsite"), Collections.singletonList(tpDigsite),
 			digSite, digsitePend);
 		tpDigsiteSteps.setDisplayCondition(notTPDigsite);
 		tpDigsiteSteps.setLockingStep(tpDigsiteTask);
 		allSteps.add(tpDigsiteSteps);
 
-		PanelDetails tolnaSteps = new PanelDetails("Enter The Tolna Dungeon", Collections.singletonList(tolna),
+		PanelDetails tolnaSteps = new PanelDetails(t("Enter The Tolna Dungeon"), Collections.singletonList(tolna),
 			soulsBane);
 		tolnaSteps.setDisplayCondition(notTolna);
 		tolnaSteps.setLockingStep(tolnaTask);
 		allSteps.add(tolnaSteps);
 
-		PanelDetails maho20Steps = new PanelDetails("Make 20 Mahogany Planks", Collections.singletonList(maho20),
+		PanelDetails maho20Steps = new PanelDetails(t("Make 20 Mahogany Planks"), Collections.singletonList(maho20),
 			mahoLog.quantity(20), coins.quantity(30000));
 		maho20Steps.setDisplayCondition(notMaho20);
 		maho20Steps.setLockingStep(maho20Task);
 		allSteps.add(maho20Steps);
 
-		PanelDetails balloonSteps = new PanelDetails("Leave Varrock in a Balloon", Arrays.asList(moveToEntrana, talkToAug,
+		PanelDetails balloonSteps = new PanelDetails(t("Leave Varrock in a Balloon"), Arrays.asList(moveToEntrana, talkToAug,
 			balloon), new SkillRequirement(Skill.FIREMAKING, 40, true), enlightenedJourney, willowLog1, log);
 		balloonSteps.setDisplayCondition(new Conditions(notBalloon, notVarrBalloon2));
 		balloonSteps.setLockingStep(balloonTask);
 		allSteps.add(balloonSteps);
 
-		PanelDetails balloon2Steps = new PanelDetails("Leave Varrock in a Balloon", Arrays.asList(moveToEntrana, talkToAug,
+		PanelDetails balloon2Steps = new PanelDetails(t("Leave Varrock in a Balloon"), Arrays.asList(moveToEntrana, talkToAug,
 			balloon), new SkillRequirement(Skill.FIREMAKING, 40, true), enlightenedJourney, willowLog11, log);
 		balloon2Steps.setDisplayCondition(new Conditions(notBalloon, notVarrBalloon));
 		balloon2Steps.setLockingStep(balloonTask);
 		allSteps.add(balloon2Steps);
 
-		PanelDetails tpVarrSteps = new PanelDetails("Teleport to Varrock", Collections.singletonList(tpVarrock),
+		PanelDetails tpVarrSteps = new PanelDetails(t("Teleport to Varrock"), Collections.singletonList(tpVarrock),
 			new SkillRequirement(Skill.MAGIC, 25, true), airRune.quantity(3), lawRune.quantity(1), fireRune.quantity(1),
 			normalBook);
 		tpVarrSteps.setDisplayCondition(notTPVarrock);
 		tpVarrSteps.setLockingStep(tpVarrockTask);
 		allSteps.add(tpVarrSteps);
 
-		PanelDetails whiteFruitSteps = new PanelDetails("Pick a White Fruit", Collections.singletonList(whiteFruit),
+		PanelDetails whiteFruitSteps = new PanelDetails(t("Pick a White Fruit"), Collections.singletonList(whiteFruit),
 			new SkillRequirement(Skill.FARMING, 25, false), gardenOfTranq);
 		whiteFruitSteps.setDisplayCondition(notWhiteFruit);
 		whiteFruitSteps.setLockingStep(whiteFruitTask);
 		allSteps.add(whiteFruitSteps);
 
-		PanelDetails varrAgiSteps = new PanelDetails("Rooftop Course Lap", Collections.singletonList(varrAgi),
+		PanelDetails varrAgiSteps = new PanelDetails(t("Rooftop Course Lap"), Collections.singletonList(varrAgi),
 			new SkillRequirement(Skill.AGILITY, 30, true));
 		varrAgiSteps.setDisplayCondition(notVarrAgi);
 		varrAgiSteps.setLockingStep(varrAgiTask);
 		allSteps.add(varrAgiSteps);
 
-		PanelDetails finishOffSteps = new PanelDetails("Finishing off", Collections.singletonList(claimReward));
+		PanelDetails finishOffSteps = new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward));
 		allSteps.add(finishOffSteps);
 
 		return allSteps;

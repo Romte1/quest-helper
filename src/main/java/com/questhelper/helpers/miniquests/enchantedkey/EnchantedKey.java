@@ -108,7 +108,7 @@ public class EnchantedKey extends BasicQuestHelper
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Dig for treasure", Collections.singletonList(solvePuzzle), key, spade));
+		allSteps.add(new PanelDetails(t("Dig for treasure"), Collections.singletonList(solvePuzzle), key, spade));
 		return allSteps;
 	}
 

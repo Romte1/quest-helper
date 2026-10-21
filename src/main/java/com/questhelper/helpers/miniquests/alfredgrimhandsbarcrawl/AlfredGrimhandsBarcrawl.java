@@ -132,7 +132,7 @@ public class AlfredGrimhandsBarcrawl extends ComplexStateQuestHelper
 		duelingRing = new ItemRequirement("Ring of dueling", ItemCollections.RING_OF_DUELINGS);
 
 		barcrawlCard = new ItemRequirement("Barcrawl card", ItemID.BARCRAWL_CARD);
-		barcrawlCard.setTooltip("If you've lost it you can get another from the Barbarian Guard");
+		barcrawlCard.setTooltip(t("If you've lost it you can get another from the Barbarian Guard"));
 		inGrandTreeF1 = new ZoneRequirement(grandTreeF1);
 
 		notTalkedToGuard = new VarplayerRequirement(VarPlayerID.BARCRAWL, false, 0);
@@ -150,43 +150,43 @@ public class AlfredGrimhandsBarcrawl extends ComplexStateQuestHelper
 
 	public void setupSteps()
 	{
-		talkToGuardToGetCard = new NpcStep(this, NpcID.BARBGUARD1_PRECRAWL, new WorldPoint(2544, 3568, 0), "Talk to a barbarian guard outside the Barbarian Agility Course at the Barbarian Outpost to learn about Alfred Grimhand's Barcrawl.");
+		talkToGuardToGetCard = new NpcStep(this, NpcID.BARBGUARD1_PRECRAWL, new WorldPoint(2544, 3568, 0), t("Talk to a barbarian guard outside the Barbarian Agility Course at the Barbarian Outpost to learn about Alfred Grimhand's Barcrawl."));
 		talkToGuardToGetCard.addDialogSteps("I want to come through this gate.", "Looks can be deceiving, I am in fact a barbarian.");
 
-		talkToBlueMoon = new NpcStep(this, NpcID.BLUEMOON_BARTENDER, new WorldPoint(3226, 3399, 0), "Talk to the bartender in the Blue Moon Inn in Varrock.", coins50);
+		talkToBlueMoon = new NpcStep(this, NpcID.BLUEMOON_BARTENDER, new WorldPoint(3226, 3399, 0), t("Talk to the bartender in the Blue Moon Inn in Varrock."), coins50);
 		talkToBlueMoon.addDialogStep("I'm doing Alfred Grimhand's Barcrawl.");
 
-		talkToJollyBoar = new NpcStep(this, NpcID.JOLLYBOAR_BARTENDER, new WorldPoint(3279, 3488, 0), "Talk to the bartender in the Jolly Boar Inn north east of Varrock.", coins10);
+		talkToJollyBoar = new NpcStep(this, NpcID.JOLLYBOAR_BARTENDER, new WorldPoint(3279, 3488, 0), t("Talk to the bartender in the Jolly Boar Inn north east of Varrock."), coins10);
 		talkToJollyBoar.addTeleport(lumberyardTeleport);
 		talkToJollyBoar.addDialogStep("I'm doing Alfred Grimhands Barcrawl.");
 
-		talkToRisingSun = new NpcStep(this, NpcID.RISINGSUN_BARMAID2, new WorldPoint(2956, 3370, 0), "Talk to a bartender in the Rising Sun Inn in Falador.", true, coins70);
+		talkToRisingSun = new NpcStep(this, NpcID.RISINGSUN_BARMAID2, new WorldPoint(2956, 3370, 0), t("Talk to a bartender in the Rising Sun Inn in Falador."), true, coins70);
 		talkToRisingSun.addDialogStep("I'm doing Alfred Grimhand's barcrawl.");
 		talkToRisingSun.addAlternateNpcs(NpcID.RISINGSUN_BARMAID, NpcID.RISINGSUN_BARMAID3);
 
-		talkToRustyAnchor = new NpcStep(this, NpcID.RUSTYANCHOR_BARTENDER, new WorldPoint(3046, 3257, 0), "Talk to the bartender in the Rusty Anchor in Port Sarim.", coins8);
+		talkToRustyAnchor = new NpcStep(this, NpcID.RUSTYANCHOR_BARTENDER, new WorldPoint(3046, 3257, 0), t("Talk to the bartender in the Rusty Anchor in Port Sarim."), coins8);
 		talkToRustyAnchor.addDialogStep("I'm doing Alfred Grimhand's Barcrawl.");
 
-		talkToZambo = new NpcStep(this, NpcID.ZEMBO, new WorldPoint(2927, 3144, 0), "Talk to Zembo in the Karamja Spirits Bar on Musa Point.", coins7);
+		talkToZambo = new NpcStep(this, NpcID.ZEMBO, new WorldPoint(2927, 3144, 0), t("Talk to Zembo in the Karamja Spirits Bar on Musa Point."), coins7);
 		talkToZambo.addDialogStep("I'm doing Alfred Grimhand's barcrawl.");
 
-		talkToDeadMansChest = new NpcStep(this, NpcID.DEADMANS_BARTENDER, new WorldPoint(2796, 3156, 0), "Talk to the bartender in the Dead Man's Chest in Brimhaven.", coins15);
+		talkToDeadMansChest = new NpcStep(this, NpcID.DEADMANS_BARTENDER, new WorldPoint(2796, 3156, 0), t("Talk to the bartender in the Dead Man's Chest in Brimhaven."), coins15);
 		talkToDeadMansChest.addDialogStep("I'm doing Alfred Grimhand's Barcrawl.");
 
-		talkToFlyingHorseInn = new NpcStep(this, NpcID.FLYINGHORSE_BARTENDER, new WorldPoint(2574, 3323, 0), "Talk to the bartender in the Flying Horse Inn in Ardougne.", coins8);
+		talkToFlyingHorseInn = new NpcStep(this, NpcID.FLYINGHORSE_BARTENDER, new WorldPoint(2574, 3323, 0), t("Talk to the bartender in the Flying Horse Inn in Ardougne."), coins8);
 		talkToFlyingHorseInn.addDialogStep("I'm doing Alfred Grimhand's Barcrawl.");
 
-		talkToForestersArms = new NpcStep(this, NpcID.FORESTERS_BARTENDER, new WorldPoint(2690, 3494, 0), "Talk to the bartender in the Forester's Arms in Seers' Village.", coins18);
+		talkToForestersArms = new NpcStep(this, NpcID.FORESTERS_BARTENDER, new WorldPoint(2690, 3494, 0), t("Talk to the bartender in the Forester's Arms in Seers' Village."), coins18);
 		talkToForestersArms.addDialogStep("I'm doing Alfred Grimhand's Barcrawl.");
 
-		goUpToBlurberry = new ObjectStep(this, QHObjectID.GRAND_TREE_F0_LADDER, new WorldPoint(2466, 3495, 0), "Talk to Blurberry in the Grand Tree.", coins10);
-		talkToBlurberry = new NpcStep(this, NpcID.BLURBERRY, new WorldPoint(2482, 3491, 1), "Talk to Blurberry in the Grand Tree.", coins10);
+		goUpToBlurberry = new ObjectStep(this, QHObjectID.GRAND_TREE_F0_LADDER, new WorldPoint(2466, 3495, 0), t("Talk to Blurberry in the Grand Tree."), coins10);
+		talkToBlurberry = new NpcStep(this, NpcID.BLURBERRY, new WorldPoint(2482, 3491, 1), t("Talk to Blurberry in the Grand Tree."), coins10);
 		talkToBlurberry.addSubSteps(goUpToBlurberry);
 
-		talkToDragonInn = new NpcStep(this, NpcID.DRAGON_BARTENDER, new WorldPoint(2556, 3079, 0), "Talk to the bartender in Dragon Inn in Yanille.", coins12);
+		talkToDragonInn = new NpcStep(this, NpcID.DRAGON_BARTENDER, new WorldPoint(2556, 3079, 0), t("Talk to the bartender in Dragon Inn in Yanille."), coins12);
 		talkToDragonInn.addDialogStep("I'm doing Alfred Grimhand's Barcrawl.");
 
-		talkToGuardAgain = new NpcStep(this, NpcID.BARBGUARD1_PRECRAWL, new WorldPoint(2544, 3568, 0), "Return to the barbarian guards outside the Barbarian Agility Course.");
+		talkToGuardAgain = new NpcStep(this, NpcID.BARBGUARD1_PRECRAWL, new WorldPoint(2544, 3568, 0), t("Return to the barbarian guards outside the Barbarian Agility Course."));
 	}
 
 	@Override
@@ -239,8 +239,8 @@ public class AlfredGrimhandsBarcrawl extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Access to Barbarian Outpost Agility Course"),
-			new UnlockReward("Speak to the Barbarian Guard to learn how to smash empty vials automatically.")
+			new UnlockReward(t("Access to Barbarian Outpost Agility Course")),
+			new UnlockReward(t("Speak to the Barbarian Guard to learn how to smash empty vials automatically."))
 		);
 	}
 
@@ -249,11 +249,11 @@ public class AlfredGrimhandsBarcrawl extends ComplexStateQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Getting started", List.of(
+		sections.add(new PanelDetails(t("Getting started"), List.of(
 			talkToGuardToGetCard
 		)));
 
-		sections.add(new PanelDetails("Drinking", List.of(
+		sections.add(new PanelDetails(t("Drinking"), List.of(
 			talkToBlueMoon,
 			talkToJollyBoar,
 			talkToRisingSun,

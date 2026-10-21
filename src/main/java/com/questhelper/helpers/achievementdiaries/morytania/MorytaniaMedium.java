@@ -177,17 +177,17 @@ public class MorytaniaMedium extends ComplexStateQuestHelper
 		restorePot = new ItemRequirement("Restore potion (4)", ItemID._4DOSESTATRESTORE).showConditioned(notGuthBalance);
 		garlic = new ItemRequirement("Garlic", ItemID.GARLIC).showConditioned(notGuthBalance);
 		silverDust = new ItemRequirement("Silver dust", ItemID.SILVER_DUST).showConditioned(notGuthBalance);
-		silverDust.setTooltip("Created by grinding a silver bar in the ectofuntus bone grinder.");
+		silverDust.setTooltip(t("Created by grinding a silver bar in the ectofuntus bone grinder."));
 		guthixBalanceUnf = new ItemRequirement("Guthix balance (unf)", ItemCollections.GUTHIX_BALANCE_UNF);
 
 		slayerRing = new ItemRequirement("Slayer ring", ItemCollections.SLAYER_RINGS).showConditioned(notTerrorDog);
-		fairyAccess = new ItemRequirement("Access to the fairy ring system", ItemCollections.FAIRY_STAFF)
+		fairyAccess = new ItemRequirement(t("Access to the fairy ring system"), ItemCollections.FAIRY_STAFF)
 			.showConditioned(new Conditions(LogicType.OR, notSwampBoaty, notHollowTree)).isNotConsumed();
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
 		inHauntedMineZone = new ZoneRequirement(hauntedMineZone);
 		inRoom1 = new ZoneRequirement(room1);
@@ -271,55 +271,55 @@ public class MorytaniaMedium extends ComplexStateQuestHelper
 	{
 		getToTerrorDogs = new TarnRoute(this);
 		moveToMine = new ObjectStep(this, ObjectID.HAUNTEDMINE_SECONDARY_ENTRANCE, new WorldPoint(3440, 3232, 0),
-			"Enter the Haunted Mine or use slayer ring to teleport directly to Tarn's Lair.");
+			t("Enter the Haunted Mine or use slayer ring to teleport directly to Tarn's Lair."));
 		terrorDog = new NpcStep(this, NpcID.LOTR_TERROR_DOG_LARGE, new WorldPoint(3149, 4652, 0),
-			"Kill a terror dog. You can enter the room with the diary if you need a safe zone.", true);
+			t("Kill a terror dog. You can enter the room with the diary if you need a safe zone."), true);
 		terrorDog.addAlternateNpcs(NpcID.LOTR_TERROR_DOG_SMALL);
 
 		canifisAgi = new ObjectStep(this, ObjectID.ROOFTOPS_CANIFIS_START_TREE, new WorldPoint(3507, 3489, 0),
-			"Complete a lap of the Canifis Rooftop Course.");
+			t("Complete a lap of the Canifis Rooftop Course."));
 
 		swampLizard = new ObjectStep(this, ObjectID.HUNTING_SAPLING_UP_SWAMP, new WorldPoint(3532, 3447, 0),
-			"Catch a swamp lizard.");
+			t("Catch a swamp lizard."));
 
 		swampBoaty = new ObjectStep(this, ObjectID.ROUTE_ROWBOAT_HOLLOWS, new WorldPoint(3499, 3378, 0),
-			"Board the Swamp boaty at the Hollows.");
+			t("Board the Swamp boaty at the Hollows."));
 
-		ectophialTP = new ItemStep(this, "Use your Ectophial to teleport to Port Phasmatys.", ectophial.highlighted());
+		ectophialTP = new ItemStep(this, t("Use your Ectophial to teleport to Port Phasmatys."), ectophial.highlighted());
 
-		guthBalance = new ItemStep(this, "Mix a Guthix balance potion while in Morytania.", restorePot.highlighted(),
+		guthBalance = new ItemStep(this, t("Mix a Guthix balance potion while in Morytania."), restorePot.highlighted(),
 			garlic.highlighted());
-		guthBalance2 = new ItemStep(this, "Mix a Guthix balance potion while in Morytania.", guthixBalanceUnf.highlighted(),
+		guthBalance2 = new ItemStep(this, t("Mix a Guthix balance potion while in Morytania."), guthixBalanceUnf.highlighted(),
 			silverDust.highlighted());
 
 		hollowTree = new ObjectStep(this, ObjectID.HOLLOW_TREE_BIG, new WorldPoint(3663, 3451, 0),
-			"Chop some bark off the hollow tree south of Port phasmatys.", axe);
+			t("Chop some bark off the hollow tree south of Port phasmatys."), axe);
 
 		cannonBall = new ObjectStep(this, ObjectID.FAI_FALADOR_FURNACE, new WorldPoint(3689, 3479, 0),
-			"Make a batch of cannonballs at Port Phasmatys.", ammoMould, steelBar);
+			t("Make a batch of cannonballs at Port Phasmatys."), ammoMould, steelBar);
 
 		dragontoothIsland = new NpcStep(this, NpcID.AHOY_GHOST_CAPTAIN_1, new WorldPoint(3703, 3487, 0),
-			"Talk to the Ghost captain at Port Phasmatys to travel to Dragontooth Island.", ectoToken.quantity(25),
+			t("Talk to the Ghost captain at Port Phasmatys to travel to Dragontooth Island."), ectoToken.quantity(25),
 			ghostspeakAmulet);
 
 		moveToBrainDeath = new NpcStep(this, NpcID.DEAL_PETE, new WorldPoint(3681, 3536, 0),
-			"Talk to Pirate Pete to travel to Braindeath Island.");
+			t("Talk to Pirate Pete to travel to Braindeath Island."));
 		moveToBrainDeath.addDialogStep("Okay!");
 		moveToDownstairs = new ObjectStep(this, ObjectID.DEAL_LADDERTOP, new WorldPoint(2139, 5105, 1),
-			"Climb down the ladder.");
+			t("Climb down the ladder."));
 		feverSpider = new NpcStep(this, NpcID.DEAL_FEVER_SPIDERS1, new WorldPoint(2141, 5103, 0),
-			"Kill a Fever spider.", slayerGloves, combatGear, food);
+			t("Kill a Fever spider."), slayerGloves, combatGear, food);
 
 		moveToCapt = new ObjectStep(this, ObjectID.FEVER_GANGPLANK, new WorldPoint(3710, 3496, 0),
-			"Cross the gangplank to Bill Teach's ship. Alternatively use the Group finder to teleport directly there.");
+			t("Cross the gangplank to Bill Teach's ship. Alternatively use the Group finder to teleport directly there."));
 		moveToMos = new NpcStep(this, NpcID.FEVER_HARMLESS_PORT_SHIP_TEACH, new WorldPoint(3714, 3497, 1),
-			"Talk to Bill Teach to travel to Mos Le'Harmless.");
+			t("Talk to Bill Teach to travel to Mos Le'Harmless."));
 		troubleBrewing = new NpcStep(this, NpcID.HONEST_JIMMY, new WorldPoint(3811, 3021, 0),
-			"Start playing Trouble brewing. You don't need to win. You will need to empty your inventory and unequip " +
-				"any helmets.");
+			t("Start playing Trouble brewing. You don't need to win. You will need to empty your inventory and unequip " +
+				"any helmets."));
 
 		claimReward = new NpcStep(this, NpcID.LESABRE_MORT_DIARY, new WorldPoint(3464, 3480, 0),
-			"Talk to Le-Sabre near Canifis to claim your reward!");
+			t("Talk to Le-Sabre near Canifis to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -360,7 +360,7 @@ public class MorytaniaMedium extends ComplexStateQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("a Terror dog (lvl 100) and a Fever spider (lvl 49)");
+		return Collections.singletonList(t("a Terror dog (lvl 100) and a Fever spider (lvl 49)"));
 	}
 
 	@Override
@@ -376,10 +376,10 @@ public class MorytaniaMedium extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("5 daily teleports to the Slime Pit beneath the Ectofuntus from Morytania legs"),
-			new UnlockReward("Morytania legs act as a ghostspeak amulet when worn"),
-			new UnlockReward("Robin offers 13 buckets of slime and 13 pots of bonemeal in exchange for bones each day"),
-			new UnlockReward("5% more Slayer experience in the Slayer Tower while on a Slayer task")
+			new UnlockReward(t("5 daily teleports to the Slime Pit beneath the Ectofuntus from Morytania legs")),
+			new UnlockReward(t("Morytania legs act as a ghostspeak amulet when worn")),
+			new UnlockReward(t("Robin offers 13 buckets of slime and 13 pots of bonemeal in exchange for bones each day")),
+			new UnlockReward(t("5% more Slayer experience in the Slayer Tower while on a Slayer task"))
 		);
 	}
 
@@ -388,74 +388,74 @@ public class MorytaniaMedium extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails swampBoatySteps = new PanelDetails("Swamp Boaty", Collections.singletonList(swampBoaty));
+		PanelDetails swampBoatySteps = new PanelDetails(t("Swamp Boaty"), Collections.singletonList(swampBoaty));
 		swampBoatySteps.setDisplayCondition(notSwampBoaty);
 		swampBoatySteps.setLockingStep(swampBoatyTask);
 		allSteps.add(swampBoatySteps);
 
-		PanelDetails terrorDogSteps = new PanelDetails("Terror Dog", getToTerrorDogs.getDisplaySteps(),
+		PanelDetails terrorDogSteps = new PanelDetails(t("Terror Dog"), getToTerrorDogs.getDisplaySteps(),
 			lairOfTarnRaz, combatGear, food);
 		terrorDogSteps.addSteps(terrorDog);
 		terrorDogSteps.setDisplayCondition(notTerrorDog);
 		terrorDogSteps.setLockingStep(terrorDogTask);
 		allSteps.add(terrorDogSteps);
 
-		PanelDetails canifisSteps = new PanelDetails("Canifis Rooftop Course", Collections.singletonList(canifisAgi),
+		PanelDetails canifisSteps = new PanelDetails(t("Canifis Rooftop Course"), Collections.singletonList(canifisAgi),
 			new SkillRequirement(Skill.AGILITY, 40, true));
 		canifisSteps.setDisplayCondition(notCanifisAgi);
 		canifisSteps.setLockingStep(canifisAgiTask);
 		allSteps.add(canifisSteps);
 
-		PanelDetails swampLizardSteps = new PanelDetails("Swamp Lizard", Collections.singletonList(swampLizard),
+		PanelDetails swampLizardSteps = new PanelDetails(t("Swamp Lizard"), Collections.singletonList(swampLizard),
 			new SkillRequirement(Skill.HUNTER, 29, true), rope, smallFishingNet);
 		swampLizardSteps.setDisplayCondition(notSwampLizard);
 		swampLizardSteps.setLockingStep(swampLizardTask);
 		allSteps.add(swampLizardSteps);
 
-		PanelDetails ectophialSteps = new PanelDetails("Ectophial", Collections.singletonList(ectophialTP),
+		PanelDetails ectophialSteps = new PanelDetails(t("Ectophial"), Collections.singletonList(ectophialTP),
 			ghostsAhoy, ectophial);
 		ectophialSteps.setDisplayCondition(notEctophialTP);
 		ectophialSteps.setLockingStep(ectophialTPTask);
 		allSteps.add(ectophialSteps);
 
-		PanelDetails cannonballsSteps = new PanelDetails("Cannonballs", Collections.singletonList(cannonBall),
+		PanelDetails cannonballsSteps = new PanelDetails(t("Cannonballs"), Collections.singletonList(cannonBall),
 			new SkillRequirement(Skill.SMITHING, 35, true), dwarfCannon, ammoMould, steelBar);
 		cannonballsSteps.setDisplayCondition(notCannonBall);
 		cannonballsSteps.setLockingStep(cannonBallTask);
 		allSteps.add(cannonballsSteps);
 
-		PanelDetails guthSteps = new PanelDetails("Guthix Balance", Collections.singletonList(guthBalance),
+		PanelDetails guthSteps = new PanelDetails(t("Guthix Balance"), Collections.singletonList(guthBalance),
 			new SkillRequirement(Skill.HERBLORE, 22, true), inAidOfMyreque, restorePot, garlic, silverDust);
 		guthSteps.setDisplayCondition(notGuthBalance);
 		guthSteps.setLockingStep(guthBalanceTask);
 		allSteps.add(guthSteps);
 
-		PanelDetails hollowSteps = new PanelDetails("Hollow Tree", Collections.singletonList(hollowTree),
+		PanelDetails hollowSteps = new PanelDetails(t("Hollow Tree"), Collections.singletonList(hollowTree),
 			new SkillRequirement(Skill.WOODCUTTING, 45, true), axe);
 		hollowSteps.setDisplayCondition(notHollowTree);
 		hollowSteps.setLockingStep(hollowTreeTask);
 		allSteps.add(hollowSteps);
 
-		PanelDetails dragSteps = new PanelDetails("Dragontooth Island", Collections.singletonList(dragontoothIsland),
+		PanelDetails dragSteps = new PanelDetails(t("Dragontooth Island"), Collections.singletonList(dragontoothIsland),
 			ectoToken.quantity(25), ghostspeakAmulet);
 		dragSteps.setDisplayCondition(notDragontoothIsland);
 		dragSteps.setLockingStep(dragontoothIslandTask);
 		allSteps.add(dragSteps);
 
-		PanelDetails feverSteps = new PanelDetails("Fever Spider", Arrays.asList(moveToBrainDeath,
+		PanelDetails feverSteps = new PanelDetails(t("Fever Spider"), Arrays.asList(moveToBrainDeath,
 			moveToDownstairs, feverSpider),
 			new SkillRequirement(Skill.SLAYER, 42, true), rumDeal, slayerGloves);
 		feverSteps.setDisplayCondition(notFeverSpider);
 		feverSteps.setLockingStep(feverSpiderTask);
 		allSteps.add(feverSteps);
 
-		PanelDetails troubleSteps = new PanelDetails("Trouble Brewing", Arrays.asList(moveToCapt, moveToMos, troubleBrewing),
+		PanelDetails troubleSteps = new PanelDetails(t("Trouble Brewing"), Arrays.asList(moveToCapt, moveToMos, troubleBrewing),
 			new SkillRequirement(Skill.COOKING, 40, false), cabinFever);
 		troubleSteps.setDisplayCondition(notTroubleBrewing);
 		troubleSteps.setLockingStep(troubleBrewingTask);
 		allSteps.add(troubleSteps);
 
-		allSteps.add(new PanelDetails("Finishing off", Collections.singletonList(claimReward)));
+		allSteps.add(new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward)));
 
 		return allSteps;
 	}

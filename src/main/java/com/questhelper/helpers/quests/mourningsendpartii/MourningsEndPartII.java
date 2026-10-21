@@ -397,10 +397,10 @@ public class MourningsEndPartII extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		deathTalisman = new ItemRequirement("Access to the Death Altar", ItemCollections.DEATH_ALTAR).isNotConsumed();
-		deathTalisman.setTooltip("Death Talisman/Tiara, Catalytic Talisman/Tiara or RC-skill cape");
-		deathTalisman.appendToTooltip("or bring the dwarf the 50 items asked later");
-		deathTalismanHeader = new ItemRequirement("Access to the Death Altar or 50 items asked of you by a dwarf", ItemCollections.DEATH_ALTAR).isNotConsumed();
-		deathTalisman.setTooltip("Death Talisman/Tiara, Catalytic Talisman/Tiara or RC-skill cape");
+		deathTalisman.setTooltip(t("Death Talisman/Tiara, Catalytic Talisman/Tiara or RC-skill cape"));
+		deathTalisman.appendToTooltip(t("or bring the dwarf the 50 items asked later"));
+		deathTalismanHeader = new ItemRequirement(t("Access to the Death Altar or 50 items asked of you by a dwarf"), ItemCollections.DEATH_ALTAR).isNotConsumed();
+		deathTalisman.setTooltip(t("Death Talisman/Tiara, Catalytic Talisman/Tiara or RC-skill cape"));
 
 		mournerBoots = new ItemRequirement("Mourner boots", ItemID.MOURNING_MOURNER_BOOTS, 1, true).isNotConsumed().highlighted();
 		gasMask = new ItemRequirement("Gas mask", ItemID.GASMASK, 1, true).isNotConsumed().highlighted();
@@ -411,7 +411,7 @@ public class MourningsEndPartII extends BasicQuestHelper
 		mournersOutfit = new ItemRequirements("Full mourners' outfit", gasMask, mournerTop, mournerTrousers, mournerCloak, mournerBoots, mournerGloves).isNotConsumed();
 
 		// Teleports
-		lletyaTeleport = new ItemRequirement("Lletya teleport. Teleport crystal", ItemCollections.TELEPORT_CRYSTAL).isNotConsumed();
+		lletyaTeleport = new ItemRequirement(t("Lletya teleport. Teleport crystal"), ItemCollections.TELEPORT_CRYSTAL).isNotConsumed();
 		westArdougneTeleport = new ItemRequirement("West ardougne teleport", ItemID.TELETAB_WESTARDY);
 		westArdougneTeleport.addAlternates(ItemID.POH_TABLET_ARDOUGNETELEPORT);
 
@@ -421,45 +421,45 @@ public class MourningsEndPartII extends BasicQuestHelper
 
 		chisel = new ItemRequirement("Chisel", ItemCollections.CHISEL).isNotConsumed();
 		staminaPotions = new ItemRequirement("Stamina potions", ItemCollections.STAMINA_POTIONS);
-		prayerPotions = new ItemRequirement("Prayer potions for Protect from Melee",
+		prayerPotions = new ItemRequirement(t("Prayer potions for Protect from Melee"),
 			ItemCollections.PRAYER_POTIONS, -1);
 		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
 
 		newKey = new KeyringRequirement("New Key", KeyringCollection.NEW_KEY);
-		newKey.setTooltip("You can get another from Essyllt's desk");
+		newKey.setTooltip(t("You can get another from Essyllt's desk"));
 
 		edernsJournal = new ItemRequirement("Edern's journal", ItemID.MOURNING_EDERNS_JOURNAL);
 		blackenedCrystal = new ItemRequirement("Blackened crystal", ItemID.MOURNING_CRYSTAL_SAMPLE);
 
 		newlyMadeCrystal = new ItemRequirement("Newly made crystal", ItemID.MOURNING_CRYSTAL_NEW_SAMPLE);
-		newlyMadeCrystal.setTooltip("You can get another from Arianwyn in Lletya");
+		newlyMadeCrystal.setTooltip(t("You can get another from Arianwyn in Lletya"));
 
 		newlyMadeCrystalHighlight = new ItemRequirement("Newly made crystal", ItemID.MOURNING_CRYSTAL_NEW_SAMPLE);
-		newlyMadeCrystalHighlight.setTooltip("You can get another from Arianwyn in Lletya");
+		newlyMadeCrystalHighlight.setTooltip(t("You can get another from Arianwyn in Lletya"));
 		newlyMadeCrystalHighlight.setHighlightInInventory(true);
 
-		newlyIfOneTrip = new ItemRequirement("Newly made crystal (if already have death talisman)", ItemID.MOURNING_CRYSTAL_NEW_SAMPLE);
+		newlyIfOneTrip = new ItemRequirement(t("Newly made crystal (if already have death talisman)"), ItemID.MOURNING_CRYSTAL_NEW_SAMPLE);
 
 		mirror = new ItemRequirement("Hand mirror", ItemID.MOURNING_MIRROR);
-		mirror.setTooltip("If you've misplaced a mirror, you can pull the crystal dispenser in the east of the middle " +
-			"floor to reset the puzzle");
+		mirror.setTooltip(t("If you've misplaced a mirror, you can pull the crystal dispenser in the east of the middle " +
+			"floor to reset the puzzle"));
 		mirror.setHighlightInInventory(true);
 
 		yellowCrystal = new ItemRequirement("Yellow crystal", ItemID.MOURNING_CRYSTAL_YELLOW);
-		yellowCrystal.setTooltip("Check the crystal dispenser if you've lost this");
+		yellowCrystal.setTooltip(t("Check the crystal dispenser if you've lost this"));
 		yellowCrystal.setHighlightInInventory(true);
 		cyanCrystal = new ItemRequirement("Cyan crystal", ItemID.MOURNING_CRYSTAL_CYAN);
-		cyanCrystal.setTooltip("Check the crystal dispenser if you've lost this");
+		cyanCrystal.setTooltip(t("Check the crystal dispenser if you've lost this"));
 		cyanCrystal.setHighlightInInventory(true);
 		blueCrystal = new ItemRequirement("Blue crystal", ItemID.MOURNING_CRYSTAL_BLUE);
-		blueCrystal.setTooltip("Check the crystal dispenser if you've lost this");
+		blueCrystal.setTooltip(t("Check the crystal dispenser if you've lost this"));
 		blueCrystal.setHighlightInInventory(true);
 		fracturedCrystal = new ItemRequirement("Fractured crystal", ItemID.MOURNING_FRACTURED_CRYSTAL_1);
 		fracturedCrystal.setHighlightInInventory(true);
-		fracturedCrystal.setTooltip("Check the crystal dispenser if you've lost this");
+		fracturedCrystal.setTooltip(t("Check the crystal dispenser if you've lost this"));
 		fracturedCrystal2 = new ItemRequirement("Fractured crystal", ItemID.MOURNING_FRACTURED_CRYSTAL_2);
 		fracturedCrystal2.setHighlightInInventory(true);
-		fracturedCrystal2.setTooltip("Check the crystal dispenser if you've lost this");
+		fracturedCrystal2.setTooltip(t("Check the crystal dispenser if you've lost this"));
 		chargedCrystal = new ItemRequirement("Newly made crystal", ItemID.MOURNING_CRYSTAL_NEW_POWERED);
 		chargedCrystalHighlight = new ItemRequirement("Newly made crystal", ItemID.MOURNING_CRYSTAL_NEW_POWERED);
 		chargedCrystalHighlight.setHighlightInInventory(true);
@@ -626,329 +626,329 @@ public class MourningsEndPartII extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToArianwyn = new NpcStep(this, NpcID.MOURNING_ARIANWYN_VIS, new WorldPoint(2354, 3170, 0), "Talk to Arianwyn in Lletya.");
+		talkToArianwyn = new NpcStep(this, NpcID.MOURNING_ARIANWYN_VIS, new WorldPoint(2354, 3170, 0), t("Talk to Arianwyn in Lletya."));
 		talkToArianwyn.addDialogStep("Yes.");
 		talkToArianwyn.addTeleport(lletyaTeleport);
 
 		enterMournerHQ = new ObjectStep(this, ObjectID.MOURNERSTEWDOOR, new WorldPoint(2551, 3320, 0),
-			"Talk to Essyllt in the Mourner HQ basement.", chisel, gasMask, mournerTop, mournerTrousers, mournerCloak, mournerGloves, mournerBoots);
+			t("Talk to Essyllt in the Mourner HQ basement."), chisel, gasMask, mournerTop, mournerTrousers, mournerCloak, mournerGloves, mournerBoots);
 		enterMournerHQ.addTeleport(westArdougneTeleport);
-		enterMournerBasement = new ObjectStep(this, ObjectID.MOURNING_HIDEOUT_TRAP_DOOR, new WorldPoint(2542, 3327, 0), "Enter the Mourner HQ basement.");
+		enterMournerBasement = new ObjectStep(this, ObjectID.MOURNING_HIDEOUT_TRAP_DOOR, new WorldPoint(2542, 3327, 0), t("Enter the Mourner HQ basement."));
 
-		talkToEssyllt = new NpcStep(this, NpcID.MOURNER_HIDEOUT_HEAD_MOURNER_VIS, new WorldPoint(2043, 4631, 0), "Talk to Essyllt.");
+		talkToEssyllt = new NpcStep(this, NpcID.MOURNER_HIDEOUT_HEAD_MOURNER_VIS, new WorldPoint(2043, 4631, 0), t("Talk to Essyllt."));
 		talkToEssyllt.addSubSteps(enterMournerHQ, enterMournerHQ);
 
-		enterCave = new ObjectStep(this, ObjectID.MOURNER_HIDEOUT_DOOR4, new WorldPoint(2034, 4636, 0), "Enter the Mourner Caves.", newKey);
+		enterCave = new ObjectStep(this, ObjectID.MOURNER_HIDEOUT_DOOR4, new WorldPoint(2034, 4636, 0), t("Enter the Mourner Caves."), newKey);
 
-		searchCorpse = new ObjectStep(this, ObjectID.MOURNING_DEAD_GUARD4, new WorldPoint(1925, 4642, 0), "Follow the caves to the west until you reach the Temple of Light. Search the guard corpse nearby.");
+		searchCorpse = new ObjectStep(this, ObjectID.MOURNING_DEAD_GUARD4, new WorldPoint(1925, 4642, 0), t("Follow the caves to the west until you reach the Temple of Light. Search the guard corpse nearby."));
 
-		goUpStairsTemple = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1903, 4639, 0), "Follow the caves to the west to the Temple of Light. Go up the stairs in it.");
+		goUpStairsTemple = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1903, 4639, 0), t("Follow the caves to the west to the Temple of Light. Go up the stairs in it."));
 
-		goUpSouthLadder = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_BASE, new WorldPoint(1894, 4620, 1), "Go up the south staircase.");
+		goUpSouthLadder = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_BASE, new WorldPoint(1894, 4620, 1), t("Go up the south staircase."));
 
-		goUpFromMiddleToNorth = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1891, 4642, 1), "Go up the stairs to the north.");
+		goUpFromMiddleToNorth = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1891, 4642, 1), t("Go up the stairs to the north."));
 
-		goToMiddleFromSouth = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1891, 4636, 2), "Go down the staircase north of you.");
+		goToMiddleFromSouth = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1891, 4636, 2), t("Go down the staircase north of you."));
 
 		useChisel = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_OBSIDIAN_CRYSTAL, new WorldPoint(1909, 4639, 2),
-			"Use a chisel on the dark crystal to the east.", chisel.highlighted());
+			t("Use a chisel on the dark crystal to the east."), chisel.highlighted());
 		useChisel.addIcon(ItemID.CHISEL);
 
-		goUpFromMiddleToSouth = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1891, 4636, 1), "Go up the stairs to the south.");
+		goUpFromMiddleToSouth = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1891, 4636, 1), t("Go up the stairs to the south."));
 
-		goDownToEnd = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1888, 4639, 1), "Go down the stairs to the west.");
+		goDownToEnd = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1888, 4639, 1), t("Go down the stairs to the west."));
 
-		useRope = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_WAY_DOWN, new WorldPoint(1876, 4620, 1), "Use a rope on the rocks in the small room in the south of the first floor.", ropeHighlight);
+		useRope = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_WAY_DOWN, new WorldPoint(1876, 4620, 1), t("Use a rope on the rocks in the small room in the south of the first floor."), ropeHighlight);
 		useRope.addIcon(ItemID.ROPE);
-		bringCrystalToArianwyn = new NpcStep(this, NpcID.MOURNING_ARIANWYN_VIS, new WorldPoint(2354, 3170, 0), "Bring the crystal to Arianwyn in Lletya.", blackenedCrystal);
+		bringCrystalToArianwyn = new NpcStep(this, NpcID.MOURNING_ARIANWYN_VIS, new WorldPoint(2354, 3170, 0), t("Bring the crystal to Arianwyn in Lletya."), blackenedCrystal);
 		bringCrystalToArianwyn.addTeleport(lletyaTeleport);
-		talkToElunedAfterGivingCrystal = new NpcStep(this, NpcID.ROVING_FEMALE_WOODELF_TEMP_1, new WorldPoint(2354, 3169, 0), "Talk to Eluned in Lletya next to Arianwyn.");
-		talkToArianwynAfterGivingCrystal = new NpcStep(this, NpcID.MOURNING_ARIANWYN_VIS, new WorldPoint(2354, 3170, 0), "Talk to Arianwyn in Lletya.");
+		talkToElunedAfterGivingCrystal = new NpcStep(this, NpcID.ROVING_FEMALE_WOODELF_TEMP_1, new WorldPoint(2354, 3169, 0), t("Talk to Eluned in Lletya next to Arianwyn."));
+		talkToArianwynAfterGivingCrystal = new NpcStep(this, NpcID.MOURNING_ARIANWYN_VIS, new WorldPoint(2354, 3170, 0), t("Talk to Arianwyn in Lletya."));
 		talkToArianwynAfterGivingCrystal.setLockingCondition(knowToUseCrystal);
 
 		goBackIntoMournerHQ = new ObjectStep(this, ObjectID.MOURNERSTEWDOOR, new WorldPoint(2551, 3320, 0),
-			"Return to the Temple of Light.", rope, newKey, gasMask, mournerTop, mournerTrousers, mournerCloak, mournerGloves, mournerBoots, deathTalisman, newlyIfOneTrip);
+			t("Return to the Temple of Light."), rope, newKey, gasMask, mournerTop, mournerTrousers, mournerCloak, mournerGloves, mournerBoots, deathTalisman, newlyIfOneTrip);
 		goBackIntoMournerHQ.addTeleport(westArdougneTeleport);
-		goBackIntoMournerBasement = new ObjectStep(this, ObjectID.MOURNING_HIDEOUT_TRAP_DOOR, new WorldPoint(2542, 3327, 0), "Enter the Mourner HQ basement.");
+		goBackIntoMournerBasement = new ObjectStep(this, ObjectID.MOURNING_HIDEOUT_TRAP_DOOR, new WorldPoint(2542, 3327, 0), t("Enter the Mourner HQ basement."));
 
-		goBackIntoMournerCave = new ObjectStep(this, ObjectID.MOURNER_HIDEOUT_DOOR4, new WorldPoint(2034, 4636, 0), "Enter the Mourner Caves.", newKey);
+		goBackIntoMournerCave = new ObjectStep(this, ObjectID.MOURNER_HIDEOUT_DOOR4, new WorldPoint(2034, 4636, 0), t("Enter the Mourner Caves."), newKey);
 
-		enterTempleOfLight = new DetailedQuestStep(this, new WorldPoint(1907, 4640, 0), "If you are an ironman, you can earn the death talisman later. Return to the Temple of Light. Make sure you're prepared for shadows to be continuously attacking you.");
+		enterTempleOfLight = new DetailedQuestStep(this, new WorldPoint(1907, 4640, 0), t("If you are an ironman, you can earn the death talisman later. Return to the Temple of Light. Make sure you're prepared for shadows to be continuously attacking you."));
 		enterTempleOfLight.addSubSteps(goBackIntoMournerHQ, goBackIntoMournerBasement, goBackIntoMournerCave);
 
-		goUpStairsTempleC1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1903, 4639, 0), "Go up the stairs to the first floor.");
+		goUpStairsTempleC1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1903, 4639, 0), t("Go up the stairs to the first floor."));
 
-		pullDispenser1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_WALL_LEVER, new WorldPoint(1913, 4639, 1), "Pull the Crystal Dispenser in the east room.");
+		pullDispenser1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_WALL_LEVER, new WorldPoint(1913, 4639, 1), t("Pull the Crystal Dispenser in the east room."));
 		pullDispenser1.addDialogStep("Pull the lever.");
 		pullDispenser1.addDialogStep("Pull it.");
 		pullDispenser1.addDialogStep("Take everything.");
 
-		puzzle1Pillar1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_9, new WorldPoint(1909, 4639, 1), "Put a mirror in the pillar next to the dispenser and have the light point north.", mirror);
+		puzzle1Pillar1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_9, new WorldPoint(1909, 4639, 1), t("Put a mirror in the pillar next to the dispenser and have the light point north."), mirror);
 		puzzle1Pillar1.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle1Pillar2 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_7, new WorldPoint(1909, 4650, 1), "Put a mirror in the pillar to the north and point it west.", mirror);
+		puzzle1Pillar2 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_7, new WorldPoint(1909, 4650, 1), t("Put a mirror in the pillar to the north and point it west."), mirror);
 		puzzle1Pillar2.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle1Pillar3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_6, new WorldPoint(1898, 4650, 1), "Put a mirror in the pillar to the west and point it south.", mirror);
+		puzzle1Pillar3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_6, new WorldPoint(1898, 4650, 1), t("Put a mirror in the pillar to the west and point it south."), mirror);
 		puzzle1Pillar3.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle1Pillar4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_11, new WorldPoint(1898, 4628, 1), "Put a yellow crystal in the pillar to the south.", yellowCrystal);
+		puzzle1Pillar4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_11, new WorldPoint(1898, 4628, 1), t("Put a yellow crystal in the pillar to the south."), yellowCrystal);
 		puzzle1Pillar4.addIcon(ItemID.MOURNING_CRYSTAL_YELLOW);
-		puzzle1Pillar5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_15, new WorldPoint(1898, 4613, 1), "Put a mirror in the pillar to the south and point it east.", mirror);
+		puzzle1Pillar5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_15, new WorldPoint(1898, 4613, 1), t("Put a mirror in the pillar to the south and point it east."), mirror);
 		puzzle1Pillar5.addIcon(ItemID.MOURNING_MIRROR);
-		climbWallSupport = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_AGILITY_HANGING, new WorldPoint(1902, 4612, 1), "Attempt to climb the wall support to the south west. " +
-			"You may fail this multiple times. Agility boosts help your chances.");
-		searchBlueChest = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_PARTS_2_CLOSED, new WorldPoint(1917, 4613, 1), "Search the chest in the blue light room.");
+		climbWallSupport = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_AGILITY_HANGING, new WorldPoint(1902, 4612, 1), t("Attempt to climb the wall support to the south west. " +
+			"You may fail this multiple times. Agility boosts help your chances."));
+		searchBlueChest = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_PARTS_2_CLOSED, new WorldPoint(1917, 4613, 1), t("Search the chest in the blue light room."));
 		searchBlueChest.addAlternateObjects(ObjectID.MOURNING_TEMPLE_LIGHT_PARTS_2_OPEN);
 
-		pullDispenser2 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_WALL_LEVER, new WorldPoint(1913, 4639, 1), "Pull the Crystal Dispenser in the east room to reset the puzzle.");
+		pullDispenser2 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_WALL_LEVER, new WorldPoint(1913, 4639, 1), t("Pull the Crystal Dispenser in the east room to reset the puzzle."));
 		pullDispenser2.addDialogStep("Pull it.");
 		pullDispenser2.addDialogStep("Take everything.");
 
-		puzzle2Pillar1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_9, new WorldPoint(1909, 4639, 1), "Put a mirror in the pillar next to the dispenser and have the light point north.", mirror);
+		puzzle2Pillar1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_9, new WorldPoint(1909, 4639, 1), t("Put a mirror in the pillar next to the dispenser and have the light point north."), mirror);
 		puzzle2Pillar1.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle2Pillar2 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_7, new WorldPoint(1909, 4650, 1), "Put a mirror in the pillar to the north and point it west.", mirror);
+		puzzle2Pillar2 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_7, new WorldPoint(1909, 4650, 1), t("Put a mirror in the pillar to the north and point it west."), mirror);
 		puzzle2Pillar2.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle2Pillar3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_6, new WorldPoint(1898, 4650, 1), "Put a cyan crystal in the pillar to the west.", cyanCrystal);
+		puzzle2Pillar3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_6, new WorldPoint(1898, 4650, 1), t("Put a cyan crystal in the pillar to the west."), cyanCrystal);
 		puzzle2Pillar3.addIcon(ItemID.MOURNING_CRYSTAL_CYAN);
-		puzzle2Pillar4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_5, new WorldPoint(1887, 4650, 1), "Put a mirror in the pillar to the west and point it north.", mirror);
+		puzzle2Pillar4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_5, new WorldPoint(1887, 4650, 1), t("Put a mirror in the pillar to the west and point it north."), mirror);
 		puzzle2Pillar4.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle2Pillar5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_2, new WorldPoint(1887, 4665, 1), "Put a mirror in the pillar to the north and point it east.", mirror);
+		puzzle2Pillar5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_2, new WorldPoint(1887, 4665, 1), t("Put a mirror in the pillar to the north and point it east."), mirror);
 		puzzle2Pillar5.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle2Pillar6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_3, new WorldPoint(1898, 4665, 1), "Put a yellow crystal in the pillar to the east.", yellowCrystal);
+		puzzle2Pillar6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_3, new WorldPoint(1898, 4665, 1), t("Put a yellow crystal in the pillar to the east."), yellowCrystal);
 		puzzle2Pillar6.addIcon(ItemID.MOURNING_CRYSTAL_YELLOW);
 
-		searchMagentaChest = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_PARTS_3_CLOSED, new WorldPoint(1917, 4665, 1), "Search the chest in the magenta room in the north east corner.");
+		searchMagentaChest = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_PARTS_3_CLOSED, new WorldPoint(1917, 4665, 1), t("Search the chest in the magenta room in the north east corner."));
 		searchMagentaChest.addAlternateObjects(ObjectID.MOURNING_TEMPLE_LIGHT_PARTS_3_OPEN);
 
-		pullDispenser3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_WALL_LEVER, new WorldPoint(1913, 4639, 1), "Pull the Crystal Dispenser in the east room to reset the puzzle.");
+		pullDispenser3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_WALL_LEVER, new WorldPoint(1913, 4639, 1), t("Pull the Crystal Dispenser in the east room to reset the puzzle."));
 		pullDispenser3.addDialogStep("Pull it.");
 		pullDispenser3.addDialogStep("Take everything.");
 
-		puzzle3Pillar1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_9, new WorldPoint(1909, 4639, 1), "Put a mirror in the pillar next to the dispenser and have the light point north.", mirror);
+		puzzle3Pillar1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_9, new WorldPoint(1909, 4639, 1), t("Put a mirror in the pillar next to the dispenser and have the light point north."), mirror);
 		puzzle3Pillar1.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle3Pillar2 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_7, new WorldPoint(1909, 4650, 1), "Put a mirror in the pillar to the north and point it west.", mirror);
+		puzzle3Pillar2 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_7, new WorldPoint(1909, 4650, 1), t("Put a mirror in the pillar to the north and point it west."), mirror);
 		puzzle3Pillar2.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle3Pillar3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_6, new WorldPoint(1898, 4650, 1), "Put a cyan crystal in the pillar to the west.", cyanCrystal);
+		puzzle3Pillar3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_6, new WorldPoint(1898, 4650, 1), t("Put a cyan crystal in the pillar to the west."), cyanCrystal);
 		puzzle3Pillar3.addIcon(ItemID.MOURNING_CRYSTAL_CYAN);
-		puzzle3Pillar4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_5, new WorldPoint(1887, 4650, 1), "Put a mirror in the pillar to the west and point it north.", mirror);
+		puzzle3Pillar4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_5, new WorldPoint(1887, 4650, 1), t("Put a mirror in the pillar to the west and point it north."), mirror);
 		puzzle3Pillar4.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle3Pillar5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_2, new WorldPoint(1887, 4665, 1), "Put a mirror in the pillar to the north and point it east.", mirror);
+		puzzle3Pillar5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_2, new WorldPoint(1887, 4665, 1), t("Put a mirror in the pillar to the north and point it east."), mirror);
 		puzzle3Pillar5.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle3Pillar6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_3, new WorldPoint(1898, 4665, 1), "Put a mirror in the pillar to the east and point it up.", mirror);
+		puzzle3Pillar6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_3, new WorldPoint(1898, 4665, 1), t("Put a mirror in the pillar to the east and point it up."), mirror);
 		puzzle3Pillar6.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle3Pillar6RemoveYellow = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_3, new WorldPoint(1898, 4665, 1), "Take the yellow crystal out of the pillar, and replace it with a mirror pointing up.");
+		puzzle3Pillar6RemoveYellow = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_3, new WorldPoint(1898, 4665, 1), t("Take the yellow crystal out of the pillar, and replace it with a mirror pointing up."));
 		puzzle3Pillar6RemoveYellow.addSubSteps(puzzle3Pillar6);
 
-		goUpLadderNorthForPuzzle3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LADDER_WALL, new WorldPoint(1898, 4668, 1), "Go up the north ladder to the second floor.");
-		puzzle3Pillar7 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_3, new WorldPoint(1898, 4665, 2), "Put a mirror in the pillar next to you and point it west.", mirror);
+		goUpLadderNorthForPuzzle3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LADDER_WALL, new WorldPoint(1898, 4668, 1), t("Go up the north ladder to the second floor."));
+		puzzle3Pillar7 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_3, new WorldPoint(1898, 4665, 2), t("Put a mirror in the pillar next to you and point it west."), mirror);
 		puzzle3Pillar7.addIcon(ItemID.MOURNING_MIRROR);
-		goDownFromF2NorthRoomPuzzle3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LADDER_WALL_TOP, new WorldPoint(1898, 4668, 2), "Go down the north ladder to the first floor.");
-		goUpToFloor2Puzzle3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_BASE, new WorldPoint(1894, 4620, 1), "Go up the south staircase to the second floor.");
-		puzzle3Pillar8 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_1, new WorldPoint(1860, 4665, 2), "Place a mirror in the far north-west corner's pillar pointing down.", mirror);
+		goDownFromF2NorthRoomPuzzle3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LADDER_WALL_TOP, new WorldPoint(1898, 4668, 2), t("Go down the north ladder to the first floor."));
+		goUpToFloor2Puzzle3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_BASE, new WorldPoint(1894, 4620, 1), t("Go up the south staircase to the second floor."));
+		puzzle3Pillar8 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_1, new WorldPoint(1860, 4665, 2), t("Place a mirror in the far north-west corner's pillar pointing down."), mirror);
 		puzzle3Pillar8.addIcon(ItemID.MOURNING_MIRROR);
-		goDownFromF2Puzzle3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_TOP, new WorldPoint(1894, 4620, 2), "Go down to the ground floor.");
-		goDownFromF1Puzzle3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1903, 4639, 1), "Go down to the ground floor.");
+		goDownFromF2Puzzle3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_TOP, new WorldPoint(1894, 4620, 2), t("Go down to the ground floor."));
+		goDownFromF1Puzzle3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1903, 4639, 1), t("Go down to the ground floor."));
 		goDownFromF2Puzzle3.addSubSteps(goDownFromF1Puzzle3);
-		enterNorthWestRoomPuzzle3 = new ObjectStep(this, ObjectID.MOURNING_DOOR_1_1_EAST, new WorldPoint(1863, 4665, 0), "Enter the room in the far north west corner.");
-		puzzle3Pillar9 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_1, new WorldPoint(1860, 4665, 0), "Turn the mirror in the pillar in the room to point the light south.");
-		searchYellowChest = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_PARTS_5_CLOSED, new WorldPoint(1880, 4659, 0), "Search the chest in the room south of you.");
+		enterNorthWestRoomPuzzle3 = new ObjectStep(this, ObjectID.MOURNING_DOOR_1_1_EAST, new WorldPoint(1863, 4665, 0), t("Enter the room in the far north west corner."));
+		puzzle3Pillar9 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_1, new WorldPoint(1860, 4665, 0), t("Turn the mirror in the pillar in the room to point the light south."));
+		searchYellowChest = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_PARTS_5_CLOSED, new WorldPoint(1880, 4659, 0), t("Search the chest in the room south of you."));
 		searchYellowChest.addAlternateObjects(ObjectID.MOURNING_TEMPLE_LIGHT_PARTS_5_OPEN);
 
-		yellowRoomRotateToLeave = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_1, new WorldPoint(1860, 4665, 0), "Turn the mirror in the pillar in the room to point the light east to leave.");
-		goUpToFirstFloorPuzzle4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1903, 4639, 0), "Go up the stairs to the first floor.");
+		yellowRoomRotateToLeave = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_1, new WorldPoint(1860, 4665, 0), t("Turn the mirror in the pillar in the room to point the light east to leave."));
+		goUpToFirstFloorPuzzle4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1903, 4639, 0), t("Go up the stairs to the first floor."));
 
-		pullDispenser4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_WALL_LEVER, new WorldPoint(1913, 4639, 1), "Pull the Crystal Dispenser in the east room to reset the puzzle.");
+		pullDispenser4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_WALL_LEVER, new WorldPoint(1913, 4639, 1), t("Pull the Crystal Dispenser in the east room to reset the puzzle."));
 		pullDispenser4.addDialogStep("Pull it.");
 		pullDispenser4.addDialogStep("Take everything.");
 
-		puzzle4Pillar1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_9, new WorldPoint(1909, 4639, 1), "Put a mirror in the pillar next to the dispenser and have the light point north.", mirror);
+		puzzle4Pillar1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_9, new WorldPoint(1909, 4639, 1), t("Put a mirror in the pillar next to the dispenser and have the light point north."), mirror);
 		puzzle4Pillar1.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle4Pillar2 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_7, new WorldPoint(1909, 4650, 1), "Put a mirror in the pillar to the north and point it west.", mirror);
+		puzzle4Pillar2 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_7, new WorldPoint(1909, 4650, 1), t("Put a mirror in the pillar to the north and point it west."), mirror);
 		puzzle4Pillar2.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle4Pillar3RemoveCyan = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_6, new WorldPoint(1898, 4650, 1), "Take the cyan crystal out of the pillar north of the stairs, and replace it with a yellow crystal.");
-		puzzle4Pillar3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_6, new WorldPoint(1898, 4650, 1), "Put a yellow crystal in the pillar to north west of the dispenser.", yellowCrystal);
+		puzzle4Pillar3RemoveCyan = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_6, new WorldPoint(1898, 4650, 1), t("Take the cyan crystal out of the pillar north of the stairs, and replace it with a yellow crystal."));
+		puzzle4Pillar3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_6, new WorldPoint(1898, 4650, 1), t("Put a yellow crystal in the pillar to north west of the dispenser."), yellowCrystal);
 		puzzle4Pillar3.addIcon(ItemID.MOURNING_CRYSTAL_YELLOW);
 		puzzle4Pillar3RemoveCyan.addSubSteps(puzzle4Pillar3);
-		puzzle4Pillar4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_5, new WorldPoint(1887, 4650, 1), "Put a mirror in the pillar to the west and point it north.", mirror);
+		puzzle4Pillar4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_5, new WorldPoint(1887, 4650, 1), t("Put a mirror in the pillar to the west and point it north."), mirror);
 		puzzle4Pillar4.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle4Pillar5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_2, new WorldPoint(1887, 4665, 1), "Put a mirror in the pillar to the north and point it east.", mirror);
+		puzzle4Pillar5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_2, new WorldPoint(1887, 4665, 1), t("Put a mirror in the pillar to the north and point it east."), mirror);
 		puzzle4Pillar5.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle4Pillar6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_3, new WorldPoint(1898, 4665, 1), "Put a mirror in the pillar to the east and point it up.", mirror);
+		puzzle4Pillar6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_3, new WorldPoint(1898, 4665, 1), t("Put a mirror in the pillar to the east and point it up."), mirror);
 		puzzle4Pillar6.addIcon(ItemID.MOURNING_MIRROR);
-		goUpLadderNorthForPuzzle4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LADDER_WALL, new WorldPoint(1898, 4668, 1), "Go up the north ladder to the second floor.");
-		puzzle4Pillar7 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_3, new WorldPoint(1898, 4665, 2), "Put a mirror in the pillar next to you and point it west.", mirror);
+		goUpLadderNorthForPuzzle4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LADDER_WALL, new WorldPoint(1898, 4668, 1), t("Go up the north ladder to the second floor."));
+		puzzle4Pillar7 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_3, new WorldPoint(1898, 4665, 2), t("Put a mirror in the pillar next to you and point it west."), mirror);
 		puzzle4Pillar7.addIcon(ItemID.MOURNING_MIRROR);
-		goDownFromF2NorthRoomPuzzle4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LADDER_WALL_TOP, new WorldPoint(1898, 4668, 2), "Go down the north ladder to the first floor.");
-		goUpToFloor2Puzzle4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_BASE, new WorldPoint(1894, 4620, 1), "Go up the south staircase to the second floor.");
-		puzzle4Pillar8 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_1, new WorldPoint(1860, 4665, 2), "Place a mirror in the far north-west corner's pillar pointing south.", mirror);
+		goDownFromF2NorthRoomPuzzle4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LADDER_WALL_TOP, new WorldPoint(1898, 4668, 2), t("Go down the north ladder to the first floor."));
+		goUpToFloor2Puzzle4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_BASE, new WorldPoint(1894, 4620, 1), t("Go up the south staircase to the second floor."));
+		puzzle4Pillar8 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_1, new WorldPoint(1860, 4665, 2), t("Place a mirror in the far north-west corner's pillar pointing south."), mirror);
 		puzzle4Pillar8.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle4Pillar9 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_13, new WorldPoint(1860, 4613, 2), "Go to the far south-west corner and place a mirror pointing down.", mirror);
+		puzzle4Pillar9 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_13, new WorldPoint(1860, 4613, 2), t("Go to the far south-west corner and place a mirror pointing down."), mirror);
 		puzzle4Pillar9.addIcon(ItemID.MOURNING_MIRROR);
-		removeMirrorPuzzle4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_8, new WorldPoint(1860, 4639, 2), "Remove the item from the pillar in the west of the second floor.");
-		goDownFromF2Puzzle4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_TOP, new WorldPoint(1894, 4620, 2), "Go down to the first floor.");
-		goDownRope = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_WAY_DOWN, new WorldPoint(1876, 4620, 1), "Go down the rope you tied in the south room of the first floor.");
-		searchCyanChest = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_PARTS_4_CLOSED, new WorldPoint(1858, 4613, 0), "Search the chest in the south west room.");
+		removeMirrorPuzzle4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_8, new WorldPoint(1860, 4639, 2), t("Remove the item from the pillar in the west of the second floor."));
+		goDownFromF2Puzzle4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_TOP, new WorldPoint(1894, 4620, 2), t("Go down to the first floor."));
+		goDownRope = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_WAY_DOWN, new WorldPoint(1876, 4620, 1), t("Go down the rope you tied in the south room of the first floor."));
+		searchCyanChest = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_PARTS_4_CLOSED, new WorldPoint(1858, 4613, 0), t("Search the chest in the south west room."));
 		searchCyanChest.addAlternateObjects(ObjectID.MOURNING_TEMPLE_LIGHT_PARTS_4_OPEN);
 
-		goToGroundFloorPuzzle4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1903, 4639, 1), "Go down to the ground floor.");
-		enterCyanDoor = new ObjectStep(this, ObjectID.MOURNING_DOOR_1_13_EAST, new WorldPoint(1863, 4613, 0), "Enter the south west cyan room and search the chest.");
+		goToGroundFloorPuzzle4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1903, 4639, 1), t("Go down to the ground floor."));
+		enterCyanDoor = new ObjectStep(this, ObjectID.MOURNING_DOOR_1_13_EAST, new WorldPoint(1863, 4613, 0), t("Enter the south west cyan room and search the chest."));
 
-		climbUpRope = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_WAY_ROPEMULTI, new WorldPoint(1877, 4620, 0), "Return to the first floor and reset the puzzle.");
+		climbUpRope = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_WAY_ROPEMULTI, new WorldPoint(1877, 4620, 0), t("Return to the first floor and reset the puzzle."));
 
-		pullDispenser5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_WALL_LEVER, new WorldPoint(1913, 4639, 1), "Pull the Crystal Dispenser in the east room to reset the puzzle, and take all the items.");
+		pullDispenser5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_WALL_LEVER, new WorldPoint(1913, 4639, 1), t("Pull the Crystal Dispenser in the east room to reset the puzzle, and take all the items."));
 		pullDispenser5.addDialogStep("Pull it.");
 		pullDispenser5.addDialogStep("Take everything.");
 
-		puzzle5Pillar1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_9, new WorldPoint(1909, 4639, 1), "Put a mirror in the pillar next to the dispenser and have the light point north.", mirror);
+		puzzle5Pillar1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_9, new WorldPoint(1909, 4639, 1), t("Put a mirror in the pillar next to the dispenser and have the light point north."), mirror);
 		puzzle5Pillar1.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle5Pillar2 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_7, new WorldPoint(1909, 4650, 1), "Put a mirror in the pillar to the north and point it west.", mirror);
+		puzzle5Pillar2 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_7, new WorldPoint(1909, 4650, 1), t("Put a mirror in the pillar to the north and point it west."), mirror);
 		puzzle5Pillar2.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle5Pillar3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_6, new WorldPoint(1898, 4650, 1), "Put a mirror in the pillar to the west and point it south.", mirror);
+		puzzle5Pillar3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_6, new WorldPoint(1898, 4650, 1), t("Put a mirror in the pillar to the west and point it south."), mirror);
 		puzzle5Pillar3.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle5Pillar4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_11, new WorldPoint(1898, 4628, 1), "Put a yellow crystal in the pillar to the south.", yellowCrystal);
+		puzzle5Pillar4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_11, new WorldPoint(1898, 4628, 1), t("Put a yellow crystal in the pillar to the south."), yellowCrystal);
 		puzzle5Pillar4.addIcon(ItemID.MOURNING_CRYSTAL_YELLOW);
-		puzzle5Pillar5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_15, new WorldPoint(1898, 4613, 1), "Put a mirror in the pillar to the south and point it east.", mirror);
+		puzzle5Pillar5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_15, new WorldPoint(1898, 4613, 1), t("Put a mirror in the pillar to the south and point it east."), mirror);
 		puzzle5Pillar5.addIcon(ItemID.MOURNING_MIRROR);
-		climbWallSupportPuzzle5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_AGILITY_HANGING, new WorldPoint(1902, 4612, 1), "Make sure you have the blue crystal, and attempt to climb the wall support to the south west. You may fail this multiple times.", blueCrystal);
-		puzzle5Pillar6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_16, new WorldPoint(1915, 4613, 1), "Put a blue crystal in the pillar in the blue room.", blueCrystal);
+		climbWallSupportPuzzle5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_AGILITY_HANGING, new WorldPoint(1902, 4612, 1), t("Make sure you have the blue crystal, and attempt to climb the wall support to the south west. You may fail this multiple times."), blueCrystal);
+		puzzle5Pillar6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_16, new WorldPoint(1915, 4613, 1), t("Put a blue crystal in the pillar in the blue room."), blueCrystal);
 		puzzle5Pillar6.addIcon(ItemID.MOURNING_CRYSTAL_BLUE);
 
 		puzzle5Pillar5RemoveMirror = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_15, new WorldPoint(1898, 4613, 1),
-			"REMOVE the mirror from the pillar in the south of the first floor.");
+			t("REMOVE the mirror from the pillar in the south of the first floor."));
 		puzzle5Pillar5RemoveMirror.addIcon(ItemID.BARBASSAULT_PLAYERICON_HEALER);
-		puzzle5Pillar3RotateUp = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_6, new WorldPoint(1898, 4650, 1), "Have " +
-			"the mirror in the pillar north west of the dispenser point up.", mirror);
+		puzzle5Pillar3RotateUp = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_6, new WorldPoint(1898, 4650, 1), t("Have " +
+			"the mirror in the pillar north west of the dispenser point up."), mirror);
 		puzzle5Pillar3RotateUp.addIcon(ItemID.MOURNING_MIRROR);
-		goUpToFloor2Puzzle5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_BASE, new WorldPoint(1894, 4620, 1), "Go up the south staircase to the second floor.");
-		goDownToMiddleFromSouthPuzzle5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1891, 4636, 2), "Go down the staircase north of you.");
-		goUpFromMiddleToNorthPuzzle5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1891, 4642, 1), "Go up the stairs to the north.");
+		goUpToFloor2Puzzle5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_BASE, new WorldPoint(1894, 4620, 1), t("Go up the south staircase to the second floor."));
+		goDownToMiddleFromSouthPuzzle5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1891, 4636, 2), t("Go down the staircase north of you."));
+		goUpFromMiddleToNorthPuzzle5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1891, 4642, 1), t("Go up the stairs to the north."));
 
-		puzzle5Pillar7 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_6, new WorldPoint(1898, 4650, 2), "Place a mirror in the pillar north east of you and face it south.", mirror);
+		puzzle5Pillar7 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_6, new WorldPoint(1898, 4650, 2), t("Place a mirror in the pillar north east of you and face it south."), mirror);
 		puzzle5Pillar7.addIcon(ItemID.MOURNING_MIRROR);
-		goDownToMiddleFromNorthPuzzle5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1891, 4642, 2), "Go back to the south side of floor 2.");
-		goUpFromMiddleToSouthPuzzle5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1891, 4636, 1), "Go back to the south side of floor 2.");
+		goDownToMiddleFromNorthPuzzle5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1891, 4642, 2), t("Go back to the south side of floor 2."));
+		goUpFromMiddleToSouthPuzzle5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1891, 4636, 1), t("Go back to the south side of floor 2."));
 		goDownToMiddleFromNorthPuzzle5.addSubSteps(goUpFromMiddleToSouthPuzzle5);
-		puzzle5Pillar8 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_11, new WorldPoint(1898, 4628, 2), "Place the fractured crystal in the pillar a bit east.", fracturedCrystal);
+		puzzle5Pillar8 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_11, new WorldPoint(1898, 4628, 2), t("Place the fractured crystal in the pillar a bit east."), fracturedCrystal);
 		puzzle5Pillar8.addIcon(ItemID.MOURNING_FRACTURED_CRYSTAL_1);
-		puzzle5Pillar9 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_10, new WorldPoint(1887, 4628, 2), "Place a mirror in the pillar to the west and point it down.", mirror);
+		puzzle5Pillar9 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_10, new WorldPoint(1887, 4628, 2), t("Place a mirror in the pillar to the west and point it down."), mirror);
 		puzzle5Pillar9.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle5Pillar10 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_15, new WorldPoint(1898, 4613, 2), "Place a mirror in the pillar to the south east and point it east.", mirror);
+		puzzle5Pillar10 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_15, new WorldPoint(1898, 4613, 2), t("Place a mirror in the pillar to the south east and point it east."), mirror);
 		puzzle5Pillar10.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle5Pillar11 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_16, new WorldPoint(1915, 4613, 2), "Place a mirror in the pillar to the east and point it down.", mirror);
+		puzzle5Pillar11 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_16, new WorldPoint(1915, 4613, 2), t("Place a mirror in the pillar to the east and point it down."), mirror);
 		puzzle5Pillar11.addIcon(ItemID.MOURNING_MIRROR);
-		goDownFromF2Puzzle5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_TOP, new WorldPoint(1894, 4620, 2), "Go down to the first floor.");
+		goDownFromF2Puzzle5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_TOP, new WorldPoint(1894, 4620, 2), t("Go down to the first floor."));
 
-		goDownFromF1Puzzle5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1903, 4639, 1), "Go down to the ground floor.");
+		goDownFromF1Puzzle5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1903, 4639, 1), t("Go down to the ground floor."));
 
-		resetPuzzle = new DetailedQuestStep(this, "You haven't placed a blue crystal in the blue room. Place one there to continue.");
-		puzzle5Pillar12 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_10, new WorldPoint(1887, 4628, 0), "Add a mirror to the pillar where green light is coming down, and point it south.", mirror);
+		resetPuzzle = new DetailedQuestStep(this, t("You haven't placed a blue crystal in the blue room. Place one there to continue."));
+		puzzle5Pillar12 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_10, new WorldPoint(1887, 4628, 0), t("Add a mirror to the pillar where green light is coming down, and point it south."), mirror);
 		puzzle5Pillar12.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle5Pillar13 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_14, new WorldPoint(1887, 4613, 0), "Add a mirror to the pillar to the south, and point it east.", mirror);
+		puzzle5Pillar13 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_14, new WorldPoint(1887, 4613, 0), t("Add a mirror to the pillar to the south, and point it east."), mirror);
 		puzzle5Pillar13.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle5Pillar14 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_16, new WorldPoint(1915, 4613, 0), "Enter the south east room, and add a mirror pointing to the north.", mirror);
+		puzzle5Pillar14 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_16, new WorldPoint(1915, 4613, 0), t("Enter the south east room, and add a mirror pointing to the north."), mirror);
 		puzzle5Pillar14.addIcon(ItemID.MOURNING_MIRROR);
 
-		searchMagentaYellowChest = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_PARTS_6_CLOSED, new WorldPoint(1910, 4622, 0), "Search the chest in the room north of you.");
+		searchMagentaYellowChest = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_PARTS_6_CLOSED, new WorldPoint(1910, 4622, 0), t("Search the chest in the room north of you."));
 		searchMagentaYellowChest.addAlternateObjects(ObjectID.MOURNING_TEMPLE_LIGHT_PARTS_6_OPEN);
 
-		pullDispenser6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_WALL_LEVER, new WorldPoint(1913, 4639, 1), "Pull the Crystal Dispenser in the east room to reset the puzzle, and take all the items.");
+		pullDispenser6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LIGHT_WALL_LEVER, new WorldPoint(1913, 4639, 1), t("Pull the Crystal Dispenser in the east room to reset the puzzle, and take all the items."));
 		pullDispenser6.addDialogStep("Pull it.");
 		pullDispenser6.addDialogStep("Take everything.");
 
-		puzzle6Pillar1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_9, new WorldPoint(1909, 4639, 1), "Put a mirror in the pillar next to the dispenser and have the light point north.", mirror);
+		puzzle6Pillar1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_9, new WorldPoint(1909, 4639, 1), t("Put a mirror in the pillar next to the dispenser and have the light point north."), mirror);
 		puzzle6Pillar1.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle6Pillar2 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_7, new WorldPoint(1909, 4650, 1), "Put a mirror in the pillar to the north and point it down.", mirror);
+		puzzle6Pillar2 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_7, new WorldPoint(1909, 4650, 1), t("Put a mirror in the pillar to the north and point it down."), mirror);
 		puzzle6Pillar2.addIcon(ItemID.MOURNING_MIRROR);
-		goDownFromF1Puzzle6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1903, 4639, 1), "Go down to the ground floor.");
+		goDownFromF1Puzzle6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1903, 4639, 1), t("Go down to the ground floor."));
 
-		puzzle6Pillar3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_7, new WorldPoint(1909, 4650, 0), "Put a mirror in the pillar north of the stairs and have the light point west.", mirror);
+		puzzle6Pillar3 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_7, new WorldPoint(1909, 4650, 0), t("Put a mirror in the pillar north of the stairs and have the light point west."), mirror);
 		puzzle6Pillar3.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle6Pillar4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_6, new WorldPoint(1898, 4650, 0), "Put the fractured crystal (dark/light side split down middle) in the pillar to the west.", fracturedCrystal2);
+		puzzle6Pillar4 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_6, new WorldPoint(1898, 4650, 0), t("Put the fractured crystal (dark/light side split down middle) in the pillar to the west."), fracturedCrystal2);
 		puzzle6Pillar4.addIcon(ItemID.MOURNING_FRACTURED_CRYSTAL_2);
 
-		puzzle6Pillar5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_3, new WorldPoint(1898, 4665, 0), "Put a mirror in the pillar north and have the light point up.", mirror);
+		puzzle6Pillar5 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_3, new WorldPoint(1898, 4665, 0), t("Put a mirror in the pillar north and have the light point up."), mirror);
 		puzzle6Pillar5.addIcon(ItemID.MOURNING_MIRROR);
 
-		puzzle6Pillar6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_11, new WorldPoint(1898, 4628, 0), "Put the other fractured crystal in the pillar south of the other fractured crystal.", fracturedCrystal);
+		puzzle6Pillar6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_11, new WorldPoint(1898, 4628, 0), t("Put the other fractured crystal in the pillar south of the other fractured crystal."), fracturedCrystal);
 		puzzle6Pillar6.addIcon(ItemID.MOURNING_FRACTURED_CRYSTAL_1);
-		puzzle6Pillar7 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_10, new WorldPoint(1887, 4628, 0), "Add a mirror to the pillar to the west, and point it up.", mirror);
+		puzzle6Pillar7 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_10, new WorldPoint(1887, 4628, 0), t("Add a mirror to the pillar to the west, and point it up."), mirror);
 		puzzle6Pillar7.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle6Pillar8 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_12, new WorldPoint(1909, 4628, 0), "Put a mirror in the pillar to the east and have the light point up.", mirror);
+		puzzle6Pillar8 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_12, new WorldPoint(1909, 4628, 0), t("Put a mirror in the pillar to the east and have the light point up."), mirror);
 		puzzle6Pillar8.addIcon(ItemID.MOURNING_MIRROR);
 
-		goUpToF1Puzzle6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1903, 4639, 0), "Go up the stairs to the first floor.");
-		puzzle6Pillar9 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_3, new WorldPoint(1898, 4665, 1), "Go to the far north where the ladder going up is, and place the yellow crystal there.", yellowCrystal);
+		goUpToF1Puzzle6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1903, 4639, 0), t("Go up the stairs to the first floor."));
+		puzzle6Pillar9 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_2_3, new WorldPoint(1898, 4665, 1), t("Go to the far north where the ladder going up is, and place the yellow crystal there."), yellowCrystal);
 		puzzle6Pillar9.addIcon(ItemID.MOURNING_CRYSTAL_YELLOW);
 
 
-		goUpNorthLadderToF2Puzzle6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LADDER_WALL, new WorldPoint(1898, 4668, 1), "Go up the north ladder to the second floor.");
-		puzzle6Pillar10 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_3, new WorldPoint(1898, 4665, 2), "Put a mirror in the pillar next to you and point it west.", mirror);
+		goUpNorthLadderToF2Puzzle6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LADDER_WALL, new WorldPoint(1898, 4668, 1), t("Go up the north ladder to the second floor."));
+		puzzle6Pillar10 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_3, new WorldPoint(1898, 4665, 2), t("Put a mirror in the pillar next to you and point it west."), mirror);
 		puzzle6Pillar10.addIcon(ItemID.MOURNING_MIRROR);
-		goDownNorthLadderToF1Puzzle6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LADDER_WALL_TOP, new WorldPoint(1898, 4668, 2), "Go down the north ladder to the first floor.");
-		goUpToFloor2Puzzle6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_BASE, new WorldPoint(1894, 4620, 1), "Go up the south staircase to the second floor.");
+		goDownNorthLadderToF1Puzzle6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_LADDER_WALL_TOP, new WorldPoint(1898, 4668, 2), t("Go down the north ladder to the first floor."));
+		goUpToFloor2Puzzle6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_BASE, new WorldPoint(1894, 4620, 1), t("Go up the south staircase to the second floor."));
 
-		puzzle6Pillar11 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_10, new WorldPoint(1887, 4628, 2), "Place a mirror in the pillar to the north of the stairs and point it west.", mirror);
+		puzzle6Pillar11 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_10, new WorldPoint(1887, 4628, 2), t("Place a mirror in the pillar to the north of the stairs and point it west."), mirror);
 		puzzle6Pillar11.addIcon(ItemID.MOURNING_MIRROR);
 
-		puzzle6Pillar12 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_12, new WorldPoint(1909, 4628, 2), "Place a mirror in the pillar to the far east, and point it west.", mirror);
+		puzzle6Pillar12 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_12, new WorldPoint(1909, 4628, 2), t("Place a mirror in the pillar to the far east, and point it west."), mirror);
 		puzzle6Pillar12.addIcon(ItemID.MOURNING_MIRROR);
 
-		puzzle6Pillar13 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_11, new WorldPoint(1898, 4628, 2), "Place a mirror to the west and point it north.", mirror);
+		puzzle6Pillar13 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_11, new WorldPoint(1898, 4628, 2), t("Place a mirror to the west and point it north."), mirror);
 		puzzle6Pillar13.addIcon(ItemID.MOURNING_MIRROR);
 
-		goDownToMiddleFromSouthPuzzle6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1891, 4636, 2), "Go down the staircase north of you.");
-		goUpFromMiddleToNorthPuzzle6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1891, 4642, 1), "Go up the stairs to the north.");
+		goDownToMiddleFromSouthPuzzle6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1891, 4636, 2), t("Go down the staircase north of you."));
+		goUpFromMiddleToNorthPuzzle6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1891, 4642, 1), t("Go up the stairs to the north."));
 
-		puzzle6Pillar14 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_6, new WorldPoint(1898, 4650, 2), "Place a mirror in the pillar north east of the stairs pointing west.", mirror);
+		puzzle6Pillar14 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_6, new WorldPoint(1898, 4650, 2), t("Place a mirror in the pillar north east of the stairs pointing west."), mirror);
 		puzzle6Pillar14.addIcon(ItemID.MOURNING_MIRROR);
-		puzzle6Pillar15 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_5, new WorldPoint(1887, 4650, 2), "Place the blue crystal in the pillar to the west.", blueCrystal);
+		puzzle6Pillar15 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_5, new WorldPoint(1887, 4650, 2), t("Place the blue crystal in the pillar to the west."), blueCrystal);
 		puzzle6Pillar15.addIcon(ItemID.MOURNING_CRYSTAL_BLUE);
 
-		puzzle6Pillar16 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_1, new WorldPoint(1860, 4665, 2), "Place a mirror in the far north-west corner's pillar pointing south.", mirror);
+		puzzle6Pillar16 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_1, new WorldPoint(1860, 4665, 2), t("Place a mirror in the far north-west corner's pillar pointing south."), mirror);
 		puzzle6Pillar16.addIcon(ItemID.MOURNING_MIRROR);
 
-		puzzle6Pillar17 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_8, new WorldPoint(1860, 4639, 2), "Place a mirror in the south pillar pointing east.", mirror);
+		puzzle6Pillar17 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_3_8, new WorldPoint(1860, 4639, 2), t("Place a mirror in the south pillar pointing east."), mirror);
 		puzzle6Pillar17.addIcon(ItemID.MOURNING_MIRROR);
 
-		goDownToMiddleFromNorthPuzzle6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1891, 4636, 2), "Go down to the central area.");
-		goDownToCentre = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1888, 4639, 1), "Go down to the central area.");
+		goDownToMiddleFromNorthPuzzle6 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1891, 4636, 2), t("Go down to the central area."));
+		goDownToCentre = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1888, 4639, 1), t("Go down to the central area."));
 		goDownToCentre.addSubSteps(goDownToMiddleFromNorthPuzzle6);
-		turnKeyMirror = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_B, new WorldPoint(1881, 4639, 0), "Enter the central area, and turn the pillar's mirror west.");
+		turnKeyMirror = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_B, new WorldPoint(1881, 4639, 0), t("Enter the central area, and turn the pillar's mirror west."));
 
-		genericGoUpToFloor1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1903, 4639, 0), "Go up the stairs to the first floor.");
-		genericGoUpToFloor2 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_BASE, new WorldPoint(1894, 4620, 1), "Go up the south staircase to the second floor.");
-		genericGoDownToFloor0 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1903, 4639, 1), "Go down to the ground floor.");
-		genericGoDownToFloor1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_TOP, new WorldPoint(1894, 4620, 2), "Go down to the first floor.");
+		genericGoUpToFloor1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1903, 4639, 0), t("Go up the stairs to the first floor."));
+		genericGoUpToFloor2 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_BASE, new WorldPoint(1894, 4620, 1), t("Go up the south staircase to the second floor."));
+		genericGoDownToFloor0 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1903, 4639, 1), t("Go down to the ground floor."));
+		genericGoDownToFloor1 = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_TOP, new WorldPoint(1894, 4620, 2), t("Go down to the first floor."));
 
-		enterDeathAltarBarrier = new ObjectStep(this, ObjectID.MOURNING_DOOR_1_C, new WorldPoint(1865, 4639, 0), "Enter the barrier to the death altar to the west.");
+		enterDeathAltarBarrier = new ObjectStep(this, ObjectID.MOURNING_DOOR_1_C, new WorldPoint(1865, 4639, 0), t("Enter the barrier to the death altar to the west."));
 
 		if (questHelperPlugin.getPlayerStateManager().getAccountType().isAnyIronman())
 		{
 			if (client.getRealSkillLevel(Skill.SLAYER) > 85)
 			{
-				getDeathTalisman = new DetailedQuestStep(this, "You need to get a Death Talisman. Either kill Dark Beasts for one, or bring 50 items requested by Thorgel at the Death Altar to him.");
+				getDeathTalisman = new DetailedQuestStep(this, t("You need to get a Death Talisman. Either kill Dark Beasts for one, or bring 50 items requested by Thorgel at the Death Altar to him."));
 				getDeathTalismanInCentre = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_B, new WorldPoint(1881, 4639, 0),
-					"Get a Death Talisman by either getting the dwarf at the altar 50 items, or killing Dark Beasts. " +
-						"TURN THE MIDDLE PILLAR TO POINT BACK EAST OR YOU'LL HAVE TO RETURN VIA THE UNDERGROUND PASS.");
+					t("Get a Death Talisman by either getting the dwarf at the altar 50 items, or killing Dark Beasts. " +
+						"TURN THE MIDDLE PILLAR TO POINT BACK EAST OR YOU'LL HAVE TO RETURN VIA THE UNDERGROUND PASS."));
 				getDeathTalismanInCentreDoorCorrect = new NpcStep(this, NpcID.MOURNING_DEATHALTER_DWARF_VIS, new WorldPoint(1860, 4641, 0),
-					"Get a Death Talisman by either getting the dwarf at the altar 50 items, or killing Dark Beasts.");
+					t("Get a Death Talisman by either getting the dwarf at the altar 50 items, or killing Dark Beasts."));
 			}
 			else
 			{
-				getDeathTalisman = new DetailedQuestStep(this, "You need to get a Death Talisman. Talk to the dwarf at the Death Altar to help him collect 50 items for one.");
+				getDeathTalisman = new DetailedQuestStep(this, t("You need to get a Death Talisman. Talk to the dwarf at the Death Altar to help him collect 50 items for one."));
 				getDeathTalismanInCentre = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_B, new WorldPoint(1881, 4639, 0),
-					"Bring Thorgel the items he needs for a Death Talisman. TURN THE MIDDLE PILLAR TO POINT BACK " +
-						"EAST OR YOU'LL HAVE TO RETURN VIA THE UNDERGROUND PASS.");
+					t("Bring Thorgel the items he needs for a Death Talisman. TURN THE MIDDLE PILLAR TO POINT BACK " +
+						"EAST OR YOU'LL HAVE TO RETURN VIA THE UNDERGROUND PASS."));
 				getDeathTalismanInCentreDoorCorrect = new NpcStep(this, NpcID.MOURNING_DEATHALTER_DWARF_VIS, new WorldPoint(1860, 4641, 0),
-					"Bring the dwarf the items he needs for a Death Talisman.");
+					t("Bring the dwarf the items he needs for a Death Talisman."));
 			}
 		}
 		else
 		{
-			getDeathTalisman = new DetailedQuestStep(this, "You need to get a Death Talisman. Buy one, or talk to the dwarf at the Death Altar to help him collect 50 items for one.");
+			getDeathTalisman = new DetailedQuestStep(this, t("You need to get a Death Talisman. Buy one, or talk to the dwarf at the Death Altar to help him collect 50 items for one."));
 			getDeathTalismanInCentre = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_B, new WorldPoint(1881, 4639, 0),
-				"Get a Death Talisman and return. Buy one, or help Thorgel at the altar for one. TURN THE MIDDLE " +
-					"PILLAR TO POINT BACK EAST OR YOU'LL HAVE TO RETURN VIA THE UNDERGROUND PASS.");
+				t("Get a Death Talisman and return. Buy one, or help Thorgel at the altar for one. TURN THE MIDDLE " +
+					"PILLAR TO POINT BACK EAST OR YOU'LL HAVE TO RETURN VIA THE UNDERGROUND PASS."));
 			getDeathTalismanInCentreDoorCorrect = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_B, new WorldPoint(1881, 4639, 0),
-				"Get a Death Talisman and return. Buy one, or help Thorgel at the altar for one.");
+				t("Get a Death Talisman and return. Buy one, or help Thorgel at the altar for one."));
 		}
 		getDeathTalismanInCentre.addDialogStep("Okay sure thing, what do you need?");
 		getDeathTalismanInCentreDoorCorrect.addDialogStep("Okay sure thing, what do you need?");
@@ -959,49 +959,49 @@ public class MourningsEndPartII extends BasicQuestHelper
 
 
 		enterMournerHQCharging = new ObjectStep(this, ObjectID.MOURNERSTEWDOOR, new WorldPoint(2551, 3320, 0),
-			"Return to the Temple of Light with a Death Talisman, or items for Thorgel for his.", deathTalisman, newlyMadeCrystal, newKey, gasMask, mournerTop, mournerTrousers, mournerCloak, mournerGloves, mournerBoots);
+			t("Return to the Temple of Light with a Death Talisman, or items for Thorgel for his."), deathTalisman, newlyMadeCrystal, newKey, gasMask, mournerTop, mournerTrousers, mournerCloak, mournerGloves, mournerBoots);
 		enterMournerHQCharging.addTeleport(westArdougneTeleport);
-		enterMournerBasementCharging = new ObjectStep(this, ObjectID.MOURNING_HIDEOUT_TRAP_DOOR, new WorldPoint(2542, 3327, 0), "Enter the Mourner HQ basement.");
-		enterMournerCaveCharging = new ObjectStep(this, ObjectID.MOURNER_HIDEOUT_DOOR4, new WorldPoint(2034, 4636, 0), "Enter the Mourner Caves.", newKey);
+		enterMournerBasementCharging = new ObjectStep(this, ObjectID.MOURNING_HIDEOUT_TRAP_DOOR, new WorldPoint(2542, 3327, 0), t("Enter the Mourner HQ basement."));
+		enterMournerCaveCharging = new ObjectStep(this, ObjectID.MOURNER_HIDEOUT_DOOR4, new WorldPoint(2034, 4636, 0), t("Enter the Mourner Caves."), newKey);
 		enterUndergroundPass = new ObjectStep(this, ObjectID.REGICIDE_VOYAGE_TEMPLE_ENTRANCE, new WorldPoint(2314, 3217, 0),
-			"You didn't unlock the light door from the Mourner entrance, so you'll need to return to the Death Altar via the Underground Pass. Enter from the Elven Lands entrance. Bring a Death Talisman, or items for Thorgel for his Death Talisman.",
+			t("You didn't unlock the light door from the Mourner entrance, so you'll need to return to the Death Altar via the Underground Pass. Enter from the Elven Lands entrance. Bring a Death Talisman, or items for Thorgel for his Death Talisman."),
 			deathTalisman, newlyMadeCrystal);
-		enterWell = new ObjectStep(this, ObjectID.REGICIDE_VOYAGE_TEMPLE_WELL2, new WorldPoint(2342, 9623, 0), "Enter the Well of Voyage.");
-		leavePassCentre = new ObjectStep(this, ObjectID.UPASS_TEMPLEDOOR_CLOSED_RIGHT, new WorldPoint(2016, 4712, 1), "Leave the well area, and head to the dwarven camp below to the south.");
-		enterSouthPass = new ObjectStep(this, ObjectID.CAVEWALLTUNNEL_UPASS_DOWN, new WorldPoint(2150, 4545, 1), "Enter the south cave to go to the lower level of the pass.");
-		enterAltarFromBehind = new ObjectStep(this, ObjectID.CAVEWALLTUNNEL_TO_TEMPLE, new WorldPoint(2311, 9792, 0), "Enter the cave entrance behind the dwarf camp under Iban's area to the south.");
+		enterWell = new ObjectStep(this, ObjectID.REGICIDE_VOYAGE_TEMPLE_WELL2, new WorldPoint(2342, 9623, 0), t("Enter the Well of Voyage."));
+		leavePassCentre = new ObjectStep(this, ObjectID.UPASS_TEMPLEDOOR_CLOSED_RIGHT, new WorldPoint(2016, 4712, 1), t("Leave the well area, and head to the dwarven camp below to the south."));
+		enterSouthPass = new ObjectStep(this, ObjectID.CAVEWALLTUNNEL_UPASS_DOWN, new WorldPoint(2150, 4545, 1), t("Enter the south cave to go to the lower level of the pass."));
+		enterAltarFromBehind = new ObjectStep(this, ObjectID.CAVEWALLTUNNEL_TO_TEMPLE, new WorldPoint(2311, 9792, 0), t("Enter the cave entrance behind the dwarf camp under Iban's area to the south."));
 		enterDeathAltar = new ObjectStep(this, ObjectID.DEATHTEMPLE_RUINED, new WorldPoint(1860, 4639, 0),
-			"Enter the death altar ruins.", deathTalisman.highlighted());
+			t("Enter the death altar ruins."), deathTalisman.highlighted());
 		enterDeathAltar.addIcon(ItemID.DEATH_TALISMAN);
-		turnKeyMirrorCharging = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_B, new WorldPoint(1881, 4639, 0), "Enter the central area, and turn the pillar's mirror west.");
-		goUpToF1ForCharging = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1903, 4639, 0), "Enter the Temple of Light, and go up the south staircase to the second floor.");
-		goUpToF2ForCharging = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_BASE, new WorldPoint(1894, 4620, 1), "Go up the south stairs to the second floor.");
-		goDownToMiddleFromSouthCharging = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1891, 4636, 2), "Go down the staircase north of you.");
-		goDownToCentreCharging = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1888, 4639, 1), "Go down to the central area.");
+		turnKeyMirrorCharging = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_B, new WorldPoint(1881, 4639, 0), t("Enter the central area, and turn the pillar's mirror west."));
+		goUpToF1ForCharging = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1903, 4639, 0), t("Enter the Temple of Light, and go up the south staircase to the second floor."));
+		goUpToF2ForCharging = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_BASE, new WorldPoint(1894, 4620, 1), t("Go up the south stairs to the second floor."));
+		goDownToMiddleFromSouthCharging = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1891, 4636, 2), t("Go down the staircase north of you."));
+		goDownToCentreCharging = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1888, 4639, 1), t("Go down to the central area."));
 
-		useCrystalOnAltar = new ObjectStep(this, ObjectID.DEATH_ALTAR, new WorldPoint(2205, 4836, 0), "Use the newly made crystal on the death altar.", newlyMadeCrystalHighlight);
+		useCrystalOnAltar = new ObjectStep(this, ObjectID.DEATH_ALTAR, new WorldPoint(2205, 4836, 0), t("Use the newly made crystal on the death altar."), newlyMadeCrystalHighlight);
 		useCrystalOnAltar.addIcon(ItemID.MOURNING_CRYSTAL_NEW_SAMPLE);
 
-		leaveDeathAltar = new ObjectStep(this, ObjectID.DEATHTEMPLE_EXIT_PORTAL, new WorldPoint(2208, 4829, 0), "Leave the Death Altar and go use the charged crystal on the dark crystal.");
-		turnPillarFromTemple = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_B, new WorldPoint(1881, 4639, 0), "Enter the central area, and turn the pillar's mirror east.", chargedCrystal);
-		goUpFromCentre = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1888, 4639, 0), "Go up to the dark crystal.", chargedCrystal);
-		goUpToNorthToCharge =  new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1891, 4642, 1), "Go up the stairs to the north.", chargedCrystal);
-		useCrystalOnCrystal = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_OBSIDIAN_CRYSTAL, new WorldPoint(1909, 4639, 2), "Use the charged crystal on the dark crystal north of you.", chargedCrystalHighlight);
+		leaveDeathAltar = new ObjectStep(this, ObjectID.DEATHTEMPLE_EXIT_PORTAL, new WorldPoint(2208, 4829, 0), t("Leave the Death Altar and go use the charged crystal on the dark crystal."));
+		turnPillarFromTemple = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_PILLAR_1_B, new WorldPoint(1881, 4639, 0), t("Enter the central area, and turn the pillar's mirror east."), chargedCrystal);
+		goUpFromCentre = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1888, 4639, 0), t("Go up to the dark crystal."), chargedCrystal);
+		goUpToNorthToCharge =  new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1891, 4642, 1), t("Go up the stairs to the north."), chargedCrystal);
+		useCrystalOnCrystal = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_OBSIDIAN_CRYSTAL, new WorldPoint(1909, 4639, 2), t("Use the charged crystal on the dark crystal north of you."), chargedCrystalHighlight);
 		useCrystalOnCrystal.addIcon(ItemID.MOURNING_CRYSTAL_NEW_POWERED);
 
 		enterMournerHQCrystal = new ObjectStep(this, ObjectID.MOURNERSTEWDOOR, new WorldPoint(2551, 3320, 0),
-			"Return to the Temple of Light with a Death Talisman, or items for Thorgel for his.", deathTalisman, newlyMadeCrystal, newKey, gasMask, mournerTop, mournerTrousers, mournerCloak, mournerGloves, mournerBoots);
+			t("Return to the Temple of Light with a Death Talisman, or items for Thorgel for his."), deathTalisman, newlyMadeCrystal, newKey, gasMask, mournerTop, mournerTrousers, mournerCloak, mournerGloves, mournerBoots);
 		enterMournerHQCrystal.addTeleport(westArdougneTeleport);
-		enterMournerBasementCrystal = new ObjectStep(this, ObjectID.MOURNING_HIDEOUT_TRAP_DOOR, new WorldPoint(2542, 3327, 0), "Enter the Mourner HQ basement.");
-		enterMournerCaveCrystal = new ObjectStep(this, ObjectID.MOURNER_HIDEOUT_DOOR4, new WorldPoint(2034, 4636, 0), "Enter the Mourner Caves.", newKey);
+		enterMournerBasementCrystal = new ObjectStep(this, ObjectID.MOURNING_HIDEOUT_TRAP_DOOR, new WorldPoint(2542, 3327, 0), t("Enter the Mourner HQ basement."));
+		enterMournerCaveCrystal = new ObjectStep(this, ObjectID.MOURNER_HIDEOUT_DOOR4, new WorldPoint(2034, 4636, 0), t("Enter the Mourner Caves."), newKey);
 
-		enterFloor1Crystal = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1903, 4639, 0), "Enter the Temple of Light, and go up the south staircase to the second floor.");
-		enterFloor2Crystal = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_BASE, new WorldPoint(1894, 4620, 1), "Go up the south stairs to the second floor.");
-		goDownToMiddleFromSouthCrystal = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1891, 4636, 2), "Go down the staircase north of you.");
+		enterFloor1Crystal = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_BASE, new WorldPoint(1903, 4639, 0), t("Enter the Temple of Light, and go up the south staircase to the second floor."));
+		enterFloor2Crystal = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_STAIRS_BASE, new WorldPoint(1894, 4620, 1), t("Go up the south stairs to the second floor."));
+		goDownToMiddleFromSouthCrystal = new ObjectStep(this, ObjectID.MOURNING_TEMPLE_CIRCLE_STAIRS_TOP, new WorldPoint(1891, 4636, 2), t("Go down the staircase north of you."));
 
 		leaveDeathAltar.addSubSteps(enterMournerHQCrystal, enterMournerBasementCrystal, enterMournerCaveCrystal, enterFloor1Crystal, enterFloor2Crystal, goDownToMiddleFromSouthCrystal, useCrystalOnCrystal, goUpToNorthToCharge, goUpFromCentre, turnPillarFromTemple);
 
-		returnToArianwyn = new NpcStep(this, NpcID.MOURNING_ARIANWYN_VIS, new WorldPoint(2354, 3170, 0), "Return to Arianwyn in Lletya.");
+		returnToArianwyn = new NpcStep(this, NpcID.MOURNING_ARIANWYN_VIS, new WorldPoint(2354, 3170, 0), t("Return to Arianwyn in Lletya."));
 		returnToArianwyn.addTeleport(lletyaTeleport);
 	}
 
@@ -1020,7 +1020,7 @@ public class MourningsEndPartII extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Able to survive Shadows (level 73) continually attacking you");
+		return Collections.singletonList(t("Able to survive Shadows (level 73) continually attacking you"));
 	}
 
 	@Override
@@ -1055,45 +1055,45 @@ public class MourningsEndPartII extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Ability to craft Death Runes."),
-				new UnlockReward("Ability to kill Dark Beasts and receive them as a slayer task."));
+				new UnlockReward(t("Ability to craft Death Runes.")),
+				new UnlockReward(t("Ability to kill Dark Beasts and receive them as a slayer task.")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off",
+		allSteps.add(new PanelDetails(t("Starting off"),
 			new ArrayList<>(Collections.singletonList(talkToArianwyn))));
 
-		allSteps.add(new PanelDetails("Explore the caves",
+		allSteps.add(new PanelDetails(t("Explore the caves"),
 			Arrays.asList(talkToEssyllt, enterCave, searchCorpse, goUpStairsTemple, goUpSouthLadder, goToMiddleFromSouth, goUpFromMiddleToNorth, useChisel, bringCrystalToArianwyn,
 				talkToElunedAfterGivingCrystal, talkToArianwynAfterGivingCrystal), Arrays.asList(chisel, mournersOutfit),
 			Arrays.asList(westArdougneTeleport, lletyaTeleport)));
 
-		allSteps.add(new PanelDetails("Return to the Temple", Collections.singletonList(enterTempleOfLight),
+		allSteps.add(new PanelDetails(t("Return to the Temple"), Collections.singletonList(enterTempleOfLight),
 			rope, mournersOutfit, deathTalisman, newKey, newlyIfOneTrip));
 
-		allSteps.add(new PanelDetails("Puzzle 1", Arrays.asList(goUpStairsTempleC1, pullDispenser1, puzzle1Pillar1, puzzle1Pillar2, puzzle1Pillar3, puzzle1Pillar4, puzzle1Pillar5, climbWallSupport, searchBlueChest)));
-		allSteps.add(new PanelDetails("Puzzle 2", Arrays.asList(pullDispenser2, puzzle2Pillar1, puzzle2Pillar2, puzzle2Pillar3, puzzle2Pillar4, puzzle2Pillar5, puzzle2Pillar6, searchMagentaChest)));
-		allSteps.add(new PanelDetails("Puzzle 3", Arrays.asList(puzzle3Pillar6RemoveYellow, goUpLadderNorthForPuzzle3, puzzle3Pillar7, goDownFromF2NorthRoomPuzzle3, goUpToFloor2Puzzle3,
+		allSteps.add(new PanelDetails(t("Puzzle 1"), Arrays.asList(goUpStairsTempleC1, pullDispenser1, puzzle1Pillar1, puzzle1Pillar2, puzzle1Pillar3, puzzle1Pillar4, puzzle1Pillar5, climbWallSupport, searchBlueChest)));
+		allSteps.add(new PanelDetails(t("Puzzle 2"), Arrays.asList(pullDispenser2, puzzle2Pillar1, puzzle2Pillar2, puzzle2Pillar3, puzzle2Pillar4, puzzle2Pillar5, puzzle2Pillar6, searchMagentaChest)));
+		allSteps.add(new PanelDetails(t("Puzzle 3"), Arrays.asList(puzzle3Pillar6RemoveYellow, goUpLadderNorthForPuzzle3, puzzle3Pillar7, goDownFromF2NorthRoomPuzzle3, goUpToFloor2Puzzle3,
 			puzzle3Pillar8, goDownFromF2Puzzle3, goDownFromF1Puzzle3, enterNorthWestRoomPuzzle3, puzzle3Pillar9, searchYellowChest)));
 
-		allSteps.add(new PanelDetails("Puzzle 4", Arrays.asList(goUpToFirstFloorPuzzle4, puzzle4Pillar3RemoveCyan, goUpToFloor2Puzzle4, puzzle4Pillar8, puzzle4Pillar9, goDownFromF2Puzzle4, useRope, goDownRope, searchCyanChest), rope));
+		allSteps.add(new PanelDetails(t("Puzzle 4"), Arrays.asList(goUpToFirstFloorPuzzle4, puzzle4Pillar3RemoveCyan, goUpToFloor2Puzzle4, puzzle4Pillar8, puzzle4Pillar9, goDownFromF2Puzzle4, useRope, goDownRope, searchCyanChest), rope));
 
-		PanelDetails placeBlueCrystalPanel = new PanelDetails("Puzzle 5 P1", Arrays.asList(climbUpRope, pullDispenser5, puzzle5Pillar1, puzzle5Pillar2, puzzle5Pillar3, puzzle5Pillar4, puzzle5Pillar5, climbWallSupportPuzzle5, puzzle5Pillar6));
+		PanelDetails placeBlueCrystalPanel = new PanelDetails(t("Puzzle 5 P1"), Arrays.asList(climbUpRope, pullDispenser5, puzzle5Pillar1, puzzle5Pillar2, puzzle5Pillar3, puzzle5Pillar4, puzzle5Pillar5, climbWallSupportPuzzle5, puzzle5Pillar6));
 		placeBlueCrystalPanel.setLockingStep(puzzle5PlaceBlue);
 		allSteps.add(placeBlueCrystalPanel);
-		allSteps.add(new PanelDetails("Puzzle 5 P2", Arrays.asList(puzzle5Pillar5RemoveMirror, puzzle5Pillar3RotateUp, goUpToFloor2Puzzle5, goDownToMiddleFromSouthPuzzle5,
+		allSteps.add(new PanelDetails(t("Puzzle 5 P2"), Arrays.asList(puzzle5Pillar5RemoveMirror, puzzle5Pillar3RotateUp, goUpToFloor2Puzzle5, goDownToMiddleFromSouthPuzzle5,
 			goUpFromMiddleToNorthPuzzle5, puzzle5Pillar7, goDownToMiddleFromNorthPuzzle5, puzzle5Pillar8, puzzle5Pillar9, puzzle5Pillar10, puzzle5Pillar11, goDownFromF2Puzzle5,
 			goDownFromF1Puzzle5, puzzle5Pillar12, puzzle5Pillar13, puzzle5Pillar14, searchMagentaYellowChest)));
 
-		allSteps.add(new PanelDetails("Reach the Death Altar", Arrays.asList(pullDispenser6, goUpToF1Puzzle6, puzzle6Pillar1,
+		allSteps.add(new PanelDetails(t("Reach the Death Altar"), Arrays.asList(pullDispenser6, goUpToF1Puzzle6, puzzle6Pillar1,
 			puzzle6Pillar2, goDownFromF1Puzzle6, puzzle6Pillar3, puzzle6Pillar4,
 			puzzle6Pillar5, puzzle6Pillar6, puzzle6Pillar7, puzzle6Pillar8, goUpToF1Puzzle6, puzzle6Pillar9, goUpNorthLadderToF2Puzzle6, puzzle6Pillar10, goDownNorthLadderToF1Puzzle6, goUpToFloor2Puzzle6,
 			puzzle6Pillar11, puzzle6Pillar12, puzzle6Pillar13, goDownToMiddleFromSouthPuzzle6, goUpFromMiddleToNorthPuzzle6, puzzle6Pillar14, puzzle6Pillar15, puzzle6Pillar16, puzzle6Pillar17, goDownToCentre, turnKeyMirror)));
 
-		allSteps.add(new PanelDetails("Repair the defences", Arrays.asList(enterDeathAltarBarrier, getDeathTalisman, enterDeathAltar, useCrystalOnAltar, leaveDeathAltar, returnToArianwyn), deathTalisman, newlyMadeCrystal));
+		allSteps.add(new PanelDetails(t("Repair the defences"), Arrays.asList(enterDeathAltarBarrier, getDeathTalisman, enterDeathAltar, useCrystalOnAltar, leaveDeathAltar, returnToArianwyn), deathTalisman, newlyMadeCrystal));
 
 		return allSteps;
 	}

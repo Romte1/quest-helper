@@ -162,8 +162,8 @@ public class ScorpionCatcher extends BasicQuestHelper
 		antiDragonShield = new ItemRequirement("Anti-dragon shield or DFS", ItemCollections.ANTIFIRE_SHIELDS).isNotConsumed();
 		antiPoison = new ItemRequirement("Antipoison", ItemCollections.ANTIPOISONS);
 		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
-		teleRunesFalador = new ItemRequirement("Teleport to Falador", ItemID.POH_TABLET_FALADORTELEPORT, -1);
-		camelotTeleport = new ItemRequirement("Teleport to Camelot", ItemID.POH_TABLET_CAMELOTTELEPORT, -1);
+		teleRunesFalador = new ItemRequirement(t("Teleport to Falador"), ItemID.POH_TABLET_FALADORTELEPORT, -1);
+		camelotTeleport = new ItemRequirement(t("Teleport to Camelot"), ItemID.POH_TABLET_CAMELOTTELEPORT, -1);
 		gamesNecklace = new ItemRequirement("Games Necklace", ItemCollections.GAMES_NECKLACES);
 		gloryOrCombatBracelet = new ItemRequirement("A charged glory or a combat bracelet", ItemCollections.AMULET_OF_GLORIES);
 		gloryOrCombatBracelet.addAlternates(ItemCollections.COMBAT_BRACELETS);

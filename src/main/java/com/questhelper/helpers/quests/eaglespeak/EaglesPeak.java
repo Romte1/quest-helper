@@ -177,20 +177,20 @@ public class EaglesPeak extends BasicQuestHelper
 		birdBook.setHighlightInInventory(true);
 		metalFeatherHighlighted = new ItemRequirement("Metal feather", ItemID.EAGLEPEAK_METAL_FEATHER);
 		metalFeatherHighlighted.setHighlightInInventory(true);
-		metalFeatherHighlighted.setTooltip("You can get another Metal Feather by searching the books in the camp north of Eagles' Peak");
+		metalFeatherHighlighted.setTooltip(t("You can get another Metal Feather by searching the books in the camp north of Eagles' Peak"));
 		metalFeather = new ItemRequirement("Metal feather", ItemID.EAGLEPEAK_METAL_FEATHER);
-		metalFeather.setTooltip("You can get another Metal Feather by searching the books in the camp north of Eagles' Peak");
+		metalFeather.setTooltip(t("You can get another Metal Feather by searching the books in the camp north of Eagles' Peak"));
 		tenEagleFeathers = new ItemRequirement("Eagle feather", ItemID.HUNTING_EAGLE_FEATHER, 10);
 		fakeBeak = new ItemRequirement("Fake beak", ItemID.HUNTING_FAKE_BEAK, 2);
-		fakeBeak.setTooltip("If you lose one of your beaks you'll need to have Azyff make you a new one.");
+		fakeBeak.setTooltip(t("If you lose one of your beaks you'll need to have Azyff make you a new one."));
 		eagleCape = new ItemRequirement("Eagle cape", ItemID.HUNTING_EAGLE_CAPE, 2);
-		eagleCape.setTooltip("If you lose one of your capes you'll need to have Azyff make you a new one.");
+		eagleCape.setTooltip(t("If you lose one of your capes you'll need to have Azyff make you a new one."));
 		bronzeFeather = new ItemRequirement("Bronze feather", ItemID.EAGLEPEAK_CRYSTAL_FEATHER3);
 		silverFeather = new ItemRequirement("Silver feather", ItemID.EAGLEPEAK_CRYSTAL_FEATHER2);
 		goldFeather = new ItemRequirement("Golden feather", ItemID.EAGLEPEAK_CRYSTAL_FEATHER1);
 		varrockTeleport = new ItemRequirement("Varrock teleport", ItemID.POH_TABLET_VARROCKTELEPORT);
 		ardougneTeleport = new ItemRequirement("Ardougne teleport", ItemID.POH_TABLET_ARDOUGNETELEPORT);
-		eaglesPeakTeleport = new ItemRequirement("Teleport to Eagle's Peak. Fairy ring (AKQ), Necklace of passage (The Outpost [2])",
+		eaglesPeakTeleport = new ItemRequirement(t("Teleport to Eagle's Peak. Fairy ring (AKQ), Necklace of passage (The Outpost [2])"),
 			ItemCollections.FAIRY_STAFF).isNotConsumed();
 		eaglesPeakTeleport.addAlternates(ItemCollections.NECKLACE_OF_PASSAGES);
 
@@ -205,7 +205,7 @@ public class EaglesPeak extends BasicQuestHelper
 		birdFeed = new ItemRequirement("Odd bird seed", ItemID.EAGLEPEAK_BIRD_SEED);
 		birdFeed.setHighlightInInventory(true);
 		ferret = new ItemRequirement("Ferret", ItemID.HUNTING_FERRET);
-		ferret.setTooltip("If you lose your ferret you'll need to catch a new one with a box trap north of Eagles' Peak.");
+		ferret.setTooltip(t("If you lose your ferret you'll need to catch a new one with a box trap north of Eagles' Peak."));
 	}
 
 	@Override
@@ -259,181 +259,181 @@ public class EaglesPeak extends BasicQuestHelper
 	public void setupSteps()
 	{
 		speakToCharlie = new NpcStep(this, NpcID.EAGLEPEAK_ZOOKEEPER_CHARLIE, new WorldPoint(2607, 3264, 0),
-			"Speak to Charlie in the Ardougne Zoo.");
+			t("Speak to Charlie in the Ardougne Zoo."));
 		speakToCharlie.addTeleport(ardougneTeleport);
 		speakToCharlie.addDialogSteps("Ah, you sound like someone who needs a quest doing!",
 			"Sure.  Any idea where I should start looking?", "Yes.");
 
 		inspectBooks = new ObjectStep(this, ObjectID.EAGLEPEAK_BOOKS_MULTI, new WorldPoint(2319, 3506, 0),
-			"Go to the camp north of Eagles' Peak and search the pile of books for a Bird Book. The closest fairy ring is AKQ or teleport to The Outpost using the Necklace of Passage.");
+			t("Go to the camp north of Eagles' Peak and search the pile of books for a Bird Book. The closest fairy ring is AKQ or teleport to The Outpost using the Necklace of Passage."));
 		inspectBooks.addTeleport(eaglesPeakTeleport);
 		inspectBooks.addDialogStep("The Outpost");
-		clickBook = new DetailedQuestStep(this, "Click the Bird Book for a Metal Feather.", birdBook);
+		clickBook = new DetailedQuestStep(this, t("Click the Bird Book for a Metal Feather."), birdBook);
 
 		inspectBooksForFeather = new ObjectStep(this, ObjectID.EAGLEPEAK_BOOKS_MESSY, new WorldPoint(2319, 3506, 0),
-			"Go to the camp north of Eagles' Peak and search the pile of books to get the Metal Feather back.");
+			t("Go to the camp north of Eagles' Peak and search the pile of books to get the Metal Feather back."));
 
 		useFeatherOnDoor = new ObjectStep(this, ObjectID.EAGLEPEAK_ENTRANCE_CAVE_MULTI, new WorldPoint(2329, 3495, 0),
-			"Use the Metal Feather on the Rocky Outcrop on Eagles' Peak.", metalFeatherHighlighted);
+			t("Use the Metal Feather on the Rocky Outcrop on Eagles' Peak."), metalFeatherHighlighted);
 		useFeatherOnDoor.addIcon(ItemID.EAGLEPEAK_METAL_FEATHER);
 
 		enterPeak = new ObjectStep(this, ObjectID.EAGLEPEAK_ENTRANCE_CAVE_MULTI, new WorldPoint(2329, 3495, 0),
-			"Enter Eagles' Peak through the Rocky Outcrop.");
+			t("Enter Eagles' Peak through the Rocky Outcrop."));
 
 		shoutAtNickolaus = new NpcStep(this, NpcID.EAGLEPEAK_NICKOLAUS_SHOUT, new WorldPoint(2006, 4960, 3),
-			"Shout to Nickolaus from across the chasm.");
+			t("Shout to Nickolaus from across the chasm."));
 		shoutAtNickolaus.addDialogStep("The Ardougne zookeeper sent me to find you.");
 		shoutAtNickolaus.addDialogStep("Well if you gave me a ferret I could take it back for you.");
 		shoutAtNickolaus.addDialogStep("Could I help at all?");
 
-		pickupFeathers = new ObjectStep(this, ObjectID.EAGLEPEAK_FEATHER_PILE, new WorldPoint(2005, 4972, 3), "Pick up 10 Eagle feathers from the piles in the main cavern.", tenEagleFeathers);
+		pickupFeathers = new ObjectStep(this, ObjectID.EAGLEPEAK_FEATHER_PILE, new WorldPoint(2005, 4972, 3), t("Pick up 10 Eagle feathers from the piles in the main cavern."), tenEagleFeathers);
 
-		goToFancyStore = new NpcStep(this, NpcID.TAILORP, new WorldPoint(3281, 3398, 0), "Go speak to Asyff in south-east Varrock to have a disguise made.",
+		goToFancyStore = new NpcStep(this, NpcID.TAILORP, new WorldPoint(3281, 3398, 0), t("Go speak to Asyff in south-east Varrock to have a disguise made."),
 			yellowDye, coins, tar, tenEagleFeathers);
 		goToFancyStore.addDialogStep("Well, specifically I'm after a couple of bird costumes.");
 		goToFancyStore.addTeleport(varrockTeleport);
-		speakAsyffAgain = new NpcStep(this, NpcID.TAILORP, new WorldPoint(3281, 3398, 0), "Speak to Asyff again.",
+		speakAsyffAgain = new NpcStep(this, NpcID.TAILORP, new WorldPoint(3281, 3398, 0), t("Speak to Asyff again."),
 			yellowDye, coins, tar, tenEagleFeathers);
 		speakAsyffAgain.addDialogStep("I've got the feathers and materials you requested.");
 		speakAsyffAgain.addDialogStep("Okay, here are the materials. Eagle me up.");
 
 		returnToEaglesPeak = new ObjectStep(this, ObjectID.EAGLEPEAK_ENTRANCE_CAVE_MULTI, new WorldPoint(2329, 3495, 0),
-			"Enter Eagles' Peak through the Rocky Outcrop.", fakeBeak, eagleCape);
+			t("Enter Eagles' Peak through the Rocky Outcrop."), fakeBeak, eagleCape);
 		returnToEaglesPeak.addTeleport(eaglesPeakTeleport);
-		enterEastCave = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE1_ENTRANCEMID, new WorldPoint(2023, 4982, 3), "Enter the eastern cavern of Eagles' Peak.");
+		enterEastCave = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE1_ENTRANCEMID, new WorldPoint(2023, 4982, 3), t("Enter the eastern cavern of Eagles' Peak."));
 
-		enterBronzeRoom = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE3_ENTRANCEMID, new WorldPoint(1986, 4949, 3), "Enter the south-western cavern of Eagles' Peak.");
+		enterBronzeRoom = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE3_ENTRANCEMID, new WorldPoint(1986, 4949, 3), t("Enter the south-western cavern of Eagles' Peak."));
 
-		attemptToTakeBronzeFeather = new ObjectStep(this, ObjectID.EAGLEPEAK_NET_TRAP_INACTIVE, new WorldPoint(1974, 4915, 2), "Try to take the feather from the pedestal.");
-		winch1 = new ObjectStep(this, ObjectID.EAGLEPEAK_WINCH1, new WorldPoint(1970, 4919, 2), "Use the winches in the corners of the room.");
-		winch2 = new ObjectStep(this, ObjectID.EAGLEPEAK_WINCH2, new WorldPoint(1978, 4919, 2), "Use the winches in the corners of the room.");
-		winch3 = new ObjectStep(this, ObjectID.EAGLEPEAK_WINCH3, new WorldPoint(1970, 4910, 2), "Use the winches in the corners of the room.");
-		winch4 = new ObjectStep(this, ObjectID.EAGLEPEAK_WINCH4, new WorldPoint(1978, 4910, 2), "Use the winches in the corners of the room.");
+		attemptToTakeBronzeFeather = new ObjectStep(this, ObjectID.EAGLEPEAK_NET_TRAP_INACTIVE, new WorldPoint(1974, 4915, 2), t("Try to take the feather from the pedestal."));
+		winch1 = new ObjectStep(this, ObjectID.EAGLEPEAK_WINCH1, new WorldPoint(1970, 4919, 2), t("Use the winches in the corners of the room."));
+		winch2 = new ObjectStep(this, ObjectID.EAGLEPEAK_WINCH2, new WorldPoint(1978, 4919, 2), t("Use the winches in the corners of the room."));
+		winch3 = new ObjectStep(this, ObjectID.EAGLEPEAK_WINCH3, new WorldPoint(1970, 4910, 2), t("Use the winches in the corners of the room."));
+		winch4 = new ObjectStep(this, ObjectID.EAGLEPEAK_WINCH4, new WorldPoint(1978, 4910, 2), t("Use the winches in the corners of the room."));
 
 		winch1.addSubSteps(winch2, winch3, winch4);
 
-		grabBronzeFeather = new ObjectStep(this, ObjectID.EAGLEPEAK_DUNGEON_PEDESTAL_PUZZLE3, new WorldPoint(1974, 4915, 2), "Take the feather from the pedestal.");
+		grabBronzeFeather = new ObjectStep(this, ObjectID.EAGLEPEAK_DUNGEON_PEDESTAL_PUZZLE3, new WorldPoint(1974, 4915, 2), t("Take the feather from the pedestal."));
 
-		enterMainCavernFromBronze = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE3_EXITMID, new WorldPoint(1974, 4907, 2), "Return to the main cavern.");
+		enterMainCavernFromBronze = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE3_EXITMID, new WorldPoint(1974, 4907, 2), t("Return to the main cavern."));
 
-		enterSilverRoom = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE2_ENTRANCEMID, new WorldPoint(1986, 4972, 3), "Enter the north-western cavern of Eagles' Peak.");
+		enterSilverRoom = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE2_ENTRANCEMID, new WorldPoint(1986, 4972, 3), t("Enter the north-western cavern of Eagles' Peak."));
 
-		inspectSilverPedestal = new ObjectStep(this, ObjectID.EAGLEPEAK_DUNGEON_PEDESTAL_PUZZLE2, new WorldPoint(1947, 4873, 2), "Inspect the Stone Pedestal here.");
+		inspectSilverPedestal = new ObjectStep(this, ObjectID.EAGLEPEAK_DUNGEON_PEDESTAL_PUZZLE2, new WorldPoint(1947, 4873, 2), t("Inspect the Stone Pedestal here."));
 
-		enterMainCavernFromSilver = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE2_EXITMID, new WorldPoint(1947, 4867, 2), "Return to the main cavern.");
+		enterMainCavernFromSilver = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE2_EXITMID, new WorldPoint(1947, 4867, 2), t("Return to the main cavern."));
 
-		inspectRocks1 = new ObjectStep(this, ObjectID.EAGLEPEAK_HUNTING_TRAIL_SPAWN1, new WorldPoint(1961, 4875, 2), "Inspect the rocks east of the pedestal.");
+		inspectRocks1 = new ObjectStep(this, ObjectID.EAGLEPEAK_HUNTING_TRAIL_SPAWN1, new WorldPoint(1961, 4875, 2), t("Inspect the rocks east of the pedestal."));
 
-		inspectRocks2 = new ObjectStep(this, ObjectID.EAGLEPEAK_HUNTING_TRAIL_SPAWN2, new WorldPoint(1967, 4879, 2), "Inspect the rocks north east of the last rock.");
+		inspectRocks2 = new ObjectStep(this, ObjectID.EAGLEPEAK_HUNTING_TRAIL_SPAWN2, new WorldPoint(1967, 4879, 2), t("Inspect the rocks north east of the last rock."));
 
-		inspectOpening = new ObjectStep(this, ObjectID.EAGLEPEAK_KEBBIT_CAVEMID, new WorldPoint(1971, 4886, 2), "Inspect the opening north of the second rock.");
+		inspectOpening = new ObjectStep(this, ObjectID.EAGLEPEAK_KEBBIT_CAVEMID, new WorldPoint(1971, 4886, 2), t("Inspect the opening north of the second rock."));
 
-		threatenKebbit = new NpcStep(this, NpcID.EAGLEPEAK_UBER_KEBBIT, new WorldPoint(1971, 4880, 2), "Right-click threaten the Kebbit that appears. If the kebbit's gone, re-inspect the opening.");
+		threatenKebbit = new NpcStep(this, NpcID.EAGLEPEAK_UBER_KEBBIT, new WorldPoint(1971, 4880, 2), t("Right-click threaten the Kebbit that appears. If the kebbit's gone, re-inspect the opening."));
 		threatenKebbit.addDialogStep("Taunt the kebbit.");
 
-		pickupSilverFeather = new ObjectStep(this, ObjectID.EAGLEPEAK_KEBBIT_CAVEMID, new WorldPoint(1971, 4886, 2), "Pick up the silver feather. If it's despawned, inspect the opening to get it.");
-		pickUpActualSilverFeather = new ItemStep(this, "Pick up the silver feather.", silverFeather);
+		pickupSilverFeather = new ObjectStep(this, ObjectID.EAGLEPEAK_KEBBIT_CAVEMID, new WorldPoint(1971, 4886, 2), t("Pick up the silver feather. If it's despawned, inspect the opening to get it."));
+		pickUpActualSilverFeather = new ItemStep(this, t("Pick up the silver feather."), silverFeather);
 		pickupSilverFeather.addSubSteps(pickUpActualSilverFeather);
 
-		enterGoldRoom = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE1_ENTRANCEMID, new WorldPoint(2023, 4982, 3), "Enter the tunnel in the north east of the main cavern.");
+		enterGoldRoom = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE1_ENTRANCEMID, new WorldPoint(2023, 4982, 3), t("Enter the tunnel in the north east of the main cavern."));
 
-		collectFeed = new ObjectStep(this, ObjectID.EAGLEPEAK_BIRDSEED_DISPENSER, new WorldPoint(1958, 4906, 2), "Collect 6 birdseed from the Birdseed holder.", birdFeed6);
+		collectFeed = new ObjectStep(this, ObjectID.EAGLEPEAK_BIRDSEED_DISPENSER, new WorldPoint(1958, 4906, 2), t("Collect 6 birdseed from the Birdseed holder."), birdFeed6);
 
-		pullLever1Down = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE1_LEVER3, new WorldPoint(1943, 4911, 2), "Pull the lever west of the entrance down.");
+		pullLever1Down = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE1_LEVER3, new WorldPoint(1943, 4911, 2), t("Pull the lever west of the entrance down."));
 
-		pushLever1Up = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE1_LEVER3, new WorldPoint(1943, 4911, 2), "Push the lever west of the entrance up.");
+		pushLever1Up = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE1_LEVER3, new WorldPoint(1943, 4911, 2), t("Push the lever west of the entrance up."));
 
-		pullLever2Down = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE1_LEVER4, new WorldPoint(1978, 4891, 2), "Pull the lever in the south east corner down.");
+		pullLever2Down = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE1_LEVER4, new WorldPoint(1978, 4891, 2), t("Pull the lever in the south east corner down."));
 
-		pullLever3Down = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE1_LEVER1, new WorldPoint(1935, 4902, 2), "Pull the lever in the south west corner down.");
+		pullLever3Down = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE1_LEVER1, new WorldPoint(1935, 4902, 2), t("Pull the lever in the south west corner down."));
 
-		pullLever4Down = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE1_LEVER2, new WorldPoint(1925, 4915, 2), "Pull the lever in the north west corner down.");
+		pullLever4Down = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE1_LEVER2, new WorldPoint(1925, 4915, 2), t("Pull the lever in the north west corner down."));
 
 		fillFeeder1 = new ObjectStep(this, ObjectID.EAGLEPEAK_BIRD_FEEDER4, new WorldPoint(1966, 4890, 2),
-			"Use the odd bird seed on the Bird feeder in the far south eastern corner.", birdFeed);
+			t("Use the odd bird seed on the Bird feeder in the far south eastern corner."), birdFeed);
 		fillFeeder1.addIcon(ItemID.EAGLEPEAK_BIRD_SEED);
 
 		fillFeeder2 = new ObjectStep(this, ObjectID.EAGLEPEAK_BIRD_FEEDER3, new WorldPoint(1962, 4894, 2),
-			"Use the odd bird seed on the marked Bird feeder.", birdFeed);
+			t("Use the odd bird seed on the marked Bird feeder."), birdFeed);
 		fillFeeder2.addIcon(ItemID.EAGLEPEAK_BIRD_SEED);
 
 		/* Only needed if the player's messed up */
 		fillFeeder3 = new ObjectStep(this, ObjectID.EAGLEPEAK_BIRD_FEEDER3A, new WorldPoint(1962, 4901, 2),
-			"Use the odd bird seed on the marked Bird feeder, as you've moved the wrong bird.", birdFeed);
+			t("Use the odd bird seed on the marked Bird feeder, as you've moved the wrong bird."), birdFeed);
 		fillFeeder3.addIcon(ItemID.EAGLEPEAK_BIRD_SEED);
 
 		fillFeeder4 = new ObjectStep(this, ObjectID.EAGLEPEAK_BIRD_FEEDER2, new WorldPoint(1947, 4898, 2),
-			"Put odd bird feed into the feeder in the north east of the room.", birdFeed);
+			t("Put odd bird feed into the feeder in the north east of the room."), birdFeed);
 		fillFeeder4.addIcon(ItemID.EAGLEPEAK_BIRD_SEED);
 
 		fillFeeder5 = new ObjectStep(this, ObjectID.EAGLEPEAK_BIRD_FEEDER1, new WorldPoint(1945, 4915, 2),
-			"Put odd bird feed into the feeder in the south of the room.", birdFeed);
+			t("Put odd bird feed into the feeder in the south of the room."), birdFeed);
 		fillFeeder5.addIcon(ItemID.EAGLEPEAK_BIRD_SEED);
 
 		fillFeeder6 = new ObjectStep(this, ObjectID.EAGLEPEAK_BIRD_FEEDER2A, new WorldPoint(1935, 4897, 2),
-			"Put odd bird feed into the feeder in the south west of the room", birdFeed);
+			t("Put odd bird feed into the feeder in the south west of the room"), birdFeed);
 		fillFeeder6.addIcon(ItemID.EAGLEPEAK_BIRD_SEED);
 
 		fillFeeder4Again = new ObjectStep(this, ObjectID.EAGLEPEAK_BIRD_FEEDER2, new WorldPoint(1947, 4898, 2),
-			"Put odd bird feed into the feeder in the south of the room.", birdFeed);
+			t("Put odd bird feed into the feeder in the south of the room."), birdFeed);
 		fillFeeder4Again.addIcon(ItemID.EAGLEPEAK_BIRD_SEED);
 
 		fillFeeder7 = new ObjectStep(this, ObjectID.EAGLEPEAK_BIRD_FEEDER1A, new WorldPoint(1931, 4916, 2),
-			"Put odd bird feed in the feeder in the north west of the room.", birdFeed);
+			t("Put odd bird feed in the feeder in the north west of the room."), birdFeed);
 		fillFeeder7.addIcon(ItemID.EAGLEPEAK_BIRD_SEED);
 
-		grabGoldFeather = new ObjectStep(this, ObjectID.EAGLEPEAK_DUNGEON_PEDESTAL_PUZZLE1, new WorldPoint(1928, 4907, 2), "Grab the Golden feather from the pedestal.");
+		grabGoldFeather = new ObjectStep(this, ObjectID.EAGLEPEAK_DUNGEON_PEDESTAL_PUZZLE1, new WorldPoint(1928, 4907, 2), t("Grab the Golden feather from the pedestal."));
 
-		enterMainCavernFromGold = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE1_EXITMID, new WorldPoint(1957, 4909, 2), "Return to the main cavern.");
+		enterMainCavernFromGold = new ObjectStep(this, ObjectID.EAGLEPEAK_PUZZLE1_EXITMID, new WorldPoint(1957, 4909, 2), t("Return to the main cavern."));
 
-		useFeathersOnStoneDoor = new ObjectStep(this, ObjectID.EAGLEPEAK_GATE_MIRROR, new WorldPoint(2003, 4948, 3), "Use all three feathers on the door.",
+		useFeathersOnStoneDoor = new ObjectStep(this, ObjectID.EAGLEPEAK_GATE_MIRROR, new WorldPoint(2003, 4948, 3), t("Use all three feathers on the door."),
 			goldFeatherHighlighted, silverFeatherHighlighted, bronzeFeatherHighlighted);
 		useFeathersOnStoneDoor.addIcon(ItemID.PIPFEATHER_GOLD);
 
-		useBronzeFeathersOnStoneDoor = new ObjectStep(this, ObjectID.EAGLEPEAK_GATE_MIRROR, new WorldPoint(2003, 4948, 3), "Use the bronze feather on the door.",
+		useBronzeFeathersOnStoneDoor = new ObjectStep(this, ObjectID.EAGLEPEAK_GATE_MIRROR, new WorldPoint(2003, 4948, 3), t("Use the bronze feather on the door."),
 			bronzeFeatherHighlighted);
 		useBronzeFeathersOnStoneDoor.addIcon(ItemID.EAGLEPEAK_CRYSTAL_FEATHER3);
 
-		useSilverFeathersOnStoneDoor = new ObjectStep(this, ObjectID.EAGLEPEAK_GATE_MIRROR, new WorldPoint(2003, 4948, 3), "Use the silver feather on the door.",
+		useSilverFeathersOnStoneDoor = new ObjectStep(this, ObjectID.EAGLEPEAK_GATE_MIRROR, new WorldPoint(2003, 4948, 3), t("Use the silver feather on the door."),
 			silverFeatherHighlighted);
 		useSilverFeathersOnStoneDoor.addIcon(ItemID.EAGLEPEAK_CRYSTAL_FEATHER2);
 
-		useGoldFeathersOnStoneDoor = new ObjectStep(this, ObjectID.EAGLEPEAK_GATE_MIRROR, new WorldPoint(2003, 4948, 3), "Use the golden feather on the door.",
+		useGoldFeathersOnStoneDoor = new ObjectStep(this, ObjectID.EAGLEPEAK_GATE_MIRROR, new WorldPoint(2003, 4948, 3), t("Use the golden feather on the door."),
 			goldFeatherHighlighted);
 		useGoldFeathersOnStoneDoor.addIcon(ItemID.PIPFEATHER_GOLD);
 
-		useBronzeSilverFeathersOnStoneDoor = new ObjectStep(this, ObjectID.EAGLEPEAK_GATE_MIRROR, new WorldPoint(2003, 4948, 3), "Use the bronze and silver feathers on the door.",
+		useBronzeSilverFeathersOnStoneDoor = new ObjectStep(this, ObjectID.EAGLEPEAK_GATE_MIRROR, new WorldPoint(2003, 4948, 3), t("Use the bronze and silver feathers on the door."),
 			silverFeatherHighlighted, bronzeFeatherHighlighted);
 		useBronzeSilverFeathersOnStoneDoor.addIcon(ItemID.EAGLEPEAK_CRYSTAL_FEATHER2);
 
-		useGoldBronzeFeathersOnStoneDoor = new ObjectStep(this, ObjectID.EAGLEPEAK_GATE_MIRROR, new WorldPoint(2003, 4948, 3), "Use the bronze and golden feathers on the door.",
+		useGoldBronzeFeathersOnStoneDoor = new ObjectStep(this, ObjectID.EAGLEPEAK_GATE_MIRROR, new WorldPoint(2003, 4948, 3), t("Use the bronze and golden feathers on the door."),
 			goldFeatherHighlighted, bronzeFeatherHighlighted);
 		useGoldBronzeFeathersOnStoneDoor.addIcon(ItemID.PIPFEATHER_GOLD);
 
-		useGoldSilverFeathersOnStoneDoor = new ObjectStep(this, ObjectID.EAGLEPEAK_GATE_MIRROR, new WorldPoint(2003, 4948, 3), "Use the silver and golden feathers on the door.",
+		useGoldSilverFeathersOnStoneDoor = new ObjectStep(this, ObjectID.EAGLEPEAK_GATE_MIRROR, new WorldPoint(2003, 4948, 3), t("Use the silver and golden feathers on the door."),
 			goldFeatherHighlighted, silverFeatherHighlighted, bronzeFeatherHighlighted);
 		useGoldSilverFeathersOnStoneDoor.addIcon(ItemID.PIPFEATHER_GOLD);
 
 		useFeathersOnStoneDoor.addSubSteps(useBronzeFeathersOnStoneDoor, useSilverFeathersOnStoneDoor, useGoldFeathersOnStoneDoor, useBronzeSilverFeathersOnStoneDoor, useGoldBronzeFeathersOnStoneDoor, useGoldSilverFeathersOnStoneDoor);
 
 		sneakPastEagle = new NpcStep(this, NpcID.EAGLEPEAK_EAGLE_GUARD, new WorldPoint(2008, 4955, 3),
-			"Go through the feather door and sneak past the Eagle whilst wearing your eagle disguise.",
+			t("Go through the feather door and sneak past the Eagle whilst wearing your eagle disguise."),
 			fakeBeak.equipped(), eagleCape.equipped());
 
 		speakToNickolaus = new NpcStep(this, NpcID.EAGLEPEAK_NICKOLAUS_NORMAL, new WorldPoint(2006, 4960, 3),
-			"Speak to Nickolaus.",
+			t("Speak to Nickolaus."),
 			fakeBeak, eagleCape);
 
 		speakToNickolausInTheCamp = new NpcStep(this, NpcID.EAGLEPEAK_NICKOLAUS_NORMAL, new WorldPoint(2317, 3504, 0),
-			"Speak to Nickolaus in his camp north of Eagles' Peak.");
+			t("Speak to Nickolaus in his camp north of Eagles' Peak."));
 		speakToNickolausInTheCamp.addDialogStep("Well I was originally sent to find you because of a ferret.");
 		speakToNickolausInTheCamp.addDialogStep("That sounds good to me.");
 
 		speakToCharlieAgain = new NpcStep(this, NpcID.EAGLEPEAK_ZOOKEEPER_CHARLIE, new WorldPoint(2607, 3264, 0),
-			"Bring the ferret back to Charlie in Ardougne Zoo.", ferret);
+			t("Bring the ferret back to Charlie in Ardougne Zoo."), ferret);
 		speakToCharlieAgain.addTeleport(ardougneTeleport);
 
-		leavePeak = new ObjectStep(this, ObjectID.EAGLEPEAK_HUMAN_EXITMID, new WorldPoint(1993, 4983, 3), "Speak to Nickolaus in his camp north of Eagles' Peak.");
+		leavePeak = new ObjectStep(this, ObjectID.EAGLEPEAK_HUMAN_EXITMID, new WorldPoint(1993, 4983, 3), t("Speak to Nickolaus in his camp north of Eagles' Peak."));
 		speakToNickolausInTheCamp.addSubSteps(leavePeak);
 	}
 
@@ -473,26 +473,26 @@ public class EaglesPeak extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Ability to use Box Traps"),
-				new UnlockReward("Ability to use Eagle Transport System"),
-				new UnlockReward("Ability to hunt Rabbits."));
+				new UnlockReward(t("Ability to use Box Traps")),
+				new UnlockReward(t("Ability to use Eagle Transport System")),
+				new UnlockReward(t("Ability to hunt Rabbits.")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Start the quest", Collections.singletonList(speakToCharlie), null, Collections.singletonList(ardougneTeleport)));
-		allSteps.add(new PanelDetails("Go to Eagles' Peak", Arrays.asList(inspectBooks, clickBook, useFeatherOnDoor), null, Collections.singletonList(eaglesPeakTeleport)));
-		allSteps.add(new PanelDetails("In Eagles' Peak", Arrays.asList(enterPeak, shoutAtNickolaus, pickupFeathers)));
-		allSteps.add(new PanelDetails("Make a disguise", Arrays.asList(goToFancyStore, speakAsyffAgain), Arrays.asList(yellowDye, coins, tar, tenEagleFeathers), Arrays.asList(varrockTeleport, eaglesPeakTeleport)));
-		allSteps.add(new PanelDetails("Return to Eagles' Peak", Collections.singletonList(returnToEaglesPeak), Arrays.asList(fakeBeak, eagleCape), Collections.singletonList(eaglesPeakTeleport)));
-		allSteps.add(new PanelDetails("Get the bronze feather", Arrays.asList(enterBronzeRoom, attemptToTakeBronzeFeather, winch1, grabBronzeFeather, enterMainCavernFromBronze)));
-		allSteps.add(new PanelDetails("Get the silver feather", Arrays.asList(enterSilverRoom, inspectSilverPedestal, inspectRocks1, inspectRocks2, inspectOpening, threatenKebbit, pickupSilverFeather, enterMainCavernFromSilver)));
-		allSteps.add(new PanelDetails("Get the golden feather", Arrays.asList(enterGoldRoom, collectFeed, pullLever1Down, fillFeeder1, fillFeeder2, pullLever2Down, pushLever1Up, fillFeeder4, pullLever3Down, fillFeeder5,
+		allSteps.add(new PanelDetails(t("Start the quest"), Collections.singletonList(speakToCharlie), null, Collections.singletonList(ardougneTeleport)));
+		allSteps.add(new PanelDetails(t("Go to Eagles' Peak"), Arrays.asList(inspectBooks, clickBook, useFeatherOnDoor), null, Collections.singletonList(eaglesPeakTeleport)));
+		allSteps.add(new PanelDetails(t("In Eagles' Peak"), Arrays.asList(enterPeak, shoutAtNickolaus, pickupFeathers)));
+		allSteps.add(new PanelDetails(t("Make a disguise"), Arrays.asList(goToFancyStore, speakAsyffAgain), Arrays.asList(yellowDye, coins, tar, tenEagleFeathers), Arrays.asList(varrockTeleport, eaglesPeakTeleport)));
+		allSteps.add(new PanelDetails(t("Return to Eagles' Peak"), Collections.singletonList(returnToEaglesPeak), Arrays.asList(fakeBeak, eagleCape), Collections.singletonList(eaglesPeakTeleport)));
+		allSteps.add(new PanelDetails(t("Get the bronze feather"), Arrays.asList(enterBronzeRoom, attemptToTakeBronzeFeather, winch1, grabBronzeFeather, enterMainCavernFromBronze)));
+		allSteps.add(new PanelDetails(t("Get the silver feather"), Arrays.asList(enterSilverRoom, inspectSilverPedestal, inspectRocks1, inspectRocks2, inspectOpening, threatenKebbit, pickupSilverFeather, enterMainCavernFromSilver)));
+		allSteps.add(new PanelDetails(t("Get the golden feather"), Arrays.asList(enterGoldRoom, collectFeed, pullLever1Down, fillFeeder1, fillFeeder2, pullLever2Down, pushLever1Up, fillFeeder4, pullLever3Down, fillFeeder5,
 			pullLever4Down, fillFeeder6, fillFeeder4Again, grabGoldFeather, enterMainCavernFromGold)));
-		allSteps.add(new PanelDetails("Free Nickolaus", Arrays.asList(useFeathersOnStoneDoor, sneakPastEagle, speakToNickolaus)));
-		allSteps.add(new PanelDetails("Learn how to catch ferrets", Arrays.asList(speakToNickolausInTheCamp, speakToCharlieAgain), null, Collections.singletonList(ardougneTeleport)));
+		allSteps.add(new PanelDetails(t("Free Nickolaus"), Arrays.asList(useFeathersOnStoneDoor, sneakPastEagle, speakToNickolaus)));
+		allSteps.add(new PanelDetails(t("Learn how to catch ferrets"), Arrays.asList(speakToNickolausInTheCamp, speakToCharlieAgain), null, Collections.singletonList(ardougneTeleport)));
 		return allSteps;
 	}
 

@@ -166,9 +166,9 @@ public class KourendEasy extends ComplexStateQuestHelper
 		feathers = new ItemRequirement("Feathers", ItemID.FEATHER, 10).showConditioned(notFishTrout);
 
 		// Recommended items
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		inPub = new ZoneRequirement(deeperLodePub);
 		inWarrens = new ZoneRequirement(warrens);
 		inCastleF1 = new ZoneRequirement(castleF1);
@@ -199,82 +199,82 @@ public class KourendEasy extends ComplexStateQuestHelper
 	{
 		// Mine some iron
 		mineIron = new ObjectStep(this, ObjectID.IRONROCK1, new WorldPoint(1275, 3817, 0),
-			"Mine some iron ore at the Mount Karuulm mine.", true, pickaxe);
+			t("Mine some iron ore at the Mount Karuulm mine."), true, pickaxe);
 		mineIron.addAlternateObjects(ObjectID.IRONROCK2);
 
 		// Kill a sand crab
 		sandCrab = new NpcStep(this, NpcID.ZEAH_SANDCRAB, new WorldPoint(1739, 3468, 0),
-			"Kill a sand crab.", true, combatGear, food);
+			t("Kill a sand crab."), true, combatGear, food);
 
 		// Hand in a book in the Arceuus library
 		arceuusBook = new NpcStep(this, NpcID.ARCEUUS_LIBRARY_CUSTOMER_3, new WorldPoint(1625, 3801, 0),
-			"Collect a book for a patron in the Arceuus Library.", libraryBook);
+			t("Collect a book for a patron in the Arceuus Library."), libraryBook);
 		arceuusBook.addAlternateNpcs(NpcID.ARCEUUS_LIBRARY_CUSTOMER_4);
 		arceuusBook.addAlternateNpcs(NpcID.ARCEUUS_LIBRARY_CUSTOMER_2);
 
 		// Steal from a Hosidius fruit stall
 		stealFruit = new ObjectStep(this, ObjectID.HOS_FRUIT_STALL_02, new WorldPoint(1767, 3597, 0),
-			"Steal from a Hosidius fruit stall.");
+			t("Steal from a Hosidius fruit stall."));
 
 		// Browse the Warrens general store
 		enterWarrens = new ObjectStep(this, ObjectID.PISCQUEST_MANHOLE_OPEN, new WorldPoint(1813, 3745, 0),
-			"Enter the Warrens.");
+			t("Enter the Warrens."));
 		enterWarrens.addAlternateObjects(ObjectID.PISCQUEST_MANHOLE_CLOSED);
 		warrensStore = new NpcStep(this, NpcID.WARRENS_SHOPKEEPER, new WorldPoint(1775, 10148, 0),
-			"Browse the Warrens General Store.");
+			t("Browse the Warrens General Store."));
 
 		// Take a boat from Land's End
 		boatLandsEnd = new NpcStep(this, NpcID.CABIN_BOY_HERBERT_PISC_VIS, new WorldPoint(1826, 3691, 0),
-			"Take a boat to Land's End.", true);
+			t("Take a boat to Land's End."), true);
 		boatLandsEnd.addAlternateNpcs(NpcID.VEOS_VIS_AMULET);
 		boatLandsEnd.addDialogStep("Can you take me somewhere?");
 		boatLandsEnd.addDialogStep("Travel to Land's End.");
 
 		// Pray at the Kourend castle altar
 		enterCastleF1 = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS_TALLER_NEW_FIX, new WorldPoint(1616, 3680, 0),
-			"Climb the stairs to the second floor of the Kourend Castle.");
+			t("Climb the stairs to the second floor of the Kourend Castle."));
 		enterCastleF2 = new ObjectStep(this, ObjectID.FAI_WIZTOWER_SPIRALSTAIRS, new WorldPoint(1616, 3687, 1),
-			"Climb the stairs to the third floor of the Kourend Castle.");
+			t("Climb the stairs to the third floor of the Kourend Castle."));
 		prayCastle = new ObjectStep(this, ObjectID.SLUG2_ALTAR_SARADOMIN, new WorldPoint(1617, 3673, 2),
-			"Pray at the Kourend Castle altar.");
+			t("Pray at the Kourend Castle altar."));
 		prayCastle.addSubSteps(enterCastleF1, enterCastleF2);
 
 		// Dig some Saltpetre
 		digSaltpetre = new ObjectStep(this, ObjectID.HOSIDIUS_SALTPETRE_4, new WorldPoint(1703, 3526, 0),
-			"Dig up some Saltpetre in Hosidius.", spade);
+			t("Dig up some Saltpetre in Hosidius."), spade);
 
 		// Enter your POH from Kourend
 		relocateHouse = new NpcStep(this, NpcID.POH_ESTATE_AGENT, new WorldPoint(1779, 3625, 0),
-			"Relocate your player-owned house to Hosidius.", true, coins.quantity(8750));
+			t("Relocate your player-owned house to Hosidius."), true, coins.quantity(8750));
 		relocateHouse.addDialogStep(1, "Can you move my house please?");
 		relocateHouse.addDialogStep(4, "Hosidius (8,750)");
 		enterPoh = new ObjectStep(this, ObjectID.POH_KOUREND_PORTAL, new WorldPoint(1742, 3517, 0),
-			"Enter your player-owned house from Hosidius.");
+			t("Enter your player-owned house from Hosidius."));
 		enterPoh.addSubSteps(relocateHouse);
 
 		// Run the Shayzien Agility Course
 		runAgilityCourse = new ObjectStep(this, ObjectID.SHAYZIEN_AGILITY_BOTH_START_LADDER, new WorldPoint(1554, 3631, 0),
-			"Complete the Shayzien Agility Course.");
+			t("Complete the Shayzien Agility Course."));
 
 		// Create a strength potion in the Lovakenji pub
-		enterPub = new DetailedQuestStep(this, new WorldPoint(1564, 3759, 0), "Enter The Deeper Lode pub in Lovakengj.");
-		strengthPotion = new ItemStep(this, "Create a strength Potion in The Deeper Lode pub.",
+		enterPub = new DetailedQuestStep(this, new WorldPoint(1564, 3759, 0), t("Enter The Deeper Lode pub in Lovakengj."));
+		strengthPotion = new ItemStep(this, t("Create a strength Potion in The Deeper Lode pub."),
 			tarrominPotU.highlighted(), limpwurtRoot.highlighted());
 
 		// Fish trout from the Rover Molch
 		fishTrout = new NpcStep(this, NpcID._0_19_57_FRESHFISH, new WorldPoint(1267, 3706, 0),
-			"Fish a trout from the River Molch.", flyFishingRod, feathers);
+			t("Fish a trout from the River Molch."), flyFishingRod, feathers);
 
 		// Claim rewards
 		claimReward = new NpcStep(this, NpcID.ELISE_KOUREND_KEBOS_DIARY, new WorldPoint(1647, 3665, 0),
-			"Talk to Elise in the Kourend castle courtyard to claim your reward!");
+			t("Talk to Elise in the Kourend castle courtyard to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary");
 	}
 
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Kill a Sand Crab (level 15)");
+		return Collections.singletonList(t("Kill a Sand Crab (level 15)"));
 	}
 
 	@Override
@@ -317,11 +317,11 @@ public class KourendEasy extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("Halved access cost for Crabclaw Isle."),
-			new UnlockReward("Doubled drop rate of Xeric's talisman, excluding stone chests."),
-			new UnlockReward("Reduced tanning prices at Eodan in Forthos Dungeon to 80%."),
-			new UnlockReward("Access to the cooking range in the Hosidius Kitchen, which has a 5% reduced burn rate."),
-			new UnlockReward("The allotment, flower, and herb patches in Hosidius will never get diseased."));
+			new UnlockReward(t("Halved access cost for Crabclaw Isle.")),
+			new UnlockReward(t("Doubled drop rate of Xeric's talisman, excluding stone chests.")),
+			new UnlockReward(t("Reduced tanning prices at Eodan in Forthos Dungeon to 80%.")),
+			new UnlockReward(t("Access to the cooking range in the Hosidius Kitchen, which has a 5% reduced burn rate.")),
+			new UnlockReward(t("The allotment, flower, and herb patches in Hosidius will never get diseased.")));
 	}
 
 	@Override
@@ -329,77 +329,77 @@ public class KourendEasy extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails mineIronStep = new PanelDetails("Mine Iron Ore", Collections.singletonList(mineIron),
+		PanelDetails mineIronStep = new PanelDetails(t("Mine Iron Ore"), Collections.singletonList(mineIron),
 			pickaxe, new SkillRequirement(Skill.MINING, 15, true));
 		mineIronStep.setDisplayCondition(notMineIron);
 		mineIronStep.setLockingStep(mineIronTask);
 		allSteps.add(mineIronStep);
 
-		PanelDetails fishTroutStep = new PanelDetails("Fish A Trout", Collections.singletonList(fishTrout),
+		PanelDetails fishTroutStep = new PanelDetails(t("Fish A Trout"), Collections.singletonList(fishTrout),
 			new SkillRequirement(Skill.FISHING, 20, true), flyFishingRod, feathers);
 		fishTroutStep.setDisplayCondition(notFishTrout);
 		fishTroutStep.setLockingStep(fishTroutTask);
 		allSteps.add(fishTroutStep);
 
-		PanelDetails makePotionStep = new PanelDetails("Make A Strength Potion", Arrays.asList(enterPub,
+		PanelDetails makePotionStep = new PanelDetails(t("Make A Strength Potion"), Arrays.asList(enterPub,
 			strengthPotion), new SkillRequirement(Skill.HERBLORE, 12, true), druidicRitual, tarrominPotU, limpwurtRoot);
 		makePotionStep.setDisplayCondition(notStrengthPotion);
 		makePotionStep.setLockingStep(strengthPotionTask);
 		allSteps.add(makePotionStep);
 
-		PanelDetails bookStep = new PanelDetails("Hand In A Book", Collections.singletonList(arceuusBook),
+		PanelDetails bookStep = new PanelDetails(t("Hand In A Book"), Collections.singletonList(arceuusBook),
 			libraryBook);
 		bookStep.setDisplayCondition(notArceuusBook);
 		bookStep.setLockingStep(arceuusBookTask);
 		allSteps.add(bookStep);
 
-		PanelDetails warrensStep = new PanelDetails("Browse The Warrens Store", Arrays.asList(enterWarrens,
+		PanelDetails warrensStep = new PanelDetails(t("Browse The Warrens Store"), Arrays.asList(enterWarrens,
 			warrensStore));
 		warrensStep.setDisplayCondition(notWarrensStore);
 		warrensStep.setLockingStep(warrensStoreTask);
 		allSteps.add(warrensStep);
 
-		PanelDetails takeBoatStep = new PanelDetails("Boat To Land's End", Collections.singletonList(boatLandsEnd));
+		PanelDetails takeBoatStep = new PanelDetails(t("Boat To Land's End"), Collections.singletonList(boatLandsEnd));
 		takeBoatStep.setDisplayCondition(notBoatLandsEnd);
 		takeBoatStep.setLockingStep(boatLandsEndTask);
 		allSteps.add(takeBoatStep);
 
-		PanelDetails stealStallStep = new PanelDetails("Steal Some Fruit", Collections.singletonList(stealFruit),
+		PanelDetails stealStallStep = new PanelDetails(t("Steal Some Fruit"), Collections.singletonList(stealFruit),
 			new SkillRequirement(Skill.THIEVING, 25, true));
 		stealStallStep.setDisplayCondition(notStealFruit);
 		stealStallStep.setLockingStep(stealFruitTask);
 		allSteps.add(stealStallStep);
 
-		PanelDetails digSaltpetreStep = new PanelDetails("Dig Up Some Saltpetre",
+		PanelDetails digSaltpetreStep = new PanelDetails(t("Dig Up Some Saltpetre"),
 			Collections.singletonList(digSaltpetre), spade);
 		digSaltpetreStep.setDisplayCondition(notDigSaltpetre);
 		digSaltpetreStep.setLockingStep(digSaltpetreTask);
 		allSteps.add(digSaltpetreStep);
 
-		PanelDetails killCrabStep = new PanelDetails("Kill Sand Crab", Collections.singletonList(sandCrab),
+		PanelDetails killCrabStep = new PanelDetails(t("Kill Sand Crab"), Collections.singletonList(sandCrab),
 			combatGear);
 		killCrabStep.setDisplayCondition(notSandCrab);
 		killCrabStep.setLockingStep(sandCrabTask);
 		allSteps.add(killCrabStep);
 
-		PanelDetails enterPohStep = new PanelDetails("Hosidius House", Arrays.asList(relocateHouse,
+		PanelDetails enterPohStep = new PanelDetails(t("Hosidius House"), Arrays.asList(relocateHouse,
 			enterPoh), new SkillRequirement(Skill.CONSTRUCTION, 25, false), coins.quantity(8750));
 		enterPohStep.setDisplayCondition(notEnterPoh);
 		enterPohStep.setLockingStep(enterPohTask);
 		allSteps.add(enterPohStep);
 
-		PanelDetails prayStep = new PanelDetails("Pray At Kourend Castle", Arrays.asList(enterCastleF1, enterCastleF2,
+		PanelDetails prayStep = new PanelDetails(t("Pray At Kourend Castle"), Arrays.asList(enterCastleF1, enterCastleF2,
 			prayCastle));
 		prayStep.setDisplayCondition(notPrayCastle);
 		prayStep.setLockingStep(prayCastleTask);
 		allSteps.add(prayStep);
 
-		PanelDetails healSoldierStep = new PanelDetails("Run the Agility Course", Collections.singletonList(runAgilityCourse));
+		PanelDetails healSoldierStep = new PanelDetails(t("Run the Agility Course"), Collections.singletonList(runAgilityCourse));
 		healSoldierStep.setDisplayCondition(notDoneAgilityCourse);
 		healSoldierStep.setLockingStep(agilityCourseTask);
 		allSteps.add(healSoldierStep);
 
-		allSteps.add(new PanelDetails("Finishing off", Collections.singletonList(claimReward)));
+		allSteps.add(new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward)));
 
 		return allSteps;
 	}

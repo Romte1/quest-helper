@@ -411,18 +411,18 @@ public class DragonSlayerII extends BasicQuestHelper
 		axe = new ItemRequirement("Any axe", ItemCollections.AXES).isNotConsumed();
 		oakPlank8 = new ItemRequirement("Oak planks", ItemID.PLANK_OAK, 8);
 		swampPaste10 = new ItemRequirement("Swamp paste", ItemID.SWAMPPASTE, 10);
-		nails12OrMore = new ItemRequirement("Nails, bring more in case some break", ItemCollections.NAILS, 12);
+		nails12OrMore = new ItemRequirement(t("Nails, bring more in case some break"), ItemCollections.NAILS, 12);
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed();
 		hammerHighlighted = hammer.highlighted();
 		machete = new ItemRequirement("Any machete", ItemCollections.MACHETE).isNotConsumed();
 		saw = new ItemRequirement("Saw", ItemCollections.SAW).isNotConsumed();
 		catspeakAmulet = new ItemRequirement("Catspeak amulet (e)", ItemID.TWOCATS_AMULETOFCATSPEAK).equipped().isNotConsumed();
-		catspeakAmulet.setTooltip("You can get another basic amulet from the Sphinx (bring a cat), and then get it enchanted by Hild in Burthorpe for 5 death runes");
+		catspeakAmulet.setTooltip(t("You can get another basic amulet from the Sphinx (bring a cat), and then get it enchanted by Hild in Burthorpe for 5 death runes"));
 		ghostspeakOrMory2 = new ItemRequirement("Ghostspeak amulet", ItemCollections.GHOSTSPEAK).equipped().isNotConsumed();
-		ghostspeakOrMory2.setTooltip("Morytania Legs 2 and above are also valid.");
+		ghostspeakOrMory2.setTooltip(t("Morytania Legs 2 and above are also valid."));
 		goutweed = new ItemRequirement("Goutweed", ItemID.EADGAR_GOUTWEED_HERB);
 		goutweed.setHighlightInInventory(true);
-		goutweed.setTooltip("You can get this from the Troll Stronghold Kitchen Storeroom");
+		goutweed.setTooltip(t("You can get this from the Troll Stronghold Kitchen Storeroom"));
 		dragonstone = new ItemRequirement("Dragonstone", ItemID.DRAGONSTONE);
 		moltenGlass2 = new ItemRequirement("Molten glass", ItemID.MOLTEN_GLASS, 2);
 		glassblowingPipe = new ItemRequirement("Glassblowing pipe", ItemID.GLASSBLOWINGPIPE).isNotConsumed();
@@ -439,7 +439,7 @@ public class DragonSlayerII extends BasicQuestHelper
 		airRune5 = new ItemRequirement("Air rune", ItemID.AIRRUNE, 5);
 		airRune15 = new ItemRequirement("Air rune", ItemID.AIRRUNE, 15);
 		fireWaveRunes = new ItemRequirements("Fire wave runes", bloodRune1, fireRune7, airRune5);
-		fireWave3Runes = new ItemRequirements("3 casts of Fire Wave", bloodRune3, fireRune21, airRune15);
+		fireWave3Runes = new ItemRequirements(t("3 casts of Fire Wave"), bloodRune3, fireRune21, airRune15);
 
 		wrathRune1 = new ItemRequirement("Wrath rune", ItemID.WRATHRUNE);
 		wrathRune3 = new ItemRequirement("Wrath rune", ItemID.WRATHRUNE, 3);
@@ -448,21 +448,21 @@ public class DragonSlayerII extends BasicQuestHelper
 		airRune7 = new ItemRequirement("Air rune", ItemID.AIRRUNE, 7);
 		airRune21 = new ItemRequirement("Air rune", ItemID.AIRRUNE, 21);
 		fireSurgeRunes = new ItemRequirements("Fire Surge runes", wrathRune1, fireRune10, airRune7);
-		fireSurge3Runes = new ItemRequirements("3 casts of Fire Surge", wrathRune3, fireRune30, airRune21);
+		fireSurge3Runes = new ItemRequirements(t("3 casts of Fire Surge"), wrathRune3, fireRune30, airRune21);
 
-		runesForFireWaveOrSurge = new ItemRequirements(LogicType.OR, "Fire Wave or Fire Surge runes", fireWaveRunes, fireSurgeRunes);
-		runesForFireWaveOrSurge3 = new ItemRequirements(LogicType.OR, "3 casts of Fire Wave or Fire Surge", fireWave3Runes, fireSurge3Runes);
+		runesForFireWaveOrSurge = new ItemRequirements(LogicType.OR, t("Fire Wave or Fire Surge runes"), fireWaveRunes, fireSurgeRunes);
+		runesForFireWaveOrSurge3 = new ItemRequirements(LogicType.OR, t("3 casts of Fire Wave or Fire Surge"), fireWave3Runes, fireSurge3Runes);
 
-		combatGear = new ItemRequirement("Combat gear, food and potions", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear, food and potions"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
-		lightSource = new ItemRequirement("A light source", ItemCollections.LIGHT_SOURCES).isNotConsumed();
+		lightSource = new ItemRequirement(t("A light source"), ItemCollections.LIGHT_SOURCES).isNotConsumed();
 
-		rangedCombatGear = new ItemRequirement("Ranged combat gear", -1, -1).isNotConsumed();
+		rangedCombatGear = new ItemRequirement(t("Ranged combat gear"), -1, -1).isNotConsumed();
 		rangedCombatGear.setDisplayItemId(BankSlotIcons.getRangedCombatGear());
 
-		dragonfireProtection = new ItemRequirement("Protection from dragonfire", ItemCollections.ANTIFIRE_SHIELDS).isNotConsumed();
+		dragonfireProtection = new ItemRequirement(t("Protection from dragonfire"), ItemCollections.ANTIFIRE_SHIELDS).isNotConsumed();
 		venomProtection = new ItemRequirement("Anti venom", ItemCollections.ANTIVENOMS);
 		salveE = new ItemRequirement("Salve amulet", ItemCollections.SALVE_AMULET).isNotConsumed();
 
@@ -523,13 +523,13 @@ public class DragonSlayerII extends BasicQuestHelper
 		varrockCensusRecords = new ItemRequirement("Varrock census records", ItemID.DS2_TRISTAN_BOOK);
 
 		kourendKeyPiece = new ItemRequirement("Dragon key piece (Kourend)", ItemID.DRAGONKIN_KEY_ZEAH);
-		kourendKeyPiece.setTooltip("You can get another from the tomb in the Shayzien Crypt");
+		kourendKeyPiece.setTooltip(t("You can get another from the tomb in the Shayzien Crypt"));
 		varrockKeyPiece = new ItemRequirement("Dragon key piece (Varrock)", ItemID.DRAGONKIN_KEY_MORY);
-		varrockKeyPiece.setTooltip("You can get another by digging in Mort Myre");
+		varrockKeyPiece.setTooltip(t("You can get another by digging in Mort Myre"));
 		fremennikKeyPiece = new ItemRequirement("Dragon key piece (Fremmennik)", ItemID.DRAGONKIN_KEY_FREM);
-		fremennikKeyPiece.setTooltip("You can get another from Ungael");
+		fremennikKeyPiece.setTooltip(t("You can get another from Ungael"));
 		karamjaKeyPiece = new ItemRequirement("Dragon key piece (Kharazi)", ItemID.DRAGONKIN_KEY_KARAM);
-		karamjaKeyPiece.setTooltip("You can get another from the middle of the Kharazi dungeon");
+		karamjaKeyPiece.setTooltip(t("You can get another from the middle of the Kharazi dungeon"));
 
 		inertLocator = new ItemRequirement("Inert locator orb", ItemID.DS2_ORB_INERT);
 		glassblowingPipeHighlighted = new ItemRequirement("Glassblowing pipe", ItemID.GLASSBLOWINGPIPE);
@@ -538,13 +538,13 @@ public class DragonSlayerII extends BasicQuestHelper
 		dragonstoneHighlighted.setHighlightInInventory(true);
 
 		locator = new ItemRequirement("Locator orb", ItemID.DS2_ORB);
-		locator.setTooltip("You can get another from Ava");
+		locator.setTooltip(t("You can get another from Ava"));
 
 		ancientKey = new ItemRequirement("Ancient key", ItemID.ANCIENT_CAVERN_KEY);
-		ancientKey.setTooltip("You can get another from under Ungael");
+		ancientKey.setTooltip(t("You can get another from under Ungael"));
 
 		dragonKey = new ItemRequirement("Dragon key", ItemID.DRAGONKIN_KEY);
-		dragonKey.setTooltip("If you've lost it you'll need to recover the 4 pieces and reforge it");
+		dragonKey.setTooltip(t("If you've lost it you'll need to recover the 4 pieces and reforge it"));
 
 		antifireShield = new ItemRequirement("Antifire shield", ItemCollections.ANTIFIRE_SHIELDS, 1, true);
 
@@ -711,165 +711,162 @@ public class DragonSlayerII extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToAlec = new NpcStep(this, NpcID.ALEC_KINCADE, new WorldPoint(2458, 2869, 0), "Talk to Alec Kincade outside the Myths' Guild.");
+		talkToAlec = new NpcStep(this, NpcID.ALEC_KINCADE, new WorldPoint(2458, 2869, 0), t("Talk to Alec Kincade outside the Myths' Guild."));
 		talkToAlec.addDialogSteps("How can I gain access to the guild?", "Yes.");
-		talkToDallas = new NpcStep(this, NpcID.DALLAS_JONES, new WorldPoint(2924, 3146, 0), "Talk to Dallas Jones in the Pub on Musa Point.", pickaxe, combatGear);
+		talkToDallas = new NpcStep(this, NpcID.DALLAS_JONES, new WorldPoint(2924, 3146, 0), t("Talk to Dallas Jones in the Pub on Musa Point."), pickaxe, combatGear);
 		talkToDallas.addDialogStep("Yes I know it well.");
-		enterVolcano = new ObjectStep(this, ObjectID.VOLCANO_ENTRANCE, new WorldPoint(2857, 3169, 0), "Talk to Dallas in Elvarg's Lair.", pickaxe, combatGear);
-		enterCrandorWall = new ObjectStep(this, ObjectID.DRAGONSECRETDOOR, new WorldPoint(2836, 9600, 0), "Talk to Dallas in Elvarg's Lair.");
-		talkToDallasOnCrandor = new NpcStep(this, NpcID.DALLAS_JONES, new WorldPoint(2856, 9645, 0), "Talk to Dallas in Elvarg's Lair.");
+		enterVolcano = new ObjectStep(this, ObjectID.VOLCANO_ENTRANCE, new WorldPoint(2857, 3169, 0), t("Talk to Dallas in Elvarg's Lair."), pickaxe, combatGear);
+		enterCrandorWall = new ObjectStep(this, ObjectID.DRAGONSECRETDOOR, new WorldPoint(2836, 9600, 0), t("Talk to Dallas in Elvarg's Lair."));
+		talkToDallasOnCrandor = new NpcStep(this, NpcID.DALLAS_JONES, new WorldPoint(2856, 9645, 0), t("Talk to Dallas in Elvarg's Lair."));
 		talkToDallasOnCrandor.addSubSteps(enterVolcano, enterCrandorWall);
-		usePickaxeOnBlockage = new ObjectStep(this, ObjectID.DRAGON_SLAYER_MINE_TUNNEL_RIGHT, new WorldPoint(2860, 9648, 0), "Use a pickaxe on the blockage in the north east of Elvarg's Lair.", pickaxeHighlighted);
+		usePickaxeOnBlockage = new ObjectStep(this, ObjectID.DRAGON_SLAYER_MINE_TUNNEL_RIGHT, new WorldPoint(2860, 9648, 0), t("Use a pickaxe on the blockage in the north east of Elvarg's Lair."), pickaxeHighlighted);
 		usePickaxeOnBlockage.addIcon(ItemID.BRONZE_PICKAXE);
 
-		enterBlockage = new ObjectStep(this, ObjectID.DRAGON_SLAYER_MINE_TUNNEL_RIGHT, new WorldPoint(2860, 9648, 0), "Enter the passage in the north east of Elvarg's Lair.", combatGear);
-		investigateMural = new ObjectStep(this, ObjectID.CRANDOR_LAB_BIRTHING_POOL_MURAL, new WorldPoint(2867, 9680, 0), "Inspect the mural.");
-		killSpawn = new NpcStep(this, NpcID.STRANGE_SPAWN, new WorldPoint(2867, 9676, 0), "Kill the spawn.", combatGear);
-		investigateMuralAgain = new ObjectStep(this, ObjectID.CRANDOR_LAB_BIRTHING_POOL_MURAL, new WorldPoint(2867, 9680, 0), "Investigate the mural again.");
-		talkToDallasAfterMural = new NpcStep(this, NpcID.DALLAS_JONES, new WorldPoint(2867, 9680, 0), "Talk to Dallas about the mural.");
+		enterBlockage = new ObjectStep(this, ObjectID.DRAGON_SLAYER_MINE_TUNNEL_RIGHT, new WorldPoint(2860, 9648, 0), t("Enter the passage in the north east of Elvarg's Lair."), combatGear);
+		investigateMural = new ObjectStep(this, ObjectID.CRANDOR_LAB_BIRTHING_POOL_MURAL, new WorldPoint(2867, 9680, 0), t("Inspect the mural."));
+		killSpawn = new NpcStep(this, NpcID.STRANGE_SPAWN, new WorldPoint(2867, 9676, 0), t("Kill the spawn."), combatGear);
+		investigateMuralAgain = new ObjectStep(this, ObjectID.CRANDOR_LAB_BIRTHING_POOL_MURAL, new WorldPoint(2867, 9680, 0), t("Investigate the mural again."));
+		talkToDallasAfterMural = new NpcStep(this, NpcID.DALLAS_JONES, new WorldPoint(2867, 9680, 0), t("Talk to Dallas about the mural."));
 
 		// Section 2
-		enterHouseOnTheHill = new ObjectStep(this, ObjectID.FOSSIL_DKL_STAIRCASE, new WorldPoint(3755, 3869, 0), "Travel to the House on the Hill on Fossil Island. The fastest way here is with the digsite pendant.");
-		enterHouseBasement = new ObjectStep(this, ObjectID.FOSSIL_DKL_TRAPDOOR_OPEN, new WorldPoint(3768, 3867, 1), "Go down the trapdoor to the basement.");
-		talkToDallasInHouse = new NpcStep(this, NpcID.DALLAS_JONES, new WorldPoint(3762, 3868, 0), "Talk to Dallas.");
+		enterHouseOnTheHill = new ObjectStep(this, ObjectID.FOSSIL_DKL_STAIRCASE, new WorldPoint(3755, 3869, 0), t("Travel to the House on the Hill on Fossil Island. The fastest way here is with the digsite pendant."));
+		enterHouseBasement = new ObjectStep(this, ObjectID.FOSSIL_DKL_TRAPDOOR_OPEN, new WorldPoint(3768, 3867, 1), t("Go down the trapdoor to the basement."));
+		talkToDallasInHouse = new NpcStep(this, NpcID.DALLAS_JONES, new WorldPoint(3762, 3868, 0), t("Talk to Dallas."));
 		talkToDallasInHouse.addDialogSteps("Ask about the island.", "So how do we know which island to go to?");
 		talkToDallasInHouse.addSubSteps(enterHouseBasement);
-		searchNorthChest = new ObjectStep(this, ObjectID.DS2_MAP_CHEST_1, new WorldPoint(3765, 3873, 0), "Search the stone chest in the north of the room. Whilst finding map pieces you can talk to Dallas to give him your current pieces.");
+		searchNorthChest = new ObjectStep(this, ObjectID.DS2_MAP_CHEST_1, new WorldPoint(3765, 3873, 0), t("Search the stone chest in the north of the room. Whilst finding map pieces you can talk to Dallas to give him your current pieces."));
 		searchNorthChest.addDialogStep("Let's talk about the investigation.");
-		goUpstairsForMap = new ObjectStep(this, ObjectID.FOSSIL_DKL_TRAPDOOR_LADDER, new WorldPoint(3768, 3867, 0), "Climb the ladder to go upstairs in the house. Talk to Dallas if you want to give him your current map pieces.");
+		goUpstairsForMap = new ObjectStep(this, ObjectID.FOSSIL_DKL_TRAPDOOR_LADDER, new WorldPoint(3768, 3867, 0), t("Climb the ladder to go upstairs in the house. Talk to Dallas if you want to give him your current map pieces."));
 		goUpstairsForMap.addDialogStep("Let's talk about the investigation.");
-		searchStoneChestNorth = new ObjectStep(this, ObjectID.DS2_MAP_CHEST_2, new WorldPoint(3767, 3874, 1), "Search the stone chest in the north of the house's top floor.");
-		leaveHouseForMap = new ObjectStep(this, ObjectID.FOSSIL_DKL_STAIRCASE_TOP, new WorldPoint(3755, 3869, 1), "Leave the house down the stairs to the west.");
-		searchFungi = new ObjectStep(this, ObjectID.DS2_MAP_FUNGI, new WorldPoint(3755, 3873, 0), "Search the fungi north of the stairs.");
-		searchBriar = new ObjectStep(this, ObjectID.DS2_MAP_BUSH, new WorldPoint(3765, 3862, 0), "Search the hook briar south of the house.");
-		searchMushtree = new ObjectStep(this, ObjectID.DS2_MAP_TREE, new WorldPoint(3791, 3877, 0), "Search the mushtree east of the house.");
-		enterHouseWithMapPieces = new ObjectStep(this, ObjectID.FOSSIL_DKL_STAIRCASE, new WorldPoint(3755, 3869, 0), "Return to Dallas with the map pieces.");
-		goDownWithMapPieces = new ObjectStep(this, ObjectID.FOSSIL_DKL_TRAPDOOR_OPEN, new WorldPoint(3768, 3867, 1), "Go down the trapdoor to the basement.");
-		talkToDallasWithMapPieces = new NpcStep(this, NpcID.DALLAS_JONES, new WorldPoint(3762, 3868, 0), "Talk to Dallas with the map pieces.");
+		searchStoneChestNorth = new ObjectStep(this, ObjectID.DS2_MAP_CHEST_2, new WorldPoint(3767, 3874, 1), t("Search the stone chest in the north of the house's top floor."));
+		leaveHouseForMap = new ObjectStep(this, ObjectID.FOSSIL_DKL_STAIRCASE_TOP, new WorldPoint(3755, 3869, 1), t("Leave the house down the stairs to the west."));
+		searchFungi = new ObjectStep(this, ObjectID.DS2_MAP_FUNGI, new WorldPoint(3755, 3873, 0), t("Search the fungi north of the stairs."));
+		searchBriar = new ObjectStep(this, ObjectID.DS2_MAP_BUSH, new WorldPoint(3765, 3862, 0), t("Search the hook briar south of the house."));
+		searchMushtree = new ObjectStep(this, ObjectID.DS2_MAP_TREE, new WorldPoint(3791, 3877, 0), t("Search the mushtree east of the house."));
+		enterHouseWithMapPieces = new ObjectStep(this, ObjectID.FOSSIL_DKL_STAIRCASE, new WorldPoint(3755, 3869, 0), t("Return to Dallas with the map pieces."));
+		goDownWithMapPieces = new ObjectStep(this, ObjectID.FOSSIL_DKL_TRAPDOOR_OPEN, new WorldPoint(3768, 3867, 1), t("Go down the trapdoor to the basement."));
+		talkToDallasWithMapPieces = new NpcStep(this, NpcID.DALLAS_JONES, new WorldPoint(3762, 3868, 0), t("Talk to Dallas with the map pieces."));
 		talkToDallasWithMapPieces.addDialogSteps("Let's talk about the investigation.", "Let's do it!");
 		enterHouseWithMapPieces.addSubSteps(goDownWithMapPieces, talkToDallasWithMapPieces);
 
-		startMapPuzzle = new ObjectStep(this, ObjectID.FOSSIL_DRAGONKIN_MAP, new WorldPoint(3764, 3869, 0), "Click on the incomplete map for a puzzle to solve.");
-		solveMap = new PuzzleWrapperStep(this, new MapPuzzle(this), "Solve the map tile puzzle.");
+		startMapPuzzle = new ObjectStep(this, ObjectID.FOSSIL_DRAGONKIN_MAP, new WorldPoint(3764, 3869, 0), t("Click on the incomplete map for a puzzle to solve."));
+		solveMap = new PuzzleWrapperStep(this, new MapPuzzle(this), t("Solve the map tile puzzle."));
 		startMapPuzzle.addSubSteps(solveMap);
-		talkToDallasAfterSolvingMap = new NpcStep(this, NpcID.DALLAS_JONES, new WorldPoint(3762, 3868, 0), "Talk to Dallas after solving the map.");
+		talkToDallasAfterSolvingMap = new NpcStep(this, NpcID.DALLAS_JONES, new WorldPoint(3762, 3868, 0), t("Talk to Dallas after solving the map."));
 
 		// Phase 3
-		talkToJardricInMuseumCamp = new NpcStep(this, NpcID.JARDRIC_CAMP, new WorldPoint(3719, 3812, 0), "Talk to Jardric in the museum camp.");
-		buildRowBoat = new ObjectStep(this, ObjectID.FOSSIL_ROWBOAT_LITHKREN, new WorldPoint(3659, 3849, 0), "Build a rowing boat on the west coast of Fossil Island.", hammer, saw, oakPlank8, swampPaste10, nails12OrMore);
-		talkToDallasAfterBoatRepair = new NpcStep(this, NpcID.DALLAS_JONES, new WorldPoint(3663, 3849, 0), "Talk to Dallas near the boat.");
+		talkToJardricInMuseumCamp = new NpcStep(this, NpcID.JARDRIC_CAMP, new WorldPoint(3719, 3812, 0), t("Talk to Jardric in the museum camp."));
+		buildRowBoat = new ObjectStep(this, ObjectID.FOSSIL_ROWBOAT_LITHKREN, new WorldPoint(3659, 3849, 0), t("Build a rowing boat on the west coast of Fossil Island."), hammer, saw, oakPlank8, swampPaste10, nails12OrMore);
+		talkToDallasAfterBoatRepair = new NpcStep(this, NpcID.DALLAS_JONES, new WorldPoint(3663, 3849, 0), t("Talk to Dallas near the boat."));
 		talkToDallasAfterBoatRepair.addDialogStep("I'm ready.");
-		boardBoat = new ObjectStep(this, ObjectID.FOSSIL_ROWBOAT_LITHKREN, new WorldPoint(3659, 3849, 0), "Board the boat.");
+		boardBoat = new ObjectStep(this, ObjectID.FOSSIL_ROWBOAT_LITHKREN, new WorldPoint(3659, 3849, 0), t("Board the boat."));
 		talkToDallasAfterBoatRepair.addSubSteps(boardBoat);
-		climbCourtyardStairs = new ObjectStep(this, ObjectID.DS2_LITHKREN_SURFACE_STAIRCASE_1, new WorldPoint(3559, 4004, 0), "Climb up the stairs to the west.");
-		climbDownLithkrenTrapdoor = new ObjectStep(this, ObjectID.DS2_LITHKREN_SURFACE_TRAPDOOR_1, new WorldPoint(3555, 3999, 1), "Climb down the trapdoor to the south.");
-		climbDownLithkrenNorthStairs = new ObjectStep(this, ObjectID.DS2_LITHKREN_SURFACE_STAIRCASE_DOWN, new WorldPoint(3555, 4004, 0), "Climb down the staircase to the north.");
+		climbCourtyardStairs = new ObjectStep(this, ObjectID.DS2_LITHKREN_SURFACE_STAIRCASE_1, new WorldPoint(3559, 4004, 0), t("Climb up the stairs to the west."));
+		climbDownLithkrenTrapdoor = new ObjectStep(this, ObjectID.DS2_LITHKREN_SURFACE_TRAPDOOR_1, new WorldPoint(3555, 3999, 1), t("Climb down the trapdoor to the south."));
+		climbDownLithkrenNorthStairs = new ObjectStep(this, ObjectID.DS2_LITHKREN_SURFACE_STAIRCASE_DOWN, new WorldPoint(3555, 4004, 0), t("Climb down the staircase to the north."));
 
-		talkToDallasInLithkren = new NpcStep(this, NpcID.DALLAS_JONES, new WorldPoint(3549, 10419, 0), "Talk to Dallas in the far north of the room.");
-		searchSkeleton = new ObjectStep(this, ObjectID.LITHKREN_DUNGEON_SKELETON, new WorldPoint(3555, 10419, 0), "Search the skeleton east of Dallas.");
-		readDiary = new DetailedQuestStep(this, "Read Aivas' Diary.", aivasDiary);
-		talkToDallasAfterDiary = new NpcStep(this, NpcID.DALLAS_JONES, new WorldPoint(3549, 10419, 0), "Talk to Dallas again.");
+		talkToDallasInLithkren = new NpcStep(this, NpcID.DALLAS_JONES, new WorldPoint(3549, 10419, 0), t("Talk to Dallas in the far north of the room."));
+		searchSkeleton = new ObjectStep(this, ObjectID.LITHKREN_DUNGEON_SKELETON, new WorldPoint(3555, 10419, 0), t("Search the skeleton east of Dallas."));
+		readDiary = new DetailedQuestStep(this, t("Read Aivas' Diary."), aivasDiary);
+		talkToDallasAfterDiary = new NpcStep(this, NpcID.DALLAS_JONES, new WorldPoint(3549, 10419, 0), t("Talk to Dallas again."));
 
-		talkToBob = new NpcStep(this, NpcID.DEATH_GROWNCAT_BLACK_VIS, "Use a catspeak amulet (e) to locate Bob the Cat and talk to him. He's often in Catherby Archery Shop or at the Varrock Anvil.", catspeakAmulet);
-		talkToSphinx = new NpcStep(this, NpcID.ICS_LITTLE_SPHINX, new WorldPoint(3301, 2785, 0), "Talk to the Sphinx in Sophanem.");
+		talkToBob = new NpcStep(this, NpcID.DEATH_GROWNCAT_BLACK_VIS, t("Use a catspeak amulet (e) to locate Bob the Cat and talk to him. He's often in Catherby Archery Shop or at the Varrock Anvil."), catspeakAmulet);
+		talkToSphinx = new NpcStep(this, NpcID.ICS_LITTLE_SPHINX, new WorldPoint(3301, 2785, 0), t("Talk to the Sphinx in Sophanem."));
 		talkToSphinx.addDialogStep("Ask the Sphinx for help with Bob's memories.");
 		// Sphinx allows you to always talk to cats: 6144 0->1, 6145 1->0
 
-		talkToOneiromancer = new NpcStep(this, NpcID.LUNAR_ONEIROMANCER, new WorldPoint(2151, 3867, 0), "Talk to the Oneiromancer in the south east of Lunar Isle.", sealOfPassage);
+		talkToOneiromancer = new NpcStep(this, NpcID.LUNAR_ONEIROMANCER, new WorldPoint(2151, 3867, 0), t("Talk to the Oneiromancer in the south east of Lunar Isle."), sealOfPassage);
 		talkToOneiromancer.addDialogSteps("Bob's memories.", "No thanks.");
-		fillDreamVial = new ObjectStep(this, ObjectID.LUNAR_MOONCLAN_SINK, new WorldPoint(2091, 3922, 0), "Fill the vial with water.", dreamVial);
+		fillDreamVial = new ObjectStep(this, ObjectID.LUNAR_MOONCLAN_SINK, new WorldPoint(2091, 3922, 0), t("Fill the vial with water."), dreamVial);
 		fillDreamVial.addIcon(ItemID.DREAM_VIAL_EMPTY);
 
-		addGoutweed = new DetailedQuestStep(this, "Add a goutweed to the dream vial.", dreamVialWater, goutweed);
-		crushAstralRune = new DetailedQuestStep(this, "Use a hammer on an astral rune.", hammerHighlighted, astralRuneHighlighted);
-		grindAstralShards = new DetailedQuestStep(this, "Use a pestle and mortar on the astral rune shards.", pestleAndMortarHighlighted, astralRuneShards);
-		addGroundAstral = new DetailedQuestStep(this, "Add the ground astral rune to the dream vial.", groundAstralRune, dreamVialWithGoutweed);
+		addGoutweed = new DetailedQuestStep(this, t("Add a goutweed to the dream vial."), dreamVialWater, goutweed);
+		crushAstralRune = new DetailedQuestStep(this, t("Use a hammer on an astral rune."), hammerHighlighted, astralRuneHighlighted);
+		grindAstralShards = new DetailedQuestStep(this, t("Use a pestle and mortar on the astral rune shards."), pestleAndMortarHighlighted, astralRuneShards);
+		addGroundAstral = new DetailedQuestStep(this, t("Add the ground astral rune to the dream vial."), groundAstralRune, dreamVialWithGoutweed);
 
 		lightBrazier = new ObjectStep(this, ObjectID.LUNAR_MOONCLAN_BRAZIER_MULTI, new WorldPoint(2073, 3912, 0),
-			"Equip your combat equipment, food, and light the Brazier in the west of Lunar Isle's town. Be prepared for a fight. You will need melee gear, preferably a crush weapon, to fight.",
+			t("Equip your combat equipment, food, and light the Brazier in the west of Lunar Isle's town. Be prepared for a fight. You will need melee gear, preferably a crush weapon, to fight."),
 			sealOfPassage, tinderbox.highlighted(), dreamPotion, combatGear);
 		lightBrazier.addIcon(ItemID.TINDERBOX);
 
 		usePotionOnFlame = new ObjectStep(this, ObjectID.LUNAR_MOONCLAN_BRAZIER_MULTI, new WorldPoint(2073, 3912, 0),
-			"Use the dream potion on the brazier.",
+			t("Use the dream potion on the brazier."),
 			sealOfPassage, dreamPotionHighlighted, combatGear);
 		usePotionOnFlame.addDialogStep("I'm ready.");
 		usePotionOnFlame.addDialogStep("Yes.");
 		usePotionOnFlame.addIcon(ItemID.DREAM_VIAL_FULL);
 
-		talkToBobToEnterDreamAgain = new NpcStep(this, NpcID.DEATH_GROWNCAT_BLACK_CHILD, new WorldPoint(2074, 3912, 0), "Talk to Bob next to the brazier to enter the dream again.", combatGear);
+		talkToBobToEnterDreamAgain = new NpcStep(this, NpcID.DEATH_GROWNCAT_BLACK_CHILD, new WorldPoint(2074, 3912, 0), t("Talk to Bob next to the brazier to enter the dream again."), combatGear);
 		talkToBobToEnterDreamAgain.addDialogStep("I'm ready.");
 
-		talkToBobInDream = new NpcStep(this, NpcID.DEATH_GROWNCAT_BLACK_DREAM, new WorldPoint(1824, 5209, 2), "Talk to Bob in the dream.");
+		talkToBobInDream = new NpcStep(this, NpcID.DEATH_GROWNCAT_BLACK_DREAM, new WorldPoint(1824, 5209, 2), t("Talk to Bob in the dream."));
 		talkToBobInDream.addSubSteps(talkToBobToEnterDreamAgain);
-		killRobertTheStrong = new NpcStep(this, NpcID.DREAM_ROBERT_COMBAT, new WorldPoint(1824, 5224, 2), "When you're ready, fight Robert.");
-		killRobertTheStrong.addText("Use Protect from Missiles.");
-		killRobertTheStrong.addText("When he shouts 'See if you can hide from this!', hide behind a pillar.");
+		killRobertTheStrong = new NpcStep(this, NpcID.DREAM_ROBERT_COMBAT, new WorldPoint(1824, 5224, 2), t("When you're ready, fight Robert."));
+		killRobertTheStrong.addText(t("Use Protect from Missiles."));
+		killRobertTheStrong.addText(t("When he shouts 'See if you can hide from this!', hide behind a pillar."));
 
-		talkToBobAfterRobertFight = new NpcStep(this, NpcID.DEATH_GROWNCAT_BLACK_CHILD, new WorldPoint(2074, 3912, 0), "Talk to Bob next to the brazier.");
+		talkToBobAfterRobertFight = new NpcStep(this, NpcID.DEATH_GROWNCAT_BLACK_CHILD, new WorldPoint(2074, 3912, 0), t("Talk to Bob next to the brazier."));
 
 		// Kourend key piece
-		talkToAmelia = new NpcStep(this, NpcID.SHAYZIEN_HISTORIAN, new WorldPoint(1540, 3545, 0), "Talk to Amelia south west of the Shayzien Archery Store.");
-		enterCrypt = new ObjectStep(this, ObjectID.DS2_TOMB_ENTRY, new WorldPoint(1483, 3548, 0), "Enter the Crypt west of Amelia.", lightSource);
-		goDownInCryptF2ToF1 = new ObjectStep(this, ObjectID.DS2_TOMB_LADDER_TOP_RIGHT, new WorldPoint(1524, 9967, 3), "Climb down to the bottom of the crypts.");
-		goDownInCryptF1ToF0 = new ObjectStep(this, ObjectID.DS2_TOMB_STAIRS_TOP, new WorldPoint(1511, 9979, 2), "Climb down to the bottom of the crypts.");
+		talkToAmelia = new NpcStep(this, NpcID.SHAYZIEN_HISTORIAN, new WorldPoint(1540, 3545, 0), t("Talk to Amelia south west of the Shayzien Archery Store."));
+		enterCrypt = new ObjectStep(this, ObjectID.DS2_TOMB_ENTRY, new WorldPoint(1483, 3548, 0), t("Enter the Crypt west of Amelia."), lightSource);
+		goDownInCryptF2ToF1 = new ObjectStep(this, ObjectID.DS2_TOMB_LADDER_TOP_RIGHT, new WorldPoint(1524, 9967, 3), t("Climb down to the bottom of the crypts."));
+		goDownInCryptF1ToF0 = new ObjectStep(this, ObjectID.DS2_TOMB_STAIRS_TOP, new WorldPoint(1511, 9979, 2), t("Climb down to the bottom of the crypts."));
 		goDownInCryptF2ToF1.addSubSteps(goDownInCryptF1ToF0);
-		searchTombInCrypt = new ObjectStep(this, ObjectID.DS2_TOMBSTONE_CAMORRA, new WorldPoint(1504, 9939, 1), "Inspect the tomb in the south room.");
-		solveCryptPuzzle = new PuzzleWrapperStep(this, new CryptPuzzle(this), "Solve the crypt puzzle.");
-		searchTombForCryptKey = new ObjectStep(this, ObjectID.DS2_TOMBSTONE_CAMORRA, new WorldPoint(1504, 9939, 1), "Inspect the tomb for the key.");
+		searchTombInCrypt = new ObjectStep(this, ObjectID.DS2_TOMBSTONE_CAMORRA, new WorldPoint(1504, 9939, 1), t("Inspect the tomb in the south room."));
+		solveCryptPuzzle = new PuzzleWrapperStep(this, new CryptPuzzle(this), t("Solve the crypt puzzle."));
+		searchTombForCryptKey = new ObjectStep(this, ObjectID.DS2_TOMBSTONE_CAMORRA, new WorldPoint(1504, 9939, 1), t("Inspect the tomb for the key."));
 
 		// Varrock key piece
-		talkToReldo = new NpcStep(this, NpcID.RELDO_NORMAL, new WorldPoint(3209, 3492, 0), "Talk to Reldo in the Varrock Castle Library.");
+		talkToReldo = new NpcStep(this, NpcID.RELDO_NORMAL, new WorldPoint(3209, 3492, 0), t("Talk to Reldo in the Varrock Castle Library."));
 		talkToReldo.addDialogSteps("I'm looking for information on a Fourth Age hero.", "Ask about Tristan.");
-		searchBookcase = new ObjectStep(this, ObjectID.DS2_VARROCK_BOOKCASE, new WorldPoint(3211, 3495, 0), "Search the bookcases for the census");
-		talkToReldoAgain = new NpcStep(this, NpcID.RELDO_NORMAL, new WorldPoint(3209, 3492, 0), "Talk to Reldo again.", varrockCensusRecords);
+		searchBookcase = new ObjectStep(this, ObjectID.DS2_VARROCK_BOOKCASE, new WorldPoint(3211, 3495, 0), t("Search the bookcases for the census"));
+		talkToReldoAgain = new NpcStep(this, NpcID.RELDO_NORMAL, new WorldPoint(3209, 3492, 0), t("Talk to Reldo again."), varrockCensusRecords);
 		talkToReldoAgain.addDialogSteps("About Tristan Corvo...", "Ask about Tristan.");
-		talkToReldoAgainNoBook = new NpcStep(this, NpcID.RELDO_NORMAL, new WorldPoint(3209, 3492, 0), "Talk to Reldo again.");
+		talkToReldoAgainNoBook = new NpcStep(this, NpcID.RELDO_NORMAL, new WorldPoint(3209, 3492, 0), t("Talk to Reldo again."));
 		talkToReldoAgainNoBook.addDialogStep("Ask about Tristan.");
 		talkToReldoAgain.addSubSteps(talkToReldoAgainNoBook);
-		talkToSarah = new NpcStep(this, NpcID.SARAH_CORVO, new WorldPoint(3674, 3469, 0), "Talk to Sarah in Port Phasmatys.", ghostspeakOrMory2);
+		talkToSarah = new NpcStep(this, NpcID.SARAH_CORVO, new WorldPoint(3674, 3469, 0), t("Talk to Sarah in Port Phasmatys."), ghostspeakOrMory2);
 		talkToSarah.addTeleport(morytaniaTeleport);
-		talkToAva = new NpcStep(this, NpcID.ANMA_ASSISTANT, new WorldPoint(3093, 3357, 0), "Talk to Ava in Draynor Manor.", dragonstone, moltenGlass2, glassblowingPipe);
+		talkToAva = new NpcStep(this, NpcID.ANMA_ASSISTANT, new WorldPoint(3093, 3357, 0), t("Talk to Ava in Draynor Manor."), dragonstone, moltenGlass2, glassblowingPipe);
 		talkToAva.addDialogStep("I need your help with a key piece.");
-		usePipeOnDragonstone = new DetailedQuestStep(this, "Use the glassblowing pipe on a dragonstone.", glassblowingPipeHighlighted, dragonstoneHighlighted, moltenGlass2);
-		talkToAvaAgain = new NpcStep(this, NpcID.ANMA_ASSISTANT, new WorldPoint(3093, 3357, 0), "Talk to Ava again.", inertLocator);
+		usePipeOnDragonstone = new DetailedQuestStep(this, t("Use the glassblowing pipe on a dragonstone."), glassblowingPipeHighlighted, dragonstoneHighlighted, moltenGlass2);
+		talkToAvaAgain = new NpcStep(this, NpcID.ANMA_ASSISTANT, new WorldPoint(3093, 3357, 0), t("Talk to Ava again."), inertLocator);
 		talkToAvaAgain.addDialogStep("I need your help with a key piece.");
-		talkToAvaAgainNoOrb = new NpcStep(this, NpcID.ANMA_ASSISTANT, new WorldPoint(3093, 3357, 0), "Talk to Ava again.");
+		talkToAvaAgainNoOrb = new NpcStep(this, NpcID.ANMA_ASSISTANT, new WorldPoint(3093, 3357, 0), t("Talk to Ava again."));
 		talkToAvaAgainNoOrb.addDialogStep("I need your help with a key piece.");
 		talkToAvaAgain.addSubSteps(talkToAvaAgainNoOrb);
-		useLocatorInSwamp = new DetailedQuestStep(this, "Use the locator orb in Mort Myre to locate the dig spot. Once you find the spot, dig there.", locator, spade);
+		useLocatorInSwamp = new DetailedQuestStep(this, t("Use the locator orb in Mort Myre to locate the dig spot. Once you find the spot, dig there."), locator, spade);
 
 		// Fremennik key piece
-		talkToBrundt = new NpcStep(this, NpcID.VIKING_BRUNDT_CHILD, new WorldPoint(2658, 3666, 0), "Talk to Brundt in Rellekka.");
+		talkToBrundt = new NpcStep(this, NpcID.VIKING_BRUNDT_CHILD, new WorldPoint(2658, 3666, 0), t("Talk to Brundt in Rellekka."));
 		talkToBrundt.addDialogStep("Ask about the dragonkin fortress.");
-		talkToTorfinn = new NpcStep(this, NpcID.TORFINN_NO_TRAVEL, new WorldPoint(2640, 3696, 0), "Talk to Torfinn on the Rellekka docks to go to Ungael.");
+		talkToTorfinn = new NpcStep(this, NpcID.TORFINN_NO_TRAVEL, new WorldPoint(2640, 3696, 0), t("Talk to Torfinn on the Rellekka docks to go to Ungael."));
 		((NpcStep) (talkToTorfinn)).addAlternateNpcs(NpcID.TORFINN_TRAVEL_RELLEKKA);
 		talkToTorfinn.addDialogSteps("I'm ready.", "Yes please.");
-		killVorkath = new NpcStep(this, NpcID.POH_MOUNTED_VORKATH, new WorldPoint(2273, 4065, 0), "Defeat Vorkath. " +
-			"This is a hard fight, so if you're unfamiliar with it it's recommended you watch a video and read the " +
-			"sidebar first.", rangedCombatGear);
+		killVorkath = new NpcStep(this, NpcID.POH_MOUNTED_VORKATH, new WorldPoint(2273, 4065, 0), t("Defeat Vorkath. This is a hard fight, so if you're unfamiliar with it it's recommended you watch a video and read the sidebar first."), rangedCombatGear);
 		((NpcStep) (killVorkath)).addAlternateNpcs(NpcID.VORKATH_SLEEPING_NOOP, NpcID.VORKATH_SLEEPING, NpcID.VORKATH_QUEST, NpcID.POH_MOUNTED_VORKATH);
 
-		killVorkathSidebar = new NpcStep(this, NpcID.POH_MOUNTED_VORKATH, new WorldPoint(2273, 4065, 0), "Defeat Vorkath. " +
-			"This is a hard fight, so if you're unfamiliar with it it's recommended you watch a video on it first.", rangedCombatGear);
+		killVorkathSidebar = new NpcStep(this, NpcID.POH_MOUNTED_VORKATH, new WorldPoint(2273, 4065, 0), t("Defeat Vorkath. This is a hard fight, so if you're unfamiliar with it it's recommended you watch a video on it first."), rangedCombatGear);
 		killVorkathSidebar.addSubSteps(killVorkath);
-		killVorkathSidebar.addText("Protect from Magic, and drink an antifire and antivenom potion.");
-		killVorkathSidebar.addText("When Vorkath fires a pink fireball it'll turn your prayer off.");
-		killVorkathSidebar.addText("When Vorkath shoots an orange fireball into the air, move away from the spot you're on.");
-		killVorkathSidebar.addText("When Vorkath spits acid everywhere, WALK around to avoid the fireballs he will shoot.");
-		killVorkathSidebar.addText("When Vorkath freezes you, kill the zombified spawn that appears before it reaches you.");
+		killVorkathSidebar.addText(t("Protect from Magic, and drink an antifire and antivenom potion."));
+		killVorkathSidebar.addText(t("When Vorkath fires a pink fireball it'll turn your prayer off."));
+		killVorkathSidebar.addText(t("When Vorkath shoots an orange fireball into the air, move away from the spot you're on."));
+		killVorkathSidebar.addText(t("When Vorkath spits acid everywhere, WALK around to avoid the fireballs he will shoot."));
+		killVorkathSidebar.addText(t("When Vorkath freezes you, kill the zombified spawn that appears before it reaches you."));
 
-		enterVorkathCave = new ObjectStep(this, ObjectID.UNGAEL_LAB_ENTRANCE, new WorldPoint(2249, 4078, 0), "Enter the cave on the north west of Ungael.");
+		enterVorkathCave = new ObjectStep(this, ObjectID.UNGAEL_LAB_ENTRANCE, new WorldPoint(2249, 4078, 0), t("Enter the cave on the north west of Ungael."));
 		enterVorkathCave.addDialogStep("I'm sure.");
 
-		pullLeverInVorkathCave = new ObjectStep(this, ObjectID.UNGAEL_LAB_LEVER_OFF, new WorldPoint(2260, 10464, 0), "Pull the lever in the south west corner. Make sure you have run energy before doing so, as you need to run to the east room afterwards.");
-		enterEastVorkathRoom = new DetailedQuestStep(this, new WorldPoint(2290, 10465, 0), "RUN to the east room.");
-		searchStoneChestForVorkathKey = new ObjectStep(this, ObjectID.UNGAEL_LAB_CHEST_OPEN_QUEST, new WorldPoint(2293, 10467, 0), "Search the stone chest in the room for the key piece.");
+		pullLeverInVorkathCave = new ObjectStep(this, ObjectID.UNGAEL_LAB_LEVER_OFF, new WorldPoint(2260, 10464, 0), t("Pull the lever in the south west corner. Make sure you have run energy before doing so, as you need to run to the east room afterwards."));
+		enterEastVorkathRoom = new DetailedQuestStep(this, new WorldPoint(2290, 10465, 0), t("RUN to the east room."));
+		searchStoneChestForVorkathKey = new ObjectStep(this, ObjectID.UNGAEL_LAB_CHEST_OPEN_QUEST, new WorldPoint(2293, 10467, 0), t("Search the stone chest in the room for the key piece."));
 
 		// Karamja key piece
-		enterKharaziMaze = new ObjectStep(this, ObjectID.DS2_MAZE_ENTRANCE, new WorldPoint(2944, 2895, 0), "Go down the staircase in the south east of the Kharazi Jungle. MAKE SURE TO HAVE AUTO-RETALIATE OFF BEFORE ENTERING.");
+		enterKharaziMaze = new ObjectStep(this, ObjectID.DS2_MAZE_ENTRANCE, new WorldPoint(2944, 2895, 0), t("Go down the staircase in the south east of the Kharazi Jungle. MAKE SURE TO HAVE AUTO-RETALIATE OFF BEFORE ENTERING."));
 		ObjectStep getToCentreOfMazeRealStep = new ObjectStep(this, ObjectID.DS2_MAZE_PLINTH_MIDDLE, new WorldPoint(2848, 9248, 0),
-			"Navigate to the middle of the maze, disarming any traps in the way.");
+			t("Navigate to the middle of the maze, disarming any traps in the way."));
 		getToCentreOfMazeRealStep.setLinePoints(Arrays.asList(
 			new WorldPoint(2847, 9284, 0),
 			new WorldPoint(2847, 9276, 0),
@@ -915,60 +912,60 @@ public class DragonSlayerII extends BasicQuestHelper
 			new WorldPoint(2848, 9249, 0)
 		));
 		getToCentreOfMaze = new PuzzleWrapperStep(this,
-			getToCentreOfMazeRealStep, "Get to the centre of the maze.");
+			getToCentreOfMazeRealStep, t("Get to the centre of the maze."));
 
-		boardBoat = new ObjectStep(this, ObjectID.FOSSIL_ROWBOAT_LITHKREN, new WorldPoint(3659, 3849, 0), "Board the boat.");
+		boardBoat = new ObjectStep(this, ObjectID.FOSSIL_ROWBOAT_LITHKREN, new WorldPoint(3659, 3849, 0), t("Board the boat."));
 		talkToDallasAfterBoatRepair.addSubSteps(boardBoat);
-		climbCourtyardStairs = new ObjectStep(this, ObjectID.DS2_LITHKREN_SURFACE_STAIRCASE_1, new WorldPoint(3559, 4004, 0), "Climb up the stairs to the west.");
-		climbDownLithkrenTrapdoor = new ObjectStep(this, ObjectID.DS2_LITHKREN_SURFACE_TRAPDOOR_1, new WorldPoint(3555, 3999, 1), "Climb down the trapdoor to the south.");
-		climbDownLithkrenNorthStairs = new ObjectStep(this, ObjectID.DS2_LITHKREN_SURFACE_STAIRCASE_DOWN, new WorldPoint(3555, 4004, 0), "Climb down the staircase to the north.");
+		climbCourtyardStairs = new ObjectStep(this, ObjectID.DS2_LITHKREN_SURFACE_STAIRCASE_1, new WorldPoint(3559, 4004, 0), t("Climb up the stairs to the west."));
+		climbDownLithkrenTrapdoor = new ObjectStep(this, ObjectID.DS2_LITHKREN_SURFACE_TRAPDOOR_1, new WorldPoint(3555, 3999, 1), t("Climb down the trapdoor to the south."));
+		climbDownLithkrenNorthStairs = new ObjectStep(this, ObjectID.DS2_LITHKREN_SURFACE_STAIRCASE_DOWN, new WorldPoint(3555, 4004, 0), t("Climb down the staircase to the north."));
 
-		enterAncientCavern = new ObjectStep(this, ObjectID.BRUT_WHIRLPOOL, new WorldPoint(2512, 3508, 0), "Enter the Ancient Caverns through the whirlpool near the Barbarian Outpost.");
-		goDownToBrutalGreenDragons = new ObjectStep(this, ObjectID.BRUT_STAIR_LRG_TOP, new WorldPoint(1770, 5366, 1), "Go down the stairs.");
-		goUpToMithrilDragons = new ObjectStep(this, ObjectID.BRUT_CAVE_STAIRS_LOW, new WorldPoint(1778, 5345, 0), "Go up the stairs to the Mithil Dragons.");
-		openMithrilDoor = new ObjectStep(this, ObjectID.BRUT_MITHRIL_DOOR, new WorldPoint(1759, 5343, 1), "Enter the Mithril Door to the west of the area.");
+		enterAncientCavern = new ObjectStep(this, ObjectID.BRUT_WHIRLPOOL, new WorldPoint(2512, 3508, 0), t("Enter the Ancient Caverns through the whirlpool near the Barbarian Outpost."));
+		goDownToBrutalGreenDragons = new ObjectStep(this, ObjectID.BRUT_STAIR_LRG_TOP, new WorldPoint(1770, 5366, 1), t("Go down the stairs."));
+		goUpToMithrilDragons = new ObjectStep(this, ObjectID.BRUT_CAVE_STAIRS_LOW, new WorldPoint(1778, 5345, 0), t("Go up the stairs to the Mithil Dragons."));
+		openMithrilDoor = new ObjectStep(this, ObjectID.BRUT_MITHRIL_DOOR, new WorldPoint(1759, 5343, 1), t("Enter the Mithril Door to the west of the area."));
 		goDownToBrutalGreenDragons.addSubSteps(goUpToMithrilDragons, openMithrilDoor);
-		castFireOnHead = new NpcStep(this, NpcID.DS2_DRAGON_HEAD_UNLIT, "Cast fire wave or surge on the 3 dragon heads.", true);
+		castFireOnHead = new NpcStep(this, NpcID.DS2_DRAGON_HEAD_UNLIT, t("Cast fire wave or surge on the 3 dragon heads."), true);
 
-		leaveMithrilRoom = new ObjectStep(this, ObjectID.DS2_MITHRIL_DOOR, new WorldPoint(1555, 4875, 0), "Leave the orb room.");
-		goDownFromMithDragons = new ObjectStep(this, ObjectID.BRUT_CAVE_STAIRS_TOP, new WorldPoint(1778, 5345, 1), "Go back to the ground floor.");
-		climbUpSouthWestStairsAncientCavern = new ObjectStep(this, ObjectID.DS2_FORGE_STAIRS_BOTTOM, new WorldPoint(1745, 5324, 0), "Climb up the rough steps in the south west corner.");
-		forgeDragonKey = new ObjectStep(this, ObjectID.DS2_AC_FORGE_ANVIL, new WorldPoint(1748, 5288, 1), "Forge the key on one of the anvils to the south.");
-		useKeyOnGrandioseDoors = new ObjectStep(this, ObjectID.DS2_LITHKREN_DUNGEON_VAULT_DOOR, new WorldPoint(3550, 10425, 0), "Unlock the grandiose door.");
+		leaveMithrilRoom = new ObjectStep(this, ObjectID.DS2_MITHRIL_DOOR, new WorldPoint(1555, 4875, 0), t("Leave the orb room."));
+		goDownFromMithDragons = new ObjectStep(this, ObjectID.BRUT_CAVE_STAIRS_TOP, new WorldPoint(1778, 5345, 1), t("Go back to the ground floor."));
+		climbUpSouthWestStairsAncientCavern = new ObjectStep(this, ObjectID.DS2_FORGE_STAIRS_BOTTOM, new WorldPoint(1745, 5324, 0), t("Climb up the rough steps in the south west corner."));
+		forgeDragonKey = new ObjectStep(this, ObjectID.DS2_AC_FORGE_ANVIL, new WorldPoint(1748, 5288, 1), t("Forge the key on one of the anvils to the south."));
+		useKeyOnGrandioseDoors = new ObjectStep(this, ObjectID.DS2_LITHKREN_DUNGEON_VAULT_DOOR, new WorldPoint(3550, 10425, 0), t("Unlock the grandiose door."));
 
-		talkToDallasAfterDoors = new NpcStep(this, NpcID.DALLAS_JONES_VAULT, new WorldPoint(1566, 5099, 0), "Talk to Dallas Jones to the north.");
+		talkToDallasAfterDoors = new NpcStep(this, NpcID.DALLAS_JONES_VAULT, new WorldPoint(1566, 5099, 0), t("Talk to Dallas Jones to the north."));
 		((NpcStep) talkToDallasAfterDoors).addAlternateNpcs(NpcID.DALLAS_JONES_VAULT_2);
 
 		talkToBobAfterRelease = new NpcStep(this, NpcID.DEATH_GROWNCAT_BLACK_CHILD, new WorldPoint(3548, 10480, 0), "");
 
-		talkToRoald = new NpcStep(this, NpcID.KING_ROALD, new WorldPoint(3222, 3473, 0), "Talk to King Roald in Varrock Castle.");
+		talkToRoald = new NpcStep(this, NpcID.KING_ROALD, new WorldPoint(3222, 3473, 0), t("Talk to King Roald in Varrock Castle."));
 		talkToRoald.addDialogSteps("I'm here to talk about dragons.", "About the dragon threat...", "Talk about the dragon threat");
 
-		talkToBrundtAboutThreat = new NpcStep(this, NpcID.VIKING_BRUNDT_CHILD, new WorldPoint(2658, 3666, 0), "Talk to Brundt in Rellekka.");
+		talkToBrundtAboutThreat = new NpcStep(this, NpcID.VIKING_BRUNDT_CHILD, new WorldPoint(2658, 3666, 0), t("Talk to Brundt in Rellekka."));
 		talkToBrundtAboutThreat.addDialogStep("Ask about the dragon threat.");
 
-		goUpToAmik1 = new ObjectStep(this, ObjectID.FAI_FALADOR_CASTLE_SPIRALSTAIRS, new WorldPoint(2955, 3339, 0), "Go talk to Sir Amik Varze upstairs in Falador Castle.");
-		goUpToAmik2 = new ObjectStep(this, ObjectID.FAI_FALADOR_CASTLE_SPIRALSTAIRS, new WorldPoint(2961, 3339, 1), "Go talk to Sir Amik Varze upstairs in Falador Castle.");
-		talkToAmik = new NpcStep(this, NpcID.SIR_AMIK_VARZE, new WorldPoint(2962, 3338, 2), "Talk to Sir Amik Varze upstairs in Falador Castle.");
+		goUpToAmik1 = new ObjectStep(this, ObjectID.FAI_FALADOR_CASTLE_SPIRALSTAIRS, new WorldPoint(2955, 3339, 0), t("Go talk to Sir Amik Varze upstairs in Falador Castle."));
+		goUpToAmik2 = new ObjectStep(this, ObjectID.FAI_FALADOR_CASTLE_SPIRALSTAIRS, new WorldPoint(2961, 3339, 1), t("Go talk to Sir Amik Varze upstairs in Falador Castle."));
+		talkToAmik = new NpcStep(this, NpcID.SIR_AMIK_VARZE, new WorldPoint(2962, 3338, 2), t("Talk to Sir Amik Varze upstairs in Falador Castle."));
 		talkToAmik.addDialogStep("Talk about the dragon threat.");
 		talkToAmik.addSubSteps(goUpToAmik1, goUpToAmik2);
 
-		goUpToLathasOrThoros = new ObjectStep(this, ObjectID.STAIRS, new WorldPoint(2572, 3296, 0), "Talk to King Lathas/Thoros in East Ardougne castle.");
-		talkToLathasOrThoros = new NpcStep(this, NpcID.KINGLATHAS_VIS, new WorldPoint(2578, 3293, 1), "Talk to King Lathas/Thoros in East Ardougne castle.");
+		goUpToLathasOrThoros = new ObjectStep(this, ObjectID.STAIRS, new WorldPoint(2572, 3296, 0), t("Talk to King Lathas/Thoros in East Ardougne castle."));
+		talkToLathasOrThoros = new NpcStep(this, NpcID.KINGLATHAS_VIS, new WorldPoint(2578, 3293, 1), t("Talk to King Lathas/Thoros in East Ardougne castle."));
 		((NpcStep) (talkToLathasOrThoros)).addAlternateNpcs(NpcID.KINGTHOROS, NpcID.DS2_MEETING_KING_THOROS);
 		talkToLathasOrThoros.addDialogStep("Talk about the dragon threat.");
 		talkToLathasOrThoros.addSubSteps(goUpToLathasOrThoros);
 
-		enterVarrockDiningRoom = new ObjectStep(this, ObjectID.DS2_VARROCK_DOOR, new WorldPoint(3222, 3479, 0), "Enter the Varrock Castle dining room.");
-		talkToBobAfterDiningRoom = new NpcStep(this, NpcID.DEATH_GROWNCAT_BLACK_CHILD, new WorldPoint(3222, 3476, 0), "Talk to Bob in Varrock Castle.");
+		enterVarrockDiningRoom = new ObjectStep(this, ObjectID.DS2_VARROCK_DOOR, new WorldPoint(3222, 3479, 0), t("Enter the Varrock Castle dining room."));
+		talkToBobAfterDiningRoom = new NpcStep(this, NpcID.DEATH_GROWNCAT_BLACK_CHILD, new WorldPoint(3222, 3476, 0), t("Talk to Bob in Varrock Castle."));
 
 		// Final battle
-		takeBoatToUngael = new NpcStep(this, NpcID.TORFINN_COLLECT_RELLEKKA, new WorldPoint(2640, 3696, 0), "Talk to Torfinn on the Rellekka docks to go to Ungael. Be prepared for a lot of fighting.", combatGear, antifireShield, new FreeInventorySlotRequirement(4));
+		takeBoatToUngael = new NpcStep(this, NpcID.TORFINN_COLLECT_RELLEKKA, new WorldPoint(2640, 3696, 0), t("Talk to Torfinn on the Rellekka docks to go to Ungael. Be prepared for a lot of fighting."), combatGear, antifireShield, new FreeInventorySlotRequirement(4));
 		takeBoatToUngael.addDialogSteps("Yes please.", "Yes.");
-		keepShipAfloat = new ObjectStep(this, ObjectID.DS2_VIKING_SHIP_FIRE, "Keep the boat afloat by filling leaks, putting out fires, healing warriors and repairing the masts. This is where the four inventory slots are needed.");
+		keepShipAfloat = new ObjectStep(this, ObjectID.DS2_VIKING_SHIP_FIRE, t("Keep the boat afloat by filling leaks, putting out fires, healing warriors and repairing the masts. This is where the four inventory slots are needed."));
 		((ObjectStep) (keepShipAfloat)).addAlternateObjects(ObjectID.DS2_VIKING_SHIP_LEAK, ObjectID.DS2_VIKING_SHIP_SOLDIER_HURT_M, ObjectID.DS2_VIKING_SHIP_SOLDIER_HURT, ObjectID.DS2_VIKING_SHIP_MAST_BROKEN);
 
-		getToMainShip = new NpcStep(this, NpcID.DS2_RED_DRAGON, "Travel to the main ship, killing dragons along the way.", true);
+		getToMainShip = new NpcStep(this, NpcID.DS2_RED_DRAGON, t("Travel to the main ship, killing dragons along the way."), true);
 		((NpcStep) (getToMainShip)).addAlternateNpcs(NpcID.DS2_IRON_DRAGON, NpcID.DS2_BRUT_GREEN_DRAGON);
 		getToMainShip.setLinePoints(Arrays.asList(
 			new WorldPoint(1695, 5665, 2),
@@ -1054,33 +1051,31 @@ public class DragonSlayerII extends BasicQuestHelper
 			new WorldPoint(1637, 5706, 0)
 		));
 
-		kill2Blue2Green = new NpcStep(this, NpcID.DS2_BLUE_DRAGON, "Kill the blue and green dragons.", true);
+		kill2Blue2Green = new NpcStep(this, NpcID.DS2_BLUE_DRAGON, t("Kill the blue and green dragons."), true);
 		((NpcStep) (kill2Blue2Green)).addAlternateNpcs(NpcID.DS2_GREEN_DRAGON);
 
-		killBlackSteelBrutalRedDragon = new NpcStep(this, NpcID.DS2_BLACK_DRAGON_CUTSCENE, "Kill the black, steel, and brutal" +
-			" red dragon. Occasionally Galvek will shoot a fireball in the air, move to avoid it.", true);
+		killBlackSteelBrutalRedDragon = new NpcStep(this, NpcID.DS2_BLACK_DRAGON_CUTSCENE, t("Kill the black, steel, and brutal red dragon. Occasionally Galvek will shoot a fireball in the air, move to avoid it."), true);
 		((NpcStep) (killBlackSteelBrutalRedDragon)).addAlternateNpcs(NpcID.DS2_BLACK_DRAGON, NpcID.DS2_BRUT_RED_DRAGON, NpcID.DS2_STEEL_DRAGON);
 
-		killMithAddyAndRuneDragons = new NpcStep(this, NpcID.DS2_MITHRIL_DRAGON_CUTSCENE, "Kill the metal dragons.", true);
-		killMithAddyAndRuneDragons.addText("Occasionally Galvek will shoot a fireball in the air, move to avoid it.");
+		killMithAddyAndRuneDragons = new NpcStep(this, NpcID.DS2_MITHRIL_DRAGON_CUTSCENE, t("Kill the metal dragons."), true);
+		killMithAddyAndRuneDragons.addText(t("Occasionally Galvek will shoot a fireball in the air, move to avoid it."));
 		killMithAddyAndRuneDragons.addText("");
 		((NpcStep) (killMithAddyAndRuneDragons)).addAlternateNpcs(NpcID.DS2_MITHRIL_DRAGON, NpcID.ADAMANT_DRAGON, NpcID.DS2_ADAMANT_DRAGON, NpcID.POH_RUNE_DRAGON, NpcID.DS2_RUNE_DRAGON);
-		killGalvek = new NpcStep(this, NpcID.GALVEK_FIRE, new WorldPoint(1631, 5735, 2), "Kill Galvek. Read the " +
-			"sidebar for more details.",true);
+		killGalvek = new NpcStep(this, NpcID.GALVEK_FIRE, new WorldPoint(1631, 5735, 2), t("Kill Galvek. Read the sidebar for more details."),true);
 		((NpcStep) (killGalvek)).addAlternateNpcs(NpcID.GALVEK_WATER, NpcID.GALVEK_WIND, NpcID.GALVEK_EARTH);
 
 		killGalvekSidebar = new NpcStep(this, NpcID.GALVEK_FIRE, new WorldPoint(1631, 5735, 2),
-			"Kill Galvek. This is a hard fight, so it's recommended you check a video to see what you'll have to do.");
-		killGalvekSidebar.addText("Avoid the ground-targeted fireballs.");
-		killGalvekSidebar.addText("The pink attack turns off prayer.");
-		killGalvekSidebar.addText("Use Protect from Magic in phase 1, use Protect from Missiles otherwise.");
-		killGalvekSidebar.addText("Phase 1 - Fire traps appear - if you go near them you die.");
-		killGalvekSidebar.addText("Phase 2 - Fires transparent projectile which drains stats.");
-		killGalvekSidebar.addText("Phase 3 - Waves of fire appear. Go through the gap in them to avoid.");
-		killGalvekSidebar.addText("Phase 4 - Fires a binding projectile. Avoid it by moving.");
+			t("Kill Galvek. This is a hard fight, so it's recommended you check a video to see what you'll have to do."));
+		killGalvekSidebar.addText(t("Avoid the ground-targeted fireballs."));
+		killGalvekSidebar.addText(t("The pink attack turns off prayer."));
+		killGalvekSidebar.addText(t("Use Protect from Magic in phase 1, use Protect from Missiles otherwise."));
+		killGalvekSidebar.addText(t("Phase 1 - Fire traps appear - if you go near them you die."));
+		killGalvekSidebar.addText(t("Phase 2 - Fires transparent projectile which drains stats."));
+		killGalvekSidebar.addText(t("Phase 3 - Waves of fire appear. Go through the gap in them to avoid."));
+		killGalvekSidebar.addText(t("Phase 4 - Fires a binding projectile. Avoid it by moving."));
 		killGalvekSidebar.addSubSteps(killGalvek);
 
-		talkToAlecToFinish = new NpcStep(this, NpcID.ALEC_KINCADE, new WorldPoint(2458, 2869, 0), "Talk to Alec Kincade to become a Myth!");
+		talkToAlecToFinish = new NpcStep(this, NpcID.ALEC_KINCADE, new WorldPoint(2458, 2869, 0), t("Talk to Alec Kincade to become a Myth!"));
 		talkToAlecToFinish.addDialogStep("Let's talk about my quest.");
 	}
 
@@ -1094,21 +1089,21 @@ public class DragonSlayerII extends BasicQuestHelper
 
 	public void setupConditionalSteps()
 	{
-		goEnterMithDoorFirstTime = new ConditionalStep(this, enterAncientCavern, "Open the Mithril Door in the Ancient Caverns.", ancientKey, runesForFireWaveOrSurge3, fremennikKeyPiece, karamjaKeyPiece, kourendKeyPiece, varrockKeyPiece, hammer);
+		goEnterMithDoorFirstTime = new ConditionalStep(this, enterAncientCavern, t("Open the Mithril Door in the Ancient Caverns."), ancientKey, runesForFireWaveOrSurge3, fremennikKeyPiece, karamjaKeyPiece, kourendKeyPiece, varrockKeyPiece, hammer);
 		goEnterMithDoorFirstTime.addDialogStep("Yes, I wish to enter the unknown.");
 		goEnterMithDoorFirstTime.addStep(inMithDragonOrbRoom, castFireOnHead);
 		goEnterMithDoorFirstTime.addStep(inMithDragonUpperArea, openMithrilDoor);
 		goEnterMithDoorFirstTime.addStep(inMithDragonGroundArea, goUpToMithrilDragons);
 		goEnterMithDoorFirstTime.addStep(inMithDragonEntranceArea, goDownToBrutalGreenDragons);
 
-		goEnterMithDoorSecondTime = new ConditionalStep(this, enterAncientCavern, "Open the Mithril Door in the Ancient Caverns.", runesForFireWaveOrSurge3, fremennikKeyPiece, karamjaKeyPiece, kourendKeyPiece, varrockKeyPiece, hammer);
+		goEnterMithDoorSecondTime = new ConditionalStep(this, enterAncientCavern, t("Open the Mithril Door in the Ancient Caverns."), runesForFireWaveOrSurge3, fremennikKeyPiece, karamjaKeyPiece, kourendKeyPiece, varrockKeyPiece, hammer);
 		goEnterMithDoorSecondTime.addStep(inMithDragonOrbRoom, castFireOnHead);
 		goEnterMithDoorSecondTime.addStep(inMithDragonUpperArea, openMithrilDoor);
 		goEnterMithDoorSecondTime.addStep(inMithDragonGroundArea, goUpToMithrilDragons);
 		goEnterMithDoorSecondTime.addStep(inMithDragonEntranceArea, goDownToBrutalGreenDragons);
 		goEnterMithDoorFirstTime.addSubSteps(goEnterMithDoorSecondTime);
 
-		goSmithKey = new ConditionalStep(this, enterAncientCavern, "Forge the dragon key on the anvils in the south of the Ancient Caverns.", fremennikKeyPiece, karamjaKeyPiece, kourendKeyPiece, varrockKeyPiece, hammer);
+		goSmithKey = new ConditionalStep(this, enterAncientCavern, t("Forge the dragon key on the anvils in the south of the Ancient Caverns."), fremennikKeyPiece, karamjaKeyPiece, kourendKeyPiece, varrockKeyPiece, hammer);
 		goSmithKey.addDialogStep("Yes.");
 		goSmithKey.addStep(inMithDragonFurnaceArea, forgeDragonKey);
 		goSmithKey.addStep(inMithDragonGroundArea, climbUpSouthWestStairsAncientCavern);
@@ -1116,20 +1111,20 @@ public class DragonSlayerII extends BasicQuestHelper
 		goSmithKey.addStep(inMithDragonOrbRoom, leaveMithrilRoom);
 		goSmithKey.addStep(inMithDragonEntranceArea, goDownToBrutalGreenDragons);
 
-		goOpenDoorWithKey = new ConditionalStep(this, boardBoat, "Open the door on Lithkren.", dragonKey);
+		goOpenDoorWithKey = new ConditionalStep(this, boardBoat, t("Open the door on Lithkren."), dragonKey);
 		goOpenDoorWithKey.addStep(inLithkrenUnderground, useKeyOnGrandioseDoors);
 		goOpenDoorWithKey.addStep(inLithkrenGroundFloorRoom, climbDownLithkrenNorthStairs);
 		goOpenDoorWithKey.addStep(inLithkrenFirstFloor, climbDownLithkrenTrapdoor);
 		goOpenDoorWithKey.addStep(inLithkrenGroundFloor, climbCourtyardStairs);
 
-		openDoorWithoutKey = new ConditionalStep(this, boardBoat, "Enter the grandiose doors and talk to Dallas in the new area.");
+		openDoorWithoutKey = new ConditionalStep(this, boardBoat, t("Enter the grandiose doors and talk to Dallas in the new area."));
 		openDoorWithoutKey.addStep(inDeepLithkren, talkToDallasAfterDoors);
 		openDoorWithoutKey.addStep(inLithkrenUnderground, useKeyOnGrandioseDoors);
 		openDoorWithoutKey.addStep(inLithkrenGroundFloorRoom, climbDownLithkrenNorthStairs);
 		openDoorWithoutKey.addStep(inLithkrenFirstFloor, climbDownLithkrenTrapdoor);
 		openDoorWithoutKey.addStep(inLithkrenGroundFloor, climbCourtyardStairs);
 
-		goTalkToBobAfterRelease = new ConditionalStep(this, boardBoat, "Talk to Bob underground in Lithkren.");
+		goTalkToBobAfterRelease = new ConditionalStep(this, boardBoat, t("Talk to Bob underground in Lithkren."));
 		goTalkToBobAfterRelease.addStep(inLithkrenUnderground, talkToBobAfterRelease);
 		goTalkToBobAfterRelease.addStep(inLithkrenGroundFloorRoom, climbDownLithkrenNorthStairs);
 		goTalkToBobAfterRelease.addStep(inLithkrenFirstFloor, climbDownLithkrenTrapdoor);
@@ -1146,7 +1141,7 @@ public class DragonSlayerII extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Arrays.asList("Spawn (level 100)", "Robert the Strong (level 194)", "Vorkath (level 392)", "Numerous chromatic and metal dragons", "Galvek (level 608)");
+		return Arrays.asList(t("Spawn (level 100)"), t("Robert the Strong (level 194)"), t("Vorkath (level 392)"), t("Numerous chromatic and metal dragons"), t("Galvek (level 608)"));
 	}
 
 	@Override
@@ -1177,48 +1172,48 @@ public class DragonSlayerII extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Access to the Myths Guild."),
+				new UnlockReward(t("Access to the Myths Guild.")),
 				// 6140 0->1 means talked to Primula
-				new UnlockReward("Ability to make Super Antifire Potions"),
-				new UnlockReward("Access to the Fountain of Uhld."),
-				new UnlockReward("Access to the Wrath Altar."),
-				new UnlockReward("Ability to purchase the Mythical Cape"),
-				new UnlockReward("Access to Adamant and Rune Dragons"),
-				new UnlockReward("Access to Vorkath"),
-				new UnlockReward("Ability to re-forge the dragon platebody and kiteshield."),
-				new UnlockReward("Ability to craft Ferocious Gloves"),
-				new UnlockReward("Ability to further upgrade your Ava's device."),
-				new UnlockReward("Ability to teleport to Lithkren with the Digsite Pendant."));
+				new UnlockReward(t("Ability to make Super Antifire Potions")),
+				new UnlockReward(t("Access to the Fountain of Uhld.")),
+				new UnlockReward(t("Access to the Wrath Altar.")),
+				new UnlockReward(t("Ability to purchase the Mythical Cape")),
+				new UnlockReward(t("Access to Adamant and Rune Dragons")),
+				new UnlockReward(t("Access to Vorkath")),
+				new UnlockReward(t("Ability to re-forge the dragon platebody and kiteshield.")),
+				new UnlockReward(t("Ability to craft Ferocious Gloves")),
+				new UnlockReward(t("Ability to further upgrade your Ava's device.")),
+				new UnlockReward(t("Ability to teleport to Lithkren with the Digsite Pendant.")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off", Arrays.asList(talkToAlec, talkToDallas, talkToDallasOnCrandor, usePickaxeOnBlockage, enterBlockage, investigateMural, killSpawn,
+		allSteps.add(new PanelDetails(t("Starting off"), Arrays.asList(talkToAlec, talkToDallas, talkToDallasOnCrandor, usePickaxeOnBlockage, enterBlockage, investigateMural, killSpawn,
 			investigateMuralAgain, talkToDallasAfterMural), pickaxe, combatGear));
-		allSteps.add(new PanelDetails("Investigating Fossil Island", Arrays.asList(enterHouseOnTheHill, talkToDallasInHouse, searchNorthChest,
+		allSteps.add(new PanelDetails(t("Investigating Fossil Island"), Arrays.asList(enterHouseOnTheHill, talkToDallasInHouse, searchNorthChest,
 			goUpstairsForMap, searchStoneChestNorth, leaveHouseForMap, searchFungi, searchBriar, searchMushtree, enterHouseWithMapPieces, startMapPuzzle,
 			talkToDallasAfterSolvingMap), List.of(), List.of(emptyInv24)));
-		allSteps.add(new PanelDetails("Investigating Lithkren", Arrays.asList(talkToJardricInMuseumCamp, buildRowBoat, talkToDallasAfterBoatRepair,
+		allSteps.add(new PanelDetails(t("Investigating Lithkren"), Arrays.asList(talkToJardricInMuseumCamp, buildRowBoat, talkToDallasAfterBoatRepair,
 			climbCourtyardStairs, climbDownLithkrenTrapdoor, climbDownLithkrenNorthStairs, talkToDallasInLithkren, searchSkeleton, readDiary, talkToDallasAfterDiary), oakPlank8, swampPaste10, nails12OrMore, hammer, saw));
 
-		allSteps.add(new PanelDetails("Contacting Bob", Arrays.asList(talkToBob, talkToSphinx), catspeakAmulet));
+		allSteps.add(new PanelDetails(t("Contacting Bob"), Arrays.asList(talkToBob, talkToSphinx), catspeakAmulet));
 
-		allSteps.add(new PanelDetails("Entering a dream", Arrays.asList(talkToOneiromancer, fillDreamVial, addGoutweed, crushAstralRune, grindAstralShards, addGroundAstral,
+		allSteps.add(new PanelDetails(t("Entering a dream"), Arrays.asList(talkToOneiromancer, fillDreamVial, addGoutweed, crushAstralRune, grindAstralShards, addGroundAstral,
 			lightBrazier, usePotionOnFlame, talkToBobInDream, killRobertTheStrong, talkToBobAfterRobertFight), sealOfPassage, goutweed, astralRune, hammer, pestleAndMortarHighlighted, tinderbox, combatGear));
 
-		PanelDetails karamjaKeyPanel = new PanelDetails("Karamja key piece", Arrays.asList(enterKharaziMaze, getToCentreOfMaze), machete, axe, food);
+		PanelDetails karamjaKeyPanel = new PanelDetails(t("Karamja key piece"), Arrays.asList(enterKharaziMaze, getToCentreOfMaze), machete, axe, food);
 		karamjaKeyPanel.setLockingStep(gettingTheKaramjaKey);
 
-		PanelDetails varrockKeyPanel = new PanelDetails("Varrock key piece", Arrays.asList(talkToReldo, searchBookcase, talkToReldoAgain, talkToSarah,
+		PanelDetails varrockKeyPanel = new PanelDetails(t("Varrock key piece"), Arrays.asList(talkToReldo, searchBookcase, talkToReldoAgain, talkToSarah,
 			talkToAva, usePipeOnDragonstone, talkToAvaAgain, useLocatorInSwamp), List.of(ghostspeakOrMory2, dragonstone, moltenGlass2, glassblowingPipe, spade), List.of(morytaniaTeleport));
 		varrockKeyPanel.setLockingStep(gettingTheVarrockKey);
 
-		PanelDetails kourendKeyPanel = new PanelDetails("Kourend key piece", Arrays.asList(talkToAmelia, enterCrypt, goDownInCryptF2ToF1, searchTombInCrypt, solveCryptPuzzle, searchTombForCryptKey), combatGear, lightSource);
+		PanelDetails kourendKeyPanel = new PanelDetails(t("Kourend key piece"), Arrays.asList(talkToAmelia, enterCrypt, goDownInCryptF2ToF1, searchTombInCrypt, solveCryptPuzzle, searchTombForCryptKey), combatGear, lightSource);
 		kourendKeyPanel.setLockingStep(gettingTheKourendKey);
 
-		PanelDetails fremennikKeyPanel = new PanelDetails("Fremennik key piece", Arrays.asList(talkToBrundt, talkToTorfinn, killVorkathSidebar, enterVorkathCave, pullLeverInVorkathCave, enterEastVorkathRoom, searchStoneChestForVorkathKey), combatGear);
+		PanelDetails fremennikKeyPanel = new PanelDetails(t("Fremennik key piece"), Arrays.asList(talkToBrundt, talkToTorfinn, killVorkathSidebar, enterVorkathCave, pullLeverInVorkathCave, enterEastVorkathRoom, searchStoneChestForVorkathKey), combatGear);
 		fremennikKeyPanel.setLockingStep(gettingTheFremennikKey);
 
 		allSteps.add(kourendKeyPanel);
@@ -1226,13 +1221,13 @@ public class DragonSlayerII extends BasicQuestHelper
 		allSteps.add(fremennikKeyPanel);
 		allSteps.add(karamjaKeyPanel);
 
-		allSteps.add(new PanelDetails("Unlocking the door", Arrays.asList(goEnterMithDoorFirstTime, castFireOnHead, goSmithKey,
+		allSteps.add(new PanelDetails(t("Unlocking the door"), Arrays.asList(goEnterMithDoorFirstTime, castFireOnHead, goSmithKey,
 			goOpenDoorWithKey, openDoorWithoutKey, goTalkToBobAfterRelease), ancientKey, runesForFireWaveOrSurge3, fremennikKeyPiece,
 			karamjaKeyPiece, varrockKeyPiece, kourendKeyPiece, hammer, antifireShield));
 
-		allSteps.add(new PanelDetails("Creating an army", Arrays.asList(talkToRoald, talkToBrundtAboutThreat, talkToAmik, talkToLathasOrThoros, enterVarrockDiningRoom, talkToBobAfterDiningRoom)));
+		allSteps.add(new PanelDetails(t("Creating an army"), Arrays.asList(talkToRoald, talkToBrundtAboutThreat, talkToAmik, talkToLathasOrThoros, enterVarrockDiningRoom, talkToBobAfterDiningRoom)));
 
-		allSteps.add(new PanelDetails("Final showdown", Arrays.asList(takeBoatToUngael, keepShipAfloat, getToMainShip, kill2Blue2Green, killBlackSteelBrutalRedDragon,
+		allSteps.add(new PanelDetails(t("Final showdown"), Arrays.asList(takeBoatToUngael, keepShipAfloat, getToMainShip, kill2Blue2Green, killBlackSteelBrutalRedDragon,
 			killMithAddyAndRuneDragons, killGalvekSidebar, talkToAlecToFinish), combatGear, antifireShield));
 
 		return allSteps;
@@ -1258,7 +1253,7 @@ public class DragonSlayerII extends BasicQuestHelper
 		req.add(new SkillRequirement(Skill.THIEVING, 60));
 		req.add(new SkillRequirement(Skill.CONSTRUCTION, 50));
 		req.add(new SkillRequirement(Skill.HITPOINTS, 50));
-		req.add(new ItemRequirement("Unlocked the Ancient Caverns during Barbarian Training", -1, -1));
+		req.add(new ItemRequirement(t("Unlocked the Ancient Caverns during Barbarian Training"), -1, -1));
 		return req;
 	}
 }

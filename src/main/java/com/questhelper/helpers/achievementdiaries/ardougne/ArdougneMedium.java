@@ -168,16 +168,16 @@ public class ArdougneMedium extends ComplexStateQuestHelper
 		notCWBallon2 = new VarbitRequirement(VarbitID.ZEP_MULTI_CAST, 0);
 		normalBook = new SpellbookRequirement(Spellbook.NORMAL);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		fairyAccess = new ItemRequirement("Dramen or Lunar staff", ItemCollections.FAIRY_STAFF)
+		fairyAccess = new ItemRequirement(t("Dramen or Lunar staff"), ItemCollections.FAIRY_STAFF)
 			.showConditioned(new Conditions(LogicType.OR, notNecroTower, notUniPen)).isNotConsumed();
 		skavMap = new ItemRequirement("Skavid map", ItemID.SKAVIDMAP).showConditioned(notCaveNightshade).isNotConsumed();
-		lightSource = new ItemRequirement("Any light source", ItemCollections.LIGHT_SOURCES)
+		lightSource = new ItemRequirement(t("Any light source"), ItemCollections.LIGHT_SOURCES)
 			.showConditioned(notCaveNightshade).isNotConsumed();
 		nightshade = new ItemRequirement("Cave nightshade", ItemID.NIGHTSHADE);
 		mithGrap = new ItemRequirement("Mith grapple", ItemID.XBOWS_GRAPPLE_TIP_BOLT_MITHRIL_ROPE).showConditioned(notGrapYan).isNotConsumed();
-		crossbow = new ItemRequirement("Any crossbow", ItemCollections.CROSSBOWS).showConditioned(notGrapYan).isNotConsumed();
+		crossbow = new ItemRequirement(t("Any crossbow"), ItemCollections.CROSSBOWS).showConditioned(notGrapYan).isNotConsumed();
 		bucket = new ItemRequirement("Bucket", ItemID.BUCKET_EMPTY)
 			.showConditioned(new Conditions(notClaimSand)).isNotConsumed();
 		lawRune = new ItemRequirement("Law runes", ItemID.LAWRUNE).showConditioned(notTPArdy);
@@ -198,10 +198,10 @@ public class ArdougneMedium extends ComplexStateQuestHelper
 			notCWBallon2));
 		basket = new ItemRequirement("Basket of apples", ItemID.BASKET_APPLE_5).showConditioned(notArdyStraw);
 		compost = new ItemRequirement("Compost", ItemCollections.COMPOST).showConditioned(notArdyStraw);
-		basketOrCompost = new ItemRequirements(LogicType.OR, "Basket of apples or compost", compost, basket).showConditioned(notArdyStraw);
+		basketOrCompost = new ItemRequirements(LogicType.OR, t("Basket of apples or compost"), compost, basket).showConditioned(notArdyStraw);
 		spade = new ItemRequirement("Spade", ItemID.SPADE).showConditioned(notArdyStraw).isNotConsumed();
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
 		inSkavidCaves = new ZoneRequirement(skavidCaves);
 		inBasement = new ZoneRequirement(basement);
@@ -243,69 +243,69 @@ public class ArdougneMedium extends ComplexStateQuestHelper
 
 	public void setupSteps()
 	{
-		uniPen = new DetailedQuestStep(this, "Enter the unicorn pen in Ardougne Zoo using Fairy rings (BIS).", fairyAccess);
-		necroTower = new DetailedQuestStep(this, "Visit the island east of the Necromancer Tower (AIR).", fairyAccess);
+		uniPen = new DetailedQuestStep(this, t("Enter the unicorn pen in Ardougne Zoo using Fairy rings (BIS)."), fairyAccess);
+		necroTower = new DetailedQuestStep(this, t("Visit the island east of the Necromancer Tower (AIR)."), fairyAccess);
 
 		grapYan = new ObjectStep(this, ObjectID.XBOWS_YANILLE_CASTLEWALL, new WorldPoint(2556, 3072, 0),
-			"Grapple up Yanille's south wall.", crossbow.equipped(), mithGrap);
+			t("Grapple up Yanille's south wall."), crossbow.equipped(), mithGrap);
 		grapYan2 = new ObjectStep(this, ObjectID.XBOWS_YANILLE_CASTLEWALL_BATTLEMENT, new WorldPoint(2556, 3075, 1),
-			"Jump off the opposite side!");
+			t("Jump off the opposite side!"));
 
 		if (questHelperPlugin.getPlayerStateManager().getAccountType() == AccountType.ULTIMATE_IRONMAN)
 		{
 			claimSand = new ObjectStep(this, ObjectID.HANDSAND_SANDPIT_ANIM, new WorldPoint(2543, 3104, 0),
-				"Fill a bucket with sand using Bert's sand pit.", bucket);
+				t("Fill a bucket with sand using Bert's sand pit."), bucket);
 		}
 		else
 		{
 			claimSand = new NpcStep(this, NpcID.HANDSAND_BERT_2OPS, new WorldPoint(2551, 3100, 0),
-				"Claim buckets of sand from Bert in Yanille.");
+				t("Claim buckets of sand from Bert in Yanille."));
 		}
 
-		balloonCW = new DetailedQuestStep(this, "Use a nearby Hot Air Ballon to travel to Castle Wars.",
+		balloonCW = new DetailedQuestStep(this, t("Use a nearby Hot Air Ballon to travel to Castle Wars."),
 			yewLog1);
 		moveToEntrana = new NpcStep(this, NpcID.SHIPMONK1_C, new WorldPoint(3048, 3236, 0),
-			"Speak with a monk to travel to Entrana.", true, yewLog11);
+			t("Speak with a monk to travel to Entrana."), true, yewLog11);
 		moveToEntrana.addAlternateNpcs(NpcID.SHIPMONK1_B, NpcID.SHIPMONK);
 		talkToAug = new NpcStep(this, NpcID.ZEP_PICCARD, new WorldPoint(2810, 3356, 0),
-			"Speak with Augustine and travel to Castle Wars.", yewLog11);
+			t("Speak with Augustine and travel to Castle Wars."), yewLog11);
 
-		tPArdy = new DetailedQuestStep(this, "Cast Teleport to Ardougne spell.", lawRune.quantity(2),
+		tPArdy = new DetailedQuestStep(this, t("Cast Teleport to Ardougne spell."), lawRune.quantity(2),
 			waterRune.quantity(2));
 
 		moveToBasement = new ObjectStep(this, ObjectID.TOL_TRAPDOOR_OPEN, new WorldPoint(2648, 3212, 0),
-			"Enter the basement of the Tower of Life.", combatGear, food, rawChick, rawSword);
+			t("Enter the basement of the Tower of Life."), combatGear, food, rawChick, rawSword);
 		killSwordchick = new ObjectStep(this, ObjectID.TOL_LIFESYMBOL_ALTER, new WorldPoint(3034, 4362, 0),
-			"Activate the Symbol of Life and kill the Swordchick.", combatGear, food, rawChick, rawSword);
+			t("Activate the Symbol of Life and kill the Swordchick."), combatGear, food, rawChick, rawSword);
 
 		moveToSkavid = new ObjectStep(this, ObjectID.SKAVID_CAVE2, new WorldPoint(2524, 3069, 0),
-			"Enter the Cave.", lightSource, skavMap);
-		caveNightshade = new ItemStep(this, "Pickup the Cave nightshade.", nightshade);
+			t("Enter the Cave."), lightSource, skavMap);
+		caveNightshade = new ItemStep(this, t("Pickup the Cave nightshade."), nightshade);
 		// Need step at top of wall for grapple
 		// Need to highlight chicksword to kill
 		// Need to point to Jeb if Jeb is deliverer, otherwise Holgart
 		moveToPlatform = new NpcStep(this, NpcID.SLUG2_JEB_STAGE2, new WorldPoint(2719, 3305, 0),
-			"Talk to Jeb or Holgart to travel to the Fishing Platform.", smallFishingNet);
+			t("Talk to Jeb or Holgart to travel to the Fishing Platform."), smallFishingNet);
 		((NpcStep) (moveToPlatform)).addAlternateNpcs(NpcID.HOLGARTLANDTRAVEL);
 		fishOnPlatform = new NpcStep(this, FishingSpot.SHRIMP.getIds(), new WorldPoint(2790, 3276, 0),
-			"Catch any fish on the Fishing Platform.", smallFishingNet);
+			t("Catch any fish on the Fishing Platform."), smallFishingNet);
 
 		pickMasterFarmer = new NpcStep(this, NpcID.MASTER_FARMER_1, new WorldPoint(2637, 3362, 0),
-			"Pickpocket the master farmer north of East Ardougne.");
+			t("Pickpocket the master farmer north of East Ardougne."));
 
 		ibanUpgrade = new NpcStep(this, NpcID.UPASSMAGE_2OPS, new WorldPoint(2455, 3312, 0),
-			"Talk to the Dark mage in West Ardougne to upgrade your staff.", ibanStaff, coins.quantity(200000));
+			t("Talk to the Dark mage in West Ardougne to upgrade your staff."), ibanStaff, coins.quantity(200000));
 		ibanUpgrade.addDialogSteps("Can you upgrade my Staff of Iban?",
 			"Here's 200,000 coins. Please upgrade the staff.");
-		equipIban = new ItemStep(this, "Equip Iban's staff (u).", ibanStaffU);
+		equipIban = new ItemStep(this, t("Equip Iban's staff (u)."), ibanStaffU);
 
 		ardyStraw = new ObjectStep(this, ObjectID.FARMING_VEG_PATCH_6, new WorldPoint(2667, 3371, 0),
-			"Plant and harvest the strawberries from the north Ardougne allotment. " +
-				"If you're waiting for it to grow and want to complete further tasks, use the tick box on panel.",
+			t("Plant and harvest the strawberries from the north Ardougne allotment. " +
+				"If you're waiting for it to grow and want to complete further tasks, use the tick box on panel."),
 			true, rake, spade, seedDib, strawSeeds.quantity(3));
 
 		claimReward = new NpcStep(this, NpcID.ARDY_TWOPINTS_DIARY, new WorldPoint(2574, 3323, 0),
-			"Talk to Two-pints in the Flying Horse Inn at East Ardougne to claim your reward!");
+			t("Talk to Two-pints in the Flying Horse Inn at East Ardougne to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -349,7 +349,7 @@ public class ArdougneMedium extends ComplexStateQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Swordchick (lvl 46)");
+		return Collections.singletonList(t("Swordchick (lvl 46)"));
 	}
 
 	@Override
@@ -365,12 +365,12 @@ public class ArdougneMedium extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("Three daily teleports to Ardougne farm patch with the Ardougne cloak 2"),
-			new UnlockReward("100 free noted pure essence every day from Wizard Cromperty"),
-			new UnlockReward("Unicow, Newtroost, and Spidine drops will be noted at the Tower of Life"),
-			new UnlockReward("10% increased chance to pickpocket in Ardougne (even if the cloak is not equipped or in inventory)"),
-			new UnlockReward("Ability to toggle the Ring of life teleport to Ardougne"),
-			new UnlockReward("Receive additional runes when crafting essence at the Ourania Altar")
+			new UnlockReward(t("Three daily teleports to Ardougne farm patch with the Ardougne cloak 2")),
+			new UnlockReward(t("100 free noted pure essence every day from Wizard Cromperty")),
+			new UnlockReward(t("Unicow, Newtroost, and Spidine drops will be noted at the Tower of Life")),
+			new UnlockReward(t("10% increased chance to pickpocket in Ardougne (even if the cloak is not equipped or in inventory)")),
+			new UnlockReward(t("Ability to toggle the Ring of life teleport to Ardougne")),
+			new UnlockReward(t("Receive additional runes when crafting essence at the Ourania Altar"))
 		);
 	}
 
@@ -379,85 +379,85 @@ public class ArdougneMedium extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails strawSteps = new PanelDetails("Ardougne Strawberries", Collections.singletonList(ardyStraw),
+		PanelDetails strawSteps = new PanelDetails(t("Ardougne Strawberries"), Collections.singletonList(ardyStraw),
 			new SkillRequirement(Skill.FARMING, 31, true), rake, strawSeeds.quantity(3), seedDib, spade);
 		strawSteps.setDisplayCondition(notArdyStraw);
 		strawSteps.setLockingStep(ardyStrawTask);
 		allSteps.add(strawSteps);
 
-		PanelDetails cwSteps = new PanelDetails("Castle Wars Balloon", Arrays.asList(moveToEntrana, talkToAug,
+		PanelDetails cwSteps = new PanelDetails(t("Castle Wars Balloon"), Arrays.asList(moveToEntrana, talkToAug,
 			balloonCW), new SkillRequirement(Skill.FIREMAKING, 50, true), enlightenedJourney, yewLog11);
 		cwSteps.setDisplayCondition(new Conditions(notBalloonCW, notCWBallon2));
 		cwSteps.setLockingStep(balloonCWTask);
 		allSteps.add(cwSteps);
 
-		PanelDetails cw2Steps = new PanelDetails("Castle Wars Balloon", Collections.singletonList(balloonCW),
+		PanelDetails cw2Steps = new PanelDetails(t("Castle Wars Balloon"), Collections.singletonList(balloonCW),
 			new SkillRequirement(Skill.FIREMAKING, 50, true), enlightenedJourney, yewLog1);
 		cw2Steps.setDisplayCondition(new Conditions(notBalloonCW, notCWBallon));
 		cw2Steps.setLockingStep(balloonCWTask);
 		allSteps.add(cw2Steps);
 
-		PanelDetails nightSteps = new PanelDetails("Cave Nightshade", Arrays.asList(moveToSkavid, caveNightshade),
+		PanelDetails nightSteps = new PanelDetails(t("Cave Nightshade"), Arrays.asList(moveToSkavid, caveNightshade),
 			watchtower, lightSource, skavMap);
 		nightSteps.setDisplayCondition(notCaveNightshade);
 		nightSteps.setLockingStep(caveNightshadeTask);
 		allSteps.add(nightSteps);
 
-		PanelDetails grapSteps = new PanelDetails("Yanille Wall Grapple", Arrays.asList(grapYan, grapYan2),
+		PanelDetails grapSteps = new PanelDetails(t("Yanille Wall Grapple"), Arrays.asList(grapYan, grapYan2),
 			new SkillRequirement(Skill.AGILITY, 39, true), new SkillRequirement(Skill.STRENGTH, 38, true),
 			new SkillRequirement(Skill.RANGED, 21, true), mithGrap, crossbow);
 		grapSteps.setDisplayCondition(notGrapYan);
 		grapSteps.setLockingStep(grapYanTask);
 		allSteps.add(grapSteps);
 
-		PanelDetails sandSteps = new PanelDetails("Claim Sand", Collections.singletonList(claimSand), handInSand);
+		PanelDetails sandSteps = new PanelDetails(t("Claim Sand"), Collections.singletonList(claimSand), handInSand);
 		sandSteps.setDisplayCondition(notClaimSand);
 		sandSteps.setLockingStep(claimSandTask);
 		allSteps.add(sandSteps);
 
-		PanelDetails tpSteps = new PanelDetails("Teleport to Ardougne", Collections.singletonList(tPArdy),
+		PanelDetails tpSteps = new PanelDetails(t("Teleport to Ardougne"), Collections.singletonList(tPArdy),
 			new SkillRequirement(Skill.MAGIC, 51, true), plagueCity, normalBook, lawRune.quantity(2), waterRune.quantity(2));
 		tpSteps.setDisplayCondition(notTPArdy);
 		tpSteps.setLockingStep(tpArdyTask);
 		allSteps.add(tpSteps);
 
-		PanelDetails chickSteps = new PanelDetails("Kill Swordchick", Arrays.asList(moveToBasement, killSwordchick),
+		PanelDetails chickSteps = new PanelDetails(t("Kill Swordchick"), Arrays.asList(moveToBasement, killSwordchick),
 			towerOfLife, rawSword, rawChick, combatGear, food);
 		chickSteps.setDisplayCondition(notKillSwordchick);
 		chickSteps.setLockingStep(killSwordchickTask);
 		allSteps.add(chickSteps);
 
-		PanelDetails fishSteps = new PanelDetails("Fishing Platform", Arrays.asList(moveToPlatform, fishOnPlatform),
+		PanelDetails fishSteps = new PanelDetails(t("Fishing Platform"), Arrays.asList(moveToPlatform, fishOnPlatform),
 			seaSlug, smallFishingNet);
 		fishSteps.setDisplayCondition(notFishOnPlatform);
 		fishSteps.setLockingStep(fishOnPlatformTask);
 		allSteps.add(fishSteps);
 
-		PanelDetails farmerSteps = new PanelDetails("Pickpocket Master Farmer",
+		PanelDetails farmerSteps = new PanelDetails(t("Pickpocket Master Farmer"),
 			Collections.singletonList(pickMasterFarmer), new SkillRequirement(Skill.THIEVING, 38, true));
 		farmerSteps.setDisplayCondition(notPickMasterFarmer);
 		farmerSteps.setLockingStep(pickMasterFarmerTask);
 		allSteps.add(farmerSteps);
 
-		PanelDetails ibanSteps = new PanelDetails("Iban Upgrade", Collections.singletonList(ibanUpgrade),
+		PanelDetails ibanSteps = new PanelDetails(t("Iban Upgrade"), Collections.singletonList(ibanUpgrade),
 			undergroundPass, ibanStaff, coins.quantity(200000));
 		ibanSteps.setDisplayCondition(notIbanUpgrade);
 		ibanSteps.setLockingStep(ibanUpgradeTask);
 		allSteps.add(ibanSteps);
 
-		PanelDetails uniSteps = new PanelDetails("Fairy Ring to Unicorn Pen", Collections.singletonList(uniPen),
+		PanelDetails uniSteps = new PanelDetails(t("Fairy Ring to Unicorn Pen"), Collections.singletonList(uniPen),
 			fairyTaleII, fairyAccess);
 		uniSteps.setDisplayCondition(notUniPen);
 		uniSteps.setLockingStep(uniPenTask);
 		allSteps.add(uniSteps);
 
-		PanelDetails necroSteps = new PanelDetails("Fairy Ring to Necromancer Tower",
+		PanelDetails necroSteps = new PanelDetails(t("Fairy Ring to Necromancer Tower"),
 			Collections.singletonList(necroTower), fairyTaleII, fairyAccess);
 		necroSteps.setDisplayCondition(notNecroTower);
 		necroSteps.setLockingStep(necroTowerTask);
 		allSteps.add(necroSteps);
 
-		allSteps.add(new PanelDetails("Finishing off", Collections.singletonList(claimReward)));
+		allSteps.add(new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward)));
 
 		return allSteps;
 	}

@@ -121,7 +121,7 @@ public class RFDLumbridgeGuide extends BasicQuestHelper
 		guidanceCakeHighlighted.setHighlightInInventory(true);
 
 		lumbridgeTeleport = new ItemRequirement("Lumbridge Teleport", ItemID.POH_TABLET_LUMBRIDGETELEPORT);
-		wizardsTowerTeleport = new ItemRequirement("Necklace of Passage for Wizards' Tower teleport", ItemCollections.NECKLACE_OF_PASSAGES);
+		wizardsTowerTeleport = new ItemRequirement(t("Necklace of Passage for Wizards' Tower teleport"), ItemCollections.NECKLACE_OF_PASSAGES);
 	}
 
 	@Override

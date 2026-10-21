@@ -39,7 +39,7 @@ public class TellAboutMurder extends NpcStep
 	public TellAboutMurder(QuestHelper questHelper)
 	{
 		super(questHelper, NpcID.SOTN_GUARD_CARNILLEAN_UPSTAIRS, new WorldPoint(2571, 3267, 1),
-			"Tell the guard about what you found.");
+			questHelper.t("Tell the guard about what you found."));
 	}
 
 	@Subscribe

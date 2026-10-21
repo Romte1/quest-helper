@@ -181,7 +181,7 @@ public class InSearchOfTheMyreque extends BasicQuestHelper
 		steelWarhammer = new ItemRequirement("Steel warhammer", ItemID.STEEL_WARHAMMER);
 		steeldagger = new ItemRequirement("Steel dagger", ItemID.STEEL_DAGGER);
 		steelNails225 = new ItemRequirement("Steel nails", ItemID.NAILS, 225);
-		druidPouch5 = new ItemRequirement("Charges in a druid pouch", ItemID.DRUID_POUCH, 5);
+		druidPouch5 = new ItemRequirement(t("Charges in a druid pouch"), ItemID.DRUID_POUCH, 5);
 		druidPouch5.setTooltip(t("Additional charges will be needed if a ghast hits you in the swamp"));
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed();
 		plank6 = new ItemRequirement("Plank", ItemID.WOODPLANK, 6);
@@ -190,15 +190,15 @@ public class InSearchOfTheMyreque extends BasicQuestHelper
 		plank1 = new ItemRequirement("Plank", ItemID.WOODPLANK);
 		steelNails150 = new ItemRequirement("Steel nails", ItemID.NAILS, 150);
 		steelNails75 = new ItemRequirement("Steel nails", ItemID.NAILS, 75);
-		coins10OrCharos = new ItemRequirements(LogicType.OR, "10 coins or a Ring of Charos (a)",
+		coins10OrCharos = new ItemRequirements(LogicType.OR, t("10 coins or a Ring of Charos (a)"),
 			new ItemRequirement("Ring of Charos (a)", ItemID.RING_OF_CHAROS_UNLOCKED),
 			new ItemRequirement("Coins", ItemCollections.COINS, 10));
 
 		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		morttonTeleport = new ItemRequirement("Teleport to Mort'ton, such as minigame teleport or Barrows Teleport", ItemID.TELEPORTSCROLL_MORTTON);
+		morttonTeleport = new ItemRequirement(t("Teleport to Mort'ton, such as minigame teleport or Barrows Teleport"), ItemID.TELEPORTSCROLL_MORTTON);
 		morttonTeleport.addAlternates(ItemID.TELETAB_BARROWS);
-		silverSickle = new ItemRequirement("Silver sickle (b) to collect Mort Myre fungi (requires prayer points)", ItemID.SILVER_SICKLE_BLESSED);
+		silverSickle = new ItemRequirement(t("Silver sickle (b) to collect Mort Myre fungi (requires prayer points)"), ItemID.SILVER_SICKLE_BLESSED);
 		silverSickle.setTooltip(t("Although Mort Myre fungus may be bought on the Grand Exchange, a sickle helps with ghast encounters in the swamp"));
 	}
 

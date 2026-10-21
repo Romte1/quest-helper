@@ -137,11 +137,11 @@ public class SpiritsOfTheElid extends BasicQuestHelper
 		needle.setTooltip(t("Costume needle cannot be used as a substitute."));
 		thread = new ItemRequirement("Thread", ItemID.THREAD, 2);
 		thread.setTooltip(t("Costume needle cannot be used as a substitute."));
-		crushWep = new ItemRequirement("Crush Weapon Style", -1, 1).isNotConsumed();
+		crushWep = new ItemRequirement(t("Crush Weapon Style"), -1, 1).isNotConsumed();
 		crushWep.setDisplayItemId(ItemID.RUNE_MACE);
-		stabWep = new ItemRequirement("Stab Weapon Style", -1, 1).isNotConsumed();
+		stabWep = new ItemRequirement(t("Stab Weapon Style"), -1, 1).isNotConsumed();
 		stabWep.setDisplayItemId(ItemID.RUNE_SWORD);
-		slashWep = new ItemRequirement("Slash Weapon Style", -1, 1).isNotConsumed();
+		slashWep = new ItemRequirement(t("Slash Weapon Style"), -1, 1).isNotConsumed();
 		slashWep.setDisplayItemId(ItemID.RUNE_SCIMITAR);
 		lightSource = new ItemRequirement("Light source", ItemCollections.LIGHT_SOURCES, 1).isNotConsumed();
 		knife = new ItemRequirement("Knife", ItemID.KNIFE).highlighted().isNotConsumed();
@@ -149,7 +149,7 @@ public class SpiritsOfTheElid extends BasicQuestHelper
 		pickaxe = new ItemRequirement("Any Pickaxe", ItemCollections.PICKAXES, 1).isNotConsumed();
 		bow = new ItemRequirement("Any bow", ItemCollections.BOWS, 1, true).isNotConsumed();
 		bow.setTooltip(t("Short bow obtainable during quest east of the cave entrance"));
-		arrows = new ItemRequirement("Arrows for bow", ItemCollections.METAL_ARROWS, 1, true);
+		arrows = new ItemRequirement(t("Arrows for bow"), ItemCollections.METAL_ARROWS, 1, true);
 		arrows.setTooltip(t("Bronze arrows obtainable during quest south of cave entrance"));
 
 		normalBook = new SpellbookRequirement(Spellbook.NORMAL);
@@ -178,8 +178,8 @@ public class SpiritsOfTheElid extends BasicQuestHelper
 		waterskins = new ItemRequirement("Waterskins", ItemID.WATER_SKIN4, -1);
 		waterskins.addAlternates(ItemID.WATER_SKIN3, ItemID.WATER_SKIN2, ItemID.WATER_SKIN1);
 		shantaypass = new ItemRequirement("Shantay Passes", ItemID.SHANTAY_PASS, -1);
-		coins = new ItemRequirement("Coins for magic carpet", ItemCollections.COINS, -1);
-		spear = new ItemRequirement("Spear or Hasta for the 3 weapon styles", -1, 1);
+		coins = new ItemRequirement(t("Coins for magic carpet"), ItemCollections.COINS, -1);
+		spear = new ItemRequirement(t("Spear or Hasta for the 3 weapon styles"), -1, 1);
 		spear.setDisplayItemId(ItemID.DRAGON_SPEAR);
 		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
 		necklaceOfPassage = new ItemRequirement("Necklace of Passage", ItemCollections.NECKLACE_OF_PASSAGES, 1);

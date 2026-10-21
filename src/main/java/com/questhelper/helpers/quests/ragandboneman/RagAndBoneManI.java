@@ -146,7 +146,7 @@ public class RagAndBoneManI extends BasicQuestHelper
 		draynorTeleport.addAlternates(ItemID.TELETAB_DRAYNOR);
 		karamjaTeleport = new ItemRequirement("Karamja teleport", ItemCollections.AMULET_OF_GLORIES);
 		karamjaTeleport.addAlternates(ItemID.NZONE_TELETAB_BRIMHAVEN, ItemID.TELEPORTSCROLL_TAIBWO);
-		dramenStaff = new ItemRequirement("Dramen staff for fairy rings", ItemID.DRAMEN_STAFF).isNotConsumed();
+		dramenStaff = new ItemRequirement(t("Dramen staff for fairy rings"), ItemID.DRAMEN_STAFF).isNotConsumed();
 		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 

@@ -262,7 +262,7 @@ public class TheFeud extends BasicQuestHelper
 		poisonHighlighted.setHighlightInInventory(true);
 
 		//Combat Gear
-		combatGear = new ItemRequirement("Combat Gear bring Range or Mage Gear if safe spotting.", -1, -1 );
+		combatGear = new ItemRequirement(t("Combat Gear bring Range or Mage Gear if safe spotting."), -1, -1 );
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		//Recommended Teleports

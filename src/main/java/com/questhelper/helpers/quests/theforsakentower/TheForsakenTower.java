@@ -126,7 +126,7 @@ public class TheForsakenTower extends BasicQuestHelper
 		crank = new ItemRequirement("Generator crank", ItemID.LOVAQUEST_CRANK);
 		oldNotes = new ItemRequirement("Old notes", ItemID.LOVAQUEST_FLUID_NOTE);
 		dinhsHammer = new ItemRequirement("Dinh's hammer", ItemID.LOVAQUEST_HAMMER);
-		gamesNecklace = new ItemRequirement("Games necklace for accessing Wintertodt", ItemCollections.GAMES_NECKLACES);
+		gamesNecklace = new ItemRequirement(t("Games necklace for accessing Wintertodt"), ItemCollections.GAMES_NECKLACES);
 	}
 
 	public void setupConditions()

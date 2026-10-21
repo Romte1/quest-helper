@@ -119,15 +119,15 @@ public class TheGiantDwarf extends BasicQuestHelper
 		redberryPieNoInfo = new ItemRequirement("Redberry pie", ItemID.REDBERRY_PIE);
 
 		// Recommended
-		houseTeleport = new ItemRequirement("A house teleport if your house is in Rimmington and if you have no faster way to Mudskipper Point", -1, -1);
-		rellekkaTeleport = new ItemRequirement("A Camelot/Rellekka teleport (for starting the quest)", ItemID.MAGIC_STRUNG_LYRE_5);
+		houseTeleport = new ItemRequirement(t("A house teleport if your house is in Rimmington and if you have no faster way to Mudskipper Point"), -1, -1);
+		rellekkaTeleport = new ItemRequirement(t("A Camelot/Rellekka teleport (for starting the quest)"), ItemID.MAGIC_STRUNG_LYRE_5);
 		rellekkaTeleport.addAlternates(ItemID.MAGIC_STRUNG_LYRE_4, ItemID.MAGIC_STRUNG_LYRE_3, ItemID.MAGIC_STRUNG_LYRE_2,
 			ItemID.MAGIC_STRUNG_LYRE, ItemID.NZONE_TELETAB_RELLEKKA, ItemID.POH_TABLET_CAMELOTTELEPORT);
 		rellekkaTeleport.addAlternates(ItemCollections.SLAYER_RINGS);
-		fairyRings = new ItemRequirement("Access to fairy rings", -1, -1).isNotConsumed();
+		fairyRings = new ItemRequirement(t("Access to fairy rings"), -1, -1).isNotConsumed();
 		fairyRings.setDisplayItemId(ItemID.POH_SUPERIOR_GARDEN_TELEPORT_RING);
-		staminaPotions = new ItemRequirement("Some stamina potions (when collecting the ores)", ItemCollections.STAMINA_POTIONS);
-		varrockTeleport = new ItemRequirement("A ring of wealth/amulet of glory/Varrock teleport", ItemID.POH_TABLET_VARROCKTELEPORT);
+		staminaPotions = new ItemRequirement(t("Some stamina potions (when collecting the ores)"), ItemCollections.STAMINA_POTIONS);
+		varrockTeleport = new ItemRequirement(t("A ring of wealth/amulet of glory/Varrock teleport"), ItemID.POH_TABLET_VARROCKTELEPORT);
 		varrockTeleport.addAlternates(ItemCollections.RING_OF_WEALTHS);
 		varrockTeleport.addAlternates(ItemCollections.AMULET_OF_GLORIES);
 		clay10 = new ItemRequirement("Clay", ItemID.CLAY, 10);

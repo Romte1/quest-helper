@@ -135,7 +135,7 @@ public class BelowIceMountain extends BasicQuestHelper
 		iceMountainTeleport.addAlternates(ItemID.POH_TABLET_FALADORTELEPORT, ItemID.TABLET_LASSAR);
 		faladorTeleport = new ItemRequirement("Falador teleport", ItemID.POH_TABLET_FALADORTELEPORT);
 		varrockTeleport = new ItemRequirement("Varrock teleport", ItemID.POH_TABLET_VARROCKTELEPORT);
-		combatGearOrPickaxe = new ItemRequirement("Combat gear or a pickaxe if you don't want to fight", -1, -1).isNotConsumed();
+		combatGearOrPickaxe = new ItemRequirement(t("Combat gear or a pickaxe if you don't want to fight"), -1, -1).isNotConsumed();
 		combatGearOrPickaxe.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		var checkalState = new VarbitBuilder(VarbitID.BIM_CHECKAL);

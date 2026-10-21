@@ -179,29 +179,29 @@ public class WesternMedium extends ComplexStateQuestHelper
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).showConditioned(notApeTeak).isNotConsumed();
 		rope = new ItemRequirement("Rope", ItemID.ROPE).showConditioned(notEagleFeldip);
 		gnomebowl = new ItemRequirement("Gnomebowl mould", ItemID.GNOMEBOWL_MOULD).showConditioned(notChocolateBomb).isNotConsumed();
-		gnomebowl.setTooltip("can be purchased at Grand Tree Groceries");
+		gnomebowl.setTooltip(t("can be purchased at Grand Tree Groceries"));
 		gianneDough = new ItemRequirement("Gianne dough", ItemID.GIANNE_DOUGH).showConditioned(notChocolateBomb);
-		gianneDough.setTooltip("can be purchased at Grand Tree Groceries");
+		gianneDough.setTooltip(t("can be purchased at Grand Tree Groceries"));
 		chocolateBar = new ItemRequirement("Chocolate bar", ItemID.CHOCOLATE_BAR, 4).showConditioned(notChocolateBomb);
-		chocolateBar.setTooltip("can be purchased at Grand Tree Groceries");
+		chocolateBar.setTooltip(t("can be purchased at Grand Tree Groceries"));
 		equaLeaf = new ItemRequirement("Equa leaves", ItemID.EQUA_LEAVES).showConditioned(notChocolateBomb);
-		equaLeaf.setTooltip("can be purchased at Grand Tree Groceries");
+		equaLeaf.setTooltip(t("can be purchased at Grand Tree Groceries"));
 		potOfCream = new ItemRequirement("Pot of cream", ItemID.POT_OF_CREAM, 2).showConditioned(notChocolateBomb);
-		potOfCream.setTooltip("can be purchased at Grand Tree Groceries");
+		potOfCream.setTooltip(t("can be purchased at Grand Tree Groceries"));
 		chocolateDust = new ItemRequirement("Chocolate dust", ItemID.CHOCOLATE_DUST).showConditioned(notChocolateBomb);
-		chocolateDust.setTooltip("can be purchased at Grand Tree Groceries");
+		chocolateDust.setTooltip(t("can be purchased at Grand Tree Groceries"));
 		crystalSawSeed = new ItemRequirement("Crystal saw seed", ItemID.CRYSTAL_SEED_OLD_SMALL).showConditioned(notCrystalSaw).isNotConsumed();
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).showConditioned(notMineGold).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).showConditioned(notMineGold).isNotConsumed();
 		ogreBellows = new ItemRequirement("Ogre bellows", ItemCollections.OGRE_BELLOWS).showConditioned(notChompyHat).isNotConsumed();
 		ogreBow = new ItemRequirement("Ogre bow", ItemCollections.OGRE_BOW).showConditioned(notChompyHat).isNotConsumed();
 		ogreArrows = new ItemRequirement("Ogre / brutal arrows", ItemCollections.OGRE_BRUTAL_ARROWS).showConditioned(notChompyHat);
 		teakLogs = new ItemRequirement("Teak logs", ItemID.TEAK_LOGS);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
-		fairyAccess = new ItemRequirement("Dramen or Lunar staff", ItemCollections.FAIRY_STAFF).isNotConsumed();
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
+		fairyAccess = new ItemRequirement(t("Dramen or Lunar staff"), ItemCollections.FAIRY_STAFF).isNotConsumed();
 		seedPod = new ItemRequirement("Royal seed pod", ItemID.MM2_ROYAL_SEED_POD).isNotConsumed();
 
 		inBrimstailCave = new ZoneRequirement(brimstailCave);
@@ -245,78 +245,78 @@ public class WesternMedium extends ComplexStateQuestHelper
 	public void setupSteps()
 	{
 
-		spiritToStronghold = new DetailedQuestStep(this, "Travel to the Gnome Stronghold by spirit tree.");
+		spiritToStronghold = new DetailedQuestStep(this, t("Travel to the Gnome Stronghold by spirit tree."));
 
 		// todo more detailed chocobomb steps
 		moveToStrongFirstChoco = new ObjectStep(this, QHObjectID.GRAND_TREE_F0_LADDER, new WorldPoint(2466, 3495, 0),
-			"Climb the ladder at the Grand Tree.", gnomebowl, gianneDough, chocolateBar, equaLeaf, potOfCream, chocolateDust);
-		chocolateBomb = new DetailedQuestStep(this, "Make a chocolate bomb.", gnomebowl, gianneDough, chocolateBar,
+			t("Climb the ladder at the Grand Tree."), gnomebowl, gianneDough, chocolateBar, equaLeaf, potOfCream, chocolateDust);
+		chocolateBomb = new DetailedQuestStep(this, t("Make a chocolate bomb."), gnomebowl, gianneDough, chocolateBar,
 			equaLeaf, potOfCream, chocolateDust);
 
 		moveToStrongFirstDelivery = new ObjectStep(this, QHObjectID.GRAND_TREE_F0_LADDER, new WorldPoint(2466, 3495, 0),
-			"Climb the ladder at the Grand Tree.");
+			t("Climb the ladder at the Grand Tree."));
 		completeTraining = new NpcStep(this, NpcID.ALUFT_GIANNE, new WorldPoint(2449, 3501, 1),
-			"Complete your training by talking to Blurberry and Aluft Gianne snr.");
+			t("Complete your training by talking to Blurberry and Aluft Gianne snr."));
 		completeTraining.addAlternateNpcs(NpcID.BLURBERRY);
 		completeTraining.addDialogStep("Okay then I'll give it a go.");
 		gnomeDelivery = new NpcStep(this, NpcID.ALUFT_GNOME_DELIVERY_CONTROLLER, new WorldPoint(2439, 3502, 1),
-			"Complete a delivery for the Gnome Restaurant.");
+			t("Complete a delivery for the Gnome Restaurant."));
 		gnomeDelivery.addDialogSteps("Yes, tell me more.", "I'm ready to take a job on now.");
 
 		moveToStrongBase = new ObjectStep(this, ObjectID.GRANDTREE_TRAPDOORUNDER, new WorldPoint(2463, 3497, 0),
-			"Open the trapdoor to enter the underground of the Grand Tree.", pickaxe);
+			t("Open the trapdoor to enter the underground of the Grand Tree."), pickaxe);
 		moveToStrongBase2 = new ObjectStep(this, QHObjectID.GRAND_TREE_F1_LADDER, new WorldPoint(2466, 3495, 1),
-			"Open the trapdoor to enter the underground of the Grand Tree.", pickaxe);
+			t("Open the trapdoor to enter the underground of the Grand Tree."), pickaxe);
 		moveToStrongBase2.addDialogStep("Climb Down.");
 		moveToStrongBase.addSubSteps(moveToStrongBase2);
 		mineGold = new ObjectStep(this, ObjectID.GOLDROCK1, new WorldPoint(2490, 9916, 0),
-			"Mine some gold ore underneath the Grand Tree.", true, pickaxe);
+			t("Mine some gold ore underneath the Grand Tree."), true, pickaxe);
 
 		moveToBrimstailCave = new ObjectStep(this, ObjectID.EYEGLO_BRIMSTAILS_CAVE_ENTRANCE, new WorldPoint(2403, 3419, 0),
-			"Enter Brimstail's cave.", crystalSawSeed);
+			t("Enter Brimstail's cave."), crystalSawSeed);
 		crystalSaw = new ObjectStep(this, ObjectID.EYEGLO_SINGING_BOWL, new WorldPoint(2388, 9813, 0),
-			"Turn your crystal saw seed into a crystal saw.", crystalSawSeed);
+			t("Turn your crystal saw seed into a crystal saw."), crystalSawSeed);
 
 		agiShortcut = new ObjectStep(this, ObjectID.GNOME_STRONGHOLD_SC_ROCK_TOP, new WorldPoint(2487, 3515, 0),
-			"Take the agility shortcut from the Grand Tree to Otto's Grotto.");
+			t("Take the agility shortcut from the Grand Tree to Otto's Grotto."));
 
 		moveToEagle = new ObjectStep(this, ObjectID.EAGLEPEAK_ENTRANCE_CAVE_MULTI, new WorldPoint(2329, 3495, 0),
-			"Enter the cave at the top of Eagles' Peak. " +
-				"You can use a fairy ring to (AKQ), then head south to get there easily.", rope);
+			t("Enter the cave at the top of Eagles' Peak. " +
+				"You can use a fairy ring to (AKQ), then head south to get there easily."), rope);
 		eagleFeldip = new NpcStep(this, NpcID.EAGLEPEAK_EAGLE_TOJUNGLE, new WorldPoint(2027, 4964, 3),
-			"Use a rope on the Jungle Eagle to travel to the Feldip Hills area.", rope.highlighted());
+			t("Use a rope on the Jungle Eagle to travel to the Feldip Hills area."), rope.highlighted());
 		eagleFeldip.addIcon(ItemID.ROPE);
 
 		spinedLarupia = new NpcStep(this, NpcID.HUNTING_JAGUAR, new WorldPoint(2551, 2904, 0),
-			"Place logs over a pit in the Feldip hunter area, and poke a larupia with a teasing stick. " +
-				"Jump over the pits until the larupia falls in and loot it.", teasingStick, logs, knife);
+			t("Place logs over a pit in the Feldip hunter area, and poke a larupia with a teasing stick. " +
+				"Jump over the pits until the larupia falls in and loot it."), teasingStick, logs, knife);
 
-		gliderToFeldip = new DetailedQuestStep(this, "Travel to the Feldip Hills by Gnome Glider.");
+		gliderToFeldip = new DetailedQuestStep(this, t("Travel to the Feldip Hills by Gnome Glider."));
 
-		moveToApeBass = new DetailedQuestStep(this, "Travel to Ape Atoll.", bigFishingNet);
+		moveToApeBass = new DetailedQuestStep(this, t("Travel to Ape Atoll."), bigFishingNet);
 		apeBass = new NpcStep(this, NpcID._0_42_42_MEMBERFISH, new WorldPoint(2705, 2700, 0),
-			"Fish some bass on Ape Atoll.", bigFishingNet);
+			t("Fish some bass on Ape Atoll."), bigFishingNet);
 
-		moveToApeTeak = new DetailedQuestStep(this, "Travel to Ape Atoll.", axe, tinderbox);
+		moveToApeTeak = new DetailedQuestStep(this, t("Travel to Ape Atoll."), axe, tinderbox);
 		apeTeakChop = new ObjectStep(this, ObjectID.TEAKTREE, new WorldPoint(2773, 2698, 0),
-			"Chop some teak logs on Ape Atoll.", axe, tinderbox);
-		apeTeakBurn = new ItemStep(this, "Burn some teak logs on Ape Atoll.",
+			t("Chop some teak logs on Ape Atoll."), axe, tinderbox);
+		apeTeakBurn = new ItemStep(this, t("Burn some teak logs on Ape Atoll."),
 			teakLogs.highlighted(), tinderbox.highlighted());
 
 		moveToPest = new NpcStep(this, NpcID.PEST_SQUIRE_SHIP_PORTSARIM, new WorldPoint(3041, 3202, 0),
-			"Talk to the squire to travel to the Void Knights' Outpost. Alternatively, use the pest control minigame teleport.");
+			t("Talk to the squire to travel to the Void Knights' Outpost. Alternatively, use the pest control minigame teleport."));
 		moveToPest.addDialogStep("I'd like to go to your outpost.");
 		interPest = new ObjectStep(this, ObjectID.PEST_LANDER_GANGPLANK_2, new WorldPoint(2643, 2644, 0),
-			"Complete an intermediate game of Pest Control.");
+			t("Complete an intermediate game of Pest Control."));
 
 		chompyHat = new NpcStep(this, NpcID.RANTZ, new WorldPoint(2628, 2979, 0),
-			"Claim any Chompy bird hat from Rantz. Kill chompy birds until you have 125 kills. \n \nYou can check " +
-				"your kill count by right clicking 'Check Kills' on an ogre bow.",
+			t("Claim any Chompy bird hat from Rantz. Kill chompy birds until you have 125 kills. \n \nYou can check " +
+				"your kill count by right clicking 'Check Kills' on an ogre bow."),
 			ogreBow, ogreArrows, ogreBellows);
 		chompyHat.addDialogStep("Can I have a hat please?");
 
 		claimReward = new NpcStep(this, NpcID.WESTERN_GNOME_CHILD_DIARY, new WorldPoint(2466, 3460, 0),
-			"Talk to the Elder gnome child in Gnome Stronghold to claim your reward!");
+			t("Talk to the Elder gnome child in Gnome Stronghold to claim your reward!"));
 		claimReward.addDialogStep("I have a question about my Achievement Diary.");
 	}
 
@@ -369,9 +369,9 @@ public class WesternMedium extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-			new UnlockReward("50% chance of 2 chompy birds appearing when Chompy bird hunting"),
-			new UnlockReward("Crystal saw holds twice as many charges (56 up from 28)"),
-			new UnlockReward("50 free ogre arrows every day from Rantz")
+			new UnlockReward(t("50% chance of 2 chompy birds appearing when Chompy bird hunting")),
+			new UnlockReward(t("Crystal saw holds twice as many charges (56 up from 28)")),
+			new UnlockReward(t("50 free ogre arrows every day from Rantz"))
 		);
 	}
 
@@ -380,86 +380,86 @@ public class WesternMedium extends ComplexStateQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails spiritSteps = new PanelDetails("Spirit Tree To Gnome Stronghold",
+		PanelDetails spiritSteps = new PanelDetails(t("Spirit Tree To Gnome Stronghold"),
 			Collections.singletonList(spiritToStronghold), treeGnomeVillage);
 		spiritSteps.setDisplayCondition(notSpiritToStronghold);
 		spiritSteps.setLockingStep(spiritToStrongholdTask);
 		allSteps.add(spiritSteps);
 
-		PanelDetails chocoSteps = new PanelDetails("Chocolate Bomb", Arrays.asList(moveToStrongFirstChoco,
+		PanelDetails chocoSteps = new PanelDetails(t("Chocolate Bomb"), Arrays.asList(moveToStrongFirstChoco,
 			chocolateBomb), new SkillRequirement(Skill.COOKING, 42, true), gnomebowl, gianneDough, chocolateBar, equaLeaf,
 			potOfCream, chocolateDust);
 		chocoSteps.setDisplayCondition(notChocolateBomb);
 		chocoSteps.setLockingStep(chocolateBombTask);
 		allSteps.add(chocoSteps);
 
-		PanelDetails restSteps = new PanelDetails("Gnome Restaurant Delivery",
+		PanelDetails restSteps = new PanelDetails(t("Gnome Restaurant Delivery"),
 			Arrays.asList(moveToStrongFirstDelivery, gnomeDelivery), new SkillRequirement(Skill.COOKING, 42, true));
 		restSteps.setDisplayCondition(notGnomeDelivery);
 		restSteps.setLockingStep(gnomeDeliveryTask);
 		allSteps.add(restSteps);
 
-		PanelDetails goldSteps = new PanelDetails("Gold Under The Grand Tree",
+		PanelDetails goldSteps = new PanelDetails(t("Gold Under The Grand Tree"),
 			Arrays.asList(moveToStrongBase, mineGold), new SkillRequirement(Skill.MINING, 40, true), pickaxe);
 		goldSteps.setDisplayCondition(notMineGold);
 		goldSteps.setLockingStep(mineGoldTask);
 		allSteps.add(goldSteps);
 
-		PanelDetails sawSteps = new PanelDetails("Crystal Saw", Arrays.asList(moveToBrimstailCave, crystalSaw), eyesOfGlouphrie,
+		PanelDetails sawSteps = new PanelDetails(t("Crystal Saw"), Arrays.asList(moveToBrimstailCave, crystalSaw), eyesOfGlouphrie,
 			crystalSawSeed);
 		sawSteps.setDisplayCondition(notCrystalSaw);
 		sawSteps.setLockingStep(crystalSawTask);
 		allSteps.add(sawSteps);
 
-		PanelDetails agiSteps = new PanelDetails("Agility Shortcut To Otto", Collections.singletonList(agiShortcut),
+		PanelDetails agiSteps = new PanelDetails(t("Agility Shortcut To Otto"), Collections.singletonList(agiShortcut),
 			new SkillRequirement(Skill.AGILITY, 37, true), treeGnomeVillage, grandTree);
 		agiSteps.setDisplayCondition(notAgiShortcut);
 		agiSteps.setLockingStep(agiShortcutTask);
 		allSteps.add(agiSteps);
 
-		PanelDetails eagleSteps = new PanelDetails("Eagle To Feldip Hills", Arrays.asList(moveToEagle, eagleFeldip));
+		PanelDetails eagleSteps = new PanelDetails(t("Eagle To Feldip Hills"), Arrays.asList(moveToEagle, eagleFeldip));
 		eagleSteps.setDisplayCondition(notEagleFeldip);
 		eagleSteps.setLockingStep(eagleFeldipTask);
 		allSteps.add(eagleSteps);
 
-		PanelDetails laruSteps = new PanelDetails("Spined Larupia", Collections.singletonList(spinedLarupia),
+		PanelDetails laruSteps = new PanelDetails(t("Spined Larupia"), Collections.singletonList(spinedLarupia),
 			new SkillRequirement(Skill.HUNTER, 31, true), teasingStick, knife, logs);
 		laruSteps.setDisplayCondition(notSpinedLarupia);
 		laruSteps.setLockingStep(spinedLarupiaTask);
 		allSteps.add(laruSteps);
 
-		PanelDetails gliderSteps = new PanelDetails("Glider To Feldip Hills", Collections.singletonList(gliderToFeldip),
+		PanelDetails gliderSteps = new PanelDetails(t("Glider To Feldip Hills"), Collections.singletonList(gliderToFeldip),
 			grandTree, oneSmallFavour);
 		gliderSteps.setDisplayCondition(notGliderToFeldip);
 		gliderSteps.setLockingStep(gliderToFeldipTask);
 		allSteps.add(gliderSteps);
 
-		PanelDetails bassSteps = new PanelDetails("Bass On Ape Atoll", Arrays.asList(moveToApeBass, apeBass),
+		PanelDetails bassSteps = new PanelDetails(t("Bass On Ape Atoll"), Arrays.asList(moveToApeBass, apeBass),
 			new SkillRequirement(Skill.FISHING, 46, true), monkeyMadnessI, bigFishingNet);
 		bassSteps.setDisplayCondition(notApeBass);
 		bassSteps.setLockingStep(apeBassTask);
 		allSteps.add(bassSteps);
 
-		PanelDetails teakSteps = new PanelDetails("Teaks On Ape Atoll", Arrays.asList(moveToApeTeak, apeTeakChop,
+		PanelDetails teakSteps = new PanelDetails(t("Teaks On Ape Atoll"), Arrays.asList(moveToApeTeak, apeTeakChop,
 			apeTeakBurn), new SkillRequirement(Skill.FIREMAKING, 35, true), new SkillRequirement(Skill.WOODCUTTING, 35, true),
 			monkeyMadnessI, axe, tinderbox);
 		teakSteps.setDisplayCondition(notApeTeak);
 		teakSteps.setLockingStep(apeTeakTask);
 		allSteps.add(teakSteps);
 
-		PanelDetails pestSteps = new PanelDetails("Intermediate Pest Control", Arrays.asList(moveToPest, interPest),
+		PanelDetails pestSteps = new PanelDetails(t("Intermediate Pest Control"), Arrays.asList(moveToPest, interPest),
 			new CombatLevelRequirement(70), combatGear);
 		pestSteps.setDisplayCondition(notInterPest);
 		pestSteps.setLockingStep(interPestTask);
 		allSteps.add(pestSteps);
 
-		PanelDetails hatSteps = new PanelDetails("Chompy Bird Hat", Collections.singletonList(chompyHat),
+		PanelDetails hatSteps = new PanelDetails(t("Chompy Bird Hat"), Collections.singletonList(chompyHat),
 			new SkillRequirement(Skill.RANGED, 30, false), bigChompy, ogreBellows, ogreBow, ogreArrows);
 		hatSteps.setDisplayCondition(notChompyHat);
 		hatSteps.setLockingStep(chompyHatTask);
 		allSteps.add(hatSteps);
 
-		allSteps.add(new PanelDetails("Finishing off", Collections.singletonList(claimReward)));
+		allSteps.add(new PanelDetails(t("Finishing off"), Collections.singletonList(claimReward)));
 
 		return allSteps;
 	}

@@ -77,7 +77,7 @@ public class GiveItems extends NpcStep
 		}
 		if (getRequirements().isEmpty())
 		{
-			setText("Talk to Eblis in the east of the Bandit Camp.");
+			setText(questHelper.t("Talk to Eblis in the east of the Bandit Camp."));
 		}
 	}
 }

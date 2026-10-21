@@ -130,19 +130,19 @@ public class Contact extends BasicQuestHelper
 		parchment = new ItemRequirement("Parchment", ItemID.CONTACT_KALEEF_SCROLL);
 		parchment.setHighlightInInventory(true);
 
-		combatGear = new ItemRequirement("Combat gear, preferably magic/ranged", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear, preferably magic/ranged"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getMagicCombatGear());
 
 		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
 
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS, -1);
 		antipoison = new ItemRequirement("Antipoisons", ItemCollections.ANTIPOISONS);
-		waterskin = new ItemRequirement("Waterskins for desert travel", ItemCollections.WATERSKIN);
+		waterskin = new ItemRequirement(t("Waterskins for desert travel"), ItemCollections.WATERSKIN);
 
 		keris = new ItemRequirement("Keris", ItemID.CONTACT_KERIS);
 
-		coins = new ItemRequirement("Coins for carpet rides", ItemCollections.COINS);
-		glory = new ItemRequirement("Amulet of glory for getting to Osman", ItemCollections.AMULET_OF_GLORIES);
+		coins = new ItemRequirement(t("Coins for carpet rides"), ItemCollections.COINS);
+		glory = new ItemRequirement(t("Amulet of glory for getting to Osman"), ItemCollections.AMULET_OF_GLORIES);
 	}
 
 	@Override

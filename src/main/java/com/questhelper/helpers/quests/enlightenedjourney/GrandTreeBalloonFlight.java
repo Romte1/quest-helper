@@ -59,7 +59,7 @@ public class GrandTreeBalloonFlight extends ComplexStateQuestHelper
 		sections.put(8, section2);
 		sections.put(9, section3);
 
-		fly = new BalloonFlightStep(this, "Navigate the balloon on Entrana to the Grand Tree.", sections, magicLogs);
+		fly = new BalloonFlightStep(this, t("Navigate the balloon on Entrana to the Grand Tree."), sections, magicLogs);
 		return fly;
 	}
 
@@ -95,7 +95,7 @@ public class GrandTreeBalloonFlight extends ComplexStateQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Collections.singletonList(
-			new UnlockReward("Ability to fly via balloon to the Grand Tree with 1 magic log")
+			new UnlockReward(t("Ability to fly via balloon to the Grand Tree with 1 magic log"))
 		);
 	}
 
@@ -105,7 +105,7 @@ public class GrandTreeBalloonFlight extends ComplexStateQuestHelper
 	{
 		ArrayList<PanelDetails> allSteps = new ArrayList<>();
 
-		allSteps.add(new PanelDetails("Flying to the Grand Tree", Collections.singletonList(fly), magicLogs));
+		allSteps.add(new PanelDetails(t("Flying to the Grand Tree"), Collections.singletonList(fly), magicLogs));
 
 		return allSteps;
 	}
