@@ -107,7 +107,7 @@ public class FishingContest extends BasicQuestHelper
 		coins = new ItemRequirement("Coins", ItemCollections.COINS, 5);
 		coins.setTooltip(t("10 if you buy a fishing rod from Jack"));
 		fishingPass = new ItemRequirement("Fishing Pass", ItemID.FISHING_COMPETITION_PASS);
-		fishingPass.setTooltip("This can be obtained during the quest\n\nIf you lose this you can get another from Vestri.");
+		fishingPass.setTooltip(t("This can be obtained during the quest\n\nIf you lose this you can get another from Vestri."));
 		garlic = new ItemRequirement("Garlic", ItemID.GARLIC);
 		garlic.setTooltip(t("This can be obtained during the quest."));
 		garlic.setHighlightInInventory(true);
@@ -179,13 +179,13 @@ public class FishingContest extends BasicQuestHelper
 		fishNearPipes.addStep(winningFish, speakToBonzoWithFish);
 
 		teleToHemenster = new NpcStep(this, NpcID.GRANDPA_JACK, "", coins);
-		teleToHemenster.addText("\nTeleport to Hemenster via the combat bracelet.\n\nSpeak to Grandpa Jack to buy a fishing rod.");
+		teleToHemenster.addText(t("\nTeleport to Hemenster via the combat bracelet.\n\nSpeak to Grandpa Jack to buy a fishing rod."));
 		teleToHemenster.addDialogStep("Ranging Guild");
 		teleToHemenster.addDialogStep("Can I buy one of your fishing rods?");
 		teleToHemenster.addDialogStep("Very fair, I'll buy that rod!");
 
 		runToJack = new NpcStep(this, NpcID.GRANDPA_JACK, new WorldPoint(2649, 3451, 0), "", coins);
-		runToJack.setText("Speak to Grandpa Jack to get a fishing rod.\nYou can leave McGrubor's Woods via the northern entrance.");
+		runToJack.setText(t("Speak to Grandpa Jack to get a fishing rod.\nYou can leave McGrubor's Woods via the northern entrance."));
 		runToJack.addDialogStep("Can I buy one of your fishing rods?");
 		runToJack.addDialogStep("Very fair, I'll buy that rod!");
 

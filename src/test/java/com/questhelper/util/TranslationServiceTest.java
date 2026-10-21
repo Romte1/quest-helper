@@ -83,6 +83,17 @@ public class TranslationServiceTest
 		assertThrows(AssertionError.class, () -> service.t("cooks_assistant", null));
 	}
 
+	// Keys can contain '=' and newlines thanks to escaping.
+	@Test
+	public void escapedKeysAndValuesAreResolved()
+	{
+		var service = new TranslationService();
+		service.setLanguage(Language.SPANISH);
+		assertEquals("Valor con = iguales", service.t("escaping_test", "Key with = equals"));
+		assertEquals("Primera línea\nSegunda línea", service.t("escaping_test", "Line one\nLine two"));
+		assertEquals("Barra invertida", service.t("escaping_test", "Back\\slash"));
+	}
+
 	// Changing language at runtime takes effect immediately on the next call.
 	@Test
 	public void languageChangeAppliesImmediately()

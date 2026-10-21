@@ -427,7 +427,7 @@ public class TheFeud extends BasicQuestHelper
 		pickupDung = new ObjectStep(this, ObjectID.FEUD_UGTHANKI_POOH, t("Use the bucket on the dung."), bucket.highlighted());
 		pickupDung.addIcon(ItemID.BUCKET_EMPTY);
 
-		getDung = new ObjectStep(this, ObjectID.FEUD_FOODTROUGH2, new WorldPoint(3343, 2960, 0), "Use the Red Hot Sauce on the Trough and wait for a Camel to poop out the dung.\n Only pickup brown/Ugthanki dung, if you plan to do \"My Arm's Big Adventure\" or \"Forgettable Tale of a Drunken Dwarf\" then you may want to grab four more Ugthanki dung.", redHotSauce);
+		getDung = new ObjectStep(this, ObjectID.FEUD_FOODTROUGH2, new WorldPoint(3343, 2960, 0), t("Use the Red Hot Sauce on the Trough and wait for a Camel to poop out the dung.\n Only pickup brown/Ugthanki dung, if you plan to do \"My Arm's Big Adventure\" or \"Forgettable Tale of a Drunken Dwarf\" then you may want to grab four more Ugthanki dung."), redHotSauce);
 		getDung.addIcon(ItemID.SUPERHOT_KEBAB_SAUCE);
 
 		givenDungToHag = new NpcStep(this, NpcID.FEUD_HAG, new WorldPoint(3345, 2986, 0), t("Talk to Ali the Hag and give her the dung."), dung);
@@ -456,7 +456,7 @@ public class TheFeud extends BasicQuestHelper
 		talkToBanditLeader = new NpcStep(this, NpcID.FEUD_BANDIT_BOSS_VIS, new WorldPoint(3353, 3002, 0), t("Talk to the Bandit Leader and be prepared to fight a Bandit Champion. You can safe spot him with the stool."));
 		talkToBanditLeader.addSubSteps(killBanditChampion);
 
-		killBanditChampion = new DetailedQuestStep(this, "Kill the Bandit Champion, you can safe spot him with the stool. \n If he's not spawned then talk to the Bandit Leader again.");
+		killBanditChampion = new DetailedQuestStep(this, t("Kill the Bandit Champion, you can safe spot him with the stool. \n If he's not spawned then talk to the Bandit Leader again."));
 
 		//Step 26
 		//Spawn Mayor

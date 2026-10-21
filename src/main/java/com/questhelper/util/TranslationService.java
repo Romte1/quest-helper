@@ -67,6 +67,9 @@ public class TranslationService
 	 * Returns the translation of {@code text} from the messages file for
 	 * {@code namespace}, or {@code text} itself when the language is native,
 	 * the file does not exist, or the file has no entry for {@code text}.
+	 * <p>
+	 * Keys may contain {@code =} (write it as {@code \=}) and newlines
+	 * (write them as {@code \n}), so any English string can be a key.
 	 *
 	 * @param namespace per-quest file name under {@code translations/<lang>/},
 	 *                  or {@code null} to get the native string
@@ -103,18 +106,20 @@ public class TranslationService
 				String line;
 				while ((line = reader.readLine()) != null)
 				{
-					if (line.isBlank() || line.startsWith("#") || line.startsWith("!"))
+					String content = line.stripLeading();
+					if (content.isEmpty() || content.startsWith("#") || content.startsWith("!"))
 					{
 						continue;
 					}
 
-					int separator = line.indexOf('=');
+					int separator = indexOfUnescapedEquals(content);
 					if (separator <= 0)
 					{
 						continue;
 					}
 
-					messages.put(line.substring(0, separator), line.substring(separator + 1).stripLeading());
+					messages.put(unescape(content.substring(0, separator)),
+						unescape(content.substring(separator + 1).stripLeading()));
 				}
 			}
 			return messages;
@@ -124,5 +129,72 @@ public class TranslationService
 			log.warn("Failed to load translation file {}", resource, e);
 			return Collections.emptyMap();
 		}
+	}
+
+	private static int indexOfUnescapedEquals(String line)
+	{
+		boolean escaped = false;
+		for (int i = 0; i < line.length(); i++)
+		{
+			char c = line.charAt(i);
+			if (escaped)
+			{
+				escaped = false;
+			}
+			else if (c == '\\')
+			{
+				escaped = true;
+			}
+			else if (c == '=')
+			{
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	/**
+	 * Resolves {@code \n}, {@code \t}, {@code \r}, {@code \\}, {@code \=} and
+	 * {@code \:} so keys can contain any character but a newline in the file.
+	 */
+	private static String unescape(String text)
+	{
+		if (text.indexOf('\\') < 0)
+		{
+			return text;
+		}
+
+		StringBuilder result = new StringBuilder(text.length());
+		for (int i = 0; i < text.length(); i++)
+		{
+			char c = text.charAt(i);
+			if (c != '\\' || i + 1 >= text.length())
+			{
+				result.append(c);
+				continue;
+			}
+
+			char next = text.charAt(++i);
+			switch (next)
+			{
+				case 'n':
+					result.append('\n');
+					break;
+				case 't':
+					result.append('\t');
+					break;
+				case 'r':
+					result.append('\r');
+					break;
+				case '=':
+				case ':':
+				case '\\':
+					result.append(next);
+					break;
+				default:
+					result.append(c).append(next);
+			}
+		}
+		return result.toString();
 	}
 }

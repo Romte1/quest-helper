@@ -150,7 +150,7 @@ public class TribalTotem extends BasicQuestHelper
         talkToCromperty.addDialogSteps("Chat.", "So what have you invented?", "Can I be teleported please?", "Yes, that sounds good. Teleport me!");
 
         enterPassword = new PuzzleWrapperStep(this,
-			new ObjectStep(this, ObjectID.COMBODOOR, new WorldPoint(2634, 3323, 0), "Try and open the door to the west. The password is 'KURT', (K=10 right, U=6 left, R=9 left, T=7 left)"),
+			new ObjectStep(this, ObjectID.COMBODOOR, new WorldPoint(2634, 3323, 0), t("Try and open the door to the west. The password is 'KURT', (K=10 right, U=6 left, R=9 left, T=7 left)")),
 			t("Work out and enter the password for the door to the west."));
         solvePassword = new PuzzleWrapperStep(this, new PuzzleStep(this)).withNoHelpHiddenInSidebar(true);
         climbStairs = new ObjectStep(this, ObjectID.TOTEMTRAPSTAIRS, new WorldPoint(2632, 3323, 0), t("FIRST Right-click 'Investigate' the stairs to disable a trap, then climb the stairs."));

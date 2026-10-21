@@ -132,7 +132,7 @@ public class MakingHistory extends BasicQuestHelper
 		ectophial.addAlternates(ItemCollections.SLAYER_RINGS); // Slayer Tower
 		ectophial.addAlternates(ItemID.MORYTANIA_LEGS_MEDIUM, ItemID.MORYTANIA_LEGS_HARD, ItemID.MORYTANIA_LEGS_ELITE);
 		ectophial.setTooltip(t("You will need 2 ecto-tokens if you have not completed Ghosts Ahoy."));
-		ectophial.appendToTooltip("If you do not have 2 ecto-tokens bring 1 bone, 1 pot and 1 bucket to earn 5 ecto-tokens at the Ectofunctus.\n");
+		ectophial.appendToTooltip(t("If you do not have 2 ecto-tokens bring 1 bone, 1 pot and 1 bucket to earn 5 ecto-tokens at the Ectofunctus.\n"));
 		ectophial.appendToTooltip(t("You can use the Fairy Ring 'ALQ' or the Morytania Legs 2 or higher to get to Port Phasmatys."));
 		ectophial.appendToTooltip(t("Slayer rings and the Kharyrll teleport can also be used."));
 

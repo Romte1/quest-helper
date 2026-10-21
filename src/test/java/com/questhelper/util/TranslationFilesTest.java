@@ -41,7 +41,7 @@ public class TranslationFilesTest
 						continue;
 					}
 
-					int separator = line.indexOf('=');
+					int separator = indexOfUnescapedEquals(line);
 					assertTrue(separator > 0, "Missing '=' in " + file + ": " + line);
 					assertTrue(keys.add(line.substring(0, separator)), "Duplicate key in " + file + ": " + line);
 					assertFalse(line.substring(separator + 1).isBlank(), "Empty translation in " + file + ": " + line);
@@ -50,5 +50,27 @@ public class TranslationFilesTest
 				assertFalse(keys.isEmpty(), "No entries in " + file);
 			}
 		}
+	}
+
+	private static int indexOfUnescapedEquals(String line)
+	{
+		boolean escaped = false;
+		for (int i = 0; i < line.length(); i++)
+		{
+			char c = line.charAt(i);
+			if (escaped)
+			{
+				escaped = false;
+			}
+			else if (c == '\\')
+			{
+				escaped = true;
+			}
+			else if (c == '=')
+			{
+				return i;
+			}
+		}
+		return -1;
 	}
 }
