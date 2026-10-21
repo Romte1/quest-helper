@@ -86,7 +86,7 @@ public class IncantationStep extends DetailedQuestStep
 
 	public IncantationStep(QuestHelper questHelper, boolean reverse, ItemRequirement sigilHighlighted)
 	{
-		super(questHelper, "Click the demonic sigil and read the incantation.", sigilHighlighted);
+		super(questHelper, questHelper.t("Click the demonic sigil and read the incantation."), sigilHighlighted);
 		this.reverse = reverse;
 	}
 
@@ -206,10 +206,10 @@ public class IncantationStep extends DetailedQuestStep
 				WORDS[client.getVarbitValue(INCANTATION_WORD_5)],
 			};
 		}
-		String incantString = "Say the following in order: " + String.join(", ", incantationOrder);
+		String incantString = questHelper.t("Say the following in order:") + " " + String.join(", ", incantationOrder);
 
-		setText("Click the demonic sigil and read the incantation.");
+		setText(questHelper.t("Click the demonic sigil and read the incantation."));
 		addText(incantString);
-		addText("If the highlight feels wrong, click the demonic sigil again.");
+		addText(questHelper.t("If the highlight feels wrong, click the demonic sigil again."));
 	}
 }

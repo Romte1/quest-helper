@@ -147,7 +147,7 @@ public class BigChompyBirdHunting extends BasicQuestHelper
 		chisel = new ItemRequirement("Chisel", ItemCollections.CHISEL).isNotConsumed();
 		chisel.setHighlightInInventory(true);
 		wolfBones4 = new ItemRequirement("Wolf bones", ItemID.WOLF_BONES, 4);
-		wolfBones4.setTooltip("You can kill wolves (level 64) around Feldip for bones");
+		wolfBones4.setTooltip(t("You can kill wolves (level 64) around Feldip for bones"));
 		acheyLogs = new ItemRequirement("Achey tree logs", ItemID.ACHEY_TREE_LOGS);
 		acheyLogs.setHighlightInInventory(true);
 
@@ -176,7 +176,7 @@ public class BigChompyBirdHunting extends BasicQuestHelper
 		ogreBowInventory = new ItemRequirement("Ogre bow", ItemID.OGRE_BOW).isNotConsumed();
 
 		emptyBellow = new ItemRequirement("Ogre bellows (empty)", ItemID.EMPTY_OGRE_BELLOWS);
-		emptyBellow.setTooltip("You can get more from the chest in Rantz's cave");
+		emptyBellow.setTooltip(t("You can get more from the chest in Rantz's cave"));
 		emptyBellow.setHighlightInInventory(true);
 		fullBellow = new ItemRequirement("Ogre bellows", ItemID.FILLED_OGRE_BELLOW1);
 		fullBellow.addAlternates(ItemID.FILLED_OGRE_BELLOW2, ItemID.FILLED_OGRE_BELLOW3);
@@ -239,51 +239,51 @@ public class BigChompyBirdHunting extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToRantz = new NpcStep(this, NpcID.RANTZ, new WorldPoint(2631, 2982, 0), "Talk to Rantz in the east of Feldip Hills.");
+		talkToRantz = new NpcStep(this, NpcID.RANTZ, new WorldPoint(2631, 2982, 0), t("Talk to Rantz in the east of Feldip Hills."));
 		talkToRantz.addDialogSteps("Yes.", "Ok, I'll make you some 'stabbers'.");
-		getLogs = new ObjectStep(this, ObjectID.ACHEY_TREE, new WorldPoint(2627, 2975, 0), "Get some achey tree logs near Rantz.", axe);
-		makeShafts = new DetailedQuestStep(this, "Use your knife on the achey logs to make arrow shafts.", knifeHighlighted, acheyLogs);
-		useFeathersOnShafts = new DetailedQuestStep(this, "Use the feathers on the arrow shafts.", feathersHighlighted, shaftsHighlighted);
-		useChiselOnBones = new DetailedQuestStep(this, "Use a chisel on some wolf bones.", chisel, wolfBonesHighlighted);
-		useTipsOnShafts = new DetailedQuestStep(this, "Add the bone arrow tips to the flighted ogre arrows.", tipsHighlighted, flightedArrowsHighlighted);
-		useArrowsOnRantz = new NpcStep(this, NpcID.RANTZ, new WorldPoint(2631, 2982, 0), "Use at least 6 ogre arrows on Rantz.", ogreArrows6Highlighted);
+		getLogs = new ObjectStep(this, ObjectID.ACHEY_TREE, new WorldPoint(2627, 2975, 0), t("Get some achey tree logs near Rantz."), axe);
+		makeShafts = new DetailedQuestStep(this, t("Use your knife on the achey logs to make arrow shafts."), knifeHighlighted, acheyLogs);
+		useFeathersOnShafts = new DetailedQuestStep(this, t("Use the feathers on the arrow shafts."), feathersHighlighted, shaftsHighlighted);
+		useChiselOnBones = new DetailedQuestStep(this, t("Use a chisel on some wolf bones."), chisel, wolfBonesHighlighted);
+		useTipsOnShafts = new DetailedQuestStep(this, t("Add the bone arrow tips to the flighted ogre arrows."), tipsHighlighted, flightedArrowsHighlighted);
+		useArrowsOnRantz = new NpcStep(this, NpcID.RANTZ, new WorldPoint(2631, 2982, 0), t("Use at least 6 ogre arrows on Rantz."), ogreArrows6Highlighted);
 		useArrowsOnRantz.addIcon(ItemID.OGRE_ARROW);
-		askRantzQuestions = new NpcStep(this, NpcID.RANTZ, new WorldPoint(2631, 2982, 0), "Ask Rantz all the available questions.");
+		askRantzQuestions = new NpcStep(this, NpcID.RANTZ, new WorldPoint(2631, 2982, 0), t("Ask Rantz all the available questions."));
 		askRantzQuestions.addDialogStep("How do we make the chompys come?"); //, "What are 'fatsy toadies'?", "Where do we put the fatsy toadies?", "What do you mean 'sneaky..sneaky, stick da chompy?'"
-		enterCave = new ObjectStep(this, ObjectID.RANTZOGRECAVEENTRANCE, new WorldPoint(2630, 2999, 0), "Enter Rantz's cave.");
-		getBellow = new ObjectStep(this, ObjectID.CHOMPYBIRD_CHEST, new WorldPoint(2638, 9398, 0), "Open the chest in the cave for some ogre bellows.");
+		enterCave = new ObjectStep(this, ObjectID.RANTZOGRECAVEENTRANCE, new WorldPoint(2630, 2999, 0), t("Enter Rantz's cave."));
+		getBellow = new ObjectStep(this, ObjectID.CHOMPYBIRD_CHEST, new WorldPoint(2638, 9398, 0), t("Open the chest in the cave for some ogre bellows."));
 		((ObjectStep) getBellow).addAlternateObjects(ObjectID.CHOMPYBIRD_CHEST_OPEN);
-		leaveCave = new ObjectStep(this, ObjectID.RANTZOGRECAVEEXITL, new WorldPoint(2647, 9377, 0), "Leave the cave.");
-		fillBellows = new ObjectStep(this, ObjectID.SWAMPBUBBLES, new WorldPoint(2601, 2967, 0), "Fill the bellows on swamp bubbles.", emptyBellow);
-		inflateToad = new NpcStep(this, NpcID.TOAD, new WorldPoint(2602, 2967, 0), "Inflate 3 toads near the swamp.", true, fullBellow);
-		talkToRantzWithToad = new NpcStep(this, NpcID.RANTZ, new WorldPoint(2631, 2982, 0), "Bring the toads to Rantz.", bloatedToad);
-		dropToad = new DetailedQuestStep(this, new WorldPoint(2635, 2967, 0), "Drop the bloated toad in the clearing south of Rantz.");
-		waitForChompy = new DetailedQuestStep(this, new WorldPoint(2635, 2967, 0), "Wait for a chompy to spawn. If the frog despawns, you'll need to place another one in the clearing south of Rantz.");
-		talkToRantzForBow = new NpcStep(this, NpcID.RANTZ, new WorldPoint(2631, 2982, 0), "Talk to Rantz again for an ogre bow.");
+		leaveCave = new ObjectStep(this, ObjectID.RANTZOGRECAVEEXITL, new WorldPoint(2647, 9377, 0), t("Leave the cave."));
+		fillBellows = new ObjectStep(this, ObjectID.SWAMPBUBBLES, new WorldPoint(2601, 2967, 0), t("Fill the bellows on swamp bubbles."), emptyBellow);
+		inflateToad = new NpcStep(this, NpcID.TOAD, new WorldPoint(2602, 2967, 0), t("Inflate 3 toads near the swamp."), true, fullBellow);
+		talkToRantzWithToad = new NpcStep(this, NpcID.RANTZ, new WorldPoint(2631, 2982, 0), t("Bring the toads to Rantz."), bloatedToad);
+		dropToad = new DetailedQuestStep(this, new WorldPoint(2635, 2967, 0), t("Drop the bloated toad in the clearing south of Rantz."));
+		waitForChompy = new DetailedQuestStep(this, new WorldPoint(2635, 2967, 0), t("Wait for a chompy to spawn. If the frog despawns, you'll need to place another one in the clearing south of Rantz."));
+		talkToRantzForBow = new NpcStep(this, NpcID.RANTZ, new WorldPoint(2631, 2982, 0), t("Talk to Rantz again for an ogre bow."));
 		talkToRantzForBow.addDialogSteps("Come on, let me have a go...", "I'm actually quite strong... please let me try.");
-		placeAnotherToad = new DetailedQuestStep(this, new WorldPoint(2635, 2967, 0), "Drop another bloated toad in the clearing south of Rantz, and wait for a chompy to come.", ogreBow, ogreArrows);
+		placeAnotherToad = new DetailedQuestStep(this, new WorldPoint(2635, 2967, 0), t("Drop another bloated toad in the clearing south of Rantz, and wait for a chompy to come."), ogreBow, ogreArrows);
 
-		killChompy = new NpcStep(this, NpcID.CHOMPYBIRD, new WorldPoint(2635, 2966, 0), "Kill the chompy. You can only hurt it with an ogre bow + ogre arrows.", ogreBow, ogreArrows);
-		pluckCarcass = new NpcStep(this, NpcID.CHOMPYBIRD_DEAD, new WorldPoint(2635, 2966, 0), "Pluck the chompy.");
-		talkToRantzWithChompy = new NpcStep(this, NpcID.RANTZ, new WorldPoint(2631, 2982, 0), "Talk to Rantz in the east of Feldip Hills.", chompy);
+		killChompy = new NpcStep(this, NpcID.CHOMPYBIRD, new WorldPoint(2635, 2966, 0), t("Kill the chompy. You can only hurt it with an ogre bow + ogre arrows."), ogreBow, ogreArrows);
+		pluckCarcass = new NpcStep(this, NpcID.CHOMPYBIRD_DEAD, new WorldPoint(2635, 2966, 0), t("Pluck the chompy."));
+		talkToRantzWithChompy = new NpcStep(this, NpcID.RANTZ, new WorldPoint(2631, 2982, 0), t("Talk to Rantz in the east of Feldip Hills."), chompy);
 
-		enterCaveAgain = new ObjectStep(this, ObjectID.RANTZOGRECAVEENTRANCE, new WorldPoint(2630, 2999, 0), "Enter Rantz's cave.");
-		talkToFycie = new NpcStep(this, NpcID.FYCIE, new WorldPoint(2649, 9391, 0), "Talk to Fycie.");
-		talkToBugs = new NpcStep(this, NpcID.BUGS, new WorldPoint(2640, 9391, 0), "Talk to Bugs.");
-		leaveCaveAgain = new ObjectStep(this, ObjectID.RANTZOGRECAVEEXITL, new WorldPoint(2647, 9377, 0), "Leave the cave.");
+		enterCaveAgain = new ObjectStep(this, ObjectID.RANTZOGRECAVEENTRANCE, new WorldPoint(2630, 2999, 0), t("Enter Rantz's cave."));
+		talkToFycie = new NpcStep(this, NpcID.FYCIE, new WorldPoint(2649, 9391, 0), t("Talk to Fycie."));
+		talkToBugs = new NpcStep(this, NpcID.BUGS, new WorldPoint(2640, 9391, 0), t("Talk to Bugs."));
+		leaveCaveAgain = new ObjectStep(this, ObjectID.RANTZOGRECAVEEXITL, new WorldPoint(2647, 9377, 0), t("Leave the cave."));
 
-		getPotato = new ObjectStep(this, ObjectID.POTATO, new WorldPoint(2642, 2959, 0), "Pick a potato south east of Rantz.");
-		getOnion = new ObjectStep(this, ObjectID.ONION, new WorldPoint(2583, 2965, 0), "Pick an onion from west of Rantz.");
-		getTomato = new DetailedQuestStep(this, new WorldPoint(2584, 2966, 0), "Get a tomato from west of Rantz.", tomato);
-		getEqua = new DetailedQuestStep(this, new WorldPoint(2648, 2963, 0), "Get some equa leaves from south east of Rantz.", equa);
-		getDoogle = new DetailedQuestStep(this, new WorldPoint(2565, 2972, 0), "Get some doogle leaves from west of Rantz.", doogle);
-		getCabbage = new ObjectStep(this, ObjectID.CABBAGE, new WorldPoint(2572, 2967, 0), "Get some cabbage from west of Rantz.");
-		getIngredients = new DetailedQuestStep(this, "Collect the ingredients Rantz and his children want for the chompy.");
+		getPotato = new ObjectStep(this, ObjectID.POTATO, new WorldPoint(2642, 2959, 0), t("Pick a potato south east of Rantz."));
+		getOnion = new ObjectStep(this, ObjectID.ONION, new WorldPoint(2583, 2965, 0), t("Pick an onion from west of Rantz."));
+		getTomato = new DetailedQuestStep(this, new WorldPoint(2584, 2966, 0), t("Get a tomato from west of Rantz."), tomato);
+		getEqua = new DetailedQuestStep(this, new WorldPoint(2648, 2963, 0), t("Get some equa leaves from south east of Rantz."), equa);
+		getDoogle = new DetailedQuestStep(this, new WorldPoint(2565, 2972, 0), t("Get some doogle leaves from west of Rantz."), doogle);
+		getCabbage = new ObjectStep(this, ObjectID.CABBAGE, new WorldPoint(2572, 2967, 0), t("Get some cabbage from west of Rantz."));
+		getIngredients = new DetailedQuestStep(this, t("Collect the ingredients Rantz and his children want for the chompy."));
 		getIngredients.addSubSteps(getPotato, getOnion, getTomato, getEqua, getDoogle, getCabbage);
-		cookChompy = new ObjectStep(this, ObjectID.MULTI_CHOMPYBIRD_SPITROAST_ENTITY, new WorldPoint(2631, 2990, 0), "Cook the chompy on Rantz's spit-roast.", chompyHighlighted);
+		cookChompy = new ObjectStep(this, ObjectID.MULTI_CHOMPYBIRD_SPITROAST_ENTITY, new WorldPoint(2631, 2990, 0), t("Cook the chompy on Rantz's spit-roast."), chompyHighlighted);
 		cookChompy.addIcon(ItemID.RAW_CHOMPY);
 
-		giveRantzSeasonedChompy = new NpcStep(this, NpcID.RANTZ, new WorldPoint(2631, 2982, 0), "Bring Rantz the seasoned chompy to finish the quest.", seasonedChompyHighlighted);
+		giveRantzSeasonedChompy = new NpcStep(this, NpcID.RANTZ, new WorldPoint(2631, 2982, 0), t("Bring Rantz the seasoned chompy to finish the quest."), seasonedChompyHighlighted);
 		giveRantzSeasonedChompy.addIcon(ItemID.COOKED_S_CHOMPY);
 	}
 
@@ -324,22 +324,22 @@ public class BigChompyBirdHunting extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("The ability to fletch Ogre Arrows."),
-				new UnlockReward("The ability to hunt and cook Chompy Birds."));
+				new UnlockReward(t("The ability to fletch Ogre Arrows.")),
+				new UnlockReward(t("The ability to hunt and cook Chompy Birds.")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Getting Rantz Arrows",
+		allSteps.add(new PanelDetails(t("Getting Rantz Arrows"),
 			Arrays.asList(talkToRantz, getLogs, makeShafts, useFeathersOnShafts, useChiselOnBones,
 				useTipsOnShafts, useArrowsOnRantz), axe, knife, feathers, chisel, wolfBones4));
-		allSteps.add(new PanelDetails("Making Bloated Toads",
+		allSteps.add(new PanelDetails(t("Making Bloated Toads"),
 			Arrays.asList(askRantzQuestions, enterCave, getBellow, leaveCave, fillBellows, inflateToad, talkToRantzWithToad)));
-		allSteps.add(new PanelDetails("Hunting Chompy",
+		allSteps.add(new PanelDetails(t("Hunting Chompy"),
 			Arrays.asList(dropToad, waitForChompy, talkToRantzForBow, placeAnotherToad, killChompy, talkToRantzWithChompy)));
-		allSteps.add(new PanelDetails("Cooking Chompy",
+		allSteps.add(new PanelDetails(t("Cooking Chompy"),
 			Arrays.asList(enterCaveAgain, talkToBugs, talkToFycie, leaveCaveAgain, getIngredients, cookChompy,
 				giveRantzSeasonedChompy)));
 

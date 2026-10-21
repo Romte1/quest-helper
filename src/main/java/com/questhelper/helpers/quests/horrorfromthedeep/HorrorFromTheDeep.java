@@ -167,7 +167,7 @@ public class HorrorFromTheDeep extends BasicQuestHelper
 		protectFromMissiles = new PrayerRequirement("Protect from Missiles", Prayer.PROTECT_FROM_MISSILES);
 
 		lighthouseKey = new ItemRequirement("Lighthouse key", ItemID.HORROR_KEY);
-		lighthouseKey.setTooltip("You can get another from Gunnjorn in the Barbarian Agility Course");
+		lighthouseKey.setTooltip(t("You can get another from Gunnjorn in the Barbarian Agility Course"));
 	}
 
 	@Override
@@ -215,85 +215,85 @@ public class HorrorFromTheDeep extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToLarrissa = new NpcStep(this, NpcID.HORROR_GIRLFRIEND_PREQUEST, new WorldPoint(2507, 3634, 0), "Talk to Larrissa outside " +
+		talkToLarrissa = new NpcStep(this, NpcID.HORROR_GIRLFRIEND_PREQUEST, new WorldPoint(2507, 3634, 0), t("Talk to Larrissa outside " +
 			"the Lighthouse north of the Barbarian Outpost. You can get here by Fairy Ring (alp), by jumping over " +
-			"the bassalt rocks from the Barbarian Outpost, or from the Fremennik Province.");
+			"the bassalt rocks from the Barbarian Outpost, or from the Fremennik Province."));
 		talkToLarrissa.addDialogSteps("With what?", "But how can I help?", "Okay, I'll help!");
 
-		usePlankOnBridge = new ObjectStep(this, ObjectID.HORROR_BROKEN_BRIDGE_LEFT_SPOT, new WorldPoint(2596, 3608, 0), "Use a plank " +
-			"on the bridge east of the Lighthouse.", plank.highlighted(), steelNails.quantity(30), hammer);
+		usePlankOnBridge = new ObjectStep(this, ObjectID.HORROR_BROKEN_BRIDGE_LEFT_SPOT, new WorldPoint(2596, 3608, 0), t("Use a plank " +
+			"on the bridge east of the Lighthouse."), plank.highlighted(), steelNails.quantity(30), hammer);
 		usePlankOnBridge.addIcon(ItemID.WOODPLANK);
 
 		useSecondPlank = new ObjectStep(this, ObjectID.HORROR_BROKEN_BRIDGE_RIGHT_SPOT, new WorldPoint(2598, 3608, 0),
-			"Use a plank on the other side of the bridge east of the Lighthouse.", plank.highlighted(), steelNails.quantity(30),
+			t("Use a plank on the other side of the bridge east of the Lighthouse."), plank.highlighted(), steelNails.quantity(30),
 			hammer);
 		useSecondPlank.addIcon(ItemID.WOODPLANK);
 
 		talkToGunnjorn = new NpcStep(this, NpcID.GUNNJORN, new WorldPoint(2547, 3553, 0),
-			"Talk to Gunnjorn in the Barbarian Agility Course south of the lighthouse.");
+			t("Talk to Gunnjorn in the Barbarian Agility Course south of the lighthouse."));
 
-		openLighthouse = new ObjectStep(this, ObjectID.HORROR_LIGHTHOUSE_DOORWAY, new WorldPoint(2509, 3636, 0), "Unlock the " +
-			"Lighthouse.", lighthouseKey);
+		openLighthouse = new ObjectStep(this, ObjectID.HORROR_LIGHTHOUSE_DOORWAY, new WorldPoint(2509, 3636, 0), t("Unlock the " +
+			"Lighthouse."), lighthouseKey);
 
-		enterLighthouse = new ObjectStep(this, ObjectID.HORROR_LIGHTHOUSE_DOORWAY, new WorldPoint(2509, 3636, 0), "Enter the " +
-			"Lighthouse.");
+		enterLighthouse = new ObjectStep(this, ObjectID.HORROR_LIGHTHOUSE_DOORWAY, new WorldPoint(2509, 3636, 0), t("Enter the " +
+			"Lighthouse."));
 
 		goToF1 = new ObjectStep(this, ObjectID.HORROR_LIGHTHOUSE_SPIRALSTAIRS_BASE, new WorldPoint(2443, 4601, 0),
-			"Go to the top of the lighthouse.");
+			t("Go to the top of the lighthouse."));
 		goToF2 = new ObjectStep(this, ObjectID.HORROR_LIGHTHOUSE_SPIRALSTAIRS_MIDDLE, new WorldPoint(2443, 4601, 1),
-			"Go to the top of the lighthouse.");
+			t("Go to the top of the lighthouse."));
 		goToF2.addDialogStep("Climb up");
 		goToF2.addSubSteps(goToF1);
 
 		useTar = new ObjectStep(this, ObjectID.HORROR_LIGHTHOUSE_COG_BROKEN, new WorldPoint(2445, 4601, 2),
-			"Use swamp tar on the lighting mechanism.", swampTar1.highlighted());
+			t("Use swamp tar on the lighting mechanism."), swampTar1.highlighted());
 		useTar.addIcon(ItemID.SWAMP_TAR);
 
 		useTinderbox = new ObjectStep(this, ObjectID.HORROR_LIGHTHOUSE_COG_BROKEN, new WorldPoint(2445, 4601, 2),
-			"Use a tinderbox on the lighting mechanism.", tinderbox.highlighted());
+			t("Use a tinderbox on the lighting mechanism."), tinderbox.highlighted());
 		useTinderbox.addIcon(ItemID.TINDERBOX);
 
 		useGlass = new ObjectStep(this, ObjectID.HORROR_LIGHTHOUSE_COG_BROKEN, new WorldPoint(2445, 4601, 2),
-			"Use molten glass on the lighting mechanism.", moltenGlass.highlighted());
+			t("Use molten glass on the lighting mechanism."), moltenGlass.highlighted());
 		useGlass.addIcon(ItemID.MOLTEN_GLASS);
 
 		goDownToF1 = new ObjectStep(this, ObjectID.HORROR_LIGHTHOUSE_SPIRALSTAIRS_TOP, new WorldPoint(2443, 4601, 1),
-			"Go to the basement of the lighthouse.");
+			t("Go to the basement of the lighthouse."));
 
 		goDownToF0 = new ObjectStep(this, ObjectID.HORROR_LIGHTHOUSE_SPIRALSTAIRS_MIDDLE, new WorldPoint(2443, 4601, 1),
-			"Go to the basement of the lighthouse.");
+			t("Go to the basement of the lighthouse."));
 		goDownToF0.addDialogStep("Climb down");
 
 		goDownToBasement = new ObjectStep(this, ObjectID.HORROR_LADDER_TOP, new WorldPoint(2445, 4604, 0),
-			"Go to the basement of the lighthouse.");
+			t("Go to the basement of the lighthouse."));
 		goDownToBasement.addSubSteps(goDownToF1, goDownToF2);
 
 		useAirRune = new ObjectStep(this, ObjectID.HORROR_MID_RIGHT_DOOR, new WorldPoint(2515, 4627, 0),
-			"Use an air rune on the strange wall.", airRune.highlighted());
+			t("Use an air rune on the strange wall."), airRune.highlighted());
 		useAirRune.addIcon(ItemID.AIRRUNE);
 		useWaterRune = new ObjectStep(this, ObjectID.HORROR_MID_RIGHT_DOOR, new WorldPoint(2515, 4627, 0),
-			"Use a water rune on the strange wall.", waterRune.highlighted());
+			t("Use a water rune on the strange wall."), waterRune.highlighted());
 		useWaterRune.addIcon(ItemID.WATERRUNE);
 		useEarthRune = new ObjectStep(this, ObjectID.HORROR_MID_RIGHT_DOOR, new WorldPoint(2515, 4627, 0),
-			"Use an earth rune on the strange wall.", earthRune.highlighted());
+			t("Use an earth rune on the strange wall."), earthRune.highlighted());
 		useEarthRune.addIcon(ItemID.EARTHRUNE);
 		useFireRune = new ObjectStep(this, ObjectID.HORROR_MID_RIGHT_DOOR, new WorldPoint(2515, 4627, 0),
-			"Use a fire rune on the strange wall.", fireRune.highlighted());
+			t("Use a fire rune on the strange wall."), fireRune.highlighted());
 		useFireRune.addIcon(ItemID.FIRERUNE);
 		useArrow = new ObjectStep(this, ObjectID.HORROR_MID_RIGHT_DOOR, new WorldPoint(2515, 4627, 0),
-			"Use an arrow on the strange wall.", arrow.highlighted());
+			t("Use an arrow on the strange wall."), arrow.highlighted());
 		useArrow.addIcon(ItemID.BRONZE_ARROW);
 		useSword = new ObjectStep(this, ObjectID.HORROR_MID_RIGHT_DOOR, new WorldPoint(2515, 4627, 0),
-			"Use a sword on the strange wall. You will lose it.", sword.highlighted());
+			t("Use a sword on the strange wall. You will lose it."), sword.highlighted());
 		useSword.addIcon(ItemID.BRONZE_SWORD);
 
-		goThroughDoor = new ObjectStep(this, ObjectID.HORROR_FAR_RIGHT_DOOR, new WorldPoint(2516, 4627, 0), "Go through " +
-			"the strange wall, ready for fighting.");
-		talkToJossik = new NpcStep(this, NpcID.HORROR_LIGHTHOUSEKEEEPER_INJURED, new WorldPoint(2518, 4634, 0), "Talk to Jossik.");
-		killDagannoth = new NpcStep(this, NpcID.HORROR_DAGANNOTH_JR4, new WorldPoint(2518, 4640, 0), "Defeat the dagannoth.");
-		killMother = new NpcStep(this, NpcID.HORROR_DAGGANOTH_AIRA, new WorldPoint(2518, 4640, 0), "Defeat the Dagannoth " +
+		goThroughDoor = new ObjectStep(this, ObjectID.HORROR_FAR_RIGHT_DOOR, new WorldPoint(2516, 4627, 0), t("Go through " +
+			"the strange wall, ready for fighting."));
+		talkToJossik = new NpcStep(this, NpcID.HORROR_LIGHTHOUSEKEEEPER_INJURED, new WorldPoint(2518, 4634, 0), t("Talk to Jossik."));
+		killDagannoth = new NpcStep(this, NpcID.HORROR_DAGANNOTH_JR4, new WorldPoint(2518, 4640, 0), t("Defeat the dagannoth."));
+		killMother = new NpcStep(this, NpcID.HORROR_DAGGANOTH_AIRA, new WorldPoint(2518, 4640, 0), t("Defeat the Dagannoth " +
 			"mother. She can only be hurt by air spells when white, water spells when blue, earth spells when brown, " +
-			"fire spells when red, melee when orange and ranged when green.", protectFromMissiles, magicCombat, combatRunes);
+			"fire spells when red, melee when orange and ranged when green."), protectFromMissiles, magicCombat, combatRunes);
 		((NpcStep) killMother).addAlternateNpcs(NpcID.HORROR_DAGGANOTH_AIRB,
 			NpcID.HORROR_DAGGANOTH_AIRC, NpcID.HORROR_DAGGANOTH_AIR, NpcID.HORROR_DAGGANOTH_WATER,
 			NpcID.HORROR_DAGGANOTH_FIRE, NpcID.HORROR_DAGGANOTH_EARTH, NpcID.HORROR_DAGGANOTH_RANGED,
@@ -325,14 +325,14 @@ public class HorrorFromTheDeep extends BasicQuestHelper
 	@Override
 	public List<String> getNotes()
 	{
-		return Collections.singletonList("The Dagannoth Mother will swap over time between being vulnerable to melee, ranged, and each of the 4 magic elements. " +
-			"You can bring multiple combat types, or just wait for her to swap to what you have brought along.");
+		return Collections.singletonList(t("The Dagannoth Mother will swap over time between being vulnerable to melee, ranged, and each of the 4 magic elements. " +
+			"You can bring multiple combat types, or just wait for her to swap to what you have brought along."));
 	}
 
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Arrays.asList("Dagannoth (level 100)", "Dagannoth Mother (level 100)");
+		return Arrays.asList(t("Dagannoth (level 100)"), t("Dagannoth Mother (level 100)"));
 	}
 
 	@Override
@@ -354,9 +354,9 @@ public class HorrorFromTheDeep extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("A damaged God Book of your choice."),
-				new UnlockReward("Access to The Lighthouse"),
-				new UnlockReward("Ability to receive Dagannoth as a Slayer task."));
+				new UnlockReward(t("A damaged God Book of your choice.")),
+				new UnlockReward(t("Access to The Lighthouse")),
+				new UnlockReward(t("Ability to receive Dagannoth as a Slayer task.")));
 	}
 
 
@@ -365,13 +365,13 @@ public class HorrorFromTheDeep extends BasicQuestHelper
 	{
 		ArrayList<PanelDetails> allSteps = new ArrayList<>();
 
-		allSteps.add(new PanelDetails("Saving Jossik",
+		allSteps.add(new PanelDetails(t("Saving Jossik"),
 			Arrays.asList(talkToLarrissa, usePlankOnBridge, useSecondPlank, talkToGunnjorn, openLighthouse,
 				enterLighthouse, goToF1, useTar, useTinderbox, useGlass, goDownToBasement, useAirRune, useWaterRune,
 				useEarthRune, useFireRune, useArrow, useSword), hammer, steelNails.quantity(60), plank2, moltenGlass, tinderbox,
 			swampTar1, fireRune, airRune, waterRune, earthRune, sword, arrow, combatRunes));
 
-		allSteps.add(new PanelDetails("Defeating the dagannoths",
+		allSteps.add(new PanelDetails(t("Defeating the dagannoths"),
 			Arrays.asList(goThroughDoor, talkToJossik, killDagannoth,
 				killMother), combatRunes));
 

@@ -58,7 +58,7 @@ public class RuneEnergyStep extends ObjectStep
 	public RuneEnergyStep(QuestHelper questHelper)
 	{
 		super(questHelper, -1,
-			"Work out the correct order to activate the runes through trial and error.");
+			questHelper.t("Work out the correct order to activate the runes through trial and error."));
 		addAlternateObjects(ObjectID.TOTE_ABYSSAL_ENERGY_EARTH_VIS, ObjectID.TOTE_ABYSSAL_ENERGY_COSMIC_VIS,
 			ObjectID.TOTE_ABYSSAL_ENERGY_DEATH_VIS,
 			ObjectID.TOTE_ABYSSAL_ENERGY_NATURE_VIS, ObjectID.TOTE_ABYSSAL_ENERGY_LAW_VIS,

@@ -202,19 +202,19 @@ public class TheSlugMenace extends BasicQuestHelper
 		essence5.addAlternates(ItemID.BLANKRUNE);
 
 		ItemRequirement airTalisman = new ItemRequirement("Access to the Air Altar", ItemCollections.AIR_ALTAR).isNotConsumed();
-		airTalisman.setTooltip("Air Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss.");
+		airTalisman.setTooltip(t("Air Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss."));
 
 		ItemRequirement waterTalisman = new ItemRequirement("Access to the Water Altar", ItemCollections.WATER_ALTAR).isNotConsumed();
-		waterTalisman.setTooltip("Water Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss.");
+		waterTalisman.setTooltip(t("Water Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss."));
 
 		ItemRequirement earthTalisman = new ItemRequirement("Access to the Earth Altar", ItemCollections.EARTH_ALTAR).isNotConsumed();
-		earthTalisman.setTooltip("Earth Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss.");
+		earthTalisman.setTooltip(t("Earth Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss."));
 
 		ItemRequirement fireTalisman = new ItemRequirement("Access to the Fire Altar", ItemCollections.FIRE_ALTAR).isNotConsumed();
-		fireTalisman.setTooltip("Fire Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss.");
+		fireTalisman.setTooltip(t("Fire Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss."));
 
 		ItemRequirement mindTalisman = new ItemRequirement("Access to the Mind Altar", ItemCollections.MIND_ALTAR).isNotConsumed();
-		mindTalisman.setTooltip("Mind Talisman/Tiara, Catalytic Talisman/Tiara, RC-skill cape or via Abyss.");
+		mindTalisman.setTooltip(t("Mind Talisman/Tiara, Catalytic Talisman/Tiara, RC-skill cape or via Abyss."));
 
 		accessToAltars = new ItemRequirements("Access to the Air, Water, Earth, Fire, and Mind runecrafting altars",
 			airTalisman, waterTalisman, earthTalisman, fireTalisman, mindTalisman).isNotConsumed();
@@ -224,16 +224,16 @@ public class TheSlugMenace extends BasicQuestHelper
 		airAltarTeleport = new ItemRequirement("Teleport near Air Altar", ItemCollections.SKILLS_NECKLACES);
 		airAltarTeleport.addAlternates(ItemID.POH_TABLET_FALADORTELEPORT, ItemID.NZONE_TELETAB_RIMMINGTON);
 		airAltarTeleport.setDisplayMatchedItemName(true);
-		airAltarTeleport.setTooltip("The best items for this are (in order):");
+		airAltarTeleport.setTooltip(t("The best items for this are (in order):"));
 		airAltarTeleport.appendToTooltip("Ring Of The Elements");
-		airAltarTeleport.appendToTooltip("Skills Necklace (to Crafting Guild)");
+		airAltarTeleport.appendToTooltip(t("Skills Necklace (to Crafting Guild)"));
 		airAltarTeleport.appendToTooltip("Falador Teleport");
 		airAltarTeleport.appendToTooltip("Rimmington/House Teleport");
 
 		earthAltarTeleport = new ItemRequirement("Teleport near Earth Altar", ItemCollections.DIGSITE_PENDANTS);
 		earthAltarTeleport.addAlternates(ItemID.POH_TABLET_VARROCKTELEPORT, ItemID.TELEPORTSCROLL_LUMBERYARD, ItemID.TELEPORTSCROLL_DIGSITE);
 		earthAltarTeleport.setDisplayMatchedItemName(true);
-		earthAltarTeleport.setTooltip("The best items for this are (in order):");
+		earthAltarTeleport.setTooltip(t("The best items for this are (in order):"));
 		earthAltarTeleport.appendToTooltip("Ring Of The Elements");
 		earthAltarTeleport.appendToTooltip("Lumberyard Teleport");
 		earthAltarTeleport.appendToTooltip("Digsite Pendant(s)");
@@ -242,23 +242,23 @@ public class TheSlugMenace extends BasicQuestHelper
 
 		fireAltarTeleport = new ItemRequirement("Teleport near Fire Altar", ItemCollections.RING_OF_DUELINGS);
 		fireAltarTeleport.addAlternates(ItemCollections.AMULET_OF_GLORIES);
-		fireAltarTeleport.setTooltip("The best items for this are (in order):");
+		fireAltarTeleport.setTooltip(t("The best items for this are (in order):"));
 		fireAltarTeleport.appendToTooltip("Ring Of The Elements");
 		fireAltarTeleport.appendToTooltip("Ring of Dueling");
-		fireAltarTeleport.appendToTooltip("Amulet of Glory (to Al Kharid)");
+		fireAltarTeleport.appendToTooltip(t("Amulet of Glory (to Al Kharid)"));
 
 		waterAltarTeleport = new ItemRequirement("Teleport near Water Altar", ItemID.POH_TABLET_LUMBRIDGETELEPORT);
-		waterAltarTeleport.setTooltip("The best items for this are (in order):");
+		waterAltarTeleport.setTooltip(t("The best items for this are (in order):"));
 		waterAltarTeleport.appendToTooltip("Ring Of The Elements");
 		waterAltarTeleport.appendToTooltip("Lumbridge Teleport");
 
 		mindAltarTeleport = new ItemRequirement("Teleport near Mind Altar", ItemID.TELETAB_MIND_ALTAR);
 		mindAltarTeleport.addAlternates(ItemID.POH_TABLET_FALADORTELEPORT, ItemID.TABLET_LASSAR, ItemID.NZONE_TELETAB_TAVERLEY);
 		mindAltarTeleport.addAlternates(ItemCollections.COMBAT_BRACELETS);
-		mindAltarTeleport.setTooltip("The best items for this are (in order):");
-		mindAltarTeleport.appendToTooltip("Mind Altar Teleport (highly recommended)");
+		mindAltarTeleport.setTooltip(t("The best items for this are (in order):"));
+		mindAltarTeleport.appendToTooltip(t("Mind Altar Teleport (highly recommended)"));
 		mindAltarTeleport.appendToTooltip("Lassar Teleport (Ice Mountain)");
-		mindAltarTeleport.appendToTooltip("Combat Bracelet to Monastery");
+		mindAltarTeleport.appendToTooltip(t("Combat Bracelet to Monastery"));
 		mindAltarTeleport.appendToTooltip("Falador Teleport");
 		mindAltarTeleport.appendToTooltip("Taverley Teleport");
 	}
@@ -302,60 +302,60 @@ public class TheSlugMenace extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToTiffy = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, new WorldPoint(2996, 3373, 0), "Talk to Sir Tiffy Cashien in Falador Park.", commorb);
+		talkToTiffy = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, new WorldPoint(2996, 3373, 0), t("Talk to Sir Tiffy Cashien in Falador Park."), commorb);
 		talkToTiffy.addDialogStep("Do you have any jobs for me yet?");
-		talkToNiall = new NpcStep(this, NpcID.SLUG2_ONIALL_STAGE1, new WorldPoint(2739, 3311, 0), "Talk to Col. O'Niall on the pier in Witchaven, east of Ardougne.");
+		talkToNiall = new NpcStep(this, NpcID.SLUG2_ONIALL_STAGE1, new WorldPoint(2739, 3311, 0), t("Talk to Col. O'Niall on the pier in Witchaven, east of Ardougne."));
 		talkToNiall.addDialogStep("Who are the important people in Witchaven?");
 		talkToNiall.addDialogStep("Nothing at the moment thanks.");
 
-		talkToMaledict = new NpcStep(this, NpcID.SLUG2_MALEDICT_STAGE1, new WorldPoint(2724, 3283, 0), "Talk to Brother Maledict in the church.");
+		talkToMaledict = new NpcStep(this, NpcID.SLUG2_MALEDICT_STAGE1, new WorldPoint(2724, 3283, 0), t("Talk to Brother Maledict in the church."));
 		talkToMaledict.addDialogStep("That's enough for now.");
-		talkToHobb = new NpcStep(this, NpcID.SLUG2_HOBB_STAGE2, new WorldPoint(2709, 3291, 0), "Talk to Mayor Hobb in north west Witchaven.");
+		talkToHobb = new NpcStep(this, NpcID.SLUG2_HOBB_STAGE2, new WorldPoint(2709, 3291, 0), t("Talk to Mayor Hobb in north west Witchaven."));
 		talkToHobb.addDialogStep("I'm just looking around.");
 		talkToHobb.addDialogStep("Nothing at the moment thanks.");
 
 		// Asked to scan Hobb, 2621, 0->1
 		// Scanned, 1->2
 
-		talkToHolgart = new NpcStep(this, NpcID.HOLGARTLANDTRAVEL, new WorldPoint(2721, 3304, 0), "Talk to Holgart north of Witchaven.");
+		talkToHolgart = new NpcStep(this, NpcID.HOLGARTLANDTRAVEL, new WorldPoint(2721, 3304, 0), t("Talk to Holgart north of Witchaven."));
 		talkToHolgart.addDialogStep("Nothing at the moment thanks.");
 
-		talkToNiall2 = new NpcStep(this, NpcID.SLUG2_ONIALL_STAGE1, new WorldPoint(2739, 3311, 0), "Return to Col. O'Niall on the pier in Witchaven.");
-		enterDungeon = new ObjectStep(this, ObjectID.SLUG2_RUIN_ENTRANCE, new WorldPoint(2696, 3283, 0), "Enter the old ruin entrance west of Witchaven.");
+		talkToNiall2 = new NpcStep(this, NpcID.SLUG2_ONIALL_STAGE1, new WorldPoint(2739, 3311, 0), t("Return to Col. O'Niall on the pier in Witchaven."));
+		enterDungeon = new ObjectStep(this, ObjectID.SLUG2_RUIN_ENTRANCE, new WorldPoint(2696, 3283, 0), t("Enter the old ruin entrance west of Witchaven."));
 		enterDungeon.addDialogStep("That's enough for now.");
 
-		pushFalseWall = new ObjectStep(this, ObjectID.SLUG2_HIDDEN_ENTRANCE, new WorldPoint(2701, 9688, 0), "Push the wall just east of where you come down.");
-		enterWall = new ObjectStep(this, ObjectID.SLUG2_HIDDEN_ENTRANCE, new WorldPoint(2701, 9688, 0), "Enter the secret room.");
-		tryToOpenImposingDoor = new ObjectStep(this, ObjectID.SLUG2_CAVE_DOORS_CLOSED, new WorldPoint(2351, 5093, 0), "Follow the path until you reach an imposing door, and try opening it. After, try scanning with the commorb v2.", commorb2);
-		scanWithComm = new DetailedQuestStep(this, "Try scanning with the commorb.", commorb);
-		pickUpDeadSlug = new ItemStep(this, "Pick up the dead sea slug next to the imposing door.", deadSeaSlug);
-		talkToJorral = new NpcStep(this, NpcID.MAKINGHISTORY_JORRAL, new WorldPoint(2436, 3347, 0), "Talk to Jorral north of West Ardougne.", Collections.singletonList(doorTranscript),
+		pushFalseWall = new ObjectStep(this, ObjectID.SLUG2_HIDDEN_ENTRANCE, new WorldPoint(2701, 9688, 0), t("Push the wall just east of where you come down."));
+		enterWall = new ObjectStep(this, ObjectID.SLUG2_HIDDEN_ENTRANCE, new WorldPoint(2701, 9688, 0), t("Enter the secret room."));
+		tryToOpenImposingDoor = new ObjectStep(this, ObjectID.SLUG2_CAVE_DOORS_CLOSED, new WorldPoint(2351, 5093, 0), t("Follow the path until you reach an imposing door, and try opening it. After, try scanning with the commorb v2."), commorb2);
+		scanWithComm = new DetailedQuestStep(this, t("Try scanning with the commorb."), commorb);
+		pickUpDeadSlug = new ItemStep(this, t("Pick up the dead sea slug next to the imposing door."), deadSeaSlug);
+		talkToJorral = new NpcStep(this, NpcID.MAKINGHISTORY_JORRAL, new WorldPoint(2436, 3347, 0), t("Talk to Jorral north of West Ardougne."), Collections.singletonList(doorTranscript),
 			Collections.singletonList(necklaceOfPassage));
 		talkToJorral.addDialogStep("Translations");
-		talkToNiall3 = new NpcStep(this, NpcID.SLUG2_ONIALL_STAGE1, new WorldPoint(2739, 3311, 0), "Return to Col. O'Niall on the pier in Witchaven.");
-		talkToMaledict2 = new NpcStep(this, NpcID.SLUG2_MALEDICT_STAGE1, new WorldPoint(2724, 3283, 0), "Talk to Brother Maledict in the church.");
-		talkToMaledict3 = new NpcStep(this, NpcID.SLUG2_MALEDICT_STAGE2, new WorldPoint(2724, 3283, 0), "Talk to Brother Maledict in the church.");
-		searchMayorsDesk = new ObjectStep(this, ObjectID.SLUG2_MAYORS_DESK, new WorldPoint(2709, 3294, 0), "Search the study desk in the Mayor's house for a page.");
-		talkToLovecraft = new NpcStep(this, NpcID.SLUG2_LOVECRAFT, new WorldPoint(2734, 3291, 0), "Talk to Ezekial Lovecraft in the fishing shop in east Witchaven for a page.");
-		talkToNiall4 = new NpcStep(this, NpcID.SLUG2_ONIALL_STAGE2, new WorldPoint(2739, 3311, 0), "Talk to Col. O'Niall on the pier in Witchaven for a page.");
-		useSwampPasteOnFragments = new DetailedQuestStep(this, "Use some swamp paste on one of the page fragments.", swampPaste, pageFragment1, pageFragment2, pageFragment3);
-		talkToJeb = new NpcStep(this, NpcID.SLUG2_JEB_STAGE2, new WorldPoint(2721, 3304, 0), "Talk to Jeb north of Witchaven to travel to the Fishing Platform.", deadSeaSlug);
-		talkToBailey = new NpcStep(this, NpcID.BAILEY, new WorldPoint(2764, 3275, 0), "Talk to Bailey on the Fishing Platform.", deadSeaSlug);
-		useGlueOnFragment = new DetailedQuestStep(this, "Use the slug glue on one of the fragments.", glue, pageFragment1);
+		talkToNiall3 = new NpcStep(this, NpcID.SLUG2_ONIALL_STAGE1, new WorldPoint(2739, 3311, 0), t("Return to Col. O'Niall on the pier in Witchaven."));
+		talkToMaledict2 = new NpcStep(this, NpcID.SLUG2_MALEDICT_STAGE1, new WorldPoint(2724, 3283, 0), t("Talk to Brother Maledict in the church."));
+		talkToMaledict3 = new NpcStep(this, NpcID.SLUG2_MALEDICT_STAGE2, new WorldPoint(2724, 3283, 0), t("Talk to Brother Maledict in the church."));
+		searchMayorsDesk = new ObjectStep(this, ObjectID.SLUG2_MAYORS_DESK, new WorldPoint(2709, 3294, 0), t("Search the study desk in the Mayor's house for a page."));
+		talkToLovecraft = new NpcStep(this, NpcID.SLUG2_LOVECRAFT, new WorldPoint(2734, 3291, 0), t("Talk to Ezekial Lovecraft in the fishing shop in east Witchaven for a page."));
+		talkToNiall4 = new NpcStep(this, NpcID.SLUG2_ONIALL_STAGE2, new WorldPoint(2739, 3311, 0), t("Talk to Col. O'Niall on the pier in Witchaven for a page."));
+		useSwampPasteOnFragments = new DetailedQuestStep(this, t("Use some swamp paste on one of the page fragments."), swampPaste, pageFragment1, pageFragment2, pageFragment3);
+		talkToJeb = new NpcStep(this, NpcID.SLUG2_JEB_STAGE2, new WorldPoint(2721, 3304, 0), t("Talk to Jeb north of Witchaven to travel to the Fishing Platform."), deadSeaSlug);
+		talkToBailey = new NpcStep(this, NpcID.BAILEY, new WorldPoint(2764, 3275, 0), t("Talk to Bailey on the Fishing Platform."), deadSeaSlug);
+		useGlueOnFragment = new DetailedQuestStep(this, t("Use the slug glue on one of the fragments."), glue, pageFragment1);
 
-		solvePuzzle = new PuzzleWrapperStep(this, new PuzzleStep(this), "Combine the fragments.");
+		solvePuzzle = new PuzzleWrapperStep(this, new PuzzleStep(this), t("Combine the fragments."));
 
 		// TODO: Expand out this section to be more descriptive and guiding
-		useEmptyRunes = new DetailedQuestStep(this, "Right-click each page to turn rune/pure essence into empty runes. Take each empty rune and use it on its respective Runecrafting Altar. Bring extra essence (~10 extra) as it is possible to accidentally destroy the essence upon creation.", page1, page2, page3, essence, chisel);
+		useEmptyRunes = new DetailedQuestStep(this, t("Right-click each page to turn rune/pure essence into empty runes. Take each empty rune and use it on its respective Runecrafting Altar. Bring extra essence (~10 extra) as it is possible to accidentally destroy the essence upon creation."), page1, page2, page3, essence, chisel);
 
-		enterDungeonAgain = new ObjectStep(this, ObjectID.SLUG2_RUIN_ENTRANCE, new WorldPoint(2696, 3283, 0), "Prepare to fight the Slug Prince (level 62). Only melee can hurt it. Then, enter the old ruin entrance west of Witchaven.", meleeGear, airRune, waterRune, earthRune, fireRune, mindRune);
-		enterDungeonAgainUsedRunes = new ObjectStep(this, ObjectID.SLUG2_RUIN_ENTRANCE, new WorldPoint(2696, 3283, 0), "Prepare to fight the Slug Prince (level 62). Only melee can hurt it. Then, enter the old ruin entrance west of Witchaven.", meleeGear);
+		enterDungeonAgain = new ObjectStep(this, ObjectID.SLUG2_RUIN_ENTRANCE, new WorldPoint(2696, 3283, 0), t("Prepare to fight the Slug Prince (level 62). Only melee can hurt it. Then, enter the old ruin entrance west of Witchaven."), meleeGear, airRune, waterRune, earthRune, fireRune, mindRune);
+		enterDungeonAgainUsedRunes = new ObjectStep(this, ObjectID.SLUG2_RUIN_ENTRANCE, new WorldPoint(2696, 3283, 0), t("Prepare to fight the Slug Prince (level 62). Only melee can hurt it. Then, enter the old ruin entrance west of Witchaven."), meleeGear);
 
-		enterWallAgain = new ObjectStep(this, ObjectID.SLUG2_HIDDEN_ENTRANCE, new WorldPoint(2701, 9688, 0), "Enter the wall just east of where you come down.");
-		useEmptyRunesOnDoor = new ObjectStep(this, ObjectID.SLUG2_CAVE_DOORS_CLOSED, new WorldPoint(2351, 5093, 0), "Use the runes on the imposing doors at the end of the path.", airRune, waterRune, earthRune, fireRune, mindRune);
-		killSlugPrince = new NpcStep(this, NpcID.SLUG2_THE_SLUG_PRINCE, new WorldPoint(2351, 5093, 0), "Kill the Slug Prince. Only melee can hurt it.");
+		enterWallAgain = new ObjectStep(this, ObjectID.SLUG2_HIDDEN_ENTRANCE, new WorldPoint(2701, 9688, 0), t("Enter the wall just east of where you come down."));
+		useEmptyRunesOnDoor = new ObjectStep(this, ObjectID.SLUG2_CAVE_DOORS_CLOSED, new WorldPoint(2351, 5093, 0), t("Use the runes on the imposing doors at the end of the path."), airRune, waterRune, earthRune, fireRune, mindRune);
+		killSlugPrince = new NpcStep(this, NpcID.SLUG2_THE_SLUG_PRINCE, new WorldPoint(2351, 5093, 0), t("Kill the Slug Prince. Only melee can hurt it."));
 
-		reportBackToTiffy = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, new WorldPoint(2996, 3373, 0), "Report back to Sir Tiffy Cashien in Falador Park.");
+		reportBackToTiffy = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, new WorldPoint(2996, 3373, 0), t("Report back to Sir Tiffy Cashien in Falador Park."));
 		reportBackToTiffy.addDialogStep("Slug Menace.");
 
 	}
@@ -386,7 +386,7 @@ public class TheSlugMenace extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		ArrayList<String> reqs = new ArrayList<>();
-		reqs.add("Slug Prince (level 62) (can only be hurt by melee)");
+		reqs.add(t("Slug Prince (level 62) (can only be hurt by melee)"));
 		return reqs;
 	}
 
@@ -421,23 +421,23 @@ public class TheSlugMenace extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("Ability to purchase and equip Proselyte equipment."));
+		return Collections.singletonList(new UnlockReward(t("Ability to purchase and equip Proselyte equipment.")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off", Collections.singletonList(talkToTiffy),
+		allSteps.add(new PanelDetails(t("Starting off"), Collections.singletonList(talkToTiffy),
 			commorb));
-		allSteps.add(new PanelDetails("Investigating", Arrays.asList(talkToNiall,
+		allSteps.add(new PanelDetails(t("Investigating"), Arrays.asList(talkToNiall,
 			talkToMaledict, talkToHobb, talkToHolgart, talkToNiall2, enterDungeon,
 			pushFalseWall, tryToOpenImposingDoor, scanWithComm, pickUpDeadSlug), commorb2));
-		allSteps.add(new PanelDetails("Uncovering the truth", Arrays.asList(talkToJorral,
+		allSteps.add(new PanelDetails(t("Uncovering the truth"), Arrays.asList(talkToJorral,
 			talkToNiall3, talkToMaledict2, searchMayorsDesk, talkToLovecraft, talkToNiall4,
 			useSwampPasteOnFragments, talkToJeb, talkToBailey, useGlueOnFragment, solvePuzzle,
 			useEmptyRunes), doorTranscript, commorb2, deadSeaSlug, swampPaste, chisel, essence5, accessToAltars));
-		allSteps.add(new PanelDetails("Facing the prince", Arrays.asList(enterDungeonAgain,
+		allSteps.add(new PanelDetails(t("Facing the prince"), Arrays.asList(enterDungeonAgain,
 			enterWallAgain, useEmptyRunesOnDoor, killSlugPrince, reportBackToTiffy),
 			meleeGear, airRune, waterRune, earthRune, fireRune, mindRune, commorb2));
 		return allSteps;

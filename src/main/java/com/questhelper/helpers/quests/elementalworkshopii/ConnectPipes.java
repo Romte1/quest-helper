@@ -38,7 +38,7 @@ public class ConnectPipes extends QuestStep
 
 	public ConnectPipes(QuestHelper questHelper)
 	{
-		super(questHelper, "Connect the pipes as marked..");
+		super(questHelper, questHelper.t("Connect the pipes as marked.."));
 	}
 
 

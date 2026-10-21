@@ -129,7 +129,7 @@ public class TheQueenOfThieves extends BasicQuestHelper
 	{
 		stew = new ItemRequirement("Stew", ItemID.STEW);
 		hughesLetter = new ItemRequirement("Letter", ItemID.PISCQUEST_DOCUMENTS);
-		hughesLetter.setTooltip("You can get another letter by searching the chest upstairs in Hughes' house in Kingstown.");
+		hughesLetter.setTooltip(t("You can get another letter by searching the chest upstairs in Hughes' house in Kingstown."));
 	}
 
 	@Override
@@ -154,55 +154,55 @@ public class TheQueenOfThieves extends BasicQuestHelper
 		WorldPoint devanPoint = new WorldPoint(1767, 10146, 0);
 		WorldPoint queenOfThievesPoint = new WorldPoint(1764, 10158, 0);
 
-		talkToLawry = new NpcStep(this, NpcID.PISCQUEST_OFFICIAL_VISIBLE, tomasPoint, "Speak to Tomas Lawry in Port Piscarilius.");
+		talkToLawry = new NpcStep(this, NpcID.PISCQUEST_OFFICIAL_VISIBLE, tomasPoint, t("Speak to Tomas Lawry in Port Piscarilius."));
 		talkToLawry.addDialogStep("I'm looking for a quest.");
 		talkToLawry.addDialogStep("What are you investigating?");
 		talkToLawry.addDialogStep("Yes.");
 
-		talkToPoorLookingPerson = new NpcStep(this, NpcID.PISCARILIUS_POOR_CITIZEN_FEMALE_3, new WorldPoint(1803, 3738, 0), "Speak to the poor looking woman.");
-		talkToOReilly = new NpcStep(this, NpcID.PISCQUEST_CITIZEN, new WorldPoint(1794, 3757, 0), "Speak to Robert O'Reilly, and give him the bowl of stew.", stew);
+		talkToPoorLookingPerson = new NpcStep(this, NpcID.PISCARILIUS_POOR_CITIZEN_FEMALE_3, new WorldPoint(1803, 3738, 0), t("Speak to the poor looking woman."));
+		talkToOReilly = new NpcStep(this, NpcID.PISCQUEST_CITIZEN, new WorldPoint(1794, 3757, 0), t("Speak to Robert O'Reilly, and give him the bowl of stew."), stew);
 		talkToOReilly.addDialogStep("Okay.");
 
-		enterWarrens = new ObjectStep(this, ObjectID.PISCQUEST_MANHOLE_CLOSED, manholePoint, "Enter the Warrens.");
+		enterWarrens = new ObjectStep(this, ObjectID.PISCQUEST_MANHOLE_CLOSED, manholePoint, t("Enter the Warrens."));
 		enterWarrens.addAlternateObjects(ObjectID.PISCQUEST_MANHOLE_OPEN);
 
-		talkToDevan = new NpcStep(this, NpcID.PISCQUEST_THUG, devanPoint, "Speak to Devan Rutter.");
+		talkToDevan = new NpcStep(this, NpcID.PISCQUEST_THUG, devanPoint, t("Speak to Devan Rutter."));
 		talkToDevan.addDialogStep("Nope, sounds good to me.");
 
-		exitWarrens = new ObjectStep(this, ObjectID.PISCQUEST_MANHOLE_LADDER, ladderPoint, "Exit the Warrens.");
+		exitWarrens = new ObjectStep(this, ObjectID.PISCQUEST_MANHOLE_LADDER, ladderPoint, t("Exit the Warrens."));
 
 		// Could potentially add a dialog step for Brutally or Softly, but seems unnecessary since either works.
-		killConrad = new NpcStep(this, NpcID.PISCQUEST_TARGET_ALIVE, new WorldPoint(1847, 3734, 0), "Murder Conrad King.");
+		killConrad = new NpcStep(this, NpcID.PISCQUEST_TARGET_ALIVE, new WorldPoint(1847, 3734, 0), t("Murder Conrad King."));
 
 		// Enter the Warrens again.
-		enterWarrens2 = new ObjectStep(this, ObjectID.PISCQUEST_MANHOLE_CLOSED, manholePoint, "Enter the Warrens.");
+		enterWarrens2 = new ObjectStep(this, ObjectID.PISCQUEST_MANHOLE_CLOSED, manholePoint, t("Enter the Warrens."));
 		enterWarrens2.addAlternateObjects(ObjectID.PISCQUEST_MANHOLE_OPEN);
 
-		tellDevanAboutConrad = new NpcStep(this, NpcID.PISCQUEST_THUG, devanPoint, "Tell Devan Rutter about the murder.");
+		tellDevanAboutConrad = new NpcStep(this, NpcID.PISCQUEST_THUG, devanPoint, t("Tell Devan Rutter about the murder."));
 
-		enterWarrens3 = new ObjectStep(this, ObjectID.PISCQUEST_MANHOLE_CLOSED, manholePoint, "Enter the Warrens.");
+		enterWarrens3 = new ObjectStep(this, ObjectID.PISCQUEST_MANHOLE_CLOSED, manholePoint, t("Enter the Warrens."));
 		enterWarrens3.addAlternateObjects(ObjectID.PISCQUEST_MANHOLE_OPEN);
 
-		talkToQueenOfThieves = new NpcStep(this, NpcID.PISCQUEST_QUEEN_PREQUEST, queenOfThievesPoint, "Talk to the Queen of Thieves.");
+		talkToQueenOfThieves = new NpcStep(this, NpcID.PISCQUEST_QUEEN_PREQUEST, queenOfThievesPoint, t("Talk to the Queen of Thieves."));
 		talkToQueenOfThieves.addAlternateNpcs(NpcID.PISCQUEST_QUEEN_POSTQUEST);
 
 		// Exit the Warrens again.
-		exitWarrens2 = new ObjectStep(this, ObjectID.PISCQUEST_MANHOLE_LADDER, ladderPoint, "Exit the Warrens.");
+		exitWarrens2 = new ObjectStep(this, ObjectID.PISCQUEST_MANHOLE_LADDER, ladderPoint, t("Exit the Warrens."));
 
-		goToKingstown = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS, new WorldPoint(1672, 3681, 0), "Go up the stairs in Councillor Hughes' home in Kingstown.");
-		openChest = new ObjectStep(this, ObjectID.PISCQUEST_CHEST_CLOSED, new WorldPoint(1681, 3677, 1), "Pick the locked chest.");
+		goToKingstown = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS, new WorldPoint(1672, 3681, 0), t("Go up the stairs in Councillor Hughes' home in Kingstown."));
+		openChest = new ObjectStep(this, ObjectID.PISCQUEST_CHEST_CLOSED, new WorldPoint(1681, 3677, 1), t("Pick the locked chest."));
 
-		leaveKingstown = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS_TOP, new WorldPoint(1672, 3682, 1), "Go downstairs.");
+		leaveKingstown = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS_TOP, new WorldPoint(1672, 3682, 1), t("Go downstairs."));
 
 		// Talk to Lawry again
-		talkToLawry2 = new NpcStep(this, NpcID.PISCQUEST_OFFICIAL_VISIBLE, tomasPoint, "Speak to Tomas Lawry in Port Piscarilius.", hughesLetter);
+		talkToLawry2 = new NpcStep(this, NpcID.PISCQUEST_OFFICIAL_VISIBLE, tomasPoint, t("Speak to Tomas Lawry in Port Piscarilius."), hughesLetter);
 		talkToLawry2.addDialogStep("Let's talk about my quest.");
 
 		// Enter the Warrens again
-		enterWarrens4 = new ObjectStep(this, ObjectID.PISCQUEST_MANHOLE_CLOSED, manholePoint, "Enter the Warrens.");
+		enterWarrens4 = new ObjectStep(this, ObjectID.PISCQUEST_MANHOLE_CLOSED, manholePoint, t("Enter the Warrens."));
 		enterWarrens4.addAlternateObjects(ObjectID.PISCQUEST_MANHOLE_OPEN);
 
-		talkToShauna = new NpcStep(this, NpcID.PISCQUEST_QUEEN_POSTQUEST, queenOfThievesPoint, "Talk to Lady Shauna Piscarilius.");
+		talkToShauna = new NpcStep(this, NpcID.PISCQUEST_QUEEN_POSTQUEST, queenOfThievesPoint, t("Talk to Lady Shauna Piscarilius."));
 	}
 
 	@Override
@@ -244,16 +244,16 @@ public class TheQueenOfThieves extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("Access to The Warrens."));
+		return Collections.singletonList(new UnlockReward(t("Access to The Warrens.")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Investigation", Arrays.asList(talkToLawry, talkToPoorLookingPerson, talkToOReilly), stew));
-		allSteps.add(new PanelDetails("Gaining Trust", Arrays.asList(enterWarrens, talkToDevan, exitWarrens, killConrad, enterWarrens2, tellDevanAboutConrad)));
-		allSteps.add(new PanelDetails("Exposing Hughes", Arrays.asList(enterWarrens3, talkToQueenOfThieves, exitWarrens2, goToKingstown, openChest, leaveKingstown, talkToLawry2, enterWarrens4, talkToShauna)));
+		allSteps.add(new PanelDetails(t("Investigation"), Arrays.asList(talkToLawry, talkToPoorLookingPerson, talkToOReilly), stew));
+		allSteps.add(new PanelDetails(t("Gaining Trust"), Arrays.asList(enterWarrens, talkToDevan, exitWarrens, killConrad, enterWarrens2, tellDevanAboutConrad)));
+		allSteps.add(new PanelDetails(t("Exposing Hughes"), Arrays.asList(enterWarrens3, talkToQueenOfThieves, exitWarrens2, goToKingstown, openChest, leaveKingstown, talkToLawry2, enterWarrens4, talkToShauna)));
 		return allSteps;
 	}
 }

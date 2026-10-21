@@ -12,7 +12,7 @@ public class KillTrolls extends NpcStep
 {
 	public KillTrolls(QuestHelper questHelper)
 	{
-		super(questHelper, NpcID.FRIS_TROLLM_LOWXP, new WorldPoint(2390, 10280, 1), "Kill 10 ice trolls.", true);
+		super(questHelper, NpcID.FRIS_TROLLM_LOWXP, new WorldPoint(2390, 10280, 1), questHelper.t("Kill 10 ice trolls."), true);
 		this.addAlternateNpcs(NpcID.FRIS_TROLLM_PC, NpcID.FRIS_TROLLF_LOWXP, NpcID.FRIS_TROLLF_PC, NpcID.FRIS_BABY_TROLL_LOWXP, NpcID.FRIS_BABY_TROLL_PC);
 	}
 
@@ -25,7 +25,7 @@ public class KillTrolls extends NpcStep
 	protected void updateSteps()
 	{
 		int numToKill =  client.getVarbitValue(VarbitID.FRIS_TASK);
-		this.setText("Kill " + numToKill + " trolls to continue.");
+		this.setText(questHelper.t("Kill") + " " + numToKill + " " + questHelper.t("trolls to continue."));
 	}
 }
 

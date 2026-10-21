@@ -125,30 +125,29 @@ public class ElementalWorkshopII extends BasicQuestHelper
 		steps.put(2, readScroll);
 
 		getKey = new ConditionalStep(this, goToWorkshopTopFloor,
-			"Search the machinery in the north of the elemental workshop.");
+			t("Search the machinery in the north of the elemental workshop."));
 		getKey.addStep(inWorkshop, searchMachinery);
 		steps.put(3, getKey);
 
 		unlockHatch = new ConditionalStep(this, goToWorkshopTopFloor,
-			"Unlock the hatch the middle of the workshop.", key);
+			t("Unlock the hatch the middle of the workshop."), key);
 		unlockHatch.addStep(inWorkshop, openHatch);
 		steps.put(4, unlockHatch);
 
 		goRepairCrane = new ConditionalStep(this, goToWorkshopMiddleFloor,
-			"Go back down to the deeper workshop and use the claw on the crane.");
+			t("Go back down to the deeper workshop and use the claw on the crane."));
 		goRepairCrane.addStep(new Conditions(inMindWorkshop, craneLowered), repairClaw);
 		goRepairCrane.addStep(inMindWorkshop, lowerClaw);
 
 		goMakeClaw = new ConditionalStep(this, goToWorkshopTopFloor,
-			"Make a claw from an elemental bar.");
+			t("Make a claw from an elemental bar."));
 		goMakeClaw.addStep(new Conditions(inWorkshop, has2Bars), makeClaw);
 		goMakeClaw.addStep(new Conditions(inWorkshop, has2Ores), forgeBars);
 		goMakeClaw.addStep(new Conditions(inWorkshop, elementalOreNearby), pickUpOre);
 		goMakeClaw.addStep(new Conditions(inWorkshop, earthNearby), killRock);
 		goMakeClaw.addStep(inWorkshop, mineRock);
 
-		goSortTubes = new ConditionalStep(this, goToWorkshopCatwalk, "Sort the pipes in the junction box on the " +
-			"catwalk.");
+		goSortTubes = new ConditionalStep(this, goToWorkshopCatwalk, t("Sort the pipes in the junction box on the catwalk."));
 		goSortTubes.addStep(new Conditions(onCatwalk, inPipePuzzle), connectPipes);
 		goSortTubes.addStep(onCatwalk, openJunctionBox);
 
@@ -157,11 +156,11 @@ public class ElementalWorkshopII extends BasicQuestHelper
 		goGetCogsAndPipes.addStep(inMindWorkshop, getCogsAndPipe);
 
 		goRepairPipe = new ConditionalStep(this, goToWorkshopCatwalk,
-			"Use the pipe on the broken pipe to the north of the catwalk.");
+			t("Use the pipe on the broken pipe to the north of the catwalk."));
 		goRepairPipe.addStep(onCatwalk, repairPipe);
 
 		goPlaceCogs = new ConditionalStep(this, goToWorkshopMiddleFloor,
-			"Place cogs on the pegs outside the wind tunnel.");
+			t("Place cogs on the pegs outside the wind tunnel."));
 		goPlaceCogs.addStep(new Conditions(inMindWorkshop, smallCogPlaced, mediumCogPlaced), placeLargeCog);
 		goPlaceCogs.addStep(new Conditions(inMindWorkshop, smallCogPlaced), placeMediumCog);
 		goPlaceCogs.addStep(inMindWorkshop, placeSmallCog);
@@ -225,7 +224,7 @@ public class ElementalWorkshopII extends BasicQuestHelper
 		goMakeMindBar.addStep(new Conditions(inBasement, primedBarPlaced), operateHat);
 		goMakeMindBar.addStep(inBasement, useBarOnGun);
 
-		goMakeMindHelmet = new ConditionalStep(this, goToWorkshopTopFloor, "Make the mind helm.");
+		goMakeMindHelmet = new ConditionalStep(this, goToWorkshopTopFloor, t("Make the mind helm."));
 		goMakeMindHelmet.addStep(inWorkshop, makeMindHelmet);
 
 		ConditionalStep makingAHelm = new ConditionalStep(this, goToWorkshopMiddleFloor);
@@ -257,8 +256,7 @@ public class ElementalWorkshopII extends BasicQuestHelper
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed();
 		coal = new ItemRequirement("Coal", ItemID.COAL, 8);
 		batteredKey = new KeyringRequirement("Battered Key", KeyringCollection.BATTERED_KEY);
-		batteredKey.setTooltip("You can get another by searching the bookcase in the house south of the elemental " +
-			"workshop's entrance");
+		batteredKey.setTooltip(t("You can get another by searching the bookcase in the house south of the elemental workshop's entrance"));
 
 		camelotTeleport = new ItemRequirement("Camelot teleport", ItemID.POH_TABLET_CAMELOTTELEPORT);
 		digsiteTeleport = new ItemRequirement("Digsite teleport", ItemCollections.DIGSITE_PENDANTS);
@@ -271,13 +269,13 @@ public class ElementalWorkshopII extends BasicQuestHelper
 		primedBar = new ItemRequirement("Primed bar. Bring an additional primed bar if you want to smith a mind shield after this quest", ItemID.ELEM_PRIMED_BAR);
 
 		beatenBook = new ItemRequirement("Beaten book", ItemID.ELEMENTAL_WORKSHOP_HELM_BOOK);
-		beatenBook.setTooltip("You can get another from a bookcase in the Exam Center");
+		beatenBook.setTooltip(t("You can get another from a bookcase in the Exam Center"));
 
 		scroll = new ItemRequirement("Scroll", ItemID.ELEMENTAL_WORKSHOP_2_NOTE);
-		scroll.setTooltip("You can get another by searching the beaten book");
+		scroll.setTooltip(t("You can get another by searching the beaten book"));
 
 		key = new ItemRequirement("Key", ItemID.ELEMENTAL_WORKSHOP_2_KEY);
-		key.setTooltip("You can get another from the machinery in the north of the elemental workshop");
+		key.setTooltip(t("You can get another from the machinery in the north of the elemental workshop"));
 
 		craneSchematic = new ItemRequirement("Crane schematic", ItemID.ELEMENTAL_WORKSHOP_CLAW_BOOK);
 		claw = new ItemRequirement("Crane claw", ItemID.ELEM_BROKEN_FINGER);
@@ -289,8 +287,7 @@ public class ElementalWorkshopII extends BasicQuestHelper
 		magic20 = new SkillRequirement(Skill.MAGIC, 20, true);
 
 		slashedBook = new ItemRequirement("Slashed book if you want to smith a mind shield after this quest", ItemID.ELEMENTAL_WORKSHOP_SHIELD_BOOK_SLASHED);
-		slashedBook.setTooltip("If you've lost it you can get another by searching the bookcase in the building south of " +
-			"the odd wall");
+		slashedBook.setTooltip(t("If you've lost it you can get another by searching the bookcase in the building south of the odd wall"));
 	}
 
 	@Override
@@ -421,14 +418,14 @@ public class ElementalWorkshopII extends BasicQuestHelper
 	public void setupSteps()
 	{
 		searchBookcase = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_2_BOOKCASE, new WorldPoint(3367, 3335, 0),
-			"Search the marked bookcase in the Exam Centre in the Dig Site.");
+			t("Search the marked bookcase in the Exam Centre in the Dig Site."));
 		searchBookcase.addDialogStep("Yes.");
 
-		readBook = new DetailedQuestStep(this, "Read the beaten book.", beatenBook.highlighted());
-		readScroll = new DetailedQuestStep(this, "Read the scroll.", scroll.highlighted());
+		readBook = new DetailedQuestStep(this, t("Read the beaten book."), beatenBook.highlighted());
+		readScroll = new DetailedQuestStep(this, t("Read the scroll."), scroll.highlighted());
 
 		enterWorkshop = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_SPIRALSTAIRSTOP, new WorldPoint(2711, 3498, 0),
-			"Enter the elemental workshop.", Arrays.asList(batteredKey, beatenBook), Collections.singletonList(slashedBook));
+			t("Enter the elemental workshop."), Arrays.asList(batteredKey, beatenBook), Collections.singletonList(slashedBook));
 
 		searchMachinery = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_2_BOILER_MULTI, new WorldPoint(2715, 9903, 0),
 			"");
@@ -436,33 +433,33 @@ public class ElementalWorkshopII extends BasicQuestHelper
 		openHatch = new ObjectStep(this, ObjectID.ELEM2_STAIRS_DOOR, new WorldPoint(2720, 9891, 0), "");
 
 		enterHatch = new ObjectStep(this, ObjectID.ELEM2_STAIRS_DOOR, new WorldPoint(2720, 9891, 0),
-			"Enter the hatch the middle of the workshop.");
+			t("Enter the hatch the middle of the workshop."));
 
 		takeSchematics = new ObjectStep(this, ObjectID.ELEM2_MAINTENANCE_BOOK_CRATE, new WorldPoint(1952, 5148, 2),
-			"Take crane schematics from the crate to the south.");
+			t("Take crane schematics from the crate to the south."));
 		takeSchematics.addDialogSteps("Crane schematic");
 
 		goUpHatch = new ObjectStep(this, ObjectID.ELEM2_STAIRS1, new WorldPoint(1954, 5155, 2),
-			"Go up the stairs.");
+			t("Go up the stairs."));
 
 		mineRock = new NpcStep(this, NpcID.ELEM1_QIP_EARTH_ELEMENTAL_ROCK_VERSION_ROCK, new WorldPoint(2703, 9894, 0),
-			"You need 2 elemental bars. Mine one of the elemental rocks in the west room, ready to fight a level 35.",
+			t("You need 2 elemental bars. Mine one of the elemental rocks in the west room, ready to fight a level 35."),
 			true, pickaxe);
-		mineRock.addText("If you want to smith a mind shield after this quest, get a third elemental ore and also smelt it into a bar.");
+		mineRock.addText(t("If you want to smith a mind shield after this quest, get a third elemental ore and also smelt it into a bar."));
 		killRock = new NpcStep(this, NpcID.ELEM1_QIP_EARTH_ELEMENTAL_ROCK_VERSION, new WorldPoint(2703, 9897, 0),
-			"Kill the rock elemental that appeared.");
-		pickUpOre = new ItemStep(this, "Pick up the elemental ore.", elementalOre);
+			t("Kill the rock elemental that appeared."));
+		pickUpOre = new ItemStep(this, t("Pick up the elemental ore."), elementalOre);
 		forgeBars = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_FURNACE, new WorldPoint(2726, 9875, 0),
-			"Use the elemental ores on the furnace in the south room.", elementalOre.quantity(2), coal.quantity(8));
+			t("Use the elemental ores on the furnace in the south room."), elementalOre.quantity(2), coal.quantity(8));
 		forgeBars.addIcon(ItemID.ELEMENTAL_WORKSHOP_ORE);
 		makeClaw = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_WORKBENCH, new WorldPoint(2717, 9888, 0),
-			"Use the bar on one of the workbenches in the central room to make a claw.", elementalBar.highlighted(),
+			t("Use the bar on one of the workbenches in the central room to make a claw."), elementalBar.highlighted(),
 			hammer, batteredKey, craneSchematic);
 		makeClaw.addDialogStep("An elemental claw.");
 		makeClaw.addIcon(ItemID.ELEMENTAL_WORKSHOP_BAR);
 
 		lowerClaw = new ObjectStep(this, ObjectID.ELEM2_FIRE_LEVER_2, new WorldPoint(1953, 5148, 2),
-			"Pull the south west lever to lower the claw.");
+			t("Pull the south west lever to lower the claw."));
 
 		Integer[] craneIDs = new Integer[]{ObjectID.ELEM2_CRANE_TRACK_DOWN_EMPTY, ObjectID.ELEM2_CRANE_LAVA_UP_EMPTY,
 			ObjectID.ELEM2_CRANE_LAVA_DOWN_EMPTY, ObjectID.ELEM2_CRANE_TRACK_UP_COOL_BAR, ObjectID.ELEM2_CRANE_TRACK_DOWN_COOL_BAR, ObjectID.ELEM2_CRANE_LAVA_UP_COOL_BAR,
@@ -471,23 +468,23 @@ public class ElementalWorkshopII extends BasicQuestHelper
 			ObjectID.ELEM2_CRANE_LAVA_DOWN_BROKEN};
 
 		repairClaw = new ObjectStep(this, ObjectID.ELEM2_CRANE_TRACK_UP_EMPTY, new WorldPoint(1954, 5145, 2),
-			"Use the claw on the crane to the south.", claw.highlighted());
+			t("Use the claw on the crane to the south."), claw.highlighted());
 		repairClaw.addIcon(ItemID.ELEM_BROKEN_FINGER);
 		((ObjectStep) repairClaw).addAlternateObjects(craneIDs);
 		repairClaw.addDialogStep("An elemental claw.");
 
 		climbStairs = new ObjectStep(this, ObjectID.ELEM_GANTRY_STAIRS, new WorldPoint(1949, 5149, 2),
-			"Climb up to the catwalk.");
+			t("Climb up to the catwalk."));
 		climbDownStairs = new ObjectStep(this, ObjectID.ELEM_GANTRY_STAIRS_TOP, new WorldPoint(1949, 5149, 2),
-			"Climb down from the catwalk.");
+			t("Climb down from the catwalk."));
 
 		openJunctionBox = new ObjectStep(this, ObjectID.ELEM2_PRESS_JUNCTION_BOX, new WorldPoint(1943, 5154, 3),
-			"Open the junction box.");
+			t("Open the junction box."));
 
 		connectPipes = new ConnectPipes(this);
 
 		getCogsAndPipe = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_2_BOX_1,
-			"Search the marked crates on the catwalk AND DOWN THE STAIRS for 3 cogs and a pipe.",
+			t("Search the marked crates on the catwalk AND DOWN THE STAIRS for 3 cogs and a pipe."),
 			smallCog, mediumCog, largeCog, pipe);
 		((ObjectStep) getCogsAndPipe).addAlternateObjects(ObjectID.ELEMENTAL_WORKSHOP_2_BOX_2, ObjectID.ELEMENTAL_WORKSHOP_2_BOX_3,
 			ObjectID.ELEMENTAL_WORKSHOP_2_BOX_4, ObjectID.ELEMENTAL_WORKSHOP_2_BOX_5, ObjectID.ELEMENTAL_WORKSHOP_2_BOX_6, ObjectID.ELEMENTAL_WORKSHOP_2_BOX_7,
@@ -499,88 +496,87 @@ public class ElementalWorkshopII extends BasicQuestHelper
 		repairPipe.addIcon(ItemID.ELEM2_SPARE_PIPE);
 
 		placeSmallCog = new ObjectStep(this, ObjectID.ELEM2_WIND_PIN_HIGH, new WorldPoint(1959, 5157, 2),
-			"Place the small cog on the top left peg.", smallCog.highlighted());
+			t("Place the small cog on the top left peg."), smallCog.highlighted());
 		placeMediumCog = new ObjectStep(this, ObjectID.ELEM2_WIND_PIN_LOW, new WorldPoint(1959, 5157, 2),
-			"Place the medium cog on the bottom left peg.", mediumCog.highlighted());
+			t("Place the medium cog on the bottom left peg."), mediumCog.highlighted());
 		placeLargeCog = new ObjectStep(this, ObjectID.ELEM2_WIND_PIN_LEFT, new WorldPoint(1959, 5157, 2),
-			"Place the large cog on the right peg.", largeCog.highlighted());
+			t("Place the large cog on the right peg."), largeCog.highlighted());
 
-		placeBar = new NpcStep(this, NpcID.ELEM2_CART_NPC_EMPTY, new WorldPoint(1954, 5147, 2), "Place the elemental bar on the " +
-			"jig cart.", elementalBar.highlighted());
+		placeBar = new NpcStep(this, NpcID.ELEM2_CART_NPC_EMPTY, new WorldPoint(1954, 5147, 2), t("Place the elemental bar on the jig cart."), elementalBar.highlighted());
 		placeBar.addIcon(ItemID.ELEMENTAL_WORKSHOP_BAR);
 		lowerCraneOntoBar = new ObjectStep(this, ObjectID.ELEM2_FIRE_LEVER_2, new WorldPoint(1953, 5148, 2),
-			"Pull the south west lever to lower the claw.");
+			t("Pull the south west lever to lower the claw."));
 		raiseCraneWithBar = new ObjectStep(this, ObjectID.ELEM2_FIRE_LEVER_2, new WorldPoint(1953, 5148, 2),
-			"Pull the south west lever to raise the claw.");
+			t("Pull the south west lever to raise the claw."));
 		rotateCraneToLava = new ObjectStep(this, ObjectID.ELEM2_FIRE_LEVER_1, new WorldPoint(1955, 5148, 2),
-			"Pull the south east lever to rotate the claw.");
+			t("Pull the south east lever to rotate the claw."));
 		lowerBarIntoLava = new ObjectStep(this, ObjectID.ELEM2_FIRE_LEVER_2, new WorldPoint(1953, 5148, 2),
-			"Pull the south west lever to lower the claw into the lava.");
+			t("Pull the south west lever to lower the claw into the lava."));
 		raiseBarOutOfLava = new ObjectStep(this, ObjectID.ELEM2_FIRE_LEVER_2, new WorldPoint(1953, 5148, 2),
-			"Pull the south west lever to raise the claw out of the lava.");
+			t("Pull the south west lever to raise the claw out of the lava."));
 		rotateCraneFromLava = new ObjectStep(this, ObjectID.ELEM2_FIRE_LEVER_1, new WorldPoint(1955, 5148, 2),
-			"Pull the south east lever to rotate the claw back.");
+			t("Pull the south east lever to rotate the claw back."));
 		lowerCraneWithBar = new ObjectStep(this, ObjectID.ELEM2_FIRE_LEVER_2, new WorldPoint(1953, 5148, 2),
-			"Pull the south west lever to lower the bar back onto the jig.");
+			t("Pull the south west lever to lower the bar back onto the jig."));
 		raiseCraneFromBar = new ObjectStep(this, ObjectID.ELEM2_FIRE_LEVER_2, new WorldPoint(1953, 5148, 2),
-			"Pull the south west lever to raise the claw once more.");
+			t("Pull the south west lever to raise the claw once more."));
 		pullLeverToMoveToPress = new ObjectStep(this, ObjectID.ELEM2_LEVER_3WAY, new WorldPoint(1953, 5151, 2),
-			"Pull the central lever to activate the press.");
+			t("Pull the central lever to activate the press."));
 		lowerPress = new ObjectStep(this, ObjectID.ELEM2_EARTH_LEVER_1, new WorldPoint(1950, 5153, 2),
-			"Pull the west lever to move the jig to the press.");
+			t("Pull the west lever to move the jig to the press."));
 		pullLeverToMoveToTank = new ObjectStep(this, ObjectID.ELEM2_LEVER_3WAY, new WorldPoint(1953, 5151, 2),
-			"Pull the central lever to move the jig to the water tank.");
+			t("Pull the central lever to move the jig to the water tank."));
 		pullLeverToOpenTankDoor = new ObjectStep(this, ObjectID.ELEM2_WATER_LEVER, new WorldPoint(1953, 5161, 2),
-			"Pull the north lever to open the water tank.");
+			t("Pull the north lever to open the water tank."));
 		turnCorkscrew = new ObjectStep(this, ObjectID.ELEM2_CORKSCREW, new WorldPoint(1955, 5161, 2),
-			"Turn the corkscrew.");
+			t("Turn the corkscrew."));
 		turnCorkscrewAgain = new ObjectStep(this, ObjectID.ELEM2_CORKSCREW, new WorldPoint(1955, 5161, 2),
-			"Turn the corkscrew again.");
+			t("Turn the corkscrew again."));
 		pullLeverToCloseTankDoor = new ObjectStep(this, ObjectID.ELEM2_WATER_LEVER, new WorldPoint(1953, 5161, 2),
-			"Pull the north lever to close the water tank.");
+			t("Pull the north lever to close the water tank."));
 		turnWestValve = new ObjectStep(this, ObjectID.ELEM2_VALVE_1, new WorldPoint(1949, 5161, 2),
-			"Turn the north west water valve.");
+			t("Turn the north west water valve."));
 		turnEastValve = new ObjectStep(this, ObjectID.ELEM2_VALVE_2, new WorldPoint(1957, 5161, 2),
-			"Turn the north east water valve.");
+			t("Turn the north east water valve."));
 		turnEastValveAgain = new ObjectStep(this, ObjectID.ELEM2_VALVE_2, new WorldPoint(1957, 5161, 2),
-			"Turn the north east water valve again.");
+			t("Turn the north east water valve again."));
 		turnWestValveAgain = new ObjectStep(this, ObjectID.ELEM2_VALVE_1, new WorldPoint(1949, 5161, 2),
-			"Turn the north west water valve again.");
+			t("Turn the north west water valve again."));
 		pullLeverToOpenTankDoorAgain = new ObjectStep(this, ObjectID.ELEM2_WATER_LEVER, new WorldPoint(1953, 5161, 2),
-			"Pull the north lever to open the water tank again.");
+			t("Pull the north lever to open the water tank again."));
 		turnCorkscrewToRetrieve = new ObjectStep(this, ObjectID.ELEM2_CORKSCREW, new WorldPoint(1955, 5161, 2),
-			"Turn the corkscrew.");
+			t("Turn the corkscrew."));
 		turnCorkscrewToRetrieveAgain = new ObjectStep(this, ObjectID.ELEM2_CORKSCREW, new WorldPoint(1955, 5161, 2),
-			"Turn the corkscrew once more.");
+			t("Turn the corkscrew once more."));
 		pullLeverToCloseTankDoorAgain = new ObjectStep(this, ObjectID.ELEM2_WATER_LEVER, new WorldPoint(1953, 5161, 2),
-			"Pull the north lever to close the water tank.");
+			t("Pull the north lever to close the water tank."));
 		pullLeverToMoveToFan = new ObjectStep(this, ObjectID.ELEM2_LEVER_3WAY, new WorldPoint(1953, 5151, 2),
-			"Pull the central lever to move the jig to the wind tunnel.");
+			t("Pull the central lever to move the jig to the wind tunnel."));
 		pullFanLever = new ObjectStep(this, ObjectID.ELEM2_AIR_LEVER, new WorldPoint(1959, 5154, 2),
-			"Pull the east lever to start the wind tunnel.");
+			t("Pull the east lever to start the wind tunnel."));
 		pullFanLeverAgain = new ObjectStep(this, ObjectID.ELEM2_AIR_LEVER, new WorldPoint(1959, 5154, 2),
-			"Pull the east lever to stop the wind tunnel.");
+			t("Pull the east lever to stop the wind tunnel."));
 		pullLeverToMoveToLava = new ObjectStep(this, ObjectID.ELEM2_LEVER_3WAY, new WorldPoint(1953, 5151, 2),
-			"Pull the central lever to move the jig back to the start.");
-		pickUpBar = new NpcStep(this, NpcID.ELEM2_CART_NPC_FLAT_BAR_DRY, new WorldPoint(1954, 5147, 2), "Pick up the primed bar.");
-		pickUpBar.addText("If you want to smith a mind shield after this quest, repeat this process one more time.");
+			t("Pull the central lever to move the jig back to the start."));
+		pickUpBar = new NpcStep(this, NpcID.ELEM2_CART_NPC_FLAT_BAR_DRY, new WorldPoint(1954, 5147, 2), t("Pick up the primed bar."));
+		pickUpBar.addText(t("If you want to smith a mind shield after this quest, repeat this process one more time."));
 
 		goDownToBasement = new ObjectStep(this, ObjectID.ELEM2_STAIRS_DOOR_OPEN_NO_HATCH, new WorldPoint(1949, 5159, 2),
-			"Go down from the priming room.");
+			t("Go down from the priming room."));
 		useBarOnGun = new ObjectStep(this, ObjectID.ELEM_EXTRACTOR_GUN, new WorldPoint(1962, 5148, 0),
-			"Use the primed bar on the extractor gun in the east room.", primedBar.highlighted());
+			t("Use the primed bar on the extractor gun in the east room."), primedBar.highlighted());
 		useBarOnGun.addIcon(ItemID.ELEM_PRIMED_BAR);
 		operateHat = new ObjectStep(this, ObjectID.ELEM_EXTRACTOR_HAT, new WorldPoint(1962, 5150, 0),
-			"Sit in the extractor chair.", magic20);
+			t("Sit in the extractor chair."), magic20);
 		takeMindBar = new ObjectStep(this, ObjectID.ELEM_EXTRACTOR_GUN, new WorldPoint(1962, 5148, 0),
-			"Take the mind bar.");
-		takeMindBar.addText("If you want to smith a mind shield after this quest, repeat this process one more time.");
+			t("Take the mind bar."));
+		takeMindBar.addText(t("If you want to smith a mind shield after this quest, repeat this process one more time."));
 		goUpFromBasement = new ObjectStep(this, ObjectID.ELEM2_STAIRS2, new WorldPoint(1949, 5160, 0),
-			"Go up the stairs.");
+			t("Go up the stairs."));
 		makeMindHelmet = new ObjectStep(this, ObjectID.ELEMENTAL_WORKSHOP_WORKBENCH, new WorldPoint(2717, 9888, 0),
-			"Use the mind bar on one of the workbenches in the central room with the beaten book in your inventory.", mindBar.highlighted(), hammer,
+			t("Use the mind bar on one of the workbenches in the central room with the beaten book in your inventory."), mindBar.highlighted(), hammer,
 			beatenBook);
-		makeMindHelmet.addText("If you want to smith a mind shield after this quest, use the remaining mind bar on one of the workbenches with the slashed book in your inventory.");
+		makeMindHelmet.addText(t("If you want to smith a mind shield after this quest, use the remaining mind bar on one of the workbenches with the slashed book in your inventory."));
 		makeMindHelmet.addIcon(ItemID.ELEM_MIND_BAR);
 
 		goToWorkshopTopFloor = new ConditionalStep(this, enterWorkshop);
@@ -619,7 +615,7 @@ public class ElementalWorkshopII extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("2 Earth elementals (level 35)");
+		return Collections.singletonList(t("2 Earth elementals (level 35)"));
 	}
 
 	@Override
@@ -655,7 +651,7 @@ public class ElementalWorkshopII extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("Ability to craft and equip Mind Elemental Equipment"));
+		return Collections.singletonList(new UnlockReward(t("Ability to craft and equip Mind Elemental Equipment")));
 	}
 
 	@Override
@@ -663,20 +659,20 @@ public class ElementalWorkshopII extends BasicQuestHelper
 	{
 		ArrayList<PanelDetails> allSteps = new ArrayList<>();
 
-		allSteps.add(new PanelDetails("Starting off", Arrays.asList(searchBookcase, readBook, readScroll)));
-		allSteps.add(new PanelDetails("Unlocking the Hatch", Arrays.asList(getKey, unlockHatch), Arrays.asList(batteredKey, pickaxe,
+		allSteps.add(new PanelDetails(t("Starting off"), Arrays.asList(searchBookcase, readBook, readScroll)));
+		allSteps.add(new PanelDetails(t("Unlocking the Hatch"), Arrays.asList(getKey, unlockHatch), Arrays.asList(batteredKey, pickaxe,
 			coal.quantity(8), hammer, beatenBook), Collections.singletonList(slashedBook)));
-		allSteps.add(new PanelDetails("Repairing the crane", Arrays.asList(takeSchematics, goMakeClaw, goRepairCrane)));
-		allSteps.add(new PanelDetails("Repairing the workshop", Arrays.asList(goSortTubes, getCogsAndPipe,
+		allSteps.add(new PanelDetails(t("Repairing the crane"), Arrays.asList(takeSchematics, goMakeClaw, goRepairCrane)));
+		allSteps.add(new PanelDetails(t("Repairing the workshop"), Arrays.asList(goSortTubes, getCogsAndPipe,
 			goRepairPipe, goPlaceCogs)));
-		allSteps.add(new PanelDetails("Priming a bar", Arrays.asList(placeBar, lowerCraneOntoBar, raiseCraneWithBar,
+		allSteps.add(new PanelDetails(t("Priming a bar"), Arrays.asList(placeBar, lowerCraneOntoBar, raiseCraneWithBar,
 			rotateCraneToLava, lowerBarIntoLava, raiseBarOutOfLava, rotateCraneFromLava, lowerCraneWithBar, raiseCraneFromBar,
 			pullLeverToMoveToPress, lowerPress, pullLeverToMoveToTank, pullLeverToOpenTankDoor, turnCorkscrew, turnCorkscrewAgain,
 			pullLeverToCloseTankDoor, turnWestValve, turnEastValve, turnEastValveAgain, turnWestValveAgain, pullLeverToOpenTankDoorAgain,
 			turnCorkscrewToRetrieve, turnCorkscrewToRetrieveAgain, pullLeverToCloseTankDoorAgain, pullLeverToMoveToFan, pullFanLever,
 			pullFanLeverAgain, pullLeverToMoveToLava, pickUpBar), Collections.singletonList(elementalBar)));
 
-		allSteps.add(new PanelDetails("Making a Mind Helm", Arrays.asList(goDownToBasement, useBarOnGun, operateHat,
+		allSteps.add(new PanelDetails(t("Making a Mind Helm"), Arrays.asList(goDownToBasement, useBarOnGun, operateHat,
 			takeMindBar, goMakeMindHelmet), Arrays.asList(primedBar, hammer, beatenBook), Collections.singletonList(slashedBook)));
 		return allSteps;
 	}

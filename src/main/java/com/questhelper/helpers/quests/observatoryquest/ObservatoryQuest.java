@@ -164,25 +164,25 @@ public class ObservatoryQuest extends BasicQuestHelper
 	public void setupSteps()
 	{
 		talkToProfessor = new NpcStep(this, NpcID.OBSERVATORY_PROFESSOR, new WorldPoint(2442, 3186, 0),
-			"Talk to the Observatory professor north of Castle Wars.", plank, moltenGlass, bronzeBar);
+			t("Talk to the Observatory professor north of Castle Wars."), plank, moltenGlass, bronzeBar);
 		talkToProfessor.addDialogSteps("Talk about the Observatory quest.", "An Observatory?", "Yes.");
 
 		giveProfessorPlanks = new NpcStep(this, NpcID.OBSERVATORY_PROFESSOR, new WorldPoint(2442, 3186, 0),
-			"Give the professor 3 planks.", plank);
+			t("Give the professor 3 planks."), plank);
 		giveProfessorPlanks.addDialogSteps("Talk about the Observatory quest.");
 
 		giveProfessorBar = new NpcStep(this, NpcID.OBSERVATORY_PROFESSOR, new WorldPoint(2442, 3186, 0),
-			"Give the professor a bronze bar.", bronzeBar);
+			t("Give the professor a bronze bar."), bronzeBar);
 		giveProfessorBar.addDialogSteps("Talk about the Observatory quest.");
 
 		giveProfessorGlass = new NpcStep(this, NpcID.OBSERVATORY_PROFESSOR, new WorldPoint(2442, 3186, 0),
-			"Give the professor some molten glass.", moltenGlass);
+			t("Give the professor some molten glass."), moltenGlass);
 		giveProfessorGlass.addDialogSteps("Talk about the Observatory quest.");
 
 		enterDungeon = new ObjectStep(this, ObjectID.QIP_OBS_VSTAIRS2, new WorldPoint(2458, 3186, 0),
-			"Enter the dungeon east of the Professor.");
-		searchChests = new ObjectStep(this, ObjectID.QIP_OBS_DUNGEON_CHEST_CLOSED, "Search only the marked chests in the dungeon. " +
-			"Unmarked chests contain monsters and may poison you.");
+			t("Enter the dungeon east of the Professor."));
+		searchChests = new ObjectStep(this, ObjectID.QIP_OBS_DUNGEON_CHEST_CLOSED, t("Search only the marked chests in the dungeon. " +
+			"Unmarked chests contain monsters and may poison you."));
 		searchChests.addAlternateObjects(ObjectID.QIP_OBS_DUNGEON_CHEST_OPEN, ObjectID.QIP_OBS_DUNGEON_CHEST_CLOSED2,
 			ObjectID.QIP_OBS_DUNGEON_CHEST_OPEN2, ObjectID.QIP_OBS_DUNGEON_CHEST_CLOSED3, ObjectID.QIP_OBS_DUNGEON_CHEST_OPEN3);
 
@@ -190,38 +190,38 @@ public class ObservatoryQuest extends BasicQuestHelper
 		// I had to open the 2351,9361,0 chest
 
 		prodGuard = new NpcStep(this, NpcID.QIP_OBS_GOBLIN_GUARD, new WorldPoint(2327, 9394, 0),
-			"Prod the sleeping guard in the north of the dungeon. He'll attack you. You need to then either kill him," +
-				" or get him in the marked spot to the north of the gate.");
+			t("Prod the sleeping guard in the north of the dungeon. He'll attack you. You need to then either kill him," +
+				" or get him in the marked spot to the north of the gate."));
 		prodGuard.addTileMarker(new WorldPoint(2327, 9399, 0), SpriteID.BarbassaultIcons.HORN_FOR_HEALER);
 		inspectStove = new ObjectStep(this, ObjectID.QIP_OBS_DUNGEON_STOVE_TOP_MULTI, new WorldPoint(2327, 9389, 0),
-			"Either kill or trap the guard on the marked tile to the north, then search the goblin stove.");
+			t("Either kill or trap the guard on the marked tile to the north, then search the goblin stove."));
 		inspectStove.addTileMarker(new WorldPoint(2327, 9399, 0), SpriteID.BarbassaultIcons.HORN_FOR_HEALER);
 		leaveDungeon = new ObjectStep(this, ObjectID.QIP_OBS_STAIRS1_DUNGEON, new WorldPoint(2355, 9396, 0),
-			"Climb the stairs back to the surface.");
+			t("Climb the stairs back to the surface."));
 		giveProfessorMould = new NpcStep(this, NpcID.OBSERVATORY_PROFESSOR, new WorldPoint(2442, 3186, 0),
-			"Give the professor the lens mould. If you don't have it, check your bank.", mould);
+			t("Give the professor the lens mould. If you don't have it, check your bank."), mould);
 		giveProfessorMould.addDialogSteps("Talk about the Observatory quest.");
-		useGlassOnMould = new DetailedQuestStep(this, "Use the molten glass on the mould.", moltenGlass.highlighted()
+		useGlassOnMould = new DetailedQuestStep(this, t("Use the molten glass on the mould."), moltenGlass.highlighted()
 			, mould.highlighted());
 		giveProfessorLensAndMould = new NpcStep(this, NpcID.OBSERVATORY_PROFESSOR, new WorldPoint(2442, 3186, 0),
-			"Give the professor the lens mould and lens.", lens);
+			t("Give the professor the lens mould and lens."), lens);
 		giveProfessorLensAndMould.addDialogSteps("Talk about the Observatory quest.");
 		enterDungeonAgain = new ObjectStep(this, ObjectID.QIP_OBS_VSTAIRS2, new WorldPoint(2458, 3186, 0),
-			"Enter the dungeon east of the Professor.");
+			t("Enter the dungeon east of the Professor."));
 		enterObservatory = new ObjectStep(this, ObjectID.QIP_OBS_STAIRS1_DUNGEON, new WorldPoint(2335, 9352, 0),
-			"Follow the dungeon around anti-clockwise to a staircase, then climb it.");
+			t("Follow the dungeon around anti-clockwise to a staircase, then climb it."));
 		goToF2Observatory = new ObjectStep(this, ObjectID.QIP_OBS_STAIRS1, new WorldPoint(2444, 3160, 0),
-			"Climb up the stairs in the observatory.");
+			t("Climb up the stairs in the observatory."));
 		viewTelescope = new ObjectStep(this, ObjectID.QIP_OBS_TELE_GEAR_UPPER_MULTI, new WorldPoint(2441, 3162, 1),
-			"Use the telescope.");
+			t("Use the telescope."));
 
-		watchCutscene = new DetailedQuestStep(this, "Watch the cutscene.");
+		watchCutscene = new DetailedQuestStep(this, t("Watch the cutscene."));
 		enterObservatory.addSubSteps(watchCutscene);
 
 		// Holds the varbit that controls which constellation / star sign you see in the observatory
 		var signState = new VarbitBuilder(VarbitID.OBSERVATORY_STARSIGN);
 
-		tellProfessorConstellationBase = new NpcStep(this, NpcID.OBSERVATORY_PROFESSOR, new WorldPoint(2440, 3159, 1), "Tell the professor which constellation you observed.");
+		tellProfessorConstellationBase = new NpcStep(this, NpcID.OBSERVATORY_PROFESSOR, new WorldPoint(2440, 3159, 1), t("Tell the professor which constellation you observed."));
 
 		// 0
 		tellAquarius = tellProfessorConstellationBase.copy();
@@ -364,7 +364,7 @@ public class ObservatoryQuest extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"Goblin Guard (level 42, or you can lure it/have someone else kill it)"
+			t("Goblin Guard (level 42, or you can lure it/have someone else kill it)")
 		);
 	}
 
@@ -386,7 +386,7 @@ public class ObservatoryQuest extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("A reward depending on which constellation you observed.")
+			new UnlockReward(t("A reward depending on which constellation you observed."))
 		);
 	}
 
@@ -395,7 +395,7 @@ public class ObservatoryQuest extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Helping the Professor", List.of(
+		sections.add(new PanelDetails(t("Helping the Professor"), List.of(
 			talkToProfessor,
 			giveProfessorPlanks,
 			giveProfessorBar,

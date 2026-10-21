@@ -272,40 +272,40 @@ public class JugPuzzle extends DetailedOwnerStep
 		setupZones();
 		setupConditions();
 
-		syncStep = new DetailedQuestStep(getQuestHelper(), "Please check both the jugs to continue.");
-		searchCupboardTinderbox = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_SHELVES_TINDERBOX, new WorldPoint(1381, 3829, 0), "Search the cupboard on the north wall for a tinderbox.");
-		searchCupboardJug = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_SHELVES_JUGS, new WorldPoint(1378, 3826, 0), "Search the cupboard in the south west corner of the north room for a 5 and an 8 gallon jug.");
+		syncStep = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Please check both the jugs to continue."));
+		searchCupboardTinderbox = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_SHELVES_TINDERBOX, new WorldPoint(1381, 3829, 0), getQuestHelper().t("Search the cupboard on the north wall for a tinderbox."));
+		searchCupboardJug = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_SHELVES_JUGS, new WorldPoint(1378, 3826, 0), getQuestHelper().t("Search the cupboard in the south west corner of the north room for a 5 and an 8 gallon jug."));
 		searchCupboardJug.addDialogStep("Take both.");
-		fill5Gallon = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_COOLANT, new WorldPoint(1377, 3828, 0), "Fill the 5-gallon jug on the Coolant Dispenser.", fiveGallon);
+		fill5Gallon = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_COOLANT, new WorldPoint(1377, 3828, 0), getQuestHelper().t("Fill the 5-gallon jug on the Coolant Dispenser."), fiveGallon);
 		fill5Gallon.addDialogStep("5-gallon jug.");
 
-		use5GallonOn8 = new DetailedQuestStep(getQuestHelper(), "Use the 5-gallon jug on the 8-gallon jug.", fiveGallon, eightGallon);
+		use5GallonOn8 = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Use the 5-gallon jug on the 8-gallon jug."), fiveGallon, eightGallon);
 
-		fill5Gallon2 = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_COOLANT, new WorldPoint(1377, 3828, 0), "Fill the 5-gallon jug on the Coolant Dispenser.", fiveGallon);
+		fill5Gallon2 = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_COOLANT, new WorldPoint(1377, 3828, 0), getQuestHelper().t("Fill the 5-gallon jug on the Coolant Dispenser."), fiveGallon);
 		fill5Gallon2.addDialogStep("5-gallon jug.");
-		use5GallonOn82 = new DetailedQuestStep(getQuestHelper(), "Use the 5-gallon jug on the 8-gallon jug.", fiveGallon, eightGallon);
-		empty8Gallon = new DetailedQuestStep(getQuestHelper(), "Check the 8-gallon jug and empty it.");
-		use5GallonOn83 = new DetailedQuestStep(getQuestHelper(), "Use the 5-gallon jug on the 8-gallon jug.", fiveGallon, eightGallon);
-		fill5Gallon3 = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_COOLANT, new WorldPoint(1377, 3828, 0), "Fill the 5-gallon jug on the Coolant Dispenser.", fiveGallon);
+		use5GallonOn82 = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Use the 5-gallon jug on the 8-gallon jug."), fiveGallon, eightGallon);
+		empty8Gallon = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Check the 8-gallon jug and empty it."));
+		use5GallonOn83 = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Use the 5-gallon jug on the 8-gallon jug."), fiveGallon, eightGallon);
+		fill5Gallon3 = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_COOLANT, new WorldPoint(1377, 3828, 0), getQuestHelper().t("Fill the 5-gallon jug on the Coolant Dispenser."), fiveGallon);
 		fill5Gallon3.addDialogStep("5-gallon jug.");
-		use5GallonOn84 = new DetailedQuestStep(getQuestHelper(), "Use the 5-gallon jug on the 8-gallon jug.", fiveGallon, eightGallon);
-		fill5Gallon4 = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_COOLANT, new WorldPoint(1377, 3828, 0), "Fill the 5-gallon jug on the Coolant Dispenser.", fiveGallon);
+		use5GallonOn84 = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Use the 5-gallon jug on the 8-gallon jug."), fiveGallon, eightGallon);
+		fill5Gallon4 = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_COOLANT, new WorldPoint(1377, 3828, 0), getQuestHelper().t("Fill the 5-gallon jug on the Coolant Dispenser."), fiveGallon);
 		fill5Gallon4.addDialogStep("5-gallon jug.");
-		use5GallonOn85 = new DetailedQuestStep(getQuestHelper(), "Use the 5-gallon jug on the 8-gallon jug.", fiveGallon, eightGallon);
+		use5GallonOn85 = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Use the 5-gallon jug on the 8-gallon jug."), fiveGallon, eightGallon);
 		use5GallonOnFurnace = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_COOLANT_FURNACE, new WorldPoint(1383, 3829, 0),
-			"Use the 5-gallon jug, which should contain 4 gallons, on the Furnace Coolant.", fiveGallon);
-		restartPuzzle = new DetailedQuestStep(getQuestHelper(), "Unknown puzzle state. Empty both the jugs to continue.");
-		lightFurnace = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_FURNACE, new WorldPoint(1385, 3829, 0), "Light the furnace.", tinderbox);
+			getQuestHelper().t("Use the 5-gallon jug, which should contain 4 gallons, on the Furnace Coolant."), fiveGallon);
+		restartPuzzle = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Unknown puzzle state. Empty both the jugs to continue."));
+		lightFurnace = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_FURNACE, new WorldPoint(1385, 3829, 0), getQuestHelper().t("Light the furnace."), tinderbox);
 
-		goDownToFirstFloor = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_LADDER_DOWN, new WorldPoint(1382, 3827, 2), "Go down from the top floor.");
-		goDownToGroundFloor = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_SPIRAL_STAIRS_TOP_M, new WorldPoint(1378, 3825, 1), "Go down to the ground floor.");
-		goUpToGroundFloor = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_DUNGEON_EXIT, new WorldPoint(1382, 10229, 0), "Leave the tower's basement.");
+		goDownToFirstFloor = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_LADDER_DOWN, new WorldPoint(1382, 3827, 2), getQuestHelper().t("Go down from the top floor."));
+		goDownToGroundFloor = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_SPIRAL_STAIRS_TOP_M, new WorldPoint(1378, 3825, 1), getQuestHelper().t("Go down to the ground floor."));
+		goUpToGroundFloor = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_DUNGEON_EXIT, new WorldPoint(1382, 10229, 0), getQuestHelper().t("Leave the tower's basement."));
 	}
 
 	public List<PanelDetails> panelDetails()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		PanelDetails furnacePanel = new PanelDetails("Furnace puzzle",
+		PanelDetails furnacePanel = new PanelDetails(getQuestHelper().t("Furnace puzzle"),
 			Arrays.asList(searchCupboardTinderbox, searchCupboardJug, fill5Gallon, use5GallonOn8, fill5Gallon2, use5GallonOn82, empty8Gallon, use5GallonOn83,
 				fill5Gallon3, use5GallonOn84, fill5Gallon4, use5GallonOn85, use5GallonOnFurnace, lightFurnace));
 		furnacePanel.setLockingStep(this);

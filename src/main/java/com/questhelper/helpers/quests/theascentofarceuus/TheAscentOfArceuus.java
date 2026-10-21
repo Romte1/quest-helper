@@ -173,79 +173,79 @@ public class TheAscentOfArceuus extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToMori = new NpcStep(this, NpcID.ARCQUEST_MORI_VISIBLE, new WorldPoint(1698, 3742, 0), "Talk to Mori in Arceuus.");
+		talkToMori = new NpcStep(this, NpcID.ARCQUEST_MORI_VISIBLE, new WorldPoint(1698, 3742, 0), t("Talk to Mori in Arceuus."));
 		talkToMori.addDialogSteps("What can I do to help?", "We should let someone know about this.","Yes.",
 			"Of course I'll help.");
 
 		goUpToAndrews = new ObjectStep(this, ObjectID.FAI_VARROCK_STAIRS_TALLER_NEW_FIX, new WorldPoint(1616, 3681, 0),
-			"Talk to Councillor Andrews in Kourend Castle.");
+			t("Talk to Councillor Andrews in Kourend Castle."));
 		talkToAndrews = new NpcStep(this, NpcID.ZEAH_HEAD_COUNCILLOR_VIS, new WorldPoint(1620, 3673, 1),
-			"Talk to Councillor Andrews in Kourend Castle.");
+			t("Talk to Councillor Andrews in Kourend Castle."));
 		talkToAndrews.addDialogStep("There's been a death in Arceuus.");
 		talkToAndrews.addSubSteps(goUpToAndrews);
 
-		returnToMori = new NpcStep(this, NpcID.ARCQUEST_MORI_VISIBLE, new WorldPoint(1698, 3742, 0), "Return to Mori in Arceuus.");
+		returnToMori = new NpcStep(this, NpcID.ARCQUEST_MORI_VISIBLE, new WorldPoint(1698, 3742, 0), t("Return to Mori in Arceuus."));
 		returnToMori.addDialogStep("What should we do now?");
 
-		enterTowerOfMagic = new ObjectStep(this, ObjectID.ARCQUEST_TOWER_DOOR_RIGHT, new WorldPoint(1596, 3820, 0), "Enter the Tower" +
-			" of Magic in Arceuus, ready to fight some level 16 Tormented Souls.", combatGear);
+		enterTowerOfMagic = new ObjectStep(this, ObjectID.ARCQUEST_TOWER_DOOR_RIGHT, new WorldPoint(1596, 3820, 0), t("Enter the Tower" +
+			" of Magic in Arceuus, ready to fight some level 16 Tormented Souls."), combatGear);
 		enterTowerOfMagic.addDialogStep("Yes.");
 
 		killTormentedSouls = new NpcStep(this, NpcID.ARCQUEST_GHOST1, new WorldPoint(1585, 3821, 0),
-			"Defeat the tormented souls.", true, combatGear);
+			t("Defeat the tormented souls."), true, combatGear);
 		((NpcStep) killTormentedSouls).addAlternateNpcs(NpcID.ARCQUEST_GHOST2);
 
 		goUpstairsTowerOfMagic = new ObjectStep(this, ObjectID.ARCQUEST_STAIRS_LOWER_LEFT, new WorldPoint(1585, 3821, 0),
-			"Go up the stairs in the Tower of Magic.");
+			t("Go up the stairs in the Tower of Magic."));
 
 		talkToArceuus = new NpcStep(this, NpcID.TROBIN_ARCEUUS_FOCUS_VISIBLE, new WorldPoint(1580, 3821, 1),
-			"Talk to Lord Trobin Arceuus.");
+			t("Talk to Lord Trobin Arceuus."));
 		((NpcStep) talkToArceuus).addAlternateNpcs(NpcID.TROBIN_ARCEUUS_VISIBLE);
 
 		enterKaruulm = new ObjectStep(this, ObjectID.BRIMSTONE_ELEVATOR_CENTRAL_TILE, new WorldPoint(1311, 3807, 0),
-			"Go down the elevator on Mount Karuulm.");
+			t("Go down the elevator on Mount Karuulm."));
 
-		talkToKaal = new NpcStep(this, NpcID.TASAKAAL_KET, new WorldPoint(1312, 10211, 0), "Talk to Kaal-Ket-Jor.");
+		talkToKaal = new NpcStep(this, NpcID.TASAKAAL_KET, new WorldPoint(1312, 10211, 0), t("Talk to Kaal-Ket-Jor."));
 
 
 		leaveKaal = new ObjectStep(this, ObjectID.BRIMSTONE_DUNGEON_EXIT, new WorldPoint(1312, 10186, 0),
-			"Inspect the ancient grave south of Mount Karuulm.");
+			t("Inspect the ancient grave south of Mount Karuulm."));
 
 		inspectGrave = new ObjectStep(this, ObjectID.ARCQUEST_GRAVE, new WorldPoint(1349, 3737, 0),
-			"Inspect the ancient grave south of Mount Karuulm.", combatGear);
+			t("Inspect the ancient grave south of Mount Karuulm."), combatGear);
 		inspectGrave.addSubSteps(leaveKaal);
 
 		inspectTrack1 = new ObjectStep(this, ObjectID.ARCQUEST_HUNTING_BUSH, new WorldPoint(1335, 3743, 0),
-			"Inspect plants and bushes until you uncover the full path.");
+			t("Inspect plants and bushes until you uncover the full path."));
 		inspectTrack2 = new ObjectStep(this, ObjectID.ARCQUEST_HUNTING_PLANT, new WorldPoint(1317, 3750, 0),
-			"Inspect plants and bushes until you uncover the full path.");
+			t("Inspect plants and bushes until you uncover the full path."));
 		inspectTrack3 = new ObjectStep(this, ObjectID.ARCQUEST_HUNTING_PLANT, new WorldPoint(1305, 3750, 0),
-			"Inspect plants and bushes until you uncover the full path.");
+			t("Inspect plants and bushes until you uncover the full path."));
 		inspectTrack4 = new ObjectStep(this, ObjectID.ARCQUEST_HUNTING_TREE_STUMP, new WorldPoint(1288, 3751, 0),
-			"Inspect plants and bushes until you uncover the full path.");
+			t("Inspect plants and bushes until you uncover the full path."));
 		inspectTrack5 = new ObjectStep(this, ObjectID.ARCQUEST_HUNTING_PLANT2, new WorldPoint(1286, 3738, 0),
-			"Inspect plants and bushes until you uncover the full path.");
+			t("Inspect plants and bushes until you uncover the full path."));
 		inspectTrack1.addSubSteps(inspectTrack2, inspectTrack3, inspectTrack4, inspectTrack5);
 
 		inspectTrack6 = new ObjectStep(this, ObjectID.ARCQUEST_HUNTING_END, new WorldPoint(1282, 3726, 0),
-			"Inspect the final plant and kill the Trapped Soul (level 30) which appears.", combatGear);
+			t("Inspect the final plant and kill the Trapped Soul (level 30) which appears."), combatGear);
 		killTrappedSoul = new NpcStep(this, NpcID.ARCQUEST_SOUL, new WorldPoint(1281, 3724, 0),
-			"Kill the Trapped Soul.");
+			t("Kill the Trapped Soul."));
 		inspectTrack6.addSubSteps(killTrappedSoul);
 
 		enterKaruulmAgain = new ObjectStep(this, ObjectID.BRIMSTONE_ELEVATOR_CENTRAL_TILE, new WorldPoint(1311, 3807, 0),
-			"Return to Kaal-Ket-Jor.");
+			t("Return to Kaal-Ket-Jor."));
 		talkToKaalAgain = new NpcStep(this, NpcID.TASAKAAL_KET, new WorldPoint(1312, 10211, 0),
-			"Return to Kaal-Ket-Jor.");
+			t("Return to Kaal-Ket-Jor."));
 		talkToKaalAgain.addSubSteps(enterKaruulmAgain);
 
-		searchRocks = new ObjectStep(this, ObjectID.ARCQUEST_ROCKS_2_OP, new WorldPoint(1710, 3882, 0), "Inspect the rocks near the Arceuus Altar until you find a device.", true);
+		searchRocks = new ObjectStep(this, ObjectID.ARCQUEST_ROCKS_2_OP, new WorldPoint(1710, 3882, 0), t("Inspect the rocks near the Arceuus Altar until you find a device."), true);
 		((ObjectStep) searchRocks).addAlternateObjects(ObjectID.ARCQUEST_ROCKS_1_OP);
 
 		goUpstairsInTowerToFinish = new ObjectStep(this, ObjectID.ARCQUEST_STAIRS_LOWER_LEFT, new WorldPoint(1585, 3821, 0),
-			"Return to Lord Trobin Arceuus to finish the quest.");
+			t("Return to Lord Trobin Arceuus to finish the quest."));
 		talkToArceuusToFinish = new NpcStep(this, NpcID.TROBIN_ARCEUUS_VISIBLE, new WorldPoint(1580, 3821, 1),
-			"Talk to Lord Trobin Arceuus to finish the quest.");
+			t("Talk to Lord Trobin Arceuus to finish the quest."));
 		talkToArceuusToFinish.addSubSteps(goUpstairsInTowerToFinish);
 	}
 
@@ -258,7 +258,7 @@ public class TheAscentOfArceuus extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Arrays.asList("5 Tormented Souls (level 16)", "Trapped Soul (level 30)");
+		return Arrays.asList(t("5 Tormented Souls (level 16)"), t("Trapped Soul (level 30)"));
 	}
 
 	@Override
@@ -297,13 +297,13 @@ public class TheAscentOfArceuus extends BasicQuestHelper
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off",
+		allSteps.add(new PanelDetails(t("Starting off"),
 			Arrays.asList(talkToMori, talkToAndrews, returnToMori, enterTowerOfMagic,
 				killTormentedSouls, goUpstairsTowerOfMagic, talkToArceuus)));
-		allSteps.add(new PanelDetails("Freeing a Soul",
+		allSteps.add(new PanelDetails(t("Freeing a Soul"),
 			Arrays.asList(talkToKaal, inspectGrave, inspectTrack1, inspectTrack6, talkToKaalAgain),
 			combatGear));
-		allSteps.add(new PanelDetails("Saving Arceuus",
+		allSteps.add(new PanelDetails(t("Saving Arceuus"),
 			Arrays.asList(searchRocks, talkToArceuusToFinish)));
 		return allSteps;
 	}

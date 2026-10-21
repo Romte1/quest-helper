@@ -201,7 +201,7 @@ public class Regicide extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		rope1 = new ItemRequirement("Rope", ItemID.ROPE);
-		rope1.setTooltip("Bring extras as you can fail");
+		rope1.setTooltip(t("Bring extras as you can fail"));
 		rope2 = rope1.quantity(2);
 		ropeHighlight = rope1.highlighted();
 		bow = new ItemRequirement("Bow (not crossbow)", ItemCollections.BOWS, 1, true).isNotConsumed();
@@ -213,7 +213,7 @@ public class Regicide extends BasicQuestHelper
 		plankHighlight = plank.highlighted();
 		bucket = new ItemRequirement("Bucket", ItemID.BUCKET_EMPTY).isNotConsumed();
 		bucketHighlight = bucket.highlighted();
-		bucketHighlight.setTooltip("You can grab a bucket from the southwest corner of the large dwarf encampment building.");
+		bucketHighlight.setTooltip(t("You can grab a bucket from the southwest corner of the large dwarf encampment building."));
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
 		tinderboxHighlight = tinderbox.highlighted();
 		combatEquipment = new ItemRequirement("Combat Equipment", -1, -1).isNotConsumed();
@@ -227,7 +227,7 @@ public class Regicide extends BasicQuestHelper
 		agilityPotions.addAlternates(ItemID.UNFINISHED_SUMMER_PIE_1);
 		agilityPotions.addAlternates(ItemCollections.AGILITY_POTIONS);
 		oilyCloth = new ItemRequirement("Oily Cloth", ItemID.DAMP_CLOTH);
-		oilyCloth.setTooltip("You can get another by searching the equipment by the fireplace beside Koftik.");
+		oilyCloth.setTooltip(t("You can get another by searching the equipment by the fireplace beside Koftik."));
 		oilyClothHighlight = oilyCloth.highlighted();
 		fireArrow = new ItemRequirement("Fire Arrow", ItemID.UNLITARROW);
 		fireArrow.setHighlightInInventory(true);
@@ -240,34 +240,34 @@ public class Regicide extends BasicQuestHelper
 
 		coal20 = new ItemRequirement("Coal", ItemID.COAL, 20);
 		limestone = new ItemRequirement("Limestone", ItemID.LIMESTONE);
-		limestone.setTooltip("You can mine some in the mine north of the Digsite");
+		limestone.setTooltip(t("You can mine some in the mine north of the Digsite"));
 		stripOfCloth = new ItemRequirement("Strip of cloth", ItemID.REGICIDE_CLOTH);
-		stripOfCloth.setTooltip("Made on a loom with 4 balls of wool.");
-		stripOfCloth.appendToTooltip("There is a loom available at the Falador Farm");
+		stripOfCloth.setTooltip(t("Made on a loom with 4 balls of wool."));
+		stripOfCloth.appendToTooltip(t("There is a loom available at the Falador Farm"));
 		pestle = new ItemRequirement("Pestle and mortar", ItemID.PESTLE_AND_MORTAR).isNotConsumed();
 
 		gloves = new ItemRequirement("Gloves which fully cover your hand", ItemCollections.QUICKLIME_GLOVES).isNotConsumed();
 		gloves.addAlternates(ItemCollections.GRACEFUL_GLOVES);
 		gloves.setUrlSuffix("Quicklime#Gloves");
-		gloves.setTooltip("'Go to wiki..' to see valid options for handling Quicklime");
+		gloves.setTooltip(t("'Go to wiki..' to see valid options for handling Quicklime"));
 
 		pot = new ItemRequirement("Pot", ItemID.POT_EMPTY);
 		cookedRabbit = new ItemRequirement("Cooked rabbit", ItemID.COOKED_RABBIT);
-		cookedRabbit.setTooltip("Raw Rabbit can be killed around Isafdar or purchased from the");
-		cookedRabbit.appendToTooltip(" Charter Ship near the Tyras Camp for 50gp.");
-		cookedRabbit.appendToTooltip(" You can cook it on a fire which spawns in the clearing east of Port Tyras.");
+		cookedRabbit.setTooltip(t("Raw Rabbit can be killed around Isafdar or purchased from the"));
+		cookedRabbit.appendToTooltip(" " + t("Charter Ship near the Tyras Camp for 50gp."));
+		cookedRabbit.appendToTooltip(" " + t("You can cook it on a fire which spawns in the clearing east of Port Tyras."));
 
 		antipoisons = new ItemRequirement("Antidotes/antipoisons", ItemCollections.ANTIPOISONS, -1);
-		antipoisons.setTooltip("No amount specified. Bring as many doses as you feel comfortable bringing.");
+		antipoisons.setTooltip(t("No amount specified. Bring as many doses as you feel comfortable bringing."));
 		faladorTeleport = new ItemRequirement("Falador teleport", ItemID.POH_TABLET_FALADORTELEPORT);
 		westArdougneTeleport = new ItemRequirement("West Ardougne teleport", ItemID.TELETAB_WESTARDY, 4);
 		summerPie = new ItemRequirement("Summer pie as food + agility boost", ItemID.SUMMER_PIE, -1);
 		summerPie.addAlternates(ItemID.HALF_SUMMER_PIE);
-		summerPie.setTooltip("This is, most likely, not needed if you have 70+ Agility. Bring more if you have lower Agility.");
+		summerPie.setTooltip(t("This is, most likely, not needed if you have 70+ Agility. Bring more if you have lower Agility."));
 		axe = new ItemRequirement("An Axe to cook raw rabbit in case you fail too many obstacles.", ItemCollections.AXES).isNotConsumed();
 
 		crystalPendant = new ItemRequirement("Crystal pendant", ItemID.REGICIDE_CRYSTAL_PENDANT);
-		crystalPendant.setTooltip("You can get another from Lord Iorwerth");
+		crystalPendant.setTooltip(t("You can get another from Lord Iorwerth"));
 
 		barrel2 = new ItemRequirement("Barrel", ItemID.REGICIDE_BARREL_EMPTY, 2);
 		barrel2.addAlternates(ItemID.REGICIDE_BARREL_TAR, ItemID.REGICIDE_BARREL_NAPHTHA);
@@ -275,7 +275,7 @@ public class Regicide extends BasicQuestHelper
 		coalBarrel2.addAlternates(ItemID.REGICIDE_BARREL_TAR);
 		sulphur = new ItemRequirement("Sulphur", ItemID.REGICIDE_SULPHAR);
 		bigBookOfBangs = new ItemRequirement("Big book of bangs", ItemID.REGICIDE_ALCHEMY);
-		bigBookOfBangs.setTooltip("You can get another from Lord Iorwerth");
+		bigBookOfBangs.setTooltip(t("You can get another from Lord Iorwerth"));
 
 		groundQuicklime = new ItemRequirement("Pot of quicklime", ItemID.REGICIDE_QUICKLIME_DUST);
 		quicklime = new ItemRequirement("Quicklime", ItemID.REGICIDE_QUICKLIME);
@@ -287,8 +287,8 @@ public class Regicide extends BasicQuestHelper
 		barrelBombUnfused = new ItemRequirement("Barrel bomb (unfused)", ItemID.REGICIDE_BARREL_LID);
 
 		iorwerthsMessage = new ItemRequirement("Iorwerth's message", ItemID.REGICIDE_IORWERTH_MESSAGE);
-		iorwerthsMessage.setTooltip("You can get another from Lord Iorwerth. You can return to the elven lands " +
-			"through Arandar now");
+		iorwerthsMessage.setTooltip(t("You can get another from Lord Iorwerth. You can return to the elven lands " +
+			"through Arandar now"));
 	}
 
 	@Override
@@ -467,68 +467,68 @@ public class Regicide extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		goToArdougneCastleFloor2 = new ObjectStep(this, ObjectID.STAIRS, new WorldPoint(2572, 3296, 0), "Go to the second floor of Ardougne Castle.");
-		talkToKingLathas = new NpcStep(this, NpcID.KINGLATHAS_VIS, new WorldPoint(2578, 3293, 1), "Talk to King Lathas.");
+		goToArdougneCastleFloor2 = new ObjectStep(this, ObjectID.STAIRS, new WorldPoint(2572, 3296, 0), t("Go to the second floor of Ardougne Castle."));
+		talkToKingLathas = new NpcStep(this, NpcID.KINGLATHAS_VIS, new WorldPoint(2578, 3293, 1), t("Talk to King Lathas."));
 		talkToKingLathas.addDialogSteps("I assume you have a plan?", "I can handle it.", "Yes.");
 		talkToKingLathas.addSubSteps(goToArdougneCastleFloor2);
 
-		goDownCastleStairs = new ObjectStep(this, ObjectID.STAIRSTOP, new WorldPoint(2572, 3296, 1), "Enter the Underground Pass.");
+		goDownCastleStairs = new ObjectStep(this, ObjectID.STAIRSTOP, new WorldPoint(2572, 3296, 1), t("Enter the Underground Pass."));
 		enterWestArdougne = new ObjectStep(this, ObjectID.ARDOUGNEDOOR_R, new WorldPoint(2558, 3300, 0),
-			"Enter the Underground Pass.");
+			t("Enter the Underground Pass."));
 
 		enterTheDungeon = new ObjectStep(this, ObjectID.UPASS_CAVEENTRANCE2, new WorldPoint(2434, 3315, 0),
-			"Enter the Underground Pass.",	bow, arrows, rope1, spade);
-		climbOverRockslide1 = new ObjectStep(this, ObjectID.ROCKSLIDE2_OBSTACLE_UPASS, new WorldPoint(2480, 9713, 0), "Climb-over rockslide.");
-		climbOverRockslide2 = new ObjectStep(this, ObjectID.ROCKSLIDE2_OBSTACLE_UPASS, new WorldPoint(2471, 9706, 0), "Climb-over rockslide.");
-		climbOverRockslide3 = new ObjectStep(this, ObjectID.ROCKSLIDE2_OBSTACLE_UPASS, new WorldPoint(2458, 9712, 0), "Climb-over rockslide.");
-		talkToKoftikAtBridge = new NpcStep(this, NpcID.CAVEGUIDE_VIS, "Talk to Koftik inside the cave.");
+			t("Enter the Underground Pass."),	bow, arrows, rope1, spade);
+		climbOverRockslide1 = new ObjectStep(this, ObjectID.ROCKSLIDE2_OBSTACLE_UPASS, new WorldPoint(2480, 9713, 0), t("Climb-over rockslide."));
+		climbOverRockslide2 = new ObjectStep(this, ObjectID.ROCKSLIDE2_OBSTACLE_UPASS, new WorldPoint(2471, 9706, 0), t("Climb-over rockslide."));
+		climbOverRockslide3 = new ObjectStep(this, ObjectID.ROCKSLIDE2_OBSTACLE_UPASS, new WorldPoint(2458, 9712, 0), t("Climb-over rockslide."));
+		talkToKoftikAtBridge = new NpcStep(this, NpcID.CAVEGUIDE_VIS, t("Talk to Koftik inside the cave."));
 		talkToKoftikAtBridge.addSubSteps(enterTheDungeon, climbOverRockslide1, climbOverRockslide2, climbOverRockslide3);
 
-		searchBagForCloth = new ObjectStep(this, ObjectID.UPASS_GEAR, new WorldPoint(2452, 9715, 0), "Search the abandoned equipment for an oily cloth.");
-		useClothOnArrow = new DetailedQuestStep(this, "Use the oily cloth on an arrow.", oilyClothHighlight, arrowsHighlight);
-		lightArrow = new ObjectStep(this, ObjectID.FIRE, new WorldPoint(2451, 9715, 0), "Light the fire arrow.",
+		searchBagForCloth = new ObjectStep(this, ObjectID.UPASS_GEAR, new WorldPoint(2452, 9715, 0), t("Search the abandoned equipment for an oily cloth."));
+		useClothOnArrow = new DetailedQuestStep(this, t("Use the oily cloth on an arrow."), oilyClothHighlight, arrowsHighlight);
+		lightArrow = new ObjectStep(this, ObjectID.FIRE, new WorldPoint(2451, 9715, 0), t("Light the fire arrow."),
 			fireArrow);
-		walkNorthEastOfBridge = new DetailedQuestStep(this, new WorldPoint(2447, 9722, 0), "Walk to the room north of Koftik.",
+		walkNorthEastOfBridge = new DetailedQuestStep(this, new WorldPoint(2447, 9722, 0), t("Walk to the room north of Koftik."),
 			litArrowEquipped);
-		shootBridgeRope = new ObjectStep(this, ObjectID.OLDBRIDGE_GUIDEROPE, "Wield a lit arrow and shoot the guide-rope.", bow, litArrowEquipped);
+		shootBridgeRope = new ObjectStep(this, ObjectID.OLDBRIDGE_GUIDEROPE, t("Wield a lit arrow and shoot the guide-rope."), bow, litArrowEquipped);
 		shootBridgeRope.addSubSteps(searchBagForCloth, useClothOnArrow, lightArrow, walkNorthEastOfBridge);
 
-		collectPlank = new DetailedQuestStep(this, new WorldPoint(2435, 9726, 0), "Pick up the plank in the north room.", plank);
-		crossThePit = new ObjectStep(this, ObjectID.OBSTICAL_ROCKSWING_NOROPE, new WorldPoint(2463, 9699, 0), "Swing across the pit " +
-			"with a rope.", ropeHighlight);
+		collectPlank = new DetailedQuestStep(this, new WorldPoint(2435, 9726, 0), t("Pick up the plank in the north room."), plank);
+		crossThePit = new ObjectStep(this, ObjectID.OBSTICAL_ROCKSWING_NOROPE, new WorldPoint(2463, 9699, 0), t("Swing across the pit " +
+			"with a rope."), ropeHighlight);
 		crossThePit.addIcon(ItemID.ROPE);
 		crossThePit.addSubSteps(collectPlank);
-		climbOverRockslide4 = new ObjectStep(this, ObjectID.ROCKSLIDE2_OBSTACLE_UPASS, new WorldPoint(2491, 9691, 0), "Climb-over rockslide");
-		climbOverRockslide5 = new ObjectStep(this, ObjectID.ROCKSLIDE2_OBSTACLE_UPASS, new WorldPoint(2482, 9679, 0), "Climb-over rockslide");
-		crossTheGrid = new DetailedQuestStep(this, "Cross the grid by trial and error. The correct path is the same " +
-			"as it was during Underground Pass.");
-		pullLeverAfterGrid = new ObjectStep(this, ObjectID.PORTCULLIS_LEVER_UP, "Pull the lever to raise the gate.");
+		climbOverRockslide4 = new ObjectStep(this, ObjectID.ROCKSLIDE2_OBSTACLE_UPASS, new WorldPoint(2491, 9691, 0), t("Climb-over rockslide"));
+		climbOverRockslide5 = new ObjectStep(this, ObjectID.ROCKSLIDE2_OBSTACLE_UPASS, new WorldPoint(2482, 9679, 0), t("Climb-over rockslide"));
+		crossTheGrid = new DetailedQuestStep(this, t("Cross the grid by trial and error. The correct path is the same " +
+			"as it was during Underground Pass."));
+		pullLeverAfterGrid = new ObjectStep(this, ObjectID.PORTCULLIS_LEVER_UP, t("Pull the lever to raise the gate."));
 		crossTheGrid.addSubSteps(climbOverRockslide4, climbOverRockslide5, pullLeverAfterGrid);
 
-		passTrap1 = new ObjectStep(this, ObjectID.UPASS_SPEARTRAP, new WorldPoint(2443, 9678, 0), "Either disable or walk past the traps.");
-		passTrap2 = new ObjectStep(this, ObjectID.UPASS_SPEARTRAP, new WorldPoint(2440, 9678, 0), "Either disable or walk past the traps.");
-		passTrap3 = new ObjectStep(this, ObjectID.UPASS_SPEARTRAP, new WorldPoint(2435, 9676, 0), "Either disable or walk past the traps.");
-		passTrap4 = new ObjectStep(this, ObjectID.UPASS_SPEARTRAP, new WorldPoint(2432, 9676, 0), "Either disable or walk past the traps.");
-		passTrap5 = new ObjectStep(this, ObjectID.UPASS_SPEARTRAP, new WorldPoint(2430, 9676, 0), "Either disable or walk past the traps.");
+		passTrap1 = new ObjectStep(this, ObjectID.UPASS_SPEARTRAP, new WorldPoint(2443, 9678, 0), t("Either disable or walk past the traps."));
+		passTrap2 = new ObjectStep(this, ObjectID.UPASS_SPEARTRAP, new WorldPoint(2440, 9678, 0), t("Either disable or walk past the traps."));
+		passTrap3 = new ObjectStep(this, ObjectID.UPASS_SPEARTRAP, new WorldPoint(2435, 9676, 0), t("Either disable or walk past the traps."));
+		passTrap4 = new ObjectStep(this, ObjectID.UPASS_SPEARTRAP, new WorldPoint(2432, 9676, 0), t("Either disable or walk past the traps."));
+		passTrap5 = new ObjectStep(this, ObjectID.UPASS_SPEARTRAP, new WorldPoint(2430, 9676, 0), t("Either disable or walk past the traps."));
 		passTrap1.addSubSteps(passTrap2, passTrap3, passTrap4, passTrap5);
 
-		climbDownWell = new ObjectStep(this, ObjectID.CAVE_WELL, new WorldPoint(2417, 9675, 0), "Climb down the well.");
+		climbDownWell = new ObjectStep(this, ObjectID.CAVE_WELL, new WorldPoint(2417, 9675, 0), t("Climb down the well."));
 
-		navigateMaze = new DetailedQuestStep(this, "Navigate the maze, or use the shortcut to the south with 50 Thieving.");
-		pickCellLock = new ObjectStep(this, ObjectID.CAVE_RAILINGS2, new WorldPoint(2393, 9655, 0), "Pick the lock to enter the cell.");
-		digMud = new ObjectStep(this, ObjectID.UPASS_MUD, new WorldPoint(2393, 9650, 0), "Dig the loose mud.", spadeHighlight);
+		navigateMaze = new DetailedQuestStep(this, t("Navigate the maze, or use the shortcut to the south with 50 Thieving."));
+		pickCellLock = new ObjectStep(this, ObjectID.CAVE_RAILINGS2, new WorldPoint(2393, 9655, 0), t("Pick the lock to enter the cell."));
+		digMud = new ObjectStep(this, ObjectID.UPASS_MUD, new WorldPoint(2393, 9650, 0), t("Dig the loose mud."), spadeHighlight);
 		digMud.addIcon(ItemID.SPADE);
-		crossLedge = new ObjectStep(this, ObjectID.UPASS_LEDGE, new WorldPoint(2374, 9644, 0), "Cross the ledge.");
-		goThroughPipe = new ObjectStep(this, ObjectID.UPASS_PIPE6, new WorldPoint(2418, 9605, 0), "Enter the pipe to the next section.");
+		crossLedge = new ObjectStep(this, ObjectID.UPASS_LEDGE, new WorldPoint(2374, 9644, 0), t("Cross the ledge."));
+		goThroughPipe = new ObjectStep(this, ObjectID.UPASS_PIPE6, new WorldPoint(2418, 9605, 0), t("Enter the pipe to the next section."));
 		navigateMaze.addSubSteps(pickCellLock, digMud, crossLedge, goThroughPipe);
 
-		leaveUnicornArea = new ObjectStep(this, ObjectID.UPASS_UNICORN_DOORL, new WorldPoint(2375, 9611, 0), "Enter the tunnel.");
-		openIbansDoor = new ObjectStep(this, ObjectID.CAVETEMPLEDOOR2R, new WorldPoint(2369, 9720, 0), "Open the door at the end of the path.");
+		leaveUnicornArea = new ObjectStep(this, ObjectID.UPASS_UNICORN_DOORL, new WorldPoint(2375, 9611, 0), t("Enter the tunnel."));
+		openIbansDoor = new ObjectStep(this, ObjectID.CAVETEMPLEDOOR2R, new WorldPoint(2369, 9720, 0), t("Open the door at the end of the path."));
 
-		goBackUpToIbansCavern = new ObjectStep(this, ObjectID.CAVEWALLTUNNEL_UPASS_UP, new WorldPoint(2336, 9793, 0), "Return up to Iban's Cavern.");
+		goBackUpToIbansCavern = new ObjectStep(this, ObjectID.CAVEWALLTUNNEL_UPASS_UP, new WorldPoint(2336, 9793, 0), t("Return up to Iban's Cavern."));
 
 		enterTemple = new ObjectStep(this, ObjectID.UPASS_TEMPLEDOOR_CLOSED_RIGHT, new WorldPoint(2144, 4648, 1),
-			"Enter the central area from the north east corner of the area.");
+			t("Enter the central area from the north east corner of the area."));
 		enterTemple.setLinePoints(Arrays.asList(
 			new WorldPoint(2172, 4723, 1),
 			new WorldPoint(2172, 4686, 1),
@@ -552,17 +552,17 @@ public class Regicide extends BasicQuestHelper
 		));
 
 		enterWell = new ObjectStep(this, ObjectID.REGICIDE_VOYAGE_TEMPLE_WELL1, new WorldPoint(2009, 4712, 1),
-			"Enter the well.");
+			t("Enter the well."));
 
 		leaveWellCave = new ObjectStep(this, ObjectID.REGICIDE_VOYAGE_TEMPLE_EXIT, new WorldPoint(2313, 9624, 0),
-			"Leave the cave.");
+			t("Leave the cave."));
 
-		talkToIdris = new NpcStep(this, NpcID.REGICIDE_GOOD_ELF1, "Talk to Idris.");
+		talkToIdris = new NpcStep(this, NpcID.REGICIDE_GOOD_ELF1, t("Talk to Idris."));
 		talkToIorwerth = new NpcStep(this, NpcID.LORD_IORWERTH_VIS, new WorldPoint(2203, 3255, 0),
 			"");
 
 		goFromCaveToLeaves = new ObjectStep(this, ObjectID.REGICIDE_PITFALL_CORNER, new WorldPoint(2268, 3204, 0),
-			"Follow the path along and hop over the leaves.");
+			t("Follow the path along and hop over the leaves."));
 		goFromCaveToLeaves.setLinePoints(Arrays.asList(
 			new WorldPoint(2309, 3212, 0),
 			new WorldPoint(2303, 3212, 0),
@@ -572,8 +572,8 @@ public class Regicide extends BasicQuestHelper
 			new WorldPoint(2268, 3205, 0)
 		));
 		goFromLeavesToStickTrap = new ObjectStep(this, ObjectID.REGICIDE_TRAP_WOODSPRING, new WorldPoint(2236, 3181, 0),
-			"Head west, and cross the sticks there. To do so without failing, stand next to them and spam-click it " +
-				"until you cross it.");
+			t("Head west, and cross the sticks there. To do so without failing, stand next to them and spam-click it " +
+				"until you cross it."));
 		goFromLeavesToStickTrap.setLinePoints(Arrays.asList(
 			new WorldPoint(2267, 3201, 0),
 			new WorldPoint(2258, 3182, 0),
@@ -581,7 +581,7 @@ public class Regicide extends BasicQuestHelper
 		));
 
 		goUpToLeafTowardsLog = new ObjectStep(this, ObjectID.REGICIDE_PITFALL_SIDE, new WorldPoint(2209, 3202, 0),
-			"Go north, and jump over the leaves.");
+			t("Go north, and jump over the leaves."));
 		goUpToLeafTowardsLog.setLinePoints(Arrays.asList(
 			new WorldPoint(2234, 3181, 0),
 			new WorldPoint(2224, 3180, 0),
@@ -589,12 +589,12 @@ public class Regicide extends BasicQuestHelper
 		));
 
 		goCrossLogToCamp = new ObjectStep(this, ObjectID.REGICIDE_LOGBALANCE1_START, new WorldPoint(2201, 3237, 0),
-			"Cross the log to the north to the Iorwerth Camp.");
+			t("Cross the log to the north to the Iorwerth Camp."));
 
 		crossLogFromCamp = new ObjectStep(this, ObjectID.REGICIDE_LOGBALANCE1_START, new WorldPoint(2197, 3237, 0),
-			"Cross the log from the camp.");
+			t("Cross the log from the camp."));
 		goFromCampToLeavesSouth = new ObjectStep(this, ObjectID.REGICIDE_PITFALL_SIDE, new WorldPoint(2209, 3204, 0),
-			"Go south, and jump over the leaves.");
+			t("Go south, and jump over the leaves."));
 
 		talkToTracker = new NpcStep(this, NpcID.REGICIDE_OLD_CAMP_TRACKER_VIS, new WorldPoint(2258, 3148, 0),
 			"");
@@ -606,11 +606,11 @@ public class Regicide extends BasicQuestHelper
 			"");
 		climbThroughForest = new ObjectStep(this, ObjectID.REGICIDE_CROSS_OVER3, new WorldPoint(2239, 3149, 0),
 			"");
-		killGuard = new NpcStep(this, NpcID.REGICIDE_OLD_CAMP_GUARD, "Kill the guard.");
+		killGuard = new NpcStep(this, NpcID.REGICIDE_OLD_CAMP_GUARD, t("Kill the guard."));
 		crossTripwire = new ObjectStep(this, ObjectID.REGICIDE_TRAP_TRIPWIRE, new WorldPoint(2220, 3154, 0),
-			"Cross the tripwire to the north. It may poison you if you fail it.");
+			t("Cross the tripwire to the north. It may poison you if you fail it."));
 		goKillGuardAtSecondForest = new NpcStep(this, NpcID.REGICIDE_TYRAS_CAMP_GUARD, new WorldPoint(2188, 3170, 0),
-			"Go through the dense forest north then to the west, and fight the guard there.");
+			t("Go through the dense forest north then to the west, and fight the guard there."));
 		goKillGuardAtSecondForest.setLinePoints(Arrays.asList(
 			new WorldPoint(2217, 3158, 0),
 			new WorldPoint(2217, 3172, 0),
@@ -632,55 +632,55 @@ public class Regicide extends BasicQuestHelper
 		Collections.reverse(pathFromTyrasCamp);
 
 		enterTyrasCamp = new DetailedQuestStep(this, new WorldPoint(2190, 3144, 0),
-			"Enter the Tyras Camp.");
+			t("Enter the Tyras Camp."));
 		enterTyrasCamp.setLinePoints(pathToTyrasCamp);
 
 		take2Barrels = new DetailedQuestStep(this, new WorldPoint(2190, 3144, 0),
-			"Take 2 barrels from the Tyras Camp.", barrel2);
+			t("Take 2 barrels from the Tyras Camp."), barrel2);
 		take2Barrels.setLinePoints(pathToTyrasCamp);
 
 		goFromTyrasToTrap = new ObjectStep(this, ObjectID.REGICIDE_TRAP_TRIPWIRE, new WorldPoint(2220, 3154, 0),
-			"Return back out the camp, to the east, then south to the traps and cross them.");
+			t("Return back out the camp, to the east, then south to the traps and cross them."));
 		goFromTyrasToTrap.setLinePoints(pathFromTyrasCamp);
 		fill2Barrels = new ObjectStep(this, ObjectID.REGICIDE_TAR_COLLECTION, new WorldPoint(2263, 3127, 0),
-			"Fill the barrels from the waste to the south.");
+			t("Fill the barrels from the waste to the south."));
 		getSulphur = new ObjectStep(this, ObjectID.REGICIDE_SULPHAR2, new WorldPoint(2261, 3130, 0),
-			"Pick up some sulphur.");
+			t("Pick up some sulphur."));
 
-		readBigBookOfBangs = new DetailedQuestStep(this, "Read the big book of bangs.", bigBookOfBangs.highlighted());
+		readBigBookOfBangs = new DetailedQuestStep(this, t("Read the big book of bangs."), bigBookOfBangs.highlighted());
 
-		useLimestoneOnFurnace = new DetailedQuestStep(this, "Use some limestone on a furnace whilst wearing gloves.",
+		useLimestoneOnFurnace = new DetailedQuestStep(this, t("Use some limestone on a furnace whilst wearing gloves."),
 			limestone.highlighted(), gloves.equipped());
-		usePestleOnQuicklime = new DetailedQuestStep(this, "Use a pestle and mortar on the quicklime with a pot in " +
-			"your inventory.", pestle.highlighted(), quicklime.highlighted(), pot);
-		usePestleOnSulphur = new DetailedQuestStep(this, "Use a pestle and mortar on some sulphur.",
+		usePestleOnQuicklime = new DetailedQuestStep(this, t("Use a pestle and mortar on the quicklime with a pot in " +
+			"your inventory."), pestle.highlighted(), quicklime.highlighted(), pot);
+		usePestleOnSulphur = new DetailedQuestStep(this, t("Use a pestle and mortar on some sulphur."),
 			pestle.highlighted(),	sulphur.highlighted());
 
 		talkToChemist = new NpcStep(this, NpcID.CHEMIST, new WorldPoint(2933, 3210, 0),
-			"Talk to the Chemist in Rimmington.", coalBarrel2, coal20);
+			t("Talk to the Chemist in Rimmington."), coalBarrel2, coal20);
 		talkToChemist.addDialogStep("Your quest.");
 		useTarOnFractionalisingStill = new ObjectStep(this, ObjectID.REGICIDE_FRACTIONALIZING_STILL,
-			new WorldPoint(2927, 3212, 0), "Use a barrel of coal on the still outside the Chemist's house.",
+			new WorldPoint(2927, 3212, 0), t("Use a barrel of coal on the still outside the Chemist's house."),
 			coalBarrel2.quantity(1).highlighted());
 		useTarOnFractionalisingStill.addIcon(ItemID.REGICIDE_BARREL_TAR);
 		operateStill = new ObjectStep(this, ObjectID.REGICIDE_FRACTIONALIZING_STILL, new WorldPoint(2927, 3212, 0),
-			"Operate the still. To properly distill the barrel: ");
-		operateStill.addText("1. Turn the tar regulator valve all the way to the right.");
-		operateStill.addText("2. Wait until the pressure is in the green, then turn the pressure valve to the middle.");
-		operateStill.addText("3. Add 2 coal, and then 1 additional coal whenever the heat gauge falls below the green zone until the tar is distilled.");
-		useQuicklimeOnNaphtha = new DetailedQuestStep(this, "Make another barrel of naphtha for Mourning's End if " +
-			"you'd like, then add the quicklime to the naphtha.",
+			t("Operate the still. To properly distill the barrel:") + " ");
+		operateStill.addText(t("1. Turn the tar regulator valve all the way to the right."));
+		operateStill.addText(t("2. Wait until the pressure is in the green, then turn the pressure valve to the middle."));
+		operateStill.addText(t("3. Add 2 coal, and then 1 additional coal whenever the heat gauge falls below the green zone until the tar is distilled."));
+		useQuicklimeOnNaphtha = new DetailedQuestStep(this, t("Make another barrel of naphtha for Mourning's End if " +
+			"you'd like, then add the quicklime to the naphtha."),
 			groundQuicklime.highlighted(), naphtha.highlighted());
-		useGroundSulphurOnNaphtha = new DetailedQuestStep(this, "Add the ground sulphur to the naphtha mix.",
+		useGroundSulphurOnNaphtha = new DetailedQuestStep(this, t("Add the ground sulphur to the naphtha mix."),
 			groundSulphur.highlighted(), naphthaMix.highlighted());
-		useClothOnBarrelBomb = new DetailedQuestStep(this, "Use the cloth on the barrel bomb.",
+		useClothOnBarrelBomb = new DetailedQuestStep(this, t("Use the cloth on the barrel bomb."),
 			stripOfCloth.highlighted(), barrelBombUnfused.highlighted());
 
 		useRabbitOnGuard = new NpcStep(this, NpcID.REGICIDE_TYRAS_LAZY_GUARD_VIS, new WorldPoint(2183, 3185, 0),
 			"", cookedRabbit.highlighted());
 		useRabbitOnGuard.addIcon(ItemID.COOKED_RABBIT);
 		useBombOnCatapult = new ObjectStep(this, ObjectID.REGICIDE_CATAPULT_RIGHT, new WorldPoint(2184, 3185, 0),
-			"Use the barrel bomb on the catapult.", barrelBombFused.highlighted());
+			t("Use the barrel bomb on the catapult."), barrelBombFused.highlighted());
 		useBombOnCatapult.addIcon(ItemID.REGICIDE_BARREL_LID_FUSED);
 
 		List<WorldPoint> pathFromCatapult = Arrays.asList(
@@ -693,11 +693,11 @@ public class Regicide extends BasicQuestHelper
 		);
 
 		leaveFromCatapult = new ObjectStep(this, ObjectID.REGICIDE_TRAP_TRIPWIRE, new WorldPoint(2220, 3154, 0),
-			"Go to the east, then south to the traps and cross them.");
+			t("Go to the east, then south to the traps and cross them."));
 		leaveFromCatapult.setLinePoints(pathFromCatapult);
 
 		talkToArianwyn = new NpcStep(this, NpcID.REGICIDE_GOOD_ELF3, new WorldPoint(2582, 3298, 0),
-			"Talk to Arianwyn outside Ardougne Castle.", iorwerthsMessage);
+			t("Talk to Arianwyn outside Ardougne Castle."), iorwerthsMessage);
 
 		// Go through dungeon
 		ConditionalStep startDungeon = new ConditionalStep(this, enterWestArdougne);
@@ -749,7 +749,7 @@ public class Regicide extends BasicQuestHelper
 		travelThroughPassSection3.addStep(isInUndergroundSection2, theUndergroundPass);
 
 		goThroughUndergroundPass = new ConditionalStep(this, travelThroughPassSection3,
-			"Traverse the Underground Pass.");
+			t("Traverse the Underground Pass."));
 
 		ConditionalStep pathToIorwerth = new ConditionalStep(this, talkToIorwerth);
 		pathToIorwerth.addStep(inSouthOfLog, goCrossLogToCamp);
@@ -759,12 +759,12 @@ public class Regicide extends BasicQuestHelper
 		pathToIorwerth.addStep(inForestSectionAfterCave, goFromLeavesToStickTrap);
 		pathToIorwerth.addStep(inForestNearCave, goFromCaveToLeaves);
 
-		goTalkToIorwerth = new ConditionalStep(this, pathToIorwerth, "WAIT OUTSIDE AROUND the cave entrance for Idris to appear " +
-			"and talk to her (If Idris does not appear in the couple minutes enter and exit the cave). Afterwards, Go talk to Lord Iorwerth in the north west of the elven forest.");
+		goTalkToIorwerth = new ConditionalStep(this, pathToIorwerth, t("WAIT OUTSIDE AROUND the cave entrance for Idris to appear " +
+			"and talk to her (If Idris does not appear in the couple minutes enter and exit the cave). Afterwards, Go talk to Lord Iorwerth in the north west of the elven forest."));
 		goTalkToIorwerth.addSubSteps(talkToIdris);
 
-		goReturnToIorwerth = new ConditionalStep(this, pathToIorwerth, "Return to Lord Iorwerth in the north west of " +
-			"the elven forest.");
+		goReturnToIorwerth = new ConditionalStep(this, pathToIorwerth, t("Return to Lord Iorwerth in the north west of " +
+			"the elven forest."));
 
 		ConditionalStep pathToTracker = new ConditionalStep(this, talkToTracker);
 		pathToTracker.addStep(inWestForestPath, talkToTracker);
@@ -774,11 +774,11 @@ public class Regicide extends BasicQuestHelper
 		pathToTracker.addStep(inIorwerthCamp, crossLogFromCamp);
 
 		goTalkToTracker = new ConditionalStep(this, pathToTracker,
-			"Go talk to the Elven Tracker in the south of the forest.");
+			t("Go talk to the Elven Tracker in the south of the forest."));
 		goReturnToTracker = new ConditionalStep(this, pathToTracker,
-			"Return to the Elven Tracker in the south of the forest.", crystalPendant);
+			t("Return to the Elven Tracker in the south of the forest."), crystalPendant);
 
-		goClickTracks = new ConditionalStep(this, clickTracks, "Click the tracks near the Tracker.");
+		goClickTracks = new ConditionalStep(this, clickTracks, t("Click the tracks near the Tracker."));
 		goClickTracks.addStep(inWestForestPath, clickTracks);
 		goClickTracks.addStep(inForestSectionAfterCave, goFromLeavesToStickTrap);
 		goClickTracks.addStep(inForestNearCave, goFromCaveToLeaves);
@@ -786,7 +786,7 @@ public class Regicide extends BasicQuestHelper
 		goClickTracks.addStep(inIorwerthCamp, crossLogFromCamp);
 
 		goTalkToTrackerAfterTracks = new ConditionalStep(this, pathToTracker,
-			"Talk to the Elven Tracker again.");
+			t("Talk to the Elven Tracker again."));
 
 		ConditionalStep goToTyrasCampEntrance = new ConditionalStep(this, enterTyrasCamp);
 		goToTyrasCampEntrance.addStep(inGuardArea, crossTripwire);
@@ -797,15 +797,15 @@ public class Regicide extends BasicQuestHelper
 		goToTyrasCampEntrance.addStep(inIorwerthCamp, crossLogFromCamp);
 
 		goDefeatGuard = new ConditionalStep(this, goToTyrasCampEntrance,
-			"Climb through the dense forest near the Tracker, and defeat the guard you find. This requires 56 " +
-				"Agility.");
+			t("Climb through the dense forest near the Tracker, and defeat the guard you find. This requires 56 " +
+				"Agility."));
 		goDefeatGuard.addStep(guardNearby, killGuard);
 		goDefeatGuard.addStep(inTyrasCamp, goKillGuardAtSecondForest);
 
-		goIntoTyrasCamp = new ConditionalStep(this, goToTyrasCampEntrance, "Enter the Tyras Camp.");
+		goIntoTyrasCamp = new ConditionalStep(this, goToTyrasCampEntrance, t("Enter the Tyras Camp."));
 
 		goToIorwerthAfterCamp = new ConditionalStep(this, goToTyrasCampEntrance,
-			"Fill some barrels with tar, pick up some sulphur there, and then return to Lord Iorwerth.");
+			t("Fill some barrels with tar, pick up some sulphur there, and then return to Lord Iorwerth."));
 		goToIorwerthAfterCamp.addStep(new Conditions(coalBarrel2, sulphur), pathToIorwerth);
 		goToIorwerthAfterCamp.addStep(new Conditions(inWestForestPath, coalBarrel2), getSulphur);
 		goToIorwerthAfterCamp.addStep(new Conditions(inWestForestPath, barrel2), fill2Barrels);
@@ -815,27 +815,27 @@ public class Regicide extends BasicQuestHelper
 
 		NpcStep askAboutQuicklime, askAboutNaphtha, askAboutSulphur, askAboutBarrel, askAboutFuse;
 		askAboutQuicklime = new NpcStep(this, NpcID.LORD_IORWERTH_VIS, new WorldPoint(2203, 3255, 0),
-			"Ask Iorwerth about quicklime.");
+			t("Ask Iorwerth about quicklime."));
 		askAboutQuicklime.addDialogSteps("Previous options...", "I need some quicklime.");
 
 		askAboutNaphtha = new NpcStep(this, NpcID.LORD_IORWERTH_VIS, new WorldPoint(2203, 3255, 0),
-			"Ask Iorwerth about naphtha.");
+			t("Ask Iorwerth about naphtha."));
 		askAboutNaphtha.addDialogSteps("Previous options...", "I need some naphtha.");
 
 		askAboutSulphur = new NpcStep(this, NpcID.LORD_IORWERTH_VIS, new WorldPoint(2203, 3255, 0),
-			"Ask Iorwerth about sulphur.");
+			t("Ask Iorwerth about sulphur."));
 		askAboutSulphur.addDialogSteps("Previous options...", "I need some sulphur.");
 
 		askAboutBarrel = new NpcStep(this, NpcID.LORD_IORWERTH_VIS, new WorldPoint(2203, 3255, 0),
-			"Ask Iorwerth about a barrel.");
+			t("Ask Iorwerth about a barrel."));
 		askAboutBarrel.addDialogSteps("More options...", "I need a barrel.");
 
 		askAboutFuse = new NpcStep(this, NpcID.LORD_IORWERTH_VIS, new WorldPoint(2203, 3255, 0),
-			"Ask Iorwerth about a fuse.");
+			t("Ask Iorwerth about a fuse."));
 		askAboutFuse.addDialogSteps("More options...", "I need a fuse.");
 
-		goLearnAboutBomb = new ConditionalStep(this, pathToIorwerth, "Ask Iorwerth about all the parts needed for" +
-			" the barrel bomb.");
+		goLearnAboutBomb = new ConditionalStep(this, pathToIorwerth, t("Ask Iorwerth about all the parts needed for" +
+			" the barrel bomb."));
 		goLearnAboutBomb.addStep(new Conditions(inIorwerthCamp, askedAboutQuicklime, askedAboutNaptha, askedAboutSulphur, askedAboutBarrel),
 			askAboutFuse);
 		goLearnAboutBomb.addStep(new Conditions(inIorwerthCamp, askedAboutQuicklime, askedAboutNaptha, askedAboutSulphur), askAboutBarrel);
@@ -843,20 +843,20 @@ public class Regicide extends BasicQuestHelper
 		goLearnAboutBomb.addStep(new Conditions(inIorwerthCamp, askedAboutQuicklime), askAboutNaphtha);
 		goLearnAboutBomb.addStep(inIorwerthCamp, askAboutQuicklime);
 
-		goThroughUndergroundPassAgain = new ConditionalStep(this, travelThroughPassSection3, "Traverse the " +
-			"Underground Pass again.", cookedRabbit, barrelBombFused, tinderbox);
+		goThroughUndergroundPassAgain = new ConditionalStep(this, travelThroughPassSection3, t("Traverse the " +
+			"Underground Pass again."), cookedRabbit, barrelBombFused, tinderbox);
 
 		goGiveRabbitToGuard = new ConditionalStep(this, goToTyrasCampEntrance,
-			"Go give a cooked rabbit to the guard north of the Tyras Camp.");
+			t("Go give a cooked rabbit to the guard north of the Tyras Camp."));
 		goGiveRabbitToGuard.addStep(inTyrasCamp, useRabbitOnGuard);
 		goUseBombOnCatapult = new ConditionalStep(this, goToTyrasCampEntrance,
-			"Use the barrel bomb on the catapult north of the Tyras Camp.");
+			t("Use the barrel bomb on the catapult north of the Tyras Camp."));
 		goTalkToIorwerthAfterRegicide = new ConditionalStep(this, pathToIorwerth,
-			"Report back to Lord Iorwerth.");
+			t("Report back to Lord Iorwerth."));
 		goTalkToIorwerthAfterRegicide.addStep(inTyrasCamp, leaveFromCatapult);
 
 		goTalkToLathasToFinish = new ConditionalStep(this, goToArdougneCastleFloor2,
-			"Report back to King Lathas to finish the quest.", iorwerthsMessage);
+			t("Report back to King Lathas to finish the quest."), iorwerthsMessage);
 		goTalkToLathasToFinish.addStep(inCastleFloor2, talkToKingLathas);
 	}
 
@@ -877,7 +877,7 @@ public class Regicide extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Tyras guard (level 110)");
+		return Collections.singletonList(t("Tyras guard (level 110)"));
 	}
 
 	@Override
@@ -912,31 +912,31 @@ public class Regicide extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Access to Tirannwn & Arandar"),
-				new UnlockReward("Ability to wield the Dragon Halberd"),
-				new UnlockReward("Ability to charter a ship to Port Tyras."),
-				new UnlockReward("Ability to use Iorwerth Camp teleport scrolls."),
-				new UnlockReward("Ability to use Zul-Andra teleport scrolls and battle Zulrah."));
+				new UnlockReward(t("Access to Tirannwn & Arandar")),
+				new UnlockReward(t("Ability to wield the Dragon Halberd")),
+				new UnlockReward(t("Ability to charter a ship to Port Tyras.")),
+				new UnlockReward(t("Ability to use Iorwerth Camp teleport scrolls.")),
+				new UnlockReward(t("Ability to use Zul-Andra teleport scrolls and battle Zulrah.")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting out", Collections.singletonList(talkToKingLathas)));
+		allSteps.add(new PanelDetails(t("Starting out"), Collections.singletonList(talkToKingLathas)));
 
-		allSteps.add(new PanelDetails("To the Elven Lands",
+		allSteps.add(new PanelDetails(t("To the Elven Lands"),
 			Arrays.asList(goThroughUndergroundPass, goTalkToIorwerth, goTalkToTracker,
 				goReturnToIorwerth, goReturnToTracker, goClickTracks, goTalkToTrackerAfterTracks, goDefeatGuard, goIntoTyrasCamp, goToIorwerthAfterCamp,
 					readBigBookOfBangs, goLearnAboutBomb),
 			Arrays.asList(bow, arrows, rope1, spade, antipoisons, combatEquipment, agilityPotions),
 			Collections.singletonList(staminaPotions)));
-		allSteps.add(new PanelDetails("Making a bomb", Arrays.asList(useLimestoneOnFurnace, usePestleOnQuicklime,
+		allSteps.add(new PanelDetails(t("Making a bomb"), Arrays.asList(useLimestoneOnFurnace, usePestleOnQuicklime,
 			usePestleOnSulphur, talkToChemist, useTarOnFractionalisingStill, operateStill, useQuicklimeOnNaphtha,
 			useGroundSulphurOnNaphtha, useClothOnBarrelBomb),
 			limestone, gloves, sulphur, pot, pestle, stripOfCloth, coalBarrel2, coal20));
 
-		allSteps.add(new PanelDetails("Regicide", Arrays.asList(goThroughUndergroundPassAgain, goGiveRabbitToGuard,
+		allSteps.add(new PanelDetails(t("Regicide"), Arrays.asList(goThroughUndergroundPassAgain, goGiveRabbitToGuard,
 			useBombOnCatapult, goTalkToIorwerthAfterRegicide, talkToArianwyn, goTalkToLathasToFinish),
 			bow, arrows, rope1, tinderbox, spade, antipoisons, barrelBombFused, cookedRabbit, agilityPotions));
 		return allSteps;

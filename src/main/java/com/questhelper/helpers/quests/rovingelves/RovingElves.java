@@ -106,16 +106,16 @@ public class RovingElves extends BasicQuestHelper
 		seed.addAlternates(ItemID.ROVING_NEW_CONSECRATION_SEED);
 		
 		blessedSeed = new ItemRequirement("Consecration seed", ItemID.ROVING_NEW_CONSECRATION_SEED);
-		blessedSeed.setTooltip("You can get another from Eluned");
+		blessedSeed.setTooltip(t("You can get another from Eluned"));
 
 		blessedSeedHighlight = new ItemRequirement("Consecration seed", ItemID.ROVING_NEW_CONSECRATION_SEED);
-		blessedSeedHighlight.setTooltip("You can get another from Eluned");
+		blessedSeedHighlight.setTooltip(t("You can get another from Eluned"));
 		blessedSeedHighlight.setHighlightInInventory(true);
 
 		glarialsPebble = new ItemRequirement("Glarial's pebble", ItemID.GLARIALS_PEBBLE_WATERFALL_QUEST).isNotConsumed();
-		glarialsPebble.setTooltip("You can get another from Golrie under Tree Gnome Village");
+		glarialsPebble.setTooltip(t("You can get another from Golrie under Tree Gnome Village"));
 		key = new ItemRequirement("Key", ItemID.BAXTORIAN_KEY_WATERFALL_QUEST).isNotConsumed();
-		key.setTooltip("You can get another from inside Baxtorian Falls");
+		key.setTooltip(t("You can get another from inside Baxtorian Falls"));
 
 		keyHint = new ItemRequirement("Key (obtainable in quest)", ItemID.GOLRIE_KEY_WATERFALL_QUEST).isNotConsumed();
 
@@ -162,37 +162,37 @@ public class RovingElves extends BasicQuestHelper
 	public void setupSteps()
 	{
 		talkToIslwyn = new NpcStep(this, NpcID.ROVING_ISLWYN_1OP, new WorldPoint(2207, 3159, 0),
-			"Talk to Islwyn in Isafdar. If he's not at the marked location, try hopping worlds to find him here.", antipoison);
+			t("Talk to Islwyn in Isafdar. If he's not at the marked location, try hopping worlds to find him here."), antipoison);
 		talkToIslwyn.addTeleport(elvenForestTeleport);
 		talkToIslwyn.addDialogStep("Yes.");
-		talkToEluned = new NpcStep(this, NpcID.ROVING_FEMALE_WOODELF_1OP, new WorldPoint(2207, 3159, 0), "Talk to Eluned.");
+		talkToEluned = new NpcStep(this, NpcID.ROVING_FEMALE_WOODELF_1OP, new WorldPoint(2207, 3159, 0), t("Talk to Eluned."));
 		enterGlarialsTombstone = new ObjectStep(this, ObjectID.GLARIALS_TOMBSTONE_WATERFALL_QUEST, new WorldPoint(2559, 3445, 0),
-			"Bank everything besides the pebble, some potions, and some food. After, go use Glarial's pebble to Glarial's Tombstone east of Baxtorian Falls. Be prepared to fight a level 84 Moss Guardian bare-handed.",
+			t("Bank everything besides the pebble, some potions, and some food. After, go use Glarial's pebble to Glarial's Tombstone east of Baxtorian Falls. Be prepared to fight a level 84 Moss Guardian bare-handed."),
 			Collections.singletonList(glarialsPebble.highlighted()), Arrays.asList(food, prayerPotions, superCombatPotion, elvenForestTeleport));
 		enterGlarialsTombstone.addIcon(ItemID.GLARIALS_PEBBLE_WATERFALL_QUEST);
 		enterGlarialsTombstone.addTeleport(baxTeleport);
 
-		killGuardian = new NpcStep(this, NpcID.ROVING_MOSSGIANT, new WorldPoint(2515, 9844, 0), "Kill the Moss Guardian for a Consecration seed.");
+		killGuardian = new NpcStep(this, NpcID.ROVING_MOSSGIANT, new WorldPoint(2515, 9844, 0), t("Kill the Moss Guardian for a Consecration seed."));
 
-		pickUpSeed = new ItemStep(this, "Pick up the consecration seed.", seed);
+		pickUpSeed = new ItemStep(this, t("Pick up the consecration seed."), seed);
 
-		returnSeedToEluned = new NpcStep(this, NpcID.ROVING_FEMALE_WOODELF_1OP, new WorldPoint(2207, 3159, 0), "Return the seed to Eluned.",
+		returnSeedToEluned = new NpcStep(this, NpcID.ROVING_FEMALE_WOODELF_1OP, new WorldPoint(2207, 3159, 0), t("Return the seed to Eluned."),
 			Collections.singletonList(seed), Collections.singletonList(antipoison));
 		returnSeedToEluned.addTeleport(elvenForestTeleport);
-		boardRaft = new ObjectStep(this, ObjectID.LOGRAFT_WATERFALL_QUEST, new WorldPoint(2509, 3494, 0), "Board the log raft on the top of Baxtorian Falls.", blessedSeed, rope, spade);
+		boardRaft = new ObjectStep(this, ObjectID.LOGRAFT_WATERFALL_QUEST, new WorldPoint(2509, 3494, 0), t("Board the log raft on the top of Baxtorian Falls."), blessedSeed, rope, spade);
 		boardRaft.addTeleport(baxTeleport);
-		useRopeOnRock = new ObjectStep(this, ObjectID.CROSSING_ROCK_WATERFALL_QUEST, new WorldPoint(2512, 3468, 0), "Use a rope on the rock to the south.", highlightRope);
+		useRopeOnRock = new ObjectStep(this, ObjectID.CROSSING_ROCK_WATERFALL_QUEST, new WorldPoint(2512, 3468, 0), t("Use a rope on the rock to the south."), highlightRope);
 		useRopeOnRock.addIcon(ItemID.ROPE);
-		useRopeOnTree = new ObjectStep(this, ObjectID.OVERHANGING_TREE1_WATERFALL_QUEST, new WorldPoint(2512, 3465, 0), "Use a rope on the dead tree.", highlightRope);
+		useRopeOnTree = new ObjectStep(this, ObjectID.OVERHANGING_TREE1_WATERFALL_QUEST, new WorldPoint(2512, 3465, 0), t("Use a rope on the dead tree."), highlightRope);
 		useRopeOnTree.addIcon(ItemID.ROPE);
-		enterFalls = new ObjectStep(this, ObjectID.WATERFALL_LEDGE_DOOR, new WorldPoint(2511, 3464, 0), "Enter the falls.");
+		enterFalls = new ObjectStep(this, ObjectID.WATERFALL_LEDGE_DOOR, new WorldPoint(2511, 3464, 0), t("Enter the falls."));
 
-		searchFallsCrate = new ObjectStep(this, ObjectID.BAXTORIAN_CRATE_WATERFALL_QUEST, new WorldPoint(2589, 9888, 0), "Search the crate in the east room for a key.");
-		useKeyOnFallsDoor = new ObjectStep(this, ObjectID.BAXTORIAN_DOOR_2_WATERFALL_QUEST, new WorldPoint(2566, 9901, 0), "Go through the doors from the west room.", key);
+		searchFallsCrate = new ObjectStep(this, ObjectID.BAXTORIAN_CRATE_WATERFALL_QUEST, new WorldPoint(2589, 9888, 0), t("Search the crate in the east room for a key."));
+		useKeyOnFallsDoor = new ObjectStep(this, ObjectID.BAXTORIAN_DOOR_2_WATERFALL_QUEST, new WorldPoint(2566, 9901, 0), t("Go through the doors from the west room."), key);
 
-		plantSeed = new DetailedQuestStep(this, "Plant the consecrated seed anywhere in the room.", blessedSeedHighlight, spade);
+		plantSeed = new DetailedQuestStep(this, t("Plant the consecrated seed anywhere in the room."), blessedSeedHighlight, spade);
 
-		returnToIslwyn = new NpcStep(this, NpcID.ROVING_ISLWYN_1OP, new WorldPoint(2207, 3159, 0), "Return to Islwyn in Isafdar to finish the quest.");
+		returnToIslwyn = new NpcStep(this, NpcID.ROVING_ISLWYN_1OP, new WorldPoint(2207, 3159, 0), t("Return to Islwyn in Isafdar to finish the quest."));
 		returnToIslwyn.addTeleport(elvenForestTeleport);
 	}
 
@@ -211,7 +211,7 @@ public class RovingElves extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Moss Guardian (level 84) without runes, weapons, or armour");
+		return Collections.singletonList(t("Moss Guardian (level 84) without runes, weapons, or armour"));
 	}
 
 	@Override
@@ -248,14 +248,14 @@ public class RovingElves extends BasicQuestHelper
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off",
+		allSteps.add(new PanelDetails(t("Starting off"),
 			Arrays.asList(talkToIslwyn, talkToEluned), null, Arrays.asList(antipoison, elvenForestTeleport, baxTeleport)));
 
-		allSteps.add(new PanelDetails("Get the seed",
+		allSteps.add(new PanelDetails(t("Get the seed"),
 			Arrays.asList(enterGlarialsTombstone, killGuardian, pickUpSeed, returnSeedToEluned), Collections.singletonList(glarialsPebble),
 			Arrays.asList(food, prayerPotions, baxTeleport, elvenForestTeleport, antipoison)));
 
-		allSteps.add(new PanelDetails("Plant the seed",
+		allSteps.add(new PanelDetails(t("Plant the seed"),
 			Arrays.asList(boardRaft, useRopeOnRock, useRopeOnTree, enterFalls, searchFallsCrate, useKeyOnFallsDoor,
 				plantSeed, returnToIslwyn), Arrays.asList(spade, rope, blessedSeed), Arrays.asList(baxTeleport, elvenForestTeleport, antipoison)));
 		return allSteps;

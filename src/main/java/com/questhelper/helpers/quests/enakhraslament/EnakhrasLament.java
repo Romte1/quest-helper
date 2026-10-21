@@ -247,13 +247,13 @@ public class EnakhrasLament extends BasicQuestHelper
 		rSigil = new ItemRequirement("R sigil", ItemID.ENAKH_SIGIL_R);
 
 		leftLeg = new ItemRequirement("Stone left leg", ItemID.ENAKH_LEG_LEFT);
-		leftLeg.setTooltip("You can get another from Lazim");
+		leftLeg.setTooltip(t("You can get another from Lazim"));
 		leftArm = new ItemRequirement("Stone left arm", ItemID.ENAKH_ARM_LEFT);
-		leftArm.setTooltip("You can get another from Lazim");
+		leftArm.setTooltip(t("You can get another from Lazim"));
 		rightLeg = new ItemRequirement("Stone right leg", ItemID.ENAKH_LEG_RIGHT);
-		rightLeg.setTooltip("You can get another from Lazim");
+		rightLeg.setTooltip(t("You can get another from Lazim"));
 		rightArm = new ItemRequirement("Stone right arm", ItemID.ENAKH_ARM_RIGHT);
-		rightArm.setTooltip("You can get another from Lazim");
+		rightArm.setTooltip(t("You can get another from Lazim"));
 
 		softClay = new ItemRequirement("Soft clay", ItemID.SOFTCLAY);
 
@@ -358,25 +358,25 @@ public class EnakhrasLament extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToLazim = new NpcStep(this, NpcID.ENAKH_LAZIM, new WorldPoint(3190, 2925, 0), "Before you begin, ensure that you have enough prayer points to use" +
-			" Protect from Melee for around five seconds (you will need this later in the temple). Talk to Lazim in the quarry south of the Bandit Camp.",
+		talkToLazim = new NpcStep(this, NpcID.ENAKH_LAZIM, new WorldPoint(3190, 2925, 0), t("Before you begin, ensure that you have enough prayer points to use" +
+			" Protect from Melee for around five seconds (you will need this later in the temple). Talk to Lazim in the quarry south of the Bandit Camp."),
 			pickaxe, onNormals);
 		talkToLazim.addDialogSteps("Yes.", "Of course!");
-		bringLazim32Sandstone = new NpcStep(this, NpcID.ENAKH_LAZIM, new WorldPoint(3190, 2925, 0), "Get 32kg of sandstone and give it to Lazim. This can be " +
-			"done in batches, and you can mine some nearby.");
+		bringLazim32Sandstone = new NpcStep(this, NpcID.ENAKH_LAZIM, new WorldPoint(3190, 2925, 0), t("Get 32kg of sandstone and give it to Lazim. This can be " +
+			"done in batches, and you can mine some nearby."));
 		bringLazim32Sandstone.addDialogStep("Okay, I'll get on with it.");
 		bringLazim32Sandstone.addDialogStep("Yes, I have more stone.");
 		bringLazim32Sandstone.addDialogStep("Here's a large 10 kg block.");
 		bringLazim32Sandstone.addDialogStep("Here's a medium 5 kg block.");
 		bringLazim32Sandstone.addDialogStep("Here's a small 2 kg block.");
 		bringLazim32Sandstone.addDialogStep("Here's a tiny 1 kg block.");
-		useChiselOn32Sandstone = new DetailedQuestStep(this, "Use a chisel on the sandstone 32kg.", chiselHighlighted, sandstone32);
-		placeBase = new ObjectStep(this, ObjectID.ENAKH_STATUE_EAST_MULTILOC, new WorldPoint(3190, 2926, 0), "Place the base on the flat ground nearby.", base);
-		talkToLazimAboutBody = new NpcStep(this, NpcID.ENAKH_LAZIM, new WorldPoint(3190, 2925, 0), "Talk to Lazim again.");
+		useChiselOn32Sandstone = new DetailedQuestStep(this, t("Use a chisel on the sandstone 32kg."), chiselHighlighted, sandstone32);
+		placeBase = new ObjectStep(this, ObjectID.ENAKH_STATUE_EAST_MULTILOC, new WorldPoint(3190, 2926, 0), t("Place the base on the flat ground nearby."), base);
+		talkToLazimAboutBody = new NpcStep(this, NpcID.ENAKH_LAZIM, new WorldPoint(3190, 2925, 0), t("Talk to Lazim again."));
 		talkToLazimAboutBody.addDialogStep("I'll do it right away!");
 
-		bringLazim20Sandstone = new NpcStep(this, NpcID.ENAKH_LAZIM, new WorldPoint(3190, 2925, 0), "Get 20kg of sandstone and give it to Lazim. This can be " +
-			"done in batches, and you can mine some nearby.");
+		bringLazim20Sandstone = new NpcStep(this, NpcID.ENAKH_LAZIM, new WorldPoint(3190, 2925, 0), t("Get 20kg of sandstone and give it to Lazim. This can be " +
+			"done in batches, and you can mine some nearby."));
 		bringLazim20Sandstone.addDialogStep("I'll do it right away!");
 		bringLazim20Sandstone.addDialogStep("Yes, I have more stone.");
 		bringLazim20Sandstone.addDialogStep("Here's a large 10 kg block.");
@@ -384,112 +384,112 @@ public class EnakhrasLament extends BasicQuestHelper
 		bringLazim20Sandstone.addDialogStep("Here's a small 2 kg block.");
 		bringLazim20Sandstone.addDialogStep("Here's a tiny 1 kg block.");
 
-		useChiselOn20Sandstone = new DetailedQuestStep(this, "Use a chisel on the sandstone 20kg.", chiselHighlighted, sandstone20);
-		placeBody = new ObjectStep(this, ObjectID.ENAKH_STATUE_EAST_MULTILOC, new WorldPoint(3190, 2926, 0), "Place the body on the sandstone base.", body);
-		talkToLazimToChooseHead = new NpcStep(this, NpcID.ENAKH_LAZIM, new WorldPoint(3190, 2925, 0), "Talk to Lazim and choose the head you'd like the " +
-			"statue to have.");
-		getGranite = new NpcStep(this, NpcID.ENAKH_LAZIM, new WorldPoint(3190, 2925, 0), "Get 2 x granite (5kg). You can mine some nearby.", granite2);
+		useChiselOn20Sandstone = new DetailedQuestStep(this, t("Use a chisel on the sandstone 20kg."), chiselHighlighted, sandstone20);
+		placeBody = new ObjectStep(this, ObjectID.ENAKH_STATUE_EAST_MULTILOC, new WorldPoint(3190, 2926, 0), t("Place the body on the sandstone base."), body);
+		talkToLazimToChooseHead = new NpcStep(this, NpcID.ENAKH_LAZIM, new WorldPoint(3190, 2925, 0), t("Talk to Lazim and choose the head you'd like the " +
+			"statue to have."));
+		getGranite = new NpcStep(this, NpcID.ENAKH_LAZIM, new WorldPoint(3190, 2925, 0), t("Get 2 x granite (5kg). You can mine some nearby."), granite2);
 
 		// TODO: Change head highlight text based on choice
-		craftHead = new DetailedQuestStep(this, "Use a chisel on a piece of granite 5kg, and choose the head you decided on to craft.", chiselHighlighted,
+		craftHead = new DetailedQuestStep(this, t("Use a chisel on a piece of granite 5kg, and choose the head you decided on to craft."), chiselHighlighted,
 			granite);
 
-		chiselStatue = new ObjectStep(this, ObjectID.ENAKH_STATUE_EAST_MULTILOC, new WorldPoint(3190, 2926, 0), "Use a chisel on the headless statue.",
+		chiselStatue = new ObjectStep(this, ObjectID.ENAKH_STATUE_EAST_MULTILOC, new WorldPoint(3190, 2926, 0), t("Use a chisel on the headless statue."),
 			chiselHighlighted);
 		chiselStatue.addIcon(ItemID.CHISEL);
 
-		giveLazimHead = new NpcStep(this, NpcID.ENAKH_LAZIM, new WorldPoint(3190, 2925, 0), "Give Lazim the head.", head);
+		giveLazimHead = new NpcStep(this, NpcID.ENAKH_LAZIM, new WorldPoint(3190, 2925, 0), t("Give Lazim the head."), head);
 
-		enterTemple = new ObjectStep(this, ObjectID.ENAKH_SECRET_BOULDER_MULTILOC_E, new WorldPoint(3194, 2925, 0), "Enter the temple south of the Bandit's " +
-			"Camp.");
-		enterTempleDownLadder = new ObjectStep(this, ObjectID.ENAKH_TEMPLE_LADDERDOWN, new WorldPoint(3127, 9329, 1), "Enter the temple south of the Bandit's" +
-			" Camp.");
-		talkToLazimInTemple = new NpcStep(this, NpcID.ENAKH_LAZIM, new WorldPoint(3127, 9324, 0), "Talk to Lazim in the temple.");
+		enterTemple = new ObjectStep(this, ObjectID.ENAKH_SECRET_BOULDER_MULTILOC_E, new WorldPoint(3194, 2925, 0), t("Enter the temple south of the Bandit's " +
+			"Camp."));
+		enterTempleDownLadder = new ObjectStep(this, ObjectID.ENAKH_TEMPLE_LADDERDOWN, new WorldPoint(3127, 9329, 1), t("Enter the temple south of the Bandit's" +
+			" Camp."));
+		talkToLazimInTemple = new NpcStep(this, NpcID.ENAKH_LAZIM, new WorldPoint(3127, 9324, 0), t("Talk to Lazim in the temple."));
 
-		cutOffLimb = new ObjectStep(this, ObjectID.ENAKH_FALLEN_STATUE_EAST_MULTILOC, new WorldPoint(3130, 9326, 0), "Use a chisel on the fallen statue to " +
-			"get all its limbs.", chiselHighlighted);
+		cutOffLimb = new ObjectStep(this, ObjectID.ENAKH_FALLEN_STATUE_EAST_MULTILOC, new WorldPoint(3130, 9326, 0), t("Use a chisel on the fallen statue to " +
+			"get all its limbs."), chiselHighlighted);
 		cutOffLimb.addDialogSteps("Remove the statue's left arm", "Remove the statue's right arm", "Remove the statue's left leg", "Remove the statue's right" +
 			" leg");
 		cutOffLimb.addIcon(ItemID.CHISEL);
 
-		takeM = new ObjectStep(this, ObjectID.ENAKH_PEDESTAL_SIGIL_M, new WorldPoint(3128, 9319, 0), "Take the M sigil from the pedestal in the room.");
-		takeZ = new ObjectStep(this, ObjectID.ENAKH_PEDESTAL_SIGIL_Z, new WorldPoint(3097, 9336, 0), "Take the Z sigil from the pedestal in the north room.");
-		takeK = new ObjectStep(this, ObjectID.ENAKH_PEDESTAL_SIGIL_K, new WorldPoint(3080, 9305, 0), "Take the K sigil from the pedestal in the west room.");
-		takeR = new ObjectStep(this, ObjectID.ENAKH_PEDESTAL_SIGIL_R, new WorldPoint(3111, 9288, 0), "Take the R sigil from the pedestal in the south room.");
-		talkToLazimForHead = new NpcStep(this, NpcID.ENAKH_LAZIM, new WorldPoint(3127, 9324, 0), "Talk to Lazim in the temple for the stone head.");
+		takeM = new ObjectStep(this, ObjectID.ENAKH_PEDESTAL_SIGIL_M, new WorldPoint(3128, 9319, 0), t("Take the M sigil from the pedestal in the room."));
+		takeZ = new ObjectStep(this, ObjectID.ENAKH_PEDESTAL_SIGIL_Z, new WorldPoint(3097, 9336, 0), t("Take the Z sigil from the pedestal in the north room."));
+		takeK = new ObjectStep(this, ObjectID.ENAKH_PEDESTAL_SIGIL_K, new WorldPoint(3080, 9305, 0), t("Take the K sigil from the pedestal in the west room."));
+		takeR = new ObjectStep(this, ObjectID.ENAKH_PEDESTAL_SIGIL_R, new WorldPoint(3111, 9288, 0), t("Take the R sigil from the pedestal in the south room."));
+		talkToLazimForHead = new NpcStep(this, NpcID.ENAKH_LAZIM, new WorldPoint(3127, 9324, 0), t("Talk to Lazim in the temple for the stone head."));
 		talkToLazimForHead.addDialogStep("Do you know where the statue's head is?");
 
-		enterDoor1 = new ObjectStep(this, ObjectID.ENAKH_DOOR_RIGHT_ARM, new WorldPoint(3126, 9337, 0), "Enter the right arm door.", rightArm.highlighted());
+		enterDoor1 = new ObjectStep(this, ObjectID.ENAKH_DOOR_RIGHT_ARM, new WorldPoint(3126, 9337, 0), t("Enter the right arm door."), rightArm.highlighted());
 		enterDoor1.addIcon(ItemID.ENAKH_ARM_RIGHT);
-		enterDoor2 = new ObjectStep(this, ObjectID.ENAKH_DOOR_LEFT_LEG, new WorldPoint(3079, 9334, 0), "Enter the left leg door.", leftLeg.highlighted());
+		enterDoor2 = new ObjectStep(this, ObjectID.ENAKH_DOOR_LEFT_LEG, new WorldPoint(3079, 9334, 0), t("Enter the left leg door."), leftLeg.highlighted());
 		enterDoor2.addIcon(ItemID.ENAKH_LEG_LEFT);
-		enterDoor3 = new ObjectStep(this, ObjectID.ENAKH_DOOR_LEFT_ARM, new WorldPoint(3082, 9287, 0), "Enter the left arm door.", leftArm.highlighted());
+		enterDoor3 = new ObjectStep(this, ObjectID.ENAKH_DOOR_LEFT_ARM, new WorldPoint(3082, 9287, 0), t("Enter the left arm door."), leftArm.highlighted());
 		enterDoor3.addIcon(ItemID.ENAKH_ARM_LEFT);
-		enterDoor4 = new ObjectStep(this, ObjectID.ENAKH_DOOR_RIGHT_LEG, new WorldPoint(3129, 9290, 0), "Enter the right leg door.", rightLeg.highlighted());
+		enterDoor4 = new ObjectStep(this, ObjectID.ENAKH_DOOR_RIGHT_LEG, new WorldPoint(3129, 9290, 0), t("Enter the right leg door."), rightLeg.highlighted());
 		enterDoor4.addIcon(ItemID.ENAKH_LEG_RIGHT);
 
-		enterKDoor = new ObjectStep(this, ObjectID.ENAKH_DOOR_K_SIGIL, new WorldPoint(3111, 9312, 0), "Enter the door with a K.", kSigil);
-		enterRDoor = new ObjectStep(this, ObjectID.ENAKH_DOOR_R_SIGIL, new WorldPoint(3104, 9319, 0), "Enter the door with an R.", rSigil);
-		enterMDoor = new ObjectStep(this, ObjectID.ENAKH_DOOR_M_SIGIL, new WorldPoint(3097, 9312, 0), "Enter the door with an M.", mSigil);
-		enterZDoor = new ObjectStep(this, ObjectID.ENAKH_DOOR_Z_SIGIL, new WorldPoint(3104, 9305, 0), "Enter the door with a Z.", zSigil);
+		enterKDoor = new ObjectStep(this, ObjectID.ENAKH_DOOR_K_SIGIL, new WorldPoint(3111, 9312, 0), t("Enter the door with a K."), kSigil);
+		enterRDoor = new ObjectStep(this, ObjectID.ENAKH_DOOR_R_SIGIL, new WorldPoint(3104, 9319, 0), t("Enter the door with an R."), rSigil);
+		enterMDoor = new ObjectStep(this, ObjectID.ENAKH_DOOR_M_SIGIL, new WorldPoint(3097, 9312, 0), t("Enter the door with an M."), mSigil);
+		enterZDoor = new ObjectStep(this, ObjectID.ENAKH_DOOR_Z_SIGIL, new WorldPoint(3104, 9305, 0), t("Enter the door with a Z."), zSigil);
 
-		goUpToPuzzles = new ObjectStep(this, ObjectID.ENAKH_TEMPLE_LADDERUP, new WorldPoint(3104, 9309, 0), "Open the central room's doors using the metal " +
-			"letters. Go up the ladder in the central room.");
+		goUpToPuzzles = new ObjectStep(this, ObjectID.ENAKH_TEMPLE_LADDERUP, new WorldPoint(3104, 9309, 0), t("Open the central room's doors using the metal " +
+			"letters. Go up the ladder in the central room."));
 
 		useSoftClayOnPedestal = new ObjectStep(this, ObjectID.ENAKH_PEDESTAL_MULTILOC, new WorldPoint(3104, 9312, 1),
-			"Use soft clay on the pedestal.", softClay.highlighted());
-		useChiselOnGranite = new DetailedQuestStep(this, "Use a chisel on granite (5kg).", granite, chiselHighlighted);
-		useStoneHeadOnPedestal = new ObjectStep(this, ObjectID.ENAKH_PEDESTAL_MULTILOC, new WorldPoint(3104, 9312, 1), "Use the camel stone head on the " +
-			"pedestal.", camelHead);
+			t("Use soft clay on the pedestal."), softClay.highlighted());
+		useChiselOnGranite = new DetailedQuestStep(this, t("Use a chisel on granite (5kg)."), granite, chiselHighlighted);
+		useStoneHeadOnPedestal = new ObjectStep(this, ObjectID.ENAKH_PEDESTAL_MULTILOC, new WorldPoint(3104, 9312, 1), t("Use the camel stone head on the " +
+			"pedestal."), camelHead);
 		useStoneHeadOnPedestal.addIcon(ItemID.ENAKH_STONE_HEAD_AKTHANAKOS);
 
-		useBread = new NpcStep(this, NpcID.ENAKH_PENTYN, new WorldPoint(3091, 9324, 1), "Right-click use bread or cake on Pentyn.", breadOrCake.highlighted());
-		castFireSpell = new NpcStep(this, NpcID.ENAKH_DUMMY_FOUNTAIN, new WorldPoint(3092, 9308, 1), "Cast a fire spell on the frozen fountain.",
+		useBread = new NpcStep(this, NpcID.ENAKH_PENTYN, new WorldPoint(3091, 9324, 1), t("Right-click use bread or cake on Pentyn."), breadOrCake.highlighted());
+		castFireSpell = new NpcStep(this, NpcID.ENAKH_DUMMY_FOUNTAIN, new WorldPoint(3092, 9308, 1), t("Cast a fire spell on the frozen fountain."),
 			fireSpellRunes, onNormals);
-		castAirSpell = new NpcStep(this, NpcID.ENAKH_DUMMY_FURNACE, new WorldPoint(3116, 9323, 1), "Cast an air spell on the furnace.", airSpellRunes,
+		castAirSpell = new NpcStep(this, NpcID.ENAKH_DUMMY_FURNACE, new WorldPoint(3116, 9323, 1), t("Cast an air spell on the furnace."), airSpellRunes,
 			onNormals);
 
 		// Shadow Room Puzzle
-		useLog = new ObjectStep(this, ObjectID.ENAKH_BRAZIER_1_MULTILOC, new WorldPoint(3114, 9306, 1), "Use a normal log on the south west brazier.", log);
+		useLog = new ObjectStep(this, ObjectID.ENAKH_BRAZIER_1_MULTILOC, new WorldPoint(3114, 9306, 1), t("Use a normal log on the south west brazier."), log);
 		useLog.addIcon(ItemID.LOGS);
-		useOakLog = new ObjectStep(this, ObjectID.ENAKH_BRAZIER_2_MULTILOC, new WorldPoint(3116, 9306, 1), "Use an oak log on the south brazier.", oakLog);
+		useOakLog = new ObjectStep(this, ObjectID.ENAKH_BRAZIER_2_MULTILOC, new WorldPoint(3116, 9306, 1), t("Use an oak log on the south brazier."), oakLog);
 		useOakLog.addIcon(ItemID.OAK_LOGS);
-		useWillowLog = new ObjectStep(this, ObjectID.ENAKH_BRAZIER_3_MULTILOC, new WorldPoint(3118, 9306, 1), "Use a willow log on the south east brazier.",
+		useWillowLog = new ObjectStep(this, ObjectID.ENAKH_BRAZIER_3_MULTILOC, new WorldPoint(3118, 9306, 1), t("Use a willow log on the south east brazier."),
 			willowLog);
 		useWillowLog.addIcon(ItemID.WILLOW_LOGS);
-		useMapleLog = new ObjectStep(this, ObjectID.ENAKH_BRAZIER_4_MULTILOC, new WorldPoint(3114, 9309, 1), "Use a maple log on the north west brazier.",
+		useMapleLog = new ObjectStep(this, ObjectID.ENAKH_BRAZIER_4_MULTILOC, new WorldPoint(3114, 9309, 1), t("Use a maple log on the north west brazier."),
 			mapleLog);
 		useMapleLog.addIcon(ItemID.MAPLE_LOGS);
-		useCandle = new ObjectStep(this, ObjectID.ENAKH_BRAZIER_5_MULTILOC, new WorldPoint(3116, 9309, 1), "Use a candle on the north brazier.", candle);
+		useCandle = new ObjectStep(this, ObjectID.ENAKH_BRAZIER_5_MULTILOC, new WorldPoint(3116, 9309, 1), t("Use a candle on the north brazier."), candle);
 		useCandle.addIcon(ItemID.UNLIT_CANDLE);
-		useCoal = new ObjectStep(this, ObjectID.ENAKH_BRAZIER_6_MULTILOC, new WorldPoint(3118, 9309, 1), "Use coal on the north east brazier.", coal);
+		useCoal = new ObjectStep(this, ObjectID.ENAKH_BRAZIER_6_MULTILOC, new WorldPoint(3118, 9309, 1), t("Use coal on the north east brazier."), coal);
 		useCoal.addIcon(ItemID.COAL);
 
-		passBarrier = new ObjectStep(this, ObjectID.ENAKH_MAGIC_WALL, new WorldPoint(3104, 9319, 1), "Pass through the magic barrier and go up the ladder.");
-		goUpFromPuzzleRoom = new ObjectStep(this, ObjectID.ENAKH_TEMPLE_LADDERUP, new WorldPoint(3104, 9332, 1), "Go up the ladder.");
+		passBarrier = new ObjectStep(this, ObjectID.ENAKH_MAGIC_WALL, new WorldPoint(3104, 9319, 1), t("Pass through the magic barrier and go up the ladder."));
+		goUpFromPuzzleRoom = new ObjectStep(this, ObjectID.ENAKH_TEMPLE_LADDERUP, new WorldPoint(3104, 9332, 1), t("Go up the ladder."));
 		passBarrier.addSubSteps(goUpFromPuzzleRoom);
 
-		castCrumbleUndead = new NpcStep(this, NpcID.ENAKH_BONEGUARD, new WorldPoint(3104, 9307, 2), "Cast crumble undead on the Boneguard. " +
-			"Make sure you take off any armour or weapons which give you a negative magic attack bonus or else you might splash.", earth2,
+		castCrumbleUndead = new NpcStep(this, NpcID.ENAKH_BONEGUARD, new WorldPoint(3104, 9307, 2), t("Cast crumble undead on the Boneguard. " +
+			"Make sure you take off any armour or weapons which give you a negative magic attack bonus or else you might splash."), earth2,
 			airRuneOrStaff, chaos, onNormals);
 
-		goDownToFinalRoom = new ObjectStep(this, ObjectID.ENAKH_TEMPLE_PILLAR_LADDER_TOP, new WorldPoint(3105, 9300, 2), "Climb down the stone ladder past " +
-			"the Boneguard.");
+		goDownToFinalRoom = new ObjectStep(this, ObjectID.ENAKH_TEMPLE_PILLAR_LADDER_TOP, new WorldPoint(3105, 9300, 2), t("Climb down the stone ladder past " +
+			"the Boneguard."));
 
 		protectThenTalk = new NpcStep(this, NpcID.ENAKH_AKTHANAKOS_BONEGUARD, new WorldPoint(3105, 9297, 1),
-			"Put on Protect from Melee, then talk to the Boneguard.", protectFromMelee);
-		repairWall = new ObjectStep(this, ObjectID.ENAKH_LARGEWALL_L_MULTILOC, new WorldPoint(3107, 9291, 1), "Take sandstone from the nearby rubble, and use" +
-			" it to repair the south wall. For each piece added, use a chisel on the wall.", sandstone5);
+			t("Put on Protect from Melee, then talk to the Boneguard."), protectFromMelee);
+		repairWall = new ObjectStep(this, ObjectID.ENAKH_LARGEWALL_L_MULTILOC, new WorldPoint(3107, 9291, 1), t("Take sandstone from the nearby rubble, and use" +
+			" it to repair the south wall. For each piece added, use a chisel on the wall."), sandstone5);
 		repairWall.addDialogSteps("Of course, I'll help you out.", "Okay, I'll start building.");
 		repairWall.addIcon(ItemID.ENAKH_SANDSTONE_MEDIUM);
 
-		useChiselOnWall = new ObjectStep(this, ObjectID.ENAKH_LARGEWALL_L_MULTILOC, new WorldPoint(3107, 9291, 1), "Use a chisel on the wall.",
+		useChiselOnWall = new ObjectStep(this, ObjectID.ENAKH_LARGEWALL_L_MULTILOC, new WorldPoint(3107, 9291, 1), t("Use a chisel on the wall."),
 			chiselHighlighted);
 		useChiselOnWall.addDialogSteps("Of course, I'll help you out.", "Okay, I'll start building.");
 		useChiselOnWall.addIcon(ItemID.CHISEL);
 		repairWall.addSubSteps(useChiselOnWall);
 
-		talkToAkthankos = new NpcStep(this, NpcID.ENAKH_AKTHANAKOS_BONEGUARD, new WorldPoint(3105, 9297, 1), "Talk to the Boneguard to finish the quest.");
+		talkToAkthankos = new NpcStep(this, NpcID.ENAKH_AKTHANAKOS_BONEGUARD, new WorldPoint(3105, 9297, 1), t("Talk to the Boneguard to finish the quest."));
 		talkToAkthankos.addAlternateNpcs(NpcID.ENAKH_AKTHANAKOS_FREED);
 
 	}
@@ -659,27 +659,27 @@ public class EnakhrasLament extends BasicQuestHelper
 	{
 		var allSteps = new ArrayList<PanelDetails>();
 
-		allSteps.add(new PanelDetails("Starting off", List.of(
+		allSteps.add(new PanelDetails(t("Starting off"), List.of(
 			talkToLazim
 		)));
 
-		allSteps.add(new PanelDetails("Craft a statue", List.of(
+		allSteps.add(new PanelDetails(t("Craft a statue"), List.of(
 			bringLazim32Sandstone, useChiselOn32Sandstone, placeBase, talkToLazimAboutBody, bringLazim20Sandstone,
 			useChiselOn20Sandstone, placeBody, chiselStatue, talkToLazimToChooseHead, getGranite, craftHead, giveLazimHead
 		), List.of(pickaxe, chiselHighlighted, softClay, breadOrCake, tinderbox, log, oakLog, willowLog, mapleLog, candle, coal, fireSpellRunes,
 			airSpellRunes, earth2, air2, chaos
 		)));
 
-		allSteps.add(new PanelDetails("Explore the ground floor", List.of(
+		allSteps.add(new PanelDetails(t("Explore the ground floor"), List.of(
 			talkToLazimInTemple, cutOffLimb, takeM, enterDoor1, enterDoor2, enterMDoor, goUpToPuzzles
 		)));
 
-		allSteps.add(new PanelDetails("Solve the puzzles", List.of(
+		allSteps.add(new PanelDetails(t("Solve the puzzles"), List.of(
 			useSoftClayOnPedestal, useChiselOnGranite, useStoneHeadOnPedestal, useBread, castFireSpell, castAirSpell,
 			useLog, useOakLog, useWillowLog, useMapleLog, useCandle, useCoal
 		)));
 
-		allSteps.add(new PanelDetails("Free Akthankos", List.of(
+		allSteps.add(new PanelDetails(t("Free Akthankos"), List.of(
 			passBarrier, goUpFromPuzzleRoom, castCrumbleUndead, goDownToFinalRoom, protectThenTalk, repairWall, talkToAkthankos
 		)));
 

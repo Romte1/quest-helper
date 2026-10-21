@@ -227,11 +227,11 @@ public class RoyalTrouble extends BasicQuestHelper
 		if (client.getRealSkillLevel(Skill.MINING) >= 30)
 		{
 			coalOrPickaxe = new ItemRequirements(LogicType.OR, "Either 5 coal or a pickaxe", coal5, pickaxe);
-			coal5.setTooltip("You can mine some from the rocks in the room. There's a pickaxe you can find stuck in a rock just outside the lift room.");
-			coal4.setTooltip("You can mine some from the rocks in the room. There's a pickaxe you can find stuck in a rock just outside the lift room.");
-			coal3.setTooltip("You can mine some from the rocks in the room. There's a pickaxe you can find stuck in a rock just outside the lift room.");
-			coal2.setTooltip("You can mine some from the rocks in the room. There's a pickaxe you can find stuck in a rock just outside the lift room.");
-			coal1.setTooltip("You can mine some from the rocks in the room. There's a pickaxe you can find stuck in a rock just outside the lift room.");
+			coal5.setTooltip(t("You can mine some from the rocks in the room. There's a pickaxe you can find stuck in a rock just outside the lift room."));
+			coal4.setTooltip(t("You can mine some from the rocks in the room. There's a pickaxe you can find stuck in a rock just outside the lift room."));
+			coal3.setTooltip(t("You can mine some from the rocks in the room. There's a pickaxe you can find stuck in a rock just outside the lift room."));
+			coal2.setTooltip(t("You can mine some from the rocks in the room. There's a pickaxe you can find stuck in a rock just outside the lift room."));
+			coal1.setTooltip(t("You can mine some from the rocks in the room. There's a pickaxe you can find stuck in a rock just outside the lift room."));
 		}
 		else
 		{
@@ -249,10 +249,10 @@ public class RoyalTrouble extends BasicQuestHelper
 
 
 		scroll = new ItemRequirement("Scroll", ItemID.ROYAL_OFFICIAL_SCROLL);
-		scroll.setTooltip("You can get another from King Vargas");
+		scroll.setTooltip(t("You can get another from King Vargas"));
 		prop = new ItemRequirement("Mining prop", ItemID.ROYAL_MINING_PROP);
 		prop.setHighlightInInventory(true);
-		prop.setTooltip("You can get another from Donal");
+		prop.setTooltip(t("You can get another from Donal"));
 		liftManual = new ItemRequirement("Lift manual", ItemID.ROYAL_LIFT_MANUAL);
 		liftManual.setHighlightInInventory(true);
 		engine = new ItemRequirement("Engine", ItemID.ROYAL_COAL_ENGINE);
@@ -275,10 +275,10 @@ public class RoyalTrouble extends BasicQuestHelper
 		diary5.setHighlightInInventory(true);
 
 		box = new ItemRequirement("Heavy box", ItemID.ROYAL_BOX);
-		box.setTooltip("You can get another from the Guard outside the hole in south east Etceteria");
+		box.setTooltip(t("You can get another from the Guard outside the hole in south east Etceteria"));
 
 		letter = new ItemRequirement("Letter", ItemID.ROYAL_LETTER);
-		letter.setTooltip("You can get another from Queen Sigrid");
+		letter.setTooltip(t("You can get another from Queen Sigrid"));
 	}
 
 	@Override
@@ -385,12 +385,12 @@ public class RoyalTrouble extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		String travelText = "Travel to Miscellania. You can take a boat from Rellekka. You can also use Fairy Rings to teleport there with the code CIP If you've unlocked them.";
+		String travelText = t("Travel to Miscellania. You can take a boat from Rellekka. You can also use Fairy Rings to teleport there with the code CIP If you've unlocked them.");
 		travelToMisc = new NpcStep(this, NpcID.VIKING_SAILOR, new WorldPoint(2629, 3693, 0), travelText);
 		travelToMisc.addDialogStep("Yes.");
 		travelToMisc.addTeleport(rellekkaTeleport);
-		goUpToGhrim = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), "Talk to Advisor Ghrim in Miscellania castle.");
-		talkToGhrim = new NpcStep(this, NpcID.MISC_ADVISOR_GHRIM_2OPS, new WorldPoint(2499, 3857, 1), "Talk to Advisor Ghrim in Miscellania castle.");
+		goUpToGhrim = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), t("Talk to Advisor Ghrim in Miscellania castle."));
+		talkToGhrim = new NpcStep(this, NpcID.MISC_ADVISOR_GHRIM_2OPS, new WorldPoint(2499, 3857, 1), t("Talk to Advisor Ghrim in Miscellania castle."));
 		talkToGhrim.addDialogStep("Has anything been happening in the kingdom recently?");
 		talkToGhrim.addDialogStep("Very well, I'll sort it out.");
 		talkToGhrim.addDialogStep("Yes.");
@@ -398,172 +398,172 @@ public class RoyalTrouble extends BasicQuestHelper
 
 		if (astridIsHeir.check(client))
 		{
-			talkToPartner = new NpcStep(this, NpcID.MISC_PRINCESS_ASTRID, new WorldPoint(2502, 3867, 1), "Talk to Princess Astrid in Miscellania castle.");
-			goUpToPartner = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3872, 0), "Talk to Princess Astrid in Miscellania castle.");
+			talkToPartner = new NpcStep(this, NpcID.MISC_PRINCESS_ASTRID, new WorldPoint(2502, 3867, 1), t("Talk to Princess Astrid in Miscellania castle."));
+			goUpToPartner = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3872, 0), t("Talk to Princess Astrid in Miscellania castle."));
 		}
 		else
 		{
-			talkToPartner = new NpcStep(this, NpcID.MISC_PRINCE_BRAND, new WorldPoint(2502, 3852, 1), "Talk to Prince Brand in Miscellania castle.");
-			goUpToPartner = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), "Talk to Prince Brand in Miscellania castle.");
+			talkToPartner = new NpcStep(this, NpcID.MISC_PRINCE_BRAND, new WorldPoint(2502, 3852, 1), t("Talk to Prince Brand in Miscellania castle."));
+			goUpToPartner = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), t("Talk to Prince Brand in Miscellania castle."));
 
 		}
 		talkToPartner.addSubSteps(goUpToPartner);
 
-		goUpToVargas = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), "Talk to Vargas in Miscellania castle.");
-		talkToVargas = new NpcStep(this, NpcID.MISC_KING_VARGAS, new WorldPoint(2501, 3860, 1), "Talk to King Vargas.");
+		goUpToVargas = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), t("Talk to Vargas in Miscellania castle."));
+		talkToVargas = new NpcStep(this, NpcID.MISC_KING_VARGAS, new WorldPoint(2501, 3860, 1), t("Talk to King Vargas."));
 		talkToVargas.addDialogStep("Right away, your Majesty.");
 		talkToVargas.addSubSteps(goUpToVargas);
 
-		goDownFromVargas = new ObjectStep(this, ObjectID.SPIRALSTAIRSMIDDLE_WOODEN, new WorldPoint(2506, 3849, 1), "Talk to Gardener Gunnhild outside the castle.");
-		talkToGunnhild = new NpcStep(this, NpcID.MISC_GARDENER, new WorldPoint(2527, 3855, 0), "Talk to Gardener Gunnhild outside the castle.");
+		goDownFromVargas = new ObjectStep(this, ObjectID.SPIRALSTAIRSMIDDLE_WOODEN, new WorldPoint(2506, 3849, 1), t("Talk to Gardener Gunnhild outside the castle."));
+		talkToGunnhild = new NpcStep(this, NpcID.MISC_GARDENER, new WorldPoint(2527, 3855, 0), t("Talk to Gardener Gunnhild outside the castle."));
 		talkToGunnhild.addSubSteps(goDownFromVargas);
 
-		goBackUpToVargas = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), "Return to King Vargas in Miscellania castle.");
-		talkToVargasAgain = new NpcStep(this, NpcID.MISC_KING_VARGAS, new WorldPoint(2501, 3860, 1), "Return to King Vargas in Miscellania castle.");
+		goBackUpToVargas = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), t("Return to King Vargas in Miscellania castle."));
+		talkToVargasAgain = new NpcStep(this, NpcID.MISC_KING_VARGAS, new WorldPoint(2501, 3860, 1), t("Return to King Vargas in Miscellania castle."));
 		talkToVargasAgain.addSubSteps(goBackUpToVargas);
 
-		goDownFromVargas2 = new ObjectStep(this, ObjectID.SPIRALSTAIRSMIDDLE_WOODEN, new WorldPoint(2506, 3849, 1), "Talk to Queen Sigrid in Etceteria Castle.");
-		goUpToSigrid = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2614, 3868, 0), "Talk to Queen Sigrid in Etceteria Castle.");
-		talkToSigrid = new NpcStep(this, NpcID.MISC_QUEEN_SIGRID, new WorldPoint(2612, 3875, 1), "Talk to Queen Sigrid in Etceteria Castle.");
+		goDownFromVargas2 = new ObjectStep(this, ObjectID.SPIRALSTAIRSMIDDLE_WOODEN, new WorldPoint(2506, 3849, 1), t("Talk to Queen Sigrid in Etceteria Castle."));
+		goUpToSigrid = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2614, 3868, 0), t("Talk to Queen Sigrid in Etceteria Castle."));
+		talkToSigrid = new NpcStep(this, NpcID.MISC_QUEEN_SIGRID, new WorldPoint(2612, 3875, 1), t("Talk to Queen Sigrid in Etceteria Castle."));
 		talkToSigrid.addDialogStep("Of course, it's my duty.");
 		talkToSigrid.addSubSteps(goDownFromVargas2, goUpToSigrid);
 
-		goDownFromSigridToMatilda = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(2614, 3867, 1), "Talk to Matilda in the south of Etceteria Castle.");
-		talkToMatilda = new NpcStep(this, NpcID.MISC_ETC_WOMAN_2, new WorldPoint(2606, 3869, 0), "Talk to Matilda in the south of Etceteria Castle.");
+		goDownFromSigridToMatilda = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(2614, 3867, 1), t("Talk to Matilda in the south of Etceteria Castle."));
+		talkToMatilda = new NpcStep(this, NpcID.MISC_ETC_WOMAN_2, new WorldPoint(2606, 3869, 0), t("Talk to Matilda in the south of Etceteria Castle."));
 		talkToMatilda.addSubSteps(goDownFromSigridToMatilda);
 
-		goBackUpToSigrid = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2614, 3868, 0), "Return to Queen Sigrid in Etceteria Castle.");
-		talkToSigridAfterMatilda = new NpcStep(this, NpcID.MISC_QUEEN_SIGRID, new WorldPoint(2612, 3875, 1), "Return to Queen Sigrid in Etceteria Castle.");
+		goBackUpToSigrid = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2614, 3868, 0), t("Return to Queen Sigrid in Etceteria Castle."));
+		talkToSigridAfterMatilda = new NpcStep(this, NpcID.MISC_QUEEN_SIGRID, new WorldPoint(2612, 3875, 1), t("Return to Queen Sigrid in Etceteria Castle."));
 		talkToSigridAfterMatilda.addSubSteps(goBackUpToSigrid);
 
 		if (client.getRealSkillLevel(Skill.MINING) >= 30)
 		{
-			getCoalOrPickaxe = new ObjectStep(this, ObjectID.DWARF_KELDAGRIM_BANKBOOTH, new WorldPoint(2612, 3900, 0), "Now is a good point to get your combat gear, antipoisons, and either 5 coal or a pickaxe out.", coal5, pickaxe, combatGear, antipoison);
+			getCoalOrPickaxe = new ObjectStep(this, ObjectID.DWARF_KELDAGRIM_BANKBOOTH, new WorldPoint(2612, 3900, 0), t("Now is a good point to get your combat gear, antipoisons, and either 5 coal or a pickaxe out."), coal5, pickaxe, combatGear, antipoison);
 		}
 		else
 		{
-			getCoalOrPickaxe = new ObjectStep(this, ObjectID.DWARF_KELDAGRIM_BANKBOOTH, new WorldPoint(2612, 3900, 0), "Now is where you should get your combat gear, antipoisons, and 5 coal.", coal5, combatGear, antipoison);
+			getCoalOrPickaxe = new ObjectStep(this, ObjectID.DWARF_KELDAGRIM_BANKBOOTH, new WorldPoint(2612, 3900, 0), t("Now is where you should get your combat gear, antipoisons, and 5 coal."), coal5, combatGear, antipoison);
 		}
 
-		goDownFromSigridToVargas = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(2614, 3867, 1), "Go downstairs from Queen Sigrid.");
-		goBackUpToVargasFromSigrid = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), "Return to King Vargas in Miscellania castle.");
-		talkToVargasAfterSigrid = new NpcStep(this, NpcID.MISC_KING_VARGAS, new WorldPoint(2501, 3860, 1), "Return to King Vargas in Miscellania castle.");
+		goDownFromSigridToVargas = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(2614, 3867, 1), t("Go downstairs from Queen Sigrid."));
+		goBackUpToVargasFromSigrid = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), t("Return to King Vargas in Miscellania castle."));
+		talkToVargasAfterSigrid = new NpcStep(this, NpcID.MISC_KING_VARGAS, new WorldPoint(2501, 3860, 1), t("Return to King Vargas in Miscellania castle."));
 		talkToVargasAfterSigrid.addSubSteps(goBackUpToVargasFromSigrid, goDownFromSigridToVargas);
 
-		goUpToGhrim2 = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), "Talk to Advisor Ghrim in Miscellania castle.");
-		talkToGhrim2 = new NpcStep(this, NpcID.MISC_ADVISOR_GHRIM_2OPS, new WorldPoint(2499, 3857, 1), "Talk to Advisor Ghrim in Miscellania castle.");
+		goUpToGhrim2 = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), t("Talk to Advisor Ghrim in Miscellania castle."));
+		talkToGhrim2 = new NpcStep(this, NpcID.MISC_ADVISOR_GHRIM_2OPS, new WorldPoint(2499, 3857, 1), t("Talk to Advisor Ghrim in Miscellania castle."));
 		talkToGhrim2.addDialogStep("King Vargas asked me to talk to you.");
 		talkToGhrim2.addSubSteps(goUpToGhrim2);
 
-		goDownToSailor = new ObjectStep(this, ObjectID.SPIRALSTAIRSMIDDLE_WOODEN, new WorldPoint(2506, 3849, 1), "Talk to the Sailor on the Miscellania docks.");
-		talkToSailor = new NpcStep(this, NpcID.MISC_SAILOR, new WorldPoint(2578, 3845, 0), "Talk to the Sailor on the Miscellania docks.");
+		goDownToSailor = new ObjectStep(this, ObjectID.SPIRALSTAIRSMIDDLE_WOODEN, new WorldPoint(2506, 3849, 1), t("Talk to the Sailor on the Miscellania docks."));
+		talkToSailor = new NpcStep(this, NpcID.MISC_SAILOR, new WorldPoint(2578, 3845, 0), t("Talk to the Sailor on the Miscellania docks."));
 		talkToSailor.addDialogStep("I'm looking for a sailor...");
 		talkToSailor.addSubSteps(goDownToSailor);
 
-		goUpToVargasAfterSailor = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), "Return to King Vargas in Miscellania castle.");
-		talkToVargasAfterSailor = new NpcStep(this, NpcID.MISC_KING_VARGAS, new WorldPoint(2501, 3860, 1), "Return to King Vargas in Miscellania castle to get a scroll.");
+		goUpToVargasAfterSailor = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), t("Return to King Vargas in Miscellania castle."));
+		talkToVargasAfterSailor = new NpcStep(this, NpcID.MISC_KING_VARGAS, new WorldPoint(2501, 3860, 1), t("Return to King Vargas in Miscellania castle to get a scroll."));
 		talkToVargasAfterSailor.addSubSteps(goUpToVargasAfterSailor);
 
-		goDownStairsToDungeon = new ObjectStep(this, ObjectID.SPIRALSTAIRSMIDDLE_WOODEN, new WorldPoint(2506, 3849, 1), "Go down the ladder south of Miscellania castle.", scroll);
-		goDownLadderToDungeon = new ObjectStep(this, ObjectID.ROYAL_LADDER_DOWN, new WorldPoint(2509, 3846, 0), "Go down the ladder south of Miscellania castle.", scroll);
-		goDownToDungeonNoScroll = new ObjectStep(this, ObjectID.ROYAL_LADDER_DOWN, new WorldPoint(2509, 3846, 0), "Go down the ladder south of Miscellania castle.");
+		goDownStairsToDungeon = new ObjectStep(this, ObjectID.SPIRALSTAIRSMIDDLE_WOODEN, new WorldPoint(2506, 3849, 1), t("Go down the ladder south of Miscellania castle."), scroll);
+		goDownLadderToDungeon = new ObjectStep(this, ObjectID.ROYAL_LADDER_DOWN, new WorldPoint(2509, 3846, 0), t("Go down the ladder south of Miscellania castle."), scroll);
+		goDownToDungeonNoScroll = new ObjectStep(this, ObjectID.ROYAL_LADDER_DOWN, new WorldPoint(2509, 3846, 0), t("Go down the ladder south of Miscellania castle."));
 		goDownLadderToDungeon.addSubSteps(goDownStairsToDungeon, goDownToDungeonNoScroll);
 
-		talkToDonal = new NpcStep(this, NpcID.ROYAL_DWARF_DRUNK, new WorldPoint(2528, 10257, 0), "Talk to Donal in the pub in the dungeon.");
+		talkToDonal = new NpcStep(this, NpcID.ROYAL_DWARF_DRUNK, new WorldPoint(2528, 10257, 0), t("Talk to Donal in the pub in the dungeon."));
 		talkToDonal.addDialogStep("Of course. Dealing with monsters is what I do best!");
 
-		usePropOnCrevice = new ObjectStep(this, ObjectID.ROYAL_CAVEWALL_CRACK, new WorldPoint(2505, 10281, 0), "Use the mining prop on the crevice in the north west corner of the dungeon.", prop);
+		usePropOnCrevice = new ObjectStep(this, ObjectID.ROYAL_CAVEWALL_CRACK, new WorldPoint(2505, 10281, 0), t("Use the mining prop on the crevice in the north west corner of the dungeon."), prop);
 		usePropOnCrevice.addIcon(ItemID.ROYAL_MINING_PROP);
-		enterCrevice = new ObjectStep(this, ObjectID.ROYAL_CAVEWALL_CRACK, new WorldPoint(2505, 10281, 0), "Enter the crevice in the north west corner of the dungeon.");
+		enterCrevice = new ObjectStep(this, ObjectID.ROYAL_CAVEWALL_CRACK, new WorldPoint(2505, 10281, 0), t("Enter the crevice in the north west corner of the dungeon."));
 
-		pickUpEngine = new ItemStep(this, "Pick up an Engine", engine);
-		putCoalIntoEngine = new DetailedQuestStep(this, "Read the nearby lift manual, then put 5 coal into the engine.", engine, coal5);
-		putCoalIntoEngine2 = new DetailedQuestStep(this, "Read the nearby lift manual, then put 4 coal into the engine.", engine, coal4);
-		putCoalIntoEngine3 = new DetailedQuestStep(this, "Put 3 more coal into the engine.", engine, coal3);
-		putCoalIntoEngine4 = new DetailedQuestStep(this, "Put 2 more coal into the engine.", engine, coal2);
-		putCoalIntoEngine5 = new DetailedQuestStep(this, "Put 1 more coal into the engine.", engine, coal1);
+		pickUpEngine = new ItemStep(this, t("Pick up an Engine"), engine);
+		putCoalIntoEngine = new DetailedQuestStep(this, t("Read the nearby lift manual, then put 5 coal into the engine."), engine, coal5);
+		putCoalIntoEngine2 = new DetailedQuestStep(this, t("Read the nearby lift manual, then put 4 coal into the engine."), engine, coal4);
+		putCoalIntoEngine3 = new DetailedQuestStep(this, t("Put 3 more coal into the engine."), engine, coal3);
+		putCoalIntoEngine4 = new DetailedQuestStep(this, t("Put 2 more coal into the engine."), engine, coal2);
+		putCoalIntoEngine5 = new DetailedQuestStep(this, t("Put 1 more coal into the engine."), engine, coal1);
 		putCoalIntoEngine.addSubSteps(putCoalIntoEngine2, putCoalIntoEngine3, putCoalIntoEngine4, putCoalIntoEngine5);
 
-		putCoalIntoEnginePlaced = new ObjectStep(this, ObjectID.ROYAL_ENGINE_PLATFORM_MULTILOC, new WorldPoint(2508, 10287, 0), "Read the nearby lift manual, then put 5 coal into the engine.", coal5);
-		putCoalIntoEnginePlaced2 = new ObjectStep(this, ObjectID.ROYAL_ENGINE_PLATFORM_MULTILOC, new WorldPoint(2508, 10287, 0), "Put 4 more coal into the engine.", coal4);
-		putCoalIntoEnginePlaced3 = new ObjectStep(this, ObjectID.ROYAL_ENGINE_PLATFORM_MULTILOC, new WorldPoint(2508, 10287, 0), "Put 3 more coal into the engine.", coal3);
-		putCoalIntoEnginePlaced4 = new ObjectStep(this, ObjectID.ROYAL_ENGINE_PLATFORM_MULTILOC, new WorldPoint(2508, 10287, 0), "Put 2 more coal into the engine.", coal2);
-		putCoalIntoEnginePlaced5 = new ObjectStep(this, ObjectID.ROYAL_ENGINE_PLATFORM_MULTILOC, new WorldPoint(2508, 10287, 0), "Put 1 more coal into the engine.", coal1);
+		putCoalIntoEnginePlaced = new ObjectStep(this, ObjectID.ROYAL_ENGINE_PLATFORM_MULTILOC, new WorldPoint(2508, 10287, 0), t("Read the nearby lift manual, then put 5 coal into the engine."), coal5);
+		putCoalIntoEnginePlaced2 = new ObjectStep(this, ObjectID.ROYAL_ENGINE_PLATFORM_MULTILOC, new WorldPoint(2508, 10287, 0), t("Put 4 more coal into the engine."), coal4);
+		putCoalIntoEnginePlaced3 = new ObjectStep(this, ObjectID.ROYAL_ENGINE_PLATFORM_MULTILOC, new WorldPoint(2508, 10287, 0), t("Put 3 more coal into the engine."), coal3);
+		putCoalIntoEnginePlaced4 = new ObjectStep(this, ObjectID.ROYAL_ENGINE_PLATFORM_MULTILOC, new WorldPoint(2508, 10287, 0), t("Put 2 more coal into the engine."), coal2);
+		putCoalIntoEnginePlaced5 = new ObjectStep(this, ObjectID.ROYAL_ENGINE_PLATFORM_MULTILOC, new WorldPoint(2508, 10287, 0), t("Put 1 more coal into the engine."), coal1);
 
-		takePulley = new ObjectStep(this, ObjectID.ROYAL_CRATE_PLANKS_PULLEYS, new WorldPoint(2504, 10285, 0), "Take a Pulley Beam.");
-		usePulleyOnScaffold = new ObjectStep(this, ObjectID.ROYAL_SIDE_SCAFFOLD_MULTILOC, new WorldPoint(2508, 10286, 0), "Use the Pulley Beam on the Broken Scaffold", pulleyBeam);
+		takePulley = new ObjectStep(this, ObjectID.ROYAL_CRATE_PLANKS_PULLEYS, new WorldPoint(2504, 10285, 0), t("Take a Pulley Beam."));
+		usePulleyOnScaffold = new ObjectStep(this, ObjectID.ROYAL_SIDE_SCAFFOLD_MULTILOC, new WorldPoint(2508, 10286, 0), t("Use the Pulley Beam on the Broken Scaffold"), pulleyBeam);
 		usePulleyOnScaffold.addIcon(ItemID.ROYAL_PLANK_PULLEY);
-		takePulley2 = new ObjectStep(this, ObjectID.ROYAL_CRATE_PLANKS_PULLEYS, new WorldPoint(2504, 10285, 0), "Take a Pulley Beam.");
-		takeBeam = new ObjectStep(this, ObjectID.ROYAL_CRATE_PLANKS, new WorldPoint(2504, 10284, 0), "Take a Beam.");
-		useBeamOnPulley = new DetailedQuestStep(this, "Use a beam on a pulley beam.", beam, pulleyBeam);
-		takeBeam2 = new ObjectStep(this, ObjectID.ROYAL_CRATE_PLANKS, new WorldPoint(2504, 10284, 0), "Take another Beam.");
-		useBeamOnLongPulley = new DetailedQuestStep(this, "Use a beam on the long pulley beam.", beam, longPulleyBeam);
+		takePulley2 = new ObjectStep(this, ObjectID.ROYAL_CRATE_PLANKS_PULLEYS, new WorldPoint(2504, 10285, 0), t("Take a Pulley Beam."));
+		takeBeam = new ObjectStep(this, ObjectID.ROYAL_CRATE_PLANKS, new WorldPoint(2504, 10284, 0), t("Take a Beam."));
+		useBeamOnPulley = new DetailedQuestStep(this, t("Use a beam on a pulley beam."), beam, pulleyBeam);
+		takeBeam2 = new ObjectStep(this, ObjectID.ROYAL_CRATE_PLANKS, new WorldPoint(2504, 10284, 0), t("Take another Beam."));
+		useBeamOnLongPulley = new DetailedQuestStep(this, t("Use a beam on the long pulley beam."), beam, longPulleyBeam);
 
-		useLongerPulleyOnScaffold = new ObjectStep(this, ObjectID.ROYAL_SIDE_SCAFFOLD_MULTILOC, new WorldPoint(2508, 10286, 0), "Use the Longer pulley beam on the Scaffold", longerPulleyBeam);
+		useLongerPulleyOnScaffold = new ObjectStep(this, ObjectID.ROYAL_SIDE_SCAFFOLD_MULTILOC, new WorldPoint(2508, 10286, 0), t("Use the Longer pulley beam on the Scaffold"), longerPulleyBeam);
 		useLongerPulleyOnScaffold.addIcon(ItemID.ROYAL_PLANK_PULLEY_LONGER);
-		takePulley3 = new ObjectStep(this, ObjectID.ROYAL_CRATE_PLANKS_PULLEYS, new WorldPoint(2504, 10285, 0), "Take a Pulley Beam.");
-		usePulleyOnScaffold2 = new ObjectStep(this, ObjectID.ROYAL_SIDE_SCAFFOLD_MULTILOC, new WorldPoint(2508, 10286, 0), "Use the pulley beam on the Scaffold", pulleyBeam);
+		takePulley3 = new ObjectStep(this, ObjectID.ROYAL_CRATE_PLANKS_PULLEYS, new WorldPoint(2504, 10285, 0), t("Take a Pulley Beam."));
+		usePulleyOnScaffold2 = new ObjectStep(this, ObjectID.ROYAL_SIDE_SCAFFOLD_MULTILOC, new WorldPoint(2508, 10286, 0), t("Use the pulley beam on the Scaffold"), pulleyBeam);
 		usePulleyOnScaffold2.addIcon(ItemID.ROYAL_PLANK_PULLEY);
 
-		takeRope = new ObjectStep(this, ObjectID.ROYAL_CRATE_ROPE, new WorldPoint(2506, 10289, 0), "Take a rope from the crate.");
-		useRopeOnScaffold = new ObjectStep(this, ObjectID.ROYAL_SIDE_SCAFFOLD_MULTILOC, new WorldPoint(2508, 10286, 0), "Use the rope on the broken scaffold", rope);
+		takeRope = new ObjectStep(this, ObjectID.ROYAL_CRATE_ROPE, new WorldPoint(2506, 10289, 0), t("Take a rope from the crate."));
+		useRopeOnScaffold = new ObjectStep(this, ObjectID.ROYAL_SIDE_SCAFFOLD_MULTILOC, new WorldPoint(2508, 10286, 0), t("Use the rope on the broken scaffold"), rope);
 		useRopeOnScaffold.addIcon(ItemID.ROPE);
 
-		takeBeam3 = new ObjectStep(this, ObjectID.ROYAL_CRATE_PLANKS, new WorldPoint(2504, 10284, 0), "Take another Beam.");
-		useBeamOnPlatform = new ObjectStep(this, ObjectID.ROYAL_LIFT_PLATFORM_MULTILOC, new WorldPoint(2508, 10288, 0), "Use a beam on the platform.", beam);
+		takeBeam3 = new ObjectStep(this, ObjectID.ROYAL_CRATE_PLANKS, new WorldPoint(2504, 10284, 0), t("Take another Beam."));
+		useBeamOnPlatform = new ObjectStep(this, ObjectID.ROYAL_LIFT_PLATFORM_MULTILOC, new WorldPoint(2508, 10288, 0), t("Use a beam on the platform."), beam);
 		useBeamOnPlatform.addIcon(ItemID.ROYAL_BEAM);
 
-		useEngineOnPlatform = new ObjectStep(this, ObjectID.ROYAL_ENGINE_PLATFORM_MULTILOC, new WorldPoint(2508, 10287, 0), "Use the Engine on the engine platform", engine);
+		useEngineOnPlatform = new ObjectStep(this, ObjectID.ROYAL_ENGINE_PLATFORM_MULTILOC, new WorldPoint(2508, 10287, 0), t("Use the Engine on the engine platform"), engine);
 
-		useLift = new ObjectStep(this, ObjectID.ROYAL_LIFT_PLATFORM_MULTILOC, new WorldPoint(2508, 10288, 0), "Take the lift up.");
+		useLift = new ObjectStep(this, ObjectID.ROYAL_LIFT_PLATFORM_MULTILOC, new WorldPoint(2508, 10288, 0), t("Take the lift up."));
 
-		takeRope2 = new ObjectStep(this, ObjectID.ROYAL_CRATE_ROPE, new WorldPoint(2506, 10289, 0), "Take a rope from the crate in the lift room.", rope);
-		takePlank = new ItemStep(this, "Pick up the plank.", plank);
-		enterTunnelFromPlankRoom = new ObjectStep(this, ObjectID.ROYAL_SMALL_CAVE, new WorldPoint(2511, 10287, 1), "Enter the tunnel.");
+		takeRope2 = new ObjectStep(this, ObjectID.ROYAL_CRATE_ROPE, new WorldPoint(2506, 10289, 0), t("Take a rope from the crate in the lift room."), rope);
+		takePlank = new ItemStep(this, t("Pick up the plank."), plank);
+		enterTunnelFromPlankRoom = new ObjectStep(this, ObjectID.ROYAL_SMALL_CAVE, new WorldPoint(2511, 10287, 1), t("Enter the tunnel."));
 
-		goBackToPlank = new ObjectStep(this, ObjectID.ROYAL_SMALL_CAVE_EXIT, new WorldPoint(2514, 10290, 0), "Go back through the tunnel to get a plank.", plank);
+		goBackToPlank = new ObjectStep(this, ObjectID.ROYAL_SMALL_CAVE_EXIT, new WorldPoint(2514, 10290, 0), t("Go back through the tunnel to get a plank."), plank);
 
-		attachRope = new ObjectStep(this, ObjectID.ROYAL_ROPESWING_MULTILOC, new WorldPoint(2540, 10299, 0), "Use a rope on the rock over the water blocking the path.", rope);
+		attachRope = new ObjectStep(this, ObjectID.ROYAL_ROPESWING_MULTILOC, new WorldPoint(2540, 10299, 0), t("Use a rope on the rock over the water blocking the path."), rope);
 		attachRope.addIcon(ItemID.ROPE);
-		swingOverRope = new ObjectStep(this, ObjectID.ROYAL_ROPESWING_MULTILOC, new WorldPoint(2540, 10299, 0), "Swing over the water on the ropeswing.");
+		swingOverRope = new ObjectStep(this, ObjectID.ROYAL_ROPESWING_MULTILOC, new WorldPoint(2540, 10299, 0), t("Swing over the water on the ropeswing."));
 
-		searchFire1 = new ObjectStep(this, ObjectID.ROYAL_FIRE_REMAINS1, new WorldPoint(2555, 10295, 0), "Search the fire remains.");
-		searchFire2 = new ObjectStep(this, ObjectID.ROYAL_FIRE_REMAINS2, new WorldPoint(2534, 10281, 0), "Search the 2nd fire remains further along the path.");
-		searchFire3 = new ObjectStep(this, ObjectID.ROYAL_FIRE_REMAINS3, new WorldPoint(2555, 10279, 0), "Search the 3rd fire remains further along the path.");
-		searchFire4 = new ObjectStep(this, ObjectID.ROYAL_FIRE_REMAINS4, new WorldPoint(2548, 10261, 0), "Search the 4th fire remains further along the path.");
-		searchFire5 = new ObjectStep(this, ObjectID.ROYAL_FIRE_REMAINS5, new WorldPoint(2573, 10246, 0), "Search the 5th fire remains further along the path.");
+		searchFire1 = new ObjectStep(this, ObjectID.ROYAL_FIRE_REMAINS1, new WorldPoint(2555, 10295, 0), t("Search the fire remains."));
+		searchFire2 = new ObjectStep(this, ObjectID.ROYAL_FIRE_REMAINS2, new WorldPoint(2534, 10281, 0), t("Search the 2nd fire remains further along the path."));
+		searchFire3 = new ObjectStep(this, ObjectID.ROYAL_FIRE_REMAINS3, new WorldPoint(2555, 10279, 0), t("Search the 3rd fire remains further along the path."));
+		searchFire4 = new ObjectStep(this, ObjectID.ROYAL_FIRE_REMAINS4, new WorldPoint(2548, 10261, 0), t("Search the 4th fire remains further along the path."));
+		searchFire5 = new ObjectStep(this, ObjectID.ROYAL_FIRE_REMAINS5, new WorldPoint(2573, 10246, 0), t("Search the 5th fire remains further along the path."));
 
-		plankRock1 = new ObjectStep(this, ObjectID.ROYAL_INVISIBLE_PUDDLETRAP, new WorldPoint(2548, 10288, 0), "Use a plank on the rocks to cross them.", plank);
+		plankRock1 = new ObjectStep(this, ObjectID.ROYAL_INVISIBLE_PUDDLETRAP, new WorldPoint(2548, 10288, 0), t("Use a plank on the rocks to cross them."), plank);
 		plankRock1.addIcon(ItemID.WOODPLANK);
-		plankRock2 = new ObjectStep(this, ObjectID.ROYAL_INVISIBLE_PUDDLETRAP, new WorldPoint(2545, 10287, 0), "Use a plank on the rocks to cross them.", plank);
+		plankRock2 = new ObjectStep(this, ObjectID.ROYAL_INVISIBLE_PUDDLETRAP, new WorldPoint(2545, 10287, 0), t("Use a plank on the rocks to cross them."), plank);
 		plankRock2.addIcon(ItemID.WOODPLANK);
-		plankRock3 = new ObjectStep(this, ObjectID.ROYAL_INVISIBLE_PUDDLETRAP, new WorldPoint(2542, 10287, 0), "Use a plank on the rocks to cross them.", plank);
+		plankRock3 = new ObjectStep(this, ObjectID.ROYAL_INVISIBLE_PUDDLETRAP, new WorldPoint(2542, 10287, 0), t("Use a plank on the rocks to cross them."), plank);
 		plankRock3.addIcon(ItemID.WOODPLANK);
-		plankRock4 = new ObjectStep(this, ObjectID.ROYAL_INVISIBLE_PUDDLETRAP, new WorldPoint(2539, 10286, 0), "Use a plank on the rocks to cross them.", plank);
+		plankRock4 = new ObjectStep(this, ObjectID.ROYAL_INVISIBLE_PUDDLETRAP, new WorldPoint(2539, 10286, 0), t("Use a plank on the rocks to cross them."), plank);
 		plankRock4.addIcon(ItemID.WOODPLANK);
 
 		plankRock1.addSubSteps(plankRock2, plankRock3, plankRock4);
 
-		readDiary = new DetailedQuestStep(this, "Read the Diary", diary5);
+		readDiary = new DetailedQuestStep(this, t("Read the Diary"), diary5);
 
-		enterSnakesRoom = new ObjectStep(this, ObjectID.ROYAL_CAVEWALL_CRACK_FREMENNIKS_IN, new WorldPoint(2585, 10260, 0), "Enter the crevice at the end of the path.");
-		enterBossRoom = new ObjectStep(this, ObjectID.ROYAL_CAVEWALL_CRACK_SEASNAKE_IN, new WorldPoint(2617, 10272, 0), "Prepare to fight the Giant Sea Snake. It will only use ranged attacks if you stand at a distance. It can poison you.");
+		enterSnakesRoom = new ObjectStep(this, ObjectID.ROYAL_CAVEWALL_CRACK_FREMENNIKS_IN, new WorldPoint(2585, 10260, 0), t("Enter the crevice at the end of the path."));
+		enterBossRoom = new ObjectStep(this, ObjectID.ROYAL_CAVEWALL_CRACK_SEASNAKE_IN, new WorldPoint(2617, 10272, 0), t("Prepare to fight the Giant Sea Snake. It will only use ranged attacks if you stand at a distance. It can poison you."));
 
-		killBoss = new NpcStep(this, NpcID.ROYAL_SEA_SNAKE_MOTHER_SMALLER, new WorldPoint(2615, 10280, 0), "Kill the Giant Sea Snake.");
+		killBoss = new NpcStep(this, NpcID.ROYAL_SEA_SNAKE_MOTHER_SMALLER, new WorldPoint(2615, 10280, 0), t("Kill the Giant Sea Snake."));
 
-		talkToArmod = new NpcStep(this, NpcID.ROYAL_FREMENNIK_TEEN3, new WorldPoint(2572, 10277, 0), "Talk to Armod.");
+		talkToArmod = new NpcStep(this, NpcID.ROYAL_FREMENNIK_TEEN3, new WorldPoint(2572, 10277, 0), t("Talk to Armod."));
 
-		pickUpBox = new ItemStep(this, "Pick up the heavy box", box);
-		leaveBossRoom = new ObjectStep(this, ObjectID.ROYAL_CAVEWALL_CRACK_SEASNAKE_OUT, new WorldPoint(2617, 10273, 0), "Leave the room.");
-		goUpRope = new ObjectStep(this, ObjectID.ROYAL_LIGHT_EXIT_MULTILOC, new WorldPoint(2618, 10265, 0), "Go up the rope that's appeared.");
+		pickUpBox = new ItemStep(this, t("Pick up the heavy box"), box);
+		leaveBossRoom = new ObjectStep(this, ObjectID.ROYAL_CAVEWALL_CRACK_SEASNAKE_OUT, new WorldPoint(2617, 10273, 0), t("Leave the room."));
+		goUpRope = new ObjectStep(this, ObjectID.ROYAL_LIGHT_EXIT_MULTILOC, new WorldPoint(2618, 10265, 0), t("Go up the rope that's appeared."));
 
-		goUpToSigridToFinish = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2614, 3868, 0), "Talk to Queen Sigrid in Etceteria Castle.", box);
-		talkToSigridToFinish = new NpcStep(this, NpcID.MISC_QUEEN_SIGRID, new WorldPoint(2612, 3875, 1), "Talk to Queen Sigrid in Etceteria Castle.", box);
+		goUpToSigridToFinish = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2614, 3868, 0), t("Talk to Queen Sigrid in Etceteria Castle."), box);
+		talkToSigridToFinish = new NpcStep(this, NpcID.MISC_QUEEN_SIGRID, new WorldPoint(2612, 3875, 1), t("Talk to Queen Sigrid in Etceteria Castle."), box);
 		talkToSigridToFinish.addSubSteps(goUpToSigridToFinish);
 
-		goDownFromSigridToFinish = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(2614, 3867, 1), "Return to King Vargas to finish the quest.", letter);
-		goUpToVargasToFinish = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), "Return to King Vargas to finish the quest.", letter);
-		talkToVargasToFinish = new NpcStep(this, NpcID.MISC_KING_VARGAS, new WorldPoint(2501, 3860, 1), "Return to King Vargas to finish the quest.", letter);
+		goDownFromSigridToFinish = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(2614, 3867, 1), t("Return to King Vargas to finish the quest."), letter);
+		goUpToVargasToFinish = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), t("Return to King Vargas to finish the quest."), letter);
+		talkToVargasToFinish = new NpcStep(this, NpcID.MISC_KING_VARGAS, new WorldPoint(2501, 3860, 1), t("Return to King Vargas to finish the quest."), letter);
 		talkToVargasToFinish.addSubSteps(goDownFromSigridToFinish, goUpToVargasToFinish);
 	}
 
@@ -580,7 +580,7 @@ public class RoyalTrouble extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		ArrayList<String> reqs = new ArrayList<>();
-		reqs.add("Giant Sea Snake (level 149)");
+		reqs.add(t("Giant Sea Snake (level 149)"));
 		return reqs;
 	}
 
@@ -630,27 +630,27 @@ public class RoyalTrouble extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("Increased rewards from Managing Miscellania"));
+		return Collections.singletonList(new UnlockReward(t("Increased rewards from Managing Miscellania")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off", Arrays.asList(travelToMisc, talkToGhrim)));
-		allSteps.add(new PanelDetails("Investigating", Arrays.asList(talkToPartner, talkToVargas, talkToGunnhild, talkToSigrid, talkToMatilda)));
+		allSteps.add(new PanelDetails(t("Starting off"), Arrays.asList(travelToMisc, talkToGhrim)));
+		allSteps.add(new PanelDetails(t("Investigating"), Arrays.asList(talkToPartner, talkToVargas, talkToGunnhild, talkToSigrid, talkToMatilda)));
 		if (client.getRealSkillLevel(Skill.MINING) >= 30)
 		{
-			allSteps.add(new PanelDetails("Digging deeper", Arrays.asList(getCoalOrPickaxe, talkToVargasAfterSigrid, talkToGhrim2, talkToSailor, talkToVargasAfterSailor, goDownLadderToDungeon), coalOrPickaxe, combatGear, antipoison));
+			allSteps.add(new PanelDetails(t("Digging deeper"), Arrays.asList(getCoalOrPickaxe, talkToVargasAfterSigrid, talkToGhrim2, talkToSailor, talkToVargasAfterSailor, goDownLadderToDungeon), coalOrPickaxe, combatGear, antipoison));
 		}
 		else
 		{
-			allSteps.add(new PanelDetails("Digging deeper", Arrays.asList(getCoalOrPickaxe, talkToVargasAfterSigrid, talkToGhrim2, talkToSailor, talkToVargasAfterSailor, goDownLadderToDungeon), coal5, combatGear, antipoison));
+			allSteps.add(new PanelDetails(t("Digging deeper"), Arrays.asList(getCoalOrPickaxe, talkToVargasAfterSigrid, talkToGhrim2, talkToSailor, talkToVargasAfterSailor, goDownLadderToDungeon), coal5, combatGear, antipoison));
 		}
-		allSteps.add(new PanelDetails("Repair the lift", Arrays.asList(talkToDonal, usePropOnCrevice, enterCrevice, takePulley, usePulleyOnScaffold, takePulley2, takeBeam, useBeamOnPulley, takeBeam2, useBeamOnLongPulley,
+		allSteps.add(new PanelDetails(t("Repair the lift"), Arrays.asList(talkToDonal, usePropOnCrevice, enterCrevice, takePulley, usePulleyOnScaffold, takePulley2, takeBeam, useBeamOnPulley, takeBeam2, useBeamOnLongPulley,
 			useLongerPulleyOnScaffold, takePulley3, usePulleyOnScaffold2, takeRope, useRopeOnScaffold, takeBeam3, useBeamOnPlatform, pickUpEngine, useEngineOnPlatform, putCoalIntoEngine, takeRope2)));
-		allSteps.add(new PanelDetails("Investigate the caves", Arrays.asList(useLift, takePlank, enterTunnelFromPlankRoom, attachRope, swingOverRope, searchFire1, plankRock1, searchFire2, searchFire3, searchFire4, searchFire5, readDiary, enterSnakesRoom)));
-		allSteps.add(new PanelDetails("Investigate the caves", Arrays.asList(talkToArmod, enterBossRoom, killBoss, pickUpBox, leaveBossRoom, goUpRope, talkToSigridToFinish, talkToVargasToFinish)));
+		allSteps.add(new PanelDetails(t("Investigate the caves"), Arrays.asList(useLift, takePlank, enterTunnelFromPlankRoom, attachRope, swingOverRope, searchFire1, plankRock1, searchFire2, searchFire3, searchFire4, searchFire5, readDiary, enterSnakesRoom)));
+		allSteps.add(new PanelDetails(t("Investigate the caves"), Arrays.asList(talkToArmod, enterBossRoom, killBoss, pickUpBox, leaveBossRoom, goUpRope, talkToSigridToFinish, talkToVargasToFinish)));
 
 		return allSteps;
 	}

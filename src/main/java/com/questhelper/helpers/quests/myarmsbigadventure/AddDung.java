@@ -19,9 +19,9 @@ public class AddDung extends ObjectStep
 
 	public AddDung(QuestHelper questHelper)
 	{
-		super(questHelper, ObjectID.MYARM_FAKEFARMINGPATCH, new WorldPoint(2831, 3696, 0), "Add 3 ugthanki dung on My Arm's soil patch.");
+		super(questHelper, ObjectID.MYARM_FAKEFARMINGPATCH, new WorldPoint(2831, 3696, 0), questHelper.t("Add 3 ugthanki dung on My Arm's soil patch."));
 		this.addIcon(ItemID.FEUD_CAMEL_POOH_BUCKET);
-		dung.setTooltip("You can get some by feeding the camels in Pollnivneach hot sauce, then using a bucket on their dung");
+		dung.setTooltip(questHelper.t("You can get some by feeding the camels in Pollnivneach hot sauce, then using a bucket on their dung"));
 		dung.setHighlightInInventory(true);
 	}
 
@@ -36,7 +36,7 @@ public class AddDung extends ObjectStep
 		int numCompToAdd = 3 - client.getVarbitValue(VarbitID.MYARM_DUNG);
 		dung.setQuantity(numCompToAdd);
 		this.setRequirements(Arrays.asList(dung, spade));
-		this.setText("Add " + numCompToAdd + " ugthanki dung on My Arm's soil patch.");
+		this.setText(questHelper.t("Add " + numCompToAdd + " ugthanki dung on My Arm's soil patch."));
 	}
 }
 

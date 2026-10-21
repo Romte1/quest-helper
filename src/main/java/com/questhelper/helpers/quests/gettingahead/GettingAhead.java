@@ -88,7 +88,7 @@ public class GettingAhead extends BasicQuestHelper
 		steps.put(0, talkToGordon1);
 		steps.put(2, talkToMary);
 
-		goUseFlourOnGate = new ConditionalStep(this, goUpstairsHouse, "Use the pot of flour on the cow pen gate.");
+		goUseFlourOnGate = new ConditionalStep(this, goUpstairsHouse, t("Use the pot of flour on the cow pen gate."));
 		goUseFlourOnGate.addStep(new Conditions(inUpstairsHouse, potOfFlour), goDownstairsHouse);
 		goUseFlourOnGate.addStep(new Conditions(potOfFlour), usePotOfFlour);
 		goUseFlourOnGate.addStep(inUpstairsHouse, takePot);
@@ -101,7 +101,7 @@ public class GettingAhead extends BasicQuestHelper
 		steps.put(10, killBeastStep);
 		steps.put(12, killBeastStep);
 
-		returnToGordon = new ConditionalStep(this, takePickaxe, "Return to Gordon and talk to him.");
+		returnToGordon = new ConditionalStep(this, takePickaxe, t("Return to Gordon and talk to him."));
 		returnToGordon.addStep(inMine, leaveCave);
 		returnToGordon.addStep(new Conditions(new Conditions(LogicType.OR, clay, softClay), planks),
 			talkToGordon2);
@@ -111,7 +111,7 @@ public class GettingAhead extends BasicQuestHelper
 		steps.put(14, returnToGordon);
 		steps.put(16, talkToMary2);
 
-		makeClayHead = new ConditionalStep(this, takePickaxe, "Use the knife on the soft clay then talk to Gordon.");
+		makeClayHead = new ConditionalStep(this, takePickaxe, t("Use the knife on the soft clay then talk to Gordon."));
 		makeClayHead.addStep(new Conditions(softClay, knife), useKnifeOnClay);
 		makeClayHead.addStep(softClay, takeKnife);
 		makeClayHead.addStep(new Conditions(bucketOfWater, clay), wetClay);
@@ -122,7 +122,7 @@ public class GettingAhead extends BasicQuestHelper
 		steps.put(18, makeClayHead);
 		steps.put(20, talkToGordonGen);
 
-		addFurToHead = new ConditionalStep(this, goUpstairsHouse, "Use the bear fur on the clay head then talk to Gordon.");
+		addFurToHead = new ConditionalStep(this, goUpstairsHouse, t("Use the bear fur on the clay head then talk to Gordon."));
 		addFurToHead.addStep(new Conditions(thread, needle), useFurOnHead);
 		addFurToHead.addStep(new Conditions(inUpstairsHouse, needle), getThread);
 		addFurToHead.addStep(inUpstairsHouse, getNeedle);
@@ -130,13 +130,13 @@ public class GettingAhead extends BasicQuestHelper
 		steps.put(22, addFurToHead);
 		steps.put(24, talkToGordonGen2);
 
-		dyeHead = new ConditionalStep(this, takeDye, "Use the red dye on the fur head then talk to Gordon.");
+		dyeHead = new ConditionalStep(this, takeDye, t("Use the red dye on the fur head then talk to Gordon."));
 		dyeHead.addStep(redDye, useDyeOnHead);
 		dyeHead.addSubSteps(talkToGordonGen3);
 		steps.put(26, dyeHead);
 		steps.put(28, talkToGordonGen3);
 
-		putUpHead = new ConditionalStep(this, takePlanks, "Build the Mounted Head Space inside the farmhouse.");
+		putUpHead = new ConditionalStep(this, takePlanks, t("Build the Mounted Head Space inside the farmhouse."));
 		putUpHead.addStep(new Conditions(planks, hammer, saw, nails), buildBearHead);
 		putUpHead.addStep(new Conditions(planks, hammer, saw), takeNails);
 		putUpHead.addStep(new Conditions(planks, hammer), takeSaw);
@@ -162,7 +162,7 @@ public class GettingAhead extends BasicQuestHelper
 		//Required
 		bearFur = new ItemRequirement("Bear Fur", ItemID.FUR);
 		bearFur.canBeObtainedDuringQuest();
-		bearFur.setTooltip("You can kill a bear west of the farm for some fur");
+		bearFur.setTooltip(t("You can kill a bear west of the farm for some fur"));
 		bearFur.setHighlightInInventory(true);
 		softClay = new ItemRequirement("Soft Clay", ItemID.SOFTCLAY, 1);
 		softClay.canBeObtainedDuringQuest();
@@ -203,15 +203,15 @@ public class GettingAhead extends BasicQuestHelper
 
 		//Making the fake head
 		clayHead = new ItemRequirement("Clay Head", ItemID.GA_CLAYHEAD);
-		clayHead.setTooltip("You can make another by using a knife on some soft clay");
+		clayHead.setTooltip(t("You can make another by using a knife on some soft clay"));
 
 		clayHeadHighlighted = new ItemRequirement("Clay Head", ItemID.GA_CLAYHEAD);
-		clayHeadHighlighted.setTooltip("You can make another by using a knife on some soft clay");
+		clayHeadHighlighted.setTooltip(t("You can make another by using a knife on some soft clay"));
 		clayHeadHighlighted.setHighlightInInventory(true);
 		furHead = new ItemRequirement("Fur Head", ItemID.GA_FURHEAD);
-		furHead.setTooltip("You can make another by using a knife on soft clay, then adding bear fur");
+		furHead.setTooltip(t("You can make another by using a knife on soft clay, then adding bear fur"));
 		furHeadHighlighted = new ItemRequirement("Fur Head", ItemID.GA_FURHEAD);
-		furHeadHighlighted.setTooltip("You can make another by using a knife on soft clay, then adding bear fur");
+		furHeadHighlighted.setTooltip(t("You can make another by using a knife on soft clay, then adding bear fur"));
 		furHeadHighlighted.setHighlightInInventory(true);
 		bloodyHead = new ItemRequirement("Bloody Head", ItemID.GA_BLOODHEAD);
 	}
@@ -232,66 +232,66 @@ public class GettingAhead extends BasicQuestHelper
 	public void setupSteps()
 	{
 		//Starting Off
-		talkToGordon1 = new NpcStep(this, NpcID.GA_GORDON, new WorldPoint(1248, 3686, 0), "Talk to Gordon south of the Farming Guild.");
+		talkToGordon1 = new NpcStep(this, NpcID.GA_GORDON, new WorldPoint(1248, 3686, 0), t("Talk to Gordon south of the Farming Guild."));
 		talkToGordon1.addDialogStep("Need a hand with anything?");
 		talkToGordon1.addDialogStep("Yes.");
 
-		talkToMary = new NpcStep(this, NpcID.GA_MARY_1OP, new WorldPoint(1237, 3678, 0), "Talk to Mary inside the main building, west of Gordon.");
+		talkToMary = new NpcStep(this, NpcID.GA_MARY_1OP, new WorldPoint(1237, 3678, 0), t("Talk to Mary inside the main building, west of Gordon."));
 
 		//Killing the beast
-		goUpstairsHouse = new ObjectStep(this, ObjectID.KEBOS_SPIRALSTAIRS_BOTTOM, new WorldPoint(1240, 3686, 0), "Climb up the nearby house's staircase.");
-		takePot = new ItemStep(this, "Take the nearby pot of flour, or fill a pot with the barrel of flour in the south west room.", potOfFlour);
-		goDownstairsHouse = new ObjectStep(this, ObjectID.KEBOS_SPIRALSTAIRS_TOP, new WorldPoint(1240, 3686, 1), "Go back downstairs.");
+		goUpstairsHouse = new ObjectStep(this, ObjectID.KEBOS_SPIRALSTAIRS_BOTTOM, new WorldPoint(1240, 3686, 0), t("Climb up the nearby house's staircase."));
+		takePot = new ItemStep(this, t("Take the nearby pot of flour, or fill a pot with the barrel of flour in the south west room."), potOfFlour);
+		goDownstairsHouse = new ObjectStep(this, ObjectID.KEBOS_SPIRALSTAIRS_TOP, new WorldPoint(1240, 3686, 1), t("Go back downstairs."));
 
 		usePotOfFlour = new ObjectStep(this, ObjectID.GA_FENCEGATE_L, new WorldPoint(1257, 3686, 0), "", potOfFlour);
 		usePotOfFlour.addIcon(ItemID.POT_FLOUR);
 
-		goToMine = new ObjectStep(this, ObjectID.GA_CAVE, new WorldPoint(1212, 3647, 0), "Enter the Kebos Lowlands mine just west of the bridge and kill the Headless Beast (level 82).");
+		goToMine = new ObjectStep(this, ObjectID.GA_CAVE, new WorldPoint(1212, 3647, 0), t("Enter the Kebos Lowlands mine just west of the bridge and kill the Headless Beast (level 82)."));
 		goToMine.addDialogStep("Yes.");
-		killBeast = new NpcStep(this, NpcID.GA_BEAST, new WorldPoint(1191, 10021, 0), "Kill the headless " +
-			"beast. You can safespot it from the south west corner of the pond in the cave.");
+		killBeast = new NpcStep(this, NpcID.GA_BEAST, new WorldPoint(1191, 10021, 0), t("Kill the headless " +
+			"beast. You can safespot it from the south west corner of the pond in the cave."));
 		((NpcStep) killBeast).addSafeSpots(new WorldPoint(1190, 10017, 0));
 		goToMine.addSubSteps(killBeast);
 
 		talkToGordon2 = new NpcStep(this, NpcID.GA_GORDON, new WorldPoint(1248, 3686, 0), "");
-		leaveCave = new ObjectStep(this, ObjectID.GA_CAVE_OUT, new WorldPoint(1190, 10029, 0), "Leave the cave.");
+		leaveCave = new ObjectStep(this, ObjectID.GA_CAVE_OUT, new WorldPoint(1190, 10029, 0), t("Leave the cave."));
 		talkToGordon2.addSubSteps(leaveCave);
 
 		//Making the fake head
-		talkToGordonGen = new NpcStep(this, NpcID.GA_GORDON, new WorldPoint(1248, 3686, 0), "Talk with Gordon.", clayHead);
-		talkToGordonGen2 = new NpcStep(this, NpcID.GA_GORDON, new WorldPoint(1248, 3686, 0), "Talk with Gordon.", furHead);
-		talkToGordonGen3 = new NpcStep(this, NpcID.GA_GORDON, new WorldPoint(1248, 3686, 0), "Talk with Gordon.", bloodyHead);
+		talkToGordonGen = new NpcStep(this, NpcID.GA_GORDON, new WorldPoint(1248, 3686, 0), t("Talk with Gordon."), clayHead);
+		talkToGordonGen2 = new NpcStep(this, NpcID.GA_GORDON, new WorldPoint(1248, 3686, 0), t("Talk with Gordon."), furHead);
+		talkToGordonGen3 = new NpcStep(this, NpcID.GA_GORDON, new WorldPoint(1248, 3686, 0), t("Talk with Gordon."), bloodyHead);
 
-		talkToMary2 = new NpcStep(this, NpcID.GA_MARY_1OP, new WorldPoint(1237, 3678, 0), "Talk to Mary inside the house.");
-		takePickaxe = new ObjectStep(this, ObjectID.GA_ROCKS_PICKAXE, new WorldPoint(1222, 3653, 0), "Take the pickaxe in the mine.");
-		mineClay = new ObjectStep(this, ObjectID.CLAYROCK1, new WorldPoint(1217, 3657, 0), "Mine some clay.", pickaxe);
-		takeKnife = new DetailedQuestStep(this, new WorldPoint(1241, 3679, 0), "Take the knife near Mary.", knife);
-		takeBucket = new DetailedQuestStep(this, new WorldPoint(1244, 3682, 0), "Take the bucket in the house.", bucket);
-		fillBucket = new ObjectStep(this, ObjectID.FAI_VARROCK_COOKING_KITCHEN_SINK, new WorldPoint(1240, 3677, 0), "Fill the bucket on the sink.", bucket);
+		talkToMary2 = new NpcStep(this, NpcID.GA_MARY_1OP, new WorldPoint(1237, 3678, 0), t("Talk to Mary inside the house."));
+		takePickaxe = new ObjectStep(this, ObjectID.GA_ROCKS_PICKAXE, new WorldPoint(1222, 3653, 0), t("Take the pickaxe in the mine."));
+		mineClay = new ObjectStep(this, ObjectID.CLAYROCK1, new WorldPoint(1217, 3657, 0), t("Mine some clay."), pickaxe);
+		takeKnife = new DetailedQuestStep(this, new WorldPoint(1241, 3679, 0), t("Take the knife near Mary."), knife);
+		takeBucket = new DetailedQuestStep(this, new WorldPoint(1244, 3682, 0), t("Take the bucket in the house."), bucket);
+		fillBucket = new ObjectStep(this, ObjectID.FAI_VARROCK_COOKING_KITCHEN_SINK, new WorldPoint(1240, 3677, 0), t("Fill the bucket on the sink."), bucket);
 		fillBucket.addIcon(ItemID.BUCKET_EMPTY);
-		wetClay = new DetailedQuestStep(this, "Use the bucket of water on the clay.", bucketOfWater, clay);
+		wetClay = new DetailedQuestStep(this, t("Use the bucket of water on the clay."), bucketOfWater, clay);
 		useKnifeOnClay = new DetailedQuestStep(this, "", knife, softClay);
 		useKnifeOnClay.addDialogStep("Yes.");
 
-		getNeedle = new DetailedQuestStep(this, new WorldPoint(1244, 3685, 1), "Take the needle.", needle);
-		getThread = new DetailedQuestStep(this, new WorldPoint(1244, 3684, 1), "Take the thread.", thread);
-		useFurOnHead = new DetailedQuestStep(this, "Use the bear fur on the clay head then talk to Gordon.", bearFur, clayHeadHighlighted, thread, needle);
+		getNeedle = new DetailedQuestStep(this, new WorldPoint(1244, 3685, 1), t("Take the needle."), needle);
+		getThread = new DetailedQuestStep(this, new WorldPoint(1244, 3684, 1), t("Take the thread."), thread);
+		useFurOnHead = new DetailedQuestStep(this, t("Use the bear fur on the clay head then talk to Gordon."), bearFur, clayHeadHighlighted, thread, needle);
 		useFurOnHead.addDialogStep("Yes.");
 
-		takeDye = new ObjectStep(this, ObjectID.GA_SHELVES, new WorldPoint(1240, 3688, 0), "Get some red dye from the shelves in the farm house.");
+		takeDye = new ObjectStep(this, ObjectID.GA_SHELVES, new WorldPoint(1240, 3688, 0), t("Get some red dye from the shelves in the farm house."));
 		takeDye.addDialogStep("Take some red dye.");
 		useDyeOnHead = new DetailedQuestStep(this, "", redDye, furHeadHighlighted);
 		useDyeOnHead.addDialogStep("Yes.");
 		useDyeOnHead.addSubSteps(talkToGordonGen3);
 
-		takePlanks = new ItemStep(this, new WorldPoint(1202, 3649, 0), "Take the planks outside the monster's cave.", planks);
-		takeSaw = new DetailedQuestStep(this, new WorldPoint(1239, 3696, 0), "Take the saw in the building north of the farmhouse.", saw);
-		takeHammer = new DetailedQuestStep(this, new WorldPoint(1259, 3686, 0), "Take the hammer east of the farmhouse.", hammer);
-		takeNails = new ObjectStep(this, ObjectID.GA_WORKBENCH, new WorldPoint(1239, 3699, 0), "Take some nails from the farm's workbench.");
+		takePlanks = new ItemStep(this, new WorldPoint(1202, 3649, 0), t("Take the planks outside the monster's cave."), planks);
+		takeSaw = new DetailedQuestStep(this, new WorldPoint(1239, 3696, 0), t("Take the saw in the building north of the farmhouse."), saw);
+		takeHammer = new DetailedQuestStep(this, new WorldPoint(1259, 3686, 0), t("Take the hammer east of the farmhouse."), hammer);
+		takeNails = new ObjectStep(this, ObjectID.GA_WORKBENCH, new WorldPoint(1239, 3699, 0), t("Take some nails from the farm's workbench."));
 		takeNails.addDialogStep("Take the nails.");
 		buildBearHead = new ObjectStep(this, ObjectID.GA_MOUNTED_HEAD, new WorldPoint(1240, 3683, 0), "", bloodyHead, nails, planks, saw, hammer);
 		buildBearHead.addDialogStep("Yes.");
-		talkToGordonFinal = new NpcStep(this, NpcID.GA_GORDON, new WorldPoint(1248, 3686, 0), "Return to Gordon to finish the quest.");
+		talkToGordonFinal = new NpcStep(this, NpcID.GA_GORDON, new WorldPoint(1248, 3686, 0), t("Return to Gordon to finish the quest."));
 	}
 
 	@Override
@@ -309,7 +309,7 @@ public class GettingAhead extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Headless Beast (level 82, safespottable)");
+		return Collections.singletonList(t("Headless Beast (level 82, safespottable)"));
 	}
 
 	@Override
@@ -335,17 +335,17 @@ public class GettingAhead extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("Access to the tannery on Kebos Lowlands"));
+		return Collections.singletonList(new UnlockReward(t("Access to the tannery on Kebos Lowlands")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off", Arrays.asList(talkToGordon1, talkToMary)));
-		allSteps.add(new PanelDetails("Killing the Beast", Arrays.asList(goUseFlourOnGate, goToMine, returnToGordon),
+		allSteps.add(new PanelDetails(t("Starting off"), Arrays.asList(talkToGordon1, talkToMary)));
+		allSteps.add(new PanelDetails(t("Killing the Beast"), Arrays.asList(goUseFlourOnGate, goToMine, returnToGordon),
 			potOfFlour));
-		allSteps.add(new PanelDetails("Making the fake head", Arrays.asList(talkToMary2, makeClayHead, addFurToHead,
+		allSteps.add(new PanelDetails(t("Making the fake head"), Arrays.asList(talkToMary2, makeClayHead, addFurToHead,
 			dyeHead, putUpHead, talkToGordonFinal), bearFur, softClay, hammer, saw, planks, nails, knife, redDye, needle, thread));
 		return allSteps;
 	}

@@ -177,7 +177,7 @@ public class RagAndBoneManII extends BasicQuestHelper
 		cookingSteps.addStep(logAdded, useBoneOnBoiler);
 		cookingSteps.setLockingCondition(allBonesPolished);
 
-		collectBonesSteps = new ConditionalStep(this, new DetailedQuestStep(this, "Unknown state general."));
+		collectBonesSteps = new ConditionalStep(this, new DetailedQuestStep(this, t("Unknown state general.")));
 		collectBonesSteps.addStep(boneNearby, pickupBoneSteps);
 		collectBonesSteps.addStep(allBonesPolished, giveBones);
 		collectBonesSteps.addStep(allBonesAtLeastAddedToVinegar, cookingSteps);
@@ -372,30 +372,30 @@ public class RagAndBoneManII extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		finishP1 = new DetailedQuestStep(this, "Finish Rag and Bone Man I.");
+		finishP1 = new DetailedQuestStep(this, t("Finish Rag and Bone Man I."));
 		addRope = new ObjectStep(this, ObjectID.GOBLIN_CAVE_ENTRANCE, new WorldPoint(3169, 3172, 0),
-			"Enter the hole to the Lumbridge Swamp caves.", rope.highlighted(), lightSource, tinderbox);
+			t("Enter the hole to the Lumbridge Swamp caves."), rope.highlighted(), lightSource, tinderbox);
 		addRope.addIcon(ItemID.ROPE);
 		leaveJunaRoom = new ObjectStep(this, ObjectID.TOG_CAVE_UP, new WorldPoint(3219, 9534, 2),
-			"Enter the Lumbridge Swamp caves.");
+			t("Enter the Lumbridge Swamp caves."));
 		enterSwamp = new ObjectStep(this, ObjectID.GOBLIN_CAVE_ENTRANCE, new WorldPoint(3169, 3172, 0),
-			"Enter the hole to the Lumbridge Swamp caves.", lightSource, tinderbox);
+			t("Enter the hole to the Lumbridge Swamp caves."), lightSource, tinderbox);
 		enterSwamp.addSubSteps(addRope, leaveJunaRoom);
 
 		killBat = new NpcStep(this, NpcID.SMALL_BAT, new WorldPoint(3367, 3486, 0),
-			"Kill bats south of the Odd Old Man.");
+			t("Kill bats south of the Odd Old Man."));
 
 		killUndeadCow = new NpcStep(this, NpcID.AHOY_UNDEAD_COW, new WorldPoint(3617, 3526, 0),
-			"Kill undead cows west of the Ectofuntus.", true);
+			t("Kill undead cows west of the Ectofuntus."), true);
 		killUndeadCow.addTeleport(ectophial);
 
 		enterExperimentCave = new ObjectStep(this, ObjectID.FENK_COFFIN, new WorldPoint(3578, 3528, 0),
-			"Enter the Experiment Cave near Castle Fenkenstrain.");
+			t("Enter the Experiment Cave near Castle Fenkenstrain."));
 		killExperiment = new NpcStep(this, NpcID.FENK_EXPERIMENT_2, new WorldPoint(3557, 9946, 0),
-			"Kill Experiments.", true);
+			t("Kill Experiments."), true);
 		((NpcStep) killExperiment).addAlternateNpcs(NpcID.FENK_EXPERIMENT_3);
 		killWerewolf = new NpcStep(this, NpcID.CANAFIS_WEREWOLF_WOMAN11, new WorldPoint(3491, 3487, 0),
-			"Kill the citizens/werewolves in Canifis. (Do not use Wolfbane)", true);
+			t("Kill the citizens/werewolves in Canifis. (Do not use Wolfbane)"), true);
 		List<Integer> werewolves = new ArrayList<>();
 		for (int i = NpcID.CANAFIS_WEREWOLF_MAN2; i <= NpcID.CANAFIS_WOMAN12; i++)
 		{
@@ -404,22 +404,22 @@ public class RagAndBoneManII extends BasicQuestHelper
 		((NpcStep) killWerewolf).addAlternateNpcs(werewolves);
 
 		killGhoul = new NpcStep(this, NpcID.GHOUL, new WorldPoint(3434, 3461, 0),
-			"Kill Ghouls west of Canifis.", true);
+			t("Kill Ghouls west of Canifis."), true);
 		enterSewer = new ObjectStep(this, ObjectID.MANHOLEOPEN, new WorldPoint(3237, 3458, 0),
-			"Go down into Varrock Sewer via the Manhole south east of Varrock Castle.");
+			t("Go down into Varrock Sewer via the Manhole south east of Varrock Castle."));
 		((ObjectStep) enterSewer).addAlternateObjects(ObjectID.MANHOLECLOSED);
 		killZombie = new NpcStep(this, NpcID.ZOMBIE_UNARMED_SEWER4, new WorldPoint(3244, 9892, 0),
-			"Kill zombies in the sewer.", true);
+			t("Kill zombies in the sewer."), true);
 		((NpcStep) killZombie).addAlternateNpcs(NpcID.ZOMBIE_UNARMED_SEWER2);
 		killRat = new NpcStep(this, NpcID.PITRAT_SARIM_DEF, new WorldPoint(3244, 9892, 0),
-			"Kill rats.", true);
+			t("Kill rats."), true);
 		killMossGiant = new NpcStep(this, NpcID.MOSSGIANT, new WorldPoint(2654, 9565, 0),
-			"Kill Moss Giants near the entrance.", true);
+			t("Kill Moss Giants near the entrance."), true);
 		((NpcStep) killMossGiant).addAlternateNpcs(NpcID.MOSSGIANT2, NpcID.MOSSGIANT3,
 			NpcID.MOSSGIANT4);
 		killCaveGoblin = new NpcStep(this, NpcID.DORGESH_MALE_1, new WorldPoint(3248, 9574, 0),
-			"Kill Cave Goblins in the east of the Lumbridge Caves. Run between the marked tiles to avoid the Wall " +
-				"Beasts.", true);
+			t("Kill Cave Goblins in the east of the Lumbridge Caves. Run between the marked tiles to avoid the Wall " +
+				"Beasts."), true);
 		((NpcStep) killCaveGoblin).addAlternateNpcs(NpcID.CAVE_GOBLIN2, NpcID.CAVE_GOBLIN3,
 			NpcID.CAVE_GOBLIN4);
 		killCaveGoblin.addTileMarker(new QuestTile(new WorldPoint(3161, 9573, 0), SpriteID.OptionsIcons.RUNNING));
@@ -435,36 +435,36 @@ public class RagAndBoneManII extends BasicQuestHelper
 		killCaveGoblin.addTileMarker(new QuestTile(new WorldPoint(3216, 9559, 0), SpriteID.OptionsIcons.RUNNING));
 
 		killJackal = new NpcStep(this, NpcID.ICS_LITTLE_JACKAL, new WorldPoint(3400, 2997, 0),
-			"Kill Jackals north of Nardah.", true);
+			t("Kill Jackals north of Nardah."), true);
 		killSnake = new NpcStep(this, NpcID.FEUD_DESERT_SNAKE, new WorldPoint(3400, 3035, 0),
-			"Kill desert snakes north of Nardah.", true);
+			t("Kill desert snakes north of Nardah."), true);
 		killLizard = new NpcStep(this, NpcID.SLAYER_LIZARD_MASSIVE, new WorldPoint(3439, 3036, 0),
-			"Kill the giant lizards north of Nardah.", true, iceCooler);
+			t("Kill the giant lizards north of Nardah."), true, iceCooler);
 		killVulture = new NpcStep(this, NpcID.RAG_VULTURE, new WorldPoint(3348, 2875, 0),
-			"Kill vultures south west of Nardah.", true, rangedWeapon);
+			t("Kill vultures south west of Nardah."), true, rangedWeapon);
 		((NpcStep) killVulture).addAlternateNpcs(NpcID.RAG_VULTURE_FLYING);
 		killSeagull = new NpcStep(this, NpcID.SARIM_SEAGULL_PIER, new WorldPoint(3033, 3235, 0),
-			"Kill seagulls on the Port Sarim docks.", true);
+			t("Kill seagulls on the Port Sarim docks."), true);
 		((NpcStep) killSeagull).addAlternateNpcs(NpcID.SARIM_SEAGULL_PIER_BIG);
-		enterAsgarniaDungeon = new ObjectStep(this, ObjectID.FAI_TRAPDOOR, new WorldPoint(3008, 3150, 0), "Enter the " +
-			"Asgarnia Dungeon by Mudskipper Point.");
+		enterAsgarniaDungeon = new ObjectStep(this, ObjectID.FAI_TRAPDOOR, new WorldPoint(3008, 3150, 0), t("Enter the " +
+			"Asgarnia Dungeon by Mudskipper Point."));
 		killIceGiant = new NpcStep(this, NpcID.ICEGIANT2, new WorldPoint(3059, 9576, 0),
-			"Kill Ice Giants at the end of the dungeon.", true);
+			t("Kill Ice Giants at the end of the dungeon."), true);
 		((NpcStep) killIceGiant).addAlternateNpcs(NpcID.ICEGIANT3, NpcID.ICEGIANT_LOW_WANDERRANGE,
 			NpcID.ICEGIANT_LOW_WANDERRANGE2);
 
 		throwExplosive = new ObjectStep(this, ObjectID.OMINOUS_FISHING_SPOT_A, new WorldPoint(2982, 3113, 0),
-			"Throw a fishing explosive to attract a Mogre on Mudskipper Point.", fishingExplosive.highlighted());
+			t("Throw a fishing explosive to attract a Mogre on Mudskipper Point."), fishingExplosive.highlighted());
 		throwExplosive.addIcon(ItemID.SLAYERGUIDE_FISHING_EXPLOSIVE);
 		killMogre = new NpcStep(this, NpcID.MUDSKIPPER_OGRE, new WorldPoint(2988, 3111, 0),
-			"Kill the Mogre.");
+			t("Kill the Mogre."));
 		killJogre = new NpcStep(this, NpcID.JOGRE, new WorldPoint(2921, 3051, 0),
-			"Kill Jogres on Karamja.", true);
+			t("Kill Jogres on Karamja."), true);
 		enterBrimhavenDungeon = new ObjectStep(this, ObjectID.DUNGEON_TREE_OPEN, new WorldPoint(2745, 3155, 0),
-			"Enter Brimhaven Dungeon.", axe, coins.quantity(875));
+			t("Enter Brimhaven Dungeon."), axe, coins.quantity(875));
 		enterBrimhavenDungeon.addDialogStep("Yes");
 		killFireGiant = new NpcStep(this, NpcID.FIREGIANT_BIG, new WorldPoint(2662, 9494, 0),
-			"Kill fire giants deep in the dungeon.", true);
+			t("Kill fire giants deep in the dungeon."), true);
 		((NpcStep) killFireGiant).addAlternateNpcs(NpcID.FIREGIANT_BIG2, NpcID.FIREGIANT_BIG3,
 			NpcID.FIREGIANT, NpcID.FIREGIANT2, NpcID.FIREGIANT3, NpcID.FIREGIANT_STRONGHOLDCAVE_1,
 			NpcID.FIREGIANT_STRONGHOLDCAVE_2, NpcID.FIREGIANT_STRONGHOLDCAVE_3, NpcID.FIREGIANT_STRONGHOLDCAVE_4);
@@ -472,108 +472,108 @@ public class RagAndBoneManII extends BasicQuestHelper
 		if (client.getRealSkillLevel(Skill.AGILITY) >= 70)
 		{
 			enterTaverleyDungeon = new ObjectStep(this, ObjectID.LADDER_OUTSIDE_TO_UNDERGROUND, new WorldPoint(2884, 3397, 0),
-				"Go to Taverley Dungeon. Bring an antifire shield if you can.");
+				t("Go to Taverley Dungeon. Bring an antifire shield if you can."));
 		}
 		else
 		{
 			enterTaverleyDungeon = new ObjectStep(this, ObjectID.LADDER_OUTSIDE_TO_UNDERGROUND, new WorldPoint(2884, 3397, 0),
-				"Go to Taverley Dungeon. Bring a dusty key if you have one, otherwise you can get one in the dungeon." +
-					" Bring an antifire shield if you can.", dustyKey);
+				t("Go to Taverley Dungeon. Bring a dusty key if you have one, otherwise you can get one in the dungeon." +
+					" Bring an antifire shield if you can."), dustyKey);
 		}
 		enterTaverleyDungeon.addTeleport(taverleyTeleport);
 
 		goThroughPipe = new ObjectStep(this, ObjectID.TAVERLY_DUNGEON_PIPE_SC, new WorldPoint(2888, 9799, 0),
-			"Squeeze through the obstacle pipe.");
+			t("Squeeze through the obstacle pipe."));
 		killJailerForKey = new NpcStep(this, NpcID.JAILER, new WorldPoint(2930, 9692, 0),
-			"Travel through Taverley Dungeon until you reach the Black Knights' Base. Kill the Jailer in the east side of the base for a jail key.");
-		pickUpJailKey = new ItemStep(this, "Pick up the jail key.", jailKey);
+			t("Travel through Taverley Dungeon until you reach the Black Knights' Base. Kill the Jailer in the east side of the base for a jail key."));
+		pickUpJailKey = new ItemStep(this, t("Pick up the jail key."), jailKey);
 		getDustyFromAdventurer = new NpcStep(this, NpcID.VELRAK_THE_EXPLORER, new WorldPoint(2930, 9685, 0),
-			"Use the jail key on the south door and talk to Velrak for a dusty key.", jailKey);
+			t("Use the jail key on the south door and talk to Velrak for a dusty key."), jailKey);
 		getDustyFromAdventurer.addDialogStep("So... do you know anywhere good to explore?");
 		getDustyFromAdventurer.addDialogStep("Yes please!");
 		enterDeeperTaverley = new ObjectStep(this, ObjectID.DEEPDUNGEONDOOR, new WorldPoint(2924, 9803, 0),
-			"Enter the gate to the deeper Taverley dungeon.", dustyKey);
+			t("Enter the gate to the deeper Taverley dungeon."), dustyKey);
 		enterTaverleyDungeon.addSubSteps(goThroughPipe, killJailerForKey, getDustyFromAdventurer, enterDeeperTaverley);
 
 		killBabyBlueDragon = new NpcStep(this, NpcID.BABYBLUEDRAGON, new WorldPoint(2906, 9802, 0),
-			"Kill baby blue dragons. South east near the lava is a good spot without any adult dragons.", true);
+			t("Kill baby blue dragons. South east near the lava is a good spot without any adult dragons."), true);
 		((NpcStep) killBabyBlueDragon).addAlternateNpcs(NpcID.BABYBLUEDRAGON2, NpcID.BABYBLUEDRAGON3);
 
 		enterKeldagrimCave = new ObjectStep(this, ObjectID.TROLLROMANCE_STRONGHOLD_EXIT_TUNNEL, new WorldPoint(2732,
-			3713, 0), "Enter the cave north east of Rellekka.");
+			3713, 0), t("Enter the cave north east of Rellekka."));
 		enterKeldagrimCave.addTeleport(rellekkaNETeleport);
-		killTroll = new NpcStep(this, NpcID.DEATH_TROLL_MELEE1, new WorldPoint(2830, 10107, 0), "Kill trolls.", true);
+		killTroll = new NpcStep(this, NpcID.DEATH_TROLL_MELEE1, new WorldPoint(2830, 10107, 0), t("Kill trolls."), true);
 		((NpcStep) killTroll).addAlternateNpcs(NpcID.DEATH_TROLL_MELEE2, NpcID.DEATH_TROLL_MELEE3,
 			NpcID.DEATH_TROLL_MELEE4, NpcID.DEATH_TROLL_MELEE5, NpcID.DEATH_TROLL_MELEE6, NpcID.DEATH_TROLL_MELEE7);
 		killRabbit = new NpcStep(this, NpcID.VIKING_BUNNY_1, new WorldPoint(2738, 3637, 0),
-			"Kill bunnies south east of Rellekka.", true);
+			t("Kill bunnies south east of Rellekka."), true);
 		((NpcStep) killRabbit).addAlternateNpcs(NpcID.VIKING_BUNNY_2);
 		enterFremmyDungeon = new ObjectStep(this, ObjectID.SLAYER_DUNGEON_ENTRANCE, new WorldPoint(2798, 3615, 0),
-			"Enter the Fremennik Slayer Dungeon.", mirrorShield.equipped());
+			t("Enter the Fremennik Slayer Dungeon."), mirrorShield.equipped());
 		killBasilisk = new NpcStep(this, NpcID.SLAYER_BASILISK, new WorldPoint(2743, 10010, 0),
-			"Kill basilisks in the middle of the dungeon.", true, mirrorShield.equipped(),
+			t("Kill basilisks in the middle of the dungeon."), true, mirrorShield.equipped(),
 			new SkillRequirement(Skill.SLAYER,
 			40,	true));
-		travelToWaterbirth = new NpcStep(this, NpcID.VIKING_DAGGANOTH_CAVE_FERRYMAN_ISLAND, new WorldPoint(2620, 3685, 0), "Travel to Waterbirth " +
-			"Island.");
+		travelToWaterbirth = new NpcStep(this, NpcID.VIKING_DAGGANOTH_CAVE_FERRYMAN_ISLAND, new WorldPoint(2620, 3685, 0), t("Travel to Waterbirth " +
+			"Island."));
 		((NpcStep) travelToWaterbirth).addAlternateNpcs(NpcID.VIKING_DAGGANOTH_CAVE_FERRYMAN_1OP, NpcID.VIKING_DAGGANOTH_CAVE_WATERBIRTH_ISLAND);
 		enterWaterbirthDungeon = new ObjectStep(this, ObjectID.DAGANNOTH_CAVEENTRANCE_ROCK, new WorldPoint(2521, 3740, 0),
-			"Enter waterbirth dungeon.");
+			t("Enter waterbirth dungeon."));
 		killDagannoth = new NpcStep(this, NpcID.DUNGEON_DAGGANOTH_MAINROOM, new WorldPoint(2452, 10146, 0),
-			"Kill dagannoths.", true);
+			t("Kill dagannoths."), true);
 		killTerrorbird = new NpcStep(this, NpcID.TERRORBIRD, new WorldPoint(2379, 3433, 0),
-			"Kill Terrorbirds in the Tree Gnome Stronghold.", true);
+			t("Kill Terrorbirds in the Tree Gnome Stronghold."), true);
 
 		((NpcStep) killTerrorbird).addAlternateNpcs(NpcID.TERRORBIRD2, NpcID.TERRORBIRD3);
 		killWolf = new NpcStep(this, NpcID.WOLF, new WorldPoint(2591, 2966, 0),
-			"Kill wolves in Feldip Hills.", true);
+			t("Kill wolves in Feldip Hills."), true);
 		killWolf.addTeleport(feldipTeleport);
 		killOgre = new NpcStep(this, NpcID.OGRE, new WorldPoint(2570, 2975, 0),
-			"Kill ogres in Feldip Hills.", true);
+			t("Kill ogres in Feldip Hills."), true);
 		killOgre.addTeleport(feldipTeleport);
 		killZogre = new NpcStep(this, NpcID.ZOGRE_1, new WorldPoint(2460, 3048, 0),
-			"Kill Zogres in Jiggig.", true, inoculationBracelet);
+			t("Kill Zogres in Jiggig."), true, inoculationBracelet);
 		((NpcStep) killZogre).addAlternateNpcs(NpcID.ZOGRE_2, NpcID.ZOGRE_3, NpcID.ZOGRE_4, NpcID.ZOGRE_5,
 			NpcID.ZOGRE_6, NpcID.ZOGRE_DANCE_1, NpcID.ZOGRE_DANCE_2, NpcID.ZOGRE_DANCE_3, NpcID.ZOGRE_DANCE_4);
 		killZogre.addTeleport(feldipTeleport);
 
-		pickupBone = new ItemStep(this, "Pickup the bone.");
+		pickupBone = new ItemStep(this, t("Pickup the bone."));
 		pickupBone.addItemRequirements(RagBoneGroups.pickupBones(RagBoneGroups.getRagBoneIIStates()));
 		pickupBone.setShowInSidebar(false);
 
-		makePotOfVinegar = new DetailedQuestStep(this, "Buy 27 jugs of vinegar from Fortunato in Draynor Village, " +
-			"then use them on pots.",
+		makePotOfVinegar = new DetailedQuestStep(this, t("Buy 27 jugs of vinegar from Fortunato in Draynor Village, " +
+			"then use them on pots."),
 			jugOfVinegarNeeded, potNeeded);
 
-		useBonesOnVinegar = new DetailedQuestStep(this, "Use the bones on the pots of vinegar.", potOfVinegar.highlighted());
+		useBonesOnVinegar = new DetailedQuestStep(this, t("Use the bones on the pots of vinegar."), potOfVinegar.highlighted());
 		useBonesOnVinegar.addItemRequirements(RagBoneGroups.bonesToAddToVinegar(RagBoneGroups.getRagBoneIIStates()));
 
 		placeLogs = new ObjectStep(this, ObjectID.RAG_MULTI_POTBOILER, new WorldPoint(3360, 3505, 0),
-			"Place logs under the pot-boiler near the Odd Old Man. If you've already polished all the bones, hand " +
-				"them in to the Odd Old Man.", logs.highlighted());
+			t("Place logs under the pot-boiler near the Odd Old Man. If you've already polished all the bones, hand " +
+				"them in to the Odd Old Man."), logs.highlighted());
 		placeLogs.addIcon(ItemID.LOGS);
 
 		useBoneOnBoiler = new ObjectStep(this, ObjectID.RAG_MULTI_POTBOILER, new WorldPoint(3360, 3505, 0),
-			"Add a bone to the pot boiler.", boneInVinegar.highlighted());
+			t("Add a bone to the pot boiler."), boneInVinegar.highlighted());
 		useBoneOnBoiler.addIcon(ItemID.RAG_POT_GOBLIN_BONE);
 		lightLogs = new ObjectStep(this, ObjectID.RAG_MULTI_POTBOILER, new WorldPoint(3360, 3505, 0),
-			"Light the logs under the pot-boiler.", tinderbox.highlighted());
+			t("Light the logs under the pot-boiler."), tinderbox.highlighted());
 		lightLogs.addIcon(ItemID.TINDERBOX);
 
-		waitForCooking = new DetailedQuestStep(this, "Wait for the bones to be cleaned. You can hop worlds to make this happen instantly.");
+		waitForCooking = new DetailedQuestStep(this, t("Wait for the bones to be cleaned. You can hop worlds to make this happen instantly."));
 
 		removePot = new ObjectStep(this, ObjectID.RAG_MULTI_POTBOILER, new WorldPoint(3360, 3505, 0),
-			"Take the pot from the pot-boiler.");
+			t("Take the pot from the pot-boiler."));
 
 		giveBones = new NpcStep(this, NpcID.RAG_ODD_OLD_MAN, new WorldPoint(3362, 3502, 0),
-			"Give the Odd Old Man the bones.");
+			t("Give the Odd Old Man the bones."));
 		giveBones.addItemRequirements(RagBoneGroups.cleanBonesNotHandedIn(RagBoneGroups.getRagBoneIIStates()));
 
 		talkToFinish = new NpcStep(this, NpcID.RAG_ODD_OLD_MAN, new WorldPoint(3362, 3502, 0),
-			"Talk to the Odd Old Man to finish.");
+			t("Talk to the Odd Old Man to finish."));
 		giveBones.addSubSteps(talkToFinish);
 
-		repeatSteps = new DetailedQuestStep(this, "Repeat the steps until all the bones are cleaned.");
+		repeatSteps = new DetailedQuestStep(this, t("Repeat the steps until all the bones are cleaned."));
 	}
 
 	public void setupConditionalSteps()
@@ -692,10 +692,10 @@ public class RagAndBoneManII extends BasicQuestHelper
 
 
 		// Take all reqs and compile as locking step for mory
-		morySteps = new ConditionalStep(this, new DetailedQuestStep(this, "Unknown state Morytania"));
+		morySteps = new ConditionalStep(this, new DetailedQuestStep(this, t("Unknown state Morytania")));
 		mapForMory.forEach((RagBoneState state, QuestStep step) -> {
 			moryReqsList.add(state.hadBoneItem());
-			ItemStep pickupBoneStep = new ItemStep(this, "Pickup the bone.", state.getBoneItem());
+			ItemStep pickupBoneStep = new ItemStep(this, t("Pickup the bone."), state.getBoneItem());
 			step.addSubSteps(pickupBoneStep);
 			if (step instanceof ConditionalStep)
 			{
@@ -707,10 +707,10 @@ public class RagAndBoneManII extends BasicQuestHelper
 		moryReqs = new Conditions(moryReqsList);
 		morySteps.setLockingCondition(moryReqs);
 
-		varrockSteps = new ConditionalStep(this, new DetailedQuestStep(this, "Unknown state Varrock"));
+		varrockSteps = new ConditionalStep(this, new DetailedQuestStep(this, t("Unknown state Varrock")));
 		mapForVarrock.forEach((RagBoneState state, QuestStep step) -> {
 			varrockReqsList.add(state.hadBoneItem());
-			ItemStep pickupBoneStep = new ItemStep(this, "Pickup the bone.", state.getBoneItem());
+			ItemStep pickupBoneStep = new ItemStep(this, t("Pickup the bone."), state.getBoneItem());
 			step.addSubSteps(pickupBoneStep);
 			if (step instanceof ConditionalStep)
 			{
@@ -722,10 +722,10 @@ public class RagAndBoneManII extends BasicQuestHelper
 		varrockReqs = new Conditions(varrockReqsList);
 		varrockSteps.setLockingCondition(varrockReqs);
 
-		lumbridgeSteps = new ConditionalStep(this, new DetailedQuestStep(this, "Unknown state Lumbridge"));
+		lumbridgeSteps = new ConditionalStep(this, new DetailedQuestStep(this, t("Unknown state Lumbridge")));
 		mapForLumbridge.forEach((RagBoneState state, QuestStep step) -> {
 			lumbridgeReqsList.add(state.hadBoneItem());
-			ItemStep pickupBoneStep = new ItemStep(this, "Pickup the bone.", state.getBoneItem());
+			ItemStep pickupBoneStep = new ItemStep(this, t("Pickup the bone."), state.getBoneItem());
 			step.addSubSteps(pickupBoneStep);
 			if (step instanceof ConditionalStep)
 			{
@@ -737,10 +737,10 @@ public class RagAndBoneManII extends BasicQuestHelper
 		lumbridgeReqs = new Conditions(lumbridgeReqsList);
 		lumbridgeSteps.setLockingCondition(lumbridgeReqs);
 
-		desertSteps = new ConditionalStep(this, new DetailedQuestStep(this, "Unknown state Desert"));
+		desertSteps = new ConditionalStep(this, new DetailedQuestStep(this, t("Unknown state Desert")));
 		mapForDesert.forEach((RagBoneState state, QuestStep step) -> {
 			desertReqsList.add(state.hadBoneItem());
-			ItemStep pickupBoneStep = new ItemStep(this, "Pickup the bone.", state.getBoneItem());
+			ItemStep pickupBoneStep = new ItemStep(this, t("Pickup the bone."), state.getBoneItem());
 			step.addSubSteps(pickupBoneStep);
 			if (step instanceof ConditionalStep)
 			{
@@ -752,10 +752,10 @@ public class RagAndBoneManII extends BasicQuestHelper
 		desertReqs = new Conditions(desertReqsList);
 		desertSteps.setLockingCondition(desertReqs);
 
-		sarimSteps = new ConditionalStep(this, new DetailedQuestStep(this, "Unknown state Port Sarim"));
+		sarimSteps = new ConditionalStep(this, new DetailedQuestStep(this, t("Unknown state Port Sarim")));
 		mapForSarim.forEach((RagBoneState state, QuestStep step) -> {
 			sarimReqsList.add(state.hadBoneItem());
-			ItemStep pickupBoneStep = new ItemStep(this, "Pickup the bone.", state.getBoneItem());
+			ItemStep pickupBoneStep = new ItemStep(this, t("Pickup the bone."), state.getBoneItem());
 			step.addSubSteps(pickupBoneStep);
 			if (step instanceof ConditionalStep)
 			{
@@ -767,10 +767,10 @@ public class RagAndBoneManII extends BasicQuestHelper
 		sarimReqs = new Conditions(sarimReqsList);
 		sarimSteps.setLockingCondition(sarimReqs);
 
-		karamjaSteps = new ConditionalStep(this, new DetailedQuestStep(this, "Unknown state Karamja"));
+		karamjaSteps = new ConditionalStep(this, new DetailedQuestStep(this, t("Unknown state Karamja")));
 		mapForKaramja.forEach((RagBoneState state, QuestStep step) -> {
 			karamjaReqsList.add(state.hadBoneItem());
-			ItemStep pickupBoneStep = new ItemStep(this, "Pickup the bone.", state.getBoneItem());
+			ItemStep pickupBoneStep = new ItemStep(this, t("Pickup the bone."), state.getBoneItem());
 			step.addSubSteps(pickupBoneStep);
 			if (step instanceof ConditionalStep)
 			{
@@ -782,10 +782,10 @@ public class RagAndBoneManII extends BasicQuestHelper
 		karamjaReqs = new Conditions(karamjaReqsList);
 		karamjaSteps.setLockingCondition(karamjaReqs);
 
-		taverleySteps = new ConditionalStep(this, new DetailedQuestStep(this, "Unknown state Taverley"));
+		taverleySteps = new ConditionalStep(this, new DetailedQuestStep(this, t("Unknown state Taverley")));
 		mapForTaverley.forEach((RagBoneState state, QuestStep step) -> {
 			taverleyReqsList.add(state.hadBoneItem());
-			ItemStep pickupBoneStep = new ItemStep(this, "Pickup the bone.", state.getBoneItem());
+			ItemStep pickupBoneStep = new ItemStep(this, t("Pickup the bone."), state.getBoneItem());
 			step.addSubSteps(pickupBoneStep);
 			if (step instanceof ConditionalStep)
 			{
@@ -797,10 +797,10 @@ public class RagAndBoneManII extends BasicQuestHelper
 		taverleyReqs = new Conditions(taverleyReqsList);
 		taverleySteps.setLockingCondition(taverleyReqs);
 
-		fremennikSteps = new ConditionalStep(this, new DetailedQuestStep(this, "Unknown state Fremennik"));
+		fremennikSteps = new ConditionalStep(this, new DetailedQuestStep(this, t("Unknown state Fremennik")));
 		mapForFremennik.forEach((RagBoneState state, QuestStep step) -> {
 			fremennikReqsList.add(state.hadBoneItem());
-			ItemStep pickupBoneStep = new ItemStep(this, "Pickup the bone.", state.getBoneItem());
+			ItemStep pickupBoneStep = new ItemStep(this, t("Pickup the bone."), state.getBoneItem());
 			step.addSubSteps(pickupBoneStep);
 			if (step instanceof ConditionalStep)
 			{
@@ -812,10 +812,10 @@ public class RagAndBoneManII extends BasicQuestHelper
 		fremennikReqs = new Conditions(fremennikReqsList);
 		fremennikSteps.setLockingCondition(fremennikReqs);
 
-		strongholdSteps = new ConditionalStep(this, new DetailedQuestStep(this, "Unknown state Gnome"));
+		strongholdSteps = new ConditionalStep(this, new DetailedQuestStep(this, t("Unknown state Gnome")));
 		mapForStronghold.forEach((RagBoneState state, QuestStep step) -> {
 			strongholdReqsList.add(state.hadBoneItem());
-			ItemStep pickupBoneStep = new ItemStep(this, "Pickup the bone.", state.getBoneItem());
+			ItemStep pickupBoneStep = new ItemStep(this, t("Pickup the bone."), state.getBoneItem());
 			step.addSubSteps(pickupBoneStep);
 			if (step instanceof ConditionalStep)
 			{
@@ -827,10 +827,10 @@ public class RagAndBoneManII extends BasicQuestHelper
 		strongholdReqs = new Conditions(strongholdReqsList);
 		strongholdSteps.setLockingCondition(strongholdReqs);
 
-		feldipSteps = new ConditionalStep(this, new DetailedQuestStep(this, "Unknown state Feldip"));
+		feldipSteps = new ConditionalStep(this, new DetailedQuestStep(this, t("Unknown state Feldip")));
 		mapForFeldip.forEach((RagBoneState state, QuestStep step) -> {
 			feldipReqsList.add(state.hadBoneItem());
-			ItemStep pickupBoneStep = new ItemStep(this, "Pickup the bone.", state.getBoneItem());
+			ItemStep pickupBoneStep = new ItemStep(this, t("Pickup the bone."), state.getBoneItem());
 			step.addSubSteps(pickupBoneStep);
 			pickupBoneSteps.addStep(new ItemOnTileRequirement(state.getBoneItem()), pickupBoneStep);
 			feldipSteps.addStep(nor(state.hadBoneItem()), step);
@@ -843,7 +843,7 @@ public class RagAndBoneManII extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("27 low to mid leveled monsters for their bones");
+		return Collections.singletonList(t("27 low to mid leveled monsters for their bones"));
 	}
 
 	@Override
@@ -886,8 +886,8 @@ public class RagAndBoneManII extends BasicQuestHelper
 	@Override
 	public List<String> getNotes()
 	{
-		return Collections.singletonList("If you've handed in any bones to the Odd Old Man, open the quest journal to" +
-			" sync up the helper's state");
+		return Collections.singletonList(t("If you've handed in any bones to the Odd Old Man, open the quest journal to" +
+			" sync up the helper's state"));
 	}
 
 	@Override
@@ -915,40 +915,40 @@ public class RagAndBoneManII extends BasicQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		PanelDetails collectingMorytaniaPanel = new PanelDetails("Morytania bones", Arrays.asList(killBat,
+		PanelDetails collectingMorytaniaPanel = new PanelDetails(t("Morytania bones"), Arrays.asList(killBat,
 			killUndeadCow, enterExperimentCave, killExperiment, killWerewolf, killGhoul), null, Collections.singletonList(ectophial));
 		collectingMorytaniaPanel.setLockingStep(morySteps);
 		allSteps.add(collectingMorytaniaPanel);
 
-		PanelDetails collectingVarrockPanel = new PanelDetails("Varrock Sewer bones",
+		PanelDetails collectingVarrockPanel = new PanelDetails(t("Varrock Sewer bones"),
 			Arrays.asList(enterSewer, killZombie, killRat));
 		collectingVarrockPanel.setLockingStep(varrockSteps);
 		allSteps.add(collectingVarrockPanel);
 
-		PanelDetails collectingLumbridgePanel = new PanelDetails("Lumbridge Swamp bone",
+		PanelDetails collectingLumbridgePanel = new PanelDetails(t("Lumbridge Swamp bone"),
 			Arrays.asList(enterSwamp, killCaveGoblin), rope.hideConditioned(addedRope), lightSource, tinderbox);
 		collectingLumbridgePanel.setLockingStep(lumbridgeSteps);
 		allSteps.add(collectingLumbridgePanel);
 
-		PanelDetails collectingDesertPanel = new PanelDetails("Desert bones",
+		PanelDetails collectingDesertPanel = new PanelDetails(t("Desert bones"),
 			Arrays.asList(killJackal, killSnake, killLizard, killVulture), iceCooler, rangedWeapon);
 		collectingDesertPanel.setLockingStep(desertSteps);
 		allSteps.add(collectingDesertPanel);
 
-		PanelDetails collectingSarimPanel = new PanelDetails("Port Sarim bones",
+		PanelDetails collectingSarimPanel = new PanelDetails(t("Port Sarim bones"),
 			Arrays.asList(killSeagull, enterAsgarniaDungeon, killIceGiant, throwExplosive,
 				killMogre), fishingExplosive);
 		collectingSarimPanel.setLockingStep(sarimSteps);
 		allSteps.add(collectingSarimPanel);
 
-		PanelDetails collectingKaramjaPanel = new PanelDetails("Karamja bones",
+		PanelDetails collectingKaramjaPanel = new PanelDetails(t("Karamja bones"),
 			Arrays.asList(killJogre, enterBrimhavenDungeon, killMossGiant, killFireGiant),
 			coins.quantity(875).hideConditioned(new VarbitRequirement(VarbitID.KARAM_DUNGEON_PERMANENTACCESS, 1)), axe);
 		collectingKaramjaPanel.setLockingStep(karamjaSteps);
 		allSteps.add(collectingKaramjaPanel);
 		// 8123 0->8 also when paid 1m for perm access
 
-		PanelDetails collectingTaverleyPanel = new PanelDetails("Taverley Dungeon bone",
+		PanelDetails collectingTaverleyPanel = new PanelDetails(t("Taverley Dungeon bone"),
 			Arrays.asList(enterTaverleyDungeon, killBabyBlueDragon),
 			Collections.singletonList(dustyKey
 					.hideConditioned(new SkillRequirement(Skill.AGILITY, 70, true))),
@@ -957,7 +957,7 @@ public class RagAndBoneManII extends BasicQuestHelper
 		collectingTaverleyPanel.setLockingStep(taverleySteps);
 		allSteps.add(collectingTaverleyPanel);
 
-		PanelDetails collectingFremennikPanel = new PanelDetails("Fremennik bones",
+		PanelDetails collectingFremennikPanel = new PanelDetails(t("Fremennik bones"),
 			Arrays.asList(enterKeldagrimCave, killTroll, killRabbit, enterFremmyDungeon, killBasilisk,
 				travelToWaterbirth, enterWaterbirthDungeon, killDagannoth),
 			Collections.singletonList(mirrorShield),
@@ -965,30 +965,30 @@ public class RagAndBoneManII extends BasicQuestHelper
 		collectingFremennikPanel.setLockingStep(fremennikSteps);
 		allSteps.add(collectingFremennikPanel);
 
-		PanelDetails collectingStrongholdPanel = new PanelDetails("Gnome Stronghold bones",
+		PanelDetails collectingStrongholdPanel = new PanelDetails(t("Gnome Stronghold bones"),
 			Collections.singletonList(killTerrorbird));
 		collectingStrongholdPanel.setLockingStep(strongholdSteps);
 		allSteps.add(collectingStrongholdPanel);
 
-		PanelDetails collectingFeldipPanel = new PanelDetails("Feldip Hills bones",
+		PanelDetails collectingFeldipPanel = new PanelDetails(t("Feldip Hills bones"),
 			Arrays.asList(killWolf, killOgre, killZogre), null, Collections.singletonList(feldipTeleport));
 		collectingFeldipPanel.setLockingStep(feldipSteps);
 		allSteps.add(collectingFeldipPanel);
 
 		List<Requirement> dirtyBones = new ArrayList<>(Arrays.asList(coinsOrVinegar.quantity(27), pots.quantity(27)));
 		dirtyBones.addAll(RagBoneGroups.dirtyBonesNotHandedIn(RagBoneGroups.getRagBoneIIStates()));
-		PanelDetails preparingPanel = new PanelDetails("Preparing the bones", Arrays.asList(makePotOfVinegar, useBonesOnVinegar),
+		PanelDetails preparingPanel = new PanelDetails(t("Preparing the bones"), Arrays.asList(makePotOfVinegar, useBonesOnVinegar),
 			dirtyBones);
 		preparingPanel.setLockingStep(preparingBonesSteps);
 		allSteps.add(preparingPanel);
 
 		List<Requirement> cleaningBones = new ArrayList<>(Arrays.asList(logs.quantity(27), tinderbox));
-		PanelDetails cookingPanel = new PanelDetails("Cleaning the bones", Arrays.asList(placeLogs,
+		PanelDetails cookingPanel = new PanelDetails(t("Cleaning the bones"), Arrays.asList(placeLogs,
 			useBoneOnBoiler, lightLogs, waitForCooking, removePot, repeatSteps), cleaningBones);
 		cookingPanel.setLockingStep(cookingSteps);
 		allSteps.add(cookingPanel);
 
-		allSteps.add(new PanelDetails("Handing the bones in", Collections.singletonList(giveBones)));
+		allSteps.add(new PanelDetails(t("Handing the bones in"), Collections.singletonList(giveBones)));
 
 		return allSteps;
 	}

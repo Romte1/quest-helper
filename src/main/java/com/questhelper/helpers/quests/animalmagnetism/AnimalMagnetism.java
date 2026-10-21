@@ -138,7 +138,7 @@ public class AnimalMagnetism extends BasicQuestHelper
 		croneMadeAmulet = new ItemRequirement("Crone-made amulet", ItemID.AMULET_OF_HUMANSPEAK);
 		ectoToken20 = new ItemRequirement("Ecto-token", ItemID.ECTOTOKEN, 20);
 		undeadChicken2 = new ItemRequirement("Undead chicken", ItemID.ANMA_CHICKEN_SACK_FULL, 2);
-		undeadChicken2.setTooltip("You will buy the undead chickens from Malcolm.");
+		undeadChicken2.setTooltip(t("You will buy the undead chickens from Malcolm."));
 
 		//Magnet
 		ironBar5 = new ItemRequirement("Iron Bar", ItemID.IRON_BAR, 5);
@@ -178,76 +178,76 @@ public class AnimalMagnetism extends BasicQuestHelper
 	private void setupSteps()
 	{
 		talkToAva = new NpcStep(this, NpcID.ANMA_ASSISTANT, new WorldPoint(3093, 3357, 0),
-			"Talk to Ava to begin the quest.");
+			t("Talk to Ava to begin the quest."));
 		talkToAva.addDialogStep("I would be happy to make your home a better place.");
 		talkToAlicesHusband = new NpcStep(this, NpcID.ANMA_GHOST_FARMER, new WorldPoint(3618, 3526, 0),
-			"Talk to Malcolm at the farm west of the Ectofuntus.",
+			t("Talk to Malcolm at the farm west of the Ectofuntus."),
 			ghostspeakEquip);
 		talkToAlice = new NpcStep(this, NpcID.FARMING_SHOPKEEPER_4, new WorldPoint(3627, 3526, 0),
-			"Talk to Alice.");
+			t("Talk to Alice."));
 		talkToAlice.addDialogStep("I'm here about a quest.");
 		talkToAlicesHusband2 = new NpcStep(this, NpcID.ANMA_GHOST_FARMER, new WorldPoint(3618, 3526, 0),
-			"Talk to Malcolm again.",
+			t("Talk to Malcolm again."),
 			ghostspeakEquip);
 		talkToAlice2 = new NpcStep(this, NpcID.FARMING_SHOPKEEPER_4, new WorldPoint(3627, 3526, 0),
-			"Talk to Alice again.");
+			t("Talk to Alice again."));
 		talkToAlice2.addDialogStep("I'm here about a quest.");
 		talkToOldCrone = new NpcStep(this, NpcID.AHOY_CRONE, new WorldPoint(3461, 3558, 0),
-			"Talk to the Old crone just east of the Slayer Tower twice.",
+			t("Talk to the Old crone just east of the Slayer Tower twice."),
 			ghostspeakEquip);
 		talkToOldCrone.addDialogStep("I'm here about the farmers east of here.");
 		giveAmuletToHusband = new NpcStep(this, NpcID.ANMA_GHOST_FARMER, new WorldPoint(3618, 3526, 0),
-			"Give the Crone-made amulet to Malcolm.",
+			t("Give the Crone-made amulet to Malcolm."),
 			ghostspeakEquip, croneMadeAmulet);
 		giveAmuletToHusband.addDialogStep("Okay, you need it more than I do, I suppose.");
 		talkToAlicesHusband3 = new NpcStep(this, NpcID.ANMA_GHOST_FARMER_AMULET, new WorldPoint(3618, 3526, 0),
-			"Talk to Malcolm again to watch a cutscene.",
+			t("Talk to Malcolm again to watch a cutscene."),
 			ghostspeakEquip);
 		buyUndeadChickens = new NpcStep(this, NpcID.ANMA_GHOST_FARMER_AMULET, new WorldPoint(3618, 3526, 0),
-			"Buy two undead chickens from Malcolm. You can acquire ecto-tokens using the Ectofuntus to the east.",
+			t("Buy two undead chickens from Malcolm. You can acquire ecto-tokens using the Ectofuntus to the east."),
 			ghostspeakEquip, ectoToken20);
 		buyUndeadChickens.addDialogSteps("Could I buy those chickens now, then?", "Could I buy 2 chickens?");
 		giveChickensToAva = new NpcStep(this, NpcID.ANMA_ASSISTANT, new WorldPoint(3093, 3357, 0),
-			"Give the two Undead chickens to Ava.",
+			t("Give the two Undead chickens to Ava."),
 			undeadChicken2);
 
 		talkToWitch = new NpcStep(this, NpcID.ANMA_WITCH, new WorldPoint(3099, 3370, 0),
-			"Talk to the witch in the manor twice.",
+			t("Talk to the witch in the manor twice."),
 			ironBar5);
 		goToIronMine = new DetailedQuestStep(this, new WorldPoint(2978, 3240, 0),
-			"Go to the iron mine in Rimmington northeast of the house portal.",
+			t("Go to the iron mine in Rimmington northeast of the house portal."),
 			hammer, selectedIron);
-		useHammerOnMagnet = new ItemStep(this, "While looking north, use the hammer on the Selected iron.",
+		useHammerOnMagnet = new ItemStep(this, t("While looking north, use the hammer on the Selected iron."),
 			hammer.highlighted(), selectedIron.highlighted());
 		giveMagnetToAva = new NpcStep(this, NpcID.ANMA_ASSISTANT, new WorldPoint(3093, 3357, 0),
-			"Give the Bar magnet to Ava.",
+			t("Give the Bar magnet to Ava."),
 			barMagnet);
 
-		attemptToCutTree = new NpcStep(this, NpcID.NASTY_TREE_CHOPPABLE, "Try to chop an undead tree outside Draynor manor.", true,
+		attemptToCutTree = new NpcStep(this, NpcID.NASTY_TREE_CHOPPABLE, t("Try to chop an undead tree outside Draynor manor."), true,
 			mithrilAxe);
 		talkToTurael = new NpcStep(this, NpcID.WGS_HEROES_TUREAL, new WorldPoint(2931, 3536, 0),
-			"Talk to Turael in Burthorpe twice, giving him the Mithril axe and Holy symbol.",
+			t("Talk to Turael in Burthorpe twice, giving him the Mithril axe and Holy symbol."),
 			mithrilAxe, holySymbol);
 		((NpcStep) talkToTurael).addAlternateNpcs(NpcID.WGS_HEROES_TUREAL_WEAPON_BROKEN, NpcID.WGS_SLAYER_MASTER_1_TUREAL, NpcID.SLAYER_MASTER_1_TUREAL, NpcID.SLAYER_MASTER_1_AYA);
 		talkToTurael.addDialogSteps("I'm here about a quest.", "Hello, I'm here about those trees again.",
 			"I'd love one, thanks.");
 		cutTree = new NpcStep(this, NpcID.NASTY_TREE_CHOPPABLE,
-			"Try to chop an undead tree outside Draynor manor with the Blessed axe until you receive undead twigs.",
+			t("Try to chop an undead tree outside Draynor manor with the Blessed axe until you receive undead twigs."),
 			true, blessedAxe);
 		giveTwigsToAva = new NpcStep(this, NpcID.ANMA_ASSISTANT, new WorldPoint(3093, 3357, 0),
-			"Give the Undead twigs to Ava.", twigs);
+			t("Give the Undead twigs to Ava."), twigs);
 
 		getNotesFromAva = new NpcStep(this, NpcID.ANMA_ASSISTANT, new WorldPoint(3093, 3357, 0),
-			"Talk to Ava to receive the research notes.");
-		translateNotes = new PuzzleWrapperStep(this, new PuzzleStep(this, "Translate research notes by clicking on all the highlighted switches.",
-			new PuzzleSolver()::solver, researchNotes), "Translate the research notes.");
+			t("Talk to Ava to receive the research notes."));
+		translateNotes = new PuzzleWrapperStep(this, new PuzzleStep(this, t("Translate research notes by clicking on all the highlighted switches."),
+			new PuzzleSolver()::solver, researchNotes), t("Translate the research notes."));
 		giveNotesToAva = new NpcStep(this, NpcID.ANMA_ASSISTANT, new WorldPoint(3093, 3357, 0),
-			"Give Ava the translated research notes.",
+			t("Give Ava the translated research notes."),
 			translatedNotes);
-		buildPattern = new ItemStep(this, "Combine Hard leather and Polished buttons with the pattern.",
+		buildPattern = new ItemStep(this, t("Combine Hard leather and Polished buttons with the pattern."),
 			pattern, hardLeather, polishedButtons);
 		giveContainerToAva = new NpcStep(this, NpcID.ANMA_ASSISTANT, new WorldPoint(3093, 3357, 0),
-			"Give Ava the container.",
+			t("Give Ava the container."),
 			container);
 	}
 
@@ -288,7 +288,7 @@ public class AnimalMagnetism extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("Ability to purchase Ava's Devices"));
+		return Collections.singletonList(new UnlockReward(t("Ability to purchase Ava's Devices")));
 	}
 
 
@@ -315,14 +315,14 @@ public class AnimalMagnetism extends BasicQuestHelper
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off", Collections.singletonList(talkToAva)));
-		allSteps.add(new PanelDetails("Undead Chickens",
+		allSteps.add(new PanelDetails(t("Starting off"), Collections.singletonList(talkToAva)));
+		allSteps.add(new PanelDetails(t("Undead Chickens"),
 			Arrays.asList(talkToAlicesHusband, talkToAlice, talkToAlicesHusband2, talkToAlice2, talkToOldCrone,
 				giveAmuletToHusband, talkToAlicesHusband3, buyUndeadChickens, giveChickensToAva),
 			ghostspeak, ectoToken20));
-		allSteps.add(new PanelDetails("Magnet",
+		allSteps.add(new PanelDetails(t("Magnet"),
 			Arrays.asList(talkToWitch, goToIronMine, useHammerOnMagnet, giveMagnetToAva), ironBar5, hammer));
-		allSteps.add(new PanelDetails("Undead twigs",
+		allSteps.add(new PanelDetails(t("Undead twigs"),
 			Arrays.asList(attemptToCutTree, talkToTurael, cutTree, giveTwigsToAva, getNotesFromAva, translateNotes, giveNotesToAva, buildPattern, giveContainerToAva),
 			mithrilAxe, polishedButtons, hardLeather, holySymbol));
 

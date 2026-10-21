@@ -48,17 +48,17 @@ public class TaverleyBalloonFlight extends DetailedOwnerStep
 
 	public TaverleyBalloonFlight(QuestHelper questHelper)
 	{
-		super(questHelper, "Navigate the balloon.");
+		super(questHelper, questHelper.t("Navigate the balloon."));
 	}
 
 	@Override
 	protected void setupSteps()
 	{
-		dropSand = new WidgetStep(getQuestHelper(),  "Drop a sandbag.", 471, 17);
-		burnLog = new WidgetStep(getQuestHelper(),  "Burn a log.", 471, 24);
-		pullRope = new WidgetStep(getQuestHelper(),  "Pull the brown rope.", 471, 6);
-		pullRedRope = new WidgetStep(getQuestHelper(),  "Pull the red rope.", 471, 9);
-		goStraight = new WidgetStep(getQuestHelper(),  "Press relax.", 471, 27);
+		dropSand = new WidgetStep(getQuestHelper(),  getQuestHelper().t("Drop a sandbag."), 471, 17);
+		burnLog = new WidgetStep(getQuestHelper(),  getQuestHelper().t("Burn a log."), 471, 24);
+		pullRope = new WidgetStep(getQuestHelper(),  getQuestHelper().t("Pull the brown rope."), 471, 6);
+		pullRedRope = new WidgetStep(getQuestHelper(),  getQuestHelper().t("Pull the red rope."), 471, 9);
+		goStraight = new WidgetStep(getQuestHelper(),  getQuestHelper().t("Press relax."), 471, 27);
 
 		section1 = new ArrayList<>();
 		section1.add(5);

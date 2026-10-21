@@ -158,11 +158,11 @@ public class TheEyesOfGlouphrie extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		bucketOfSap = new ItemRequirement("Bucket of sap", ItemID.ICS_LITTLE_SAP_BUCKET);
-		bucketOfSap.setTooltip("You can get this by using a knife on an evergreen tree with a bucket in your " +
-			"inventory");
+		bucketOfSap.setTooltip(t("You can get this by using a knife on an evergreen tree with a bucket in your " +
+			"inventory"));
 		bucketOfSapHiglight = new ItemRequirement("Bucket of sap", ItemID.ICS_LITTLE_SAP_BUCKET);
-		bucketOfSapHiglight.setTooltip("You can get this by using a knife on an evergreen tree with a bucket in your " +
-			"inventory");
+		bucketOfSapHiglight.setTooltip(t("You can get this by using a knife on an evergreen tree with a bucket in your " +
+			"inventory"));
 		bucketOfSapHiglight.setHighlightInInventory(true);
 
 		groundMud = new ItemRequirement("Ground mud runes", ItemID.EYEGLO_GROUND_MUD_RUNES);
@@ -212,69 +212,69 @@ public class TheEyesOfGlouphrie extends BasicQuestHelper
 	public void setupSteps()
 	{
 		int[] brimstailNPCs = new int[]{NpcID.GNOME_BRIMSTAIL_CUTSCENE, NpcID.GNOME_BRIMSTAIL_2OP};
-		enterCave = new ObjectStep(this, ObjectID.EYEGLO_BRIMSTAILS_CAVE_ENTRANCE, new WorldPoint(2404, 3419, 0), "Go talk to Brimstail in his cave in west Tree Gnome Stronghold.");
-		talkToBrimstail = new NpcStep(this, brimstailNPCs, new WorldPoint(2410, 9818, 0), "Talk to Brimstail.");
+		enterCave = new ObjectStep(this, ObjectID.EYEGLO_BRIMSTAILS_CAVE_ENTRANCE, new WorldPoint(2404, 3419, 0), t("Go talk to Brimstail in his cave in west Tree Gnome Stronghold."));
+		talkToBrimstail = new NpcStep(this, brimstailNPCs, new WorldPoint(2410, 9818, 0), t("Talk to Brimstail."));
 		talkToBrimstail.addDialogStep("What's that cute creature wandering around?");
 		talkToBrimstail.addDialogStep("Yes, that sounds fascinating...");
 		talkToBrimstail.addDialogStep("Oh, yes I love a bit of History.");
 		talkToBrimstail.addDialogStep("Yes.");
 		enterCave.addSubSteps(talkToBrimstail);
-		inspectBowl = new ObjectStep(this, ObjectID.EYEGLO_SINGING_BOWL, new WorldPoint(2388, 9813, 0), "Inspect the singing bowl in the west room.");
+		inspectBowl = new ObjectStep(this, ObjectID.EYEGLO_SINGING_BOWL, new WorldPoint(2388, 9813, 0), t("Inspect the singing bowl in the west room."));
 		inspectMachine = new ObjectStep(this, ObjectID.EYEGLO_GNOME_MACHINE_02_MULTILOC, new WorldPoint(2390, 9826, 0),
-			"Attempt to unlock oaknock's machine in the north of the cave.");
-		talkToBrimstailAgain = new NpcStep(this, brimstailNPCs, new WorldPoint(2410, 9818, 0), "Talk to Brimstail again.");
+			t("Attempt to unlock oaknock's machine in the north of the cave."));
+		talkToBrimstailAgain = new NpcStep(this, brimstailNPCs, new WorldPoint(2410, 9818, 0), t("Talk to Brimstail again."));
 		talkToBrimstailAgain.addDialogStep("I've had a look in the other room now.");
 		talkToBrimstailAgain.addDialogStep("Of course, I'd love to!");
 
 		goUpToHazelmere = new ObjectStep(this, ObjectID.LADDER, new WorldPoint(2677, 3087, 0),
-			"Go talk to Hazelmere in his hut east of Yanille (Fairy Ring CLS).");
+			t("Go talk to Hazelmere in his hut east of Yanille (Fairy Ring CLS)."));
 		talkToHazelmere = new NpcStep(this, NpcID.GRANDTREE_HAZELMERE, new WorldPoint(2677, 3087, 1),
-			"Go talk to Hazelmere in his hut east of Yanille (Fairy Ring CLS).");
+			t("Go talk to Hazelmere in his hut east of Yanille (Fairy Ring CLS)."));
 		talkToHazelmere.addSubSteps(goUpToHazelmere);
 
-		enterCaveAgain = new ObjectStep(this, ObjectID.EYEGLO_BRIMSTAILS_CAVE_ENTRANCE, new WorldPoint(2404, 3419, 0), "Go back to Brimstail's cave in west Tree Gnome Stronghold.", pestleAndMortar, mudRune, bucketOfSap, oakLog, mapleLog, saw, hammer);
-		talkToBrimstailAfterHazelmere = new NpcStep(this, brimstailNPCs, new WorldPoint(2410, 9818, 0), "Talk to Brimstail.");
+		enterCaveAgain = new ObjectStep(this, ObjectID.EYEGLO_BRIMSTAILS_CAVE_ENTRANCE, new WorldPoint(2404, 3419, 0), t("Go back to Brimstail's cave in west Tree Gnome Stronghold."), pestleAndMortar, mudRune, bucketOfSap, oakLog, mapleLog, saw, hammer);
+		talkToBrimstailAfterHazelmere = new NpcStep(this, brimstailNPCs, new WorldPoint(2410, 9818, 0), t("Talk to Brimstail."));
 		talkToBrimstailAfterHazelmere.addDialogStep("I've visited Hazelmere, he told me all sorts of interesting things.");
 		talkToBrimstailAfterHazelmere.addSubSteps(enterCaveAgain);
 
-		grindMudRunes = new DetailedQuestStep(this, "Use the pestle and mortar on some mud runes.", pestleHighlight,
+		grindMudRunes = new DetailedQuestStep(this, t("Use the pestle and mortar on some mud runes."), pestleHighlight,
 			mudRuneHighlight);
-		useMudOnSap = new DetailedQuestStep(this, "Use the ground mud runes on the bucket of sap.", groundMud,
+		useMudOnSap = new DetailedQuestStep(this, t("Use the ground mud runes on the bucket of sap."), groundMud,
 			bucketOfSapHiglight);
 
 		repairMachine = new ObjectStep(this, ObjectID.EYEGLO_GNOME_MACHINE_02_MULTILOC, new WorldPoint(2390, 9826, 0),
-			"Use the magic glue on oaknock's machine in the north of the cave.", magicGlue, oakLog, mapleLog, saw, hammer);
+			t("Use the magic glue on oaknock's machine in the north of the cave."), magicGlue, oakLog, mapleLog, saw, hammer);
 		repairMachine.addIcon(ItemID.EYEGLO_MAGIC_GLUE);
 
-		talkToBrimstailAfterRepairing = new NpcStep(this, brimstailNPCs, new WorldPoint(2410, 9818, 0), "Talk to Brimstail.");
+		talkToBrimstailAfterRepairing = new NpcStep(this, brimstailNPCs, new WorldPoint(2410, 9818, 0), t("Talk to Brimstail."));
 		talkToBrimstailAfterRepairing.addDialogStep("I think I've fixed the machine now!");
-		talkToBrimstailForMoreDisks = new NpcStep(this, brimstailNPCs, new WorldPoint(2410, 9818, 0), "Talk to Brimstail for more disks.");
+		talkToBrimstailForMoreDisks = new NpcStep(this, brimstailNPCs, new WorldPoint(2410, 9818, 0), t("Talk to Brimstail for more disks."));
 		talkToBrimstailForMoreDisks.addDialogStep("I can't work out what to do with these discs!");
 
 		PuzzleStep unlockMachineTrueStep = new PuzzleStep(this);
 		unlockMachineTrueStep.addSubSteps(unlockMachineTrueStep.getSteps());
-		unlockMachine = new PuzzleWrapperStep(this, unlockMachineTrueStep, "Unlock the machine.");
+		unlockMachine = new PuzzleWrapperStep(this, unlockMachineTrueStep, t("Unlock the machine."));
 
-		operateMachine = new ObjectStep(this, ObjectID.EYEGLO_GNOME_MACHINE_02_MULTILOC, new WorldPoint(2390, 9826, 0), "Operate the machine.");
+		operateMachine = new ObjectStep(this, ObjectID.EYEGLO_GNOME_MACHINE_02_MULTILOC, new WorldPoint(2390, 9826, 0), t("Operate the machine."));
 		unlockMachineTrueStep.addSubSteps(operateMachine);
 
-		killCreature1 = new NpcStep(this, NpcID.EYEGLO_FLUFFIE_EVIL_1, new WorldPoint(2408, 9819, 0), "Kill the evil creature next to Brimstail.");
-		killCreature2 = new NpcStep(this, NpcID.EYEGLO_FLUFFIE_EVIL_2, new WorldPoint(2465, 3494, 0), "Kill the evil creature next to Narnode.");
-		killCreature3 = new NpcStep(this, NpcID.EYEGLO_FLUFFIE_EVIL_3, new WorldPoint(2466, 3496, 3), "Kill the evil creature at the top of the Grand Tree.");
-		killCreature4 = new NpcStep(this, NpcID.EYEGLO_FLUFFIE_EVIL_4, new WorldPoint(2422, 3526, 0), "Kill the evil creature in the north west of the Stronghold.");
-		killCreature5 = new NpcStep(this, NpcID.EYEGLO_FLUFFIE_EVIL_5, new WorldPoint(2461, 3388, 0), "Kill the evil creature next to the Stronghold's entrance.");
-		killCreature6 = new NpcStep(this, NpcID.EYEGLO_FLUFFIE_EVIL_6, new WorldPoint(2462, 3443, 0), "Kill the evil creature next to the Stronghold's Spirit Tree.");
+		killCreature1 = new NpcStep(this, NpcID.EYEGLO_FLUFFIE_EVIL_1, new WorldPoint(2408, 9819, 0), t("Kill the evil creature next to Brimstail."));
+		killCreature2 = new NpcStep(this, NpcID.EYEGLO_FLUFFIE_EVIL_2, new WorldPoint(2465, 3494, 0), t("Kill the evil creature next to Narnode."));
+		killCreature3 = new NpcStep(this, NpcID.EYEGLO_FLUFFIE_EVIL_3, new WorldPoint(2466, 3496, 3), t("Kill the evil creature at the top of the Grand Tree."));
+		killCreature4 = new NpcStep(this, NpcID.EYEGLO_FLUFFIE_EVIL_4, new WorldPoint(2422, 3526, 0), t("Kill the evil creature in the north west of the Stronghold."));
+		killCreature5 = new NpcStep(this, NpcID.EYEGLO_FLUFFIE_EVIL_5, new WorldPoint(2461, 3388, 0), t("Kill the evil creature next to the Stronghold's entrance."));
+		killCreature6 = new NpcStep(this, NpcID.EYEGLO_FLUFFIE_EVIL_6, new WorldPoint(2462, 3443, 0), t("Kill the evil creature next to the Stronghold's Spirit Tree."));
 		//killCreature7 = new NpcStep(this, NpcID.EYEGLO_FLUFFIE_EVIL_1, new WorldPoint(3408, 9819, 0), "Kill the evil creature next to Brimstail.");
 
-		talkToBrimstailAfterIllusion = new NpcStep(this, brimstailNPCs, new WorldPoint(2410, 9818, 0), "Talk to Brimstail again.");
+		talkToBrimstailAfterIllusion = new NpcStep(this, brimstailNPCs, new WorldPoint(2410, 9818, 0), t("Talk to Brimstail again."));
 		talkToBrimstailAfterIllusion.addDialogStep("Phew! I've got that machine working now. What do I need to do now?");
 
-		climbUpToF1Tree = new ObjectStep(this, QHObjectID.GRAND_TREE_F0_LADDER, new WorldPoint(2466, 3495, 0), "Kill the evil creature at the top of the Grand Tree.");
-		climbUpToF2Tree = new ObjectStep(this, QHObjectID.GRAND_TREE_F1_LADDER, new WorldPoint(2466, 3495, 1), "Kill the evil creature at the top of the Grand Tree.");
-		climbUpToF3Tree = new ObjectStep(this, QHObjectID.GRAND_TREE_F2_LADDER, new WorldPoint(2466, 3495, 2), "Kill the evil creature at the top of the Grand Tree.");
+		climbUpToF1Tree = new ObjectStep(this, QHObjectID.GRAND_TREE_F0_LADDER, new WorldPoint(2466, 3495, 0), t("Kill the evil creature at the top of the Grand Tree."));
+		climbUpToF2Tree = new ObjectStep(this, QHObjectID.GRAND_TREE_F1_LADDER, new WorldPoint(2466, 3495, 1), t("Kill the evil creature at the top of the Grand Tree."));
+		climbUpToF3Tree = new ObjectStep(this, QHObjectID.GRAND_TREE_F2_LADDER, new WorldPoint(2466, 3495, 2), t("Kill the evil creature at the top of the Grand Tree."));
 		killCreature3.addSubSteps(climbUpToF1Tree, climbUpToF2Tree, climbUpToF3Tree);
 
-		talkToNarnode = new NpcStep(this, NpcID.GRANDTREE_NARNODE_1OP, new WorldPoint(2465, 3496, 0), "Talk to King Narnode to finish the quest.");
+		talkToNarnode = new NpcStep(this, NpcID.GRANDTREE_NARNODE_1OP, new WorldPoint(2465, 3496, 0), t("Talk to King Narnode to finish the quest."));
 	}
 
 	@Override
@@ -296,7 +296,7 @@ public class TheEyesOfGlouphrie extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Evil creature (x6)");
+		return Collections.singletonList(t("Evil creature (x6)"));
 	}
 
 	@Override
@@ -318,7 +318,7 @@ public class TheEyesOfGlouphrie extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("A Crystal Saw Seed"));
+		return Collections.singletonList(new UnlockReward(t("A Crystal Saw Seed")));
 	}
 
 	@Override
@@ -326,12 +326,12 @@ public class TheEyesOfGlouphrie extends BasicQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		allSteps.add(new PanelDetails("Learning", Arrays.asList(enterCave, inspectBowl, inspectMachine,
+		allSteps.add(new PanelDetails(t("Learning"), Arrays.asList(enterCave, inspectBowl, inspectMachine,
 			talkToBrimstailAgain, talkToHazelmere, talkToBrimstailAfterHazelmere, grindMudRunes, useMudOnSap, repairMachine,
 			talkToBrimstailAfterRepairing, talkToBrimstailForMoreDisks, unlockMachine),
 			bucketOfSap, mudRune, mapleLog, oakLog, hammer, saw, pestleAndMortar));
 
-		allSteps.add(new PanelDetails("Kill the spies",
+		allSteps.add(new PanelDetails(t("Kill the spies"),
 			Arrays.asList(talkToBrimstailAfterIllusion, killCreature1, killCreature5, killCreature6, killCreature4,
 				killCreature3, killCreature2, talkToNarnode)));
 

@@ -172,7 +172,7 @@ public class TempleOfIkov extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		pendantOfLucien = new ItemRequirement("Pendant of lucien", ItemID.IKOV_PENDANTOFLUCIEN).isNotConsumed();
-		pendantOfLucien.setTooltip("You can get another from Lucien in East Ardougne, near the wall of West Ardougne in the Flying Horse Inn");
+		pendantOfLucien.setTooltip(t("You can get another from Lucien in East Ardougne, near the wall of West Ardougne in the Flying Horse Inn"));
 		pendantOfLucien.canBeObtainedDuringQuest();
 		pendantOfLucienEquipped = pendantOfLucien.equipped();
 		bootsOfLightness = new ItemRequirement("Boots of lightness", ItemID.IKOV_BOOTSOFLIGHTNESS).isNotConsumed();
@@ -258,99 +258,99 @@ public class TempleOfIkov extends BasicQuestHelper
 	{
 		// TODO: Verify which Lucien NPC ID is correct
 		talkToLucien = new NpcStep(this, new int[]{NpcID.IKOV_LUCIEN1, NpcID.IKOV_LUCIEN1_VIS, NpcID.IKOV_LUCIEN2_VIS,
-				NpcID.IKOV_LUCIEN2_VIS_NOATTACK }, new WorldPoint(2573, 3321, 0), "Talk to Lucien in the pub north of East Ardougne castle.",
+				NpcID.IKOV_LUCIEN2_VIS_NOATTACK }, new WorldPoint(2573, 3321, 0), t("Talk to Lucien in the pub north of East Ardougne castle."),
 				emptyInventorySpot);
 		talkToLucien.addDialogSteps("I'm a mighty hero!", "That sounds like a laugh!");
 		prepare = new DetailedQuestStep(this,
-			"Get your weight below 0kg. You can get boots of lightness from the Temple of Ikov north of East Ardougne for -4.5kg.",
+			t("Get your weight below 0kg. You can get boots of lightness from the Temple of Ikov north of East Ardougne for -4.5kg."),
 			pendantOfLucienEquipped, limpwurt20, yewOrBetterBowOrThrowableWeapon);
 
 		prepareBelow0 = new DetailedQuestStep(this,
-			"Get your weight below 0kg.",
+			t("Get your weight below 0kg."),
 			pendantOfLucienEquipped, limpwurt20, yewOrBetterBowOrThrowableWeapon);
 
 		prepare.addSubSteps(prepareBelow0);
 
 		enterDungeonForBoots = new ObjectStep(this, ObjectID.LADDER_CELLAR, new WorldPoint(2677, 3405, 0),
-			"Enter the Temple of Ikov. You can get Boots of Lightness inside to get -4.5kg.",
+			t("Enter the Temple of Ikov. You can get Boots of Lightness inside to get -4.5kg."),
 			pendantOfLucienEquipped, knife, lightSource, limpwurt20, yewOrBetterBowOrThrowableWeapon);
 
 		enterDungeon = new ObjectStep(this, ObjectID.LADDER_CELLAR, new WorldPoint(2677, 3405, 0),
-			"Enter the Temple of Ikov north of East Ardougne.", pendantOfLucienEquipped, yewOrBetterBowOrThrowableWeapon, limpwurt20);
+			t("Enter the Temple of Ikov north of East Ardougne."), pendantOfLucienEquipped, yewOrBetterBowOrThrowableWeapon, limpwurt20);
 
 		enterDungeon.addSubSteps(enterDungeonForBoots);
 
-		goDownToBoots = new ObjectStep(this, ObjectID.IKOV_DARKSTAIRSDOWN, new WorldPoint(2651, 9805, 0), "Go down the west stairs to get boots of lightness.", lightSource, knife);
-		getBoots = new ItemStep(this, "Get the boots of lightness in the north east corner.", bootsOfLightnessEquipped);
-		goUpFromBoots = new ObjectStep(this, ObjectID.IKOV_DARKSTAIRS, new WorldPoint(2639, 9764, 0), "Go back upstairs.");
+		goDownToBoots = new ObjectStep(this, ObjectID.IKOV_DARKSTAIRSDOWN, new WorldPoint(2651, 9805, 0), t("Go down the west stairs to get boots of lightness."), lightSource, knife);
+		getBoots = new ItemStep(this, t("Get the boots of lightness in the north east corner."), bootsOfLightnessEquipped);
+		goUpFromBoots = new ObjectStep(this, ObjectID.IKOV_DARKSTAIRS, new WorldPoint(2639, 9764, 0), t("Go back upstairs."));
 
 		pickUpLever = new DetailedQuestStep(this, new WorldPoint(2637, 9819, 0),
-			"Cross the bridge in the north room and pick up the lever whilst weighing less than 0kg.",
+			t("Cross the bridge in the north room and pick up the lever whilst weighing less than 0kg."),
 			pendantOfLucien.equipped(), lever);
-		useLeverOnHole = new ObjectStep(this, ObjectID.IKOV_LEVERBRACKET, new WorldPoint(2671, 9804, 0), "Use the lever on the lever bracket in the entrance room.", lever);
+		useLeverOnHole = new ObjectStep(this, ObjectID.IKOV_LEVERBRACKET, new WorldPoint(2671, 9804, 0), t("Use the lever on the lever bracket in the entrance room."), lever);
 
-		pullLever = new ObjectStep(this, ObjectID.IKOV_MENDEDLEVER, new WorldPoint(2671, 9804, 0), "Pull the lever.");
+		pullLever = new ObjectStep(this, ObjectID.IKOV_MENDEDLEVER, new WorldPoint(2671, 9804, 0), t("Pull the lever."));
 
-		enterArrowRoom = new ObjectStep(this, ObjectID.IKOV_MENDEDLEVERDOORL, new WorldPoint(2662, 9803, 0), "Enter the south gate.");
-		collectArrows = new ObjectStep(this, ObjectID.IKOV_CHESTCLOSED, "Search the chests in the ice area of this room until you have at least 20 Ice Arrows or more to be safe. If using a throwable weapon (darts, knives) a single Ice Arrow is sufficient. A random chest has the arrows each time.", enoughArrows);
+		enterArrowRoom = new ObjectStep(this, ObjectID.IKOV_MENDEDLEVERDOORL, new WorldPoint(2662, 9803, 0), t("Enter the south gate."));
+		collectArrows = new ObjectStep(this, ObjectID.IKOV_CHESTCLOSED, t("Search the chests in the ice area of this room until you have at least 20 Ice Arrows or more to be safe. If using a throwable weapon (darts, knives) a single Ice Arrow is sufficient. A random chest has the arrows each time."), enoughArrows);
 		collectArrows.setHideWorldArrow(true);
 		collectArrows.addAlternateObjects(ObjectID.IKOV_CHESTOPEN);
 
-		returnToMainRoom = new ObjectStep(this, ObjectID.IKOV_MENDEDLEVERDOORL, new WorldPoint(2662, 9803, 0), "Return back to the entry room when you have enough arrows.");
+		returnToMainRoom = new ObjectStep(this, ObjectID.IKOV_MENDEDLEVERDOORL, new WorldPoint(2662, 9803, 0), t("Return back to the entry room when you have enough arrows."));
 
 		goSearchThievingLever = new ObjectStep(this, ObjectID.IKOV_TRAPLEVER, new WorldPoint(2665, 9855, 0),
-			"Go into the north room, then on the north side right-click search the lever there for traps, then pull it.");
+			t("Go into the north room, then on the north side right-click search the lever there for traps, then pull it."));
 
 		goPullThievingLever = new ObjectStep(this, ObjectID.IKOV_TRAPLEVER, new WorldPoint(2665, 9855, 0),
-			"Go into the north room, then on the north side pull the lever.");
+			t("Go into the north room, then on the north side pull the lever."));
 
 		goSearchThievingLever.addSubSteps(goPullThievingLever);
 
 		tryToEnterWitchRoom = new ObjectStep(this, ObjectID.IKOV_FIREWARRIORDOOR, new WorldPoint(2646, 9870, 0),
-			"Try to enter the far north door. Be prepared to fight Lesarkus, who can only be hurt by ice arrows.", yewOrBetterBowOrThrowableWeapon, iceArrowsEquipped);
+			t("Try to enter the far north door. Be prepared to fight Lesarkus, who can only be hurt by ice arrows."), yewOrBetterBowOrThrowableWeapon, iceArrowsEquipped);
 
 		fightLes = new NpcStep(this, NpcID.IKOV_FIREWARRIOR, new WorldPoint(2646, 9866, 0),
-			"Kill the Fire Warrior of Lesarkus. He can only be hurt by the ice arrows.", yewOrBetterBowOrThrowableWeapon, iceArrowsEquipped);
+			t("Kill the Fire Warrior of Lesarkus. He can only be hurt by the ice arrows."), yewOrBetterBowOrThrowableWeapon, iceArrowsEquipped);
 
 		enterDungeonKilledLes = new ObjectStep(this, ObjectID.LADDER_CELLAR, new WorldPoint(2677, 3405, 0),
-			"Enter the Temple of Ikov north of East Ardougne.", pendantOfLucienEquipped, limpwurt20);
+			t("Enter the Temple of Ikov north of East Ardougne."), pendantOfLucienEquipped, limpwurt20);
 
 		enterLesDoor = new ObjectStep(this, ObjectID.IKOV_FIREWARRIORDOOR, new WorldPoint(2646, 9870, 0),
-			"Go all the way north and talk to Winelda there.", pendantOfLucienEquipped, limpwurt20);
+			t("Go all the way north and talk to Winelda there."), pendantOfLucienEquipped, limpwurt20);
 
 		enterLesDoor.addSubSteps(enterDungeonKilledLes);
 
-		giveWineldaLimps = new NpcStep(this, NpcID.IKOV_WINELDA, new WorldPoint(2655, 9876, 0), "Give Winelda 20 unnoted limpwurts.", limpwurt20);
+		giveWineldaLimps = new NpcStep(this, NpcID.IKOV_WINELDA, new WorldPoint(2655, 9876, 0), t("Give Winelda 20 unnoted limpwurts."), limpwurt20);
 
 		enterDungeonGivenLimps = new ObjectStep(this, ObjectID.LADDER_CELLAR, new WorldPoint(2677, 3405, 0),
-			"Enter the Temple of Ikov north of East Ardougne. If you got the shiny key, get it and enter via Mcgrubber's wood west of Seers' Village.", pendantOfLucienEquipped);
+			t("Enter the Temple of Ikov north of East Ardougne. If you got the shiny key, get it and enter via Mcgrubber's wood west of Seers' Village."), pendantOfLucienEquipped);
 
-		enterFromMcgrubbors = new ObjectStep(this, ObjectID.LADDER_CELLAR, new WorldPoint(2659, 3492, 0), "Enter the house at Mcgrubbor's wood and go down the ladder.", shinyKey);
+		enterFromMcgrubbors = new ObjectStep(this, ObjectID.LADDER_CELLAR, new WorldPoint(2659, 3492, 0), t("Enter the house at Mcgrubbor's wood and go down the ladder."), shinyKey);
 
 
 		talkToWinelda = new NpcStep(this, NpcID.IKOV_WINELDA, new WorldPoint(2655, 9876, 0),
-			"Talk to Winelda in the far north of the dungeon.");
+			t("Talk to Winelda in the far north of the dungeon."));
 
-		pickUpKey = new DetailedQuestStep(this, new WorldPoint(2628, 9859, 0), "Follow the path around past the skeletons and lesser demons until you find a shiny key. Pick it up.", shinyKey);
+		pickUpKey = new DetailedQuestStep(this, new WorldPoint(2628, 9859, 0), t("Follow the path around past the skeletons and lesser demons until you find a shiny key. Pick it up."), shinyKey);
 
-		pushWall = new ObjectStep(this, ObjectID.SECRETDOOR2, new WorldPoint(2643, 9892, 0), "Push the wall on the north side of this area.");
+		pushWall = new ObjectStep(this, ObjectID.SECRETDOOR2, new WorldPoint(2643, 9892, 0), t("Push the wall on the north side of this area."));
 		pushWall.addSubSteps(enterDungeonGivenLimps, enterFromMcgrubbors);
 
 		makeChoice = new DetailedQuestStep(this,
-			"You can now choose to either help Lucien or help the Guardians of Armadyl. To help Lucien, simply pick up the Staff of Armadyl. To help the guardians, remove the pendant of lucien and talk to one of them.");
+			t("You can now choose to either help Lucien or help the Guardians of Armadyl. To help Lucien, simply pick up the Staff of Armadyl. To help the guardians, remove the pendant of lucien and talk to one of them."));
 		makeChoice.addDialogStep("I seek the Staff of Armadyl.");
 		makeChoice.addDialogStep("Lucien will give me a grand reward for it!");
 		makeChoice.addDialogStep("You're right, it's time for my yearly bath.");
 		makeChoice.addDialogStep("Ok! I'll help!");
 
-		killLucien = new NpcStep(this, NpcID.IKOV_LUCIEN2, new WorldPoint(3122, 3484, 0), "Equip the Armadyl Pendant and defeat Lucien in the house " +
-				"west of the Grand Exchange.", armadylPendant);
-		bringStaffToLucien = new NpcStep(this, NpcID.IKOV_LUCIEN2, new WorldPoint(3122, 3484, 0), "Bring the Staff of Armadyl to Lucien in the house west of the Grand Exchange.", staffOfArmadyl);
+		killLucien = new NpcStep(this, NpcID.IKOV_LUCIEN2, new WorldPoint(3122, 3484, 0), t("Equip the Armadyl Pendant and defeat Lucien in the house " +
+				"west of the Grand Exchange."), armadylPendant);
+		bringStaffToLucien = new NpcStep(this, NpcID.IKOV_LUCIEN2, new WorldPoint(3122, 3484, 0), t("Bring the Staff of Armadyl to Lucien in the house west of the Grand Exchange."), staffOfArmadyl);
 		((NpcStep) bringStaffToLucien).addAlternateNpcs(NpcID.IKOV_LUCIEN2_VIS_NOATTACK);
 
 		bringStaffToLucien.addDialogSteps("Yes! Here it is.");
 
-		returnToLucien = new DetailedQuestStep(this, "Either return to Lucien west of the Grand Exchange with the Staff of Armadyl, or kill him whilst wearing the Pendant of Armadyl.");
+		returnToLucien = new DetailedQuestStep(this, t("Either return to Lucien west of the Grand Exchange with the Staff of Armadyl, or kill him whilst wearing the Pendant of Armadyl."));
 		returnToLucien.addSubSteps(killLucien, bringStaffToLucien);
 	}
 
@@ -369,9 +369,9 @@ public class TempleOfIkov extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		ArrayList<String> reqs = new ArrayList<>();
-		reqs.add("Able to survive multiple aggressive spiders (level 61) and demons (level 82)");
-		reqs.add("Fire Warrior of Lesarkus (level 84) with ranged");
-		reqs.add("If siding with Lucien, Guardian of Armadyl (level 43)");
+		reqs.add(t("Able to survive multiple aggressive spiders (level 61) and demons (level 82)"));
+		reqs.add(t("Fire Warrior of Lesarkus (level 84) with ranged"));
+		reqs.add(t("If siding with Lucien, Guardian of Armadyl (level 43)"));
 		return reqs;
 	}
 
@@ -408,12 +408,12 @@ public class TempleOfIkov extends BasicQuestHelper
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off", Collections.singletonList(talkToLucien)));
-		allSteps.add(new PanelDetails("Defeat Lesarkus", 
+		allSteps.add(new PanelDetails(t("Starting off"), Collections.singletonList(talkToLucien)));
+		allSteps.add(new PanelDetails(t("Defeat Lesarkus"), 
 			Arrays.asList(prepare, enterDungeon, goDownToBoots, getBoots, goUpFromBoots, pickUpLever, useLeverOnHole,
 				pullLever, enterArrowRoom, collectArrows, returnToMainRoom, goSearchThievingLever,
 				tryToEnterWitchRoom, fightLes), pendantOfLucien, yewOrBetterBowOrThrowableWeapon, knife, lightSource, limpwurt20));
-		allSteps.add(new PanelDetails("Explore deeper", Arrays.asList(enterLesDoor, giveWineldaLimps, pickUpKey, pushWall, makeChoice, returnToLucien)));
+		allSteps.add(new PanelDetails(t("Explore deeper"), Arrays.asList(enterLesDoor, giveWineldaLimps, pickUpKey, pushWall, makeChoice, returnToLucien)));
 		return allSteps;
 	}
 }

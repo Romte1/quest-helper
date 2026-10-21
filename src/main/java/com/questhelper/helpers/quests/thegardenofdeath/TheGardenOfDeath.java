@@ -184,7 +184,7 @@ public class TheGardenOfDeath extends BasicQuestHelper
 		stoneTablet4 = new ItemRequirement("Stone tablet", ItemID.TGOD_TABLET_4);
 		kasondesJournal = new ItemRequirement("Kasonde's journal", ItemID.TGOD_JOURNAL);
 		wordTranslations = new ItemRequirement("Word translations", ItemID.TGOD_TRANSLATIONS);
-		wordTranslations.setTooltip("Obtained in quest in a stone table in the first hole");
+		wordTranslations.setTooltip(t("Obtained in quest in a stone table in the first hole"));
 		dirtyNote1 = new ItemRequirement("Dirty note", ItemID.TGOD_HINT_NOTE);
 		dirtyNote2 = new ItemRequirement("Dirty note", ItemID.TGOD_VINE_NOTE);
 		dirtyNote3 = new ItemRequirement("Dirty note", ItemID.TGOD_STRANGLE_NOTE);
@@ -229,66 +229,66 @@ public class TheGardenOfDeath extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		getJournal = new ObjectStep(this, ObjectID.TGOD_TENT, new WorldPoint(1314, 3470, 0), "Search the tent in the south east of the Kebos Lowlands.");
+		getJournal = new ObjectStep(this, ObjectID.TGOD_TENT, new WorldPoint(1314, 3470, 0), t("Search the tent in the south east of the Kebos Lowlands."));
 		getJournal.addDialogStep("Yes.");
-		readJournal = new DetailedQuestStep(this, "Read the journal", kasondesJournal.highlighted());
-		getSecateurs = new ObjectStep(this, ObjectID.TGOD_CAMPING_EQUIPMENT, new WorldPoint(1312, 3470, 0), "Search the camping equipment for some secateurs.");
-		enterHole = new ObjectStep(this, ObjectID.TGOD_GARDEN_1_ENTRY, new WorldPoint(1308, 3467, 0), "Enter the nearby hole.", secateurs);
-		searchForTablet = new ObjectStep(this, ObjectID.TGOD_GARDEN_1_TABLET_TABLE, new WorldPoint(1306, 9885, 0), "Search the north-west table.");
-		readTablet1 = new DetailedQuestStep(this, "Read the stone tablet.", stoneTablet1.highlighted());
+		readJournal = new DetailedQuestStep(this, t("Read the journal"), kasondesJournal.highlighted());
+		getSecateurs = new ObjectStep(this, ObjectID.TGOD_CAMPING_EQUIPMENT, new WorldPoint(1312, 3470, 0), t("Search the camping equipment for some secateurs."));
+		enterHole = new ObjectStep(this, ObjectID.TGOD_GARDEN_1_ENTRY, new WorldPoint(1308, 3467, 0), t("Enter the nearby hole."), secateurs);
+		searchForTablet = new ObjectStep(this, ObjectID.TGOD_GARDEN_1_TABLET_TABLE, new WorldPoint(1306, 9885, 0), t("Search the north-west table."));
+		readTablet1 = new DetailedQuestStep(this, t("Read the stone tablet."), stoneTablet1.highlighted());
 		readTablet1.addDialogStep("Yes.");
-		readTranslations = new DetailedQuestStep(this, "Read the word translations.", wordTranslations.highlighted());
-		attemptTranslation = new WidgetStep(this, "Click the 'Attempt Translation' button.", 804, 5);
+		readTranslations = new DetailedQuestStep(this, t("Read the word translations."), wordTranslations.highlighted());
+		attemptTranslation = new WidgetStep(this, t("Click the 'Attempt Translation' button."), 804, 5);
 
-		inputWords1 = new PuzzleWrapperStep(this, new DetailedQuestStep(this, "Type 'Island', 'Water', 'Time', 'Vessel', and 'North'."), "Work out various translation words and input them to the word translations.");
+		inputWords1 = new PuzzleWrapperStep(this, new DetailedQuestStep(this, t("Type 'Island', 'Water', 'Time', 'Vessel', and 'North'.")), t("Work out various translation words and input them to the word translations."));
 		inputWords1.addDialogStep("Yes.");
 
-		leaveHole = new ObjectStep(this, ObjectID.TGOD_GARDEN_1_EXIT, new WorldPoint(1309, 9867, 0), "Leave the hole.");
-		goToMolch = new ObjectStep(this, ObjectID.AERIAL_FISHING_BOAT, new WorldPoint(1406, 3612, 0), "Travel to Molch island via Boaty, located on the west/north/east sides of Lake Molch.", wordTranslations, secateurs);
+		leaveHole = new ObjectStep(this, ObjectID.TGOD_GARDEN_1_EXIT, new WorldPoint(1309, 9867, 0), t("Leave the hole."));
+		goToMolch = new ObjectStep(this, ObjectID.AERIAL_FISHING_BOAT, new WorldPoint(1406, 3612, 0), t("Travel to Molch island via Boaty, located on the west/north/east sides of Lake Molch."), wordTranslations, secateurs);
 		goToMolch.addDialogStep("Molch Island");
-		enterMolchHole = new ObjectStep(this, ObjectID.TGOD_GARDEN_2_ENTRY, new WorldPoint(1364, 3637, 0), "Enter the hole on Molch Island.", wordTranslations, secateurs);
-		searchVines = new ObjectStep(this, ObjectID.TGOD_VINES, new WorldPoint(1375, 10024, 0), "Inspect the vines to the south.");
-		cutVines = new ObjectStep(this, ObjectID.TGOD_VINES, new WorldPoint(1375, 10024, 0), "Cut the vines with secateurs.", secateurs.highlighted());
+		enterMolchHole = new ObjectStep(this, ObjectID.TGOD_GARDEN_2_ENTRY, new WorldPoint(1364, 3637, 0), t("Enter the hole on Molch Island."), wordTranslations, secateurs);
+		searchVines = new ObjectStep(this, ObjectID.TGOD_VINES, new WorldPoint(1375, 10024, 0), t("Inspect the vines to the south."));
+		cutVines = new ObjectStep(this, ObjectID.TGOD_VINES, new WorldPoint(1375, 10024, 0), t("Cut the vines with secateurs."), secateurs.highlighted());
 		cutVines.addIcon(ItemID.SECATEURS);
 
-		searchForTablet2 = new ObjectStep(this, ObjectID.TGOD_GARDEN_2_TABLET_TABLE, new WorldPoint(1373, 10014, 0), "Search the south west stone table.");
-		readTablet2 = new DetailedQuestStep(this, "Read the stone tablet, and take the note after closing the tablet's interface.", stoneTablet2.highlighted());
+		searchForTablet2 = new ObjectStep(this, ObjectID.TGOD_GARDEN_2_TABLET_TABLE, new WorldPoint(1373, 10014, 0), t("Search the south west stone table."));
+		readTablet2 = new DetailedQuestStep(this, t("Read the stone tablet, and take the note after closing the tablet's interface."), stoneTablet2.highlighted());
 		readTablet2.addDialogStep("Yes.");
-		readTranslations2 = new DetailedQuestStep(this, "Read the word translations.", wordTranslations.highlighted());
-		attemptTranslation2 = new WidgetStep(this, "Click the 'Attempt Translation' button.", 804, 5);
-		inputWords2 = new PuzzleWrapperStep(this, new DetailedQuestStep(this, "Type 'West', 'Poison', 'Body', 'Food', and 'Earth'."),
-			"Work out various translation words and input them to the word translations.");
+		readTranslations2 = new DetailedQuestStep(this, t("Read the word translations."), wordTranslations.highlighted());
+		attemptTranslation2 = new WidgetStep(this, t("Click the 'Attempt Translation' button."), 804, 5);
+		inputWords2 = new PuzzleWrapperStep(this, new DetailedQuestStep(this, t("Type 'West', 'Poison', 'Body', 'Food', and 'Earth'.")),
+			t("Work out various translation words and input them to the word translations."));
 		inputWords2.addDialogStep("Yes.");
 
-		leaveHole2 = new ObjectStep(this, ObjectID.TGOD_GARDEN_2_EXIT, new WorldPoint(1375, 10033, 0), "Leave the hole.");
-		leaveMolchIsland = new ObjectStep(this, ObjectID.AERIAL_FISHING_BOAT, new WorldPoint(1369, 3641, 0), "Travel via Boaty to Molch, and enter the hole near Xeric's Shrine.", wordTranslations);
+		leaveHole2 = new ObjectStep(this, ObjectID.TGOD_GARDEN_2_EXIT, new WorldPoint(1375, 10033, 0), t("Leave the hole."));
+		leaveMolchIsland = new ObjectStep(this, ObjectID.AERIAL_FISHING_BOAT, new WorldPoint(1369, 3641, 0), t("Travel via Boaty to Molch, and enter the hole near Xeric's Shrine."), wordTranslations);
 		leaveMolchIsland.addDialogStep("Molch");
-		enterXericShrineHole = new ObjectStep(this, ObjectID.TGOD_GARDEN_3_ENTRY, new WorldPoint(1314, 3617, 0), "Enter the hole next to Xeric's Shrine.", wordTranslations);
-		searchForTablet3 = new ObjectStep(this, ObjectID.TGOD_GARDEN_3_TABLET_TABLE, new WorldPoint(1311, 10018, 0), "Search the south east stone table.");
-		readTablet3 = new DetailedQuestStep(this, "Read the stone tablet.", stoneTablet3.highlighted());
+		enterXericShrineHole = new ObjectStep(this, ObjectID.TGOD_GARDEN_3_ENTRY, new WorldPoint(1314, 3617, 0), t("Enter the hole next to Xeric's Shrine."), wordTranslations);
+		searchForTablet3 = new ObjectStep(this, ObjectID.TGOD_GARDEN_3_TABLET_TABLE, new WorldPoint(1311, 10018, 0), t("Search the south east stone table."));
+		readTablet3 = new DetailedQuestStep(this, t("Read the stone tablet."), stoneTablet3.highlighted());
 		readTablet3.addDialogStep("Yes.");
-		readTranslations3 = new DetailedQuestStep(this, "Read the word translations.", wordTranslations.highlighted());
-		attemptTranslation3 = new WidgetStep(this, "Click the 'Attempt Translation' button.", 804, 5);
-		inputWords3 = new PuzzleWrapperStep(this, new DetailedQuestStep(this, "Type 'Make', 'Yes', 'No', 'Move', 'Arrive', 'East', and 'South'."),
-			"Work out various translation words and input them to the word translations.");
+		readTranslations3 = new DetailedQuestStep(this, t("Read the word translations."), wordTranslations.highlighted());
+		attemptTranslation3 = new WidgetStep(this, t("Click the 'Attempt Translation' button."), 804, 5);
+		inputWords3 = new PuzzleWrapperStep(this, new DetailedQuestStep(this, t("Type 'Make', 'Yes', 'No', 'Move', 'Arrive', 'East', and 'South'.")),
+			t("Work out various translation words and input them to the word translations."));
 		inputWords3.addDialogStep("Yes.");
 
-		leaveHole3 = new ObjectStep(this, ObjectID.TGOD_GARDEN_3_EXIT, new WorldPoint(1294, 10033, 0), "Leave the hole.");
+		leaveHole3 = new ObjectStep(this, ObjectID.TGOD_GARDEN_3_EXIT, new WorldPoint(1294, 10033, 0), t("Leave the hole."));
 		enterMorraHole = new ObjectStep(this, ObjectID.TGOD_GARDEN_4_ENTRY, new WorldPoint(1450, 3511, 0),
-			"Enter the hole in the Ruins of Morra, south west of Shayzien.", wordTranslations);
+			t("Enter the hole in the Ruins of Morra, south west of Shayzien."), wordTranslations);
 		searchForTablet4 = new ObjectStep(this, ObjectID.TGOD_GARDEN_4_TABLET_TABLE, new WorldPoint(1440, 9816, 0),
-			"Search the south stone table.");
-		readTablet4 = new DetailedQuestStep(this, "Read the stone tablet.", stoneTablet4.highlighted());
+			t("Search the south stone table."));
+		readTablet4 = new DetailedQuestStep(this, t("Read the stone tablet."), stoneTablet4.highlighted());
 		readTablet4.addDialogStep("Yes.");
-		readTranslations4 = new DetailedQuestStep(this, "Read the word translations.", wordTranslations.highlighted());
-		attemptTranslation4 = new WidgetStep(this, "Click the 'Attempt Translation' button.", 804, 5);
-		inputWords4 = new PuzzleWrapperStep(this, new DetailedQuestStep(this, "Type 'Few', 'Big', 'Sun', 'Moon', 'Life', 'Death', 'Mind', 'Home', 'Air', and 'Fire'."),
-			"Work out various translation words and input them to the word translations.");
+		readTranslations4 = new DetailedQuestStep(this, t("Read the word translations."), wordTranslations.highlighted());
+		attemptTranslation4 = new WidgetStep(this, t("Click the 'Attempt Translation' button."), 804, 5);
+		inputWords4 = new PuzzleWrapperStep(this, new DetailedQuestStep(this, t("Type 'Few', 'Big', 'Sun', 'Moon', 'Life', 'Death', 'Mind', 'Home', 'Air', and 'Fire'.")),
+			t("Work out various translation words and input them to the word translations."));
 		inputWords4.addDialogStep("Yes.");
 
-		readTabletFinal = new DetailedQuestStep(this, "Read the final stone tablet again.", stoneTablet4.highlighted());
+		readTabletFinal = new DetailedQuestStep(this, t("Read the final stone tablet again."), stoneTablet4.highlighted());
 		readTabletFinal.addDialogStep("Yes.");
-		readWarningNote = new DetailedQuestStep(this, "Read the warning note.", warningNote.highlighted());
+		readWarningNote = new DetailedQuestStep(this, t("Read the warning note."), warningNote.highlighted());
 	}
 
 	@Override
@@ -327,18 +327,18 @@ public class TheGardenOfDeath extends BasicQuestHelper
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off",
+		allSteps.add(new PanelDetails(t("Starting off"),
 			Arrays.asList(getJournal, readJournal, getSecateurs, enterHole, searchForTablet, readTablet1, readTranslations, attemptTranslation,
 				inputWords1, leaveHole), secateurs));
 
-		allSteps.add(new PanelDetails("Investigating Molch",
+		allSteps.add(new PanelDetails(t("Investigating Molch"),
 			Arrays.asList(goToMolch, enterMolchHole, searchVines, cutVines, searchForTablet2, readTablet2, readTranslations2, attemptTranslation2, inputWords2), secateurs, wordTranslations));
 
-		allSteps.add(new PanelDetails("Investigating Xeric's Shrine",
+		allSteps.add(new PanelDetails(t("Investigating Xeric's Shrine"),
 			Arrays.asList(leaveHole2, leaveMolchIsland, enterXericShrineHole, searchForTablet3, readTablet3, readTranslations3, attemptTranslation3, inputWords3), wordTranslations));
 
 
-		allSteps.add(new PanelDetails("Investigating the Ruins of Morra",
+		allSteps.add(new PanelDetails(t("Investigating the Ruins of Morra"),
 			Arrays.asList(leaveHole3, enterMorraHole, searchForTablet4, readTablet4, readTranslations4, attemptTranslation4, inputWords4, readTabletFinal, readWarningNote)));
 
 		return allSteps;

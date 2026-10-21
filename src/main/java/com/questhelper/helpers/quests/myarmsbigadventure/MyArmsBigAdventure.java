@@ -220,7 +220,7 @@ public class MyArmsBigAdventure extends BasicQuestHelper
 		bucketHighlight = new ItemRequirement("Bucket", ItemID.BUCKET_EMPTY).isNotConsumed();
 		bucketHighlight.setHighlightInInventory(true);
 		farmingManual = new ItemRequirement("Farming manual", ItemID.MYARM_BOOK);
-		farmingManual.setTooltip("You can get another from My Arm on the Troll Stronghold roof");
+		farmingManual.setTooltip(t("You can get another from My Arm on the Troll Stronghold roof"));
 		farmingManual.setHighlightInInventory(true);
 		ugthanki3 = new ItemRequirement("Ugthanki dung", ItemID.FEUD_CAMEL_POOH_BUCKET, 3);
 		ugthanki3.setHighlightInInventory(true);
@@ -230,7 +230,7 @@ public class MyArmsBigAdventure extends BasicQuestHelper
 		spade = new ItemRequirement("Spade", ItemID.SPADE).isNotConsumed();
 		superCompost = new ItemRequirement("Supercompost", ItemID.BUCKET_SUPERCOMPOST);
 		hardyGout = new ItemRequirement("Hardy gout tubers", ItemID.MYARM_HARDYTUBERS);
-		hardyGout.setTooltip("You can get more from Murcaily");
+		hardyGout.setTooltip(t("You can get more from Murcaily"));
 		combatGear = new ItemRequirement("Combat gear, preferably magic", -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
@@ -242,7 +242,7 @@ public class MyArmsBigAdventure extends BasicQuestHelper
 		superCompostHighlight = new ItemRequirement("Supercompost", ItemID.BUCKET_SUPERCOMPOST);
 		superCompostHighlight.setHighlightInInventory(true);
 		hardyGoutHighlight = new ItemRequirement("Hardy gout tubers", ItemID.MYARM_HARDYTUBERS);
-		hardyGoutHighlight.setTooltip("You can get more from Murcaily");
+		hardyGoutHighlight.setTooltip(t("You can get more from Murcaily"));
 		hardyGoutHighlight.setHighlightInInventory(true);
 		plantCureHighlight = new ItemRequirement("Plant cure", ItemID.PLANT_CURE);
 		plantCureHighlight.setHighlightInInventory(true);
@@ -298,111 +298,111 @@ public class MyArmsBigAdventure extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		enterStronghold = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_DOOR, new WorldPoint(2839, 3690, 0), "Enter the Troll Stronghold.");
+		enterStronghold = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_DOOR, new WorldPoint(2839, 3690, 0), t("Enter the Troll Stronghold."));
 
-		goDownToChef = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRSTOP, new WorldPoint(2844, 10052, 2), "Go down the south staircase.");
+		goDownToChef = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRSTOP, new WorldPoint(2844, 10052, 2), t("Go down the south staircase."));
 
-		goUpToChef = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRS, new WorldPoint(2853, 10107, 0), "Go up the stairs from the prison.");
+		goUpToChef = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRS, new WorldPoint(2853, 10107, 0), t("Go up the stairs from the prison."));
 
-		talkToBurntmeat = new NpcStep(this, NpcID.EADGAR_TROLL_CHIEF_COOK, new WorldPoint(2845, 10057, 1), "Talk to Burntmeat in the Troll Stronghold.");
+		talkToBurntmeat = new NpcStep(this, NpcID.EADGAR_TROLL_CHIEF_COOK, new WorldPoint(2845, 10057, 1), t("Talk to Burntmeat in the Troll Stronghold."));
 		talkToBurntmeat.addSubSteps(enterStronghold, goDownToChef, goUpToChef);
 		talkToBurntmeat.addDialogStep("What do you want now?");
-		talkToMyArm = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2855, 10053, 1), "Talk to My Arm near Burntmeat.");
+		talkToMyArm = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2855, 10053, 1), t("Talk to My Arm near Burntmeat."));
 		talkToMyArm.addDialogStep("Alright, I'll lend him a hand.");
 
 		useBucketOnPot = new ObjectStep(this, ObjectID.DEATH_TROLL_CAULDRON, new WorldPoint(2864, 3591, 0),
-			"Use a bucket on the cooking pot on the Death Plateau. You can find a bucket next to the pot.", bucketHighlight);
+			t("Use a bucket on the cooking pot on the Death Plateau. You can find a bucket next to the pot."), bucketHighlight);
 		useBucketOnPot.addIcon(ItemID.BUCKET_EMPTY);
 		useBucketOnPot.addTeleport(gamesNecklace);
 
-		enterStrongholdWithLump = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_DOOR, new WorldPoint(2839, 3690, 0), "Return to My Arm with the goutweedy lump.", goutLump);
+		enterStrongholdWithLump = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_DOOR, new WorldPoint(2839, 3690, 0), t("Return to My Arm with the goutweedy lump."), goutLump);
 
-		goDownToArmWithLump = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRSTOP, new WorldPoint(2844, 10052, 2), "Return to My Arm with the goutweedy lump.", goutLump);
+		goDownToArmWithLump = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRSTOP, new WorldPoint(2844, 10052, 2), t("Return to My Arm with the goutweedy lump."), goutLump);
 
-		goUpToArmWithLump = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRS, new WorldPoint(2853, 10107, 0), "Return to My Arm with the goutweedy lump.", goutLump);
+		goUpToArmWithLump = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRS, new WorldPoint(2853, 10107, 0), t("Return to My Arm with the goutweedy lump."), goutLump);
 
-		talkToArmWithLump = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2855, 10053, 1), "Return to My Arm with the goutweedy lump.", goutLump);
+		talkToArmWithLump = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2855, 10053, 1), t("Return to My Arm with the goutweedy lump."), goutLump);
 		talkToArmWithLump.addSubSteps(goUpToArmWithLump, goDownToArmWithLump, enterStrongholdWithLump);
 
-		enterStrongholdAfterLump = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_DOOR, new WorldPoint(2839, 3690, 0), "Return to My Arm.");
+		enterStrongholdAfterLump = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_DOOR, new WorldPoint(2839, 3690, 0), t("Return to My Arm."));
 
-		goDownAfterLump = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRSTOP, new WorldPoint(2844, 10052, 2), "Return to My Arm.");
+		goDownAfterLump = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRSTOP, new WorldPoint(2844, 10052, 2), t("Return to My Arm."));
 
-		goUpAfterLump = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRS, new WorldPoint(2853, 10107, 0), "Return to My Arm.");
+		goUpAfterLump = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRS, new WorldPoint(2853, 10107, 0), t("Return to My Arm."));
 
-		talkToArmAfterLump = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2855, 10053, 1), "Return to My Arm.");
+		talkToArmAfterLump = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2855, 10053, 1), t("Return to My Arm."));
 
 		talkToArmWithLump.addSubSteps(goUpToArmWithLump, goDownToArmWithLump, enterStrongholdWithLump, goUpAfterLump, goDownAfterLump, enterStrongholdAfterLump, talkToArmAfterLump);
 
-		goUpFromF1ToMyArm = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRS, new WorldPoint(2843, 10052, 1), "Go up to the roof of the Stronghold and talk to My Arm.");
-		goUpToMyArm = new ObjectStep(this, ObjectID.MYARM_LADDER, new WorldPoint(2831, 10077, 2), "Climb back up to My Arm.");
-		talkToMyArmUpstairs = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2835, 3694, 0), "Talk to My Arm on the roof of the Troll Stronghold.");
+		goUpFromF1ToMyArm = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRS, new WorldPoint(2843, 10052, 1), t("Go up to the roof of the Stronghold and talk to My Arm."));
+		goUpToMyArm = new ObjectStep(this, ObjectID.MYARM_LADDER, new WorldPoint(2831, 10077, 2), t("Climb back up to My Arm."));
+		talkToMyArmUpstairs = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2835, 3694, 0), t("Talk to My Arm on the roof of the Troll Stronghold."));
 		talkToMyArmUpstairs.addSubSteps(goUpFromF1ToMyArm, goUpToMyArm);
 
-		readBook = new DetailedQuestStep(this, "Read the farming manual.", farmingManual);
-		talkToMyArmAfterReading = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2835, 3694, 0), "Talk to My Arm on the roof of the Troll Stronghold.");
+		readBook = new DetailedQuestStep(this, t("Read the farming manual."), farmingManual);
+		talkToMyArmAfterReading = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2835, 3694, 0), t("Talk to My Arm on the roof of the Troll Stronghold."));
 		useUgthankiDung = new AddDung(this);
 		useCompost = new AddCompost(this);
 
-		talkToMyArmAfterFertilising = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2835, 3694, 0), "Talk to My Arm on the roof of the Troll Stronghold.");
+		talkToMyArmAfterFertilising = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2835, 3694, 0), t("Talk to My Arm on the roof of the Troll Stronghold."));
 
-		talkToBarnaby = new NpcStep(this, NpcID.MYARM_BARNABY_SHIP, new WorldPoint(2683, 3275, 0), "Talk to Captain Barnaby on Ardougne dock.");
+		talkToBarnaby = new NpcStep(this, NpcID.MYARM_BARNABY_SHIP, new WorldPoint(2683, 3275, 0), t("Talk to Captain Barnaby on Ardougne dock."));
 		talkToBarnaby.addDialogStep("This is My Arm. We'd like to go to Karamja.");
 
-		talkAfterBoat = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2772, 3223, 0), "Talk to My Arm on Brimhaven dock.");
+		talkAfterBoat = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2772, 3223, 0), t("Talk to My Arm on Brimhaven dock."));
 
-		talkToMyArmAtTai = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2781, 3123, 0), "Talk to My Arm east of the Tai Bwo Wannai general store.");
+		talkToMyArmAtTai = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2781, 3123, 0), t("Talk to My Arm east of the Tai Bwo Wannai general store."));
 
-		talkToMurcaily = new NpcStep(this, NpcID.TBWCU_MURCAILY, new WorldPoint(2815, 3083, 0), "Talk to Murcaily in east Tai Bwo Wannai.");
+		talkToMurcaily = new NpcStep(this, NpcID.TBWCU_MURCAILY, new WorldPoint(2815, 3083, 0), t("Talk to Murcaily in east Tai Bwo Wannai."));
 		talkToMurcaily.addDialogSteps("A troll called My Arm wants a favour...", "I was asking you about goutweed...", "I was asking you about hardy goutweed...");
-		talkToMyArmAfterMurcaily = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2781, 3123, 0), "Talk to My Arm again east of the Tai Bwo Wannai general store.");
+		talkToMyArmAfterMurcaily = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2781, 3123, 0), t("Talk to My Arm again east of the Tai Bwo Wannai general store."));
 
 		enterStrongholdForFight = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_DOOR, new WorldPoint(2839, 3690, 0),
-			"Return to My Arm on the roof. Be prepared to fight a baby and giant Roc.", combatGear, rake, superCompost, hardyGout, dibber, spade);
-		goUpToRoofForFight = new ObjectStep(this, ObjectID.MYARM_LADDER, new WorldPoint(2831, 10077, 2), "Climb back up to My Arm.");
-		goUpFromF1ForFight = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRS, new WorldPoint(2843, 10052, 1), "Go up to the roof of the Stronghold and talk to My Arm.");
-		goUpFromPrisonForFight = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRS, new WorldPoint(2853, 10107, 0), "Return to My Arm, ready to fight.");
-		talkToMyArmForFight = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2829, 3695, 0), "Talk to My Arm on the roof of the Troll Stronghold.");
+			t("Return to My Arm on the roof. Be prepared to fight a baby and giant Roc."), combatGear, rake, superCompost, hardyGout, dibber, spade);
+		goUpToRoofForFight = new ObjectStep(this, ObjectID.MYARM_LADDER, new WorldPoint(2831, 10077, 2), t("Climb back up to My Arm."));
+		goUpFromF1ForFight = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRS, new WorldPoint(2843, 10052, 1), t("Go up to the roof of the Stronghold and talk to My Arm."));
+		goUpFromPrisonForFight = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRS, new WorldPoint(2853, 10107, 0), t("Return to My Arm, ready to fight."));
+		talkToMyArmForFight = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2829, 3695, 0), t("Talk to My Arm on the roof of the Troll Stronghold."));
 		talkToMyArmForFight.addSubSteps(enterStrongholdForFight, goUpToRoofForFight, goUpFromF1ForFight, goUpFromPrisonForFight);
 
-		giveRake = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2829, 3695, 0), "Give My Arm a rake.", rakeHighlight);
+		giveRake = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2829, 3695, 0), t("Give My Arm a rake."), rakeHighlight);
 		giveRake.addIcon(ItemID.RAKE);
-		pickUpRakeHead = new ItemStep(this, "Pick up the rake head and repair the rake.", rakeHead);
-		repairRake = new DetailedQuestStep(this, "Repair the rake.", rakeHead, rakeHandle);
+		pickUpRakeHead = new ItemStep(this, t("Pick up the rake head and repair the rake."), rakeHead);
+		repairRake = new DetailedQuestStep(this, t("Repair the rake."), rakeHead, rakeHandle);
 		giveRake.addSubSteps(pickUpRakeHead, repairRake);
-		giveSupercompost = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2829, 3695, 0), "Give My Arm some supercompost.", superCompostHighlight);
+		giveSupercompost = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2829, 3695, 0), t("Give My Arm some supercompost."), superCompostHighlight);
 		giveSupercompost.addIcon(ItemID.BUCKET_SUPERCOMPOST);
-		giveHardyGout = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2829, 3695, 0), "Give My Arm some hardy gout tubers.", hardyGoutHighlight);
+		giveHardyGout = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2829, 3695, 0), t("Give My Arm some hardy gout tubers."), hardyGoutHighlight);
 		giveHardyGout.addIcon(ItemID.MYARM_HARDYTUBERS);
-		giveDibber = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2829, 3695, 0), "Give My Arm a seed dibber.", dibberHighlight);
+		giveDibber = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2829, 3695, 0), t("Give My Arm a seed dibber."), dibberHighlight);
 		giveDibber.addIcon(ItemID.DIBBER);
-		giveCure = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2829, 3695, 0), "Give My Arm some plant cure.", plantCureHighlight);
+		giveCure = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2829, 3695, 0), t("Give My Arm some plant cure."), plantCureHighlight);
 		giveCure.addIcon(ItemID.PLANT_CURE);
 
 		talkToMyArmAfterGrow = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2829, 3695, 0),
-			"Talk to My Arm. Be prepared to fight a baby and giant Roc.");
-		killBabyRoc = new NpcStep(this, NpcID.MYARM_BABY_ROC, "Kill the Baby Roc.");
+			t("Talk to My Arm. Be prepared to fight a baby and giant Roc."));
+		killBabyRoc = new NpcStep(this, NpcID.MYARM_BABY_ROC, t("Kill the Baby Roc."));
 		talkToMyArmAfterBaby = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2829, 3695, 0),
-			"Talk to My Arm. Be prepared to fight the Giant Roc.", combatGear, spade);
+			t("Talk to My Arm. Be prepared to fight the Giant Roc."), combatGear, spade);
 
-		killGiantRoc = new NpcStep(this, NpcID.MYARM_GIANT_ROC, "Kill the Giant Roc. Use protect from missiles, and keep your distance. You can dodge the boulders it throws.");
-		talkToMyArmAfterHarvest = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2829, 3695, 0), "Talk to My Arm.");
-		giveSpade = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2829, 3695, 0), "Give My Arm a spade.", spadeHighlight);
+		killGiantRoc = new NpcStep(this, NpcID.MYARM_GIANT_ROC, t("Kill the Giant Roc. Use protect from missiles, and keep your distance. You can dodge the boulders it throws."));
+		talkToMyArmAfterHarvest = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2829, 3695, 0), t("Talk to My Arm."));
+		giveSpade = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2829, 3695, 0), t("Give My Arm a spade."), spadeHighlight);
 		giveSpade.addIcon(ItemID.SPADE);
-		goDownFromMyArmToBurntmeat = new ObjectStep(this, ObjectID.MYARM_EXIT, new WorldPoint(2831, 3677, 0), "Go talk to Burntmeat.");
+		goDownFromMyArmToBurntmeat = new ObjectStep(this, ObjectID.MYARM_EXIT, new WorldPoint(2831, 3677, 0), t("Go talk to Burntmeat."));
 
-		goDownToBurntmeat = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRSTOP, new WorldPoint(2844, 10052, 2), "Go talk to Burntmeat.");
+		goDownToBurntmeat = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRSTOP, new WorldPoint(2844, 10052, 2), t("Go talk to Burntmeat."));
 
 		talkToBurntmeatAgain = new NpcStep(this, NpcID.EADGAR_TROLL_CHIEF_COOK, new WorldPoint(2845, 10057, 1),
-			"Talk to Burntmeat in the Troll Stronghold.");
+			t("Talk to Burntmeat in the Troll Stronghold."));
 		talkToBurntmeatAgain.addSubSteps(goDownFromMyArmToBurntmeat, goDownToBurntmeat);
 
 		enterStrongholdFinish = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_DOOR, new WorldPoint(2839, 3690, 0),
-			"Talk to My Arm to finish the quest.");
-		goUpToMyArmFinish = new ObjectStep(this, ObjectID.MYARM_LADDER, new WorldPoint(2831, 10077, 2), "Climb back up to My Arm.");
-		goUpFromBurntmeatFinish = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRS, new WorldPoint(2843, 10052, 1), "Go up to the roof of the Stronghold and talk to My Arm.");
+			t("Talk to My Arm to finish the quest."));
+		goUpToMyArmFinish = new ObjectStep(this, ObjectID.MYARM_LADDER, new WorldPoint(2831, 10077, 2), t("Climb back up to My Arm."));
+		goUpFromBurntmeatFinish = new ObjectStep(this, ObjectID.TROLL_STRONGHOLD_STAIRS, new WorldPoint(2843, 10052, 1), t("Go up to the roof of the Stronghold and talk to My Arm."));
 
-		talkToMyArmFinish = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2829, 3695, 0), "Talk to My Arm to finish the quest.");
+		talkToMyArmFinish = new NpcStep(this, NpcID.MYARM_FIXED, new WorldPoint(2829, 3695, 0), t("Talk to My Arm to finish the quest."));
 		talkToMyArmFinish.addSubSteps(goUpToMyArmFinish, goUpFromBurntmeatFinish, enterStrongholdFinish);
 
 	}
@@ -423,8 +423,8 @@ public class MyArmsBigAdventure extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		ArrayList<String> reqs = new ArrayList<>();
-		reqs.add("Baby Roc (level 75)");
-		reqs.add("Giant Roc (level 172)");
+		reqs.add(t("Baby Roc (level 75)"));
+		reqs.add(t("Giant Roc (level 172)"));
 		return reqs;
 	}
 
@@ -459,22 +459,22 @@ public class MyArmsBigAdventure extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("Access to a disease-free herb patch on top of the Troll Stronghold."));
+		return Collections.singletonList(new UnlockReward(t("Access to a disease-free herb patch on top of the Troll Stronghold.")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off", Arrays.asList(talkToBurntmeat, talkToMyArm),
+		allSteps.add(new PanelDetails(t("Starting off"), Arrays.asList(talkToBurntmeat, talkToMyArm),
 			Collections.singletonList(climbingBoots),
 			Collections.singletonList(gamesNecklace)));
-		allSteps.add(new PanelDetails("Preparing to grow", Arrays.asList(useBucketOnPot, talkToArmWithLump,
+		allSteps.add(new PanelDetails(t("Preparing to grow"), Arrays.asList(useBucketOnPot, talkToArmWithLump,
 			talkToMyArmUpstairs, readBook, talkToMyArmAfterReading, useUgthankiDung, useCompost, talkToMyArmAfterFertilising),
 			Arrays.asList(climbingBoots, bucket, spade, supercompost7, ugthanki3),
 			Collections.singletonList(gamesNecklace)));
-		allSteps.add(new PanelDetails("Karamja adventure", Arrays.asList(talkToBarnaby, talkAfterBoat, talkToMyArmAtTai, talkToMurcaily, talkToMyArmAfterMurcaily)));
-		allSteps.add(new PanelDetails("Troll farming", Arrays.asList(talkToMyArmForFight, giveRake, giveSupercompost, giveHardyGout,
+		allSteps.add(new PanelDetails(t("Karamja adventure"), Arrays.asList(talkToBarnaby, talkAfterBoat, talkToMyArmAtTai, talkToMurcaily, talkToMyArmAfterMurcaily)));
+		allSteps.add(new PanelDetails(t("Troll farming"), Arrays.asList(talkToMyArmForFight, giveRake, giveSupercompost, giveHardyGout,
 			giveDibber, talkToMyArmAfterGrow, killBabyRoc, killGiantRoc, giveSpade, talkToMyArmAfterHarvest, talkToBurntmeatAgain,
 			talkToMyArmFinish), combatGear, rake, superCompost, dibber, spade, hardyGout));
 		return allSteps;

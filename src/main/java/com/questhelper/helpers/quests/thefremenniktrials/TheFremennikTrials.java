@@ -251,7 +251,7 @@ public class TheFremennikTrials extends BasicQuestHelper
 		peerTask.setLockingCondition(finishedPeerTask);
 
 		QuestSyncStep resyncStep = new QuestSyncStep(this, getQuest(),
-			"Please open the quest's Quest Journal to sync your state.");
+			t("Please open the quest's Quest Journal to sync your state."));
 		ConditionalStep resyncCondition = new ConditionalStep(this, resyncStep);
 		resyncCondition.setLockingCondition(syncedAll);
 
@@ -300,7 +300,7 @@ public class TheFremennikTrials extends BasicQuestHelper
 		lyreUnstrung = new ItemRequirement("Unstrung lyre", ItemID.VIKING_UNSTRUNG_LYRE);
 		lyre = new ItemRequirement("Lyre", ItemID.VIKING_STRUNG_LYRE);
 		petRock = new ItemRequirement("Pet rock", ItemID.VT_USELESS_ROCK).isNotConsumed();
-		petRock.setTooltip("You can get another from Askeladden");
+		petRock.setTooltip(t("You can get another from Askeladden"));
 
 		emptySlot4 = new ItemRequirement("Empty inventory slots for vegetables and a pet rock", -1, 4);
 
@@ -656,7 +656,7 @@ public class TheFremennikTrials extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToBrundt = new NpcStep(this, NpcID.VIKING_BRUNDT_CHILD, new WorldPoint(2658, 3669, 0), "Talk to Brundt in Rellekka's longhall.");
+		talkToBrundt = new NpcStep(this, NpcID.VIKING_BRUNDT_CHILD, new WorldPoint(2658, 3669, 0), t("Talk to Brundt in Rellekka's longhall."));
 		talkToBrundt.addDialogStep("Ask about anything else.");
 		talkToBrundt.addDialogStep("Do you have any quests?");
 		talkToBrundt.addDialogStep("Yes, I am interested.");
@@ -664,291 +664,291 @@ public class TheFremennikTrials extends BasicQuestHelper
 
 		/* Olaf Task */
 		talkToOlaf = new NpcStep(this, NpcID.VIKING_OLAF, new WorldPoint(2673, 3683, 0),
-			"Talk to Olaf the Bard north east of the longhall.");
+			t("Talk to Olaf the Bard north east of the longhall."));
 		talkToOlaf.addDialogStep("Ask about becoming a Fremennik");
 		talkToOlaf.addDialogStep("Yes");
-		chopSwayingTree = new ObjectStep(this, ObjectID.VIKING_MUSICAL_TREE, new WorldPoint(2739, 3639, 0), "Go south east of Rellekka and cut a branch from the swaying tree", axe, knife);
-		fletchLyre = new DetailedQuestStep(this, "Use a knife on the branch to make an unstrung lyre", knife.highlighted(), branch.highlighted());
-		talkToLalli = new NpcStep(this, NpcID.VIKING_LALLI_TROLL, new WorldPoint(2771, 3621, 0), "Talk to Lalli to the south east of Rellekka.");
+		chopSwayingTree = new ObjectStep(this, ObjectID.VIKING_MUSICAL_TREE, new WorldPoint(2739, 3639, 0), t("Go south east of Rellekka and cut a branch from the swaying tree"), axe, knife);
+		fletchLyre = new DetailedQuestStep(this, t("Use a knife on the branch to make an unstrung lyre"), knife.highlighted(), branch.highlighted());
+		talkToLalli = new NpcStep(this, NpcID.VIKING_LALLI_TROLL, new WorldPoint(2771, 3621, 0), t("Talk to Lalli to the south east of Rellekka."));
 		talkToLalli.addDialogStep("Other human?");
-		talkToAskeladdenForRock = new NpcStep(this, NpcID.VIKING_ASKELLADEN_NOROCKOP, new WorldPoint(2658, 3660, 0), "Return to Rellekka and talk to Askeladden for a pet rock.");
+		talkToAskeladdenForRock = new NpcStep(this, NpcID.VIKING_ASKELLADEN_NOROCKOP, new WorldPoint(2658, 3660, 0), t("Return to Rellekka and talk to Askeladden for a pet rock."));
 		talkToAskeladdenForRock.addDialogStep("Ask about becoming a Fremennik");
-		pickVeg = new DetailedQuestStep(this, new WorldPoint(2677, 3652, 0), "Pick a potato, cabbage and onion from the field in south east Rellekka.", cabbage, onion, potato);
+		pickVeg = new DetailedQuestStep(this, new WorldPoint(2677, 3652, 0), t("Pick a potato, cabbage and onion from the field in south east Rellekka."), cabbage, onion, potato);
 
 		useOnion = new ObjectStep(this, ObjectID.VIKING_TROLL_CAULDRON, new WorldPoint(2773, 3624, 0),
-			"Return to Lalli and use a onion, cabbage, potato, and pet rock on their stew. " +
-				"You can find the vegetables growing in the south east of Rellekka.",
+			t("Return to Lalli and use a onion, cabbage, potato, and pet rock on their stew. " +
+				"You can find the vegetables growing in the south east of Rellekka."),
 			petRock.hideConditioned(petRockInCauldron), cabbage.hideConditioned(cabbageInCauldron),
 			potato.hideConditioned(potatoInCauldron), onion);
 		useOnion.addIcon(ItemID.ONION);
 		useCabbage = new ObjectStep(this, ObjectID.VIKING_TROLL_CAULDRON, new WorldPoint(2773, 3624, 0),
-			"Use a cabbage on the stew.", petRock.hideConditioned(petRockInCauldron),
+			t("Use a cabbage on the stew."), petRock.hideConditioned(petRockInCauldron),
 			cabbage, potato.hideConditioned(potatoInCauldron));
 		useCabbage.addIcon(ItemID.CABBAGE);
 		usePotato = new ObjectStep(this, ObjectID.VIKING_TROLL_CAULDRON, new WorldPoint(2773, 3624, 0),
-			"Use a potato on the stew.", petRock.hideConditioned(petRockInCauldron),
+			t("Use a potato on the stew."), petRock.hideConditioned(petRockInCauldron),
 			potato);
 		usePotato.addIcon(ItemID.POTATO);
 		useRock = new ObjectStep(this, ObjectID.VIKING_TROLL_CAULDRON, new WorldPoint(2773, 3624, 0),
-			"Use your pet rock on the stew.", petRock);
+			t("Use your pet rock on the stew."), petRock);
 		useRock.addIcon(ItemID.VT_USELESS_ROCK);
 		useOnion.addSubSteps(useCabbage, usePotato, useRock);
-		talkToLaliAfterStew = new NpcStep(this, NpcID.VIKING_LALLI_TROLL, new WorldPoint(2771, 3621, 0), "Talk to Lalli for golden wool.");
-		spinWool = new DetailedQuestStep(this, "Spin the golden fleece into wool using a spinning wheel. The closest wheel is in Seers' Village.", goldenFleece);
-		makeLyre = new DetailedQuestStep(this, "Use the golden wool on your unstrung lyre.", lyreUnstrung.highlighted(), goldenWool.highlighted());
-		enchantLyre = new ObjectStep(this, ObjectID.VIKING_LAKE_SHRINE_ALTAR, new WorldPoint(2626, 3598, 0), "Bring your lyre to the Strange Altar south west of Rellekka, and use either a raw shark, raw sea turtle or raw manta ray on it.", lyre, rawShark);
+		talkToLaliAfterStew = new NpcStep(this, NpcID.VIKING_LALLI_TROLL, new WorldPoint(2771, 3621, 0), t("Talk to Lalli for golden wool."));
+		spinWool = new DetailedQuestStep(this, t("Spin the golden fleece into wool using a spinning wheel. The closest wheel is in Seers' Village."), goldenFleece);
+		makeLyre = new DetailedQuestStep(this, t("Use the golden wool on your unstrung lyre."), lyreUnstrung.highlighted(), goldenWool.highlighted());
+		enchantLyre = new ObjectStep(this, ObjectID.VIKING_LAKE_SHRINE_ALTAR, new WorldPoint(2626, 3598, 0), t("Bring your lyre to the Strange Altar south west of Rellekka, and use either a raw shark, raw sea turtle or raw manta ray on it."), lyre, rawShark);
 		enchantLyre.addIcon(ItemID.RAW_SHARK);
-		performMusic = new DetailedQuestStep(this, new WorldPoint(2658, 3683, 0), "Return to Rellekka and enter the longhall's stage to perform. Once on stage, play the enchanted lyre.", enchantedLyre.highlighted());
+		performMusic = new DetailedQuestStep(this, new WorldPoint(2658, 3683, 0), t("Return to Rellekka and enter the longhall's stage to perform. Once on stage, play the enchanted lyre."), enchantedLyre.highlighted());
 
 		/* Manni Task */
-		talkToManni = new NpcStep(this, NpcID.VIKING_REVELLER_3, new WorldPoint(2658, 3675, 0), "Talk to Manni the Reveller in the Rellekka longhall.");
+		talkToManni = new NpcStep(this, NpcID.VIKING_REVELLER_3, new WorldPoint(2658, 3675, 0), t("Talk to Manni the Reveller in the Rellekka longhall."));
 		talkToManni.addDialogSteps("Ask about becoming a Fremennik", "Yes");
 		pickUpBeer = new DetailedQuestStep(this, new WorldPoint(2658, 3676, 0),
-			"Get some beer. There is beer tankard in the Rellekka longhall.", beer);
-		getStrangeObject = new NpcStep(this, NpcID.VT_COUNCIL_WORKMEN, new WorldPoint(2654, 3593, 0), "Give the Council workman on the bridge south of Rellekka going to Seer's Village a beer.", beer);
+			t("Get some beer. There is beer tankard in the Rellekka longhall."), beer);
+		getStrangeObject = new NpcStep(this, NpcID.VT_COUNCIL_WORKMEN, new WorldPoint(2654, 3593, 0), t("Give the Council workman on the bridge south of Rellekka going to Seer's Village a beer."), beer);
 		getStrangeObject.addIcon(ItemID.VIKING_TANKARD_FULL);
 		getStrangeObject.addDialogSteps("Yes");
-		getAlcoholFreeBeer = new NpcStep(this, NpcID.POISON_SALESMAN, new WorldPoint(2695, 3491, 0), "Buy some alcohol free beer from the Poison Salesman in the Seer's Village pub.", coins250);
+		getAlcoholFreeBeer = new NpcStep(this, NpcID.POISON_SALESMAN, new WorldPoint(2695, 3491, 0), t("Buy some alcohol free beer from the Poison Salesman in the Seer's Village pub."), coins250);
 		getAlcoholFreeBeer.addDialogStep("Talk about the Fremennik Trials");
 		getAlcoholFreeBeer.addDialogStep("Yes");
 
-		prepareToUseStrangeObject = new DetailedQuestStep(this, new WorldPoint(2664, 3674, 0), "Return to Rellekka with the strange object, a tinderbox, and low alcohol beer.", strangeObject, tinderbox, alcoholFreeBeer);
-		useStrangeObject = new ObjectStep(this, ObjectID.VIKING_PIPE_END_LONGHALL, new WorldPoint(2663, 3674, 0), "Use a tinderbox on the strange object then use it on the nearby pipe.", strangeObject, tinderbox);
+		prepareToUseStrangeObject = new DetailedQuestStep(this, new WorldPoint(2664, 3674, 0), t("Return to Rellekka with the strange object, a tinderbox, and low alcohol beer."), strangeObject, tinderbox, alcoholFreeBeer);
+		useStrangeObject = new ObjectStep(this, ObjectID.VIKING_PIPE_END_LONGHALL, new WorldPoint(2663, 3674, 0), t("Use a tinderbox on the strange object then use it on the nearby pipe."), strangeObject, tinderbox);
 		useStrangeObjectOnPipe = new ObjectStep(this, ObjectID.VIKING_PIPE_END_LONGHALL, new WorldPoint(2663, 3674, 0),
-			"Use the lit strange object on the nearby pipe!", litStrangeObject.highlighted());
+			t("Use the lit strange object on the nearby pipe!"), litStrangeObject.highlighted());
 		useStrangeObjectOnPipe.addIcon(ItemID.VIKING_FIRECRACKER_LIT);
 		useStrangeObject.addSubSteps(useStrangeObjectOnPipe);
-		getKegOfBeer = new DetailedQuestStep(this, new WorldPoint(2660, 3676, 0), "Pick up a keg of beer in the longhall.", kegOfBeer);
-		useAlcoholFreeOnKeg = new DetailedQuestStep(this, new WorldPoint(2658, 3673, 0), "Use the low alcohol beer on the keg of beer whilst in the longhall.", alcoholFreeBeer.highlighted(), kegOfBeer.highlighted());
+		getKegOfBeer = new DetailedQuestStep(this, new WorldPoint(2660, 3676, 0), t("Pick up a keg of beer in the longhall."), kegOfBeer);
+		useAlcoholFreeOnKeg = new DetailedQuestStep(this, new WorldPoint(2658, 3673, 0), t("Use the low alcohol beer on the keg of beer whilst in the longhall."), alcoholFreeBeer.highlighted(), kegOfBeer.highlighted());
 
-		cheatInBeerDrinking = new NpcStep(this, NpcID.VIKING_REVELLER_3, new WorldPoint(2658, 3675, 0), "Talk to Manni the Reveller to cheat in the competition.", kegOfBeer);
+		cheatInBeerDrinking = new NpcStep(this, NpcID.VIKING_REVELLER_3, new WorldPoint(2658, 3675, 0), t("Talk to Manni the Reveller to cheat in the competition."), kegOfBeer);
 		cheatInBeerDrinking.addDialogStep("Ask about becoming a Fremennik");
 		cheatInBeerDrinking.addDialogStep("Yes");
 
-		talkToSigli = new NpcStep(this, NpcID.VIKING_SIGLI, new WorldPoint(2658, 3650, 0), "Talk to Sigli south of the longhall for a hunters' talisman.");
+		talkToSigli = new NpcStep(this, NpcID.VIKING_SIGLI, new WorldPoint(2658, 3650, 0), t("Talk to Sigli south of the longhall for a hunters' talisman."));
 		talkToSigli.addDialogSteps("Ask about becoming a Fremennik", "What's a Draugen?", "Yes");
 
-		huntDraugen = new NpcStep(this, NpcID.VIKING_DRAUGEN_SAFE, "Use the hunter's talisman to hunt down the Draugen. It'll appear near one of the butterflies in the area.", true);
+		huntDraugen = new NpcStep(this, NpcID.VIKING_DRAUGEN_SAFE, t("Use the hunter's talisman to hunt down the Draugen. It'll appear near one of the butterflies in the area."), true);
 
-		returnToSigli = new NpcStep(this, NpcID.VIKING_SIGLI, new WorldPoint(2658, 3650, 0), "Return the charged hunters' talisman to Sigli.", chargedHuntersTalisman);
+		returnToSigli = new NpcStep(this, NpcID.VIKING_SIGLI, new WorldPoint(2658, 3650, 0), t("Return the charged hunters' talisman to Sigli."), chargedHuntersTalisman);
 
 		/* Sigmund Task */
-		talkToSigmund = new NpcStep(this, NpcID.VIKING_SIGMUND, new WorldPoint(2642, 3680, 0), "Talk to Sigmund the Merchant in the Rellekka market.");
+		talkToSigmund = new NpcStep(this, NpcID.VIKING_SIGMUND, new WorldPoint(2642, 3680, 0), t("Talk to Sigmund the Merchant in the Rellekka market."));
 		talkToSigmund.addDialogStep("Yes");
 
-		talkToSailor = new NpcStep(this, NpcID.VIKING_SAILOR, new WorldPoint(2629, 3693, 0), "Talk to the Sailor on the docks.");
+		talkToSailor = new NpcStep(this, NpcID.VIKING_SAILOR, new WorldPoint(2629, 3693, 0), t("Talk to the Sailor on the docks."));
 		talkToSailor.addDialogStep("Ask about the Merchant's trial");
-		talkToOlafForSigmund = new NpcStep(this, NpcID.VIKING_OLAF, new WorldPoint(2673, 3683, 0), "Talk to Olaf the Bard east of the longhall.");
+		talkToOlafForSigmund = new NpcStep(this, NpcID.VIKING_OLAF, new WorldPoint(2673, 3683, 0), t("Talk to Olaf the Bard east of the longhall."));
 		talkToOlafForSigmund.addDialogStep("Ask about the Merchant's trial");
-		talkToYsra = new NpcStep(this, NpcID.VIKING_CLOTHING_SHOPKEEPER, new WorldPoint(2624, 3675, 0), "Talk to Ysra in her shop west of the market.");
+		talkToYsra = new NpcStep(this, NpcID.VIKING_CLOTHING_SHOPKEEPER, new WorldPoint(2624, 3675, 0), t("Talk to Ysra in her shop west of the market."));
 		talkToYsra.addDialogStep("Ask about the Merchant's trial");
-		talkToBrundtForSigmund = new NpcStep(this, NpcID.VIKING_BRUNDT_CHILD, new WorldPoint(2658, 3669, 0), "Talk to Brundt in the longhall.");
+		talkToBrundtForSigmund = new NpcStep(this, NpcID.VIKING_BRUNDT_CHILD, new WorldPoint(2658, 3669, 0), t("Talk to Brundt in the longhall."));
 		talkToBrundtForSigmund.addDialogStep("Ask about the Merchant's trial");
 		talkToBrundtForSigmund.addDialogStep("Ask about anything else.");
-		talkToSigliForSigmund = new NpcStep(this, NpcID.VIKING_SIGLI, new WorldPoint(2658, 3650, 0), "Talk to Sigli south of the longhall.");
+		talkToSigliForSigmund = new NpcStep(this, NpcID.VIKING_SIGLI, new WorldPoint(2658, 3650, 0), t("Talk to Sigli south of the longhall."));
 		talkToSigliForSigmund.addDialogStep("Ask about the Merchant's trial");
-		talkToSkulgrimenForSigmund = new NpcStep(this, NpcID.VIKING_WEAPONS_SALESMAN, new WorldPoint(2663, 3692, 0), "Talk to Skulgrimen north of the longhall.");
+		talkToSkulgrimenForSigmund = new NpcStep(this, NpcID.VIKING_WEAPONS_SALESMAN, new WorldPoint(2663, 3692, 0), t("Talk to Skulgrimen north of the longhall."));
 		talkToSkulgrimenForSigmund.addDialogStep("Ask about the Merchant's trial");
-		talkToFishermanForSigmund = new NpcStep(this, NpcID.VIKING_FISHERMAN1, new WorldPoint(2641, 3699, 0), "Talk to the Fisherman on the pier north of the market.");
+		talkToFishermanForSigmund = new NpcStep(this, NpcID.VIKING_FISHERMAN1, new WorldPoint(2641, 3699, 0), t("Talk to the Fisherman on the pier north of the market."));
 		talkToFishermanForSigmund.addDialogStep("Ask about the Merchant's trial");
-		talkToSwenesenForSigmund = new NpcStep(this, NpcID.VIKING_HALLIFRED, new WorldPoint(2646, 3660, 0), "Talk to Swensen the Navigator in his hut south west of the longhall.");
+		talkToSwenesenForSigmund = new NpcStep(this, NpcID.VIKING_HALLIFRED, new WorldPoint(2646, 3660, 0), t("Talk to Swensen the Navigator in his hut south west of the longhall."));
 		talkToSwenesenForSigmund.addDialogStep("Ask about the Merchant's trial");
-		talkToPeerForSigmund = new NpcStep(this, NpcID.VIKING_PEER, new WorldPoint(2633, 3667, 0), "Talk to Peer the Seer south west of the market.");
+		talkToPeerForSigmund = new NpcStep(this, NpcID.VIKING_PEER, new WorldPoint(2633, 3667, 0), t("Talk to Peer the Seer south west of the market."));
 		talkToPeerForSigmund.addDialogStep("Ask about the Merchant's trial");
-		talkToThorvaldForSigmund = new NpcStep(this, NpcID.VIKING_THORVALD, new WorldPoint(2666, 3693, 0), "Talk to Thorvald north of the longhall.");
+		talkToThorvaldForSigmund = new NpcStep(this, NpcID.VIKING_THORVALD, new WorldPoint(2666, 3693, 0), t("Talk to Thorvald north of the longhall."));
 		talkToThorvaldForSigmund.addDialogStep("Ask about the Merchant's trial");
-		talkToManniForSigmund = new NpcStep(this, NpcID.VIKING_REVELLER_3, new WorldPoint(2658, 3675, 0), "Talk to Manni the Reveller in the longhall.");
+		talkToManniForSigmund = new NpcStep(this, NpcID.VIKING_REVELLER_3, new WorldPoint(2658, 3675, 0), t("Talk to Manni the Reveller in the longhall."));
 		talkToManniForSigmund.addDialogStep("Ask about the Merchant's trial");
-		talkToThoraForSigmund = new NpcStep(this, NpcID.VIKING_LONGHALL_BARKEEP, new WorldPoint(2662, 3673, 0), "Talk to Thora the Barkeep in the longhall.");
+		talkToThoraForSigmund = new NpcStep(this, NpcID.VIKING_LONGHALL_BARKEEP, new WorldPoint(2662, 3673, 0), t("Talk to Thora the Barkeep in the longhall."));
 		talkToThoraForSigmund.addDialogStep("Ask about the Merchant's trial");
-		talkToAskeladdenForSigmund2 = new NpcStep(this, NpcID.VIKING_ASKELLADEN_NOROCKOP, new WorldPoint(2659, 3660, 0), "Talk to Askeladden south of the longhall.");
+		talkToAskeladdenForSigmund2 = new NpcStep(this, NpcID.VIKING_ASKELLADEN_NOROCKOP, new WorldPoint(2659, 3660, 0), t("Talk to Askeladden south of the longhall."));
 		talkToAskeladdenForSigmund2.addDialogStep("Ask about the Merchant's trial");
 		talkToAskeladdenForSigmund2.addDialogStep("Yes");
 
-		talkToAskeladdenForSigmund = new NpcStep(this, NpcID.VIKING_ASKELLADEN_ROCKOP, new WorldPoint(2659, 3660, 0), "Talk to Askeladden south of the longhall.");
+		talkToAskeladdenForSigmund = new NpcStep(this, NpcID.VIKING_ASKELLADEN_ROCKOP, new WorldPoint(2659, 3660, 0), t("Talk to Askeladden south of the longhall."));
 		talkToAskeladdenForSigmund.addDialogStep("Ask about the Merchant's trial");
 		talkToAskeladdenForSigmund.addDialogStep("Yes");
 		talkToAskeladdenForSigmund.addSubSteps(talkToAskeladdenForSigmund2);
 
-		bringNoteToThora = new NpcStep(this, NpcID.VIKING_LONGHALL_BARKEEP, new WorldPoint(2662, 3673, 0), "Bring the promissory note to Thora the Barkeep in the longhall.", promissoryNote);
+		bringNoteToThora = new NpcStep(this, NpcID.VIKING_LONGHALL_BARKEEP, new WorldPoint(2662, 3673, 0), t("Bring the promissory note to Thora the Barkeep in the longhall."), promissoryNote);
 		bringNoteToThora.addDialogStep("Ask about the Merchant's trial");
-		bringCocktailToManni = new NpcStep(this, NpcID.VIKING_REVELLER_3, new WorldPoint(2658, 3675, 0), "Bring the cocktail to Manni the Reveller in the longhall.", legendaryCocktail);
+		bringCocktailToManni = new NpcStep(this, NpcID.VIKING_REVELLER_3, new WorldPoint(2658, 3675, 0), t("Bring the cocktail to Manni the Reveller in the longhall."), legendaryCocktail);
 		bringCocktailToManni.addDialogStep("Ask about the Merchant's trial");
-		bringChampionsTokenToThorvald = new NpcStep(this, NpcID.VIKING_THORVALD, new WorldPoint(2666, 3693, 0), "Bring the champions token to Thorvald north of the longhall.", championsToken);
+		bringChampionsTokenToThorvald = new NpcStep(this, NpcID.VIKING_THORVALD, new WorldPoint(2666, 3693, 0), t("Bring the champions token to Thorvald north of the longhall."), championsToken);
 		bringChampionsTokenToThorvald.addDialogStep("Ask about the Merchant's trial");
-		bringWarriorsContractToPeer = new NpcStep(this, NpcID.VIKING_PEER, new WorldPoint(2633, 3667, 0), "Bring the warriors' contract to Peer the Seer south west of the market.", warriorsContract);
+		bringWarriorsContractToPeer = new NpcStep(this, NpcID.VIKING_PEER, new WorldPoint(2633, 3667, 0), t("Bring the warriors' contract to Peer the Seer south west of the market."), warriorsContract);
 		bringWarriorsContractToPeer.addDialogStep("Ask about the Merchant's trial");
-		bringWeatherForecastToSwensen = new NpcStep(this, NpcID.VIKING_HALLIFRED, new WorldPoint(2646, 3660, 0), "Bring the weather forecast to Swensen the Navigator in his hut south west of the longhall.", weatherForecast);
+		bringWeatherForecastToSwensen = new NpcStep(this, NpcID.VIKING_HALLIFRED, new WorldPoint(2646, 3660, 0), t("Bring the weather forecast to Swensen the Navigator in his hut south west of the longhall."), weatherForecast);
 		bringWeatherForecastToSwensen.addDialogStep("Ask about the Merchant's trial");
-		bringSeaFishingMapToFisherman = new NpcStep(this, NpcID.VIKING_FISHERMAN1, new WorldPoint(2641, 3699, 0), "Bring the sea fishing map to the Fisherman on the pier north of the market.", seaFishingMap);
+		bringSeaFishingMapToFisherman = new NpcStep(this, NpcID.VIKING_FISHERMAN1, new WorldPoint(2641, 3699, 0), t("Bring the sea fishing map to the Fisherman on the pier north of the market."), seaFishingMap);
 		bringSeaFishingMapToFisherman.addDialogStep("Ask about the Merchant's trial");
-		bringUnusualFishToSkulgrimen = new NpcStep(this, NpcID.VIKING_WEAPONS_SALESMAN, new WorldPoint(2663, 3692, 0), "Bring the unusual fish to Skulgrimen north of the longhall.", unusualFish);
+		bringUnusualFishToSkulgrimen = new NpcStep(this, NpcID.VIKING_WEAPONS_SALESMAN, new WorldPoint(2663, 3692, 0), t("Bring the unusual fish to Skulgrimen north of the longhall."), unusualFish);
 		bringUnusualFishToSkulgrimen.addDialogStep("Ask about the Merchant's trial");
-		bringCustomBowStringToSigli = new NpcStep(this, NpcID.VIKING_SIGLI, new WorldPoint(2658, 3650, 0), "Bring the custom bow string to Sigli south of the longhall.", customBowString);
+		bringCustomBowStringToSigli = new NpcStep(this, NpcID.VIKING_SIGLI, new WorldPoint(2658, 3650, 0), t("Bring the custom bow string to Sigli south of the longhall."), customBowString);
 		bringCustomBowStringToSigli.addDialogStep("Ask about the Merchant's trial");
-		bringTrackingMapToBrundt = new NpcStep(this, NpcID.VIKING_BRUNDT_CHILD, new WorldPoint(2658, 3669, 0), "Bring the tracking map to Brundt in the longhall.", trackingMap);
+		bringTrackingMapToBrundt = new NpcStep(this, NpcID.VIKING_BRUNDT_CHILD, new WorldPoint(2658, 3669, 0), t("Bring the tracking map to Brundt in the longhall."), trackingMap);
 		bringTrackingMapToBrundt.addDialogStep("Ask about the Merchant's trial");
 		bringTrackingMapToBrundt.addDialogStep("Ask about anything else.");
-		bringFiscalStatementToYsra = new NpcStep(this, NpcID.VIKING_CLOTHING_SHOPKEEPER, new WorldPoint(2624, 3675, 0), "Bring the fiscal statement to Ysra in her shop west of the market.", fiscalStatement);
+		bringFiscalStatementToYsra = new NpcStep(this, NpcID.VIKING_CLOTHING_SHOPKEEPER, new WorldPoint(2624, 3675, 0), t("Bring the fiscal statement to Ysra in her shop west of the market."), fiscalStatement);
 		bringFiscalStatementToYsra.addDialogStep("Ask about the Merchant's trial");
-		bringSturdyBootsToOlaf = new NpcStep(this, NpcID.VIKING_OLAF, new WorldPoint(2673, 3683, 0), "Bring the sturdy boots to Olaf the Bard east of the longhall.", sturdyBoots);
+		bringSturdyBootsToOlaf = new NpcStep(this, NpcID.VIKING_OLAF, new WorldPoint(2673, 3683, 0), t("Bring the sturdy boots to Olaf the Bard east of the longhall."), sturdyBoots);
 		bringSturdyBootsToOlaf.addDialogStep("Ask about the Merchant's trial");
-		bringBalladToSailor = new NpcStep(this, NpcID.VIKING_SAILOR, new WorldPoint(2629, 3693, 0), "Bring the ballad to the Sailor on the docks.", ballad);
+		bringBalladToSailor = new NpcStep(this, NpcID.VIKING_SAILOR, new WorldPoint(2629, 3693, 0), t("Bring the ballad to the Sailor on the docks."), ballad);
 		bringBalladToSailor.addDialogStep("Ask about the Merchant's trial");
-		bringExoticFlowerToSigmund = new NpcStep(this, NpcID.VIKING_SIGMUND, new WorldPoint(2642, 3680, 0), "Finally, bring the exotic flower to Sigmund the Merchant in the Rellekka market.", exoticFlower);
+		bringExoticFlowerToSigmund = new NpcStep(this, NpcID.VIKING_SIGMUND, new WorldPoint(2642, 3680, 0), t("Finally, bring the exotic flower to Sigmund the Merchant in the Rellekka market."), exoticFlower);
 
 		/* Thorvald Task */
-		talkToThorvald = new NpcStep(this, NpcID.VIKING_THORVALD, new WorldPoint(2666, 3693, 0), "Talk to Thorvald north of the longhall.");
+		talkToThorvald = new NpcStep(this, NpcID.VIKING_THORVALD, new WorldPoint(2666, 3693, 0), t("Talk to Thorvald north of the longhall."));
 		talkToThorvald.addDialogStep("Ask about becoming a Fremennik");
 		bringChampionsTokenToThorvald.addDialogStep("Yes");
-		goDownLadderToKoschei = new ObjectStep(this, ObjectID.VIKING_WARRIOR_LADDER, new WorldPoint(2667, 3694, 0), "When you're ready to fight Koschei, go down the ladder.", koscheiGear, optionalKoscheiGear);
-		waitForKoschei = new DetailedQuestStep(this, "Wait for Koschei the Deathless to spawn. If you brought a dramen branch you should now fletch it and equip the staff.");
-		killKoschei1 = new NpcStep(this, NpcID.VIKING_ENEMY1, new WorldPoint(2660, 10080, 2), "Fight Koschei the Deathless and 'kill' him at least 3 times. Dying to his fourth phase is a SAFE death.");
-		killKoschei2 = new NpcStep(this, NpcID.VIKING_ENEMY1, new WorldPoint(2660, 10080, 2), "Fight Koschei the Deathless and 'kill' him at least 3 times. Dying to his fourth phase is a SAFE death.");
-		killKoschei3 = new NpcStep(this, NpcID.VIKING_ENEMY1, new WorldPoint(2660, 10080, 2), "Fight Koschei the Deathless and 'kill' him at least 3 times. Dying to his fourth phase is a SAFE death.");
-		killKoschei4 = new NpcStep(this, NpcID.VIKING_ENEMY1, new WorldPoint(2660, 10080, 2), "You must now either die (SAFE DEATH), or defeat Koschei once more. Do not leave or you'll have to fight him again.");
+		goDownLadderToKoschei = new ObjectStep(this, ObjectID.VIKING_WARRIOR_LADDER, new WorldPoint(2667, 3694, 0), t("When you're ready to fight Koschei, go down the ladder."), koscheiGear, optionalKoscheiGear);
+		waitForKoschei = new DetailedQuestStep(this, t("Wait for Koschei the Deathless to spawn. If you brought a dramen branch you should now fletch it and equip the staff."));
+		killKoschei1 = new NpcStep(this, NpcID.VIKING_ENEMY1, new WorldPoint(2660, 10080, 2), t("Fight Koschei the Deathless and 'kill' him at least 3 times. Dying to his fourth phase is a SAFE death."));
+		killKoschei2 = new NpcStep(this, NpcID.VIKING_ENEMY1, new WorldPoint(2660, 10080, 2), t("Fight Koschei the Deathless and 'kill' him at least 3 times. Dying to his fourth phase is a SAFE death."));
+		killKoschei3 = new NpcStep(this, NpcID.VIKING_ENEMY1, new WorldPoint(2660, 10080, 2), t("Fight Koschei the Deathless and 'kill' him at least 3 times. Dying to his fourth phase is a SAFE death."));
+		killKoschei4 = new NpcStep(this, NpcID.VIKING_ENEMY1, new WorldPoint(2660, 10080, 2), t("You must now either die (SAFE DEATH), or defeat Koschei once more. Do not leave or you'll have to fight him again."));
 		killKoschei1.addSubSteps(killKoschei2, killKoschei3, killKoschei4);
 
 		/* Swensen Task */
-		talkToSwensen = new NpcStep(this, NpcID.VIKING_HALLIFRED, new WorldPoint(2646, 3660, 0), "Talk to Swensen the Navigator in his hut south west of the longhall.");
+		talkToSwensen = new NpcStep(this, NpcID.VIKING_HALLIFRED, new WorldPoint(2646, 3660, 0), t("Talk to Swensen the Navigator in his hut south west of the longhall."));
 		talkToSwensen.addDialogStep("Yes");
 		talkToSwensen.addDialogStep("Ask about becoming a Fremennik");
-		goDownLadderSwensen = new ObjectStep(this, ObjectID.VT_MAZELADDERTOPENTRANCE, new WorldPoint(2644, 3657, 0), "Climb down Swensen's ladder.");
-		swensen1South = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VT_MAZEPORTAL_1, new WorldPoint(2631, 10002, 0), "Go through the south portal."), "Solve Swensen's challenge.");
-		swensen2West = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VT_MAZEPORTAL_2, new WorldPoint(2639, 10015, 0), "Go through the west portal."), "Solve Swensen's challenge.");
-		swensen3East = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VT_MAZEPORTAL_3, new WorldPoint(2656, 10004, 0), "Go through the east portal."), "Solve Swensen's challenge.");
-		swensen4North = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VT_MAZEPORTAL_4, new WorldPoint(2665, 10018, 0), "Go through the north portal."), "Solve Swensen's challenge.");
-		swensen5South = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VT_MAZEPORTAL_5, new WorldPoint(2630, 10023, 0), "Go through the south portal."), "Solve Swensen's challenge.");
-		swensen6East = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VT_MAZEPORTAL_6, new WorldPoint(2656, 10037, 0), "Go through the east portal."), "Solve Swensen's challenge.");
-		swensen7North = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VT_MAZEPORTAL_7, new WorldPoint(2666, 10029, 0), "Go through the north portal."), "Solve Swensen's challenge.");
-		swensenUpLadder = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VT_MAZELADDEREXIT, new WorldPoint(2665, 10037, 0), "Climb up the ladder."), "Solve Swensen's challenge.");
-		resetSwensen = new PuzzleWrapperStep(this, new DetailedQuestStep(this, "Climb up a rope/ladder to restart the puzzle."), "Solve Swensen's challenge.");
+		goDownLadderSwensen = new ObjectStep(this, ObjectID.VT_MAZELADDERTOPENTRANCE, new WorldPoint(2644, 3657, 0), t("Climb down Swensen's ladder."));
+		swensen1South = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VT_MAZEPORTAL_1, new WorldPoint(2631, 10002, 0), t("Go through the south portal.")), t("Solve Swensen's challenge."));
+		swensen2West = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VT_MAZEPORTAL_2, new WorldPoint(2639, 10015, 0), t("Go through the west portal.")), t("Solve Swensen's challenge."));
+		swensen3East = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VT_MAZEPORTAL_3, new WorldPoint(2656, 10004, 0), t("Go through the east portal.")), t("Solve Swensen's challenge."));
+		swensen4North = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VT_MAZEPORTAL_4, new WorldPoint(2665, 10018, 0), t("Go through the north portal.")), t("Solve Swensen's challenge."));
+		swensen5South = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VT_MAZEPORTAL_5, new WorldPoint(2630, 10023, 0), t("Go through the south portal.")), t("Solve Swensen's challenge."));
+		swensen6East = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VT_MAZEPORTAL_6, new WorldPoint(2656, 10037, 0), t("Go through the east portal.")), t("Solve Swensen's challenge."));
+		swensen7North = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VT_MAZEPORTAL_7, new WorldPoint(2666, 10029, 0), t("Go through the north portal.")), t("Solve Swensen's challenge."));
+		swensenUpLadder = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VT_MAZELADDEREXIT, new WorldPoint(2665, 10037, 0), t("Climb up the ladder.")), t("Solve Swensen's challenge."));
+		resetSwensen = new PuzzleWrapperStep(this, new DetailedQuestStep(this, t("Climb up a rope/ladder to restart the puzzle.")), t("Solve Swensen's challenge."));
 
 		/* Peer Task */
-		talkToPeer = new NpcStep(this, NpcID.VIKING_PEER, new WorldPoint(2633, 3667, 0), "Talk to Peer the Seer south west of the Rellekka market. You will need to bank all your items. Peer will offer to do this for you.");
+		talkToPeer = new NpcStep(this, NpcID.VIKING_PEER, new WorldPoint(2633, 3667, 0), t("Talk to Peer the Seer south west of the Rellekka market. You will need to bank all your items. Peer will offer to do this for you."));
 		talkToPeer.addDialogStep("Ask about becoming a Fremennik");
 		talkToPeer.addDialogStep("Yes");
 		// 261 1->0 when banking all
-		enterPeerHouse = new ObjectStep(this, ObjectID.VIKING_SEERS_DOOR1, new WorldPoint(2631, 3667, 0), "Try to enter Peer the Seer's house after banking all your items. Peer the Seer will offer to bank everything for you.");
+		enterPeerHouse = new ObjectStep(this, ObjectID.VIKING_SEERS_DOOR1, new WorldPoint(2631, 3667, 0), t("Try to enter Peer the Seer's house after banking all your items. Peer the Seer will offer to bank everything for you."));
 		enterPeerHouse.addDialogStep("Read the riddle");
 
-		enterCode = new DetailedQuestStep(this, "Enter the solution to Peer's door.");
+		enterCode = new DetailedQuestStep(this, t("Enter the solution to Peer's door."));
 
 		// TODO: IDEA: Somehow have a parent challenge/puzzle step, so they all highlight the same text.
-		inputMind = new PuzzleWrapperStep(this, new CombinationPuzzle(this, "MIND"), "Solve Peer's challenge.");
-		inputTree = new PuzzleWrapperStep(this, new CombinationPuzzle(this, "TREE"), "Solve Peer's challenge.");
-		inputLife = new PuzzleWrapperStep(this, new CombinationPuzzle(this, "LIFE"), "Solve Peer's challenge.");
-		inputFire = new PuzzleWrapperStep(this, new CombinationPuzzle(this, "FIRE"), "Solve Peer's challenge.");
-		inputTime = new PuzzleWrapperStep(this, new CombinationPuzzle(this, "TIME"), "Solve Peer's challenge.");
-		inputWind = new PuzzleWrapperStep(this, new CombinationPuzzle(this, "WIND"), "Solve Peer's challenge.");
+		inputMind = new PuzzleWrapperStep(this, new CombinationPuzzle(this, "MIND"), t("Solve Peer's challenge."));
+		inputTree = new PuzzleWrapperStep(this, new CombinationPuzzle(this, "TREE"), t("Solve Peer's challenge."));
+		inputLife = new PuzzleWrapperStep(this, new CombinationPuzzle(this, "LIFE"), t("Solve Peer's challenge."));
+		inputFire = new PuzzleWrapperStep(this, new CombinationPuzzle(this, "FIRE"), t("Solve Peer's challenge."));
+		inputTime = new PuzzleWrapperStep(this, new CombinationPuzzle(this, "TIME"), t("Solve Peer's challenge."));
+		inputWind = new PuzzleWrapperStep(this, new CombinationPuzzle(this, "WIND"), t("Solve Peer's challenge."));
 		enterCode.addSubSteps(inputMind, inputTree, inputLife, inputFire, inputTime, inputWind);
 
-		goUpEntranceLadderPeer = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_UP_LADDER, new WorldPoint(2631, 3663, 0), "Go up the ladder."),
-			"Solve Peer's challenge.");
-		searchBookcase = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_BOOKCASE, new WorldPoint(2634, 3665, 2), "Search the bookcase for a red herring. If you've already unlocked the mural, go search it instead."),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
-		ObjectStep cookHerringRealStep = new ObjectStep(this, ObjectID.VIKING_SEER_RANGE, new WorldPoint(2629, 3664, 2), "Use the red herring on the cooking range.", redHerring);
+		goUpEntranceLadderPeer = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_UP_LADDER, new WorldPoint(2631, 3663, 0), t("Go up the ladder.")),
+			t("Solve Peer's challenge."));
+		searchBookcase = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_BOOKCASE, new WorldPoint(2634, 3665, 2), t("Search the bookcase for a red herring. If you've already unlocked the mural, go search it instead.")),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
+		ObjectStep cookHerringRealStep = new ObjectStep(this, ObjectID.VIKING_SEER_RANGE, new WorldPoint(2629, 3664, 2), t("Use the red herring on the cooking range."), redHerring);
 		cookHerringRealStep.addIcon(ItemID.VIKING_RED_HERRING);
 		cookHerring = new PuzzleWrapperStep(this, cookHerringRealStep,
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 
-		searchUnicorn = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_UNIMOUNTEDHEAD, new WorldPoint(2632, 3660, 2), "Study the unicorn's head."),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
-		searchBull = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_BULLMOUNTEDHEAD, new WorldPoint(2634, 3660, 2), "Study the bull's head."),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
-		searchChest1 = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_CHEST_CLOSED, new WorldPoint(2635, 3660, 2), "Search the chest in the south of the room."),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
-		searchChest2 = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_CHEST_OPEN, new WorldPoint(2635, 3660, 2), "Search the chest in the south of the room."),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+		searchUnicorn = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_UNIMOUNTEDHEAD, new WorldPoint(2632, 3660, 2), t("Study the unicorn's head.")),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
+		searchBull = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_BULLMOUNTEDHEAD, new WorldPoint(2634, 3660, 2), t("Study the bull's head.")),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
+		searchChest1 = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_CHEST_CLOSED, new WorldPoint(2635, 3660, 2), t("Search the chest in the south of the room.")),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
+		searchChest2 = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_CHEST_OPEN, new WorldPoint(2635, 3660, 2), t("Search the chest in the south of the room.")),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 		searchChest1.addSubSteps(searchChest2);
-		searchCupboard1 = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_CUPBOARDHIGH, new WorldPoint(2630, 3660, 2), "Search the cupboard in the south west of the room."),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
-		searchCupboard2 = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_CUPBOARDOPEN_HIGH, new WorldPoint(2630, 3660, 2), "Search the cupboard in the south west of the room."),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+		searchCupboard1 = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_CUPBOARDHIGH, new WorldPoint(2630, 3660, 2), t("Search the cupboard in the south west of the room.")),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
+		searchCupboard2 = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_CUPBOARDOPEN_HIGH, new WorldPoint(2630, 3660, 2), t("Search the cupboard in the south west of the room.")),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 		searchCupboard1.addSubSteps(searchCupboard2);
 
-		useGoopOnDisk = new PuzzleWrapperStep(this, new DetailedQuestStep(this, "Use the sticky red goop on the wooden disk.", stickyRedGoop, woodenDisk),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+		useGoopOnDisk = new PuzzleWrapperStep(this, new DetailedQuestStep(this, t("Use the sticky red goop on the wooden disk."), stickyRedGoop, woodenDisk),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 
-		openTrapDoorAndGoDown1 = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_TRAPDOOR_CLOSED, new WorldPoint(2636, 3663, 2), "Open and go down the trapdoor."),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
-		goDown1 = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_TRAPDOOR_OPEN, new WorldPoint(2636, 3663, 2), "Go down the trapdoor."),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+		openTrapDoorAndGoDown1 = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_TRAPDOOR_CLOSED, new WorldPoint(2636, 3663, 2), t("Open and go down the trapdoor.")),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
+		goDown1 = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_TRAPDOOR_OPEN, new WorldPoint(2636, 3663, 2), t("Go down the trapdoor.")),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 		openTrapDoorAndGoDown1.addSubSteps(goDown1);
 
-		ObjectStep useDiskAnyOnMuralRealStep = new ObjectStep(this, ObjectID.VIKING_SEERS_MURAL, new WorldPoint(2634, 3663, 0), "Use the red disks on the abstract mural.", redDiskOld, redDiskNew);
+		ObjectStep useDiskAnyOnMuralRealStep = new ObjectStep(this, ObjectID.VIKING_SEERS_MURAL, new WorldPoint(2634, 3663, 0), t("Use the red disks on the abstract mural."), redDiskOld, redDiskNew);
 		useDiskAnyOnMuralRealStep.addIcon(ItemID.VIKING_RED_WOODEN_COIN_OLD);
-		useDiskAnyOnMural = new PuzzleWrapperStep(this, useDiskAnyOnMuralRealStep, "Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+		useDiskAnyOnMural = new PuzzleWrapperStep(this, useDiskAnyOnMuralRealStep, t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 
-		ObjectStep useDiskOldOnMuralRealStep = new ObjectStep(this, ObjectID.VIKING_SEERS_MURAL, new WorldPoint(2634, 3663, 0), "Use the old red disk on the abstract mural.", redDiskOld);
+		ObjectStep useDiskOldOnMuralRealStep = new ObjectStep(this, ObjectID.VIKING_SEERS_MURAL, new WorldPoint(2634, 3663, 0), t("Use the old red disk on the abstract mural."), redDiskOld);
 		useDiskOldOnMuralRealStep.addIcon(ItemID.VIKING_RED_WOODEN_COIN_OLD);
-		useDiskOldOnMural = new PuzzleWrapperStep(this, useDiskOldOnMuralRealStep, "Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+		useDiskOldOnMural = new PuzzleWrapperStep(this, useDiskOldOnMuralRealStep, t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 
-		ObjectStep useDiskNewOnMuralRealStep = new ObjectStep(this, ObjectID.VIKING_SEERS_MURAL, new WorldPoint(2634, 3663, 0), "Use the other red disk on the abstract mural.", redDiskNew);
-		useDiskNewOnMural = new PuzzleWrapperStep(this, useDiskNewOnMuralRealStep, "Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+		ObjectStep useDiskNewOnMuralRealStep = new ObjectStep(this, ObjectID.VIKING_SEERS_MURAL, new WorldPoint(2634, 3663, 0), t("Use the other red disk on the abstract mural."), redDiskNew);
+		useDiskNewOnMural = new PuzzleWrapperStep(this, useDiskNewOnMuralRealStep, t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 		useDiskNewOnMuralRealStep.addIcon(ItemID.VIKING_RED_WOODEN_COIN);
 
 		useDiskAnyOnMural.addSubSteps(useDiskOldOnMural, useDiskNewOnMural);
 
-		goBackUpstairs = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_DOWN_LADDER, new WorldPoint(2636, 3663, 0), "Go back upstairs."),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
-		goUpstairsWithVaseLid = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_DOWN_LADDER, new WorldPoint(2636, 3663, 0), "Go back upstairs."),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+		goBackUpstairs = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_DOWN_LADDER, new WorldPoint(2636, 3663, 0), t("Go back upstairs.")),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
+		goUpstairsWithVaseLid = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_DOWN_LADDER, new WorldPoint(2636, 3663, 0), t("Go back upstairs.")),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 
-		ObjectStep useBucketOnTap1RealStep = new ObjectStep(this, ObjectID.VIKING_SEERS_TAP, new WorldPoint(2629, 3661, 2), "Use the empty bucket on the tap.", emptyBucket);
+		ObjectStep useBucketOnTap1RealStep = new ObjectStep(this, ObjectID.VIKING_SEERS_TAP, new WorldPoint(2629, 3661, 2), t("Use the empty bucket on the tap."), emptyBucket);
 		useBucketOnTap1RealStep.addIcon(ItemID.VIKING_BUCKET_EMPTY);
 		useBucketOnTap1 = new PuzzleWrapperStep(this, useBucketOnTap1RealStep,
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 
-		useBucketOnJug1 = new PuzzleWrapperStep(this, new DetailedQuestStep(this, "Use the full bucket on the empty jug.", fullBucket, emptyJug),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+		useBucketOnJug1 = new PuzzleWrapperStep(this, new DetailedQuestStep(this, t("Use the full bucket on the empty jug."), fullBucket, emptyJug),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 
-		ObjectStep useJugOnDrain1RealStep = new ObjectStep(this, ObjectID.VIKING_SEERS_DRAIN, new WorldPoint(2629, 3662, 2), "Empty the full jug into the drain.", fullJug);
+		ObjectStep useJugOnDrain1RealStep = new ObjectStep(this, ObjectID.VIKING_SEERS_DRAIN, new WorldPoint(2629, 3662, 2), t("Empty the full jug into the drain."), fullJug);
 		useJugOnDrain1RealStep.addIcon(ItemID.VIKING_JUG_3);
 		useJugOnDrain1 = new PuzzleWrapperStep(this, useJugOnDrain1RealStep,
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 
-		useBucketOnJug2 = new PuzzleWrapperStep(this, new DetailedQuestStep(this, "Use the 2/5ths full bucket on the empty jug.", bucket25, emptyJug),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
-		useBucketOnTap2 = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEERS_TAP, new WorldPoint(2629, 3661, 2), "Use the empty bucket on the tap.", emptyBucket),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+		useBucketOnJug2 = new PuzzleWrapperStep(this, new DetailedQuestStep(this, t("Use the 2/5ths full bucket on the empty jug."), bucket25, emptyJug),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
+		useBucketOnTap2 = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEERS_TAP, new WorldPoint(2629, 3661, 2), t("Use the empty bucket on the tap."), emptyBucket),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 		useBucketOnTap2.addIcon(ItemID.VIKING_BUCKET_EMPTY);
-		useBucketOnJug3 = new PuzzleWrapperStep(this, new DetailedQuestStep(this, "Use the full bucket on the 2/3rds full jug.", fullBucket, jug23),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
-		useBucketOnScale = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_CHEST_CLOSED_SCALES, new WorldPoint(2632, 3665, 2), "Use the 4/5ths full bucket on the chest with a scale on it.", bucket45),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+		useBucketOnJug3 = new PuzzleWrapperStep(this, new DetailedQuestStep(this, t("Use the full bucket on the 2/3rds full jug."), fullBucket, jug23),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
+		useBucketOnScale = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_CHEST_CLOSED_SCALES, new WorldPoint(2632, 3665, 2), t("Use the 4/5ths full bucket on the chest with a scale on it."), bucket45),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 		useBucketOnScale.addIcon(ItemID.VIKING_BUCKET_4);
 
-		fillVase = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEERS_TAP, new WorldPoint(2629, 3661, 2), "Use the empty vase on the tap.", vase),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+		fillVase = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEERS_TAP, new WorldPoint(2629, 3661, 2), t("Use the empty vase on the tap."), vase),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 		fillVase.addIcon(ItemID.VIKING_AIRTIGHT_VASE);
 
-		useLidOnVase = new PuzzleWrapperStep(this, new DetailedQuestStep(this, "Use the vase lid on the filled vase", filledVase, vaseLid),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+		useLidOnVase = new PuzzleWrapperStep(this, new DetailedQuestStep(this, t("Use the vase lid on the filled vase"), filledVase, vaseLid),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 
-		useVaseOnTable = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SMALL_TABLE_FROZEN, new WorldPoint(2638, 3665, 2), "Use the filled, sealed vase on the frozen table.", filledVaseWithLid),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+		useVaseOnTable = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SMALL_TABLE_FROZEN, new WorldPoint(2638, 3665, 2), t("Use the filled, sealed vase on the frozen table."), filledVaseWithLid),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 		useVaseOnTable.addIcon(ItemID.VIKING_AIRTIGHT_VASE_WITH_LID_FROZEN);
 
-		takeLidOff = new PuzzleWrapperStep(this, new DetailedQuestStep(this, "Take the lid off the vase and fill the vase.", vaseWithLidWrong),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
-		warmFrozenVase = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_RANGE, new WorldPoint(2629, 3664, 2), "Use the frozen vase on the cooking range.", frozenVase),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+		takeLidOff = new PuzzleWrapperStep(this, new DetailedQuestStep(this, t("Take the lid off the vase and fill the vase."), vaseWithLidWrong),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
+		warmFrozenVase = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_RANGE, new WorldPoint(2629, 3664, 2), t("Use the frozen vase on the cooking range."), frozenVase),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 		warmFrozenVase.addIcon(ItemID.VIKING_AIRTIGHT_VASE_FROZEN);
-		emptyJugAndBucket = new PuzzleWrapperStep(this, new DetailedQuestStep(this, "Empty jug and bucket to restart."), "Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+		emptyJugAndBucket = new PuzzleWrapperStep(this, new DetailedQuestStep(this, t("Empty jug and bucket to restart.")), t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 
-		useFrozenKeyOnRange = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_RANGE, new WorldPoint(2629, 3664, 2), "Use the frozen key on the cooking range.", frozenKey),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+		useFrozenKeyOnRange = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_RANGE, new WorldPoint(2629, 3664, 2), t("Use the frozen key on the cooking range."), frozenKey),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 		useFrozenKeyOnRange.addIcon(ItemID.VIKING_KEY_IN_ICE);
-		goDownstairsWithKey = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_TRAPDOOR_CLOSED, new WorldPoint(2636, 3663, 2), "Open and go down the trapdoor.", seersKey),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
-		goDownstairsWithKey2 = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_TRAPDOOR_OPEN, new WorldPoint(2636, 3663, 2), "Go down the trapdoor.", seersKey),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+		goDownstairsWithKey = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_TRAPDOOR_CLOSED, new WorldPoint(2636, 3663, 2), t("Open and go down the trapdoor."), seersKey),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
+		goDownstairsWithKey2 = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEER_TRAPDOOR_OPEN, new WorldPoint(2636, 3663, 2), t("Go down the trapdoor."), seersKey),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 		goDownstairsWithKey.addSubSteps(goDownstairsWithKey2);
-		leaveSeersHouse = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEERS_DOOR2, new WorldPoint(2636, 3667, 0), "Leave the Seer's house.", seersKey),
-			"Solve Peer's challenge.").withNoHelpHiddenInSidebar(true);
+		leaveSeersHouse = new PuzzleWrapperStep(this, new ObjectStep(this, ObjectID.VIKING_SEERS_DOOR2, new WorldPoint(2636, 3667, 0), t("Leave the Seer's house."), seersKey),
+			t("Solve Peer's challenge.")).withNoHelpHiddenInSidebar(true);
 
-		finishQuest = new NpcStep(this, NpcID.VIKING_BRUNDT_CHILD, new WorldPoint(2658, 3669, 0), "Talk to Brundt in Rellekka's longhall to finish the quest.");
+		finishQuest = new NpcStep(this, NpcID.VIKING_BRUNDT_CHILD, new WorldPoint(2658, 3669, 0), t("Talk to Brundt in Rellekka's longhall to finish the quest."));
 		finishQuest.addDialogStep("Ask about anything else.");
 	}
 
@@ -979,7 +979,7 @@ public class TheFremennikTrials extends BasicQuestHelper
 	public List<String> getNotes()
 	{
 		ArrayList<String> reqs = new ArrayList<>();
-		reqs.add("If the guide at any point appears to de-sync during this quest, please try opening the quest journal to fix it.");
+		reqs.add(t("If the guide at any point appears to de-sync during this quest, please try opening the quest journal to fix it."));
 		return reqs;
 	}
 
@@ -998,8 +998,8 @@ public class TheFremennikTrials extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		ArrayList<String> reqs = new ArrayList<>();
-		reqs.add("Koschei the deathless");
-		reqs.add("Draugen (level 69)");
+		reqs.add(t("Koschei the deathless"));
+		reqs.add(t("Draugen (level 69)"));
 		return reqs;
 	}
 
@@ -1029,35 +1029,35 @@ public class TheFremennikTrials extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Access to Miscellania, Etceteria, Neitiznot, Jatizso and the facilities of Rellekka."),
-				new UnlockReward("Ability to wear and purchase Fremmennik Helms"),
-				new UnlockReward("Free travel to Waterbirth Island"));
+				new UnlockReward(t("Access to Miscellania, Etceteria, Neitiznot, Jatizso and the facilities of Rellekka.")),
+				new UnlockReward(t("Ability to wear and purchase Fremmennik Helms")),
+				new UnlockReward(t("Free travel to Waterbirth Island")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Talk to Brundt", Collections.singletonList(talkToBrundt), coins, rawShark, tinderbox, knife, axe, combatGear));
+		allSteps.add(new PanelDetails(t("Talk to Brundt"), Collections.singletonList(talkToBrundt), coins, rawShark, tinderbox, knife, axe, combatGear));
 
-		PanelDetails olafPanel = new PanelDetails("Olaf's task",
+		PanelDetails olafPanel = new PanelDetails(t("Olaf's task"),
 			Arrays.asList(talkToOlaf, talkToLalli, talkToAskeladdenForRock, useOnion, talkToLaliAfterStew, chopSwayingTree,
 				fletchLyre, spinWool, makeLyre, enchantLyre, performMusic), axe, knife, rawShark, emptySlot4);
 		olafPanel.setLockingStep(olafTask);
 		olafPanel.setVars(1, 2, 3, 4, 5, 6, 7);
 
-		PanelDetails manniPanel = new PanelDetails("Manni's task",
+		PanelDetails manniPanel = new PanelDetails(t("Manni's task"),
 			Arrays.asList(talkToManni, pickUpBeer, getStrangeObject, getAlcoholFreeBeer, prepareToUseStrangeObject,
 				useStrangeObject, getKegOfBeer, useAlcoholFreeOnKeg, cheatInBeerDrinking), tinderbox, coins250);
 		manniPanel.setLockingStep(manniTask);
 		manniPanel.setVars(1, 2, 3, 4, 5, 6, 7);
 
-		PanelDetails sigliPanel = new PanelDetails("Sigli's task",
+		PanelDetails sigliPanel = new PanelDetails(t("Sigli's task"),
 			Arrays.asList(talkToSigli, huntDraugen, returnToSigli), combatGear);
 		sigliPanel.setLockingStep(sigliTask);
 		sigliPanel.setVars(1, 2, 3, 4, 5, 6, 7);
 
-		PanelDetails sigmundPanel = new PanelDetails("Sigmund's task",
+		PanelDetails sigmundPanel = new PanelDetails(t("Sigmund's task"),
 			Arrays.asList(talkToSigmund, talkToSailor, talkToOlafForSigmund, talkToYsra, talkToBrundtForSigmund, talkToSigliForSigmund,
 				talkToSkulgrimenForSigmund, talkToFishermanForSigmund, talkToSwenesenForSigmund, talkToPeerForSigmund, talkToThorvaldForSigmund, talkToManniForSigmund,
 				talkToThoraForSigmund, talkToAskeladdenForSigmund, bringNoteToThora, bringCocktailToManni, bringChampionsTokenToThorvald, bringWarriorsContractToPeer, bringWeatherForecastToSwensen,
@@ -1066,24 +1066,24 @@ public class TheFremennikTrials extends BasicQuestHelper
 		sigmundPanel.setLockingStep(sigmundTask);
 		sigmundPanel.setVars(1, 2, 3, 4, 5, 6, 7);
 
-		PanelDetails thorvaldPanel = new PanelDetails("Thorvald's task",
+		PanelDetails thorvaldPanel = new PanelDetails(t("Thorvald's task"),
 			Arrays.asList(talkToThorvald, goDownLadderToKoschei, killKoschei1), koscheiGear, optionalKoscheiGear);
 		thorvaldPanel.setLockingStep(thorvaldTask);
 		thorvaldPanel.setVars(1, 2, 3, 4, 5, 6, 7);
 
-		PanelDetails swensenPanel = new PanelDetails("Swensen's task",
+		PanelDetails swensenPanel = new PanelDetails(t("Swensen's task"),
 			Arrays.asList(talkToSwensen, goDownLadderSwensen, swensen1South, swensen2West, swensen3East, swensen4North, swensen5South, swensen6East, swensen7North, swensenUpLadder));
 		swensenPanel.setLockingStep(swensenTask);
 		swensenPanel.setVars(1, 2, 3, 4, 5, 6, 7);
 
-		PanelDetails peerPanel = new PanelDetails("Peer's task",
+		PanelDetails peerPanel = new PanelDetails(t("Peer's task"),
 			Arrays.asList(talkToPeer, enterPeerHouse, enterCode, goUpEntranceLadderPeer, searchBookcase, searchBull, searchUnicorn, cookHerring, useGoopOnDisk, openTrapDoorAndGoDown1,
 				useDiskAnyOnMural, goUpstairsWithVaseLid, searchCupboard1, searchChest1, useBucketOnTap1, useBucketOnJug1, useJugOnDrain1, useBucketOnJug2, useBucketOnTap2, useBucketOnJug3, useBucketOnScale,
 				fillVase, useLidOnVase, useVaseOnTable, useFrozenKeyOnRange, goDownstairsWithKey, leaveSeersHouse));
 		peerPanel.setLockingStep(peerTask);
 		peerPanel.setVars(1, 2, 3, 4, 5, 6, 7);
 
-		PanelDetails finalPanel = new PanelDetails("Finish off",
+		PanelDetails finalPanel = new PanelDetails(t("Finish off"),
 			Collections.singletonList(finishQuest));
 
 		allSteps.add(olafPanel);

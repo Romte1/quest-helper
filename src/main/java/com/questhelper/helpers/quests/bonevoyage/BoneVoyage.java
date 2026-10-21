@@ -160,20 +160,20 @@ public class BoneVoyage extends BasicQuestHelper
 		nails = new ItemRequirement("Nails", ItemCollections.NAILS, 5);
 
 		sawmillProposal = new ItemRequirement("Sawmill proposal", ItemID.FOSSILQUEST_SAWMILL_PROPOSAL);
-		sawmillProposal.setTooltip("You can get another from the sawmill operator near Varrock");
+		sawmillProposal.setTooltip(t("You can get another from the sawmill operator near Varrock"));
 		sawmillAgreement = new ItemRequirement("Sawmill agreement", ItemID.FOSSILQUEST_SAWMILL_AGREEMENT);
 		if (client.getGameState() == GameState.LOGGED_IN && canEnterGuild.check(client))
 		{
-			sawmillAgreement.setTooltip("You can get another from the sawmill operator in the Woodcutting Guild");
+			sawmillAgreement.setTooltip(t("You can get another from the sawmill operator in the Woodcutting Guild"));
 		}
 		else
 		{
-			sawmillAgreement.setTooltip("You can get another by trying to enter the Woodcutting Guild");
+			sawmillAgreement.setTooltip(t("You can get another by trying to enter the Woodcutting Guild"));
 		}
 		boneCharm = new ItemRequirement("Bone charm", ItemID.FOSSILQUEST_BONE_CHARM);
-		boneCharm.setTooltip("You can get another from the Odd Old Man north of the Dig Site");
+		boneCharm.setTooltip(t("You can get another from the Odd Old Man north of the Dig Site"));
 		potionOfSealegs = new ItemRequirement("Potion of sealegs", ItemID.FOSSILQUEST_POTION);
-		potionOfSealegs.setTooltip("You can get another from the Apothecary in Varrock");
+		potionOfSealegs.setTooltip(t("You can get another from the Apothecary in Varrock"));
 	}
 
 	@Override
@@ -186,21 +186,21 @@ public class BoneVoyage extends BasicQuestHelper
 	public void setupSteps()
 	{
 		talkToHaig = new NpcStep(this, NpcID.CURATOR, new WorldPoint(3257, 3448, 0),
-			"Talk to Curator Haig in the Varrock Museum.");
+			t("Talk to Curator Haig in the Varrock Museum."));
 		talkToHaig.addDialogSteps("Have you any interesting news?", "Sign me up!", "Yes.");
 
 		talkToForeman = new NpcStep(this, NpcID.VM_CANAL_BARGE_FOREMEN_TALKING, new WorldPoint(3364, 3445, 0),
-			"Talk to the Barge Foreman north of the Dig Site.");
+			t("Talk to the Barge Foreman north of the Dig Site."));
 
 		talkToSawmillOperator = new NpcStep(this, NpcID.POH_SAWMILL_OPP, new WorldPoint(3302, 3492, 0),
-			"Talk to the Sawmill Operator north east of Varrock.");
+			t("Talk to the Sawmill Operator north east of Varrock."));
 		talkToSawmillOperator.addDialogStep("I'm here on behalf of the museum archaeological team.");
 
 		talkToOperatorInGuild = new NpcStep(this, NpcID.PRIF_SAWMILL_OPERATOR, new WorldPoint(1620, 3499, 0),
-			"Talk to the Sawmill Operator in the Woodcutting Guild on Zeah.", sawmillProposal);
+			t("Talk to the Sawmill Operator in the Woodcutting Guild on Zeah."), sawmillProposal);
 		talkToOperatorInGuild.addDialogStep("I'm here on behalf of the museum archaeological team.");
 		talkToOperatorInGuildFromGate = new ObjectStep(this, ObjectID.WCGUILD_GATER, new WorldPoint(1657, 3504, 0),
-			"Attempt to enter the Woodcutting Guild on Zeah to talk to the guild's sawmill operator.", sawmillProposal);
+			t("Attempt to enter the Woodcutting Guild on Zeah to talk to the guild's sawmill operator."), sawmillProposal);
 
 		talkToOperatorInGuildGeneric = talkToOperatorInGuildFromGate;
 		if (canEnterGuild.check(client))
@@ -209,56 +209,56 @@ public class BoneVoyage extends BasicQuestHelper
 		}
 
 		returnWithAgreement = new NpcStep(this, NpcID.POH_SAWMILL_OPP, new WorldPoint(3302, 3492, 0),
-		"Return to the Sawmill Operator north east of Varrock.", sawmillAgreement);
+		t("Return to the Sawmill Operator north east of Varrock."), sawmillAgreement);
 		returnWithAgreement.addDialogStep("I'm here on behalf of the museum archaeological team.");
 
 		talkToForemanAgain = new NpcStep(this, NpcID.VM_CANAL_BARGE_FOREMEN_TALKING, new WorldPoint(3364, 3445, 0),
-			"Return to the Barge Foreman north of the Dig Site.");
+			t("Return to the Barge Foreman north of the Dig Site."));
 		boardBarge = new NpcStep(this, NpcID.FOSSILQUEST_BARGE_GUARD_PORT_PREQUEST, new WorldPoint(3362, 3446, 0),
-			"Board the barge.");
+			t("Board the barge."));
 		boardBarge.addDialogStep("Can I go onto the barge?");
 		talkToNavigator = new NpcStep(this, NpcID.FOSSILQUEST_LEAD_NAVIGATOR_QUEST, new WorldPoint(3363, 3453, 1),
-			"Talk to the Lead Navigator.");
+			t("Talk to the Lead Navigator."));
 		talkToNavigator.addDialogStep("Yep, that would be me.");
 		talkToNavigator.addDialogStep("No, what happened?");
 		talkToJack = new NpcStep(this, NpcID.SARIM_PUB_DRINKER_1, new WorldPoint(3050, 3257, 0),
-			"Talk to Jack Seagull in the Port Sarim Pub.");
+			t("Talk to Jack Seagull in the Port Sarim Pub."));
 		talkToJack.addDialogStep("Ever made any cursed voyages?");
 		boardBargeAfterJack = new NpcStep(this, NpcID.FOSSILQUEST_BARGE_GUARD_PORT_PREQUEST, new WorldPoint(3362, 3446, 0),
-		"Return to the barge.");
+		t("Return to the barge."));
 		boardBargeAfterJack.addDialogStep("Can I go onto the barge?");
 		talkToNavigatorAgain = new NpcStep(this, NpcID.FOSSILQUEST_LEAD_NAVIGATOR_QUEST, new WorldPoint(3363, 3453, 1),
-			"Talk to the Lead Navigator again.");
+			t("Talk to the Lead Navigator again."));
 		talkToOddOldMan = new NpcStep(this, NpcID.RAG_ODD_OLD_MAN, new WorldPoint(3360, 3505, 0),
-			"Talk to the Odd Old Man north of the Dig Site.");
+			t("Talk to the Odd Old Man north of the Dig Site."));
 		talkToOddOldMan.addDialogSteps("Talk about lucky charms.", "I'm making a cursed voyage.");
 		talkToApoth = new NpcStep(this, NpcID.APOTHECARY, new WorldPoint(3195, 3405, 0),
-			"Talk to the Apothecary in south west Varrock.", marrentillPotionUnf, vodka2);
+			t("Talk to the Apothecary in south west Varrock."), marrentillPotionUnf, vodka2);
 		talkToApoth.addDialogSteps("Talk about something else.", "Talk about Bone Voyage.");
 		talkToApothAgain = new NpcStep(this, NpcID.APOTHECARY, new WorldPoint(3195, 3405, 0),
-			"Talk to the Apothecary again.", marrentillPotionUnf, vodka2);
+			t("Talk to the Apothecary again."), marrentillPotionUnf, vodka2);
 		talkToApothAgain.addDialogSteps("Talk about something else.", "Talk about Bone Voyage.");
 		boardBargeWithPotionAndCharm = new NpcStep(this, NpcID.FOSSILQUEST_BARGE_GUARD_PORT_PREQUEST, new WorldPoint(3362, 3446, 0),
-			"Board the barge.", boneCharm, potionOfSealegs);
+			t("Board the barge."), boneCharm, potionOfSealegs);
 		boardBargeWithPotionAndCharm.addDialogStep("Can I go onto the barge?");
 		boardBargeWithPotion = new NpcStep(this, NpcID.FOSSILQUEST_BARGE_GUARD_PORT_PREQUEST, new WorldPoint(3362, 3446, 0),
-			"Board the barge.", potionOfSealegs);
+			t("Board the barge."), potionOfSealegs);
 		boardBargeWithPotion.addDialogStep("Can I go onto the barge?");
 		boardBargeWithCharm = new NpcStep(this, NpcID.FOSSILQUEST_BARGE_GUARD_PORT_PREQUEST, new WorldPoint(3362, 3446, 0),
-			"Board the barge.", boneCharm);
+			t("Board the barge."), boneCharm);
 		boardBargeWithCharm.addDialogStep("Can I go onto the barge?");
 		boardBargeWithPotionAndCharm.addSubSteps(boardBargeWithCharm, boardBargeWithPotion);
 		giveLeadPotion  = new NpcStep(this, NpcID.FOSSILQUEST_LEAD_NAVIGATOR_QUEST, new WorldPoint(3363, 3453, 1),
-			"Give the Lead Navigator the potion.", potionOfSealegs);
+			t("Give the Lead Navigator the potion."), potionOfSealegs);
 		giveJuniorBone = new NpcStep(this, NpcID.FOSSILQUEST_JR_NAVIGATOR_QUEST, new WorldPoint(3363, 3453, 1),
-			"Give the Junior Navigator the bone charm.", boneCharm);
+			t("Give the Junior Navigator the bone charm."), boneCharm);
 
 		boardBargeToSail = new NpcStep(this, NpcID.FOSSILQUEST_BARGE_GUARD_PORT_PREQUEST, new WorldPoint(3362, 3446, 0),
-			"Board the barge.");
+			t("Board the barge."));
 		boardBargeToSail.addDialogStep("Can I go onto the barge?");
 		navigateShip = new NpcStep(this, NpcID.FOSSILQUEST_LEAD_NAVIGATOR_QUEST, new WorldPoint(3363, 3453, 1),
-			"Talk to the Lead Navigator to set sail. Navigate the ship by keeping the arrow in the middle. Raise the " +
-				"sails to go faster.");
+			t("Talk to the Lead Navigator to set sail. Navigate the ship by keeping the arrow in the middle. Raise the " +
+				"sails to go faster."));
 		navigateShip.addDialogStep("I'm ready, let's go.");
 		navigateShip.addSubSteps(boardBargeToSail);
 	}
@@ -294,27 +294,27 @@ public class BoneVoyage extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("Access to Fossil Island"));
+		return Collections.singletonList(new UnlockReward(t("Access to Fossil Island")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off", Collections.singletonList(talkToHaig)));
-		allSteps.add(new PanelDetails("Securing materials", Arrays.asList(talkToForeman, talkToSawmillOperator,
+		allSteps.add(new PanelDetails(t("Starting off"), Collections.singletonList(talkToHaig)));
+		allSteps.add(new PanelDetails(t("Securing materials"), Arrays.asList(talkToForeman, talkToSawmillOperator,
 			talkToOperatorInGuildGeneric, returnWithAgreement, talkToForemanAgain)));
-		allSteps.add(new PanelDetails("Lucky charms", Arrays.asList(boardBarge, talkToNavigator, talkToJack,
+		allSteps.add(new PanelDetails(t("Lucky charms"), Arrays.asList(boardBarge, talkToNavigator, talkToJack,
 			boardBargeAfterJack, talkToNavigatorAgain, talkToOddOldMan, talkToApoth, talkToApothAgain,
 			boardBargeWithPotionAndCharm, giveJuniorBone, giveLeadPotion), marrentillPotionUnf, vodka2));
-		allSteps.add(new PanelDetails("The voyage", Collections.singletonList(navigateShip)));
+		allSteps.add(new PanelDetails(t("The voyage"), Collections.singletonList(navigateShip)));
 		return allSteps;
 	}
 	
 	@Override
 	public List<String> getNotes()
 	{
-		return Collections.singletonList("After quest completion you can use the iron bar, oak planks, nails and hammer" +
-				" to build a bank chest on Fossil Island (requires 21 Construction).");
+		return Collections.singletonList(t("After quest completion you can use the iron bar, oak planks, nails and hammer" +
+				" to build a bank chest on Fossil Island (requires 21 Construction)."));
 	}
 }

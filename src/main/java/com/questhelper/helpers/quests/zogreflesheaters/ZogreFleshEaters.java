@@ -168,19 +168,19 @@ public class ZogreFleshEaters extends BasicQuestHelper
 		sanfew = new ItemRequirement("Sanfew serum or Relicym's balm", ItemID.SANFEW_SALVE_1_DOSE);
 		sanfew.addAlternates(ItemID.SANFEW_SALVE_2_DOSE, ItemID.SANFEW_SALVE_3_DOSE, ItemID.SANFEW_SALVE_4_DOSE, ItemID.RELICYMS_BALM1,
 		ItemID.RELICYMS_BALM2, ItemID.RELICYMS_BALM3, ItemID.RELICYMS_BALM4);
-		sanfew.setTooltip("To help prevent disease and restore stats.");
+		sanfew.setTooltip(t("To help prevent disease and restore stats."));
 		charcoal = new ItemRequirement("Charcoal", ItemID.CHARCOAL);
 		cupOfTea = new ItemRequirement("Cup of tea", ItemID.ZOGRE_CUP_OF_TEA_SITHIX);
 		strangePotion = new ItemRequirement("Strange potion", ItemID.ZOGRE_OGRE_TRANS_POTION);
-		strangePotion.setTooltip("You can get another from Zavistic Rarve");
+		strangePotion.setTooltip(t("You can get another from Zavistic Rarve"));
 
 		strangePotionHighlighted = new ItemRequirement("Strange potion", ItemID.ZOGRE_OGRE_TRANS_POTION);
-		strangePotionHighlighted.setTooltip("You can get another from Zavistic Rarve");
+		strangePotionHighlighted.setTooltip(t("You can get another from Zavistic Rarve"));
 		strangePotionHighlighted.setHighlightInInventory(true);
 
 		grishKey = new ItemRequirement("Ogre gate key", ItemID.ZOGRE_TOMB_ARTEFACT_KEY);
 		ogreRelic = new ItemRequirement("Ogre artefact", ItemID.ZOGRE_ARTIFACTS);
-		ogreRelic.setTooltip("You can get another by searching the stand where you fought Slash Bash");
+		ogreRelic.setTooltip(t("You can get another by searching the stand where you fought Slash Bash"));
 
 		combatGear = new ItemRequirement("Either brutal arrows or Crumble Undead for fighting Slash Bash", -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
@@ -236,93 +236,93 @@ public class ZogreFleshEaters extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToGrish = new NpcStep(this, NpcID.ZOGRE_OGRE_SHAMAN, new WorldPoint(2447, 3049, 0), "Talk to Grish south of Castle Wars.");
+		talkToGrish = new NpcStep(this, NpcID.ZOGRE_OGRE_SHAMAN, new WorldPoint(2447, 3049, 0), t("Talk to Grish south of Castle Wars."));
 		talkToGrish.addDialogStepWithExclusion("What do you mean sickies?", "Can I help in any way?");
 		talkToGrish.addDialogSteps("Can I help in any way?", "Ok, I'll check things out then and report back.", "Yes, I'm really sure!", "Yes, I want to help you out and find out about the zogres.");
 
-		talkToGuard = new NpcStep(this, NpcID.ZOGRE_OGRE_GUARD, new WorldPoint(2454, 3048, 0), "Talk to the guard east of Grish.");
-		climbBarricade = new ObjectStep(this, ObjectID.ZOGRE_MULTI_BLOCKING_BARRICADE_L, new WorldPoint(2456, 3048, 0), "Climb over the barricade east of Grish.");
+		talkToGuard = new NpcStep(this, NpcID.ZOGRE_OGRE_GUARD, new WorldPoint(2454, 3048, 0), t("Talk to the guard east of Grish."));
+		climbBarricade = new ObjectStep(this, ObjectID.ZOGRE_MULTI_BLOCKING_BARRICADE_L, new WorldPoint(2456, 3048, 0), t("Climb over the barricade east of Grish."));
 
-		goDownStairs = new ObjectStep(this, ObjectID.OGRE_STAIRS_DOWN, new WorldPoint(2486, 3043, 0), "Climb down the stairs to the east.");
-		searchSkeleton = new ObjectStep(this, ObjectID.ZOGRE_BRENTLE_SKELETON, new WorldPoint(2442, 9459, 2), "Search the skeleton in the north west corner of this area.");
-		killZombie = new NpcStep(this, NpcID.ZOGRE_HUMAN_BRENTLE_VAHN, new WorldPoint(2442, 9459, 2), "Kill the zombie which appeared, and pick up the ruined backpack that appeared.");
-		openBackpack = new DetailedQuestStep(this, "Open the backpack for a knife and a dragon inn tankard.", backpack);
+		goDownStairs = new ObjectStep(this, ObjectID.OGRE_STAIRS_DOWN, new WorldPoint(2486, 3043, 0), t("Climb down the stairs to the east."));
+		searchSkeleton = new ObjectStep(this, ObjectID.ZOGRE_BRENTLE_SKELETON, new WorldPoint(2442, 9459, 2), t("Search the skeleton in the north west corner of this area."));
+		killZombie = new NpcStep(this, NpcID.ZOGRE_HUMAN_BRENTLE_VAHN, new WorldPoint(2442, 9459, 2), t("Kill the zombie which appeared, and pick up the ruined backpack that appeared."));
+		openBackpack = new DetailedQuestStep(this, t("Open the backpack for a knife and a dragon inn tankard."), backpack);
 
-		searchLectern = new ObjectStep(this, ObjectID.ZOGRE_LECTURN, new WorldPoint(2443, 9459, 2), "Search the broken lecturn in the north west corner of the tombs.");
-		searchCoffin = new ObjectStep(this, ObjectID.ZOGRE_COFFIN_SPECIAL_ENTITY, new WorldPoint(2439, 9459, 2), "Search the ogre coffin next to the skeleton.");
-		useKnifeOnCoffin = new ObjectStep(this, ObjectID.ZOGRE_COFFIN_SPECIAL_ENTITY, new WorldPoint(2439, 9459, 2), "Use a knife on the ogre coffin next to the skeleton.", knifeHighlighted);
+		searchLectern = new ObjectStep(this, ObjectID.ZOGRE_LECTURN, new WorldPoint(2443, 9459, 2), t("Search the broken lecturn in the north west corner of the tombs."));
+		searchCoffin = new ObjectStep(this, ObjectID.ZOGRE_COFFIN_SPECIAL_ENTITY, new WorldPoint(2439, 9459, 2), t("Search the ogre coffin next to the skeleton."));
+		useKnifeOnCoffin = new ObjectStep(this, ObjectID.ZOGRE_COFFIN_SPECIAL_ENTITY, new WorldPoint(2439, 9459, 2), t("Use a knife on the ogre coffin next to the skeleton."), knifeHighlighted);
 		useKnifeOnCoffin.addIcon(ItemID.KNIFE);
-		openCoffin = new ObjectStep(this, ObjectID.ZOGRE_COFFIN_SPECIAL_ENTITY, new WorldPoint(2439, 9459, 2), "Search the coffin next to the skeleton again. It may take a few attempts to open.");
-		searchCoffinProperly = new ObjectStep(this, ObjectID.ZOGRE_COFFIN_SPECIAL_ENTITY, new WorldPoint(2439, 9459, 2), "Search the coffin for a black prism.");
+		openCoffin = new ObjectStep(this, ObjectID.ZOGRE_COFFIN_SPECIAL_ENTITY, new WorldPoint(2439, 9459, 2), t("Search the coffin next to the skeleton again. It may take a few attempts to open."));
+		searchCoffinProperly = new ObjectStep(this, ObjectID.ZOGRE_COFFIN_SPECIAL_ENTITY, new WorldPoint(2439, 9459, 2), t("Search the coffin for a black prism."));
 
-		talkToZavistic = new NpcStep(this, NpcID.ZOGRE_HUMAN_ZAVISTIC_RARVE, new WorldPoint(2598, 3087, 0), "Talk to Zavistic Rarve at the Yanille Wizards' Guild. If you don't have 66 Magic, ring the bell outside the guild.");
+		talkToZavistic = new NpcStep(this, NpcID.ZOGRE_HUMAN_ZAVISTIC_RARVE, new WorldPoint(2598, 3087, 0), t("Talk to Zavistic Rarve at the Yanille Wizards' Guild. If you don't have 66 Magic, ring the bell outside the guild."));
 		talkToZavistic.addDialogStep("I'm here about the sicks...err Zogres");
 
 		goUpToSith = new ObjectStep(this, ObjectID.LADDER, new WorldPoint(2597, 3107, 0),
-			"Go upstairs and talk to Sithik in the house north of the Wizards' Guild.");
-		talkToSith = new ObjectStep(this, ObjectID.ZOGRE_SITHIK_BED_ENTITY, new WorldPoint(2591, 3104, 1), "Talk to Sithik Ints in the bed to the west.");
+			t("Go upstairs and talk to Sithik in the house north of the Wizards' Guild."));
+		talkToSith = new ObjectStep(this, ObjectID.ZOGRE_SITHIK_BED_ENTITY, new WorldPoint(2591, 3104, 1), t("Talk to Sithik Ints in the bed to the west."));
 		talkToSith.addDialogStep("Do you mind if I look around?");
 		goUpToSith.addSubSteps(talkToSith);
 
-		searchWardrobe = new ObjectStep(this, ObjectID.SITHIKS_WARDROBE, new WorldPoint(2590, 3103, 1), "Search Sithik's wardrobe.");
-		searchCupboard = new ObjectStep(this, ObjectID.SITHIKS_CUPBOARD, new WorldPoint(2593, 3105, 1), "Search Sithik's cupboard.");
+		searchWardrobe = new ObjectStep(this, ObjectID.SITHIKS_WARDROBE, new WorldPoint(2590, 3103, 1), t("Search Sithik's wardrobe."));
+		searchCupboard = new ObjectStep(this, ObjectID.SITHIKS_CUPBOARD, new WorldPoint(2593, 3105, 1), t("Search Sithik's cupboard."));
 
 		goUpToOgreSith = new ObjectStep(this, ObjectID.LADDER, new WorldPoint(2597, 3107, 0),
-			"Go upstairs and talk to Sithik in the house north of the Wizards' Guild.");
+			t("Go upstairs and talk to Sithik in the house north of the Wizards' Guild."));
 
-		searchDrawers = new ObjectStep(this, ObjectID.SITHIKS_DRAWERS, new WorldPoint(2593, 3103, 1), "Search Sithik's drawers for more papyrus.");
-		dropPortraitAndSearchDrawers = new ObjectStep(this, ObjectID.SITHIKS_DRAWERS, new WorldPoint(2593, 3103, 1), "The portrait drawn is wrong. Drop it and try drawing him again.");
+		searchDrawers = new ObjectStep(this, ObjectID.SITHIKS_DRAWERS, new WorldPoint(2593, 3103, 1), t("Search Sithik's drawers for more papyrus."));
+		dropPortraitAndSearchDrawers = new ObjectStep(this, ObjectID.SITHIKS_DRAWERS, new WorldPoint(2593, 3103, 1), t("The portrait drawn is wrong. Drop it and try drawing him again."));
 		searchDrawers.addSubSteps(dropPortraitAndSearchDrawers);
 
-		usePapyrusOnSith = new ObjectStep(this, ObjectID.ZOGRE_SITHIK_BED_ENTITY, new WorldPoint(2591, 3104, 1), "Use the papyrus on Sithik Ints.", papyrus, charcoal);
+		usePapyrusOnSith = new ObjectStep(this, ObjectID.ZOGRE_SITHIK_BED_ENTITY, new WorldPoint(2591, 3104, 1), t("Use the papyrus on Sithik Ints."), papyrus, charcoal);
 		usePapyrusOnSith.addIcon(ItemID.PAPYRUS);
 
-		useTankardOnBartender = new NpcStep(this, NpcID.DRAGON_BARTENDER, new WorldPoint(2555, 3080, 0), "Travel to the Dragon Inn in Yanille and use the dragon inn tankard on the bartender.", tankardHighlighted);
+		useTankardOnBartender = new NpcStep(this, NpcID.DRAGON_BARTENDER, new WorldPoint(2555, 3080, 0), t("Travel to the Dragon Inn in Yanille and use the dragon inn tankard on the bartender."), tankardHighlighted);
 		useTankardOnBartender.addIcon(ItemID.ZOGRE_DRAGON_TANKARD);
 
-		usePortraitOnBartender = new NpcStep(this, NpcID.DRAGON_BARTENDER, new WorldPoint(2555, 3080, 0), "Use the portrait on the bartender.", goodPort);
+		usePortraitOnBartender = new NpcStep(this, NpcID.DRAGON_BARTENDER, new WorldPoint(2555, 3080, 0), t("Use the portrait on the bartender."), goodPort);
 		usePortraitOnBartender.addIcon(ItemID.ZOGRE_SITHIK_PORTRAIT_GOOD);
 
 		bringSignedPortraitToZavistic = new NpcStep(this, NpcID.ZOGRE_HUMAN_ZAVISTIC_RARVE, new WorldPoint(2598, 3087, 0),
-			"Bring the books and signed portrait to Zavistic Rarve at the Yanille Wizards' Guild. If you don't have 66 Magic, ring the bell outside the guild.", signedPort, hamBook, necroBook);
+			t("Bring the books and signed portrait to Zavistic Rarve at the Yanille Wizards' Guild. If you don't have 66 Magic, ring the bell outside the guild."), signedPort, hamBook, necroBook);
 		bringSignedPortraitToZavistic.addDialogStep("I'm here about the sicks...err Zogres");
 		bringSignedPortraitToZavistic.addDialogStep("I have some items that I'd like you to look at.");
 
 		goUpToSithAgain = new ObjectStep(this, ObjectID.LADDER, new WorldPoint(2597, 3107, 0),
-			"Go upstairs and talk to Sithik in the house north of the Wizards' Guild.", strangePotion);
-		usePotionOnTea = new DetailedQuestStep(this, new WorldPoint(2593, 3103, 1), "Use the strange potion on the cup of tea next to Sithik.", strangePotionHighlighted);
+			t("Go upstairs and talk to Sithik in the house north of the Wizards' Guild."), strangePotion);
+		usePotionOnTea = new DetailedQuestStep(this, new WorldPoint(2593, 3103, 1), t("Use the strange potion on the cup of tea next to Sithik."), strangePotionHighlighted);
 		usePotionOnTea.addIcon(ItemID.ZOGRE_OGRE_TRANS_POTION);
 
-		goDownstairsFromSith = new ObjectStep(this, ObjectID.LADDERTOP2, new WorldPoint(2597, 3107, 1), "Leave Sithik Int's house.");
-		goUpToOgreSith = new ObjectStep(this, ObjectID.LADDER, new WorldPoint(2597, 3107, 0), "Go upstairs to Sithik again.");
+		goDownstairsFromSith = new ObjectStep(this, ObjectID.LADDERTOP2, new WorldPoint(2597, 3107, 1), t("Leave Sithik Int's house."));
+		goUpToOgreSith = new ObjectStep(this, ObjectID.LADDER, new WorldPoint(2597, 3107, 0), t("Go upstairs to Sithik again."));
 
-		talkToSithForAnswers = new ObjectStep(this, ObjectID.ZOGRE_SITHIK_BED_ENTITY, new WorldPoint(2591, 3104, 1), "Talk to the transformed Sithik Ints for answers.");
+		talkToSithForAnswers = new ObjectStep(this, ObjectID.ZOGRE_SITHIK_BED_ENTITY, new WorldPoint(2591, 3104, 1), t("Talk to the transformed Sithik Ints for answers."));
 		talkToSithForAnswers.addDialogSteps("How do I remove the effects of the spell from the area?");
 
-		askAboutRemovingUndead = new ObjectStep(this, ObjectID.ZOGRE_SITHIK_BED_ENTITY, new WorldPoint(2591, 3104, 1), "Talk to the transformed Sithik Ints for answers.");
+		askAboutRemovingUndead = new ObjectStep(this, ObjectID.ZOGRE_SITHIK_BED_ENTITY, new WorldPoint(2591, 3104, 1), t("Talk to the transformed Sithik Ints for answers."));
 		askAboutRemovingUndead.addDialogStep("How do I get rid of the undead ogres?");
 
-		askAboutRemovingDisease = new ObjectStep(this, ObjectID.ZOGRE_SITHIK_BED_ENTITY, new WorldPoint(2591, 3104, 1), "Talk to the transformed Sithik Ints for answers.");
+		askAboutRemovingDisease = new ObjectStep(this, ObjectID.ZOGRE_SITHIK_BED_ENTITY, new WorldPoint(2591, 3104, 1), t("Talk to the transformed Sithik Ints for answers."));
 		askAboutRemovingDisease.addDialogStep("How do I get rid of the disease?");
 		talkToSithForAnswers.addSubSteps(askAboutRemovingDisease, askAboutRemovingUndead);
 
-		talkToGrishForKey = new NpcStep(this, NpcID.ZOGRE_OGRE_SHAMAN, new WorldPoint(2447, 3049, 0), "Talk to Grish south of Castle Wars. Be prepared to fight Slash Bash. You'll need to use either brutal arrows or the Crumble Undead spell.");
+		talkToGrishForKey = new NpcStep(this, NpcID.ZOGRE_OGRE_SHAMAN, new WorldPoint(2447, 3049, 0), t("Talk to Grish south of Castle Wars. Be prepared to fight Slash Bash. You'll need to use either brutal arrows or the Crumble Undead spell."));
 		talkToGrishForKey.addDialogSteps("I found who's responsible for the Zogres being here.");
-		talkToGrishForBow = new NpcStep(this, NpcID.ZOGRE_OGRE_SHAMAN, new WorldPoint(2447, 3049, 0), "Talk to Grish south of Castle Wars again to learn how to make composite ogre bows.");
+		talkToGrishForBow = new NpcStep(this, NpcID.ZOGRE_OGRE_SHAMAN, new WorldPoint(2447, 3049, 0), t("Talk to Grish south of Castle Wars again to learn how to make composite ogre bows."));
 		talkToGrishForBow.addDialogStep("There must be an easier way to kill these zogres!");
 
-		climbBarricadeForBoss = new ObjectStep(this, ObjectID.ZOGRE_MULTI_BLOCKING_BARRICADE_L, new WorldPoint(2456, 3048, 0), "Climb over the barricade east of Grish, prepared to fight Slash Bash.", grishKey);
+		climbBarricadeForBoss = new ObjectStep(this, ObjectID.ZOGRE_MULTI_BLOCKING_BARRICADE_L, new WorldPoint(2456, 3048, 0), t("Climb over the barricade east of Grish, prepared to fight Slash Bash."), grishKey);
 		climbBarricadeForBoss.addDialogStep("Sorry, I have to go.");
-		goDownStairsForBoss = new ObjectStep(this, ObjectID.OGRE_STAIRS_DOWN, new WorldPoint(2486, 3043, 0), "Climb down the stairs to the east.");
+		goDownStairsForBoss = new ObjectStep(this, ObjectID.OGRE_STAIRS_DOWN, new WorldPoint(2486, 3043, 0), t("Climb down the stairs to the east."));
 
-		enterDoors = new ObjectStep(this, ObjectID.OGRE_CAVEDOORL, new WorldPoint(2442, 9433, 2), "Enter the doors at the west side of the area.", grishKey);
-		goDownToBoss = new ObjectStep(this, ObjectID.OGRE_STAIRS_DOWN, new WorldPoint(2444, 9418, 2), "Go down the stairs to the boss.");
+		enterDoors = new ObjectStep(this, ObjectID.OGRE_CAVEDOORL, new WorldPoint(2442, 9433, 2), t("Enter the doors at the west side of the area."), grishKey);
+		goDownToBoss = new ObjectStep(this, ObjectID.OGRE_STAIRS_DOWN, new WorldPoint(2444, 9418, 2), t("Go down the stairs to the boss."));
 
-		searchStand = new ObjectStep(this, ObjectID.ZOGRE_STAND, new WorldPoint(2483, 9445, 0), "Search the stand in the north east corner, and kill Slash Bash when he spawns.");
+		searchStand = new ObjectStep(this, ObjectID.ZOGRE_STAND, new WorldPoint(2483, 9445, 0), t("Search the stand in the north east corner, and kill Slash Bash when he spawns."));
 
-		pickUpOgreArtefact = new ItemStep(this, "Pick up the ogre artefact.", ogreRelic);
+		pickUpOgreArtefact = new ItemStep(this, t("Pick up the ogre artefact."), ogreRelic);
 
-		returnArtefactToGrish = new NpcStep(this, NpcID.ZOGRE_OGRE_SHAMAN, new WorldPoint(2447, 3049, 0), "Return to Grish with the ogre artefact.", ogreRelic);
+		returnArtefactToGrish = new NpcStep(this, NpcID.ZOGRE_OGRE_SHAMAN, new WorldPoint(2447, 3049, 0), t("Return to Grish with the ogre artefact."), ogreRelic);
 		returnArtefactToGrish.addDialogStep("Yeah, I have them here!");
 	}
 
@@ -337,8 +337,8 @@ public class ZogreFleshEaters extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		ArrayList<String> reqs = new ArrayList<>();
-		reqs.add("Slash Bash (level 111)");
-		reqs.add("Zombie (level 39)");
+		reqs.add(t("Slash Bash (level 111)"));
+		reqs.add(t("Zombie (level 39)"));
 		return reqs;
 	}
 
@@ -390,20 +390,20 @@ public class ZogreFleshEaters extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Ability to make Relicym's balm"),
-				new UnlockReward("Ability to fletch Comp Ogre Bows and Brutal Arrows"),
-				new UnlockReward("Ability to wear Inoculation Bracelets"));
+				new UnlockReward(t("Ability to make Relicym's balm")),
+				new UnlockReward(t("Ability to fletch Comp Ogre Bows and Brutal Arrows")),
+				new UnlockReward(t("Ability to wear Inoculation Bracelets")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off", Arrays.asList(talkToGrish, talkToGuard, goDownStairs, searchSkeleton, killZombie, openBackpack, searchLectern, searchCoffin, useKnifeOnCoffin,
+		allSteps.add(new PanelDetails(t("Starting off"), Arrays.asList(talkToGrish, talkToGuard, goDownStairs, searchSkeleton, killZombie, openBackpack, searchLectern, searchCoffin, useKnifeOnCoffin,
 			openCoffin, searchCoffinProperly)));
-		allSteps.add(new PanelDetails("Investigating", Arrays.asList(talkToZavistic, goUpToSith, searchWardrobe, searchCupboard, searchDrawers, usePapyrusOnSith, useTankardOnBartender, usePortraitOnBartender, bringSignedPortraitToZavistic)));
-		allSteps.add(new PanelDetails("Discover the truth", Arrays.asList(goUpToSithAgain, usePotionOnTea, goDownstairsFromSith, goUpToOgreSith, talkToSithForAnswers)));
-		allSteps.add(new PanelDetails("Help the ogres", Arrays.asList(talkToGrishForKey, talkToGrishForBow, climbBarricadeForBoss, goDownStairsForBoss, enterDoors, goDownToBoss, searchStand, pickUpOgreArtefact, returnArtefactToGrish), combatGear));
+		allSteps.add(new PanelDetails(t("Investigating"), Arrays.asList(talkToZavistic, goUpToSith, searchWardrobe, searchCupboard, searchDrawers, usePapyrusOnSith, useTankardOnBartender, usePortraitOnBartender, bringSignedPortraitToZavistic)));
+		allSteps.add(new PanelDetails(t("Discover the truth"), Arrays.asList(goUpToSithAgain, usePotionOnTea, goDownstairsFromSith, goUpToOgreSith, talkToSithForAnswers)));
+		allSteps.add(new PanelDetails(t("Help the ogres"), Arrays.asList(talkToGrishForKey, talkToGrishForBow, climbBarricadeForBoss, goDownStairsForBoss, enterDoors, goDownToBoss, searchStand, pickUpOgreArtefact, returnArtefactToGrish), combatGear));
 
 		return allSteps;
 	}

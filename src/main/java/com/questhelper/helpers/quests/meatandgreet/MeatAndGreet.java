@@ -163,14 +163,14 @@ public class MeatAndGreet extends BasicQuestHelper
 		experimentalKebab = new ItemRequirement("Test kebab", ItemID.MAG_TEST_KEBAB);
 
 		goodTestKebab = new ItemRequirement("Test kebab", ItemID.MAG_COLOSSEUM_KEBAB, 1);
-		goodTestKebab.setTooltip("You can return to Emelio if you need a test kebab.");
+		goodTestKebab.setTooltip(t("You can return to Emelio if you need a test kebab."));
 		goodTestKebabs = goodTestKebab.quantity(2);
 	}
 
 	public void setupSteps()
 	{
 		/// 0 + 2
-		talkToEmelioToStartQuest = new NpcStep(this, NpcID.MAG_EMELIO_1OP, new WorldPoint(1753, 3074, 0), "Talk to Emelio in Outer Fortis at the south-eastern entrance of Civitas illa Fortis to start the quest.");
+		talkToEmelioToStartQuest = new NpcStep(this, NpcID.MAG_EMELIO_1OP, new WorldPoint(1753, 3074, 0), t("Talk to Emelio in Outer Fortis at the south-eastern entrance of Civitas illa Fortis to start the quest."));
 		talkToEmelioToStartQuest.addDialogStep("Yes.");
 		talkToEmelioToStartQuest.addTeleport(civitasIllaFortisTeleport);
 
@@ -178,16 +178,16 @@ public class MeatAndGreet extends BasicQuestHelper
 		// 11184 0->1
 
 		/// 4
-		talkToSpiceMerchantInBazaar = new NpcStep(this, NpcID.FORTIS_SHOP_SPICES, new WorldPoint(1685, 3101, 0), "Talk to the Spice Merchant in the Bazaar in the middle of Civitas illa Fortis about the missing delivery.");
+		talkToSpiceMerchantInBazaar = new NpcStep(this, NpcID.FORTIS_SHOP_SPICES, new WorldPoint(1685, 3101, 0), t("Talk to the Spice Merchant in the Bazaar in the middle of Civitas illa Fortis about the missing delivery."));
 		talkToSpiceMerchantInBazaar.addTeleport(civitasIllaFortisTeleport);
 		talkToSpiceMerchantInBazaar.addDialogStep("I'm here about a missing delivery.");
 		talkToSpiceMerchantInBazaar.addDialogStep("Could I have a look at that locked box?");
 		talkToSpiceMerchantInBazaar.addDialogStep("About that missing delivery...");
 		// 11183 1->2 (Marks that you've talked about the missing delivery. Future discussions with Spice Merchants will have you ask about the locked box.)
 		var pinPadOpen = new WidgetPresenceRequirement(888, 1);
-		var submitCode = new WidgetStep(this, "Submit the code.", 888, 7); // Submit button (right-facing arrow)
-		var resetCode = new WidgetStep(this, "Reset the code.", new WidgetDetails(888, 6, 20)); // Reset button (left-facing arrow)
-		var enterFirstNumber = new WidgetStep(this, "Click 2.", new WidgetDetails(888, 6, 2));
+		var submitCode = new WidgetStep(this, t("Submit the code."), 888, 7); // Submit button (right-facing arrow)
+		var resetCode = new WidgetStep(this, t("Reset the code."), new WidgetDetails(888, 6, 20)); // Reset button (left-facing arrow)
+		var enterFirstNumber = new WidgetStep(this, t("Click 2."), new WidgetDetails(888, 6, 2));
 		var firstNumberEmpty = new WidgetTextRequirement(888, 5, 0, "-");
 		var secondNumberEmpty = new WidgetTextRequirement(888, 5, 1, "-");
 		var thirdNumberEmpty = new WidgetTextRequirement(888, 5, 2, "-");
@@ -196,35 +196,35 @@ public class MeatAndGreet extends BasicQuestHelper
 		var secondNumberCorrect = new WidgetTextRequirement(888, 5, 1, "5");
 		var thirdNumberCorrect = new WidgetTextRequirement(888, 5, 2, "4");
 		var fourthNumberCorrect = new WidgetTextRequirement(888, 5, 3, "6");
-		var enterSecondNumber = new WidgetStep(this, "Click 5.", new WidgetDetails(888, 6, 8));
-		var enterThirdNumber = new WidgetStep(this, "Click 4.", new WidgetDetails(888, 6, 6));
-		var enterFourthNumber = new WidgetStep(this, "Click 6.", new WidgetDetails(888, 6, 10));
-		var enterCode = new ConditionalStep(this, resetCode, "Enter the code 2546 to unlock the box.");
+		var enterSecondNumber = new WidgetStep(this, t("Click 5."), new WidgetDetails(888, 6, 8));
+		var enterThirdNumber = new WidgetStep(this, t("Click 4."), new WidgetDetails(888, 6, 6));
+		var enterFourthNumber = new WidgetStep(this, t("Click 6."), new WidgetDetails(888, 6, 10));
+		var enterCode = new ConditionalStep(this, resetCode, t("Enter the code 2546 to unlock the box."));
 		enterCode.addStep(and(fourthNumberCorrect, thirdNumberCorrect, secondNumberCorrect, firstNumberCorrect), submitCode);
 		enterCode.addStep(and(fourthNumberEmpty, thirdNumberCorrect, secondNumberCorrect, firstNumberCorrect), enterFourthNumber);
 		enterCode.addStep(and(thirdNumberEmpty, secondNumberCorrect, firstNumberCorrect), enterThirdNumber);
 		enterCode.addStep(and(secondNumberEmpty, firstNumberCorrect), enterSecondNumber);
 		enterCode.addStep(firstNumberEmpty, enterFirstNumber);
-		enterCodeWrapper = new PuzzleWrapperStep(this, enterCode, "Figure out the correct code to unlock the box of spices.");
+		enterCodeWrapper = new PuzzleWrapperStep(this, enterCode, t("Figure out the correct code to unlock the box of spices."));
 		// Pin code correctly entered: 11183 2->3
 		// Spices sent: 11183 3->4
 		var needToSendSpicesFromSpiceMerchant = new VarbitRequirement(VarbitID.MAG_SPICE, 4, Operation.LESS);
 
 
 		var needToTalkToAlbaAboutWolves = new VarbitRequirement(VarbitID.MAG_MEAT, 2, Operation.LESS);
-		talkToAlba = new NpcStep(this, NpcID.MAG_ALBA, new WorldPoint(1587, 3126, 0), "Talk to Alba in the farmhouse west of Civitas illa Fortis.");
-		headWestAndEnterTheDungeon = new ObjectStep(this, ObjectID.DIREWOLF_CAVE_ENTRANCE, new WorldPoint(1498, 3132, 0), "Head west from the farm and enter the Wolf Den, prepared to kill the Dire Wolf Alpha.", combatGear, food);
+		talkToAlba = new NpcStep(this, NpcID.MAG_ALBA, new WorldPoint(1587, 3126, 0), t("Talk to Alba in the farmhouse west of Civitas illa Fortis."));
+		headWestAndEnterTheDungeon = new ObjectStep(this, ObjectID.DIREWOLF_CAVE_ENTRANCE, new WorldPoint(1498, 3132, 0), t("Head west from the farm and enter the Wolf Den, prepared to kill the Dire Wolf Alpha."), combatGear, food);
 		var enterWolfDenAndKillTheDireWolfAlpha = new ConditionalStep(this, headWestAndEnterTheDungeon);
 		// enterWolfDenAndKillTheDireWolfAlpha
-		killDireWolfAlpha = new NpcStep(this, NpcID.MAG_DIREWOLF, "Kill the Dire Wolf Alpha. Use Protect from Melee to avoid most damage. His pups deal ranged damage.", combatGear, food);
+		killDireWolfAlpha = new NpcStep(this, NpcID.MAG_DIREWOLF, t("Kill the Dire Wolf Alpha. Use Protect from Melee to avoid most damage. His pups deal ranged damage."), combatGear, food);
 		// killed wolf: 11184 2->3
 		var needToKillWolf = new VarbitRequirement(VarbitID.MAG_MEAT, 2);
-		var exitWolfDen = new ObjectStep(this, ObjectID.DIREWOLF_CAVE_EXIT_INSTANCE, new WorldPoint(1488, 9502, 1), "Exit the wolf den, then head back to Alba in the farmhouse west of Civitas illa Fortis.");
+		var exitWolfDen = new ObjectStep(this, ObjectID.DIREWOLF_CAVE_EXIT_INSTANCE, new WorldPoint(1488, 9502, 1), t("Exit the wolf den, then head back to Alba in the farmhouse west of Civitas illa Fortis."));
 		// 13092 0->100
 		// 13093 0->100
 		// 13094 0->100
 		// 13095 0->100
-		returnToAlba = new NpcStep(this, NpcID.MAG_ALBA, new WorldPoint(1587, 3126, 0), "Return to Alba in the farmhouse west of Civitas illa Fortis to tell them about the Dire Wolf Alpha's demise.");
+		returnToAlba = new NpcStep(this, NpcID.MAG_ALBA, new WorldPoint(1587, 3126, 0), t("Return to Alba in the farmhouse west of Civitas illa Fortis to tell them about the Dire Wolf Alpha's demise."));
 		returnToAlba.addSubSteps(exitWolfDen);
 		var needToReturnToAlba = new VarbitRequirement(VarbitID.MAG_MEAT, 3);
 		// 11184 3->4 after returning to alba
@@ -238,14 +238,14 @@ public class MeatAndGreet extends BasicQuestHelper
 
 		/// 6
 		// Can save 50% of the time by teleporting to Civitas illa Fortis & running south-east, or using a Quetzal whistle to (?), but I don't have a whistle!
-		returnToEmelio = new NpcStep(this, NpcID.MAG_EMELIO_1OP, new WorldPoint(1753, 3074, 0), "Return to Emelio in Outer Fortis at the south-eastern entrance of Civitas illa Fortis to find the perfect ratio of ingredients for the kebab.");
+		returnToEmelio = new NpcStep(this, NpcID.MAG_EMELIO_1OP, new WorldPoint(1753, 3074, 0), t("Return to Emelio in Outer Fortis at the south-eastern entrance of Civitas illa Fortis to find the perfect ratio of ingredients for the kebab."));
 		returnToEmelio.addTeleport(civitasIllaFortisTeleport);
 
 		/// 8
-		var giveRecipeToEmelio = new NpcStep(this, NpcID.MAG_EMELIO_1OP, new WorldPoint(1753, 3074, 0), "Tell Emelio the recipe is perfect.");
+		var giveRecipeToEmelio = new NpcStep(this, NpcID.MAG_EMELIO_1OP, new WorldPoint(1753, 3074, 0), t("Tell Emelio the recipe is perfect."));
 		giveRecipeToEmelio.addDialogStep("I think that's perfect!");
 		giveRecipeToEmelio.addDialogStep("Sounds good to me.");
-		var adjustRecipe = new NpcStep(this, NpcID.MAG_EMELIO_1OP, new WorldPoint(1753, 3074, 0), "Adjust the recipe with Emelio. Four portions of meat, two portions of salad, one portion of spice, and three portions of sauce.");
+		var adjustRecipe = new NpcStep(this, NpcID.MAG_EMELIO_1OP, new WorldPoint(1753, 3074, 0), t("Adjust the recipe with Emelio. Four portions of meat, two portions of salad, one portion of spice, and three portions of sauce."));
 		adjustRecipe.addDialogStep("I think so.");
 		adjustRecipe.addDialogStep("Adjust meat (currently at one portion).");
 		adjustRecipe.addDialogStep("Adjust meat (currently at two portions).");
@@ -312,20 +312,20 @@ public class MeatAndGreet extends BasicQuestHelper
 		var saladCorrect = new VarbitRequirement(VarbitID.MAG_PORTIONS_SALAD, 2);
 		var spiceCorrect = new VarbitRequirement(VarbitID.MAG_PORTIONS_SPICE, 1);
 		var sauceCorrect = new VarbitRequirement(VarbitID.MAG_PORTIONS_SAUCE, 3);
-		var recipeStep = new ConditionalStep(this, adjustRecipe, "Configure the kebab recipe with Emelio.");
+		var recipeStep = new ConditionalStep(this, adjustRecipe, t("Configure the kebab recipe with Emelio."));
 		// 11189 0->1 = received test kebab
-		var giveExperimentalKebabToRenata = new NpcStep(this, NpcID.MAG_RENATA_VIS, new WorldPoint(1750, 3072, 0), "Talk to Renata to have them test your test kebab.", experimentalKebab);
+		var giveExperimentalKebabToRenata = new NpcStep(this, NpcID.MAG_RENATA_VIS, new WorldPoint(1750, 3072, 0), t("Talk to Renata to have them test your test kebab."), experimentalKebab);
 		recipeStep.addStep(experimentalKebab, giveExperimentalKebabToRenata);
 		recipeStep.addStep(and(meatCorrect, saladCorrect, spiceCorrect, sauceCorrect), giveRecipeToEmelio);
-		recipeStepWrapper = new PuzzleWrapperStep(this, recipeStep, "Figure out the correct ratio of meat, salad, spice, and sauce by talking to the kebab connoisseurs outside then give the final recipe to Emelio.");
+		recipeStepWrapper = new PuzzleWrapperStep(this, recipeStep, t("Figure out the correct ratio of meat, salad, spice, and sauce by talking to the kebab connoisseurs outside then give the final recipe to Emelio."));
 		// 11182 8 -> 10 when found perfect kebab recipe & given it to someone
 
 		/// 10 + 12
-		returnToEmelioWithNewsOfYourKebabSuccess = new NpcStep(this, NpcID.MAG_EMELIO_1OP, new WorldPoint(1754, 3074, 0), "Return to Emelio with news of your kebab success!");
+		returnToEmelioWithNewsOfYourKebabSuccess = new NpcStep(this, NpcID.MAG_EMELIO_1OP, new WorldPoint(1754, 3074, 0), t("Return to Emelio with news of your kebab success!"));
 
 		/// 14
-		var headIntoColosseum = new ObjectStep(this, ObjectID.COLOSSEUM_ENTRANCE_OUTSIDE, new WorldPoint(1796, 3106, 0), "Head into the Fortis Colosseum and talk to Lelia about kebab sales.", combatGear, food, goodTestKebabs);
-		talkToLelia = new NpcStep(this, NpcID.MAG_LELIA, new WorldPoint(1819, 9484, 0), "Head into the Fortis Colosseum, then into the southern room and talk to Lelia about kebab sales.", combatGear, food, goodTestKebabs);
+		var headIntoColosseum = new ObjectStep(this, ObjectID.COLOSSEUM_ENTRANCE_OUTSIDE, new WorldPoint(1796, 3106, 0), t("Head into the Fortis Colosseum and talk to Lelia about kebab sales."), combatGear, food, goodTestKebabs);
+		talkToLelia = new NpcStep(this, NpcID.MAG_LELIA, new WorldPoint(1819, 9484, 0), t("Head into the Fortis Colosseum, then into the southern room and talk to Lelia about kebab sales."), combatGear, food, goodTestKebabs);
 		talkToLelia.addSubSteps(headIntoColosseum);
 		giveKebabToLelia = new ConditionalStep(this, headIntoColosseum);
 		giveKebabToLelia.addStep(inFortisColosseum, talkToLelia);
@@ -333,19 +333,19 @@ public class MeatAndGreet extends BasicQuestHelper
 		/// 16
 		//14 -> 16 after giving kebab to Lelia
 		// TECHNICALLY the player could leave, and we won't guide the player into the colosseum here
-		talkToLeliaAfterGivingHerTheKebab = new NpcStep(this, NpcID.MAG_LELIA, new WorldPoint(1819, 9484, 0), "Talk to Lelia after letting her taste your test kebab.", combatGear, food, goodTestKebab);
+		talkToLeliaAfterGivingHerTheKebab = new NpcStep(this, NpcID.MAG_LELIA, new WorldPoint(1819, 9484, 0), t("Talk to Lelia after letting her taste your test kebab."), combatGear, food, goodTestKebab);
 
 		/// 18
-		var headIntoColosseum2 = new ObjectStep(this, ObjectID.COLOSSEUM_ENTRANCE_OUTSIDE, new WorldPoint(1796, 3106, 0), "Head into the Fortis Colosseum, ready to fight the Minotaur.", combatGear, food, goodTestKebab);
-		enterArenaWithKebab = new NpcStep(this, NpcID.MAG_LELIA, new WorldPoint(1819, 9484, 0), "Talk to Lelia in the southern room, ready to fight the Minotaur.", combatGear, food, goodTestKebab);
+		var headIntoColosseum2 = new ObjectStep(this, ObjectID.COLOSSEUM_ENTRANCE_OUTSIDE, new WorldPoint(1796, 3106, 0), t("Head into the Fortis Colosseum, ready to fight the Minotaur."), combatGear, food, goodTestKebab);
+		enterArenaWithKebab = new NpcStep(this, NpcID.MAG_LELIA, new WorldPoint(1819, 9484, 0), t("Talk to Lelia in the southern room, ready to fight the Minotaur."), combatGear, food, goodTestKebab);
 		enterArenaWithKebab.addDialogStep("I think so.");
 		enterArenaWithKebab.addSubSteps(headIntoColosseum2);
 		// 13989 0->1 ?
 		var arena = new Zone(new WorldPoint(1808, 3123, 0), new WorldPoint(1840, 3090, 0));
 		var inArena = new ZoneRequirement(arena);
-		fightMinotaur = new NpcStep(this, NpcID.MAG_MINOTAUR, new WorldPoint(1823, 3105, 0), "Fight the Minotaur. Protect from Melee to avoid most damage. When it shouts Moo! switch to Protect from Magic for one attack.");
-		var leaveColosseumToGetAnotherKebabFromEmelio = new ObjectStep(this, ObjectID.COLOSSEUM_EXIT_LOBBY, new WorldPoint(1798, 9506, 0), "Talk to Emelio to get another test kebab.", combatGear, food, goodTestKebab);
-		var getAnotherKebabFromEmelio = new NpcStep(this, NpcID.MAG_EMELIO_1OP, new WorldPoint(1754, 3074, 0), "Talk to Emelio to get another test kebab before you can fight the Minotaur.", combatGear, food, goodTestKebab);
+		fightMinotaur = new NpcStep(this, NpcID.MAG_MINOTAUR, new WorldPoint(1823, 3105, 0), t("Fight the Minotaur. Protect from Melee to avoid most damage. When it shouts Moo! switch to Protect from Magic for one attack."));
+		var leaveColosseumToGetAnotherKebabFromEmelio = new ObjectStep(this, ObjectID.COLOSSEUM_EXIT_LOBBY, new WorldPoint(1798, 9506, 0), t("Talk to Emelio to get another test kebab."), combatGear, food, goodTestKebab);
+		var getAnotherKebabFromEmelio = new NpcStep(this, NpcID.MAG_EMELIO_1OP, new WorldPoint(1754, 3074, 0), t("Talk to Emelio to get another test kebab before you can fight the Minotaur."), combatGear, food, goodTestKebab);
 		enterArenaWithKebab.addSubSteps(leaveColosseumToGetAnotherKebabFromEmelio, getAnotherKebabFromEmelio);
 		fightMinotaurWithKebab = new ConditionalStep(this, enterArenaWithKebab);
 		fightMinotaurWithKebab.addStep(inArena, fightMinotaur);
@@ -355,24 +355,24 @@ public class MeatAndGreet extends BasicQuestHelper
 		// 9807 = have spoken to Minimus about Colosseum (unrelated to quest xd)
 
 		/// 20
-		var enterArenaAfterFailing = new NpcStep(this, NpcID.MAG_LELIA, new WorldPoint(1819, 9484, 0), "Talk to Lelia in the southern room, ready to fight the Minotaur again.", combatGear, food);
+		var enterArenaAfterFailing = new NpcStep(this, NpcID.MAG_LELIA, new WorldPoint(1819, 9484, 0), t("Talk to Lelia in the southern room, ready to fight the Minotaur again."), combatGear, food);
 		enterArenaAfterFailing.addDialogStep("Okay, I'm ready.");
 		enterArenaWithKebab.addSubSteps(enterArenaAfterFailing);
-		var headIntoColosseumAfterFailing = new ObjectStep(this, ObjectID.COLOSSEUM_ENTRANCE_OUTSIDE, new WorldPoint(1796, 3106, 0), "Head into the Fortis Colosseum, ready to fight the Minotaur again.", combatGear, food);
+		var headIntoColosseumAfterFailing = new ObjectStep(this, ObjectID.COLOSSEUM_ENTRANCE_OUTSIDE, new WorldPoint(1796, 3106, 0), t("Head into the Fortis Colosseum, ready to fight the Minotaur again."), combatGear, food);
 		enterArenaWithKebab.addSubSteps(headIntoColosseumAfterFailing);
 		fightMinotaurWithKebabAfterEnteringAtLeastOnce = new ConditionalStep(this, enterArenaAfterFailing);
 		fightMinotaurWithKebabAfterEnteringAtLeastOnce.addStep(inArena, fightMinotaur);
 		fightMinotaurWithKebabAfterEnteringAtLeastOnce.addStep(not(inFortisColosseum), headIntoColosseumAfterFailing);
 
 		/// 22
-		talkToLeliaAfterBeatingTheMinotaur = new NpcStep(this, NpcID.MAG_LELIA, new WorldPoint(1818, 9484, 0), "Talk to Lelia in the southern room of the Fortis Colosseum after defeating the Minotaur.");
-		var headIntoColosseumAfterDefeatingTheMinotaur = new ObjectStep(this, ObjectID.COLOSSEUM_ENTRANCE_OUTSIDE, new WorldPoint(1796, 3106, 0), "Head into the Fortis Colosseum and talk to Lelia.");
+		talkToLeliaAfterBeatingTheMinotaur = new NpcStep(this, NpcID.MAG_LELIA, new WorldPoint(1818, 9484, 0), t("Talk to Lelia in the southern room of the Fortis Colosseum after defeating the Minotaur."));
+		var headIntoColosseumAfterDefeatingTheMinotaur = new ObjectStep(this, ObjectID.COLOSSEUM_ENTRANCE_OUTSIDE, new WorldPoint(1796, 3106, 0), t("Head into the Fortis Colosseum and talk to Lelia."));
 		talkToLeliaAfterBeatingTheMinotaurStep = new ConditionalStep(this, talkToLeliaAfterBeatingTheMinotaur);
 		fightMinotaurWithKebabAfterEnteringAtLeastOnce.addStep(not(inFortisColosseum), headIntoColosseumAfterDefeatingTheMinotaur);
 
 		/// 24
-		var leaveColosseumToReturnToEmelio = new ObjectStep(this, ObjectID.COLOSSEUM_EXIT_LOBBY, new WorldPoint(1798, 9506, 0), "Exit the colosseum, then return to Emelio in Outer Fortis at the south-eastern entrance of Civitas illa Fortis and tell him about your success.");
-		returnToEmelioWithNewsOfYourAdvertisingSuccess = new NpcStep(this, NpcID.MAG_EMELIO_1OP, new WorldPoint(1754, 3074, 0), "Return to Emelio in Outer Fortis at the south-eastern entrance of Civitas illa Fortis and tell him about your success.");
+		var leaveColosseumToReturnToEmelio = new ObjectStep(this, ObjectID.COLOSSEUM_EXIT_LOBBY, new WorldPoint(1798, 9506, 0), t("Exit the colosseum, then return to Emelio in Outer Fortis at the south-eastern entrance of Civitas illa Fortis and tell him about your success."));
+		returnToEmelioWithNewsOfYourAdvertisingSuccess = new NpcStep(this, NpcID.MAG_EMELIO_1OP, new WorldPoint(1754, 3074, 0), t("Return to Emelio in Outer Fortis at the south-eastern entrance of Civitas illa Fortis and tell him about your success."));
 		returnToEmelioWithNewsOfYourAdvertisingSuccess.addSubSteps(leaveColosseumToReturnToEmelio);
 		returnToEmelioWithNewsOfYourAdvertisingSuccessStep = new ConditionalStep(this, returnToEmelioWithNewsOfYourAdvertisingSuccess);
 		returnToEmelioWithNewsOfYourAdvertisingSuccessStep.addStep(inFortisColosseum, leaveColosseumToReturnToEmelio);
@@ -401,7 +401,7 @@ public class MeatAndGreet extends BasicQuestHelper
 	{
 		return List.of(
 			new CombatLevelRequirement(60),
-			new SkillRequirement(Skill.PRAYER, 43, false, "43+ Prayer to use Protect from Melee and Protect from Magic"),
+			new SkillRequirement(Skill.PRAYER, 43, false, t("43+ Prayer to use Protect from Melee and Protect from Magic")),
 			new FreeInventorySlotRequirement(2)
 		);
 	}
@@ -418,8 +418,8 @@ public class MeatAndGreet extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"Dire Wolf Alpha (lvl 113)",
-			"Minotaur (lvl 193)"
+			t("Dire Wolf Alpha (lvl 113)"),
+			t("Minotaur (lvl 193)")
 		);
 	}
 
@@ -441,7 +441,7 @@ public class MeatAndGreet extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Access to Emelio's Kebab Shop")
+			new UnlockReward(t("Access to Emelio's Kebab Shop"))
 		);
 	}
 
@@ -450,7 +450,7 @@ public class MeatAndGreet extends BasicQuestHelper
 	{
 		var panels = new ArrayList<PanelDetails>();
 
-		panels.add(new PanelDetails("Supply chain issues", List.of(
+		panels.add(new PanelDetails(t("Supply chain issues"), List.of(
 			talkToEmelioToStartQuest,
 			talkToSpiceMerchantInBazaar,
 			enterCodeWrapper,
@@ -459,12 +459,12 @@ public class MeatAndGreet extends BasicQuestHelper
 			killDireWolfAlpha,
 			returnToAlba
 			), List.of(staminaPotion, prayerPotion, combatGear, food)));
-		panels.add(new PanelDetails("The golden ratio", List.of(
+		panels.add(new PanelDetails(t("The golden ratio"), List.of(
 			returnToEmelio,
 			recipeStepWrapper,
 			returnToEmelioWithNewsOfYourKebabSuccess
 		), List.of(staminaPotion, prayerPotion, combatGear, food)));
-		panels.add(new PanelDetails("Guerilla marketing", List.of(
+		panels.add(new PanelDetails(t("Guerilla marketing"), List.of(
 			talkToLelia,
 			talkToLeliaAfterGivingHerTheKebab,
 			enterArenaWithKebab,

@@ -36,7 +36,7 @@ public class PenguinEmote extends WidgetStep
 {
 	public PenguinEmote(QuestHelper questHelper)
 	{
-		super(questHelper, "Perform the 3 emotes the penguins performed in the bird hide cutscene.");
+		super(questHelper, questHelper.t("Perform the 3 emotes the penguins performed in the bird hide cutscene."));
 	}
 
 	@Override

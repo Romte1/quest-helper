@@ -92,13 +92,13 @@ public class ClientOfKourend extends BasicQuestHelper
 		talkedToHorace = new VarbitRequirement(VarbitID.VEOS_HOSIDIUS, 1);
 
 		feather = new ItemRequirement("Feather", ItemID.FEATHER);
-		feather.setTooltip("Can be purchased from Gerrant's Fishy Business in Port Sarim.");
+		feather.setTooltip(t("Can be purchased from Gerrant's Fishy Business in Port Sarim."));
 		feather.addAlternates(ItemID.HUNTING_POLAR_FEATHER, ItemID.HUNTING_WOODLAND_FEATHER, ItemID.HUNTING_JUNGLE_FEATHER, ItemID.HUNTING_DESERT_FEATHER,
 			ItemID.HUNTING_EAGLE_FEATHER, ItemID.HUNTING_STRIPY_BIRD_FEATHER);
 		feather.setHighlightInInventory(true);
 		gamesNecklace = new ItemRequirement("Games necklace", ItemCollections.GAMES_NECKLACES);
 		coinsForMinecart = new ItemRequirement("Coins", ItemCollections.COINS, 100);
-		coinsForMinecart.setTooltip("For travel with the Lovakengj Minecart Network.");
+		coinsForMinecart.setTooltip(t("For travel with the Lovakengj Minecart Network."));
 		enchantedScroll = new ItemRequirement("Enchanted scroll", ItemID.VEOS_SCROLL);
 		mysteriousOrb = new ItemRequirement("Mysterious orb", ItemID.VEOS_ORB);
 		mysteriousOrb.setHighlightInInventory(true);
@@ -109,7 +109,7 @@ public class ClientOfKourend extends BasicQuestHelper
 	public void setupSteps()
 	{
 		talkToVeos = new NpcStep(this, NpcID.VEOS_VIS_AMULET, new WorldPoint(1824, 3690, 0),
-			"Talk to Veos on the Port Piscarilius docks. You can travel to him by talking to Veos in Port Sarim.");
+			t("Talk to Veos on the Port Piscarilius docks. You can travel to him by talking to Veos in Port Sarim."));
 		talkToVeos.addDialogStep("Sounds interesting! How can I help?");
 		talkToVeos.addDialogStep("Can you take me to Great Kourend?");
 		talkToVeos.addDialogStep("Have you got any quests for me?");
@@ -117,30 +117,30 @@ public class ClientOfKourend extends BasicQuestHelper
 		talkToVeos.addDialogStep("I've lost something you've given me.");
 		talkToVeos.addDialogStep("Yes.");
 
-		useFeatherOnScroll = new DetailedQuestStep(this, "Use a feather on the Enchanted Scroll.", feather, enchantedScroll.highlighted());
+		useFeatherOnScroll = new DetailedQuestStep(this, t("Use a feather on the Enchanted Scroll."), feather, enchantedScroll.highlighted());
 
-		talkToLeenz = new NpcStep(this, NpcID.PISCARILIUS_GENERALSTORE_KEEPER, new WorldPoint(1807, 3726, 0), "Talk to Leenz in Port Piscarilius general store.", enchantedScroll, enchantedQuill);
+		talkToLeenz = new NpcStep(this, NpcID.PISCARILIUS_GENERALSTORE_KEEPER, new WorldPoint(1807, 3726, 0), t("Talk to Leenz in Port Piscarilius general store."), enchantedScroll, enchantedQuill);
 		talkToLeenz.addDialogStep("Can I ask you about Port Piscarilius?");
 		talkToLeenz.addDialogStep("What is there to do in Port Piscarilius?");
-		talkToHorace = new NpcStep(this, NpcID.HOSIDIUS_GENERALSTORE, new WorldPoint(1774, 3589, 0), "Talk to Horace in the Hosidius general store. You can take the Lovakengj Minecart Network to Hosidius South.", enchantedScroll, enchantedQuill);
+		talkToHorace = new NpcStep(this, NpcID.HOSIDIUS_GENERALSTORE, new WorldPoint(1774, 3589, 0), t("Talk to Horace in the Hosidius general store. You can take the Lovakengj Minecart Network to Hosidius South."), enchantedScroll, enchantedQuill);
 		talkToHorace.addDialogStep("Can I ask you about Hosidius?");
 		talkToHorace.addDialogStep("What is there to do in Hosidius?");
-		talkToJennifer = new NpcStep(this, NpcID.SHAYZIEN_GENERALSTORE, new WorldPoint(1518, 3586, 0), "Talk to Jennifer in Shayzien general store. You can run west towards the bank and use the Lovakengj Minecart Network to Shayzien East.", enchantedScroll, enchantedQuill);
+		talkToJennifer = new NpcStep(this, NpcID.SHAYZIEN_GENERALSTORE, new WorldPoint(1518, 3586, 0), t("Talk to Jennifer in Shayzien general store. You can run west towards the bank and use the Lovakengj Minecart Network to Shayzien East."), enchantedScroll, enchantedQuill);
 		talkToJennifer.addDialogStep("Can I ask you about Shayzien?");
 		talkToJennifer.addDialogStep("What is there to do in Shayzien?");
-		talkToMunty = new NpcStep(this, NpcID.LOVAKENGJ_GENERALSTORE, new WorldPoint(1551, 3752, 0), "Talk to Munty in Lovakengj general store. You can run south towards Kingstown and use the Lovakengj Minecart Network to Lovakengj.", enchantedScroll, enchantedQuill);
+		talkToMunty = new NpcStep(this, NpcID.LOVAKENGJ_GENERALSTORE, new WorldPoint(1551, 3752, 0), t("Talk to Munty in Lovakengj general store. You can run south towards Kingstown and use the Lovakengj Minecart Network to Lovakengj."), enchantedScroll, enchantedQuill);
 		talkToMunty.addDialogStep("Can I ask you about Lovakengj?");
 		talkToMunty.addDialogStep("What is there to do in Lovakengj?");
-		talkToRegath = new NpcStep(this, NpcID.ARCEUUS_GENERALSTORE, new WorldPoint(1720, 3724, 0), "Talk to Regath in Arceuus general store.", enchantedScroll, enchantedQuill);
+		talkToRegath = new NpcStep(this, NpcID.ARCEUUS_GENERALSTORE, new WorldPoint(1720, 3724, 0), t("Talk to Regath in Arceuus general store."), enchantedScroll, enchantedQuill);
 		talkToRegath.addDialogStep("Can I ask you about Arceuus?");
 		talkToRegath.addDialogStep("What is there to do in Arceuus?");
 
-		returnToVeos = new NpcStep(this, NpcID.VEOS_VIS_AMULET, new WorldPoint(1824, 3690, 0), "Return to Veos on Piscarilius docks.");
+		returnToVeos = new NpcStep(this, NpcID.VEOS_VIS_AMULET, new WorldPoint(1824, 3690, 0), t("Return to Veos on Piscarilius docks."));
 		returnToVeos.addDialogStep("Let's talk about your client...");
 		returnToVeos.addDialogStep("I've lost something you've given me.");
-		goToAltar = new DetailedQuestStep(this, new WorldPoint(1712, 3883, 0), "Activate the mysterious orb at the Dark Altar. You can either run there through Arceuus, teleport to Wintertodt with the Games Necklace and run south, teleport straight there on the Arceuus spellbook, or use the Lovakengj Minecart Network to travel to Arceuus.", mysteriousOrb);
+		goToAltar = new DetailedQuestStep(this, new WorldPoint(1712, 3883, 0), t("Activate the mysterious orb at the Dark Altar. You can either run there through Arceuus, teleport to Wintertodt with the Games Necklace and run south, teleport straight there on the Arceuus spellbook, or use the Lovakengj Minecart Network to travel to Arceuus."), mysteriousOrb);
 
-		finishQuest = new NpcStep(this, NpcID.VEOS_VIS_AMULET, new WorldPoint(1824, 3690, 0), "Return to Veos on Piscarilius docks. You can take the Lovakengj Minecart Network from Arceuus to Port Piscarilius and run south-east.");
+		finishQuest = new NpcStep(this, NpcID.VEOS_VIS_AMULET, new WorldPoint(1824, 3690, 0), t("Return to Veos on Piscarilius docks. You can take the Lovakengj Minecart Network from Arceuus to Port Piscarilius and run south-east."));
 		finishQuest.addDialogStep("Let's talk about your client...");
 	}
 
@@ -222,7 +222,7 @@ public class ClientOfKourend extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Ability to use the Kourend Castle Teleport spell")
+			new UnlockReward(t("Ability to use the Kourend Castle Teleport spell"))
 		);
 	}
 
@@ -231,14 +231,14 @@ public class ClientOfKourend extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Starting off", List.of(
+		sections.add(new PanelDetails(t("Starting off"), List.of(
 			talkToVeos,
 			useFeatherOnScroll
 		), List.of(
 			feather
 		)));
 
-		sections.add(new PanelDetails("Learn about Kourend", List.of(
+		sections.add(new PanelDetails(t("Learn about Kourend"), List.of(
 			talkToLeenz,
 			talkToRegath,
 			talkToMunty,
@@ -247,7 +247,7 @@ public class ClientOfKourend extends BasicQuestHelper
 			returnToVeos
 		)));
 
-		sections.add(new PanelDetails("The Dark Altar", List.of(
+		sections.add(new PanelDetails(t("The Dark Altar"), List.of(
 			goToAltar,
 			finishQuest
 		)));

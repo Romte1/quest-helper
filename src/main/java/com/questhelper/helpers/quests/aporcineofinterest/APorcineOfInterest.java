@@ -99,14 +99,14 @@ public class APorcineOfInterest extends BasicQuestHelper
 		rope.setHighlightInInventory(true);
 
 		slashItem = new ItemRequirement("A knife or slash weapon", ItemID.KNIFE).isNotConsumed();
-		slashItem.setTooltip("Except abyssal whip, abyssal tentacle, noxious halberd, or dragon claws.");
+		slashItem.setTooltip(t("Except abyssal whip, abyssal tentacle, noxious halberd, or dragon claws."));
 		// This is not intended to be a full list, but rather just a reasonable list of slash weapons a user might bring.
 		// This does not fit super well into an item collection since it's not reusable.
 		slashItem.addAlternates(ItemID.DRAGON_SCIMITAR, ItemID.RUNE_SCIMITAR, ItemID.ADAMANT_SCIMITAR, ItemID.MITHRIL_SCIMITAR, ItemID.STEEL_SCIMITAR, ItemID.IRON_SCIMITAR, ItemID.BRONZE_SCIMITAR);
 		slashItem.addAlternates(ItemID.DRAGON_LONGSWORD, ItemID.RUNE_LONGSWORD, ItemID.ADAMANT_LONGSWORD, ItemID.MITHRIL_LONGSWORD, ItemID.STEEL_LONGSWORD, ItemID.IRON_LONGSWORD, ItemID.BRONZE_LONGSWORD);
 
 		reinforcedGoggles = new ItemRequirement("Reinforced goggles", ItemID.SLAYER_REINFORCED_GOGGLES, 1, true).isNotConsumed();
-		reinforcedGoggles.setTooltip("You can get another pair from Spria");
+		reinforcedGoggles.setTooltip(t("You can get another pair from Spria"));
 
 		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
@@ -123,35 +123,35 @@ public class APorcineOfInterest extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		readNotice = new ObjectStep(this, ObjectID.PORCINE_NOTICEBOARD, new WorldPoint(3086, 3251, 0), "Read the notice board in Draynor Village.");
+		readNotice = new ObjectStep(this, ObjectID.PORCINE_NOTICEBOARD, new WorldPoint(3086, 3251, 0), t("Read the notice board in Draynor Village."));
 		readNotice.addDialogStep("Yes.");
 
-		talkToSarah = new NpcStep(this, NpcID.FARMING_SHOPKEEPER_1, new WorldPoint(3033, 3293, 0), "Talk to Sarah in the South Falador Farm.");
+		talkToSarah = new NpcStep(this, NpcID.FARMING_SHOPKEEPER_1, new WorldPoint(3033, 3293, 0), t("Talk to Sarah in the South Falador Farm."));
 		talkToSarah.addDialogSteps("Talk about the bounty.");
 
-		useRopeOnHole = new ObjectStep(this, ObjectID.PORCINE_HOLE, new WorldPoint(3151, 3348, 0), "Use a rope on the Strange Hole east of Draynor Manor.", rope);
+		useRopeOnHole = new ObjectStep(this, ObjectID.PORCINE_HOLE, new WorldPoint(3151, 3348, 0), t("Use a rope on the Strange Hole east of Draynor Manor."), rope);
 		useRopeOnHole.addTeleport(draynorTeleport);
 		useRopeOnHole.addIcon(ItemID.ROPE);
 		useRopeOnHole.addDialogSteps("I think that'll be all for now.");
 
-		enterHole = new ObjectStep(this, ObjectID.PORCINE_HOLE, new WorldPoint(3151, 3348, 0), "Climb down into the Strange Hole east of Draynor Manor.");
-		investigateSkeleton = new ObjectStep(this, ObjectID.PORCINE_SKELETON, new WorldPoint(3164, 9676, 0), "Go to the end of the cave and investigate the skeleton there.");
+		enterHole = new ObjectStep(this, ObjectID.PORCINE_HOLE, new WorldPoint(3151, 3348, 0), t("Climb down into the Strange Hole east of Draynor Manor."));
+		investigateSkeleton = new ObjectStep(this, ObjectID.PORCINE_SKELETON, new WorldPoint(3164, 9676, 0), t("Go to the end of the cave and investigate the skeleton there."));
 
-		talkToSpria = new NpcStep(this, NpcID.PORCINE_SPRIA, new WorldPoint(3092, 3267, 0), "Talk to Spria in Draynor Village.");
+		talkToSpria = new NpcStep(this, NpcID.PORCINE_SPRIA, new WorldPoint(3092, 3267, 0), t("Talk to Spria in Draynor Village."));
 
-		enterHoleAgain = new ObjectStep(this, ObjectID.PORCINE_HOLE, new WorldPoint(3151, 3348, 0), "Climb down into the Strange Hole east of Draynor Manor. Be prepared to fight Sourhog (level 37)", reinforcedGoggles, slashItem, combatGear);
-		killSourhog = new NpcStep(this, NpcID.PORCINE_SOURHOG_SECOND, "Kill Sourhog.", reinforcedGoggles);
+		enterHoleAgain = new ObjectStep(this, ObjectID.PORCINE_HOLE, new WorldPoint(3151, 3348, 0), t("Climb down into the Strange Hole east of Draynor Manor. Be prepared to fight Sourhog (level 37)"), reinforcedGoggles, slashItem, combatGear);
+		killSourhog = new NpcStep(this, NpcID.PORCINE_SOURHOG_SECOND, t("Kill Sourhog."), reinforcedGoggles);
 		killSourhog.addDialogStep("Yes");
 
-		enterHoleForFoot = new ObjectStep(this, ObjectID.PORCINE_HOLE, new WorldPoint(3151, 3348, 0), "Climb down into the Strange Hole east of Draynor Manor.", slashItem);
-		cutOffFoot = new ObjectStep(this, ObjectID.PORCINE_DEAD_SOURHOG, "Cut off Sourhog's foot.", slashItem);
+		enterHoleForFoot = new ObjectStep(this, ObjectID.PORCINE_HOLE, new WorldPoint(3151, 3348, 0), t("Climb down into the Strange Hole east of Draynor Manor."), slashItem);
+		cutOffFoot = new ObjectStep(this, ObjectID.PORCINE_DEAD_SOURHOG, t("Cut off Sourhog's foot."), slashItem);
 		cutOffFoot.addAlternateObjects(ObjectID.PORCINE_DEAD_SOURHOG_9);
 		cutOffFoot.addSubSteps(enterHoleForFoot);
 
-		returnToSarah = new NpcStep(this, NpcID.FARMING_SHOPKEEPER_1, new WorldPoint(3033, 3293, 0), "Return to Sarah in the South Falador Farm.", hoof);
+		returnToSarah = new NpcStep(this, NpcID.FARMING_SHOPKEEPER_1, new WorldPoint(3033, 3293, 0), t("Return to Sarah in the South Falador Farm."), hoof);
 		returnToSarah.addTeleport(faladorFarmTeleport);
 		returnToSarah.addDialogSteps("Talk about the bounty.");
-		returnToSpria = new NpcStep(this, NpcID.PORCINE_SPRIA, new WorldPoint(3092, 3267, 0), "Return to Spria in Draynor Village.");
+		returnToSpria = new NpcStep(this, NpcID.PORCINE_SPRIA, new WorldPoint(3092, 3267, 0), t("Return to Spria in Draynor Village."));
 	}
 
 	@Override
@@ -211,7 +211,7 @@ public class APorcineOfInterest extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"Sourhog (level 37)"
+			t("Sourhog (level 37)")
 		);
 	}
 
@@ -241,9 +241,9 @@ public class APorcineOfInterest extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("30 Slayer Points"),
-			new UnlockReward("Access to Sourhog Cave"),
-			new UnlockReward("Sourhogs can be assigned as a slayer task by Spria")
+			new UnlockReward(t("30 Slayer Points")),
+			new UnlockReward(t("Access to Sourhog Cave")),
+			new UnlockReward(t("Sourhogs can be assigned as a slayer task by Spria"))
 		);
 	}
 
@@ -252,7 +252,7 @@ public class APorcineOfInterest extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Helping Sarah", List.of(
+		sections.add(new PanelDetails(t("Helping Sarah"), List.of(
 			readNotice,
 			talkToSarah,
 			useRopeOnHole,

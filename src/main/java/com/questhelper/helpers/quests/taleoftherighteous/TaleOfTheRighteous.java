@@ -197,89 +197,89 @@ public class TaleOfTheRighteous extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToPhileas = new NpcStep(this, NpcID.PHILEAS_RIMOR_VISIBLE, new WorldPoint(1542, 3570, 0), "Talk to Phileas Rimor in Shayzien.");
+		talkToPhileas = new NpcStep(this, NpcID.PHILEAS_RIMOR_VISIBLE, new WorldPoint(1542, 3570, 0), t("Talk to Phileas Rimor in Shayzien."));
 		talkToPhileas.addDialogStep("Do you need help with anything?");
 		talkToPhileas.addDialogStep("Yes.");
 		talkToPhileas.addDialogStep("What do you need?");
-		teleportToArchive = new NpcStep(this, NpcID.RAIDQUEST_LIBRARY_ARCHIVE_GUARDIAN, new WorldPoint(1625, 3808, 0), "Bring a melee weapon, " +
-			"ranged weapon, and runes for magic attacks and talk to Archeio in the Arceuus Library.", rangedWeapon, runesForCombat);
+		teleportToArchive = new NpcStep(this, NpcID.RAIDQUEST_LIBRARY_ARCHIVE_GUARDIAN, new WorldPoint(1625, 3808, 0), t("Bring a melee weapon, " +
+			"ranged weapon, and runes for magic attacks and talk to Archeio in the Arceuus Library."), rangedWeapon, runesForCombat);
 		teleportToArchive.addDialogStep("Yes please!");
 		talkToPagida = new NpcStep(this, NpcID.RAIDQUEST_LIBRARY_TRAPHUNTER, new WorldPoint(1553, 10223, 0),
-			"Talk to Pagida in the Library Historical Archive.");
+			t("Talk to Pagida in the Library Historical Archive."));
 		talkToPagida.addDialogStep("I have a question about King Shayzien VII.");
 		talkToPagida.addDialogStep("Yes please.");
 		pushStrangeDeviceWest = new PuzzleWrapperStep(this, new NpcStep(this, NpcID.SHAYZIENQUEST_PUZZLE_PIECE, new WorldPoint(1580, 10199, 0),
-			"Push the Strange Device all the way to the west."), "Solve the crystal puzzle.");
+			t("Push the Strange Device all the way to the west.")), t("Solve the crystal puzzle."));
 		pushStrangeDeviceEast = new PuzzleWrapperStep(this, new NpcStep(this, NpcID.SHAYZIENQUEST_PUZZLE_PIECE, new WorldPoint(1580, 10199, 0),
-			"Push the Strange Device all the way to the east."), "Solve the crystal puzzle.");
+			t("Push the Strange Device all the way to the east.")), t("Solve the crystal puzzle."));
 
 		NpcStep attackWithMagicTrueStep = new NpcStep(this, NpcID.SHAYZIENQUEST_PUZZLE_PIECE, new WorldPoint(1580, 10199, 0),
-			"Attack the Strange Device with magic from the north side.", runesForCombat);
+			t("Attack the Strange Device with magic from the north side."), runesForCombat);
 		attackWithMagicTrueStep.addIcon(ItemID.MINDRUNE);
-		attackWithMagic = new PuzzleWrapperStep(this, attackWithMagicTrueStep, "Solve the crystal puzzle.");
+		attackWithMagic = new PuzzleWrapperStep(this, attackWithMagicTrueStep, t("Solve the crystal puzzle."));
 
 		NpcStep attackWithRangedTrueStep = new NpcStep(this, NpcID.SHAYZIENQUEST_PUZZLE_PIECE, new WorldPoint(1580, 10199, 0),
-		"Attack the Strange Device with ranged from the south side.", rangedWeapon);
+		t("Attack the Strange Device with ranged from the south side."), rangedWeapon);
 		attackWithRangedTrueStep.addIcon(ItemID.BRONZE_ARROW);
-		attackWithRanged = new PuzzleWrapperStep(this, attackWithRangedTrueStep, "Solve the crystal puzzle.");
+		attackWithRanged = new PuzzleWrapperStep(this, attackWithRangedTrueStep, t("Solve the crystal puzzle."));
 
 		NpcStep attackWithMeleeTrueStep = new NpcStep(this, NpcID.SHAYZIENQUEST_PUZZLE_PIECE, new WorldPoint(1580, 10199, 0),
-			"Attack the Strange Device with melee from the south side.", meleeWeapon);
+			t("Attack the Strange Device with melee from the south side."), meleeWeapon);
 		attackWithMeleeTrueStep.addIcon(ItemID.BRONZE_SWORD);
-		attackWithMelee = new PuzzleWrapperStep(this, attackWithMeleeTrueStep, "Solve the crystal puzzle.");
+		attackWithMelee = new PuzzleWrapperStep(this, attackWithMeleeTrueStep, t("Solve the crystal puzzle."));
 
 		investigateSkeleton = new ObjectStep(this, ObjectID.SHAYZIENQUEST_PRISON_SKELETON_MAIN, new WorldPoint(1577, 10213, 0),
-			"Investigate the skeleton in the north cell.");
+			t("Investigate the skeleton in the north cell."));
 
 		talkToPhileasAgain = new NpcStep(this, NpcID.PHILEAS_RIMOR_VISIBLE, new WorldPoint(1542, 3570, 0),
-			"Report back to Phileas Rimor in Shayzien.");
+			t("Report back to Phileas Rimor in Shayzien."));
 		goUpToShiro = new ObjectStep(this, ObjectID.SHAYZIEN_LADDER, new WorldPoint(1481, 3633, 0),
-			"Talk to Shiro upstairs in the War Tent located on the west side of the Shayzien Encampment.");
+			t("Talk to Shiro upstairs in the War Tent located on the west side of the Shayzien Encampment."));
 		talkToShiro = new NpcStep(this, NpcID.SHIRO_SHAYZIEN_VIS, new WorldPoint(1484, 3634, 1),
-			"Talk to Shiro upstairs in the War Tent located on the west side of the Shayzien Encampment.");
+			t("Talk to Shiro upstairs in the War Tent located on the west side of the Shayzien Encampment."));
 		talkToShiro.addSubSteps(goUpToShiro);
 
 		talkToDuffy = new NpcStep(this, NpcID.RAIDS_TEMPLE_DUFFY_VISIBLE, new WorldPoint(1278, 3561, 0),
-			"Travel to Mount Quidamortem and talk to Historian Duffy.");
+			t("Travel to Mount Quidamortem and talk to Historian Duffy."));
 		useRopeOnCrevice = new ObjectStep(this, ObjectID.SHAYZIENQUEST_CAVE, new WorldPoint(1215, 3559, 0),
-			"Use a rope on the crevice west side of Quidamortem.", rope, pickaxe, combatGear);
+			t("Use a rope on the crevice west side of Quidamortem."), rope, pickaxe, combatGear);
 		useRopeOnCrevice.addIcon(ItemID.ROPE);
 		enterCrevice = new ObjectStep(this, ObjectID.SHAYZIENQUEST_CAVE, new WorldPoint(1215, 3559, 0),
-			"Enter the crevice west side of Quidamortem, ready to fight a corrupted lizardman (level 46).", pickaxe, combatGear);
+			t("Enter the crevice west side of Quidamortem, ready to fight a corrupted lizardman (level 46)."), pickaxe, combatGear);
 		enterCrevice.addDialogStep("Yes.");
-		mineRockfall = new ObjectStep(this, ObjectID.SHAYZIENQUEST_BLOCKAGE, new WorldPoint(1182, 9974, 0), "Mine the rockfall.", pickaxe);
+		mineRockfall = new ObjectStep(this, ObjectID.SHAYZIENQUEST_BLOCKAGE, new WorldPoint(1182, 9974, 0), t("Mine the rockfall."), pickaxe);
 		pushBoulder = new ObjectStep(this, ObjectID.SHAYZIENQUEST_BOULDER, new WorldPoint(1201, 9960, 0),
-			"Push the boulder further along the path.");
+			t("Push the boulder further along the path."));
 
 		tryToEnterBarrier = new ObjectStep(this, ObjectID.SHAYZIENQUEST_CAVE_DOOR, new WorldPoint(1172, 9947, 0),
-			"Attempt to enter the magic gate to the south room. You will need to kill the corrupted lizardman who appears.");
+			t("Attempt to enter the magic gate to the south room. You will need to kill the corrupted lizardman who appears."));
 		killLizardman = new NpcStep(this, NpcID.SHAYZIENQUEST_LIZARDMAN_BOSS, new WorldPoint(1172, 9947, 0),
-			"Kill the corrupt lizardman.");
+			t("Kill the corrupt lizardman."));
 		tryToEnterBarrier.addSubSteps(killLizardman);
 
 		inspectUnstableAltar = new ObjectStep(this, ObjectID.SHAYZIENQUEST_LAB_ALTAR, new WorldPoint(1172, 9929, 0),
-			"Inspect the Unstable Altar in the south room.");
+			t("Inspect the Unstable Altar in the south room."));
 		leaveCave = new ObjectStep(this, ObjectID.SHAYZIENQUEST_LAB_EXIT, new WorldPoint(1168, 9973, 0),
-			"Leave the cavern. You can hop worlds to appear back at the entrance.");
+			t("Leave the cavern. You can hop worlds to appear back at the entrance."));
 		returnToDuffy = new NpcStep(this, NpcID.RAIDS_TEMPLE_DUFFY_VISIBLE, new WorldPoint(1278, 3561, 0),
-			"Return to Historian Duffy.");
+			t("Return to Historian Duffy."));
 		enterCreviceAgain = new ObjectStep(this, ObjectID.SHAYZIENQUEST_CAVE, new WorldPoint(1215, 3559, 0),
-			"Enter the crevice west side of Quidamortem again.");
+			t("Enter the crevice west side of Quidamortem again."));
 		enterCreviceAgain.addDialogStep("Yes.");
 		talkToDuffyInCrevice = new NpcStep(this, NpcID.SHAYZIENQUEST_DUFFY, new WorldPoint(1172, 9929, 0),
-			"Talk to Historian Duffy near the Unstable Altar.");
+			t("Talk to Historian Duffy near the Unstable Altar."));
 		talkToGnosi = new NpcStep(this, NpcID.SHAYZIENQUEST_GNOSI, new WorldPoint(1172, 9929, 0),
-			"Talk to Gnosi near the Unstable Altar.");
+			t("Talk to Gnosi near the Unstable Altar."));
 		returnUpToShiro = new ObjectStep(this, ObjectID.SHAYZIEN_LADDER, new WorldPoint(1481, 3633, 0),
-			"Return to Shiro upstairs in the War Tent located on the west side of the Shayzien Encampment.");
+			t("Return to Shiro upstairs in the War Tent located on the west side of the Shayzien Encampment."));
 		returnToShiro = new NpcStep(this, NpcID.SHIRO_SHAYZIEN_VIS, new WorldPoint(1484, 3634, 1),
-			"Return to Shiro upstairs in the War Tent located on the west side of the Shayzien Encampment.");
+			t("Return to Shiro upstairs in the War Tent located on the west side of the Shayzien Encampment."));
 		returnToShiro.addSubSteps(returnUpToShiro);
-		returnToPhileasTent = new DetailedQuestStep(this, new WorldPoint(1542, 3570, 0), "Return to Phileas Rimor's house in Shayzien.");
+		returnToPhileasTent = new DetailedQuestStep(this, new WorldPoint(1542, 3570, 0), t("Return to Phileas Rimor's house in Shayzien."));
 		goUpToShrioToFinish = new ObjectStep(this, ObjectID.SHAYZIEN_LADDER, new WorldPoint(1481, 3633, 0),
-			"Return to Shiro upstairs in the War Tent in west Shayzien to complete the quest.");
+			t("Return to Shiro upstairs in the War Tent in west Shayzien to complete the quest."));
 		finishQuest = new NpcStep(this, NpcID.SHIRO_SHAYZIEN_VIS, new WorldPoint(1484, 3634, 1),
-			"Return to Shiro upstairs in the War Tent in west Shayzien to complete the quest.");
+			t("Return to Shiro upstairs in the War Tent in west Shayzien to complete the quest."));
 		finishQuest.addSubSteps(goUpToShrioToFinish);
 	}
 
@@ -318,7 +318,7 @@ public class TaleOfTheRighteous extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		ArrayList<String> reqs = new ArrayList<>();
-		reqs.add("Corrupt Lizardman (level 46)");
+		reqs.add(t("Corrupt Lizardman (level 46)"));
 		return reqs;
 	}
 
@@ -340,14 +340,14 @@ public class TaleOfTheRighteous extends BasicQuestHelper
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off", Collections.singletonList(talkToPhileas)));
-		allSteps.add(new PanelDetails("Discovery", Arrays.asList(teleportToArchive, talkToPagida, pushStrangeDeviceWest,
+		allSteps.add(new PanelDetails(t("Starting off"), Collections.singletonList(talkToPhileas)));
+		allSteps.add(new PanelDetails(t("Discovery"), Arrays.asList(teleportToArchive, talkToPagida, pushStrangeDeviceWest,
 			attackWithMagic, attackWithMelee, pushStrangeDeviceEast, attackWithRanged, investigateSkeleton, talkToPhileasAgain, talkToShiro),
 			rangedWeapon, runesForCombat));
-		allSteps.add(new PanelDetails("Investigate Quidamortem", Arrays.asList(talkToDuffy, useRopeOnCrevice, enterCrevice,
+		allSteps.add(new PanelDetails(t("Investigate Quidamortem"), Arrays.asList(talkToDuffy, useRopeOnCrevice, enterCrevice,
 			mineRockfall, pushBoulder, tryToEnterBarrier, inspectUnstableAltar, returnToDuffy, enterCreviceAgain, talkToDuffyInCrevice, talkToGnosi),
 			rope, pickaxe, combatGear));
-		allSteps.add(new PanelDetails("Finishing off", Arrays.asList(returnToShiro, returnToPhileasTent, finishQuest)));
+		allSteps.add(new PanelDetails(t("Finishing off"), Arrays.asList(returnToShiro, returnToPhileasTent, finishQuest)));
 		return allSteps;
 	}
 }

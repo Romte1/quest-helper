@@ -130,13 +130,13 @@ public class JunglePotion extends BasicQuestHelper
 		isUnderground = new ZoneRequirement(undergroundZone);
 	}
 
-	private ConditionalStep getReturnHerbStep(String herbName, ItemRequirement grimyHerb, ItemRequirement cleanHerb)
+	private ConditionalStep getReturnHerbStep(String returnText, ItemRequirement grimyHerb, ItemRequirement cleanHerb)
 	{
 		NpcStep returnHerb = talkToTrufitus("", cleanHerb);
 		returnHerb.addDialogSteps("Of course!");
 		var cleanGrimyHerb = new DetailedQuestStep(this, "", grimyHerb);
 
-		var cleanAndReturnHerb = new ConditionalStep(this, cleanGrimyHerb, "Clean and return the " + herbName + " to Trufitus.");
+		var cleanAndReturnHerb = new ConditionalStep(this, cleanGrimyHerb, returnText);
 		cleanAndReturnHerb.addStep(cleanHerb, returnHerb);
 		return cleanAndReturnHerb;
 	}
@@ -148,48 +148,48 @@ public class JunglePotion extends BasicQuestHelper
 
 	private void setupSteps()
 	{
-		startQuest = talkToTrufitus("Talk to Trufitus in Tai Bwo Wannai on Karamja.");
+		startQuest = talkToTrufitus(t("Talk to Trufitus in Tai Bwo Wannai on Karamja."));
 		startQuest.addDialogStep("It's a nice village, where is everyone?");
 		startQuest.addDialogStep("Me? How can I help?");
 		startQuest.addDialogStep("It sounds like just the challenge for me.");
 		startQuest.addDialogStep("Yes.");
 
-		getSnakeWeed = new ObjectStep(this, ObjectID.SNAKE_VINE_FULL, new WorldPoint(2763, 3044, 0), "Search a marshy jungle vine south of Tai Bwo Wannai for some snake weed.");
-		getSnakeWeed.addText("If you want to do Zogre Flesh Eaters or Legends' Quest grab one for each as you will need them later.");
+		getSnakeWeed = new ObjectStep(this, ObjectID.SNAKE_VINE_FULL, new WorldPoint(2763, 3044, 0), t("Search a marshy jungle vine south of Tai Bwo Wannai for some snake weed."));
+		getSnakeWeed.addText(t("If you want to do Zogre Flesh Eaters or Legends' Quest grab one for each as you will need them later."));
 
-		cleanAndReturnSnakeWeed = getReturnHerbStep("Snake Weed", grimySnakeWeed, snakeWeed);
+		cleanAndReturnSnakeWeed = getReturnHerbStep(t("Clean and return the Snake Weed to Trufitus."), grimySnakeWeed, snakeWeed);
 
-		getArdrigal = new ObjectStep(this, ObjectID.ARDRIGAL_PALM_FULL, new WorldPoint(2871, 3116, 0), "Search the palm trees north east of Tai Bwo Wannai for an Ardrigal herb.");
-		getArdrigal.addText("If you want to do Legends' Quest grab one extra as you will need it later.");
+		getArdrigal = new ObjectStep(this, ObjectID.ARDRIGAL_PALM_FULL, new WorldPoint(2871, 3116, 0), t("Search the palm trees north east of Tai Bwo Wannai for an Ardrigal herb."));
+		getArdrigal.addText(t("If you want to do Legends' Quest grab one extra as you will need it later."));
 
-		cleanAndReturnArdrigal = getReturnHerbStep("Ardrigal", grimyArdrigal, ardrigal);
+		cleanAndReturnArdrigal = getReturnHerbStep(t("Clean and return the Ardrigal to Trufitus."), grimyArdrigal, ardrigal);
 
-		getSitoFoil = new ObjectStep(this, ObjectID.SITO_SOIL_FULL, new WorldPoint(2791, 3047, 0), "Search the scorched earth in the south of Tai Bwo Wannai for a Sito Foil herb.");
+		getSitoFoil = new ObjectStep(this, ObjectID.SITO_SOIL_FULL, new WorldPoint(2791, 3047, 0), t("Search the scorched earth in the south of Tai Bwo Wannai for a Sito Foil herb."));
 
-		cleanAndReturnSitoFoil = getReturnHerbStep("Sito Foil", grimySitoFoil, sitoFoil);
+		cleanAndReturnSitoFoil = getReturnHerbStep(t("Clean and return the Sito Foil to Trufitus."), grimySitoFoil, sitoFoil);
 
-		getVolenciaMoss = new ObjectStep(this, ObjectID.VOLENCIA_MOSS_ROCK_FULL, new WorldPoint(2851, 3036, 0), "Search the rock for a Volencia Moss herb at the mine south east of Tai Bwo Wannai.");
-		getVolenciaMoss.addText("If you plan on doing Fairy Tale I then take an extra.");
+		getVolenciaMoss = new ObjectStep(this, ObjectID.VOLENCIA_MOSS_ROCK_FULL, new WorldPoint(2851, 3036, 0), t("Search the rock for a Volencia Moss herb at the mine south east of Tai Bwo Wannai."));
+		getVolenciaMoss.addText(t("If you plan on doing Fairy Tale I then take an extra."));
 
-		cleanAndReturnVolenciaMoss = getReturnHerbStep("Volencia Moss", grimyVolenciaMoss, volenciaMoss);
+		cleanAndReturnVolenciaMoss = getReturnHerbStep(t("Clean and return the Volencia Moss to Trufitus."), grimyVolenciaMoss, volenciaMoss);
 
 		enterCave = new ObjectStep(this, ObjectID.POTHOLE_CAVE_ENTRANCE, new WorldPoint(2825, 3119, 0),
-			"Enter the cave to the north by clicking on the rocks.");
+			t("Enter the cave to the north by clicking on the rocks."));
 		enterCave.addDialogStep("Yes, I'll enter the cave.");
-		getRoguePurseHerb = new ObjectStep(this, ObjectID.ROGUES_PURSE_CAVE_FULL, "Get the Rogues Purse from the fungus covered " +
-			"wall in the underground dungeon.");
+		getRoguePurseHerb = new ObjectStep(this, ObjectID.ROGUES_PURSE_CAVE_FULL, t("Get the Rogues Purse from the fungus covered " +
+			"wall in the underground dungeon."));
 		getRoguePurseHerb.setHideWorldArrow(true);
-		getRoguePurseHerb.addText("If you are planning on doing Zogre Flesh Eaters then take an extra.");
+		getRoguePurseHerb.addText(t("If you are planning on doing Zogre Flesh Eaters then take an extra."));
 
 		getRoguesPurse = new ConditionalStep(this, enterCave);
 		getRoguesPurse.addStep(isUnderground, getRoguePurseHerb);
 
 		getRoguesPurse.addSubSteps(enterCave);
 
-		cleanAndReturnRoguesPurse = getReturnHerbStep("Rogues Purse", grimyRoguesPurse, roguesPurse);
-		cleanAndReturnRoguesPurse.addStep(isUnderground, new ObjectStep(this, ObjectID.JP_CAVEROCKSOUT, new WorldPoint(2830, 9522, 0), "Climb out of the cave."));
+		cleanAndReturnRoguesPurse = getReturnHerbStep(t("Clean and return the Rogues Purse to Trufitus."), grimyRoguesPurse, roguesPurse);
+		cleanAndReturnRoguesPurse.addStep(isUnderground, new ObjectStep(this, ObjectID.JP_CAVEROCKSOUT, new WorldPoint(2830, 9522, 0), t("Climb out of the cave.")));
 
-		finishQuest = talkToTrufitus("Talk to Trufitus to finish the quest.");
+		finishQuest = talkToTrufitus(t("Talk to Trufitus to finish the quest."));
 	}
 
 	@Override
@@ -239,7 +239,7 @@ public class JunglePotion extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"Survive against level 53 Jogres and level 46 Harpie Bug Swarms."
+			t("Survive against level 53 Jogres and level 46 Harpie Bug Swarms.")
 		);
 	}
 
@@ -262,31 +262,31 @@ public class JunglePotion extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Starting off", List.of(
+		sections.add(new PanelDetails(t("Starting off"), List.of(
 			startQuest
 		)));
 
-		sections.add(new PanelDetails("Snake Weed", List.of(
+		sections.add(new PanelDetails(t("Snake Weed"), List.of(
 			getSnakeWeed,
 			cleanAndReturnSnakeWeed
 		)));
 
-		sections.add(new PanelDetails("Ardrigal", List.of(
+		sections.add(new PanelDetails(t("Ardrigal"), List.of(
 			getArdrigal,
 			cleanAndReturnArdrigal
 		)));
 
-		sections.add(new PanelDetails("Sito Foil", List.of(
+		sections.add(new PanelDetails(t("Sito Foil"), List.of(
 			getSitoFoil,
 			cleanAndReturnSitoFoil
 		)));
 
-		sections.add(new PanelDetails("Volencia Moss", List.of(
+		sections.add(new PanelDetails(t("Volencia Moss"), List.of(
 			getVolenciaMoss,
 			cleanAndReturnVolenciaMoss
 		)));
 
-		sections.add(new PanelDetails("Rogues Purse", List.of(
+		sections.add(new PanelDetails(t("Rogues Purse"), List.of(
 			enterCave,
 			getRoguePurseHerb,
 			cleanAndReturnRoguesPurse,

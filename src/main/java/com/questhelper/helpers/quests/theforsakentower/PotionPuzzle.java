@@ -127,7 +127,7 @@ public class PotionPuzzle extends DetailedOwnerStep
 				if (!fluidFound)
 				{
 					getFluidRealStep.addWidgetChoice(correctFluid-1, 187, 3);
-					getFluidRealStep.setText("Take Fluid " + correctFluid + " from the table.");
+					getFluidRealStep.setText(getQuestHelper().t("Take Fluid") + " " + correctFluid + " " + getQuestHelper().t("from the table."));
 
 					useFluidOnRefineryRealStep.addRequirement(fluids[correctFluid]);
 					useFluidOnRefineryRealStep.addIcon(fluids[correctFluid].getId());
@@ -215,28 +215,28 @@ public class PotionPuzzle extends DetailedOwnerStep
 		setupZones();
 		setupConditions();
 
-		goUpLadder = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_DUNGEON_EXIT, new WorldPoint(1382, 10229, 0), "Leave the tower's basement.");
-		goUpStairs = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_SPIRAL_STAIRS_M, new WorldPoint(1378, 3825, 0), "Go to the tower's 1st floor.");
-		goDownToFirstFloor = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_LADDER_DOWN, new WorldPoint(1382, 3827, 2), "Go down from the top floor.");
+		goUpLadder = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_DUNGEON_EXIT, new WorldPoint(1382, 10229, 0), getQuestHelper().t("Leave the tower's basement."));
+		goUpStairs = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_SPIRAL_STAIRS_M, new WorldPoint(1378, 3825, 0), getQuestHelper().t("Go to the tower's 1st floor."));
+		goDownToFirstFloor = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_LADDER_DOWN, new WorldPoint(1382, 3827, 2), getQuestHelper().t("Go down from the top floor."));
 		goUpStairs.addSubSteps(goUpLadder, goDownToFirstFloor);
-		searchPotionCupboard = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_SHELVES_NOTES, new WorldPoint(1387, 3820, 1), "Search the cupboard on the east wall.");
-		inspectRefinery = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_REFINERY, new WorldPoint(1382, 3819, 1), "Inspect the refinery.");
+		searchPotionCupboard = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_SHELVES_NOTES, new WorldPoint(1387, 3820, 1), getQuestHelper().t("Search the cupboard on the east wall."));
+		inspectRefinery = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_REFINERY, new WorldPoint(1382, 3819, 1), getQuestHelper().t("Inspect the refinery."));
 		inspectRefinery.addDialogStep("Yes.");
-		readNote = new DetailedQuestStep(getQuestHelper(), "Read the old notes.", oldNotes);
-		getFluidRealStep = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_FLUID_TABLE, new WorldPoint(1382, 3826, 1), "Attempt to take the correct fluid from the table.");
+		readNote = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Read the old notes."), oldNotes);
+		getFluidRealStep = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_FLUID_TABLE, new WorldPoint(1382, 3826, 1), getQuestHelper().t("Attempt to take the correct fluid from the table."));
 		getFluid = new PuzzleWrapperStep(getQuestHelper(), getFluidRealStep, getFluidRealStep.copy());
-		useFluidOnRefineryRealStep = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_REFINERY, new WorldPoint(1382, 3819, 1), "Use the fluid on the refinery.");
+		useFluidOnRefineryRealStep = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_REFINERY, new WorldPoint(1382, 3819, 1), getQuestHelper().t("Use the fluid on the refinery."));
 		useFluidOnRefinery = new PuzzleWrapperStep(getQuestHelper(), useFluidOnRefineryRealStep, useFluidOnRefineryRealStep.copy());
 		useFluidOnRefinery.addDialogStep("Yes.");
 
-		activateRefinery = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_REFINERY, new WorldPoint(1382, 3819, 1), "Activate the refinery.");
+		activateRefinery = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_REFINERY, new WorldPoint(1382, 3819, 1), getQuestHelper().t("Activate the refinery."));
 		activateRefinery.addDialogStep("Yes.");
 	}
 
 	public List<PanelDetails> panelDetails()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		PanelDetails potionPanel = new PanelDetails("Potion puzzle",
+		PanelDetails potionPanel = new PanelDetails(getQuestHelper().t("Potion puzzle"),
 			Arrays.asList(goUpStairs, inspectRefinery, searchPotionCupboard, readNote, getFluid, useFluidOnRefinery, activateRefinery));
 		potionPanel.setLockingStep(this);
 		allSteps.add(potionPanel);

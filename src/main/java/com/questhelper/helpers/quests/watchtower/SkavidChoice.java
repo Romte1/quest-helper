@@ -38,7 +38,7 @@ public class SkavidChoice extends NpcStep
 {
 	public SkavidChoice(QuestHelper questHelper)
 	{
-		super(questHelper, NpcID.MAD_SKAVID, new WorldPoint(2526, 9413, 0), "Talk to the mad skavid.");
+		super(questHelper, NpcID.MAD_SKAVID, new WorldPoint(2526, 9413, 0), questHelper.t("Talk to the mad skavid."));
 	}
 
 	@Subscribe

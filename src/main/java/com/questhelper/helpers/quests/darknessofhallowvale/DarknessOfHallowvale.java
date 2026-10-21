@@ -196,7 +196,7 @@ public class DarknessOfHallowvale extends BasicQuestHelper
 		nails8 = new ItemRequirement("Nails", ItemCollections.NAILS, 8);
 		nails4 = new ItemRequirement("Nails", ItemCollections.NAILS, 4);
 		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
-		pickaxe.setTooltip("You can get one from one of the miners in the mine");
+		pickaxe.setTooltip(t("You can get one from one of the miners in the mine"));
 		knife = new ItemRequirement("Knife", ItemID.KNIFE).isNotConsumed();
 		airRune = new ItemRequirement("Air rune", ItemID.AIRRUNE);
 		lawRune = new ItemRequirement("Law rune", ItemID.LAWRUNE);
@@ -205,7 +205,7 @@ public class DarknessOfHallowvale extends BasicQuestHelper
 		ladderPiece = new ItemRequirement("Ladder top", ItemID.MYQ3_SANGUINE_LADDER_TOP);
 
 		message = new ItemRequirement("Message", ItemID.SANG_VELIAF_MESSAGE);
-		message.setTooltip("You can get another from Vertida in the Meiyerditch Myreque base");
+		message.setTooltip(t("You can get another from Vertida in the Meiyerditch Myreque base"));
 
 		charcoal = new ItemRequirement("Charcoal", ItemID.CHARCOAL);
 		charcoal.setHighlightInInventory(true);
@@ -220,7 +220,7 @@ public class DarknessOfHallowvale extends BasicQuestHelper
 		messageFromFireplace.setHighlightInInventory(true);
 		haemBook = new ItemRequirement("Haemalchemy volume 1", ItemID.MYQ3_HAEMALCHEMY_VOL_1);
 		sealedMessage = new ItemRequirement("Sealed message", ItemID.MYQ3_SAFALAAN_MESSAGE);
-		sealedMessage.setTooltip("You can get another from Safalaan");
+		sealedMessage.setTooltip(t("You can get another from Safalaan"));
 
 		normalSpellbook = new SpellbookRequirement(Spellbook.NORMAL);
 	}
@@ -321,31 +321,31 @@ public class DarknessOfHallowvale extends BasicQuestHelper
 		talkToVeliaf = new NpcStep(this, NpcID.MYQ5_VELIAF_CHILD, new WorldPoint(3494, 9628, 0), "");
 		talkToVeliaf.addDialogSteps("Is there something I can do to help out?", "Yes.");
 
-		leavePubBasement = new ObjectStep(this, ObjectID.BURGH_INN_BASEMENT_LADDERUP, new WorldPoint(3490, 9632, 0), "Leave the Myreque base.");
-		usePlankOnBoat = new ObjectStep(this, ObjectID.SANG_BOAT_BROKEN_MULTILOC, new WorldPoint(3524, 3178, 0), "Fix the boat in south Burgh de Rott.", hammer, planks2, nails8);
+		leavePubBasement = new ObjectStep(this, ObjectID.BURGH_INN_BASEMENT_LADDERUP, new WorldPoint(3490, 9632, 0), t("Leave the Myreque base."));
+		usePlankOnBoat = new ObjectStep(this, ObjectID.SANG_BOAT_BROKEN_MULTILOC, new WorldPoint(3524, 3178, 0), t("Fix the boat in south Burgh de Rott."), hammer, planks2, nails8);
 		usePlankOnBoat.addDialogStep("Yes.");
-		usePlankOnChute = new ObjectStep(this, ObjectID.SANG_BOATHOUSE_CHUTE_BROKEN_MULTILOC, new WorldPoint(3523, 3175, 0), "Fix the boat chute.", hammer, planks1, nails4);
+		usePlankOnChute = new ObjectStep(this, ObjectID.SANG_BOATHOUSE_CHUTE_BROKEN_MULTILOC, new WorldPoint(3523, 3175, 0), t("Fix the boat chute."), hammer, planks1, nails4);
 		usePlankOnChute.addDialogStep("Yes.");
 
-		pushBoat = new ObjectStep(this, ObjectID.SANG_BOAT_BROKEN_MULTILOC, new WorldPoint(3524, 3178, 0), "Push the boat.");
-		boardBoat = new ObjectStep(this, ObjectID.SANG_BOAT_WATER_MULTILOC, new WorldPoint(3523, 3170, 0), "Board the boat.");
+		pushBoat = new ObjectStep(this, ObjectID.SANG_BOAT_BROKEN_MULTILOC, new WorldPoint(3524, 3178, 0), t("Push the boat."));
+		boardBoat = new ObjectStep(this, ObjectID.SANG_BOAT_WATER_MULTILOC, new WorldPoint(3523, 3170, 0), t("Board the boat."));
 
-		kickBoard = new ObjectStep(this, ObjectID.MEIYERDITCH_WALL_FLOORBOARDS_MULTI_LOC, new WorldPoint(3589, 3173, 1), "Climb up the walls and search the marked floor.");
+		kickBoard = new ObjectStep(this, ObjectID.MEIYERDITCH_WALL_FLOORBOARDS_MULTI_LOC, new WorldPoint(3589, 3173, 1), t("Climb up the walls and search the marked floor."));
 		kickBoard.addDialogStep("Yes.");
-		climbDownBoard = new ObjectStep(this, ObjectID.MEIYERDITCH_WALL_FLOORBOARDS_MULTI_LOC, new WorldPoint(3589, 3173, 1), "Climb down the floorboard.");
-		climbOverRubble = new ObjectStep(this, ObjectID.MYQ3_RUBBLE_WEST_WALL, new WorldPoint(3589, 3180, 0), "Climb over the wall rubble to the north.");
+		climbDownBoard = new ObjectStep(this, ObjectID.MEIYERDITCH_WALL_FLOORBOARDS_MULTI_LOC, new WorldPoint(3589, 3173, 1), t("Climb down the floorboard."));
+		climbOverRubble = new ObjectStep(this, ObjectID.MYQ3_RUBBLE_WEST_WALL, new WorldPoint(3589, 3180, 0), t("Climb over the wall rubble to the north."));
 
-		talkToCitizen = new NpcStep(this, NpcID.MYQ3_CITIZEN_MALE_OLD_1, new WorldPoint(3601, 3189, 0), "Talk to a Meiyerditch citizen.", true);
+		talkToCitizen = new NpcStep(this, NpcID.MYQ3_CITIZEN_MALE_OLD_1, new WorldPoint(3601, 3189, 0), t("Talk to a Meiyerditch citizen."), true);
 		talkToCitizen.addDialogSteps("(whisper) Do you know about the Myreque?", "(whisper) I really need to meet the Myreque.", "How can Old Man Ral help me?");
 		((NpcStep) talkToCitizen).addAlternateNpcs(NpcID.MYQ3_CITIZEN_MALE_OLD_2, NpcID.MYREQUE_PT3_MALE_CITIZEN1, NpcID.MYREQUE_PT3_MALE_CITIZEN2, NpcID.MYREQUE_PT3_MALE_CITIZEN3, NpcID.MYREQUE_PT3_MALE_CITIZEN4,
 			NpcID.MYREQUE_PT3_MALE_CITIZEN5, NpcID.MYREQUE_PT3_MALE_CITIZEN6, NpcID.MYREQUE_PT3_MALE_CITIZEN7, NpcID.MYREQUE_PT3_MALE_CITIZEN8, NpcID.MYREQUE_PT3_MALE_LOOKING_OUT1, NpcID.MYREQUE_PT3_MALE_LOOKING_OUT2, NpcID.MYREQUE_PT3_MALE_HUDDLED1,
 			NpcID.MYREQUE_PT3_MALE_HUDDLED2, NpcID.MYREQUE_PT3_MALE_HUDDLED3, NpcID.SANGUINESTI_CITIZEN_FEMALE_OLD_1, NpcID.SANGUINESTI_CITIZEN_FEMALE_OLD_2, NpcID.MYREQUE_PT3_FEMALE_CITIZEN1, NpcID.MYREQUE_PT3_FEMALE_CITIZEN2, NpcID.MYREQUE_PT3_FEMALE_CITIZEN3,
 			NpcID.MYREQUE_PT3_FEMALE_CITIZEN4, NpcID.MYREQUE_PT3_FEMALE_CITIZEN5, NpcID.MYREQUE_PT3_FEMALE_CITIZEN6, NpcID.MYREQUE_PT3_FEMALE_CITIZEN7, NpcID.MYREQUE_PT3_FEMALE_CITIZEN8, NpcID.MYREQUE_PT3_FEMALE_CITIZEN9, NpcID.MYREQUE_PT3_FEMALE_CITIZEN10,
 			NpcID.MYREQUE_PT3_FEMALE_HUDDLED1, NpcID.MYREQUE_PT3_FEMALE_HUDDLED2);
-		talkToRal = new NpcStep(this, NpcID.SANGUINESTI_OLD_MAN_RAL, new WorldPoint(3604, 3208, 0), "Talk to Old Man Ral in south western Meiyerditch.");
+		talkToRal = new NpcStep(this, NpcID.SANGUINESTI_OLD_MAN_RAL, new WorldPoint(3604, 3208, 0), t("Talk to Old Man Ral in south western Meiyerditch."));
 		talkToRal.addDialogSteps("Someone said you could help me.", "Old Man Ral, the sage of Sanguinesti.");
 
-		travelToPots = new ObjectStep(this, ObjectID.MYQ3_GHETTO_POTS_SEARCH, new WorldPoint(3608, 3222, 0), "Follow the path to the Meiyerditch Myreque base. When you reach some pots, search them for a key to open the door.");
+		travelToPots = new ObjectStep(this, ObjectID.MYQ3_GHETTO_POTS_SEARCH, new WorldPoint(3608, 3222, 0), t("Follow the path to the Meiyerditch Myreque base. When you reach some pots, search them for a key to open the door."));
 
 		List<WorldPoint> pathToPots = Arrays.asList(
 			new WorldPoint(3602, 3207, 0),
@@ -440,7 +440,7 @@ public class DarknessOfHallowvale extends BasicQuestHelper
 		));
 
 		travelToLadderPart = new ObjectStep(this, ObjectID.MYQ3_AGIL_32_LADDER_WALL_MULTI, new WorldPoint(3625, 3240, 2),
-			"Continue until you reach a wall with a ladder piece, and take it.");
+			t("Continue until you reach a wall with a ladder piece, and take it."));
 		travelToLadderPart.setLinePoints(pathToLadderPiece);
 
 		List<WorldPoint> pathToPlaceLadder = Arrays.asList(
@@ -456,7 +456,7 @@ public class DarknessOfHallowvale extends BasicQuestHelper
 		);
 
 		travelToFixLadder = new ObjectStep(this, ObjectID.MYQ3_AGIL_33_LADDER_FLOOR_MULTI, new WorldPoint(3629, 3240, 1),
-			"Repair the ladder downstairs.");
+			t("Repair the ladder downstairs."));
 		travelToFixLadder.setLinePoints(pathToPlaceLadder);
 
 		List<WorldPoint> pathToBase = new ArrayList<>();
@@ -489,27 +489,27 @@ public class DarknessOfHallowvale extends BasicQuestHelper
 			new WorldPoint(3640, 3253, 0)
 		));
 
-		travelToMyrequeBase = new ObjectStep(this, ObjectID.AREA_SANGUINE_MYREQUE_SECRET_WALL_CLOSED, new WorldPoint(3640, 3253, 0), "Use a knife on the wall you eventually reach.");
+		travelToMyrequeBase = new ObjectStep(this, ObjectID.AREA_SANGUINE_MYREQUE_SECRET_WALL_CLOSED, new WorldPoint(3640, 3253, 0), t("Use a knife on the wall you eventually reach."));
 		travelToMyrequeBase.setLinePoints(pathToBase);
 		travelToMyrequeBase.addIcon(ItemID.KNIFE);
-		pressDecoratedWall = new ObjectStep(this, ObjectID.SANG_MYREQUE_HIDEOUT_SYMBOL_MULTI, new WorldPoint(3638, 3251, 0), "Press the decorated wall.");
+		pressDecoratedWall = new ObjectStep(this, ObjectID.SANG_MYREQUE_HIDEOUT_SYMBOL_MULTI, new WorldPoint(3638, 3251, 0), t("Press the decorated wall."));
 		pressDecoratedWall.setLinePoints(pathToBase);
-		enterRug = new ObjectStep(this, ObjectID.SANG_MYREQUE_HIDEOUT_TRAPDOOR_MULTILOC, new WorldPoint(3639, 3249, 0), "Open the rug and enter the trapdoor.");
-		talkToVertida = new NpcStep(this, NpcID.MYQ4_VERTIDA_VISIBLE, new WorldPoint(3627, 9644, 0), "Talk to Vertida in the north room.");
+		enterRug = new ObjectStep(this, ObjectID.SANG_MYREQUE_HIDEOUT_TRAPDOOR_MULTILOC, new WorldPoint(3639, 3249, 0), t("Open the rug and enter the trapdoor."));
+		talkToVertida = new NpcStep(this, NpcID.MYQ4_VERTIDA_VISIBLE, new WorldPoint(3627, 9644, 0), t("Talk to Vertida in the north room."));
 
 		goDownToDrezel = new ObjectStep(this, ObjectID.PIPEASTSIDETRAPDOOR, new WorldPoint(3422, 3485, 0), "");
 		((ObjectStep) (goDownToDrezel)).addAlternateObjects(ObjectID.PIPEASTSIDETRAPDOOR_OPEN);
 		talkToDrezel = new NpcStep(this, NpcID.PRIESTPERILTRAPPEDMONK_VIS, new WorldPoint(3439, 9896, 0), "");
 
 
-		leaveDrezelToBushes = new ObjectStep(this, ObjectID.LADDER_FROM_CELLAR, new WorldPoint(3405, 9907, 0), "Go up the west ladder.");
-		searchBushes = new ObjectStep(this, ObjectID.MYQ_PT3_CUTSCENE_WEREWOLF_BUSH, new WorldPoint(3390, 3480, 0), "Search the bushes west of Paterdomus.");
+		leaveDrezelToBushes = new ObjectStep(this, ObjectID.LADDER_FROM_CELLAR, new WorldPoint(3405, 9907, 0), t("Go up the west ladder."));
+		searchBushes = new ObjectStep(this, ObjectID.MYQ_PT3_CUTSCENE_WEREWOLF_BUSH, new WorldPoint(3390, 3480, 0), t("Search the bushes west of Paterdomus."));
 		searchBushes.addSubSteps(leaveDrezelToBushes);
 		returnFromBushesToDrezel = new ObjectStep(this, ObjectID.TRAPDOOR, new WorldPoint(3405, 3507, 0), "");
-		talkToRoald = new NpcStep(this, new int[] {NpcID.KING_ROALD, NpcID.KING_ROALD_CUTSCENE}, new WorldPoint(3222, 3473, 0), "Talk to King Roald in Varrock Castle.");
+		talkToRoald = new NpcStep(this, new int[] {NpcID.KING_ROALD, NpcID.KING_ROALD_CUTSCENE}, new WorldPoint(3222, 3473, 0), t("Talk to King Roald in Varrock Castle."));
 		talkToRoald.addDialogSteps("I must speak with you on a matter of grave importance.","Talk to the king about Morytania.", "What should I do now?", "Yes thanks. I'll accept the free teleport.");
 
-		goToMines = new NpcStep(this, NpcID.SANG_MYQ3_FEMALE_WALK_VYREWATCH_1, new WorldPoint(3615, 3263, 0), "Talk to a Vyrewatch to be sent to the mines.", true);
+		goToMines = new NpcStep(this, NpcID.SANG_MYQ3_FEMALE_WALK_VYREWATCH_1, new WorldPoint(3615, 3263, 0), t("Talk to a Vyrewatch to be sent to the mines."), true);
 		goToMines.addDialogSteps("Send me to the mines.", "Send me to the mines! (Do a bit of menial work)");
 		((NpcStep) (goToMines)).setMaxRoamRange(1000);
 		((NpcStep) (goToMines)).addAlternateNpcs(NpcID.SANG_MYQ3_FEMALE_WALK_VYREWATCH_2, NpcID.SANG_MYQ3_FEMALE_WALK_VYREWATCH_3, NpcID.SANG_MYQ3_FEMALE_WALK_VYREWATCH_4, NpcID.MYREQUE_PT3_TAKEOFF_VYREWATCH_FEMALE_1, NpcID.MYREQUE_PT3_TAKEOFF_VYREWATCH_FEMALE_2, NpcID.MYREQUE_PT3_TAKEOFF_VYREWATCH_FEMALE_3, NpcID.MYREQUE_PT3_TAKEOFF_VYREWATCH_FEMALE_4,
@@ -518,8 +518,8 @@ public class DarknessOfHallowvale extends BasicQuestHelper
 			NpcID.SANG_MYQ3_FEMALE_FLYING_NS_VYREWATCH_3, NpcID.SANG_MYQ3_FEMALE_FLYING_NS_VYREWATCH_4, NpcID.SANG_MYQ3_MALE_FLYING_NS_VYREWATCH_1, NpcID.SANG_MYQ3_MALE_FLYING_NS_VYREWATCH_2, NpcID.SANG_MYQ3_MALE_FLYING_NS_VYREWATCH_3, NpcID.SANG_MYQ3_MALE_FLYING_NS_VYREWATCH_4, NpcID.SANG_MYQ3_FEMALE_WALK_NS_VYREWATCH_1, NpcID.SANG_MYQ3_FEMALE_WALK_NS_VYREWATCH_2,
 			NpcID.SANG_MYQ3_FEMALE_WALK_NS_VYREWATCH_3, NpcID.SANG_MYQ3_FEMALE_WALK_NS_VYREWATCH_4, NpcID.SANG_MYQ3_MALE_WALK_NS_VYREWATCH_1, NpcID.SANG_MYQ3_MALE_WALK_NS_VYREWATCH_2, NpcID.SANG_MYQ3_MALE_WALK_NS_VYREWATCH_3, NpcID.SANG_MYQ3_MALE_WALK_NS_VYREWATCH_4);
 		mineDaeyaltThenLeave = new NpcStep(this, NpcID.SANG_MYQ3_MINE_GUARD_JUVINATE_MALE, new WorldPoint(2389, 4624, 2),
-			"Mine Daeyalt ore from the walls and put them into the mine carts. If you have no pickaxe, talk to a " +
-				"miner to obtain a bronze one. Once you've mined 15, talk to the vampyres to leave.", pickaxe);
+			t("Mine Daeyalt ore from the walls and put them into the mine carts. If you have no pickaxe, talk to a " +
+				"miner to obtain a bronze one. Once you've mined 15, talk to the vampyres to leave."), pickaxe);
 		mineDaeyaltThenLeave.addDialogStep("Do you have a spare pick?");
 
 		List<WorldPoint> pathFromMineToBase = Arrays.asList(
@@ -546,29 +546,29 @@ public class DarknessOfHallowvale extends BasicQuestHelper
 			new WorldPoint(3640, 3250, 0)
 		);
 
-		returnToMeiyBase = new ObjectStep(this, ObjectID.SANG_MYREQUE_HIDEOUT_SYMBOL_MULTI, new WorldPoint(3638, 3251, 0), "Press the decorated wall to unlock the base's entrance.");
+		returnToMeiyBase = new ObjectStep(this, ObjectID.SANG_MYREQUE_HIDEOUT_SYMBOL_MULTI, new WorldPoint(3638, 3251, 0), t("Press the decorated wall to unlock the base's entrance."));
 		returnToMeiyBase.setLinePoints(pathFromMineToBase);
 
-		goDownFromRandomRoom = new ObjectStep(this, ObjectID.AREA_SANGUINE_GHETTO_LADDER_DOWN, new WorldPoint(3595, 3204, 1), "Climb down the ladder.");
-		climbBackOverRubble = new ObjectStep(this, ObjectID.MYQ3_RUBBLE_EAST_WALL, new WorldPoint(3591, 3180, 0), "Climb over the wall rubble to the south.");
-		climbUpFloor = new ObjectStep(this, ObjectID.MIEYERDITCH_WALL_UNDERBOARDS_MULTI_LOC, new WorldPoint(3589, 3173, 0), "Climb up to the floor in the wall to the south.");
-		climbDownWallLadder = new ObjectStep(this, ObjectID.MYQ3_LADDER_DOWN, new WorldPoint(3588, 3210, 1), "Climb down the ladder to the north.");
-		searchRockySurface = new ObjectStep(this, ObjectID.MYQ3_SECRET_ROCK_BARRICADE_UNLOCK, new WorldPoint(3592, 3211, 0), "Search the rocky surface nearby.");
-		goThroughBarricade = new ObjectStep(this, ObjectID.MYQ3_GHETTO_BARICADE_WALL_SECRETPASS, new WorldPoint(3589, 3215, 0), "Open the barricade to the north.");
-		climbUpWallLadder = new ObjectStep(this, ObjectID.MYQ3_LADDER_UP, new WorldPoint(3593, 3230, 0), "Climb up the ladder to the north.");
-		climbLadderSecondWall = new ObjectStep(this, ObjectID.MYQ3_LADDER_UP_2, new WorldPoint(3588, 3251, 1), "Climb up the ladder to the north.");
+		goDownFromRandomRoom = new ObjectStep(this, ObjectID.AREA_SANGUINE_GHETTO_LADDER_DOWN, new WorldPoint(3595, 3204, 1), t("Climb down the ladder."));
+		climbBackOverRubble = new ObjectStep(this, ObjectID.MYQ3_RUBBLE_EAST_WALL, new WorldPoint(3591, 3180, 0), t("Climb over the wall rubble to the south."));
+		climbUpFloor = new ObjectStep(this, ObjectID.MIEYERDITCH_WALL_UNDERBOARDS_MULTI_LOC, new WorldPoint(3589, 3173, 0), t("Climb up to the floor in the wall to the south."));
+		climbDownWallLadder = new ObjectStep(this, ObjectID.MYQ3_LADDER_DOWN, new WorldPoint(3588, 3210, 1), t("Climb down the ladder to the north."));
+		searchRockySurface = new ObjectStep(this, ObjectID.MYQ3_SECRET_ROCK_BARRICADE_UNLOCK, new WorldPoint(3592, 3211, 0), t("Search the rocky surface nearby."));
+		goThroughBarricade = new ObjectStep(this, ObjectID.MYQ3_GHETTO_BARICADE_WALL_SECRETPASS, new WorldPoint(3589, 3215, 0), t("Open the barricade to the north."));
+		climbUpWallLadder = new ObjectStep(this, ObjectID.MYQ3_LADDER_UP, new WorldPoint(3593, 3230, 0), t("Climb up the ladder to the north."));
+		climbLadderSecondWall = new ObjectStep(this, ObjectID.MYQ3_LADDER_UP_2, new WorldPoint(3588, 3251, 1), t("Climb up the ladder to the north."));
 
-		climbDownFromThirdWall = new ObjectStep(this, ObjectID.MYQ3_LADDER_DOWN_2, new WorldPoint(3588, 3259, 2), "Climb down the ladder to the north.");
-		climbUpDrakanWalls = new ObjectStep(this, ObjectID.DARKM_OUTER_WALL_3H_MEYERDITCH_WALL_SHORTCUT_BOTTOM, new WorldPoint(3595, 3310, 1), "Climb up the wall to the north.");
-		talkToSafalaan = new NpcStep(this, NpcID.MYREQUE_PT3_SAFALAAN, new WorldPoint(3585, 3331, 0), "Talk to Safalaan on the walls.");
+		climbDownFromThirdWall = new ObjectStep(this, ObjectID.MYQ3_LADDER_DOWN_2, new WorldPoint(3588, 3259, 2), t("Climb down the ladder to the north."));
+		climbUpDrakanWalls = new ObjectStep(this, ObjectID.DARKM_OUTER_WALL_3H_MEYERDITCH_WALL_SHORTCUT_BOTTOM, new WorldPoint(3595, 3310, 1), t("Climb up the wall to the north."));
+		talkToSafalaan = new NpcStep(this, NpcID.MYREQUE_PT3_SAFALAAN, new WorldPoint(3585, 3331, 0), t("Talk to Safalaan on the walls."));
 		drawNorthWall = new DetailedQuestStep(this, new WorldPoint(3556, 3379, 0), "");
 		drawWestWall = new DetailedQuestStep(this, new WorldPoint(3522, 3357, 0), "");
 		drawSouthWall = new DetailedQuestStep(this, new WorldPoint(3572, 3331, 0), "");
-		tankVanstrom = new NpcStep(this, NpcID.MYQ3_VANSTROM_KLAUSE_VAMPYRE_ATTACK, new WorldPoint(3572, 3331, 0), "Tank Vanstrom for 5 hits or use Protect from Melee.");
+		tankVanstrom = new NpcStep(this, NpcID.MYQ3_VANSTROM_KLAUSE_VAMPYRE_ATTACK, new WorldPoint(3572, 3331, 0), t("Tank Vanstrom for 5 hits or use Protect from Melee."));
 		((NpcStep) tankVanstrom).addAlternateNpcs(NpcID.MYQ3_VANSTROM_KLAUSE_GROUNDED_VAMPIRE_STATE);
 		finishSouthSketch = new DetailedQuestStep(this, new WorldPoint(3572, 3331, 0), "");
 		talkToSarius = new NpcStep(this, NpcID.MYQ3_SARIUS_GUILE, new WorldPoint(3572, 3331, 0), "");
-		talkToSafalaanInBase = new NpcStep(this, NpcID.MYREQUE_PT3_SAFALAAN, new WorldPoint(3627, 9644, 0), "Talk to Safalaan in the north room.");
+		talkToSafalaanInBase = new NpcStep(this, NpcID.MYREQUE_PT3_SAFALAAN, new WorldPoint(3627, 9644, 0), t("Talk to Safalaan in the north room."));
 
 		List<WorldPoint> pathFromMineToFireplace = Arrays.asList(
 			new WorldPoint(3623, 3324, 0),
@@ -594,12 +594,12 @@ public class DarknessOfHallowvale extends BasicQuestHelper
 		useKnifeOnFireplace = new ObjectStep(this, ObjectID.MYQ3_FIREPLACE_LOOSE_TILE, new WorldPoint(3627, 3253, 0), "");
 		useKnifeOnFireplace.setLinePoints(pathFromMineToFireplace);
 		useKnifeOnFireplace.addIcon(ItemID.KNIFE);
-		readMessage = new DetailedQuestStep(this, "Read the message.", messageFromFireplace);
-		useKnifeOnPortrait = new ObjectStep(this, ObjectID.MYQ3_STATUE_PAINTING_MULTI, new WorldPoint(3627, 3248, 0), "Use a knife on the portrait south of the fireplace.");
+		readMessage = new DetailedQuestStep(this, t("Read the message."), messageFromFireplace);
+		useKnifeOnPortrait = new ObjectStep(this, ObjectID.MYQ3_STATUE_PAINTING_MULTI, new WorldPoint(3627, 3248, 0), t("Use a knife on the portrait south of the fireplace."));
 		useKnifeOnPortrait.addIcon(ItemID.KNIFE);
-		inspectPortrait = new ObjectStep(this, ObjectID.MYQ3_STATUE_PAINTING_MULTI, new WorldPoint(3627, 3248, 0), "Inspect the portrait south of the fireplace.");
+		inspectPortrait = new ObjectStep(this, ObjectID.MYQ3_STATUE_PAINTING_MULTI, new WorldPoint(3627, 3248, 0), t("Inspect the portrait south of the fireplace."));
 		useKnifeOnPortrait.addSubSteps(inspectPortrait);
-		leaveMeiyerBase = new ObjectStep(this, ObjectID.AREA_SANGUINE_MYREQUE_HIDEOUT_LADDER_UP, new WorldPoint(3626, 9617, 0), "Go up to the surface.");
+		leaveMeiyerBase = new ObjectStep(this, ObjectID.AREA_SANGUINE_MYREQUE_HIDEOUT_LADDER_UP, new WorldPoint(3626, 9617, 0), t("Go up to the surface."));
 
 		List<WorldPoint> pathFromBaseToTapestry = Arrays.asList(
 			new WorldPoint(3640, 3253, 0),
@@ -625,15 +625,15 @@ public class DarknessOfHallowvale extends BasicQuestHelper
 			new WorldPoint(3640, 3302, 0)
 		);
 
-		useKnifeOnTapestry = new ObjectStep(this, ObjectID.MYQ3_LAB_TAPESTRY_MULTI, new WorldPoint(3638, 3304, 0), "Slash the tapestry in the building in north east Meiyerditch.", knife.highlighted());
+		useKnifeOnTapestry = new ObjectStep(this, ObjectID.MYQ3_LAB_TAPESTRY_MULTI, new WorldPoint(3638, 3304, 0), t("Slash the tapestry in the building in north east Meiyerditch."), knife.highlighted());
 		useKnifeOnTapestry.setLinePoints(pathFromBaseToTapestry);
 		useKnifeOnTapestry.addIcon(ItemID.KNIFE);
-		useKeyOnStatue = new ObjectStep(this, ObjectID.MYQ3_LAB_VAMP_STATUE_MULTI, new WorldPoint(3641, 3304, 0), "Use the ornate key on the nearby statue.", largeOrnateKey.highlighted());
+		useKeyOnStatue = new ObjectStep(this, ObjectID.MYQ3_LAB_VAMP_STATUE_MULTI, new WorldPoint(3641, 3304, 0), t("Use the ornate key on the nearby statue."), largeOrnateKey.highlighted());
 		useKeyOnStatue.addIcon(ItemID.MYQ3_LAB_ORNATE_KEY);
-		goDownToLab = new ObjectStep(this, ObjectID.MYQ3_LAB_STAIRS_DOWN, new WorldPoint(3643, 3305, 0), "Go down the staircase to the lab.");
-		getRunes = new ObjectStep(this, ObjectID.MYQ3_BROKEN_RUNE_CASE, new WorldPoint(3629, 9695, 0), "Search the broken rune case.");
-		telegrabBook = new DetailedQuestStep(this, new WorldPoint(3624, 9690, 0), "Telegrab the Haemalchemy book.", haemBook, lawRune, airRune);
-		leaveLab = new ObjectStep(this, ObjectID.MYQ3_LAB_STAIRS_UP, new WorldPoint(3637, 9697, 0), "Leave the lab.");
+		goDownToLab = new ObjectStep(this, ObjectID.MYQ3_LAB_STAIRS_DOWN, new WorldPoint(3643, 3305, 0), t("Go down the staircase to the lab."));
+		getRunes = new ObjectStep(this, ObjectID.MYQ3_BROKEN_RUNE_CASE, new WorldPoint(3629, 9695, 0), t("Search the broken rune case."));
+		telegrabBook = new DetailedQuestStep(this, new WorldPoint(3624, 9690, 0), t("Telegrab the Haemalchemy book."), haemBook, lawRune, airRune);
+		leaveLab = new ObjectStep(this, ObjectID.MYQ3_LAB_STAIRS_UP, new WorldPoint(3637, 9697, 0), t("Leave the lab."));
 	}
 
 	public void setupConditionalSteps()
@@ -641,29 +641,29 @@ public class DarknessOfHallowvale extends BasicQuestHelper
 		ConditionalStep goToBurghPubBasement = new ConditionalStep(this, climbOverBrokenWall);
 		goToBurghPubBasement.addStep(inTrapdoorRoom, enterBurghPubBasement);
 
-		startQuest = new ConditionalStep(this, goToBurghPubBasement, "Talk to Veliaf in the Myreque base under Burgh de Rott.");
+		startQuest = new ConditionalStep(this, goToBurghPubBasement, t("Talk to Veliaf in the Myreque base under Burgh de Rott."));
 		startQuest.addStep(inNewBase, talkToVeliaf);
 
-		goTravelToMyrequeBase = new ConditionalStep(this, travelToPots, "Follow the path to the Meiyerditch Myreque base.", knife);
+		goTravelToMyrequeBase = new ConditionalStep(this, travelToPots, t("Follow the path to the Meiyerditch Myreque base."), knife);
 		goTravelToMyrequeBase.addStep(fixedLadder, travelToMyrequeBase);
 		goTravelToMyrequeBase.addStep(ladderPiece, travelToFixLadder);
 		goTravelToMyrequeBase.addStep(new Conditions(LogicType.OR, doorKey, pathDoorOpen), travelToLadderPart);
 
-		talkToVeliafAfterContact = new ConditionalStep(this, goToBurghPubBasement, "Bring the message to Veliaf in the Myreque base under Burgh de Rott.", message);
+		talkToVeliafAfterContact = new ConditionalStep(this, goToBurghPubBasement, t("Bring the message to Veliaf in the Myreque base under Burgh de Rott."), message);
 		talkToVeliafAfterContact.addStep(inNewBase, talkToVeliaf);
 		talkToVeliafAfterContact.addDialogStep("What should I do now?");
 
-		talkToVeliafAfterLetter = new ConditionalStep(this, enterBurghPubBasement, "Talk to Veliaf in the Myreque base under Burgh de Rott.");
+		talkToVeliafAfterLetter = new ConditionalStep(this, enterBurghPubBasement, t("Talk to Veliaf in the Myreque base under Burgh de Rott."));
 		talkToVeliafAfterLetter.addStep(inNewBase, talkToVeliaf);
 		talkToVeliafAfterContact.addSubSteps(talkToVeliafAfterLetter);
 
-		talkToDrezelAfterVeliaf = new ConditionalStep(this, goDownToDrezel, "Talk to Drezel under the Paterdomus Temple.");
+		talkToDrezelAfterVeliaf = new ConditionalStep(this, goDownToDrezel, t("Talk to Drezel under the Paterdomus Temple."));
 		talkToDrezelAfterVeliaf.addStep(inTemple, talkToDrezel);
 
-		talkToDrezelAfterBushes = new ConditionalStep(this, returnFromBushesToDrezel, "Return to Drezel.");
+		talkToDrezelAfterBushes = new ConditionalStep(this, returnFromBushesToDrezel, t("Return to Drezel."));
 		talkToDrezelAfterBushes.addStep(inTemple, talkToDrezel);
 
-		talkToVeliafAfterDrezel = new ConditionalStep(this, goToBurghPubBasement, "Return to Veliaf in the Myreque base under Burgh de Rott.");
+		talkToVeliafAfterDrezel = new ConditionalStep(this, goToBurghPubBasement, t("Return to Veliaf in the Myreque base under Burgh de Rott."));
 		talkToVeliafAfterDrezel.addStep(inNewBase, talkToVeliaf);
 
 		ConditionalStep getToNorthMeiy = new ConditionalStep(this, boardBoat);
@@ -671,7 +671,7 @@ public class DarknessOfHallowvale extends BasicQuestHelper
 		getToNorthMeiy.addStep(inMine, mineDaeyaltThenLeave);
 		getToNorthMeiy.addStep(inMeiyditch, goToMines);
 
-		returnToMeiyerditch = new ConditionalStep(this, getToNorthMeiy, "Return to the Meiyerditch Myreque base.");
+		returnToMeiyerditch = new ConditionalStep(this, getToNorthMeiy, t("Return to the Meiyerditch Myreque base."));
 		returnToMeiyerditch.addStep(inMyrequeBase, talkToVertida);
 		returnToMeiyerditch.addStep(wallPressed, enterRug);
 		returnToMeiyerditch.addStep(inNorthMeiy, returnToMeiyBase);
@@ -688,31 +688,31 @@ public class DarknessOfHallowvale extends BasicQuestHelper
 		navigateWalls.addStep(inEntryPassage, climbUpFloor);
 		navigateWalls.addStep(inMeiyditch, climbBackOverRubble);
 
-		goToSafalaan = new ConditionalStep(this, navigateWalls, "Climb along the western wall until you reach Safalaan.");
+		goToSafalaan = new ConditionalStep(this, navigateWalls, t("Climb along the western wall until you reach Safalaan."));
 		goToSafalaan.addStep(onDrakanWalls, talkToSafalaan);
 		goToSafalaan.addStep(inMyrequeBase, talkToVertida);
 		goToSafalaan.addDialogStep("Okay, lead the way.");
 
-		goSketchNorth = new ConditionalStep(this, navigateWalls, "Sketch the north side of Castle Drakan by using the charcoal on some papyrus.", papyrus, charcoal);
+		goSketchNorth = new ConditionalStep(this, navigateWalls, t("Sketch the north side of Castle Drakan by using the charcoal on some papyrus."), papyrus, charcoal);
 		goSketchNorth.addStep(onDrakanWalls, drawNorthWall);
 
-		goSketchWest = new ConditionalStep(this, navigateWalls, "Sketch the west side of Castle Drakan by using the charcoal on some papyrus.", papyrus, charcoal);
+		goSketchWest = new ConditionalStep(this, navigateWalls, t("Sketch the west side of Castle Drakan by using the charcoal on some papyrus."), papyrus, charcoal);
 		goSketchWest.addStep(onDrakanWalls, drawWestWall);
 
-		goSketchSouth = new ConditionalStep(this, navigateWalls, "Sketch the south side of Castle Drakan. Be prepared to tank some hits from Vanstrom Klause.", papyrus, charcoal);
+		goSketchSouth = new ConditionalStep(this, navigateWalls, t("Sketch the south side of Castle Drakan. Be prepared to tank some hits from Vanstrom Klause."), papyrus, charcoal);
 		goSketchSouth.addStep(inVanstromFight, tankVanstrom);
 		goSketchSouth.addStep(onDrakanWalls, drawSouthWall);
 
-		goTalkToSarius = new ConditionalStep(this, navigateWalls, "Talk to Sarius on the walls around Castle Drakan.");
+		goTalkToSarius = new ConditionalStep(this, navigateWalls, t("Talk to Sarius on the walls around Castle Drakan."));
 		goTalkToSarius.addStep(onDrakanWalls, talkToSarius);
 
-		goFinishSouthSketch = new ConditionalStep(this, navigateWalls, "Finish sketching the south side of Castle Drakan.", papyrus, charcoal);
+		goFinishSouthSketch = new ConditionalStep(this, navigateWalls, t("Finish sketching the south side of Castle Drakan."), papyrus, charcoal);
 		goFinishSouthSketch.addStep(onDrakanWalls, finishSouthSketch);
 
-		goOpenFireplace = new ConditionalStep(this, getToNorthMeiy, "Go use a knife on the fireplace near the Meiyerditch Myreque base.", knife, sketch1, sketch2, sketch3);
+		goOpenFireplace = new ConditionalStep(this, getToNorthMeiy, t("Go use a knife on the fireplace near the Meiyerditch Myreque base."), knife, sketch1, sketch2, sketch3);
 		goOpenFireplace.addStep(inNorthMeiy, useKnifeOnFireplace);
 
-		returnToSafalaanInBaseNoSketches = new ConditionalStep(this, getToNorthMeiy, "Return to Safalaan in the Meiyerditch Myreque base.", knife);
+		returnToSafalaanInBaseNoSketches = new ConditionalStep(this, getToNorthMeiy, t("Return to Safalaan in the Meiyerditch Myreque base."), knife);
 		returnToSafalaanInBaseNoSketches.addStep(inMyrequeBase, talkToSafalaanInBase);
 		returnToSafalaanInBaseNoSketches.addStep(wallPressed, enterRug);
 		returnToSafalaanInBaseNoSketches.addStep(new Conditions(inNorthMeiy, largeOrnateKey), returnToMeiyBase);
@@ -721,7 +721,7 @@ public class DarknessOfHallowvale extends BasicQuestHelper
 
 		returnToSafalaanInBase = new ConditionalStep(this, returnToSafalaanInBaseNoSketches, sketch1, sketch2, sketch3);
 
-		ConditionalStep travelToLab = new ConditionalStep(this, getToNorthMeiy, "Travel to the labs in Meiyerditch.", knife);
+		ConditionalStep travelToLab = new ConditionalStep(this, getToNorthMeiy, t("Travel to the labs in Meiyerditch."), knife);
 
 		goUnlockLab = new ConditionalStep(this, travelToLab);
 		goUnlockLab.addStep(new Conditions(inNorthMeiy, largeOrnateKey, tapestryCut), useKeyOnStatue);
@@ -730,7 +730,7 @@ public class DarknessOfHallowvale extends BasicQuestHelper
 		goUnlockLab.addStep(inNorthMeiy, useKnifeOnPortrait);
 		goUnlockLab.addStep(inMyrequeBase, leaveMeiyerBase);
 
-		bringSafalaanBook = new ConditionalStep(this, returnToMeiyBase, "Return to Safalaan with the Haemalchemy book.", haemBook);
+		bringSafalaanBook = new ConditionalStep(this, returnToMeiyBase, t("Return to Safalaan with the Haemalchemy book."), haemBook);
 		bringSafalaanBook.addStep(inMyrequeBase, talkToSafalaanInBase);
 		bringSafalaanBook.addStep(inLab, leaveLab);
 		bringSafalaanBook.addStep(wallPressed, enterRug);
@@ -741,7 +741,7 @@ public class DarknessOfHallowvale extends BasicQuestHelper
 		getHaemBook.addStep(inLab, getRunes);
 		getHaemBook.addStep(inNorthMeiy, goDownToLab);
 
-		bringMessageToVeliafToFinish = new ConditionalStep(this, goToBurghPubBasement, "Bring the letter to Veliaf in the Myreque base under Burgh de Rott to complete the quest.", sealedMessage);
+		bringMessageToVeliafToFinish = new ConditionalStep(this, goToBurghPubBasement, t("Bring the letter to Veliaf in the Myreque base under Burgh de Rott to complete the quest."), sealedMessage);
 		bringMessageToVeliafToFinish.addStep(inNewBase, talkToVeliaf);
 	}
 
@@ -783,7 +783,7 @@ public class DarknessOfHallowvale extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Able to survive 5 hits from Vanstrom Klause (level 169) or use Protect from Melee to negate all his damage.");
+		return Collections.singletonList(t("Able to survive 5 hits from Vanstrom Klause (level 169) or use Protect from Melee to negate all his damage."));
 	}
 
 	@Override
@@ -811,17 +811,17 @@ public class DarknessOfHallowvale extends BasicQuestHelper
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Infiltrating Meiyerditch", Arrays.asList(startQuest, leavePubBasement, usePlankOnBoat, usePlankOnChute, pushBoat,
+		allSteps.add(new PanelDetails(t("Infiltrating Meiyerditch"), Arrays.asList(startQuest, leavePubBasement, usePlankOnBoat, usePlankOnChute, pushBoat,
 			boardBoat, kickBoard, climbDownBoard, climbOverRubble, talkToCitizen, talkToRal, goTravelToMyrequeBase, pressDecoratedWall, enterRug, talkToVertida, talkToVeliafAfterContact), hammer, planks2, nails8, knife));
 
-		allSteps.add(new PanelDetails("Murder at Paterdomus", Arrays.asList(talkToDrezelAfterVeliaf, searchBushes, talkToDrezelAfterBushes, talkToRoald,
+		allSteps.add(new PanelDetails(t("Murder at Paterdomus"), Arrays.asList(talkToDrezelAfterVeliaf, searchBushes, talkToDrezelAfterBushes, talkToRoald,
 			talkToVeliafAfterDrezel)));
 
-		allSteps.add(new PanelDetails("Mapping Castle Drakan", Arrays.asList(returnToMeiyerditch, goToSafalaan, goSketchNorth, goSketchWest, goSketchSouth,
+		allSteps.add(new PanelDetails(t("Mapping Castle Drakan"), Arrays.asList(returnToMeiyerditch, goToSafalaan, goSketchNorth, goSketchWest, goSketchSouth,
 			tankVanstrom, goTalkToSarius, goFinishSouthSketch, goOpenFireplace, useKnifeOnPortrait, readMessage,
 			returnToSafalaanInBaseNoSketches), knife));
 
-		allSteps.add(new PanelDetails("Investigate the lab", Arrays.asList(useKnifeOnTapestry, useKeyOnStatue, goDownToLab, telegrabBook, bringSafalaanBook, bringMessageToVeliafToFinish), knife, lawRune, airRune));
+		allSteps.add(new PanelDetails(t("Investigate the lab"), Arrays.asList(useKnifeOnTapestry, useKeyOnStatue, goDownToLab, telegrabBook, bringSafalaanBook, bringMessageToVeliafToFinish), knife, lawRune, airRune));
 
 		return allSteps;
 	}

@@ -177,9 +177,9 @@ public class TaiBwoWannaiTrio extends BasicQuestHelper
 	private void setupSteps()
 	{
 		goToTimfrakuLadder = new ObjectStep(this, ObjectID.LADDER, timfrakuHutWorldPoint,
-			"Talk to Timfraku upstairs in his house in Tai Bwo Wannai.");
+			t("Talk to Timfraku upstairs in his house in Tai Bwo Wannai."));
 
-		talkToTimfrakuStart = new NpcStep(this, NpcID.TBWT_TIMFRAKU, "Talk to Timfraku upstairs in his house in Tai Bwo Wannai.");
+		talkToTimfrakuStart = new NpcStep(this, NpcID.TBWT_TIMFRAKU, t("Talk to Timfraku upstairs in his house in Tai Bwo Wannai."));
 		talkToTimfrakuStart.addDialogSteps("I am a roving adventurer.", "I am a travelling explorer.", "I am a " +
 			"wandering wayfarer.", "Who me? Oh I'm just a nobody.");
 		talkToTimfrakuStart.addDialogStep("Trufitus sent me.");
@@ -187,14 +187,14 @@ public class TaiBwoWannaiTrio extends BasicQuestHelper
 			"far??", "Yes.");
 		talkToTimfrakuStart.addSubSteps(goToTimfrakuLadder);
 
-		syncStep = new DetailedQuestStep(this, "Open your quest journal to sync your current state.");
+		syncStep = new DetailedQuestStep(this, t("Open your quest journal to sync your current state."));
 
 		fishKarambwaji = new NpcStep(this, NpcID._0_43_47_KARAMBWANJI, new WorldPoint(2791,3019,0),
-			"Using your small fishing net, catch atleast 23 raw karambwanji just south of Tai Bwo Wannai.", smallFishingNet);
+			t("Using your small fishing net, catch atleast 23 raw karambwanji just south of Tai Bwo Wannai."), smallFishingNet);
 
-		goToLubufu = new NpcStep(this, NpcID.TBWT_LUBUFU, lubufuWorldPoint, "Go to Brimhaven and talk to Lubufu. " +
+		goToLubufu = new NpcStep(this, NpcID.TBWT_LUBUFU, lubufuWorldPoint, t("Go to Brimhaven and talk to Lubufu. " +
 			"You have to talk to him multiple times. You'll need to ask him twice about what he does, then talk to " +
-			"him to give him the karambwanji.", karambwanji.quantity(20));
+			"him to give him the karambwanji."), karambwanji.quantity(20));
 		goToLubufu.addDialogStep("Talk about him...");
 		goToLubufu.addDialogStep("What do you do?");
 		goToLubufu.addDialogStepWithExclusion("What do you do with your Karambwan?", "I could help collect the bait.");
@@ -204,129 +204,129 @@ public class TaiBwoWannaiTrio extends BasicQuestHelper
 		goToLubufu.addDialogStep("Yes!");
 
 		getMoreVessel = new NpcStep(this, NpcID.TBWT_LUBUFU, lubufuWorldPoint,
-			"Get a Vessel from Lubufu by asking what he uses to catch them multiple times. Drop it, and talk to him " +
+			t("Get a Vessel from Lubufu by asking what he uses to catch them multiple times. Drop it, and talk to him " +
 				"go get another, then pick up the one you dropped. You can get as many as you want but you need 2 to" +
-				" complete this quest.");
+				" complete this quest."));
 		getMoreVessel.addDialogStep("What do you use to catch Karambwan?");
 		getMoreVessel.addDialogStep("Yes!");
 		getMoreVessel.addDialogStep("Actually, I've lost my Karambwan vessel.");
 		getMoreVessel.addDialogStep("... a shark ate it!");
 
-		dropVessel = new DetailedQuestStep(this, "Drop the vessel, then get another from Lubufu.", karambwanVessel.highlighted());
+		dropVessel = new DetailedQuestStep(this, t("Drop the vessel, then get another from Lubufu."), karambwanVessel.highlighted());
 		getAnotherVessel = new NpcStep(this, NpcID.TBWT_LUBUFU, lubufuWorldPoint,
-			"Get another Vessel from Lubufu.");
+			t("Get another Vessel from Lubufu."));
 		getAnotherVessel.addDialogStep("Actually, I've lost my Karambwan vessel.");
 		getAnotherVessel.addDialogStep("... a shark ate it!");
-		pickupVessel = new ItemStep(this, "Pick up the vessel you dropped.", karambwanVessel.quantity(2));
+		pickupVessel = new ItemStep(this, t("Pick up the vessel you dropped."), karambwanVessel.quantity(2));
 		getMoreVessel.addSubSteps(dropVessel, getAnotherVessel, pickupVessel);
 
-		fillVessel = new DetailedQuestStep(this, "Use a karambwanji on a karambwan Vessel to fill it.", karambwanji, karambwanVessel);
+		fillVessel = new DetailedQuestStep(this, t("Use a karambwanji on a karambwan Vessel to fill it."), karambwanji, karambwanVessel);
 
 		getRum = new NpcStep(this, NpcID.ZEMBO, new WorldPoint(2925, 3143, 0),
-			"Go east to Musa point to buy some Karamjan rum from Zembo.", coins.quantity(30));
+			t("Go east to Musa point to buy some Karamjan rum from Zembo."), coins.quantity(30));
 
-		sliceBanana = new DetailedQuestStep(this, "Slice a banana with a knife. You can get a banana from one of the " +
-			"trees in the plantation.", knife.highlighted(), banana.highlighted());
-		makeBananaRum = new ItemStep(this, "Add banana slices to the karamjan rum to make Karamjan rum with banana " +
-			"slices.", bananaSlices.highlighted(), karamjanRum.highlighted());
+		sliceBanana = new DetailedQuestStep(this, t("Slice a banana with a knife. You can get a banana from one of the " +
+			"trees in the plantation."), knife.highlighted(), banana.highlighted());
+		makeBananaRum = new ItemStep(this, t("Add banana slices to the karamjan rum to make Karamjan rum with banana " +
+			"slices."), bananaSlices.highlighted(), karamjanRum.highlighted());
 
 		talkToTiadeche1 = new NpcStep(this, NpcID.TBWT_TIADECHE, new WorldPoint(2912, 3116, 0),
-			"Talk to Tiadeche in east Karamja, near the fairy ring DKP. You can teleport off Karamja; the Karamjan rum with banana will not break.");
+			t("Talk to Tiadeche in east Karamja, near the fairy ring DKP. You can teleport off Karamja; the Karamjan rum with banana will not break."));
 
 		giveVessel = new NpcStep(this, NpcID.TBWT_TIADECHE, new WorldPoint(2912, 3116, 0),
-			"Use a filled vessel on Tiadeche. Make sure to finish the dialogue with him and accept the karambwan he " +
-				"offers!",	filledKarabmwanVessel.highlighted());
+			t("Use a filled vessel on Tiadeche. Make sure to finish the dialogue with him and accept the karambwan he " +
+				"offers!"),	filledKarabmwanVessel.highlighted());
 		giveVessel.addDialogStep("Yes");
 		giveVessel.addIcon(ItemID.TBWT_KARAMBWAN_VESSEL_LOADED_WITH_KARAMBWANJI);
 
 		askAboutResearch = new NpcStep(this, NpcID.TBWT_TIADECHE, new WorldPoint(2912, 3116, 0),
-			"Talk to Tiadeche more.");
+			t("Talk to Tiadeche more."));
 
-		pickupSeaweed = new ItemStep(this, "Pickup some seaweed from Karamja's coast.", seaweed);
+		pickupSeaweed = new ItemStep(this, t("Pickup some seaweed from Karamja's coast."), seaweed);
 		pickupSeaweed.addDialogStep("Yes");
 		getJogreBones = new NpcStep(this, NpcID.JOGRE, new WorldPoint(2925, 3062, 0),
-			"Get some jogre bones. You can kill the jogres south of Tiadeche.", true, jogreBones);
+			t("Get some jogre bones. You can kill the jogres south of Tiadeche."), true, jogreBones);
 		getJogreBones.addDialogStep("Yes");
-		pickupBones = new ItemStep(this, "Pickup the jogre bones.", jogreBones);
+		pickupBones = new ItemStep(this, t("Pickup the jogre bones."), jogreBones);
 		getJogreBones.addSubSteps(pickupBones);
 
 		getMonkeyCorpse = new NpcStep(this, NpcID.MONKEY,
-			"Kill a monkey to get its corpse, there are plenty of monkeys around Karamja and you will need either " +
-				"magic or range to kill one.", true, rangedOrMagic);
-		pickupCorpse = new ItemStep(this, "Pickup the monkey corpse.", monkeyCorpse);
+			t("Kill a monkey to get its corpse, there are plenty of monkeys around Karamja and you will need either " +
+				"magic or range to kill one."), true, rangedOrMagic);
+		pickupCorpse = new ItemStep(this, t("Pickup the monkey corpse."), monkeyCorpse);
 		getMonkeyCorpse.addSubSteps(pickupCorpse);
 
 		talkToTamayu1 = new NpcStep(this, NpcID.TBWT_TAMAYU, new WorldPoint(2845, 3041, 0),
-			"Talk to Tamayu, he is located north of Shilo Village near the mining sign on the map," +
-				" after watching him use your tinder box on your jogre bones and pick up the burnt jogre bones.");
+			t("Talk to Tamayu, he is located north of Shilo Village near the mining sign on the map," +
+				" after watching him use your tinder box on your jogre bones and pick up the burnt jogre bones."));
 		talkToTamayu1.addDialogStep("When will you succeed?");
 		talkToTamayu1.addDialogStep("Yes");
 
-		poisonSpear = new DetailedQuestStep(this, "Use the paste on an iron or better spear.", karambwanPaste.highlighted(),
+		poisonSpear = new DetailedQuestStep(this, t("Use the paste on an iron or better spear."), karambwanPaste.highlighted(),
 			spear.highlighted());
 		givePotion = new NpcStep(this, NpcID.TBWT_TAMAYU, new WorldPoint(2845, 3041, 0),
-			"Use an agility potion (4) on Tamayu.", agilityPotion4.highlighted());
+			t("Use an agility potion (4) on Tamayu."), agilityPotion4.highlighted());
 		givePotion.addIcon(ItemID._4DOSE1AGILITY);
 		giveSpear = new NpcStep(this, NpcID.TBWT_TAMAYU, new WorldPoint(2845, 3041, 0),
-			"Use a poisoned spear on Tamayu.", poisonedSpear.highlighted());
+			t("Use a poisoned spear on Tamayu."), poisonedSpear.highlighted());
 		giveSpear.addIcon(ItemID.TBWT_IRON_SPEAR_KP);
 
-		getPoisonKarambwan = new DetailedQuestStep(this, "Fish raw Karambwan next to Tiadeche with a loaded vessel or" +
-			" buy them from the GE.");
+		getPoisonKarambwan = new DetailedQuestStep(this, t("Fish raw Karambwan next to Tiadeche with a loaded vessel or" +
+			" buy them from the GE."));
 
-		makeKarambwanjiPaste = new DetailedQuestStep(this, "Use a pestle and mortar on a karambwanji.",
+		makeKarambwanjiPaste = new DetailedQuestStep(this, t("Use a pestle and mortar on a karambwanji."),
 			pestleAndMortar.highlighted(), karambwanji.highlighted());
-		usePasteOnBones = new DetailedQuestStep(this, "Use the karambwanji paste on the burnt jogre bones.",
+		usePasteOnBones = new DetailedQuestStep(this, t("Use the karambwanji paste on the burnt jogre bones."),
 			karambwanjiPaste.highlighted(), burntJogreBones.highlighted());
 
-		usePestleOnKarambwan = new DetailedQuestStep(this, "Use a pestle and mortar on a poison karambwan.",
+		usePestleOnKarambwan = new DetailedQuestStep(this, t("Use a pestle and mortar on a poison karambwan."),
 			pestleAndMortar.highlighted(), poisonKarambwan.highlighted());
-		usePasteOnSpear = new DetailedQuestStep(this, "Use the karambwan paste on a iron or better spear.",
+		usePasteOnSpear = new DetailedQuestStep(this, t("Use the karambwan paste on a iron or better spear."),
 			karambwanPaste.highlighted(), spear.highlighted());
 
-		pickupBurntBones = new ItemStep(this, "Wait for the bones to burn, then pick them up.", burntJogreBones);
+		pickupBurntBones = new ItemStep(this, t("Wait for the bones to burn, then pick them up."), burntJogreBones);
 
 
 		cookKarambwan = new DetailedQuestStep(this,
-			"Cook the karambwan for a poison karambwan. Note you may fail this and need to try again.");
+			t("Cook the karambwan for a poison karambwan. Note you may fail this and need to try again."));
 		burnBones = new DetailedQuestStep(this,
-			"Use a tinderbox on the jogre bones to set them on fire.", tinderbox.highlighted(), jogreBones.highlighted());
+			t("Use a tinderbox on the jogre bones to set them on fire."), tinderbox.highlighted(), jogreBones.highlighted());
 		burnBones.addDialogStep("Yes");
 
 		goOnHuntToKill = new NpcStep(this, NpcID.TBWT_TAMAYU, new WorldPoint(2845, 3041, 0),
-			"Go on a hunt with Tamayu.");
+			t("Go on a hunt with Tamayu."));
 		goOnHuntToKill.addDialogStep("Take me on your next hunt for the Shaikahan.");
 
 		cookBones = new ObjectStep(this, ObjectID.FIRE, new WorldPoint(2790, 3048, 0),
-			"RIGHT-CLICK use the bones on a fire. You can either make one yourself, or use them on the fire " +
-				"south of Tai Bwo Wannai.", pastyJogreBones.highlighted());
+			t("RIGHT-CLICK use the bones on a fire. You can either make one yourself, or use them on the fire " +
+				"south of Tai Bwo Wannai."), pastyJogreBones.highlighted());
 		cookBones.addIcon(ItemID.TBWT_BURNT_JOGRE_BONES_IN_RAW_KARAMBWANJI_PASTE);
 
 		useCorpseOnTamayu = new NpcStep(this, NpcID.TBWT_TAMAYU, new WorldPoint(2845, 3041, 0),
-			"Use your monkey corpse on Tamayu to have him skin it for you.", monkeyCorpse.highlighted());
+			t("Use your monkey corpse on Tamayu to have him skin it for you."), monkeyCorpse.highlighted());
 		useCorpseOnTamayu.addIcon(ItemID.TBWT_MONKEY_CORPSE);
 
-		makeSeaweedSandwich = new DetailedQuestStep(this, "Use your seaweed on your monkey skin to make a seaweed " +
-			"sandwich.", seaweed.highlighted(), monkeySkin.highlighted());
+		makeSeaweedSandwich = new DetailedQuestStep(this, t("Use your seaweed on your monkey skin to make a seaweed " +
+			"sandwich."), seaweed.highlighted(), monkeySkin.highlighted());
 
 		talkToTinsay = new NpcStep(this, NpcID.TBWT_TINSAY, new WorldPoint(2764, 2975, 0),
-			"Talk to Tinsay on Cairn Isle west of Shilo Village, south of fairy ring CKR. Keep talking to him, giving" +
-				" him the items he asks for.");
+			t("Talk to Tinsay on Cairn Isle west of Shilo Village, south of fairy ring CKR. Keep talking to him, giving" +
+				" him the items he asks for."));
 		talkToTinsay.addDialogStep("Yes.");
 
 		useVesselOnTinsay = new NpcStep(this, NpcID.TBWT_TINSAY, new WorldPoint(2764, 2975, 0),
-			"Use the vessel on Tinsay.", karambwanVessel.highlighted());
+			t("Use the vessel on Tinsay."), karambwanVessel.highlighted());
 		useVesselOnTinsay.addIcon(ItemID.TBWT_KARAMBWAN_VESSEL);
 
 		goToTiadecheFinal = new NpcStep(this, NpcID.TBWT_TIADECHE, new WorldPoint(2912, 3116, 0),
-			"Go back to Tiadeche located north of fairy ring DKP and use the crafting manual on him.");
+			t("Go back to Tiadeche located north of fairy ring DKP and use the crafting manual on him."));
 
 		goToTimfrakuLadderEnd = new ObjectStep(this, ObjectID.LADDER, timfrakuHutWorldPoint,
-			"Go to Timfraku's house to finish the quest.");
+			t("Go to Timfraku's house to finish the quest."));
 		talkToTimfrakuEnd = new NpcStep(this, NpcID.TBWT_TIMFRAKU,
-			"Talk to Timfraku to end the quest, the option chosen here does not matter. " +
+			t("Talk to Timfraku to end the quest, the option chosen here does not matter. " +
 				"NOTE: you will need to talk to each of the brothers individually in Tai Bwo Wannai to receive " +
-				"experience rewards as well as the ability to cook karambwans properly.");
+				"experience rewards as well as the ability to cook karambwans properly."));
 		talkToTimfrakuEnd.addDialogSteps("Oh it was nothing really.", "I'd rather have some gold please.",
 			"You know your sons have serious issues...", "Eternal gratitude accepted.");
 	}
@@ -462,14 +462,14 @@ public class TaiBwoWannaiTrio extends BasicQuestHelper
 		slicedBanana = new ItemRequirement("Sliced Banana", ItemID.TBWT_SLICED_BANANA);
 		banana = new ItemRequirement("Banana", ItemID.BANANA);
 		knife = new ItemRequirement("Knife", ItemID.KNIFE).isNotConsumed();
-		knife.setTooltip("There's one on the counter in the Musa Point general store");
+		knife.setTooltip(t("There's one on the counter in the Musa Point general store"));
 		slicedBananaOrKnife = new ItemRequirements(LogicType.OR, "Sliced banana or a knife", slicedBanana, knife);
 
 		smallFishingNet = new ItemRequirement("Small Fishing Net", ItemID.NET).isNotConsumed();
 		pestleAndMortar = new ItemRequirement("Pestle And Mortar", ItemID.PESTLE_AND_MORTAR).isNotConsumed();
 		logsForFire = new ItemRequirement("Any logs to make a fire", ItemCollections.LOGS_FOR_FIRE);
 		spear = new ItemRequirement("Iron spear or better (You will lose the spear)", ItemID.IRON_SPEAR);
-		spear.setTooltip("Bone and black spear does NOT work");
+		spear.setTooltip(t("Bone and black spear does NOT work"));
 		spear.addAlternates(ItemID.STEEL_SPEAR, ItemID.MITHRIL_SPEAR, ItemID.ADAMANT_SPEAR, ItemID.RUNE_SPEAR,
 			ItemID.DRAGON_SPEAR);
 		poisonedSpear = new ItemRequirement("Iron spear or better (kp) (You will lose the spear)", ItemID.TBWT_IRON_SPEAR_KP);
@@ -484,7 +484,7 @@ public class TaiBwoWannaiTrio extends BasicQuestHelper
 		jogreBones = new ItemRequirement("Jogre Bones", ItemID.TBWT_JOGRE_BONES);
 		jogreBones.canBeObtainedDuringQuest();
 		rawKarambwan = new ItemRequirement("Raw karambwan", ItemID.TBWT_RAW_KARAMBWAN);
-		rawKarambwan.setTooltip("You can obtain during quest with 65 Fishing.");
+		rawKarambwan.setTooltip(t("You can obtain during quest with 65 Fishing."));
 		karambwanPaste = new ItemRequirement("Karambwan paste", ItemID.TBWT_RAW_KARAMBWAN_PASTE);
 		karambwanPaste.addAlternates(ItemID.TBWT_POISONOUS_KARAMBWAN_PASTE, ItemID.TBWT_COOKED_KARAMBWAN_PASTE);
 		burntJogreBones = new ItemRequirement("Burnt Jogre Bones", ItemID.TBWT_BURNT_JOGRE_BONES);
@@ -576,27 +576,27 @@ public class TaiBwoWannaiTrio extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Ability to catch and cook Karambwans (after talking to Tinsay after the quest)"),
-				new UnlockReward("Ability to use Tai Bwo Wannai teleport scrolls"),
-				new UnlockReward("Ability to complete the smithing section of Barbarian Training"));
+				new UnlockReward(t("Ability to catch and cook Karambwans (after talking to Tinsay after the quest)")),
+				new UnlockReward(t("Ability to use Tai Bwo Wannai teleport scrolls")),
+				new UnlockReward(t("Ability to complete the smithing section of Barbarian Training")));
 	}
 
 	@Override
 	public ArrayList<PanelDetails> getPanels()
 	{
 		ArrayList<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting Off", Collections.singletonList(talkToTimfrakuStart), hammer,
+		allSteps.add(new PanelDetails(t("Starting Off"), Collections.singletonList(talkToTimfrakuStart), hammer,
 			smallFishingNet, pestleAndMortar, spear, agilityPotion4, rangedOrMagic, tinderbox, slicedBananaOrKnife, logsForFire));
-		allSteps.add(new PanelDetails("Gathering quest materials", Arrays.asList(fishKarambwaji, goToLubufu,
+		allSteps.add(new PanelDetails(t("Gathering quest materials"), Arrays.asList(fishKarambwaji, goToLubufu,
 			getMoreVessel, fillVessel, getRum, sliceBanana, makeBananaRum), smallFishingNet, slicedBananaOrKnife));
-		allSteps.add(new PanelDetails("Helping Tiadeche", talkToTiadeche1, giveVessel, askAboutResearch));
-		allSteps.add(new PanelDetails("Collecting final items", Arrays.asList(pickupSeaweed, getJogreBones,
+		allSteps.add(new PanelDetails(t("Helping Tiadeche"), talkToTiadeche1, giveVessel, askAboutResearch));
+		allSteps.add(new PanelDetails(t("Collecting final items"), Arrays.asList(pickupSeaweed, getJogreBones,
 			burnBones, pickupBurntBones, makeKarambwanjiPaste, usePasteOnBones, getPoisonKarambwan, cookBones, cookKarambwan,
 			usePestleOnKarambwan, usePasteOnSpear), tinderbox, karambwanji, pestleAndMortar));
-		allSteps.add(new PanelDetails("Helping Tamayu and Tinsay", Arrays.asList(talkToTamayu1, givePotion, giveSpear,
+		allSteps.add(new PanelDetails(t("Helping Tamayu and Tinsay"), Arrays.asList(talkToTamayu1, givePotion, giveSpear,
 			goOnHuntToKill, getMonkeyCorpse, useCorpseOnTamayu, makeSeaweedSandwich, talkToTinsay, useVesselOnTinsay, goToTiadecheFinal)
 			, agilityPotion4, poisonedSpear, karamjanRumWithBanana, marinatedJogreBones));
-		allSteps.add(new PanelDetails("Finishing the quest", goToTimfrakuLadderEnd, talkToTimfrakuEnd));
+		allSteps.add(new PanelDetails(t("Finishing the quest"), goToTimfrakuLadderEnd, talkToTimfrakuEnd));
 		return allSteps;
 	}
 }

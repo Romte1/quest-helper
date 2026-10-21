@@ -244,10 +244,10 @@ public class TheDigSite extends BasicQuestHelper
 		rope = new ItemRequirement("Rope", ItemID.ROPE);
 		rope.setHighlightInInventory(true);
 		opal = new ItemRequirement("Opal", ItemID.OPAL);
-		opal.setTooltip("You can get one by panning at the Digsite");
+		opal.setTooltip(t("You can get one by panning at the Digsite"));
 		opal.addAlternates(ItemID.UNCUT_OPAL);
 		charcoal = new ItemRequirement("Charcoal", ItemID.CHARCOAL);
-		charcoal.setTooltip("Obtainable during quest by searching specimen trays");
+		charcoal.setTooltip(t("Obtainable during quest by searching specimen trays"));
 		charcoal.setHighlightInInventory(true);
 
 		varrock2 = new ItemRequirement("Varrock teleports", ItemID.POH_TABLET_VARROCKTELEPORT, 2);
@@ -259,12 +259,12 @@ public class TheDigSite extends BasicQuestHelper
 		panningTray.addAlternates(ItemID.TRAY_GOLD, ItemID.TRAY_MUD);
 		panningTrayFull = new ItemRequirement("Panning tray", ItemID.TRAY_MUD).isNotConsumed();
 		trowel = new ItemRequirement("Trowel", ItemID.TROWEL).isNotConsumed();
-		trowel.setTooltip("You can get another from one of the Examiners");
+		trowel.setTooltip(t("You can get another from one of the Examiners"));
 		trowelHighlighted = new ItemRequirement("Trowel", ItemID.TROWEL).isNotConsumed();
 		trowelHighlighted.setHighlightInInventory(true);
-		trowelHighlighted.setTooltip("You can get another from one of the Examiners");
+		trowelHighlighted.setTooltip(t("You can get another from one of the Examiners"));
 		sealedLetter = new ItemRequirement("Sealed letter", ItemID.RECOMMENDEDLETTER);
-		sealedLetter.setTooltip("You can get another from Curator Haig in the Varrock Museum");
+		sealedLetter.setTooltip(t("You can get another from Curator Haig in the Varrock Museum"));
 		specialCup = new ItemRequirement("Special cup", ItemID.ROCK_SAMPLE2);
 		teddybear = new ItemRequirement("Teddy", ItemID.ROCK_SAMPLE3);
 		skull = new ItemRequirement("Animal skull", ItemID.ROCK_SAMPLE1);
@@ -276,10 +276,10 @@ public class TheDigSite extends BasicQuestHelper
 		chemicalCompoundHighlighted = new ItemRequirement("Chemical compound", ItemID.DIGCOMPOUND);
 		chemicalCompoundHighlighted.setHighlightInInventory(true);
 		groundCharcoal = new ItemRequirement("Ground charcoal", ItemID.GROUND_CHARCOAL);
-		groundCharcoal.setTooltip("You can make this by use a pestle and mortar on some charcoal. You can get charcoal from one of the specimen trays in the Digsite");
+		groundCharcoal.setTooltip(t("You can make this by use a pestle and mortar on some charcoal. You can get charcoal from one of the specimen trays in the Digsite"));
 		groundCharcoal.setHighlightInInventory(true);
 		invitation = new ItemRequirement("Invitation letter", ItemID.DIGEXPERTSCROLL);
-		invitation.setTooltip("You can get another from the Archaeological expert");
+		invitation.setTooltip(t("You can get another from the Archaeological expert"));
 		invitation.setHighlightInInventory(true);
 		talisman = new ItemRequirement("Ancient talisman", ItemID.DIGTALISMAN);
 		mixedChemicals = new ItemRequirement("Mixed chemicals", ItemID.PRECHARCOALMIXTURE);
@@ -298,7 +298,7 @@ public class TheDigSite extends BasicQuestHelper
 		key = new ItemRequirement("Chest key", ItemID.DIGCHESTKEY);
 		key.setHighlightInInventory(true);
 		unstampedLetter = new ItemRequirement("Unstamped letter", ItemID.DIGPLAINLETTER);
-		unstampedLetter.setTooltip("You can get another from the Exam Centre's examiners");
+		unstampedLetter.setTooltip(t("You can get another from the Exam Centre's examiners"));
 
 		inUndergroundTemple1 = new ZoneRequirement(undergroundTemple1);
 		inUndergroundTemple2 = new ZoneRequirement(undergroundTemple2);
@@ -414,119 +414,119 @@ public class TheDigSite extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToExaminer = new NpcStep(this, NpcID.EXAMINER, new WorldPoint(3362, 3337, 0), "Talk to an Examiner in the Exam Centre south east of Varrock.");
+		talkToExaminer = new NpcStep(this, NpcID.EXAMINER, new WorldPoint(3362, 3337, 0), t("Talk to an Examiner in the Exam Centre south east of Varrock."));
 		talkToExaminer.addDialogStep("Can I take an exam?");
 		talkToExaminer.addDialogStep("Yes.");
 		talkToExaminer.addAlternateNpcs(NpcID.QIP_DIGSITE_EXAMINER_02, NpcID.QIP_DIGSITE_EXAMINER_03);
 		talkToHaig = new NpcStep(this, NpcID.CURATOR, new WorldPoint(3257, 3448, 0),
-			"Talk to Curator Haig in the Varrock Museum.", unstampedLetter);
-		talkToExaminer2 = new NpcStep(this, NpcID.EXAMINER, new WorldPoint(3362, 3337, 0), "Return to an Examiner in the Exam Centre south east of Varrock.", sealedLetter);
+			t("Talk to Curator Haig in the Varrock Museum."), unstampedLetter);
+		talkToExaminer2 = new NpcStep(this, NpcID.EXAMINER, new WorldPoint(3362, 3337, 0), t("Return to an Examiner in the Exam Centre south east of Varrock."), sealedLetter);
 
-		searchBush = new ObjectStep(this, ObjectID.DIGSITEBUSHSAMPLE, new WorldPoint(3357, 3372, 0), "Search the bushes north of the Exam Centre for a teddy.");
-		takeTray = new DetailedQuestStep(this, new WorldPoint(3369, 3378, 0), "Pick up the tray in the south east of the dig site.", panningTray);
-		talkToGuide = new NpcStep(this, NpcID.PANNING_GUIDE, new WorldPoint(3385, 3386, 0), "Talk to the Panning Guide nearby.", tea);
-		panWater = new ObjectStep(this, ObjectID.PANNING_POINT, new WorldPoint(3384, 3381, 0), "Pan in the river for a special cup.", panningTray);
-		searchPanningTray = new DetailedQuestStep(this, "Search the panning tray.", panningTrayFull.highlighted());
+		searchBush = new ObjectStep(this, ObjectID.DIGSITEBUSHSAMPLE, new WorldPoint(3357, 3372, 0), t("Search the bushes north of the Exam Centre for a teddy."));
+		takeTray = new DetailedQuestStep(this, new WorldPoint(3369, 3378, 0), t("Pick up the tray in the south east of the dig site."), panningTray);
+		talkToGuide = new NpcStep(this, NpcID.PANNING_GUIDE, new WorldPoint(3385, 3386, 0), t("Talk to the Panning Guide nearby."), tea);
+		panWater = new ObjectStep(this, ObjectID.PANNING_POINT, new WorldPoint(3384, 3381, 0), t("Pan in the river for a special cup."), panningTray);
+		searchPanningTray = new DetailedQuestStep(this, t("Search the panning tray."), panningTrayFull.highlighted());
 		panWater.addSubSteps(searchPanningTray);
 
-		pickpocketWorkmen = new NpcStep(this, NpcID.DIGWORKMAN1, new WorldPoint(3372, 3390, 0), "Pickpocket workmen until you get an animal skull and a specimen brush.", true);
+		pickpocketWorkmen = new NpcStep(this, NpcID.DIGWORKMAN1, new WorldPoint(3372, 3390, 0), t("Pickpocket workmen until you get an animal skull and a specimen brush."), true);
 		pickpocketWorkmen.addAlternateNpcs(NpcID.QIP_DIGSITE_DIGWORKMAN_03, NpcID.QIP_DIGSITE_DIGWORKMAN_04);
 		pickpocketWorkmen.setMaxRoamRange(100);
-		talkToFemaleStudent = new NpcStep(this, NpcID.STUDENT2, new WorldPoint(3345, 3425, 0), "Talk to the female student in the north west of the Digsite twice.", teddybear);
-		talkToOrangeStudent = new NpcStep(this, NpcID.STUDENT3, new WorldPoint(3369, 3419, 0), "Talk to the student in an orange shirt in the north east of the Digsite twice.", specialCup);
-		talkToGreenStudent = new NpcStep(this, NpcID.STUDENT1, new WorldPoint(3362, 3398, 0), "Talk to the student in a green shirt in the south of the Digsite twice.", skull);
-		talkToFemaleStudent2 = new NpcStep(this, NpcID.STUDENT2, new WorldPoint(3345, 3425, 0), "Talk to the female student in the north west of the Digsite.");
-		talkToOrangeStudent2 = new NpcStep(this, NpcID.STUDENT3, new WorldPoint(3369, 3419, 0), "Talk to the student in an orange shirt in the north east of the Digsite.");
-		talkToGreenStudent2 = new NpcStep(this, NpcID.STUDENT1, new WorldPoint(3362, 3398, 0), "Talk to the student in a green shirt in the south of the Digsite.");
+		talkToFemaleStudent = new NpcStep(this, NpcID.STUDENT2, new WorldPoint(3345, 3425, 0), t("Talk to the female student in the north west of the Digsite twice."), teddybear);
+		talkToOrangeStudent = new NpcStep(this, NpcID.STUDENT3, new WorldPoint(3369, 3419, 0), t("Talk to the student in an orange shirt in the north east of the Digsite twice."), specialCup);
+		talkToGreenStudent = new NpcStep(this, NpcID.STUDENT1, new WorldPoint(3362, 3398, 0), t("Talk to the student in a green shirt in the south of the Digsite twice."), skull);
+		talkToFemaleStudent2 = new NpcStep(this, NpcID.STUDENT2, new WorldPoint(3345, 3425, 0), t("Talk to the female student in the north west of the Digsite."));
+		talkToOrangeStudent2 = new NpcStep(this, NpcID.STUDENT3, new WorldPoint(3369, 3419, 0), t("Talk to the student in an orange shirt in the north east of the Digsite."));
+		talkToGreenStudent2 = new NpcStep(this, NpcID.STUDENT1, new WorldPoint(3362, 3398, 0), t("Talk to the student in a green shirt in the south of the Digsite."));
 		talkToFemaleStudent.addSubSteps(talkToFemaleStudent2);
 		talkToOrangeStudent.addSubSteps(talkToOrangeStudent2);
 		talkToGreenStudent.addSubSteps(talkToGreenStudent2);
-		takeTest1 = new NpcStep(this, NpcID.EXAMINER, new WorldPoint(3362, 3337, 0), "Talk to an Examiner in the Exam Centre to take the first test.");
+		takeTest1 = new NpcStep(this, NpcID.EXAMINER, new WorldPoint(3362, 3337, 0), t("Talk to an Examiner in the Exam Centre to take the first test."));
 		takeTest1.addDialogSteps("Yes, I certainly am.", "The study of the earth, its contents and history.",
 			"All that have passed the appropriate Earth Sciences exam.",
 			"Gloves and boots to be worn at all times; proper tools must be used.");
 
-		talkToFemaleStudent3 = new NpcStep(this, NpcID.STUDENT2, new WorldPoint(3345, 3425, 0), "Talk to the female student in the north west of the Digsite.");
-		talkToOrangeStudent3 = new NpcStep(this, NpcID.STUDENT3, new WorldPoint(3369, 3419, 0), "Talk to the student in an orange shirt in the north east of the Digsite.");
-		talkToGreenStudent3 = new NpcStep(this, NpcID.STUDENT1, new WorldPoint(3362, 3398, 0), "Talk to the student in a green shirt in the south of the Digsite.");
-		takeTest2 = new NpcStep(this, NpcID.EXAMINER, new WorldPoint(3362, 3337, 0), "Talk to an Examiner in the Exam Centre to take the second test.");
+		talkToFemaleStudent3 = new NpcStep(this, NpcID.STUDENT2, new WorldPoint(3345, 3425, 0), t("Talk to the female student in the north west of the Digsite."));
+		talkToOrangeStudent3 = new NpcStep(this, NpcID.STUDENT3, new WorldPoint(3369, 3419, 0), t("Talk to the student in an orange shirt in the north east of the Digsite."));
+		talkToGreenStudent3 = new NpcStep(this, NpcID.STUDENT1, new WorldPoint(3362, 3398, 0), t("Talk to the student in a green shirt in the south of the Digsite."));
+		takeTest2 = new NpcStep(this, NpcID.EXAMINER, new WorldPoint(3362, 3337, 0), t("Talk to an Examiner in the Exam Centre to take the second test."));
 		takeTest2.addDialogSteps("I am ready for the next exam.", "Samples taken in rough form; kept only in sealed containers.",
 			"Finds must be carefully handled, and gloves worn.", "Always handle with care; strike cleanly on its cleaving point.");
 
-		talkToFemaleStudent4 = new NpcStep(this, NpcID.STUDENT2, new WorldPoint(3345, 3425, 0), "Talk to the female student in the north west of the Digsite.", opal);
-		talkToFemaleStudent5 = new NpcStep(this, NpcID.STUDENT2, new WorldPoint(3345, 3425, 0), "Talk to the female student again.", opal);
-		talkToOrangeStudent4 = new NpcStep(this, NpcID.STUDENT3, new WorldPoint(3369, 3419, 0), "Talk to the student in an orange shirt in the north east of the Digsite.");
-		talkToGreenStudent4 = new NpcStep(this, NpcID.STUDENT1, new WorldPoint(3362, 3398, 0), "Talk to the student in a green shirt in the south of the Digsite.");
-		takeTest3 = new NpcStep(this, NpcID.EXAMINER, new WorldPoint(3362, 3337, 0), "Talk to an Examiner in the Exam Centre to take the third test.");
+		talkToFemaleStudent4 = new NpcStep(this, NpcID.STUDENT2, new WorldPoint(3345, 3425, 0), t("Talk to the female student in the north west of the Digsite."), opal);
+		talkToFemaleStudent5 = new NpcStep(this, NpcID.STUDENT2, new WorldPoint(3345, 3425, 0), t("Talk to the female student again."), opal);
+		talkToOrangeStudent4 = new NpcStep(this, NpcID.STUDENT3, new WorldPoint(3369, 3419, 0), t("Talk to the student in an orange shirt in the north east of the Digsite."));
+		talkToGreenStudent4 = new NpcStep(this, NpcID.STUDENT1, new WorldPoint(3362, 3398, 0), t("Talk to the student in a green shirt in the south of the Digsite."));
+		takeTest3 = new NpcStep(this, NpcID.EXAMINER, new WorldPoint(3362, 3337, 0), t("Talk to an Examiner in the Exam Centre to take the third test."));
 		takeTest3.addDialogSteps("I am ready for the last exam...", "Samples cleaned, and carried only in specimen jars.",
 			"Brush carefully and slowly using short strokes.", "Handle bones very carefully and keep them away from other samples.");
 
-		getJar = new ObjectStep(this, ObjectID.QIP_DIGSITE_CUPBOARDSHUT, new WorldPoint(3355, 3332, 0), "Search the cupboard on the south wall of the west room of the Exam Centre for a specimen jar.");
+		getJar = new ObjectStep(this, ObjectID.QIP_DIGSITE_CUPBOARDSHUT, new WorldPoint(3355, 3332, 0), t("Search the cupboard on the south wall of the west room of the Exam Centre for a specimen jar."));
 		getJar.addAlternateObjects(ObjectID.QIP_DIGSITE_CUPBOARDOPEN);
-		getBrush = new NpcStep(this, NpcID.DIGWORKMAN1, new WorldPoint(3372, 3390, 0), "Pickpocket workmen until you get a specimen brush.", true);
+		getBrush = new NpcStep(this, NpcID.DIGWORKMAN1, new WorldPoint(3372, 3390, 0), t("Pickpocket workmen until you get a specimen brush."), true);
 		getBrush.addAlternateNpcs(NpcID.QIP_DIGSITE_DIGWORKMAN_03, NpcID.QIP_DIGSITE_DIGWORKMAN_04);
 		getBrush.setMaxRoamRange(100);
 		// NOTE: May not need pick
-		digForTalisman = new ObjectStep(this, ObjectID.DIGDUGUPSOIL2, new WorldPoint(3374, 3438, 0), "Dig in the north east dig spot in the Digsite until you get a talisman.",
+		digForTalisman = new ObjectStep(this, ObjectID.DIGDUGUPSOIL2, new WorldPoint(3374, 3438, 0), t("Dig in the north east dig spot in the Digsite until you get a talisman."),
 			trowelHighlighted, specimenJar, specimenBrush);
 		digForTalisman.addIcon(ItemID.TROWEL);
 		digForTalisman.addSubSteps(getBrush);
-		talkToExpert = new NpcStep(this, NpcID.ARCHAEOLOGICAL_EXPERT, new WorldPoint(3357, 3334, 0), "Talk to the Archaeological expert in the Exam Centre.", talisman);
+		talkToExpert = new NpcStep(this, NpcID.ARCHAEOLOGICAL_EXPERT, new WorldPoint(3357, 3334, 0), t("Talk to the Archaeological expert in the Exam Centre."), talisman);
 
-		useInvitationOnWorkman = new NpcStep(this, NpcID.DIGWORKMAN1, new WorldPoint(3360, 3415, 0), "Use the invitation on any workman.", true, invitation);
+		useInvitationOnWorkman = new NpcStep(this, NpcID.DIGWORKMAN1, new WorldPoint(3360, 3415, 0), t("Use the invitation on any workman."), true, invitation);
 		useInvitationOnWorkman.addIcon(ItemID.DIGEXPERTSCROLL);
 		useInvitationOnWorkman.addDialogStep("I lost the letter you gave me.");
 		useInvitationOnWorkman.addAlternateNpcs(NpcID.QIP_DIGSITE_DIGWORKMAN_03, NpcID.QIP_DIGSITE_DIGWORKMAN_04);
 		useInvitationOnWorkman.setMaxRoamRange(100);
-		useRopeOnWinch = new ObjectStep(this, ObjectID.DIGWINCH1, new WorldPoint(3353, 3417, 0), "Use a rope on the west winch.", rope);
+		useRopeOnWinch = new ObjectStep(this, ObjectID.DIGWINCH1, new WorldPoint(3353, 3417, 0), t("Use a rope on the west winch."), rope);
 		useRopeOnWinch.addIcon(ItemID.ROPE);
-		goDownWinch = new ObjectStep(this, ObjectID.DIGWINCH1, new WorldPoint(3353, 3417, 0), "Climb down the west winch.");
-		pickUpRoot = new ItemStep(this, "Pick up some arcenia root.", arcenia);
-		searchBricks = new ObjectStep(this, ObjectID.DIGBLASTBRICK, new WorldPoint(3378, 9824, 0), "Search the bricks to the south.");
+		goDownWinch = new ObjectStep(this, ObjectID.DIGWINCH1, new WorldPoint(3353, 3417, 0), t("Climb down the west winch."));
+		pickUpRoot = new ItemStep(this, t("Pick up some arcenia root."), arcenia);
+		searchBricks = new ObjectStep(this, ObjectID.DIGBLASTBRICK, new WorldPoint(3378, 9824, 0), t("Search the bricks to the south."));
 
-		goUpRope = new ObjectStep(this, ObjectID.WINCHLADDER2, new WorldPoint(3369, 9826, 0), "Climb back to the surface.");
-		useRopeOnWinch2 = new ObjectStep(this, ObjectID.DIGWINCH2, new WorldPoint(3370, 3429, 0), "Use a rope on the north east winch.", rope);
+		goUpRope = new ObjectStep(this, ObjectID.WINCHLADDER2, new WorldPoint(3369, 9826, 0), t("Climb back to the surface."));
+		useRopeOnWinch2 = new ObjectStep(this, ObjectID.DIGWINCH2, new WorldPoint(3370, 3429, 0), t("Use a rope on the north east winch."), rope);
 		useRopeOnWinch2.addIcon(ItemID.ROPE);
-		goDownToDoug = new ObjectStep(this, ObjectID.DIGWINCH2, new WorldPoint(3370, 3429, 0), "Climb down the north east winch.");
-		talkToDoug = new NpcStep(this, NpcID.DIGWORKMAN2, new WorldPoint(3351, 9819, 0), "Talk to Doug Deeping.");
+		goDownToDoug = new ObjectStep(this, ObjectID.DIGWINCH2, new WorldPoint(3370, 3429, 0), t("Climb down the north east winch."));
+		talkToDoug = new NpcStep(this, NpcID.DIGWORKMAN2, new WorldPoint(3351, 9819, 0), t("Talk to Doug Deeping."));
 		talkToDoug.addDialogStep("How could I move a large pile of rocks?");
-		goUpFromDoug = new ObjectStep(this, ObjectID.WINCHLADDER1, new WorldPoint(3352, 9816, 0), "Leave Doug's cave.");
-		unlockChest = new ObjectStep(this, ObjectID.DIGCHESTCLOSED, new WorldPoint(3374, 3378, 0), "Use the key on the chest in the tent in the south of the Digsite.", key);
+		goUpFromDoug = new ObjectStep(this, ObjectID.WINCHLADDER1, new WorldPoint(3352, 9816, 0), t("Leave Doug's cave."));
+		unlockChest = new ObjectStep(this, ObjectID.DIGCHESTCLOSED, new WorldPoint(3374, 3378, 0), t("Use the key on the chest in the tent in the south of the Digsite."), key);
 		unlockChest.addIcon(ItemID.DIGCHESTKEY);
-		searchChest = new ObjectStep(this, ObjectID.DIGCHESTOPEN, new WorldPoint(3374, 3378, 0), "Search the chest.");
+		searchChest = new ObjectStep(this, ObjectID.DIGCHESTOPEN, new WorldPoint(3374, 3378, 0), t("Search the chest."));
 		useTrowelOnBarrel = new ObjectStep(this, ObjectID.DIGBARRELCLOSED, new WorldPoint(3364, 3378, 0),
-			"Use a trowel on the barrel west of the chest's tent.", trowelHighlighted);
+			t("Use a trowel on the barrel west of the chest's tent."), trowelHighlighted);
 		useTrowelOnBarrel.addIcon(ItemID.TROWEL);
-		useVialOnBarrel = new ObjectStep(this, ObjectID.DIGBARRELCLOSED, new WorldPoint(3364, 3378, 0), "Use a vial on the barrel west of the chest's tent.", vial);
+		useVialOnBarrel = new ObjectStep(this, ObjectID.DIGBARRELCLOSED, new WorldPoint(3364, 3378, 0), t("Use a vial on the barrel west of the chest's tent."), vial);
 		useVialOnBarrel.addIcon(ItemID.VIAL_EMPTY);
-		usePowderOnExpert = new NpcStep(this, NpcID.ARCHAEOLOGICAL_EXPERT, new WorldPoint(3357, 3334, 0), "Use the powder on the Archaeological expert in the Exam Centre.", powder);
+		usePowderOnExpert = new NpcStep(this, NpcID.ARCHAEOLOGICAL_EXPERT, new WorldPoint(3357, 3334, 0), t("Use the powder on the Archaeological expert in the Exam Centre."), powder);
 		usePowderOnExpert.addIcon(ItemID.UNIDENTIFIED_POWDER);
-		useLiquidOnExpert = new NpcStep(this, NpcID.ARCHAEOLOGICAL_EXPERT, new WorldPoint(3357, 3334, 0), "(DO NOT LEFT CLICK) Right-click use the liquid on the Archaeological expert in the Exam Centre.", liquid);
+		useLiquidOnExpert = new NpcStep(this, NpcID.ARCHAEOLOGICAL_EXPERT, new WorldPoint(3357, 3334, 0), t("(DO NOT LEFT CLICK) Right-click use the liquid on the Archaeological expert in the Exam Centre."), liquid);
 		useLiquidOnExpert.addIcon(ItemID.UNIDENTIFIED_LIQUID);
-		mixNitroWithNitrate = new DetailedQuestStep(this, "Mix the nitroglycerin and ammonium nitrate together.", nitro, nitrate);
-		grindCharcoal = new DetailedQuestStep(this, "Grind charcoal with a pestle and mortar.", pestleAndMortar, charcoal);
-		addCharcoal = new DetailedQuestStep(this, "Add the ground charcoal to the vial.", groundCharcoal, mixedChemicals);
-		addRoot = new DetailedQuestStep(this, "Add arcenia root to the vial.", arcenia, mixedChemicals2);
-		goDownToExplode = new ObjectStep(this, ObjectID.DIGWINCH1, new WorldPoint(3353, 3417, 0), "Climb down the rope on the west winch.", chemicalCompound, tinderbox);
-		goDownToExplode2 = new ObjectStep(this, ObjectID.DIGWINCH1, new WorldPoint(3353, 3417, 0), "Climb down the rope on the west winch.", tinderbox);
+		mixNitroWithNitrate = new DetailedQuestStep(this, t("Mix the nitroglycerin and ammonium nitrate together."), nitro, nitrate);
+		grindCharcoal = new DetailedQuestStep(this, t("Grind charcoal with a pestle and mortar."), pestleAndMortar, charcoal);
+		addCharcoal = new DetailedQuestStep(this, t("Add the ground charcoal to the vial."), groundCharcoal, mixedChemicals);
+		addRoot = new DetailedQuestStep(this, t("Add arcenia root to the vial."), arcenia, mixedChemicals2);
+		goDownToExplode = new ObjectStep(this, ObjectID.DIGWINCH1, new WorldPoint(3353, 3417, 0), t("Climb down the rope on the west winch."), chemicalCompound, tinderbox);
+		goDownToExplode2 = new ObjectStep(this, ObjectID.DIGWINCH1, new WorldPoint(3353, 3417, 0), t("Climb down the rope on the west winch."), tinderbox);
 		goDownToExplode.addSubSteps(goDownToExplode2);
-		useCompound = new ObjectStep(this, ObjectID.DIGBLASTBRICK, new WorldPoint(3378, 9824, 0), "Use the compound on the bricks to the south.", chemicalCompoundHighlighted);
+		useCompound = new ObjectStep(this, ObjectID.DIGBLASTBRICK, new WorldPoint(3378, 9824, 0), t("Use the compound on the bricks to the south."), chemicalCompoundHighlighted);
 		useCompound.addIcon(ItemID.DIGCOMPOUND);
 
-		useTinderbox = new ObjectStep(this, ObjectID.DIGBLASTBRICK, new WorldPoint(3378, 9824, 0), "Use a tinderbox on the bricks to the south.", tinderbox.highlighted());
+		useTinderbox = new ObjectStep(this, ObjectID.DIGBLASTBRICK, new WorldPoint(3378, 9824, 0), t("Use a tinderbox on the bricks to the south."), tinderbox.highlighted());
 		useTinderbox.addIcon(ItemID.TINDERBOX);
-		waitForBricksToBlowUp = new DetailedQuestStep(this, new WorldPoint(3378, 9824, 0), "Use a tinderbox on the bricks to the south.");
+		waitForBricksToBlowUp = new DetailedQuestStep(this, new WorldPoint(3378, 9824, 0), t("Use a tinderbox on the bricks to the south."));
 		useTinderbox.addSubSteps(waitForBricksToBlowUp);
-		takeTablet = new ObjectStep(this, ObjectID.QIP_DIGSITE_ZAROS_STONE_TABLET_MULTILOC, new WorldPoint(3373, 9746, 0), "Take the stone tablet in the south room.");
-		goDownForTablet = new ObjectStep(this, ObjectID.DIGWINCH1, new WorldPoint(3353, 3417, 0), "Climb down the rope on the west winch.");
+		takeTablet = new ObjectStep(this, ObjectID.QIP_DIGSITE_ZAROS_STONE_TABLET_MULTILOC, new WorldPoint(3373, 9746, 0), t("Take the stone tablet in the south room."));
+		goDownForTablet = new ObjectStep(this, ObjectID.DIGWINCH1, new WorldPoint(3353, 3417, 0), t("Climb down the rope on the west winch."));
 		takeTablet.addSubSteps(goDownForTablet);
 
-		goUpWithTablet = new ObjectStep(this, ObjectID.WINCHLADDER2, new WorldPoint(3369, 9762, 0), "Use the tablet on the Archaeological expert in the Exam Centre to complete the quest.", tablet);
-		useTabletOnExpert = new NpcStep(this, NpcID.ARCHAEOLOGICAL_EXPERT, new WorldPoint(3357, 3334, 0), "Use the tablet on the Archaeological expert in the Exam Centre to complete the quest.", tablet);
+		goUpWithTablet = new ObjectStep(this, ObjectID.WINCHLADDER2, new WorldPoint(3369, 9762, 0), t("Use the tablet on the Archaeological expert in the Exam Centre to complete the quest."), tablet);
+		useTabletOnExpert = new NpcStep(this, NpcID.ARCHAEOLOGICAL_EXPERT, new WorldPoint(3357, 3334, 0), t("Use the tablet on the Archaeological expert in the Exam Centre to complete the quest."), tablet);
 		useTabletOnExpert.addIcon(ItemID.ZAROSSTONETABLET);
 		useTabletOnExpert.addSubSteps(goUpWithTablet);
 
-		syncStep = new QuestSyncStep(this, getQuest(), "Open the quest's journal to sync your current quest state.");
+		syncStep = new QuestSyncStep(this, getQuest(), t("Open the quest's journal to sync your current quest state."));
 	}
 
 	@Override
@@ -677,7 +677,7 @@ public class TheDigSite extends BasicQuestHelper
 	public List<String> getNotes()
 	{
 		return List.of(
-			"This quest helper is susceptible to getting out of sync with the actual quest. If this happens to you, opening up the quest's journal should fix it."
+			t("This quest helper is susceptible to getting out of sync with the actual quest. If this happens to you, opening up the quest's journal should fix it.")
 		);
 	}
 
@@ -708,7 +708,7 @@ public class TheDigSite extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Ability to clean specimens in the Varrock Museum")
+			new UnlockReward(t("Ability to clean specimens in the Varrock Museum"))
 		);
 	}
 
@@ -717,7 +717,7 @@ public class TheDigSite extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Starting off", List.of(
+		sections.add(new PanelDetails(t("Starting off"), List.of(
 			talkToExaminer,
 			talkToHaig,
 			talkToExaminer2,
@@ -737,14 +737,14 @@ public class TheDigSite extends BasicQuestHelper
 			tea
 		)));
 
-		sections.add(new PanelDetails("Exam 2", List.of(
+		sections.add(new PanelDetails(t("Exam 2"), List.of(
 			talkToFemaleStudent3,
 			talkToOrangeStudent3,
 			talkToGreenStudent3,
 			takeTest2
 		)));
 
-		sections.add(new PanelDetails("Exam 3", List.of(
+		sections.add(new PanelDetails(t("Exam 3"), List.of(
 			talkToFemaleStudent4,
 			talkToFemaleStudent5,
 			talkToOrangeStudent4,
@@ -754,7 +754,7 @@ public class TheDigSite extends BasicQuestHelper
 			opal
 		)));
 
-		sections.add(new PanelDetails("Discovery", List.of(
+		sections.add(new PanelDetails(t("Discovery"), List.of(
 			getJar,
 			digForTalisman,
 			talkToExpert,
@@ -764,7 +764,7 @@ public class TheDigSite extends BasicQuestHelper
 			specimenBrush
 		)));
 
-		sections.add(new PanelDetails("Digging deeper", List.of(
+		sections.add(new PanelDetails(t("Digging deeper"), List.of(
 			useRopeOnWinch,
 			goDownWinch,
 			pickUpRoot,

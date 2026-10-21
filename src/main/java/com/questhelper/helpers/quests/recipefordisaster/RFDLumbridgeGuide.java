@@ -106,13 +106,13 @@ public class RFDLumbridgeGuide extends BasicQuestHelper
 		tinHighlighted = new ItemRequirement("Cake tin", ItemID.CAKE_TIN);
 		tinHighlighted.setHighlightInInventory(true);
 		enchantedEgg = new ItemRequirement("Enchanted egg", ItemID._100GUIDE_EGG);
-		enchantedEgg.setTooltip("You can get another from Traiborn if you've lost it");
+		enchantedEgg.setTooltip(t("You can get another from Traiborn if you've lost it"));
 
 		enchantedFlour = new ItemRequirement("Enchanted flour", ItemID._100GUIDE_POT_FLOUR);
-		enchantedFlour.setTooltip("You can get another from Traiborn if you've lost it");
+		enchantedFlour.setTooltip(t("You can get another from Traiborn if you've lost it"));
 
 		enchantedMilk = new ItemRequirement("Enchanted milk", ItemID._100GUIDE_BUCKET_MILK);
-		enchantedMilk.setTooltip("You can get another from Traiborn if you've lost it");
+		enchantedMilk.setTooltip(t("You can get another from Traiborn if you've lost it"));
 		enchantedMilk.setHighlightInInventory(true);
 
 		rawGuidanceCake = new ItemRequirement("Raw guide cake", ItemID._100GUIDE_GUIDECAKE_UNCOOKED);
@@ -141,26 +141,26 @@ public class RFDLumbridgeGuide extends BasicQuestHelper
 	public void setupSteps()
 	{
 		enterDiningRoom = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOUBLEDOORL, new WorldPoint(3213, 3221, 0),
-			"Go inspect the Lumbridge Guide in the Lumbridge Castle dining room.");
+			t("Go inspect the Lumbridge Guide in the Lumbridge Castle dining room."));
 		enterDiningRoom.addTeleport(lumbridgeTeleport);
 		inspectLumbridgeGuide = new ObjectStep(this, ObjectID.HUNDRED_GUIDE_BASE, new WorldPoint(1865, 5325, 0),
-			"Inspect the Lumbridge Guide in the Lumbridge Castle dining room.");
+			t("Inspect the Lumbridge Guide in the Lumbridge Castle dining room."));
 		inspectLumbridgeGuide.addDialogSteps("Yes, I'm sure I can make a cake.");
 		inspectLumbridgeGuide.addSubSteps(enterDiningRoom);
 
 		goUpToTraiborn = new ObjectStep(this, ObjectID.FAI_WIZTOWER_SPIRALSTAIRS, new WorldPoint(3104, 3160, 0),
-			"Go talk to Traiborn in the Wizards' Tower.", egg, flour, milk, tin);
+			t("Go talk to Traiborn in the Wizards' Tower."), egg, flour, milk, tin);
 		goUpToTraiborn.addDialogStep("Wizards' Tower");
 		goUpToTraiborn.addTeleport(wizardsTowerTeleport);
 		talkToTraiborn = new QuizSteps(this);
 
-		cookCake = new DetailedQuestStep(this, "Cook the Guidance Cake.", rawGuidanceCake);
-		enterDiningRoomAgain = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOOR, new WorldPoint(3207, 3217, 0), "Use the Guidance Cake on the Lumbridge Guide to finish the quest.", guidanceCake);
-		useCakeOnLumbridgeGuide = new ObjectStep(this, ObjectID.HUNDRED_GUIDE_BASE, new WorldPoint(1865, 5325, 0), "Use the Guidance Cake on the Lumbridge Guide to finish the quest.", guidanceCakeHighlighted);
+		cookCake = new DetailedQuestStep(this, t("Cook the Guidance Cake."), rawGuidanceCake);
+		enterDiningRoomAgain = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOOR, new WorldPoint(3207, 3217, 0), t("Use the Guidance Cake on the Lumbridge Guide to finish the quest."), guidanceCake);
+		useCakeOnLumbridgeGuide = new ObjectStep(this, ObjectID.HUNDRED_GUIDE_BASE, new WorldPoint(1865, 5325, 0), t("Use the Guidance Cake on the Lumbridge Guide to finish the quest."), guidanceCakeHighlighted);
 		useCakeOnLumbridgeGuide.addIcon(ItemID._100GUIDE_GUIDECAKE);
 		useCakeOnLumbridgeGuide.addSubSteps(enterDiningRoomAgain);
 
-		mixIngredients = new DetailedQuestStep(this, "Talk to Traiborn for the enchanted ingredients, then mix them in a tin.", enchantedEgg.highlighted(), enchantedFlour.highlighted(), enchantedMilk.highlighted(), tin.highlighted());
+		mixIngredients = new DetailedQuestStep(this, t("Talk to Traiborn for the enchanted ingredients, then mix them in a tin."), enchantedEgg.highlighted(), enchantedFlour.highlighted(), enchantedMilk.highlighted(), tin.highlighted());
 	}
 
 	@Override
@@ -210,7 +210,7 @@ public class RFDLumbridgeGuide extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("Increased access to the Culinaromancer's Chest"));
+		return Collections.singletonList(new UnlockReward(t("Increased access to the Culinaromancer's Chest")));
 	}
 
 
@@ -218,7 +218,7 @@ public class RFDLumbridgeGuide extends BasicQuestHelper
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Saving the Guide", Arrays.asList(inspectLumbridgeGuide, goUpToTraiborn, talkToTraiborn, mixIngredients, cookCake, useCakeOnLumbridgeGuide), milk, egg, flour, tin));
+		allSteps.add(new PanelDetails(t("Saving the Guide"), Arrays.asList(inspectLumbridgeGuide, goUpToTraiborn, talkToTraiborn, mixIngredients, cookCake, useCakeOnLumbridgeGuide), milk, egg, flour, tin));
 		return allSteps;
 	}
 

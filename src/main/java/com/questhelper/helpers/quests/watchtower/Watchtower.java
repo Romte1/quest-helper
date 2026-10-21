@@ -236,14 +236,14 @@ public class Watchtower extends BasicQuestHelper
 		rockCake = new ItemRequirement("Rock cake", ItemID.ROCKCAKE);
 
 		ogreRelic = new ItemRequirement("Ogre relic", ItemID.OGRERELIC);
-		ogreRelic.setTooltip("Obtained during the quest");
+		ogreRelic.setTooltip(t("Obtained during the quest"));
 
 		deathRune = new ItemRequirement("Death rune", ItemID.DEATHRUNE);
 
 		coins20 = new ItemRequirement("Coins", ItemCollections.COINS, 20);
 
 		skavidMap = new ItemRequirement("Skavid map", ItemID.SKAVIDMAP);
-		skavidMap.setTooltip("You can get another from the city guard in south east Gu'Tanoth.");
+		skavidMap.setTooltip(t("You can get another from the city guard in south east Gu'Tanoth."));
 
 		lightSource = new ItemRequirement("A light source", ItemCollections.LIGHT_SOURCES).isNotConsumed();
 
@@ -254,24 +254,24 @@ public class Watchtower extends BasicQuestHelper
 		nightshade2 = new ItemRequirement("Cave nightshade", ItemID.NIGHTSHADE, 2);
 
 		crystal2 = new ItemRequirement("Crystal", ItemID.POWERING_CRYSTAL2);
-		crystal2.setTooltip("You can get another from the mad skavid");
+		crystal2.setTooltip(t("You can get another from the mad skavid"));
 
 		crystal2Highlight = new ItemRequirement("Crystal", ItemID.POWERING_CRYSTAL2);
-		crystal2Highlight.setTooltip("You can get another from the mad skavid");
+		crystal2Highlight.setTooltip(t("You can get another from the mad skavid"));
 		crystal2Highlight.setHighlightInInventory(true);
 
 		crystal3 = new ItemRequirement("Crystal", ItemID.POWERING_CRYSTAL3);
-		crystal3.setTooltip("You can get another from the shaman robes on the east side of the Ogre Enclave");
+		crystal3.setTooltip(t("You can get another from the shaman robes on the east side of the Ogre Enclave"));
 
 		crystal3Highlight = new ItemRequirement("Crystal", ItemID.POWERING_CRYSTAL3);
-		crystal3Highlight.setTooltip("You can get another from the shaman robes on the east side of the Ogre Enclave");
+		crystal3Highlight.setTooltip(t("You can get another from the shaman robes on the east side of the Ogre Enclave"));
 		crystal3Highlight.setHighlightInInventory(true);
 
 		crystal4 = new ItemRequirement("Crystal", ItemID.POWERING_CRYSTAL4);
-		crystal4.setTooltip("You can get another from the Rock of Dalgroth in the Ogre Enclave");
+		crystal4.setTooltip(t("You can get another from the Rock of Dalgroth in the Ogre Enclave"));
 
 		crystal4Highlight = new ItemRequirement("Crystal", ItemID.POWERING_CRYSTAL4);
-		crystal4Highlight.setTooltip("You can get another from the Rock of Dalgroth in the Ogre Enclave");
+		crystal4Highlight.setTooltip(t("You can get another from the Rock of Dalgroth in the Ogre Enclave"));
 		crystal4Highlight.setHighlightInInventory(true);
 
 		pestleAndMortar = new ItemRequirement("Pestle and mortar", ItemID.PESTLE_AND_MORTAR).isNotConsumed();
@@ -292,10 +292,10 @@ public class Watchtower extends BasicQuestHelper
 		potion = new ItemRequirement("Potion", ItemID.OGRE_POTION);
 
 		magicPotion = new ItemRequirement("Magic ogre potion", ItemID.MAGIC_OGRE_POTION);
-		magicPotion.setTooltip("You can make another with a guam unf potion, adding jangerberries then ground bat bones, and having the Watchtower Wizard enchant it");
+		magicPotion.setTooltip(t("You can make another with a guam unf potion, adding jangerberries then ground bat bones, and having the Watchtower Wizard enchant it"));
 
 		magicPotionHighlight = new ItemRequirement("Magic ogre potion", ItemID.MAGIC_OGRE_POTION);
-		magicPotionHighlight.setTooltip("You can make another with a guam unf potion, adding jangerberries then ground bat bones, and having the Watchtower Wizard enchant it");
+		magicPotionHighlight.setTooltip(t("You can make another with a guam unf potion, adding jangerberries then ground bat bones, and having the Watchtower Wizard enchant it"));
 		magicPotionHighlight.setHighlightInInventory(true);
 
 		fireRes = new ItemRequirement("Shields/potions that mitigate dragon's fire", ItemCollections.ANTIFIRE_SHIELDS, -1);
@@ -412,186 +412,186 @@ public class Watchtower extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		goUpTrellis = new ObjectStep(this, ObjectID.QIP_WATCHTOWER_TRELLIS_BASE, new WorldPoint(2548, 3119, 0), "Go to the top floor of the Watchtower north of Yanille and talk to the Watchtower Wizard.");
-		goUpLadderToWizard = new ObjectStep(this, ObjectID.WATCHLADDERUP, new WorldPoint(2549, 3111, 1), "Go to the top floor of the Watchtower north of Yanille and talk to the Watchtower Wizard.");
-		talkToWizard = new NpcStep(this, NpcID.WATCHTOWER_WIZARD, new WorldPoint(2546, 3114, 2), "Go to the top floor of the Watchtower north of Yanille and talk to the Watchtower Wizard.");
+		goUpTrellis = new ObjectStep(this, ObjectID.QIP_WATCHTOWER_TRELLIS_BASE, new WorldPoint(2548, 3119, 0), t("Go to the top floor of the Watchtower north of Yanille and talk to the Watchtower Wizard."));
+		goUpLadderToWizard = new ObjectStep(this, ObjectID.WATCHLADDERUP, new WorldPoint(2549, 3111, 1), t("Go to the top floor of the Watchtower north of Yanille and talk to the Watchtower Wizard."));
+		talkToWizard = new NpcStep(this, NpcID.WATCHTOWER_WIZARD, new WorldPoint(2546, 3114, 2), t("Go to the top floor of the Watchtower north of Yanille and talk to the Watchtower Wizard."));
 		talkToWizard.addDialogStep("What's the matter?");
 		talkToWizard.addDialogStep("So how come the spell doesn't work?");
 		talkToWizard.addDialogStep("Can I be of help?");
 		talkToWizard.addSubSteps(goUpTrellis, goUpLadderToWizard);
 
-		goDownFromWizard = new ObjectStep(this, ObjectID.WATCHLADDERDOWN, new WorldPoint(2549, 3111, 2), "Search the bushes north of the Watchtower.");
-		goDownFromFirstFloor = new ObjectStep(this, ObjectID.QIP_WATCHTOWER_LADDER_TOP, new WorldPoint(2544, 3111, 1), "Search the bushes north of the Watchtower.");
-		searchBush = new ObjectStep(this, ObjectID.WATCHTOWERBUSHNAIL, new WorldPoint(2544, 3134, 0), "Search the bushes north of the Watchtower.");
+		goDownFromWizard = new ObjectStep(this, ObjectID.WATCHLADDERDOWN, new WorldPoint(2549, 3111, 2), t("Search the bushes north of the Watchtower."));
+		goDownFromFirstFloor = new ObjectStep(this, ObjectID.QIP_WATCHTOWER_LADDER_TOP, new WorldPoint(2544, 3111, 1), t("Search the bushes north of the Watchtower."));
+		searchBush = new ObjectStep(this, ObjectID.WATCHTOWERBUSHNAIL, new WorldPoint(2544, 3134, 0), t("Search the bushes north of the Watchtower."));
 
 		searchBush.addSubSteps(goDownFromWizard, goDownFromFirstFloor);
 
-		goBackUpToFirstFloor = new ObjectStep(this, ObjectID.TOWERLADDER, new WorldPoint(2544, 3111, 0), "Return to the Watchtower Wizard with the fingernails.", fingernails);
-		goBackUpToWizard = new ObjectStep(this, ObjectID.WATCHLADDERUP, new WorldPoint(2549, 3111, 1), "Return to the Watchtower Wizard with the fingernails.", fingernails);
-		talkToWizardAgain = new NpcStep(this, NpcID.WATCHTOWER_WIZARD, new WorldPoint(2546, 3114, 2), "Return to the Watchtower Wizard with the fingernails.", fingernails);
+		goBackUpToFirstFloor = new ObjectStep(this, ObjectID.TOWERLADDER, new WorldPoint(2544, 3111, 0), t("Return to the Watchtower Wizard with the fingernails."), fingernails);
+		goBackUpToWizard = new ObjectStep(this, ObjectID.WATCHLADDERUP, new WorldPoint(2549, 3111, 1), t("Return to the Watchtower Wizard with the fingernails."), fingernails);
+		talkToWizardAgain = new NpcStep(this, NpcID.WATCHTOWER_WIZARD, new WorldPoint(2546, 3114, 2), t("Return to the Watchtower Wizard with the fingernails."), fingernails);
 		talkToWizardAgain.addDialogStep("What do you suggest I do?");
 		talkToWizardAgain.addDialogStep("So what do I do?");
 
 		talkToWizardAgain.addSubSteps(goBackUpToFirstFloor, goBackUpToWizard);
 
-		syncStep = new DetailedQuestStep(this, "Please open the Watchtower quest journal to sync your state.");
+		syncStep = new DetailedQuestStep(this, t("Please open the Watchtower quest journal to sync your state."));
 
-		talkToOg = new NpcStep(this, NpcID.OG, new WorldPoint(2506, 3115, 0), "Talk to Og north west of Yanille.");
+		talkToOg = new NpcStep(this, NpcID.OG, new WorldPoint(2506, 3115, 0), t("Talk to Og north west of Yanille."));
 		talkToOg.addDialogStep("I seek entrance to the city of ogres.");
 
-		useRopeOnBranch = new ObjectStep(this, ObjectID.TREE_ROPESWING4_NOROPE, new WorldPoint(2502, 3087, 0), "Use your rope on a branch to swing to the island west of Yanille.", rope);
+		useRopeOnBranch = new ObjectStep(this, ObjectID.TREE_ROPESWING4_NOROPE, new WorldPoint(2502, 3087, 0), t("Use your rope on a branch to swing to the island west of Yanille."), rope);
 		useRopeOnBranch.addIcon(ItemID.ROPE);
 
-		talkToGrew = new NpcStep(this, NpcID.GREW, new WorldPoint(2511, 3086, 0), "Talk to Grew on the island west of Yanille.");
+		talkToGrew = new NpcStep(this, NpcID.GREW, new WorldPoint(2511, 3086, 0), t("Talk to Grew on the island west of Yanille."));
 		talkToGrew.addDialogStep("Don't eat me; I can help you.");
 
-		leaveGrewIsland = new ObjectStep(this, ObjectID.TREE_ROPESWING3, new WorldPoint(2511, 3093, 0), "Leave Grew's island.");
+		leaveGrewIsland = new ObjectStep(this, ObjectID.TREE_ROPESWING3, new WorldPoint(2511, 3093, 0), t("Leave Grew's island."));
 
-		enterHoleSouthOfGuTanoth = new ObjectStep(this, ObjectID.TOBANCAVE, new WorldPoint(2500, 2990, 0), "Enter the hole south of Gu'Tanoth.");
+		enterHoleSouthOfGuTanoth = new ObjectStep(this, ObjectID.TOBANCAVE, new WorldPoint(2500, 2990, 0), t("Enter the hole south of Gu'Tanoth."));
 
-		killGorad = new NpcStep(this, NpcID.GORAD, new WorldPoint(2578, 3022, 0), "Kill Gorad and pick up his tooth.");
-		talkToToban = new NpcStep(this, NpcID.TOBAN, new WorldPoint(2574, 3027, 0), "Talk to Toban on the island east of Gu'Tanoth.");
+		killGorad = new NpcStep(this, NpcID.GORAD, new WorldPoint(2578, 3022, 0), t("Kill Gorad and pick up his tooth."));
+		talkToToban = new NpcStep(this, NpcID.TOBAN, new WorldPoint(2574, 3027, 0), t("Talk to Toban on the island east of Gu'Tanoth."));
 		talkToToban.addDialogStep("I seek entrance to the city of ogres.");
 		talkToToban.addDialogStep("I could do something for you...");
-		giveTobanDragonBones = new NpcStep(this, NpcID.TOBAN, new WorldPoint(2574, 3027, 0), "Give Toban some dragon bones on the island east of Gu'Tanoth.", dragonBones);
-		searchChestForTobansGold = new ObjectStep(this, ObjectID.TOBANCHEST, new WorldPoint(2575, 3031, 0), "Open the chest on the island east of Gu'Tanoth using Toban's Key.", tobansKey);
+		giveTobanDragonBones = new NpcStep(this, NpcID.TOBAN, new WorldPoint(2574, 3027, 0), t("Give Toban some dragon bones on the island east of Gu'Tanoth."), dragonBones);
+		searchChestForTobansGold = new ObjectStep(this, ObjectID.TOBANCHEST, new WorldPoint(2575, 3031, 0), t("Open the chest on the island east of Gu'Tanoth using Toban's Key."), tobansKey);
 
-		talkToOgAgain = new NpcStep(this, NpcID.OG, new WorldPoint(2506, 3115, 0), "Return to Og with his stolen gold north west of Yanille.", tobansGold);
+		talkToOgAgain = new NpcStep(this, NpcID.OG, new WorldPoint(2506, 3115, 0), t("Return to Og with his stolen gold north west of Yanille."), tobansGold);
 
-		useRopeOnBranchAgain = new ObjectStep(this, ObjectID.TREE_ROPESWING4_NOROPE, new WorldPoint(2502, 3087, 0), "Return to Grew with Gorad's teeth on the island west of Yanille.", rope);
+		useRopeOnBranchAgain = new ObjectStep(this, ObjectID.TREE_ROPESWING4_NOROPE, new WorldPoint(2502, 3087, 0), t("Return to Grew with Gorad's teeth on the island west of Yanille."), rope);
 		useRopeOnBranchAgain.addIcon(ItemID.ROPE);
-		talkToGrewAgain = new NpcStep(this, NpcID.GREW, new WorldPoint(2511, 3086, 0), "Return to Grew with Gorad's teeth on the island west of Yanille.", goradsTooth);
+		talkToGrewAgain = new NpcStep(this, NpcID.GREW, new WorldPoint(2511, 3086, 0), t("Return to Grew with Gorad's teeth on the island west of Yanille."), goradsTooth);
 
-		bringRelicUpToFirstFloor = new ObjectStep(this, ObjectID.TOWERLADDER, new WorldPoint(2544, 3111, 0), "Return to the Watchtower Wizard with the relic pieces.", relic1, relic2, relic3);
-		bringRelicUpToWizard = new ObjectStep(this, ObjectID.WATCHLADDERUP, new WorldPoint(2549, 3111, 1), "Return to the Watchtower Wizard with the relic pieces.", relic1, relic2, relic3);
-		talkToWizardWithRelic = new NpcStep(this, NpcID.WATCHTOWER_WIZARD, new WorldPoint(2546, 3114, 2), "Return to the Watchtower Wizard with the relic pieces.", relic1, relic2, relic3);
+		bringRelicUpToFirstFloor = new ObjectStep(this, ObjectID.TOWERLADDER, new WorldPoint(2544, 3111, 0), t("Return to the Watchtower Wizard with the relic pieces."), relic1, relic2, relic3);
+		bringRelicUpToWizard = new ObjectStep(this, ObjectID.WATCHLADDERUP, new WorldPoint(2549, 3111, 1), t("Return to the Watchtower Wizard with the relic pieces."), relic1, relic2, relic3);
+		talkToWizardWithRelic = new NpcStep(this, NpcID.WATCHTOWER_WIZARD, new WorldPoint(2546, 3114, 2), t("Return to the Watchtower Wizard with the relic pieces."), relic1, relic2, relic3);
 		talkToWizardWithRelic.addSubSteps(bringRelicUpToWizard, bringRelicUpToFirstFloor);
 
-		enterGuTanoth = new NpcStep(this, NpcID.OGRE_GUARD2, new WorldPoint(2504, 3063, 0), "Talk to the Ogre Guard at the entrance of Gu'Tanoth and give them the ogre relic.", ogreRelic);
+		enterGuTanoth = new NpcStep(this, NpcID.OGRE_GUARD2, new WorldPoint(2504, 3063, 0), t("Talk to the Ogre Guard at the entrance of Gu'Tanoth and give them the ogre relic."), ogreRelic);
 
-		stealRockCake = new ObjectStep(this, ObjectID.ROCKCOUNTER_WITHCAKES, new WorldPoint(2514, 3036, 0), "Steal a rock cake from Gu'Tanoth's market.");
+		stealRockCake = new ObjectStep(this, ObjectID.ROCKCOUNTER_WITHCAKES, new WorldPoint(2514, 3036, 0), t("Steal a rock cake from Gu'Tanoth's market."));
 
-		talkToGuardBattlement = new NpcStep(this, NpcID.OGRE_GUARD3, new WorldPoint(2503, 3012, 0), "Talk to an Ogre Guard next to the battlement.");
+		talkToGuardBattlement = new NpcStep(this, NpcID.OGRE_GUARD3, new WorldPoint(2503, 3012, 0), t("Talk to an Ogre Guard next to the battlement."));
 		talkToGuardBattlement.addDialogStep("But I am a friend to ogres...");
 		talkToGuardWithRockCake = new ObjectStep(this, NpcID.OGRE_GUARD3, new WorldPoint(2507, 3012, 0),
-			"Attempt to cross the battlement again with a rock cake.", rockCake);
-		jumpGap = new ObjectStep(this, ObjectID.TANOTHJUMP1, new WorldPoint(2530, 3026, 0), "Jump over the broken bridge.", coins20);
+			t("Attempt to cross the battlement again with a rock cake."), rockCake);
+		jumpGap = new ObjectStep(this, ObjectID.TANOTHJUMP1, new WorldPoint(2530, 3026, 0), t("Jump over the broken bridge."), coins20);
 		jumpGap.addDialogStep("Okay, I'll pay it.");
 
-		talkToCityGuard = new NpcStep(this, NpcID.CITY_GUARD, new WorldPoint(2543, 3032, 0), "Talk to the City Guard.");
+		talkToCityGuard = new NpcStep(this, NpcID.CITY_GUARD, new WorldPoint(2543, 3032, 0), t("Talk to the City Guard."));
 		talkToCityGuard.addDialogStep("I seek passage into the skavid caves.");
-		talkToCityGuardAgain = new NpcStep(this, NpcID.CITY_GUARD, new WorldPoint(2543, 3032, 0), "Talk to the City Guard again.", deathRune);
+		talkToCityGuardAgain = new NpcStep(this, NpcID.CITY_GUARD, new WorldPoint(2543, 3032, 0), t("Talk to the City Guard again."), deathRune);
 
-		enterScaredSkavidCave = new ObjectStep(this, ObjectID.SKAVID_CAVE5, new WorldPoint(2554, 3035, 0), "Enter the skavid cave entrance in east Gu'Tanoth.", skavidMap, lightSource);
+		enterScaredSkavidCave = new ObjectStep(this, ObjectID.SKAVID_CAVE5, new WorldPoint(2554, 3035, 0), t("Enter the skavid cave entrance in east Gu'Tanoth."), skavidMap, lightSource);
 
-		talkToScaredSkavid = new NpcStep(this, NpcID.SCARED_SKAVID, new WorldPoint(2502, 9433, 0), "Talk to the scared skavid.");
+		talkToScaredSkavid = new NpcStep(this, NpcID.SCARED_SKAVID, new WorldPoint(2502, 9433, 0), t("Talk to the scared skavid."));
 		talkToScaredSkavid.addDialogStep("Okay, okay, I'm not going to hurt you.");
 
-		leaveScaredSkavidRoom = new ObjectStep(this, ObjectID.CAVE5EXIT, new WorldPoint(2504, 9442, 0), "Talk to four other skavids in their caves.");
+		leaveScaredSkavidRoom = new ObjectStep(this, ObjectID.CAVE5EXIT, new WorldPoint(2504, 9442, 0), t("Talk to four other skavids in their caves."));
 
-		enterSkavid1Cave = new ObjectStep(this, ObjectID.SKAVID_CAVE4, new WorldPoint(2554, 3053, 0), "Talk to four other skavids in their caves.", skavidMap, lightSource);
+		enterSkavid1Cave = new ObjectStep(this, ObjectID.SKAVID_CAVE4, new WorldPoint(2554, 3053, 0), t("Talk to four other skavids in their caves."), skavidMap, lightSource);
 		enterSkavid1Cave.addDialogStep("I'll be fine without a tinderbox.");
 
-		enterSkavid2Cave = new ObjectStep(this, ObjectID.SKAVID_CAVE3, new WorldPoint(2541, 3053, 0), "Talk to four other skavids in their caves.", skavidMap, lightSource);
+		enterSkavid2Cave = new ObjectStep(this, ObjectID.SKAVID_CAVE3, new WorldPoint(2541, 3053, 0), t("Talk to four other skavids in their caves."), skavidMap, lightSource);
 		enterSkavid2Cave.addDialogStep("I'll be fine without a tinderbox.");
 
-		enterSkavid3Cave = new ObjectStep(this, ObjectID.SKAVID_CAVE2, new WorldPoint(2524, 3069, 0), "Talk to four other skavids in their caves.", skavidMap, lightSource);
+		enterSkavid3Cave = new ObjectStep(this, ObjectID.SKAVID_CAVE2, new WorldPoint(2524, 3069, 0), t("Talk to four other skavids in their caves."), skavidMap, lightSource);
 		enterSkavid3Cave.addDialogStep("I'll be fine without a tinderbox.");
 
-		enterSkavid4Cave = new ObjectStep(this, ObjectID.SKAVID_CAVE1, new WorldPoint(2561, 3024, 0), "Talk to four other skavids in their caves.", skavidMap, lightSource);
+		enterSkavid4Cave = new ObjectStep(this, ObjectID.SKAVID_CAVE1, new WorldPoint(2561, 3024, 0), t("Talk to four other skavids in their caves."), skavidMap, lightSource);
 		enterSkavid4Cave.addDialogStep("I'll be fine without a tinderbox.");
 
-		talkToSkavid1 = new NpcStep(this, NpcID.SKAVIDTALKER3, new WorldPoint(2503, 9449, 0), "Talk to the skavid.");
+		talkToSkavid1 = new NpcStep(this, NpcID.SKAVIDTALKER3, new WorldPoint(2503, 9449, 0), t("Talk to the skavid."));
 		talkToSkavid1.addDialogStep("Cur.");
 
-		talkToSkavid2 = new NpcStep(this, NpcID.SKAVIDTALKER2, new WorldPoint(2516, 9451, 0), "Talk to the skavid.");
+		talkToSkavid2 = new NpcStep(this, NpcID.SKAVIDTALKER2, new WorldPoint(2516, 9451, 0), t("Talk to the skavid."));
 		talkToSkavid2.addDialogStep("Ar.");
 
-		talkToSkavid3 = new NpcStep(this, NpcID.SKAVIDTALKER1, new WorldPoint(2531, 9465, 0), "Talk to the skavid.");
+		talkToSkavid3 = new NpcStep(this, NpcID.SKAVIDTALKER1, new WorldPoint(2531, 9465, 0), t("Talk to the skavid."));
 		talkToSkavid3.addDialogStep("Ig.");
 
-		talkToSkavid4 = new NpcStep(this, NpcID.SKAVIDTALKER4, new WorldPoint(2503, 9449, 0), "Talk to the skavid.");
+		talkToSkavid4 = new NpcStep(this, NpcID.SKAVIDTALKER4, new WorldPoint(2503, 9449, 0), t("Talk to the skavid."));
 		talkToSkavid4.addDialogStep("Nod.");
 
-		leaveSkavid1 = new ObjectStep(this, ObjectID.CAVE4EXIT, new WorldPoint(2497, 9451, 0), "Talk to four other skavids in their caves.");
-		leaveSkavid2 = new ObjectStep(this, ObjectID.CAVE3EXIT, new WorldPoint(2518, 9456, 0), "Talk to four other skavids in their caves.");
-		leaveSkavid3 = new ObjectStep(this, ObjectID.CAVE2EXIT, new WorldPoint(2532, 9470, 0), "Talk to four other skavids in their caves.");
-		leaveSkavid4 = new ObjectStep(this, ObjectID.CAVE1EXIT, new WorldPoint(2497, 9418, 0), "Go talk to the mad skavid.");
+		leaveSkavid1 = new ObjectStep(this, ObjectID.CAVE4EXIT, new WorldPoint(2497, 9451, 0), t("Talk to four other skavids in their caves."));
+		leaveSkavid2 = new ObjectStep(this, ObjectID.CAVE3EXIT, new WorldPoint(2518, 9456, 0), t("Talk to four other skavids in their caves."));
+		leaveSkavid3 = new ObjectStep(this, ObjectID.CAVE2EXIT, new WorldPoint(2532, 9470, 0), t("Talk to four other skavids in their caves."));
+		leaveSkavid4 = new ObjectStep(this, ObjectID.CAVE1EXIT, new WorldPoint(2497, 9418, 0), t("Go talk to the mad skavid."));
 
 		enterSkavid1Cave.addSubSteps(enterSkavid2Cave, enterSkavid3Cave, enterSkavid4Cave, talkToSkavid1, talkToSkavid2, talkToSkavid3, talkToSkavid4, leaveSkavid1, leaveSkavid2, leaveSkavid3, leaveSkavid4, leaveScaredSkavidRoom);
 
 		tryToGoThroughToInsaneSkavid = new ObjectStep(this, ObjectID.OGREGUARDGATE1, new WorldPoint(2550, 3028, 0),
-			"Try to go through the gate to the south east cave of Gu'Tanoth. Give the guard a gold bar and go through.", goldBar);
+			t("Try to go through the gate to the south east cave of Gu'Tanoth. Give the guard a gold bar and go through."), goldBar);
 
-		enterInsaneSkavidCave = new ObjectStep(this, ObjectID.SKAVID_CAVE6, new WorldPoint(2528, 3013, 0), "Enter the mad skavid's cave.");
+		enterInsaneSkavidCave = new ObjectStep(this, ObjectID.SKAVID_CAVE6, new WorldPoint(2528, 3013, 0), t("Enter the mad skavid's cave."));
 		enterInsaneSkavidCave.addDialogStep("I'll be fine without a tinderbox.");
 
 		talkToInsaneSkavid = new SkavidChoice(this);
 
-		pickUp2Nightshade = new DetailedQuestStep(this, new WorldPoint(2528, 9415, 0), "Pick up 2 cave nightshade. You can world hop to get a second one.", nightshade2);
+		pickUp2Nightshade = new DetailedQuestStep(this, new WorldPoint(2528, 9415, 0), t("Pick up 2 cave nightshade. You can world hop to get a second one."), nightshade2);
 
-		useNightshadeOnGuard = new NpcStep(this, NpcID.ENCLAVE_GUARD, new WorldPoint(2507, 3036, 0), "Use a nightshade on an Enclave Guard in the Gu'Tanoth market.", nightshade);
+		useNightshadeOnGuard = new NpcStep(this, NpcID.ENCLAVE_GUARD, new WorldPoint(2507, 3036, 0), t("Use a nightshade on an Enclave Guard in the Gu'Tanoth market."), nightshade);
 		useNightshadeOnGuard.addIcon(ItemID.STACKABLE_NIGHTSHADE);
 
-		leaveMadSkavid = new ObjectStep(this, ObjectID.CAVE6EXIT, new WorldPoint(2521, 9411, 0), "Leave the mad skavid's cave.");
+		leaveMadSkavid = new ObjectStep(this, ObjectID.CAVE6EXIT, new WorldPoint(2521, 9411, 0), t("Leave the mad skavid's cave."));
 
 		useNightshadeOnGuard.addSubSteps(leaveMadSkavid);
 
-		leaveEnclave = new ObjectStep(this, ObjectID.ENCLAVECAVE, new WorldPoint(2600, 9469, 0), "Leave the enclave and return to the Watchtower Wizard.");
+		leaveEnclave = new ObjectStep(this, ObjectID.ENCLAVECAVE, new WorldPoint(2600, 9469, 0), t("Leave the enclave and return to the Watchtower Wizard."));
 
-		goBackUpToFirstFloorAfterEnclave = new ObjectStep(this, ObjectID.TOWERLADDER, new WorldPoint(2544, 3111, 0), "Return to the Watchtower Wizard.");
-		goBackUpToWizardAfterEnclave = new ObjectStep(this, ObjectID.WATCHLADDERUP, new WorldPoint(2549, 3111, 1), "Return to the Watchtower Wizard.");
-		talkToWizardAgainEnclave = new NpcStep(this, NpcID.WATCHTOWER_WIZARD, new WorldPoint(2546, 3114, 2), "Return to the Watchtower Wizard.");
+		goBackUpToFirstFloorAfterEnclave = new ObjectStep(this, ObjectID.TOWERLADDER, new WorldPoint(2544, 3111, 0), t("Return to the Watchtower Wizard."));
+		goBackUpToWizardAfterEnclave = new ObjectStep(this, ObjectID.WATCHLADDERUP, new WorldPoint(2549, 3111, 1), t("Return to the Watchtower Wizard."));
+		talkToWizardAgainEnclave = new NpcStep(this, NpcID.WATCHTOWER_WIZARD, new WorldPoint(2546, 3114, 2), t("Return to the Watchtower Wizard."));
 		talkToWizardAgainEnclave.addSubSteps(leaveEnclave, goBackUpToFirstFloorAfterEnclave, goBackUpToWizardAfterEnclave);
 
-		useJangerberriesOnGuam = new DetailedQuestStep(this, "Use some jangerberries on a guam potion (unf)", guamUnf, jangerberries);
-		grindBatBones = new DetailedQuestStep(this, "Use a pestle and mortar on some bat bones.", pestleAndMortar, batBones);
-		useBonesOnPotion = new DetailedQuestStep(this, "Use the ground bat bones on the potion", groundBatBones, partialPotion);
+		useJangerberriesOnGuam = new DetailedQuestStep(this, t("Use some jangerberries on a guam potion (unf)"), guamUnf, jangerberries);
+		grindBatBones = new DetailedQuestStep(this, t("Use a pestle and mortar on some bat bones."), pestleAndMortar, batBones);
+		useBonesOnPotion = new DetailedQuestStep(this, t("Use the ground bat bones on the potion"), groundBatBones, partialPotion);
 
-		goUpToFirstFloorWithPotion = new ObjectStep(this, ObjectID.TOWERLADDER, new WorldPoint(2544, 3111, 0), "Return to the Watchtower Wizard with the potion.", potion);
-		goUpToWizardWithPotion = new ObjectStep(this, ObjectID.WATCHLADDERUP, new WorldPoint(2549, 3111, 1), "Return to the Watchtower Wizard with the potion.", potion);
-		talkToWizardWithPotion = new NpcStep(this, NpcID.WATCHTOWER_WIZARD, new WorldPoint(2546, 3114, 2), "Return to the Watchtower Wizard with the potion.", potion);
+		goUpToFirstFloorWithPotion = new ObjectStep(this, ObjectID.TOWERLADDER, new WorldPoint(2544, 3111, 0), t("Return to the Watchtower Wizard with the potion."), potion);
+		goUpToWizardWithPotion = new ObjectStep(this, ObjectID.WATCHLADDERUP, new WorldPoint(2549, 3111, 1), t("Return to the Watchtower Wizard with the potion."), potion);
+		talkToWizardWithPotion = new NpcStep(this, NpcID.WATCHTOWER_WIZARD, new WorldPoint(2546, 3114, 2), t("Return to the Watchtower Wizard with the potion."), potion);
 
 		talkToWizardWithPotion.addSubSteps(goUpToFirstFloorWithPotion, goUpToWizardWithPotion);
 
 
 		useNightshadeOnGuardAgain = new NpcStep(this, NpcID.ENCLAVE_GUARD, new WorldPoint(2507, 3036, 0),
-			"Use a nightshade on an Enclave Guard in the Gu'Tanoth market to enter the enclave again.", nightshade, magicPotion, pickaxe);
+			t("Use a nightshade on an Enclave Guard in the Gu'Tanoth market to enter the enclave again."), nightshade, magicPotion, pickaxe);
 		useNightshadeOnGuardAgain.addIcon(ItemID.STACKABLE_NIGHTSHADE);
 
-		usePotionOnOgre1 = new NpcStep(this, NpcID.QIP_WATCHTOWER_OGRE_SHAMAN_01_NORMAL, new WorldPoint(2590, 9438, 0), "Use the magic ogre potion on all the ogre shamans.", magicPotionHighlight);
-		usePotionOnOgre2 = new NpcStep(this, NpcID.QIP_WATCHTOWER_OGRE_SHAMAN_02_NORMAL, new WorldPoint(2579, 9436, 0), "Use the magic ogre potion on all the ogre shamans.", magicPotionHighlight);
-		usePotionOnOgre3 = new NpcStep(this, NpcID.QIP_WATCHTOWER_OGRE_SHAMAN_03_NORMAL, new WorldPoint(2578, 9450, 0), "Use the magic ogre potion on all the ogre shamans.", magicPotionHighlight);
-		usePotionOnOgre4 = new NpcStep(this, NpcID.QIP_WATCHTOWER_OGRE_SHAMAN_04_NORMAL, new WorldPoint(2600, 9461, 0), "Use the magic ogre potion on all the ogre shamans.", magicPotionHighlight);
-		usePotionOnOgre5 = new NpcStep(this, NpcID.QIP_WATCHTOWER_OGRE_SHAMAN_05_NORMAL, new WorldPoint(2608, 9450, 0), "Use the magic ogre potion on all the ogre shamans.", magicPotionHighlight);
-		usePotionOnOgre6 = new NpcStep(this, NpcID.QIP_WATCHTOWER_OGRE_SHAMAN_06_NORMAL, new WorldPoint(2610, 9435, 0), "Use the magic ogre potion on all the ogre shamans.", magicPotionHighlight);
+		usePotionOnOgre1 = new NpcStep(this, NpcID.QIP_WATCHTOWER_OGRE_SHAMAN_01_NORMAL, new WorldPoint(2590, 9438, 0), t("Use the magic ogre potion on all the ogre shamans."), magicPotionHighlight);
+		usePotionOnOgre2 = new NpcStep(this, NpcID.QIP_WATCHTOWER_OGRE_SHAMAN_02_NORMAL, new WorldPoint(2579, 9436, 0), t("Use the magic ogre potion on all the ogre shamans."), magicPotionHighlight);
+		usePotionOnOgre3 = new NpcStep(this, NpcID.QIP_WATCHTOWER_OGRE_SHAMAN_03_NORMAL, new WorldPoint(2578, 9450, 0), t("Use the magic ogre potion on all the ogre shamans."), magicPotionHighlight);
+		usePotionOnOgre4 = new NpcStep(this, NpcID.QIP_WATCHTOWER_OGRE_SHAMAN_04_NORMAL, new WorldPoint(2600, 9461, 0), t("Use the magic ogre potion on all the ogre shamans."), magicPotionHighlight);
+		usePotionOnOgre5 = new NpcStep(this, NpcID.QIP_WATCHTOWER_OGRE_SHAMAN_05_NORMAL, new WorldPoint(2608, 9450, 0), t("Use the magic ogre potion on all the ogre shamans."), magicPotionHighlight);
+		usePotionOnOgre6 = new NpcStep(this, NpcID.QIP_WATCHTOWER_OGRE_SHAMAN_06_NORMAL, new WorldPoint(2610, 9435, 0), t("Use the magic ogre potion on all the ogre shamans."), magicPotionHighlight);
 		usePotionOnOgre1.addSubSteps(usePotionOnOgre2, usePotionOnOgre3, usePotionOnOgre4, usePotionOnOgre5, usePotionOnOgre6);
 
-		mineRock = new ObjectStep(this, ObjectID.ROCK_OF_DALGROTH, new WorldPoint(2591, 9450, 0), "Mine the Rock of Dalgorth in the enclave.", pickaxe);
+		mineRock = new ObjectStep(this, ObjectID.ROCK_OF_DALGROTH, new WorldPoint(2591, 9450, 0), t("Mine the Rock of Dalgorth in the enclave."), pickaxe);
 
-		leaveEnclaveWithCrystals = new ObjectStep(this, ObjectID.ENCLAVECAVE, new WorldPoint(2600, 9469, 0), "Leave the enclave and return to the Watchtower Wizard with the crystals.", crystal, crystal2, crystal3, crystal4);
+		leaveEnclaveWithCrystals = new ObjectStep(this, ObjectID.ENCLAVECAVE, new WorldPoint(2600, 9469, 0), t("Leave the enclave and return to the Watchtower Wizard with the crystals."), crystal, crystal2, crystal3, crystal4);
 
-		goUpToFirstFloorWithCrystals = new ObjectStep(this, ObjectID.TOWERLADDER, new WorldPoint(2544, 3111, 0), "Return to the Watchtower Wizard with the crystals.", crystal, crystal2, crystal3, crystal4);
-		goUpToWizardWithCrystals = new ObjectStep(this, ObjectID.WATCHLADDERUP, new WorldPoint(2549, 3111, 1), "Return to the Watchtower Wizard with the crystals.", crystal, crystal2, crystal3, crystal4);
-		talkToWizardWithCrystals = new NpcStep(this, NpcID.WATCHTOWER_WIZARD, new WorldPoint(2546, 3114, 2), "Return to the Watchtower Wizard with the crystals.", crystal, crystal2, crystal3, crystal4);
+		goUpToFirstFloorWithCrystals = new ObjectStep(this, ObjectID.TOWERLADDER, new WorldPoint(2544, 3111, 0), t("Return to the Watchtower Wizard with the crystals."), crystal, crystal2, crystal3, crystal4);
+		goUpToWizardWithCrystals = new ObjectStep(this, ObjectID.WATCHLADDERUP, new WorldPoint(2549, 3111, 1), t("Return to the Watchtower Wizard with the crystals."), crystal, crystal2, crystal3, crystal4);
+		talkToWizardWithCrystals = new NpcStep(this, NpcID.WATCHTOWER_WIZARD, new WorldPoint(2546, 3114, 2), t("Return to the Watchtower Wizard with the crystals."), crystal, crystal2, crystal3, crystal4);
 
 		talkToWizardWithCrystals.addSubSteps(leaveEnclaveWithCrystals, goUpToFirstFloorWithCrystals, goUpToWizardWithCrystals);
 
-		useCrystal1 = new ObjectStep(this, ObjectID.QIP_WATCHTOWER_PILLAR_NOCRYSTAL_MULTI_YELLOW, new WorldPoint(2545, 3113, 2), "Use the crystals on the pillars.", crystalHighlight);
+		useCrystal1 = new ObjectStep(this, ObjectID.QIP_WATCHTOWER_PILLAR_NOCRYSTAL_MULTI_YELLOW, new WorldPoint(2545, 3113, 2), t("Use the crystals on the pillars."), crystalHighlight);
 		useCrystal1.addIcon(ItemID.POWERING_CRYSTAL1);
 
-		useCrystal2 = new ObjectStep(this, ObjectID.QIP_WATCHTOWER_PILLAR_NOCRYSTAL_MULTI_MAGENTA, new WorldPoint(2548, 3116, 2), "Use the crystals on the pillars.", crystal2Highlight);
+		useCrystal2 = new ObjectStep(this, ObjectID.QIP_WATCHTOWER_PILLAR_NOCRYSTAL_MULTI_MAGENTA, new WorldPoint(2548, 3116, 2), t("Use the crystals on the pillars."), crystal2Highlight);
 		useCrystal2.addIcon(ItemID.POWERING_CRYSTAL2);
 
-		useCrystal3 = new ObjectStep(this, ObjectID.QIP_WATCHTOWER_PILLAR_NOCRYSTAL_MULTI_CYAN, new WorldPoint(2545, 3116, 2), "Use the crystals on the pillars.", crystal3Highlight);
+		useCrystal3 = new ObjectStep(this, ObjectID.QIP_WATCHTOWER_PILLAR_NOCRYSTAL_MULTI_CYAN, new WorldPoint(2545, 3116, 2), t("Use the crystals on the pillars."), crystal3Highlight);
 		useCrystal3.addIcon(ItemID.POWERING_CRYSTAL3);
 
-		useCrystal4 = new ObjectStep(this, ObjectID.QIP_WATCHTOWER_PILLAR_NOCRYSTAL_MULTI_WHITE, new WorldPoint(2548, 3113, 2), "Use the crystals on the pillars.", crystal4Highlight);
+		useCrystal4 = new ObjectStep(this, ObjectID.QIP_WATCHTOWER_PILLAR_NOCRYSTAL_MULTI_WHITE, new WorldPoint(2548, 3113, 2), t("Use the crystals on the pillars."), crystal4Highlight);
 		useCrystal4.addIcon(ItemID.POWERING_CRYSTAL4);
 
 		useCrystal1.addSubSteps(useCrystal2, useCrystal3, useCrystal4);
 
-		pullLever = new ObjectStep(this, ObjectID.WATCHLEVERUP, new WorldPoint(2543, 3115, 2), "Pull the lever to finish the quest.");
+		pullLever = new ObjectStep(this, ObjectID.WATCHLEVERUP, new WorldPoint(2543, 3115, 2), t("Pull the lever to finish the quest."));
 	}
 
 	@Override
@@ -622,8 +622,8 @@ public class Watchtower extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		ArrayList<String> reqs = new ArrayList<>();
-		reqs.add("Gorad (level 68)");
-		reqs.add("Able to survive blue dragons, ogres, and greater demons attacking you");
+		reqs.add(t("Gorad (level 68)"));
+		reqs.add(t("Able to survive blue dragons, ogres, and greater demons attacking you"));
 		return reqs;
 	}
 
@@ -660,20 +660,20 @@ public class Watchtower extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("Ability to use the Watchtower Teleport"));
+		return Collections.singletonList(new UnlockReward(t("Ability to use the Watchtower Teleport")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off", Collections.singletonList(talkToWizard)));
-		allSteps.add(new PanelDetails("Investigate", Arrays.asList(searchBush, talkToWizardAgain, talkToOg, useRopeOnBranch, talkToGrew, leaveGrewIsland, enterHoleSouthOfGuTanoth, killGorad, talkToToban,
+		allSteps.add(new PanelDetails(t("Starting off"), Collections.singletonList(talkToWizard)));
+		allSteps.add(new PanelDetails(t("Investigate"), Arrays.asList(searchBush, talkToWizardAgain, talkToOg, useRopeOnBranch, talkToGrew, leaveGrewIsland, enterHoleSouthOfGuTanoth, killGorad, talkToToban,
 			giveTobanDragonBones, searchChestForTobansGold, talkToOgAgain, useRopeOnBranchAgain, talkToGrewAgain, talkToWizardWithRelic), dragonBones, rope2));
-		allSteps.add(new PanelDetails("Enter Gu'Tanoth", Arrays.asList(enterGuTanoth, stealRockCake, talkToGuardBattlement, talkToGuardWithRockCake, jumpGap, talkToCityGuard, talkToCityGuardAgain), ogreRelic, coins20, deathRune, goldBar, lightSource));
-		allSteps.add(new PanelDetails("Learn the Skavid language", Arrays.asList(enterScaredSkavidCave, talkToScaredSkavid, enterSkavid1Cave, tryToGoThroughToInsaneSkavid, enterInsaneSkavidCave, talkToInsaneSkavid,
+		allSteps.add(new PanelDetails(t("Enter Gu'Tanoth"), Arrays.asList(enterGuTanoth, stealRockCake, talkToGuardBattlement, talkToGuardWithRockCake, jumpGap, talkToCityGuard, talkToCityGuardAgain), ogreRelic, coins20, deathRune, goldBar, lightSource));
+		allSteps.add(new PanelDetails(t("Learn the Skavid language"), Arrays.asList(enterScaredSkavidCave, talkToScaredSkavid, enterSkavid1Cave, tryToGoThroughToInsaneSkavid, enterInsaneSkavidCave, talkToInsaneSkavid,
 			pickUp2Nightshade, useNightshadeOnGuard), Arrays.asList(goldBar, lightSource, skavidMap), Collections.singletonList(fireRes)));
-		allSteps.add(new PanelDetails("Getting the other crystals", Arrays.asList(talkToWizardAgainEnclave, useJangerberriesOnGuam, grindBatBones, useBonesOnPotion, talkToWizardWithPotion, useNightshadeOnGuardAgain, usePotionOnOgre1, mineRock, talkToWizardWithCrystals, useCrystal1, pullLever),
+		allSteps.add(new PanelDetails(t("Getting the other crystals"), Arrays.asList(talkToWizardAgainEnclave, useJangerberriesOnGuam, grindBatBones, useBonesOnPotion, talkToWizardWithPotion, useNightshadeOnGuardAgain, usePotionOnOgre1, mineRock, talkToWizardWithCrystals, useCrystal1, pullLever),
 			guamUnf, jangerberries, pestleAndMortar, batBones, nightshade, pickaxe));
 		return allSteps;
 	}

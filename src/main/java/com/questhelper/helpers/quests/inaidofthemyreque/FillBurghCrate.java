@@ -56,7 +56,7 @@ public class FillBurghCrate extends DetailedQuestStep
 
 	public FillBurghCrate(QuestHelper questHelper)
 	{
-		super(questHelper, "Fill the crate with 3 tinderboxes, 10 bronze axes, and either 10 raw snails or 10 raw mackerel.", tinderbox3, bronzeAxe10, rawSnailsOrMackerel);
+		super(questHelper, questHelper.t("Fill the crate with 3 tinderboxes, 10 bronze axes, and either 10 raw snails or 10 raw mackerel."), tinderbox3, bronzeAxe10, rawSnailsOrMackerel);
 	}
 
 	@Subscribe
@@ -80,13 +80,13 @@ public class FillBurghCrate extends DetailedQuestStep
 			decidedOnSnailOrMackerel = true;
 			if (client.getVarbitValue(VarbitID.BURGH_FOOD_TYPE) == 1)
 			{
-				this.setText("Fill the crate with 3 tinderboxes, 10 bronze axes, and 10 raw mackerel.");
+				this.setText(questHelper.t("Fill the crate with 3 tinderboxes, 10 bronze axes, and 10 raw mackerel."));
 				rawSnailsOrMackerel.setDisplayItemId(ItemID.RAW_MACKEREL);
 				this.setRequirements(Arrays.asList(crate, tinderbox3, bronzeAxe10, rawSnailsOrMackerel));
 			}
 			else
 			{
-				this.setText("Fill the crate with 3 tinderboxes, 10 bronze axes, and 10 raw snails (can be lean, thin or fat).");
+				this.setText(questHelper.t("Fill the crate with 3 tinderboxes, 10 bronze axes, and 10 raw snails (can be lean, thin or fat)."));
 				rawSnailsOrMackerel.setDisplayItemId(ItemID.SNAIL_CORPSE3);
 				this.setRequirements(Arrays.asList(crate, tinderbox3, bronzeAxe10, rawSnailsOrMackerel));
 			}

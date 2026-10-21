@@ -154,36 +154,36 @@ public class TheForsakenTower extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToVulcana = new NpcStep(this, NpcID.VULCANA_LOVAKENGJ_VIS, new WorldPoint(1483, 3747, 0), "Talk to Lady Vulcana Lovakengj in the south of Lovakengj.");
+		talkToVulcana = new NpcStep(this, NpcID.VULCANA_LOVAKENGJ_VIS, new WorldPoint(1483, 3747, 0), t("Talk to Lady Vulcana Lovakengj in the south of Lovakengj."));
 		talkToVulcana.addDialogSteps("Yes.", "I'm looking for a quest.");
 		talkToVulcana.addDialogStep("I'll get going.");
 		talkToUndor = new NpcStep(this, NpcID.WINT_MASTER_SMITH_NORMAL, new WorldPoint(1624, 3942, 0),
-			"Talk to Undor at the entrance to Wintertodt. If you've never talked to Ignisia before, you'll need " +
+			t("Talk to Undor at the entrance to Wintertodt. If you've never talked to Ignisia before, you'll need " +
 				"to talk to her first. She is just north east of Undor. You can " +
 				"teleport there using a Games Necklace, or run" +
-				" north through Arceuus.");
+				" north through Arceuus."));
 		talkToUndor.addDialogStep("I've been sent to help you.");
 
-		enterTheForsakenTower = new ObjectStep(this, ObjectID.LOVAQUEST_TOWER_ENTRY_DOOR, new WorldPoint(1382, 3817, 0), "Enter the Forsaken Tower, west of Lovakengj.");
-		inspectDisplayCase = new ObjectStep(this, ObjectID.LOVAQUEST_TOWER_DISPLAY_CASE, new WorldPoint(1382, 3821, 0), "Inspect the display case in the Forsaken Tower.");
+		enterTheForsakenTower = new ObjectStep(this, ObjectID.LOVAQUEST_TOWER_ENTRY_DOOR, new WorldPoint(1382, 3817, 0), t("Enter the Forsaken Tower, west of Lovakengj."));
+		inspectDisplayCase = new ObjectStep(this, ObjectID.LOVAQUEST_TOWER_DISPLAY_CASE, new WorldPoint(1382, 3821, 0), t("Inspect the display case in the Forsaken Tower."));
 
-		goDownToFirstFloor = new ObjectStep(this, ObjectID.LOVAQUEST_TOWER_LADDER_DOWN, new WorldPoint(1382, 3827, 2), "Go down from the top floor.");
-		goDownToGroundFloor = new ObjectStep(this, ObjectID.LOVAQUEST_SPIRAL_STAIRS_TOP_M, new WorldPoint(1378, 3825, 1), "Go down to the ground floor.");
-		goUpToGroundFloor = new ObjectStep(this, ObjectID.LOVAQUEST_TOWER_DUNGEON_EXIT, new WorldPoint(1382, 10229, 0), "Leave the tower's basement.");
+		goDownToFirstFloor = new ObjectStep(this, ObjectID.LOVAQUEST_TOWER_LADDER_DOWN, new WorldPoint(1382, 3827, 2), t("Go down from the top floor."));
+		goDownToGroundFloor = new ObjectStep(this, ObjectID.LOVAQUEST_SPIRAL_STAIRS_TOP_M, new WorldPoint(1378, 3825, 1), t("Go down to the ground floor."));
+		goUpToGroundFloor = new ObjectStep(this, ObjectID.LOVAQUEST_TOWER_DUNGEON_EXIT, new WorldPoint(1382, 10229, 0), t("Leave the tower's basement."));
 
 		furnacePuzzleSteps = new JugPuzzle(this);
 		furnacePuzzleSteps.setLockingCondition(finishedFurnacePuzzle);
 		furnacePuzzleSteps.setBlocker(true);
 
-		goDownLadderToBasement = new ObjectStep(this, ObjectID.LOVAQUEST_TOWER_DUNGEON_ENTRY, new WorldPoint(1382, 3825, 0), "Climb down the ladder into the tower's basement.");
-		inspectPowerGrid = new ObjectStep(this, ObjectID.LOVAQUEST_POWER_GRID, new WorldPoint(1382, 10225, 0), "Inspect the power grid.");
+		goDownLadderToBasement = new ObjectStep(this, ObjectID.LOVAQUEST_TOWER_DUNGEON_ENTRY, new WorldPoint(1382, 3825, 0), t("Climb down the ladder into the tower's basement."));
+		inspectPowerGrid = new ObjectStep(this, ObjectID.LOVAQUEST_POWER_GRID, new WorldPoint(1382, 10225, 0), t("Inspect the power grid."));
 		inspectPowerGrid.addDialogStep("Yes.");
 
-		searchCrate = new ObjectStep(this, ObjectID.LOVAQUEST_TOWER_CRATE_CRANK, new WorldPoint(1387, 10228, 0), "Search a crate in the north eastern cell for a generator crank");
-		inspectGenerator = new ObjectStep(this, ObjectID.LOVAQUEST_TOWER_GENERATOR, new WorldPoint(1382, 10219, 0), "Inspect the steam generator in the south of the room", crank);
+		searchCrate = new ObjectStep(this, ObjectID.LOVAQUEST_TOWER_CRATE_CRANK, new WorldPoint(1387, 10228, 0), t("Search a crate in the north eastern cell for a generator crank"));
+		inspectGenerator = new ObjectStep(this, ObjectID.LOVAQUEST_TOWER_GENERATOR, new WorldPoint(1382, 10219, 0), t("Inspect the steam generator in the south of the room"), crank);
 		inspectGenerator.addDialogStep("Start the generator.");
 
-		doPowerPuzzle = new PuzzleWrapperStep(this, new PowerPuzzle(this), "Solve the power puzzle.");
+		doPowerPuzzle = new PuzzleWrapperStep(this, new PowerPuzzle(this), t("Solve the power puzzle."));
 
 		potionPuzzle = new PotionPuzzle(this);
 		potionPuzzle.setLockingCondition(finishedPotionPuzzle);
@@ -191,12 +191,12 @@ public class TheForsakenTower extends BasicQuestHelper
 		altarPuzzle = new AltarPuzzle(this);
 		altarPuzzle.setLockingCondition(finishedAltarPuzzle);
 
-		getHammer = new ObjectStep(this, ObjectID.LOVAQUEST_TOWER_DISPLAY_CASE, new WorldPoint(1382, 3821, 0), "Get the hammer from the display case in the Forsaken Tower.");
+		getHammer = new ObjectStep(this, ObjectID.LOVAQUEST_TOWER_DISPLAY_CASE, new WorldPoint(1382, 3821, 0), t("Get the hammer from the display case in the Forsaken Tower."));
 
-		returnToUndor = new NpcStep(this, NpcID.WINT_MASTER_SMITH_NORMAL, new WorldPoint(1624, 3942, 0), "Return Dinh's Hammer to Undor at the entrance to Wintertodt.", dinhsHammer);
+		returnToUndor = new NpcStep(this, NpcID.WINT_MASTER_SMITH_NORMAL, new WorldPoint(1624, 3942, 0), t("Return Dinh's Hammer to Undor at the entrance to Wintertodt."), dinhsHammer);
 		returnToUndor.addDialogStep("Let's talk about my quest.");
 		returnToUndor.addDialogStep("Yes.");
-		returnToVulcana = new NpcStep(this, NpcID.VULCANA_LOVAKENGJ_VIS, new WorldPoint(1483, 3747, 0), "Return to Lady Vulcana in south Lovakengj to finish the quest.");
+		returnToVulcana = new NpcStep(this, NpcID.VULCANA_LOVAKENGJ_VIS, new WorldPoint(1483, 3747, 0), t("Return to Lady Vulcana in south Lovakengj to finish the quest."));
 	}
 
 	@Override
@@ -241,16 +241,16 @@ public class TheForsakenTower extends BasicQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		allSteps.add(new PanelDetails("Starting off", Arrays.asList(talkToVulcana, talkToUndor)));
-		allSteps.add(new PanelDetails("To the Forsaken Tower", Arrays.asList(enterTheForsakenTower, inspectDisplayCase)));
+		allSteps.add(new PanelDetails(t("Starting off"), Arrays.asList(talkToVulcana, talkToUndor)));
+		allSteps.add(new PanelDetails(t("To the Forsaken Tower"), Arrays.asList(enterTheForsakenTower, inspectDisplayCase)));
 		allSteps.addAll(furnacePuzzleSteps.panelDetails());
-		PanelDetails powerPuzzlePanel = new PanelDetails("Power puzzle",
+		PanelDetails powerPuzzlePanel = new PanelDetails(t("Power puzzle"),
 			Arrays.asList(goDownLadderToBasement, searchCrate, inspectGenerator, inspectPowerGrid, doPowerPuzzle));
 		powerPuzzlePanel.setLockingStep(powerPuzzle);
 		allSteps.add(powerPuzzlePanel);
 		allSteps.addAll(potionPuzzle.panelDetails());
 		allSteps.addAll(altarPuzzle.panelDetails());
-		allSteps.add(new PanelDetails("Finishing off", Arrays.asList(getHammer, returnToUndor, returnToVulcana)));
+		allSteps.add(new PanelDetails(t("Finishing off"), Arrays.asList(getHammer, returnToUndor, returnToVulcana)));
 		return allSteps;
 	}
 }

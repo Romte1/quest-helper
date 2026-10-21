@@ -208,7 +208,7 @@ public class ThroneOfMiscellania extends BasicQuestHelper
 		ironBar = new ItemRequirement("Iron bar", ItemID.IRON_BAR);
 		logs = new ItemRequirement("Logs", ItemID.LOGS);
 		logs.setHighlightInInventory(true);
-		logs.setTooltip("You can chop logs on Miscellania if you bring an axe.");
+		logs.setTooltip(t("You can chop logs on Miscellania if you bring an axe."));
 		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
 		rake = new ItemRequirement("Rake", ItemID.RAKE).isNotConsumed();
 		axe = new ItemRequirement("Any axe", ItemCollections.AXES).isNotConsumed();
@@ -218,13 +218,13 @@ public class ThroneOfMiscellania extends BasicQuestHelper
 		ring.addAlternates(ItemID.SAPPHIRE_RING, ItemID.EMERALD_RING, ItemID.RUBY_RING, ItemID.DIAMOND_RING);
 
 		flowers = new ItemRequirement("Flowers", ItemCollections.FLOWERS);
-		flowers.setTooltip("You can buy some from the Flower Girl on Miscellania for 15 coins");
+		flowers.setTooltip(t("You can buy some from the Flower Girl on Miscellania for 15 coins"));
 		flowers.setHighlightInInventory(true);
 		cake = new ItemRequirement("Cake (if courting Brand)", ItemID.CAKE);
 		cake.addAlternates(ItemID.CHOCOLATE_CAKE);
 		bow = new ItemRequirement("Any normal/oak/willow/maple/yew shortbow or longbow (if courting Astrid)", ItemID.SHORTBOW);
 		bow.addAlternates(ItemID.LONGBOW, ItemID.OAK_SHORTBOW, ItemID.OAK_LONGBOW, ItemID.WILLOW_SHORTBOW, ItemID.WILLOW_LONGBOW, ItemID.MAPLE_SHORTBOW, ItemID.MAPLE_LONGBOW, ItemID.YEW_SHORTBOW, ItemID.YEW_LONGBOW);
-		bow.setTooltip("You will lose this bow");
+		bow.setTooltip(t("You will lose this bow"));
 		bow.setHighlightInInventory(true);
 		runRestoreItems = new ItemRequirement("Potions/Items to restore run energy", ItemCollections.RUN_RESTORE_ITEMS);
 		dramenStaff = new ItemRequirement("Dramen staff if travelling via Fairy Ring CIP", ItemCollections.FAIRY_STAFF).isNotConsumed();
@@ -315,135 +315,135 @@ public class ThroneOfMiscellania extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		String travelText = "Travel to Miscellania. You can take a boat from Rellekka. You can also use Fairy Rings to teleport there with the code CIP If you've unlocked them.";
+		String travelText = t("Travel to Miscellania. You can take a boat from Rellekka. You can also use Fairy Rings to teleport there with the code CIP If you've unlocked them.");
 		travelToMisc = new NpcStep(this, NpcID.VIKING_SAILOR, new WorldPoint(2629, 3693, 0), travelText);
 		travelToMisc.addTeleport(rellekkaTeleport);
-		getFlowers = new NpcStep(this, NpcID.MISC_FLOWERGIRL, new WorldPoint(2511, 3865, 0), "Buy some flowers from the Flower Girl for 15gp.");
+		getFlowers = new NpcStep(this, NpcID.MISC_FLOWERGIRL, new WorldPoint(2511, 3865, 0), t("Buy some flowers from the Flower Girl for 15gp."));
 		getFlowers.addDialogStep("Yes, please.");
-		goUpToVargas = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), "Go upstairs in the Miscellania castle.");
-		talkToVargas = new NpcStep(this, NpcID.MISC_KING_VARGAS, new WorldPoint(2501, 3860, 1), "Talk to King Vargas. You can choose whether to get Brand's or Astrid's approval");
+		goUpToVargas = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), t("Go upstairs in the Miscellania castle."));
+		talkToVargas = new NpcStep(this, NpcID.MISC_KING_VARGAS, new WorldPoint(2501, 3860, 1), t("Talk to King Vargas. You can choose whether to get Brand's or Astrid's approval"));
 		talkToVargas.addDialogSteps("Yes.", "If I may be so bold...");
 		talkToVargas.addSubSteps(goUpToVargas);
 
 		/* Winning over Astrid */
-		talkAstrid1 = new NpcStep(this, NpcID.MISC_PRINCESS_ASTRID, new WorldPoint(2502, 3867, 1), "Talk to Princess Astrid a few times.");
+		talkAstrid1 = new NpcStep(this, NpcID.MISC_PRINCESS_ASTRID, new WorldPoint(2502, 3867, 1), t("Talk to Princess Astrid a few times."));
 		talkAstrid1.addDialogStep("Archery is a noble art!");
 		talkAstrid1.addDialogStep("He's been very helpful.");
 		talkAstrid1.addDialogStep("Hahahaha!");
 
-		talkAstrid2 = new NpcStep(this, NpcID.MISC_PRINCESS_ASTRID, new WorldPoint(2502, 3867, 1), "Keep talking to Princess Astrid.");
+		talkAstrid2 = new NpcStep(this, NpcID.MISC_PRINCESS_ASTRID, new WorldPoint(2502, 3867, 1), t("Keep talking to Princess Astrid."));
 		talkAstrid2.addDialogStep("What happened next?");
 		talkAstrid2.addDialogStep("That sounds like a good idea.");
 		talkAstrid2.addDialogStep("I'm quite fond of it myself.");
 
-		talkAstrid3 = new NpcStep(this, NpcID.MISC_PRINCESS_ASTRID, new WorldPoint(2502, 3867, 1), "Keep talking to Princess Astrid.");
+		talkAstrid3 = new NpcStep(this, NpcID.MISC_PRINCESS_ASTRID, new WorldPoint(2502, 3867, 1), t("Keep talking to Princess Astrid."));
 		talkAstrid3.addDialogStep("It's a lovely little country.");
 		talkAstrid3.addDialogStep("I suppose you don't have much opportunity to.");
 		talkAstrid3.addDialogStep("And what a great bard he makes!");
 
-		giveFlowersToAstrid = new NpcStep(this, NpcID.MISC_PRINCESS_ASTRID, new WorldPoint(2502, 3867, 1), "Use flowers on Astrid.", flowers);
+		giveFlowersToAstrid = new NpcStep(this, NpcID.MISC_PRINCESS_ASTRID, new WorldPoint(2502, 3867, 1), t("Use flowers on Astrid."), flowers);
 		giveFlowersToAstrid.addIcon(ItemID.FLOWERS_WATERFALL_QUEST_MIXED);
 		giveFlowersToAstrid.addDialogStep("Yes");
 		giveBowToAstrid = new NpcStep(this, NpcID.MISC_PRINCESS_ASTRID, new WorldPoint(2502, 3867, 1),
-			"Use any bow on Astrid.", bow.highlighted());
+			t("Use any bow on Astrid."), bow.highlighted());
 		giveBowToAstrid.addIcon(ItemID.SHORTBOW);
 		giveBowToAstrid.addDialogStep("Yes");
-		danceForAstrid = new EmoteStep(this, QuestEmote.DANCE, "Dance in Princess Astrid's room.");
-		blowKissToAstrid = new EmoteStep(this, QuestEmote.BLOW_KISS, "Blow kiss emote next to Princess Astrid.");
+		danceForAstrid = new EmoteStep(this, QuestEmote.DANCE, t("Dance in Princess Astrid's room."));
+		blowKissToAstrid = new EmoteStep(this, QuestEmote.BLOW_KISS, t("Blow kiss emote next to Princess Astrid."));
 		useRingOnAstrid = new NpcStep(this, NpcID.MISC_PRINCESS_ASTRID, new WorldPoint(2502, 3867, 1),
-			"Use a ring on Astrid.", ring.highlighted());
+			t("Use a ring on Astrid."), ring.highlighted());
 		useRingOnAstrid.addIcon(ItemID.GOLD_RING);
 		useRingOnAstrid.addDialogStep("Yes");
 
-		talkBrand1 = new NpcStep(this, NpcID.MISC_PRINCE_BRAND, new WorldPoint(2502, 3852, 1), "Talk to Prince Brand a few times.");
+		talkBrand1 = new NpcStep(this, NpcID.MISC_PRINCE_BRAND, new WorldPoint(2502, 3852, 1), t("Talk to Prince Brand a few times."));
 		talkBrand1.addDialogStep("Be still, my heart.");
 		talkBrand1.addDialogStep("You will be the greatest bard!");
 		talkBrand1.addDialogStep("They don't understand your poetry as I do.");
 
-		talkBrand2 = new NpcStep(this, NpcID.MISC_PRINCE_BRAND, new WorldPoint(2502, 3852, 1), "Talk to Prince Brand more.");
+		talkBrand2 = new NpcStep(this, NpcID.MISC_PRINCE_BRAND, new WorldPoint(2502, 3852, 1), t("Talk to Prince Brand more."));
 		talkBrand2.addDialogStep("A much nobler pursuit, to be sure.");
 		talkBrand2.addDialogStep("How inspiring!");
 		talkBrand2.addDialogStep("How poetic.");
 
-		talkBrand3 = new NpcStep(this, NpcID.MISC_PRINCE_BRAND, new WorldPoint(2502, 3852, 1), "Talk to Prince Brand more.");
+		talkBrand3 = new NpcStep(this, NpcID.MISC_PRINCE_BRAND, new WorldPoint(2502, 3852, 1), t("Talk to Prince Brand more."));
 		talkBrand3.addDialogStep("I'm glad to hear it.");
 		talkBrand3.addDialogStep("I wouldn't presume to have the skill...");
 		talkBrand3.addDialogStep("That was lovely. I'm touched!");
 
 		giveCakeToBrand = new NpcStep(this, NpcID.MISC_PRINCE_BRAND, new WorldPoint(2502, 3852, 1),
-			"Give Prince Brand a cake.", cake.highlighted());
+			t("Give Prince Brand a cake."), cake.highlighted());
 		giveCakeToBrand.addDialogStep("Yes");
-		giveFlowersToBrand = new NpcStep(this, NpcID.MISC_PRINCE_BRAND, new WorldPoint(2502, 3852, 1), "Use flowers on Prince Brand.", flowers);
+		giveFlowersToBrand = new NpcStep(this, NpcID.MISC_PRINCE_BRAND, new WorldPoint(2502, 3852, 1), t("Use flowers on Prince Brand."), flowers);
 		giveFlowersToBrand.addDialogStep("Yes");
 		giveFlowersToBrand.addIcon(ItemID.FLOWERS_WATERFALL_QUEST_MIXED);
-		blowKissToBrand = new EmoteStep(this, QuestEmote.BLOW_KISS, "Use the blow kiss emote next to Prince Brand");
-		clapForBrand = new EmoteStep(this, QuestEmote.CLAP, "Use the Clap emote next to Prince Brand");
+		blowKissToBrand = new EmoteStep(this, QuestEmote.BLOW_KISS, t("Use the blow kiss emote next to Prince Brand"));
+		clapForBrand = new EmoteStep(this, QuestEmote.CLAP, t("Use the Clap emote next to Prince Brand"));
 		useRingOnBrand = new NpcStep(this, NpcID.MISC_PRINCE_BRAND, new WorldPoint(2502, 3852, 1),
-			"Use a ring on Prince Brand.", ring.highlighted());
+			t("Use a ring on Prince Brand."), ring.highlighted());
 		useRingOnBrand.addDialogStep("Yes");
 		useRingOnBrand.addIcon(ItemID.GOLD_RING);
 
-		goUpstairsToBrand = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), "Go upstairs in the Miscellania castle.");
+		goUpstairsToBrand = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), t("Go upstairs in the Miscellania castle."));
 		goUpstairsToBrand.setShowInSidebar(false);
-		goUpstairsToAstrid = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3872, 0), "Go upstairs in the Miscellania castle.");
+		goUpstairsToAstrid = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3872, 0), t("Go upstairs in the Miscellania castle."));
 		goUpstairsToAstrid.setShowInSidebar(false);
 
-		goUpEtcDip1 = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2614, 3868, 0), "Go upstairs in Etceteria castle, east of Miscellania.");
-		talkToSigridDip1 = new NpcStep(this, NpcID.MISC_QUEEN_SIGRID, new WorldPoint(2612, 3875, 1), "Talk to Queen Sigrid in Etceteria castle.");
+		goUpEtcDip1 = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2614, 3868, 0), t("Go upstairs in Etceteria castle, east of Miscellania."));
+		talkToSigridDip1 = new NpcStep(this, NpcID.MISC_QUEEN_SIGRID, new WorldPoint(2612, 3875, 1), t("Talk to Queen Sigrid in Etceteria castle."));
 		talkToSigridDip1.addSubSteps(goUpEtcDip1);
 
-		goDownEtcDip1 = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(2614, 3867, 1), "Return to King Vargas.");
-		goUpMiscDip1 = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), "Return to King Vargas.");
-		talkToVargasDip1 = new NpcStep(this, NpcID.MISC_KING_VARGAS, new WorldPoint(2501, 3860, 1), "Talk to King Vargas.");
+		goDownEtcDip1 = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(2614, 3867, 1), t("Return to King Vargas."));
+		goUpMiscDip1 = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), t("Return to King Vargas."));
+		talkToVargasDip1 = new NpcStep(this, NpcID.MISC_KING_VARGAS, new WorldPoint(2501, 3860, 1), t("Talk to King Vargas."));
 		talkToVargasDip1.addSubSteps(goDownEtcDip1, goUpMiscDip1);
 
-		goDownMiscDip1 = new ObjectStep(this, ObjectID.SPIRALSTAIRSMIDDLE_WOODEN, new WorldPoint(2506, 3849, 1), "Go downstairs then return to Queen Sigrid.");
+		goDownMiscDip1 = new ObjectStep(this, ObjectID.SPIRALSTAIRSMIDDLE_WOODEN, new WorldPoint(2506, 3849, 1), t("Go downstairs then return to Queen Sigrid."));
 		goDownMiscDip1.addDialogStep("Climb down the stairs.");
-		goUpEtcDip2 = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2614, 3868, 0), "Return to Queen Sigrid.");
-		talkToSigridDip2 = new NpcStep(this, NpcID.MISC_QUEEN_SIGRID, new WorldPoint(2612, 3875, 1), "Talk to Queen Sigrid.");
+		goUpEtcDip2 = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2614, 3868, 0), t("Return to Queen Sigrid."));
+		talkToSigridDip2 = new NpcStep(this, NpcID.MISC_QUEEN_SIGRID, new WorldPoint(2612, 3875, 1), t("Talk to Queen Sigrid."));
 		talkToSigridDip2.addSubSteps(goDownMiscDip1, goUpEtcDip2);
 
-		goDownEtcDip2 = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(2614, 3867, 1), "Go talk to Prince Brand in Miscellania castle.");
-		goUpMiscDip2 = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), "Go talk to Prince Brand in Miscellania castle.");
-		talkToBrandDip = new NpcStep(this, NpcID.MISC_PRINCE_BRAND, new WorldPoint(2502, 3852, 1), "Talk to Prince Brand in Miscellania castle.");
-		getAnotherAwfulAnthem = new NpcStep(this, NpcID.MISC_PRINCE_BRAND, new WorldPoint(2502, 3852, 1), "Talk to Prince Brand in Miscellania castle for another Awful Anthem.", awfulAnthem);
+		goDownEtcDip2 = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(2614, 3867, 1), t("Go talk to Prince Brand in Miscellania castle."));
+		goUpMiscDip2 = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), t("Go talk to Prince Brand in Miscellania castle."));
+		talkToBrandDip = new NpcStep(this, NpcID.MISC_PRINCE_BRAND, new WorldPoint(2502, 3852, 1), t("Talk to Prince Brand in Miscellania castle."));
+		getAnotherAwfulAnthem = new NpcStep(this, NpcID.MISC_PRINCE_BRAND, new WorldPoint(2502, 3852, 1), t("Talk to Prince Brand in Miscellania castle for another Awful Anthem."), awfulAnthem);
 		talkToBrandDip.addSubSteps(goDownEtcDip2, goUpMiscDip2, getAnotherAwfulAnthem);
 
-		talkToGhrimDip = new NpcStep(this, NpcID.MISC_ADVISOR_GHRIM_1OP, new WorldPoint(2499, 3857, 1), "Talk to Advisor Ghrim.");
+		talkToGhrimDip = new NpcStep(this, NpcID.MISC_ADVISOR_GHRIM_1OP, new WorldPoint(2499, 3857, 1), t("Talk to Advisor Ghrim."));
 		talkToGhrimDip.addDialogStep("How do I make peace with Etceteria?");
 
-		goDownMiscDip2 = new ObjectStep(this, ObjectID.SPIRALSTAIRSMIDDLE_WOODEN, new WorldPoint(2506, 3849, 1), "Go downstairs and return to Queen Sigrid.");
+		goDownMiscDip2 = new ObjectStep(this, ObjectID.SPIRALSTAIRSMIDDLE_WOODEN, new WorldPoint(2506, 3849, 1), t("Go downstairs and return to Queen Sigrid."));
 		goDownMiscDip2.addDialogStep("Climb down the stairs.");
-		goUpEtcDip3 = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2614, 3868, 0), "Return to Queen Sigrid.");
-		talkToSigridDip3 = new NpcStep(this, NpcID.MISC_QUEEN_SIGRID, new WorldPoint(2612, 3875, 1), "Return to Queen Sigrid in Etceteria castle.");
+		goUpEtcDip3 = new ObjectStep(this, ObjectID.SPIRALSTAIRS, new WorldPoint(2614, 3868, 0), t("Return to Queen Sigrid."));
+		talkToSigridDip3 = new NpcStep(this, NpcID.MISC_QUEEN_SIGRID, new WorldPoint(2612, 3875, 1), t("Return to Queen Sigrid in Etceteria castle."));
 		talkToSigridDip3.addSubSteps(goDownMiscDip2, goUpEtcDip3);
 
-		goDownEtcDip3 = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(2614, 3867, 1), "Return to King Vargas.");
-		goUpMiscDip3 = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), "Return to King Vargas.");
-		talkToVargasDip2 = new NpcStep(this, NpcID.MISC_KING_VARGAS, new WorldPoint(2501, 3860, 1), "Return to King Vargas.");
+		goDownEtcDip3 = new ObjectStep(this, ObjectID.SPIRALSTAIRSTOP, new WorldPoint(2614, 3867, 1), t("Return to King Vargas."));
+		goUpMiscDip3 = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), t("Return to King Vargas."));
+		talkToVargasDip2 = new NpcStep(this, NpcID.MISC_KING_VARGAS, new WorldPoint(2501, 3860, 1), t("Return to King Vargas."));
 		talkToVargasDip2.addSubSteps(goDownEtcDip3, goUpMiscDip3);
 
-		goDownMiscDip3 = new ObjectStep(this, ObjectID.SPIRALSTAIRSMIDDLE_WOODEN, new WorldPoint(2506, 3849, 1), "Go downstairs then go talk to Derrik in the north of Miscellania.", ironBar);
+		goDownMiscDip3 = new ObjectStep(this, ObjectID.SPIRALSTAIRSMIDDLE_WOODEN, new WorldPoint(2506, 3849, 1), t("Go downstairs then go talk to Derrik in the north of Miscellania."), ironBar);
 		goDownMiscDip3.addDialogStep("Climb down the stairs.");
-		talkToDerrik = new NpcStep(this, NpcID.MISC_SMITHY, new WorldPoint(2550, 3895, 0), "Talk to Derrik in the north of Miscellania.", ironBar);
+		talkToDerrik = new NpcStep(this, NpcID.MISC_SMITHY, new WorldPoint(2550, 3895, 0), t("Talk to Derrik in the north of Miscellania."), ironBar);
 		talkToDerrik.addSubSteps(goDownMiscDip3);
 		talkToDerrik.addDialogStep("I have a slightly strange request...");
 
-		makePen = new DetailedQuestStep(this, "Use the giant nib on some logs. Cut a nearby evergreen if you don't have logs.", giantNib, logs);
+		makePen = new DetailedQuestStep(this, t("Use the giant nib on some logs. Cut a nearby evergreen if you don't have logs."), giantNib, logs);
 
-		goUpMiscDip4 = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), "Return to King Vargas with the giant pen.", giantPen);
-		giveVargasPen = new NpcStep(this, NpcID.MISC_KING_VARGAS, new WorldPoint(2501, 3860, 1), "Talk to King Vargas with the giant pen.", giantPen);
+		goUpMiscDip4 = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), t("Return to King Vargas with the giant pen."), giantPen);
+		giveVargasPen = new NpcStep(this, NpcID.MISC_KING_VARGAS, new WorldPoint(2501, 3860, 1), t("Talk to King Vargas with the giant pen."), giantPen);
 		giveVargasPen.addSubSteps(goUpMiscDip4);
 
-		goUpMiscForSupport = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), "Return to King Vargas to finish the quest.");
-		goDownMiscForSupport = new ObjectStep(this, ObjectID.SPIRALSTAIRSMIDDLE_WOODEN, new WorldPoint(2506, 3849, 1), "Go downstairs and get support from the subjects.");
+		goUpMiscForSupport = new ObjectStep(this, ObjectID.SPIRALSTAIRS_WOODEN, new WorldPoint(2506, 3849, 0), t("Return to King Vargas to finish the quest."));
+		goDownMiscForSupport = new ObjectStep(this, ObjectID.SPIRALSTAIRSMIDDLE_WOODEN, new WorldPoint(2506, 3849, 1), t("Go downstairs and get support from the subjects."));
 		goDownMiscForSupport.addDialogStep("Climb down the stairs.");
 
-		String getSupport = "Reach 75% support. You can do any of the following with your current levels: ";
-		String rakePatch = "Rake the farming patches. ";
-		String mineCoal = "Mining coal. ";
-		String cuttingMaples = "Cutting maple trees. ";
-		String fishing = "Fish tuna with a harpoon or lobsters with a lobster pot.";
+		String getSupport = t("Reach 75% support. You can do any of the following with your current levels:") + " ";
+		String rakePatch = t("Rake the farming patches.") + " ";
+		String mineCoal = t("Mining coal.") + " ";
+		String cuttingMaples = t("Cutting maple trees.") + " ";
+		String fishing = t("Fish tuna with a harpoon or lobsters with a lobster pot.");
 
 		if (client.getRealSkillLevel(Skill.FARMING) >= 10)
 		{
@@ -461,7 +461,7 @@ public class ThroneOfMiscellania extends BasicQuestHelper
 
 		get75Support = new DetailedQuestStep(this, getSupport, axe, pickaxe, rake, harpoon, lobsterPot);
 		get75Support.addSubSteps(goDownMiscForSupport);
-		finishQuest = new NpcStep(this, NpcID.MISC_KING_VARGAS, new WorldPoint(2501, 3860, 1), "Talk to King Vargas to finish the quest.");
+		finishQuest = new NpcStep(this, NpcID.MISC_KING_VARGAS, new WorldPoint(2501, 3860, 1), t("Talk to King Vargas to finish the quest."));
 		finishQuest.addSubSteps(goUpMiscForSupport);
 	}
 
@@ -495,10 +495,10 @@ public class ThroneOfMiscellania extends BasicQuestHelper
 		ArrayList<Requirement> req = new ArrayList<>();
 		req.add(new QuestRequirement(QuestHelperQuest.HEROES_QUEST, QuestState.FINISHED));
 		req.add(new QuestRequirement(QuestHelperQuest.THE_FREMENNIK_TRIALS, QuestState.FINISHED));
-		req.add(new SkillRequirement(Skill.WOODCUTTING, 45, false, "45 Woodcutting (or any of the other skill requirements)"));
-		req.add(new SkillRequirement(Skill.FARMING, 10, false, "10 Farming (or any of the other skill requirements)"));
-		req.add(new SkillRequirement(Skill.MINING, 30, false, "30 Mining (or any of the other skill requirements)"));
-		req.add(new SkillRequirement(Skill.SMITHING, 35, false, "35 Smithing (or any of the other skill requirements)"));
+		req.add(new SkillRequirement(Skill.WOODCUTTING, 45, false, t("45 Woodcutting (or any of the other skill requirements)")));
+		req.add(new SkillRequirement(Skill.FARMING, 10, false, t("10 Farming (or any of the other skill requirements)")));
+		req.add(new SkillRequirement(Skill.MINING, 30, false, t("30 Mining (or any of the other skill requirements)")));
+		req.add(new SkillRequirement(Skill.SMITHING, 35, false, t("35 Smithing (or any of the other skill requirements)")));
 		return req;
 	}
 
@@ -512,8 +512,8 @@ public class ThroneOfMiscellania extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Ability to manage Miscellania."),
-				new UnlockReward("Ability to teleport to Miscellania with the Ring of Wealth."));
+				new UnlockReward(t("Ability to manage Miscellania.")),
+				new UnlockReward(t("Ability to teleport to Miscellania with the Ring of Wealth.")));
 	}
 
 	@Override
@@ -521,14 +521,14 @@ public class ThroneOfMiscellania extends BasicQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		allSteps.add(new PanelDetails("Talk to King Vargas", Arrays.asList(travelToMisc, getFlowers,
+		allSteps.add(new PanelDetails(t("Talk to King Vargas"), Arrays.asList(travelToMisc, getFlowers,
 			talkToVargas), flowers, bow, cake, ring, ironBar, logs, reputationItems));
 
-		PanelDetails astridPanel = new PanelDetails("Win over Astrid",
+		PanelDetails astridPanel = new PanelDetails(t("Win over Astrid"),
 			Arrays.asList(goUpstairsToAstrid, talkAstrid1, giveFlowersToAstrid, danceForAstrid, talkAstrid2,
 				giveBowToAstrid, talkAstrid3, blowKissToAstrid, useRingOnAstrid));
 
-		PanelDetails brandPanel = new PanelDetails("Win over Brand",
+		PanelDetails brandPanel = new PanelDetails(t("Win over Brand"),
 			Arrays.asList(goUpstairsToBrand, talkBrand1, giveFlowersToBrand, clapForBrand, talkBrand2,
 				giveCakeToBrand, talkBrand3, blowKissToBrand, useRingOnBrand));
 
@@ -536,11 +536,11 @@ public class ThroneOfMiscellania extends BasicQuestHelper
 		allSteps.add(astridPanel);
 		allSteps.add(brandPanel);
 
-		allSteps.add(new PanelDetails("Establish peace",
+		allSteps.add(new PanelDetails(t("Establish peace"),
 			Arrays.asList(talkToSigridDip1, talkToVargasDip1, talkToSigridDip2, talkToBrandDip, talkToGhrimDip, talkToSigridDip3, talkToVargasDip2,
 				talkToDerrik, makePen, giveVargasPen)));
 
-		allSteps.add(new PanelDetails("Get support", Arrays.asList(get75Support, finishQuest), reputationItems));
+		allSteps.add(new PanelDetails(t("Get support"), Arrays.asList(get75Support, finishQuest), reputationItems));
 		return allSteps;
 	}
 }

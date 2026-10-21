@@ -155,14 +155,14 @@ public class RFDPiratePete extends BasicQuestHelper
 		knifeHighlighted = new ItemRequirement("Knife", ItemID.KNIFE).isNotConsumed();
 		knifeHighlighted.setHighlightInInventory(true);
 		breadHighlighted = new ItemRequirement("Bread (more if you burn cake)", ItemID.BREAD);
-		breadHighlighted.setTooltip("You can make this by using a knife on bread");
+		breadHighlighted.setTooltip(t("You can make this by using a knife on bread"));
 		breadHighlighted.setHighlightInInventory(true);
 		divingAparatus = new ItemRequirement("Diving apparatus", ItemID.HUNDRED_PIRATE_DIVING_BACKPACK, 1, true).isNotConsumed();
 		divingHelmet = new ItemRequirement("Fishbowl helmet", ItemID.HUNDRED_PIRATE_DIVING_HELMET, 1, true).isNotConsumed();
 		fishBowl = new ItemRequirement("Empty fishbowl", ItemID.FISHBOWL_EMPTY);
 		bronzeWire3 = new ItemRequirement("Bronze wire", ItemID.BRONZECRAFTWIRE, 3);
 		needle = new ItemRequirement("Needle", ItemID.NEEDLE).isNotConsumed();
-		needle.setTooltip("Costume needle cannot be used as a substitute");
+		needle.setTooltip(t("Costume needle cannot be used as a substitute"));
 		fishCake = new ItemRequirement("Cooked fishcake", ItemID.HUNDRED_PIRATE_FISHCAKE);
 		fishCakeHighlighted = new ItemRequirement("Cooked fishcake", ItemID.HUNDRED_PIRATE_FISHCAKE);
 		fishCakeHighlighted.setHighlightInInventory(true);
@@ -177,17 +177,17 @@ public class RFDPiratePete extends BasicQuestHelper
 		crabMeatHighlighted.addAlternates(ItemID.CERT_HUNDRED_PIRATE_GIANT_CRAB_MEAT);
 		crabMeatHighlighted.setHighlightInInventory(true);
 		groundCrabMeatHighlighted = new ItemRequirement("Ground crab meat", ItemID.HUNDRED_PIRATE_GROUND_GIANT_CRAB_MEAT);
-		groundCrabMeatHighlighted.setTooltip("You will need to kill another underwater crab and grind its meat");
+		groundCrabMeatHighlighted.setTooltip(t("You will need to kill another underwater crab and grind its meat"));
 		groundCrabMeatHighlighted.setHighlightInInventory(true);
 		groundKelpHighlighted = new ItemRequirement("Ground kelp", ItemID.HUNDRED_PIRATE_GROUND_KELP);
-		groundKelpHighlighted.setTooltip("You will need to go underwater with Murphy and pick more kelp to grind");
+		groundKelpHighlighted.setTooltip(t("You will need to go underwater with Murphy and pick more kelp to grind"));
 		groundKelpHighlighted.setHighlightInInventory(true);
 		rawFishCake = new ItemRequirement("Raw fishcake", ItemID.HUNDRED_PIRATE_RAW_FISHCAKE);
 		groundCod = new ItemRequirement("Ground cod", ItemID.HUNDRED_PIRATE_GROUND_COD);
-		groundCod.setTooltip("You can make this by use a pestle and mortar on a raw cod");
+		groundCod.setTooltip(t("You can make this by use a pestle and mortar on a raw cod"));
 		breadcrumbs = new ItemRequirement("Breadcrumbs", ItemID.HUNDRED_PIRATE_BREADCRUMBS);
 		emptySlotsX6 = new ItemRequirement("Empty inventory slots at minimum", -1, 6);
-		emptySlotsX6.setTooltip("Have an additional empty slot for each additional kelp beyond the minimum of 1");
+		emptySlotsX6.setTooltip(t("Have an additional empty slot for each additional kelp beyond the minimum of 1"));
 
 		combatGear = new ItemRequirement("Combat gear", -1, -1);
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
@@ -227,47 +227,47 @@ public class RFDPiratePete extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		enterDiningRoom = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOUBLEDOORL, new WorldPoint(3213, 3221, 0), "Go inspect Pirate Pete.");
-		inspectPete = new ObjectStep(this, ObjectID.HUNDRED_PIRATE_BASE, new WorldPoint(1862, 5323, 0), "Inspect Pirate Pete.");
+		enterDiningRoom = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOUBLEDOORL, new WorldPoint(3213, 3221, 0), t("Go inspect Pirate Pete."));
+		inspectPete = new ObjectStep(this, ObjectID.HUNDRED_PIRATE_BASE, new WorldPoint(1862, 5323, 0), t("Inspect Pirate Pete."));
 		inspectPete.addSubSteps(enterDiningRoom);
 
-		enterKitchen = new ObjectStep(this, ObjectID.HUNDRED_PORTAL_DOOR1, new WorldPoint(1861, 5316, 0), "Talk to the Lumbridge Cook.");
+		enterKitchen = new ObjectStep(this, ObjectID.HUNDRED_PORTAL_DOOR1, new WorldPoint(1861, 5316, 0), t("Talk to the Lumbridge Cook."));
 		talkToCook = new AskAboutFishCake(this);
 		talkToCook.addSubSteps(enterKitchen);
-		usePestleOnCod = new DetailedQuestStep(this, "Use a pestle and mortar on a raw cod.", pestleHighlighted, rawCodHighlighted);
-		useKnifeOnBread = new DetailedQuestStep(this, "Use a knife on some bread and make BREADCRUMBS.", knifeHighlighted, breadHighlighted);
-		talkToMurphy = new NpcStep(this, NpcID.MURPHY, new WorldPoint(2664, 3160, 0), "Talk to Murphy in Port Khazard.", fishBowl);
+		usePestleOnCod = new DetailedQuestStep(this, t("Use a pestle and mortar on a raw cod."), pestleHighlighted, rawCodHighlighted);
+		useKnifeOnBread = new DetailedQuestStep(this, t("Use a knife on some bread and make BREADCRUMBS."), knifeHighlighted, breadHighlighted);
+		talkToMurphy = new NpcStep(this, NpcID.MURPHY, new WorldPoint(2664, 3160, 0), t("Talk to Murphy in Port Khazard."), fishBowl);
 		talkToMurphy.addDialogStep("Talk about Recipe for Disaster.");
-		talkToMurphyAgain = new NpcStep(this, NpcID.MURPHY, new WorldPoint(2664, 3160, 0), "Talk to Murphy again.", fishBowl);
+		talkToMurphyAgain = new NpcStep(this, NpcID.MURPHY, new WorldPoint(2664, 3160, 0), t("Talk to Murphy again."), fishBowl);
 		talkToMurphyAgain.addDialogStep("Talk about Recipe for Disaster.");
-		goDiving = new NpcStep(this, NpcID.MURPHY, new WorldPoint(2664, 3160, 0), "Talk to Murphy again to go diving.", divingAparatus, divingHelmet, bronzeWire3, needle, canSwim);
+		goDiving = new NpcStep(this, NpcID.MURPHY, new WorldPoint(2664, 3160, 0), t("Talk to Murphy again to go diving."), divingAparatus, divingHelmet, bronzeWire3, needle, canSwim);
 		goDiving.addDialogSteps("Talk about Recipe for Disaster.", "Yes, Let's go diving.");
-		pickKelp = new ObjectStep(this, ObjectID.KELP_PICKINGPOINT, new WorldPoint(2966, 9490, 1), "Pick some kelp. Get 3 or so in case you burn a fishcake or two.");
-		talkToNung = new NpcStep(this, NpcID._100_PIRATE_MOGRE_NUNG, new WorldPoint(2971, 9513, 1), "Talk to Nung in the north of the area.");
-		pickUpRocks = new DetailedQuestStep(this, new WorldPoint(2950, 9511, 1), "Pick up 5 rocks in the west of the area.", rocks5);
-		enterCave = new ObjectStep(this, ObjectID.SEABED2_CAVEWALL_MUDSKIPPER_CAVEENTRANCER, new WorldPoint(2950, 9516, 1), "Enter the underwater cave entrance.");
-		killMudksippers5 = new NpcStep(this, NpcID.HUNDRED_PIRATE_GIANT_MUDSKIPPER, new WorldPoint(2951, 9526, 1), "Kill mudskippers for 5 hides.", true, mudskipperHide5);
+		pickKelp = new ObjectStep(this, ObjectID.KELP_PICKINGPOINT, new WorldPoint(2966, 9490, 1), t("Pick some kelp. Get 3 or so in case you burn a fishcake or two."));
+		talkToNung = new NpcStep(this, NpcID._100_PIRATE_MOGRE_NUNG, new WorldPoint(2971, 9513, 1), t("Talk to Nung in the north of the area."));
+		pickUpRocks = new DetailedQuestStep(this, new WorldPoint(2950, 9511, 1), t("Pick up 5 rocks in the west of the area."), rocks5);
+		enterCave = new ObjectStep(this, ObjectID.SEABED2_CAVEWALL_MUDSKIPPER_CAVEENTRANCER, new WorldPoint(2950, 9516, 1), t("Enter the underwater cave entrance."));
+		killMudksippers5 = new NpcStep(this, NpcID.HUNDRED_PIRATE_GIANT_MUDSKIPPER, new WorldPoint(2951, 9526, 1), t("Kill mudskippers for 5 hides."), true, mudskipperHide5);
 		((NpcStep) (killMudksippers5)).addAlternateNpcs(NpcID.HUNDRED_PIRATE_GIANT_MUDSKIPPER_2);
-		returnToNung = new NpcStep(this, NpcID._100_PIRATE_MOGRE_NUNG, new WorldPoint(2971, 9513, 1), "Bring the hides to Nung.", mudskipperHide5);
-		talkToNungAgain = new NpcStep(this, NpcID._100_PIRATE_MOGRE_NUNG, new WorldPoint(2971, 9513, 1), "Talk to Nung again.");
+		returnToNung = new NpcStep(this, NpcID._100_PIRATE_MOGRE_NUNG, new WorldPoint(2971, 9513, 1), t("Bring the hides to Nung."), mudskipperHide5);
+		talkToNungAgain = new NpcStep(this, NpcID._100_PIRATE_MOGRE_NUNG, new WorldPoint(2971, 9513, 1), t("Talk to Nung again."));
 		returnToNung.addSubSteps(talkToNungAgain);
 
-		giveNungWire = new NpcStep(this, NpcID._100_PIRATE_MOGRE_NUNG, new WorldPoint(2971, 9513, 1), "Bring bronze wire and a needle to Nung.", bronzeWire3, needle);
-		goDivingAgain = new NpcStep(this, NpcID.MURPHY, new WorldPoint(2664, 3160, 0), "Talk to Murphy again to go diving.", divingAparatus, divingHelmet, canSwim);
+		giveNungWire = new NpcStep(this, NpcID._100_PIRATE_MOGRE_NUNG, new WorldPoint(2971, 9513, 1), t("Bring bronze wire and a needle to Nung."), bronzeWire3, needle);
+		goDivingAgain = new NpcStep(this, NpcID.MURPHY, new WorldPoint(2664, 3160, 0), t("Talk to Murphy again to go diving."), divingAparatus, divingHelmet, canSwim);
 		goDiving.addDialogSteps("Talk about Recipe for Disaster.", "Yes, Let's go diving.");
-		pickUpRocksAgain = new DetailedQuestStep(this, new WorldPoint(2950, 9511, 1), "Pick up 5 rocks so you can kill the crabs.", rocks5);
-		killCrab = new NpcStep(this, NpcID.HUNDRED_PIRATE_GIANT_CRAB_2, new WorldPoint(2977, 9518, 1), "Kill the crabs for some crab meat. Get 2-3 to be safe.", true, crabMeat);
+		pickUpRocksAgain = new DetailedQuestStep(this, new WorldPoint(2950, 9511, 1), t("Pick up 5 rocks so you can kill the crabs."), rocks5);
+		killCrab = new NpcStep(this, NpcID.HUNDRED_PIRATE_GIANT_CRAB_2, new WorldPoint(2977, 9518, 1), t("Kill the crabs for some crab meat. Get 2-3 to be safe."), true, crabMeat);
 		killCrab.addSubSteps(pickUpRocksAgain);
-		grindKelp = new DetailedQuestStep(this, "Use a pestle and mortar on the kelp.", pestleHighlighted, kelpHighlighted);
-		grindCrab = new DetailedQuestStep(this, "Use a pestle and mortar on the crab.", pestleHighlighted, crabMeatHighlighted);
-		climbAnchor = new ObjectStep(this, ObjectID.ANCHOR_MIDDLE, new WorldPoint(2963, 9477, 1), "Climb the anchor to the south to return to the surface.");
+		grindKelp = new DetailedQuestStep(this, t("Use a pestle and mortar on the kelp."), pestleHighlighted, kelpHighlighted);
+		grindCrab = new DetailedQuestStep(this, t("Use a pestle and mortar on the crab."), pestleHighlighted, crabMeatHighlighted);
+		climbAnchor = new ObjectStep(this, ObjectID.ANCHOR_MIDDLE, new WorldPoint(2963, 9477, 1), t("Climb the anchor to the south to return to the surface."));
 		talkToCookAgain = new NpcStep(this, NpcID.COOK, new WorldPoint(3209, 3215, 0),
-			"Talk to the Lumbridge Cook about Pirate Pete again.", groundCod, groundCrabMeatHighlighted, groundKelpHighlighted, breadcrumbs);
+			t("Talk to the Lumbridge Cook about Pirate Pete again."), groundCod, groundCrabMeatHighlighted, groundKelpHighlighted, breadcrumbs);
 		talkToCookAgain.addDialogStep("Protecting the Pirate");
-		useCrabOnKelp = new DetailedQuestStep(this, "Use the ingredients together to make the cake.", groundCrabMeatHighlighted, groundKelpHighlighted, groundCod, breadcrumbs);
-		cookCake = new DetailedQuestStep(this, "Cook the fishcake. It's possible to burn it.", rawFishCake);
-		enterDiningRoomAgain = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOOR, new WorldPoint(3207, 3217, 0), "Go give the fishcake to Pirate Pete to finish the quest.", fishCake);
-		useCakeOnPete = new ObjectStep(this, ObjectID.HUNDRED_PIRATE_BASE, new WorldPoint(1862, 5323, 0), "Give the fishcake to Pirate Pete to finish the quest. BE CAREFUL NOT TO EAT IT.", fishCakeHighlighted);
+		useCrabOnKelp = new DetailedQuestStep(this, t("Use the ingredients together to make the cake."), groundCrabMeatHighlighted, groundKelpHighlighted, groundCod, breadcrumbs);
+		cookCake = new DetailedQuestStep(this, t("Cook the fishcake. It's possible to burn it."), rawFishCake);
+		enterDiningRoomAgain = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOOR, new WorldPoint(3207, 3217, 0), t("Go give the fishcake to Pirate Pete to finish the quest."), fishCake);
+		useCakeOnPete = new ObjectStep(this, ObjectID.HUNDRED_PIRATE_BASE, new WorldPoint(1862, 5323, 0), t("Give the fishcake to Pirate Pete to finish the quest. BE CAREFUL NOT TO EAT IT."), fishCakeHighlighted);
 		useCakeOnPete.addIcon(ItemID.HUNDRED_PIRATE_FISHCAKE);
 		useCakeOnPete.addSubSteps(enterDiningRoomAgain);
 	}
@@ -292,7 +292,7 @@ public class RFDPiratePete extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Arrays.asList("5 Mudskippers (level 30/31)", "Crab (level 21/23)");
+		return Arrays.asList(t("5 Mudskippers (level 30/31)"), t("Crab (level 21/23)"));
 	}
 
 	@Override
@@ -335,17 +335,17 @@ public class RFDPiratePete extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Access to the Mogre Camp"),
-				new UnlockReward("Increased access to the Culinaromancer's Chest"));
+				new UnlockReward(t("Access to the Mogre Camp")),
+				new UnlockReward(t("Increased access to the Culinaromancer's Chest")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off", Arrays.asList(inspectPete, talkToCook, talkToMurphy, talkToMurphyAgain), fishBowl));
-		allSteps.add(new PanelDetails("Get Crab and Kelp", Arrays.asList(goDiving, pickKelp, talkToNung, pickUpRocks, enterCave, killMudksippers5, returnToNung, giveNungWire, killCrab, climbAnchor), Arrays.asList(divingHelmet, divingAparatus, bronzeWire3, needle, emptySlotsX6, canSwim), Collections.singletonList(combatGear)));
-		allSteps.add(new PanelDetails("Saving Pete", Arrays.asList(grindCrab, grindKelp, usePestleOnCod, useKnifeOnBread, talkToCookAgain, useCrabOnKelp, cookCake, useCakeOnPete), pestleHighlighted, knifeHighlighted, rawCodHighlighted, breadHighlighted, crabMeat, kelp));
+		allSteps.add(new PanelDetails(t("Starting off"), Arrays.asList(inspectPete, talkToCook, talkToMurphy, talkToMurphyAgain), fishBowl));
+		allSteps.add(new PanelDetails(t("Get Crab and Kelp"), Arrays.asList(goDiving, pickKelp, talkToNung, pickUpRocks, enterCave, killMudksippers5, returnToNung, giveNungWire, killCrab, climbAnchor), Arrays.asList(divingHelmet, divingAparatus, bronzeWire3, needle, emptySlotsX6, canSwim), Collections.singletonList(combatGear)));
+		allSteps.add(new PanelDetails(t("Saving Pete"), Arrays.asList(grindCrab, grindKelp, usePestleOnCod, useKnifeOnBread, talkToCookAgain, useCrabOnKelp, cookCake, useCakeOnPete), pestleHighlighted, knifeHighlighted, rawCodHighlighted, breadHighlighted, crabMeat, kelp));
 		return allSteps;
 	}
 

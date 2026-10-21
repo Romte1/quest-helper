@@ -173,7 +173,7 @@ public class ShiloVillage extends BasicQuestHelper
 		spade = new ItemRequirement("Spade", ItemID.SPADE).isNotConsumed();
 		torchOrCandle = new ItemRequirement("Lit torch or candle", ItemID.TORCH_LIT);
 		torchOrCandle.addAlternates(ItemID.LIT_CANDLE);
-		torchOrCandle.setTooltip("You will NOT get this item back");
+		torchOrCandle.setTooltip(t("You will NOT get this item back"));
 		rope = new ItemRequirement("Rope", ItemID.ROPE);
 		bronzeWire = new ItemRequirement("Bronze wire", ItemID.BRONZECRAFTWIRE);
 		chisel = new ItemRequirement("Chisel", ItemCollections.CHISEL).isNotConsumed();
@@ -242,76 +242,76 @@ public class ShiloVillage extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToMosol = new NpcStep(this, NpcID.MOSOL_REI, new WorldPoint(2884, 2951, 0), "Talk to Mosol Rei east of Shilo Village in south Karamja to receive a wampum belt.", freeInvSlot1);
+		talkToMosol = new NpcStep(this, NpcID.MOSOL_REI, new WorldPoint(2884, 2951, 0), t("Talk to Mosol Rei east of Shilo Village in south Karamja to receive a wampum belt."), freeInvSlot1);
 		talkToMosol.addDialogSteps("Why do I need to run?", "Rashiliyia? Who is she?", "I'll go to see the Shaman.", "Yes, I'm sure and I'll take the Wampum belt to Trufitus.");
 		talkToMosol.addDialogStep(1, "What can we do?");
 
-		showBeltToTrufitus = new NpcStep(this, NpcID.TRUFITUS, new WorldPoint(2809, 3085, 0), "Show the wampum belt to Trufitus in Tai Bwo Wannai village.", belt.highlighted());
+		showBeltToTrufitus = new NpcStep(this, NpcID.TRUFITUS, new WorldPoint(2809, 3085, 0), t("Show the wampum belt to Trufitus in Tai Bwo Wannai village."), belt.highlighted());
 		showBeltToTrufitus.addDialogStep("Mosol gave me something to show you.");
 		showBeltToTrufitus.addDialogStep("Mosol Rei said something about a legend?");
 		showBeltToTrufitus.addDialogStep("Why was it called Ah Za Rhoon?");
 		showBeltToTrufitus.addDialogStep("I am going to search for Ah Za Rhoon!");
 		showBeltToTrufitus.addDialogStep("Yes.");
 
-		useSpadeOnGround = new ObjectStep(this, ObjectID.AHZARHOON_ENTRANCE, new WorldPoint(2922, 3000, 0), "Use a spade on the ground in south east Karamja.", spade.highlighted());
+		useSpadeOnGround = new ObjectStep(this, ObjectID.AHZARHOON_ENTRANCE, new WorldPoint(2922, 3000, 0), t("Use a spade on the ground in south east Karamja."), spade.highlighted());
 		useSpadeOnGround.addIcon(ItemID.SPADE);
 
-		lookAtMound = new ObjectStep(this, ObjectID.AHZARHOON_ENTRANCE, new WorldPoint(2922, 3000, 0), "Look at the mound of earth in south east Karamja.");
-		useTorchOnFissure = new ObjectStep(this, ObjectID.AHZARHOON_ENTRANCE_FISSURE, new WorldPoint(2922, 3000, 0), "Use a lit torch or candle on the fissure.", torchOrCandle.highlighted());
+		lookAtMound = new ObjectStep(this, ObjectID.AHZARHOON_ENTRANCE, new WorldPoint(2922, 3000, 0), t("Look at the mound of earth in south east Karamja."));
+		useTorchOnFissure = new ObjectStep(this, ObjectID.AHZARHOON_ENTRANCE_FISSURE, new WorldPoint(2922, 3000, 0), t("Use a lit torch or candle on the fissure."), torchOrCandle.highlighted());
 		useTorchOnFissure.addDialogStep("Yes");
 		useTorchOnFissure.addIcon(ItemID.LIT_CANDLE);
 		useTorchOnFissure.addSubSteps(lookAtMound);
-		useRopeOnFissure = new ObjectStep(this, ObjectID.AHZARHOON_ENTRANCE_FISSURE, new WorldPoint(2922, 3000, 0), "Use a rope on the fissure.", rope.highlighted());
+		useRopeOnFissure = new ObjectStep(this, ObjectID.AHZARHOON_ENTRANCE_FISSURE, new WorldPoint(2922, 3000, 0), t("Use a rope on the fissure."), rope.highlighted());
 		useRopeOnFissure.addIcon(ItemID.ROPE);
-		searchFissure = new ObjectStep(this, ObjectID.AHZARHOON_ENTRANCE_FISSURE_WITHROPE, new WorldPoint(2922, 3000, 0), "Right-click search the fissure.");
+		searchFissure = new ObjectStep(this, ObjectID.AHZARHOON_ENTRANCE_FISSURE_WITHROPE, new WorldPoint(2922, 3000, 0), t("Right-click search the fissure."));
 		searchFissure.addDialogStep("Yes, I'll give it a go!");
-		enterDeeperCave = new ObjectStep(this, ObjectID.SECRETRUBBLE, new WorldPoint(2888, 9373, 0), "Search the nearby cave-in to go deeper in the caverns.");
+		enterDeeperCave = new ObjectStep(this, ObjectID.SECRETRUBBLE, new WorldPoint(2888, 9373, 0), t("Search the nearby cave-in to go deeper in the caverns."));
 		enterDeeperCave.addDialogStep("Yes, I'll wriggle through.");
-		searchForTatteredScroll = new ObjectStep(this, ObjectID.SECRETRUBBLEBOOK, new WorldPoint(2885, 9318, 0), "Search the loose rocks to the north for a tattered scroll.");
+		searchForTatteredScroll = new ObjectStep(this, ObjectID.SECRETRUBBLEBOOK, new WorldPoint(2885, 9318, 0), t("Search the loose rocks to the north for a tattered scroll."));
 		searchForTatteredScroll.addDialogStep("Yes, I'll carefully move the rocks to see what's behind them.");
-		searchForCrumpledScroll = new ObjectStep(this, ObjectID.ZQSACKS, new WorldPoint(2939, 9285, 0), "Search the old sacks to the east for a crumpled scroll.");
-		searchForCorpse = new ObjectStep(this, ObjectID.ZQGALLOWS, new WorldPoint(2935, 9326, 0), "Right-click search the gallows in the north east corner for a corpse.");
+		searchForCrumpledScroll = new ObjectStep(this, ObjectID.ZQSACKS, new WorldPoint(2939, 9285, 0), t("Search the old sacks to the east for a crumpled scroll."));
+		searchForCorpse = new ObjectStep(this, ObjectID.ZQGALLOWS, new WorldPoint(2935, 9326, 0), t("Right-click search the gallows in the north east corner for a corpse."));
 		searchForCorpse.addDialogStep("Yes, I may find something else on the corpse.");
 
-		useCorpseOnTrufitus = new NpcStep(this, NpcID.TRUFITUS, new WorldPoint(2809, 3085, 0), "Use Zadimus's corpse on Trufitus.", zadimusCorpse.highlighted());
+		useCorpseOnTrufitus = new NpcStep(this, NpcID.TRUFITUS, new WorldPoint(2809, 3085, 0), t("Use Zadimus's corpse on Trufitus."), zadimusCorpse.highlighted());
 		useCorpseOnTrufitus.addDialogStep("Is there any sacred ground around here?");
 		useCorpseOnTrufitus.addIcon(ItemID.ZQZADIMUSBONES);
 
-		readTattered = new DetailedQuestStep(this, "Read the tattered scroll.", tatteredScroll.highlighted());
+		readTattered = new DetailedQuestStep(this, t("Read the tattered scroll."), tatteredScroll.highlighted());
 		readTattered.addDialogSteps("Yes please.");
 
-		readCrumpled = new DetailedQuestStep(this, "Read the crumpled scroll.", crumpledScroll.highlighted());
+		readCrumpled = new DetailedQuestStep(this, t("Read the crumpled scroll."), crumpledScroll.highlighted());
 		readCrumpled.addDialogSteps("Yes please.");
 
-		buryCorpse = new DetailedQuestStep(this, new WorldPoint(2795, 3089, 0), "Bury Zadimus's corpse in the middle of Tai Bwo Wannai.", zadimusCorpse.highlighted());
+		buryCorpse = new DetailedQuestStep(this, new WorldPoint(2795, 3089, 0), t("Bury Zadimus's corpse in the middle of Tai Bwo Wannai."), zadimusCorpse.highlighted());
 		buryCorpse.addIcon(ItemID.ZQZADIMUSBONES);
 
-		searchRocksOnCairn = new ObjectStep(this, ObjectID.ZQROCKS, new WorldPoint(2762, 2990, 0), "Right-click search the rocks on Cairn Isle.");
+		searchRocksOnCairn = new ObjectStep(this, ObjectID.ZQROCKS, new WorldPoint(2762, 2990, 0), t("Right-click search the rocks on Cairn Isle."));
 		searchRocksOnCairn.addDialogSteps("Yes please, I can think of nothing nicer!");
-		searchDolmen = new ObjectStep(this, ObjectID.ZQDOLMEN, new WorldPoint(2767, 9365, 0), "Right-click search the tomb dolmen to the south.");
-		useChiselOnPommel = new DetailedQuestStep(this, "Use a chisel on the pommel.", chisel.highlighted(), pommel.highlighted());
-		useWireOnBeads = new DetailedQuestStep(this, "Use bronze wire on the beads.", bronzeWire.highlighted(), beads.highlighted());
+		searchDolmen = new ObjectStep(this, ObjectID.ZQDOLMEN, new WorldPoint(2767, 9365, 0), t("Right-click search the tomb dolmen to the south."));
+		useChiselOnPommel = new DetailedQuestStep(this, t("Use a chisel on the pommel."), chisel.highlighted(), pommel.highlighted());
+		useWireOnBeads = new DetailedQuestStep(this, t("Use bronze wire on the beads."), bronzeWire.highlighted(), beads.highlighted());
 
-		searchPalms = new ObjectStep(this, ObjectID.ZQQUEST_HIDYTREE, new WorldPoint(2916, 3093, 0), "Search the palm trees in the north east of Karamja. Come equipped for a boss fight.", List.of(beadsOfTheDead.equipped(), boneShard, chisel, bones3, combatGear), List.of(crumbleUndead, food));
+		searchPalms = new ObjectStep(this, ObjectID.ZQQUEST_HIDYTREE, new WorldPoint(2916, 3093, 0), t("Search the palm trees in the north east of Karamja. Come equipped for a boss fight."), List.of(beadsOfTheDead.equipped(), boneShard, chisel, bones3, combatGear), List.of(crumbleUndead, food));
 
-		searchDoors = new ObjectStep(this, ObjectID.HILLSIDEDOORR_MULTI, new WorldPoint(2916, 3091, 0), "Right-click search the carved doors behind the palm trees.", combatGear);
+		searchDoors = new ObjectStep(this, ObjectID.HILLSIDEDOORR_MULTI, new WorldPoint(2916, 3091, 0), t("Right-click search the carved doors behind the palm trees."), combatGear);
 
 		// 8180 opened?
-		makeKey = new DetailedQuestStep(this, "Use a chisel on the bone shard.", chisel.highlighted(), boneShard.highlighted());
-		useKeyOnDoor = new ObjectStep(this, ObjectID.HILLSIDEDOORR_MULTI, new WorldPoint(2916, 3091, 0), "Use the bone key on the doors behind the palm trees.", boneKey.highlighted());
+		makeKey = new DetailedQuestStep(this, t("Use a chisel on the bone shard."), chisel.highlighted(), boneShard.highlighted());
+		useKeyOnDoor = new ObjectStep(this, ObjectID.HILLSIDEDOORR_MULTI, new WorldPoint(2916, 3091, 0), t("Use the bone key on the doors behind the palm trees."), boneKey.highlighted());
 		useKeyOnDoor.addIcon(ItemID.ZQBONEKEY);
-		enterDoor = new ObjectStep(this, ObjectID.HILLSIDEDOORR_MULTI, new WorldPoint(2916, 3091, 0), "Enter the doors behind the palm trees.", beadsOfTheDead.equipped(), bones3, combatGear);
-		useBonesOnDoor = new ObjectStep(this, ObjectID.THZQ_TOMBROOML1, new WorldPoint(2892, 9480, 0), "Equip the beads of the dead, then make your way through the gate, down the rocks, then to the south west corner. Use bones on the door there.", beadsOfTheDead.equipped(), bones3.highlighted());
+		enterDoor = new ObjectStep(this, ObjectID.HILLSIDEDOORR_MULTI, new WorldPoint(2916, 3091, 0), t("Enter the doors behind the palm trees."), beadsOfTheDead.equipped(), bones3, combatGear);
+		useBonesOnDoor = new ObjectStep(this, ObjectID.THZQ_TOMBROOML1, new WorldPoint(2892, 9480, 0), t("Equip the beads of the dead, then make your way through the gate, down the rocks, then to the south west corner. Use bones on the door there."), beadsOfTheDead.equipped(), bones3.highlighted());
 		useBonesOnDoor.addIcon(ItemID.BONES);
-		searchDolmenForFight = new ObjectStep(this, ObjectID.ZQRASHDOLMEN, new WorldPoint(2893, 9488, 0), "Search the tomb dolmen, ready to fight.");
+		searchDolmenForFight = new ObjectStep(this, ObjectID.ZQRASHDOLMEN, new WorldPoint(2893, 9488, 0), t("Search the tomb dolmen, ready to fight."));
 
-		killNazastarool = new NpcStep(this, NpcID.ZQ_MAINZOMBIE1, new WorldPoint(2892, 9488, 0), "Defeat Nazastarool's 3 forms. You can safe spot them over the tomb dolmen. The Crumble Undead spell is very strong against them.");
+		killNazastarool = new NpcStep(this, NpcID.ZQ_MAINZOMBIE1, new WorldPoint(2892, 9488, 0), t("Defeat Nazastarool's 3 forms. You can safe spot them over the tomb dolmen. The Crumble Undead spell is very strong against them."));
 		killNazastarool.addAlternateNpcs(NpcID.ZQ_MAINZOMBIE2, NpcID.ZQ_MAINZOMBIE3);
 		killNazastarool.addSafeSpots(new WorldPoint(2894, 9486, 0), new WorldPoint(2891, 9486, 0));
-		pickupCorpse = new ItemStep(this, "Pickup Rashiliyia's corpse.", rashCorpse);
-		enterCairnAgain = new ObjectStep(this, ObjectID.ZQROCKS, new WorldPoint(2762, 2990, 0), "Right-click search the rocks on Cairn Isle to enter the caverns again.", rashCorpse);
+		pickupCorpse = new ItemStep(this, t("Pickup Rashiliyia's corpse."), rashCorpse);
+		enterCairnAgain = new ObjectStep(this, ObjectID.ZQROCKS, new WorldPoint(2762, 2990, 0), t("Right-click search the rocks on Cairn Isle to enter the caverns again."), rashCorpse);
 		enterCairnAgain.addDialogSteps("Yes please, I can think of nothing nicer!");
-		useCorpseOnDolmen = new ObjectStep(this, ObjectID.ZQDOLMEN, new WorldPoint(2767, 9365, 0), "Use Rashiliyia's corpse on the dolmen to the south.", rashCorpse.highlighted());
+		useCorpseOnDolmen = new ObjectStep(this, ObjectID.ZQDOLMEN, new WorldPoint(2767, 9365, 0), t("Use Rashiliyia's corpse on the dolmen to the south."), rashCorpse.highlighted());
 		useCorpseOnDolmen.addIcon(ItemID.ZQCORPSE);
 	}
 
@@ -422,7 +422,7 @@ public class ShiloVillage extends BasicQuestHelper
 	public List<String> getCombatRequirements()
 	{
 		return List.of(
-			"Nazastarool 3 times (levels 68, 91, 93) (safespottable)"
+			t("Nazastarool 3 times (levels 68, 91, 93) (safespottable)")
 		);
 	}
 
@@ -444,8 +444,8 @@ public class ShiloVillage extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return List.of(
-			new UnlockReward("Access to Shilo Village"),
-			new UnlockReward("Ability to mine gem rocks in Shilo Village")
+			new UnlockReward(t("Access to Shilo Village")),
+			new UnlockReward(t("Ability to mine gem rocks in Shilo Village"))
 		);
 	}
 
@@ -454,7 +454,7 @@ public class ShiloVillage extends BasicQuestHelper
 	{
 		var sections = new ArrayList<PanelDetails>();
 
-		sections.add(new PanelDetails("Exploring", List.of(
+		sections.add(new PanelDetails(t("Exploring"), List.of(
 			talkToMosol,
 			showBeltToTrufitus,
 			useSpadeOnGround,
@@ -477,7 +477,7 @@ public class ShiloVillage extends BasicQuestHelper
 			freeInvSlot1
 		)));
 
-		sections.add(new PanelDetails("Free Rashiliyia", List.of(
+		sections.add(new PanelDetails(t("Free Rashiliyia"), List.of(
 			searchRocksOnCairn,
 			searchDolmen,
 			useChiselOnPommel,

@@ -164,41 +164,41 @@ public class TheDepthsOfDespair extends BasicQuestHelper
 	public void setupSteps()
 	{
 		talkToLordKandur = new NpcStep(this, NpcID.HOSIDIUSQUEST_LORD_VIS, new WorldPoint(1782, 3572, 0),
-			"Talk to Lord Kandur Hosidius in the house west of the vinery.");
+			t("Talk to Lord Kandur Hosidius in the house west of the vinery."));
 		talkToLordKandur.addDialogSteps("Anything I can help you with?", "Yes.");
 
 		talkToChefOlivia = new NpcStep(this, NpcID.HOSIDIUSQUEST_CHEF, new WorldPoint(1776, 3567, 0),
-			"Speak to Chef Olivia in Lord Kandur's kitchen.");
+			t("Speak to Chef Olivia in Lord Kandur's kitchen."));
 
 		talkToGalana = new NpcStep(this, NpcID.HOSIDIUSQUEST_LIBRARIAN, new WorldPoint(1649, 3824, 0),
-			"Speak to Galana in the Arceuus Library.");
+			t("Speak to Galana in the Arceuus Library."));
 
 		findTheVarlamoreEnvoy = new ItemStep(this,
-			"Find the Varlamore Envoy. Ask Galana for the approximate location if you can't find it.",
+			t("Find the Varlamore Envoy. Ask Galana for the approximate location if you can't find it."),
 			varlamoreEnvoy);
 
-		readTheVarlamoreEnvoy = new DetailedQuestStep(this, "Read the Varlamore Envoy.", varlamoreEnvoy);
+		readTheVarlamoreEnvoy = new DetailedQuestStep(this, t("Read the Varlamore Envoy."), varlamoreEnvoy);
 
 		enterCrabclawCaves = new ObjectStep(this, ObjectID.HOSIDIUSQUEST_CAVE_ENTRANCE, new WorldPoint(1645, 3450, 0),
-			"Enter the Crabclaw Caves.");
+			t("Enter the Crabclaw Caves."));
 
 		goThroughCrevice = new ObjectStep(this, ObjectID.HOSIDIUSQUEST_CRACKIN, new WorldPoint(1711, 9823, 0),
-			"Enter the crevice. Kill a sandcrab for the easy diary while you're here.");
+			t("Enter the crevice. Kill a sandcrab for the easy diary while you're here."));
 		stepOverSteppingStones = new ObjectStep(this, ObjectID.HOSIDIUSQUEST_STONE, new WorldPoint(1706, 9800, 0),
-			"Cross the stepping stones.");
+			t("Cross the stepping stones."));
 		climbPastRocks = new ObjectStep(this, ObjectID.HOSIDIUSQUEST_ROCK, new WorldPoint(1688, 9801, 0),
-			"Climb the rocks.");
+			t("Climb the rocks."));
 		enterTunnelEntrance = new ObjectStep(this, ObjectID.HOSIDIUSQUEST_ROPE_TOP, new WorldPoint(1672, 9800, 0),
-			"Climb down the tunnel at the end.");
+			t("Climb down the tunnel at the end."));
 
-		talkToArturHosidius = new NpcStep(this, NpcID.HOSIDIUSQUEST_SON_CAVES, "Speak to Artur Hosidius.");
+		talkToArturHosidius = new NpcStep(this, NpcID.HOSIDIUSQUEST_SON_CAVES, t("Speak to Artur Hosidius."));
 
-		killSandSnake = new NpcStep(this, NpcID.HOSIDIUSQUEST_SNAKE, "Kill the Sand Snake.");
+		killSandSnake = new NpcStep(this, NpcID.HOSIDIUSQUEST_SNAKE, t("Kill the Sand Snake."));
 
-		searchChest = new ObjectStep(this, ObjectID.HOSIDIUSQUEST_CHEST, "Search the chest.");
+		searchChest = new ObjectStep(this, ObjectID.HOSIDIUSQUEST_CHEST, t("Search the chest."));
 
 		talkToLordKandurAgain = new NpcStep(this, NpcID.HOSIDIUSQUEST_LORD_VIS, new WorldPoint(1782, 3572, 0),
-			"Return to Lord Kandur Hosidius and talk to him.");
+			t("Return to Lord Kandur Hosidius and talk to him."));
 	}
 
 	@Override
@@ -210,7 +210,7 @@ public class TheDepthsOfDespair extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Sand Snake (level 36)");
+		return Collections.singletonList(t("Sand Snake (level 36)"));
 	}
 
 	@Override
@@ -248,18 +248,18 @@ public class TheDepthsOfDespair extends BasicQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		allSteps.add(new PanelDetails("Starting off",
+		allSteps.add(new PanelDetails(t("Starting off"),
 			Arrays.asList(talkToLordKandur, talkToChefOlivia)));
 
-		allSteps.add(new PanelDetails("The Envoy to Varlamore",
+		allSteps.add(new PanelDetails(t("The Envoy to Varlamore"),
 			Arrays.asList(talkToGalana, findTheVarlamoreEnvoy, readTheVarlamoreEnvoy)));
 
-		allSteps.add(new PanelDetails("The Crabclaw Caves",
+		allSteps.add(new PanelDetails(t("The Crabclaw Caves"),
 			Arrays.asList(enterCrabclawCaves, goThroughCrevice, stepOverSteppingStones, climbPastRocks,
 				enterTunnelEntrance, talkToArturHosidius, killSandSnake, searchChest)
 			, foodIfLowLevel, weapon));
 
-		allSteps.add(new PanelDetails("Finishing up",
+		allSteps.add(new PanelDetails(t("Finishing up"),
 			Collections.singletonList(talkToLordKandurAgain)));
 
 		return allSteps;

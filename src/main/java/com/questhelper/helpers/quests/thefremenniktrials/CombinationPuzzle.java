@@ -71,8 +71,8 @@ public class CombinationPuzzle extends ObjectStep
 	public CombinationPuzzle(QuestHelper questHelper, String solution)
 	{
 		super(questHelper, ObjectID.VIKING_SEERS_DOOR1, new WorldPoint(2631, 3667, 0),
-			"Click on the door again, then click the highlighted arrows to solve the combination lock with " +
-			"solution " + solution + ".");
+			questHelper.t("Click on the door again, then click the highlighted arrows to solve the combination lock with solution") +
+			" " + solution + ".");
 		addDialogStep("Solve the riddle");
 		ENTRY_ONE = solution.charAt(0);
 		ENTRY_TWO = solution.charAt(1);

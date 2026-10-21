@@ -81,7 +81,7 @@ public class PuzzleStep extends DetailedOwnerStep
 
 	public PuzzleStep(QuestHelper questHelper)
 	{
-		super(questHelper, "Insert and swap discs to make the sum indicated on the machine.");
+		super(questHelper, questHelper.t("Insert and swap discs to make the sum indicated on the machine."));
 		setupShapes();
 	}
 
@@ -114,22 +114,22 @@ public class PuzzleStep extends DetailedOwnerStep
 	@Override
 	public void setupSteps()
 	{
-		solvePuzzle = new ObjectStep(getQuestHelper(), ObjectID.EYEGLO_GNOME_MACHINE_02_MULTILOC, new WorldPoint(2390, 9826, 0), "Put in the correct pieces.");
-		getPieces = new ObjectStep(getQuestHelper(), ObjectID.EYEGLO_CHANGE_MACHINE_MULTILOC, new WorldPoint(2391, 9826, 0), "Swap in" +
-				" your pieces for the indicated pieces. You can also drop the discs then talk to Brimstail for more tokens.");
-		clickAnswer1 = new WidgetStep(getQuestHelper(), "Click the submit button.", InterfaceID.EyegloGnomeMachineLocked.ARROW_MIDDLE);
+		solvePuzzle = new ObjectStep(getQuestHelper(), ObjectID.EYEGLO_GNOME_MACHINE_02_MULTILOC, new WorldPoint(2390, 9826, 0), getQuestHelper().t("Put in the correct pieces."));
+		getPieces = new ObjectStep(getQuestHelper(), ObjectID.EYEGLO_CHANGE_MACHINE_MULTILOC, new WorldPoint(2391, 9826, 0), getQuestHelper().t("Swap in" +
+				" your pieces for the indicated pieces. You can also drop the discs then talk to Brimstail for more tokens."));
+		clickAnswer1 = new WidgetStep(getQuestHelper(), getQuestHelper().t("Click the submit button."), InterfaceID.EyegloGnomeMachineLocked.ARROW_MIDDLE);
 		clickAnswer1.setShouldOverlayWidget(true);
-		clickAnswer2 = new WidgetStep(getQuestHelper(), "Click the submit button.", InterfaceID.EyegloGnomeMachineUnlocked.CORRECT);
+		clickAnswer2 = new WidgetStep(getQuestHelper(), getQuestHelper().t("Click the submit button."), InterfaceID.EyegloGnomeMachineUnlocked.CORRECT);
 		clickAnswer2.setShouldOverlayWidget(true);
-		insertDisc = new WidgetStep(getQuestHelper(), "Insert the correct discs.", InterfaceID.EyegloGnomeMachineLocked.UNLOCK_COMP_INSERT);
+		insertDisc = new WidgetStep(getQuestHelper(), getQuestHelper().t("Insert the correct discs."), InterfaceID.EyegloGnomeMachineLocked.UNLOCK_COMP_INSERT);
 		insertDisc.setShouldOverlayWidget(true);
-		clickDiscHole = new WidgetStep(getQuestHelper(), "Insert the disc.", InterfaceID.EyegloGnomeMachineLocked.UNLOCK_COMP_INSERT);
+		clickDiscHole = new WidgetStep(getQuestHelper(), getQuestHelper().t("Insert the disc."), InterfaceID.EyegloGnomeMachineLocked.UNLOCK_COMP_INSERT);
 		clickDiscHole.setShouldOverlayWidget(true);
-		clickDiscHole2 = new WidgetStep(getQuestHelper(), "Insert the disc.", InterfaceID.EyegloGnomeMachineUnlocked.SET_1_COINSLOT);
+		clickDiscHole2 = new WidgetStep(getQuestHelper(), getQuestHelper().t("Insert the disc."), InterfaceID.EyegloGnomeMachineUnlocked.SET_1_COINSLOT);
 		clickDiscHole2.setShouldOverlayWidget(true);
-		clickDiscHole3 = new WidgetStep(getQuestHelper(), "Insert the disc.", InterfaceID.EyegloGnomeMachineUnlocked.SET_2_COINSLOT);
+		clickDiscHole3 = new WidgetStep(getQuestHelper(), getQuestHelper().t("Insert the disc."), InterfaceID.EyegloGnomeMachineUnlocked.SET_2_COINSLOT);
 		clickDiscHole3.setShouldOverlayWidget(true);
-		clickDiscHole4 = new WidgetStep(getQuestHelper(), "Insert the disc.", InterfaceID.EyegloGnomeMachineUnlocked.SET_3_COINSLOT);
+		clickDiscHole4 = new WidgetStep(getQuestHelper(), getQuestHelper().t("Insert the disc."), InterfaceID.EyegloGnomeMachineUnlocked.SET_3_COINSLOT);
 		clickDiscHole4.setShouldOverlayWidget(true);
 	}
 

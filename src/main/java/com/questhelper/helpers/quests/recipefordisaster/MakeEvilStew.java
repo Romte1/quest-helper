@@ -78,12 +78,12 @@ public class MakeEvilStew extends DetailedOwnerStep
 		}
 
 		catchRats.setRequirements(Collections.singletonList(cat));
-		catchRats.setText("Have your cat catch Hell-Rats for spices, and add them " +
+		catchRats.setText(getQuestHelper().t("Have your cat catch Hell-Rats for spices, and add them " +
 			"to your stew. You will need to add a random number between 1-3 of each spice (red/orange/yellow/brown). " +
 			"Try adding 1 of a spice to a stew, then using the stew on Evil Dave to see if it's right. If not, try " +
 			"with 2 and then 3. " +
 			"Rinse and repeat until you know the right quantity of each spice, then use the perfect stew combination " +
-			"on Evil Dave.");
+			"on Evil Dave."));
 
 		startUpStep(catchRats);
 
@@ -96,18 +96,18 @@ public class MakeEvilStew extends DetailedOwnerStep
 		setupZones();
 		setupConditions();
 
-		catchRats = new DetailedQuestStep(getQuestHelper(), "Have your cat catch Hell-Rats for spices, and add them " +
-			"to your stew to match the required quantities.");
+		catchRats = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Have your cat catch Hell-Rats for spices, and add them " +
+			"to your stew to match the required quantities."));
 
-		restart = new DetailedQuestStep(getQuestHelper(), "You've added too much of a spice. Eat your spicy stew and " +
-			"start again.", evilStewHighlighted);
+		restart = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("You've added too much of a spice. Eat your spicy stew and " +
+			"start again."), evilStewHighlighted);
 
 		enterBasement = new ObjectStep(getQuestHelper(), ObjectID._100_DAVE_CELLER_TRAPDOOR_CLOSED, new WorldPoint(3077, 3493, 0),
-			"Go back down to Evil Dave.");
+			getQuestHelper().t("Go back down to Evil Dave."));
 		((ObjectStep) enterBasement).addAlternateObjects(ObjectID._100_DAVE_CELLER_TRAPDOOR_OPEN);
 
 		useStewOnEvilDave = new NpcStep(getQuestHelper(), NpcID.HUNDRED_EVIL_DAVE, new WorldPoint(3080, 9889, 0),
-			"Use the spicy stew on Evil Dave.", evilStewHighlighted);
+			getQuestHelper().t("Use the spicy stew on Evil Dave."), evilStewHighlighted);
 	}
 
 	protected void setupRequirements()

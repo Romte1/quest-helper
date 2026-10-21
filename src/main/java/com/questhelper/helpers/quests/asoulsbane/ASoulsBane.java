@@ -186,28 +186,28 @@ public class ASoulsBane extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToLauna = new NpcStep(this, NpcID.SOULBANE_LAUNA, new WorldPoint(3307, 3454, 0), "Talk to Launa east of Varrock.");
+		talkToLauna = new NpcStep(this, NpcID.SOULBANE_LAUNA, new WorldPoint(3307, 3454, 0), t("Talk to Launa east of Varrock."));
 		talkToLauna.addDialogStep("Yes.");
 		talkToLauna.addDialogStep("Would you like me to go down to look for your husband and son?");
 
-		useRopeOnRift = new ObjectStep(this, ObjectID.SOULBANE_FALLOFF2_ROPE_MULTI, new WorldPoint(3310, 3452, 0), "Use a rope on the rift.", rope);
+		useRopeOnRift = new ObjectStep(this, ObjectID.SOULBANE_FALLOFF2_ROPE_MULTI, new WorldPoint(3310, 3452, 0), t("Use a rope on the rift."), rope);
 		useRopeOnRift.addIcon(ItemID.ROPE);
 
-		enterRift = new ObjectStep(this, ObjectID.SOULBANE_FALLOFF2_ROPE_MULTI, new WorldPoint(3310, 3452, 0), "Enter the rift.", combatGear);
+		enterRift = new ObjectStep(this, ObjectID.SOULBANE_FALLOFF2_ROPE_MULTI, new WorldPoint(3310, 3452, 0), t("Enter the rift."), combatGear);
 
-		takeWeapon = new ObjectStep(this, ObjectID.SOULBANE_RACK_MULTI, new WorldPoint(3012, 5244, 0), "Take a weapon from the weapon rack. Kill the angry monsters with the appropriate weapon:");
-		takeWeapon.setText(Arrays.asList("Take a weapon from the weapon rack. Kill the angry monsters with the appropriate weapon:",
-			"Sword - Unicorn",
-			"Spear - Bear",
-			"Mace - Rat",
-			"Battleaxe - Goblin"));
+		takeWeapon = new ObjectStep(this, ObjectID.SOULBANE_RACK_MULTI, new WorldPoint(3012, 5244, 0), t("Take a weapon from the weapon rack. Kill the angry monsters with the appropriate weapon:"));
+		takeWeapon.setText(Arrays.asList(t("Take a weapon from the weapon rack. Kill the angry monsters with the appropriate weapon:"),
+			t("Sword - Unicorn"),
+			t("Spear - Bear"),
+			t("Mace - Rat"),
+			t("Battleaxe - Goblin")));
 
 
-		List<String> killText = Arrays.asList("Kill animals with appropriate weapons until the Rage Metre fills.",
-			"Sword - Unicorn",
-			"Spear - Bear",
-			"Mace - Rat",
-			"Battleaxe - Goblin");
+		List<String> killText = Arrays.asList(t("Kill animals with appropriate weapons until the Rage Metre fills."),
+			t("Sword - Unicorn"),
+			t("Spear - Bear"),
+			t("Mace - Rat"),
+			t("Battleaxe - Goblin"));
 
 		killAnimals = new DetailedQuestStep(this, "");
 		killAnimals.setText(killText);
@@ -226,37 +226,36 @@ public class ASoulsBane extends BasicQuestHelper
 
 		killAnimals.addSubSteps(killBears, killGoblins, killRats, killUnicorn);
 
-		leaveAngerRoom = new ObjectStep(this, ObjectID.SOUL_BANE_AWALL_VOID_EXIT, new WorldPoint(3038, 5229, 0), "Go to the next room.");
+		leaveAngerRoom = new ObjectStep(this, ObjectID.SOUL_BANE_AWALL_VOID_EXIT, new WorldPoint(3038, 5229, 0), t("Go to the next room."));
 
 		lookInsideHoles = new ObjectStep(this, ObjectID.SOUL_BANE_FWALL_VOID6, new WorldPoint(3046, 5240, 0),
-			"Look inside the Dark Holes to cause fear reapers to appear. Kill 5 of them. You cannot search the same hole over and over again.", true);
+			t("Look inside the Dark Holes to cause fear reapers to appear. Kill 5 of them. You cannot search the same hole over and over again."), true);
 		((ObjectStep) lookInsideHoles).addAlternateObjects(ObjectID.SOUL_BANE_FWALL_VOID, ObjectID.SOUL_BANE_FWALL_VOID2,
 			ObjectID.SOUL_BANE_FWALL_VOID3, ObjectID.SOUL_BANE_FWALL_VOID4, ObjectID.SOUL_BANE_FWALL_VOID5);
 
-		killReaper = new NpcStep(this, NpcID.SOULBANE_FEAR_REAPER, new WorldPoint(3058, 5230, 0), "Kill the Fear Reaper.");
+		killReaper = new NpcStep(this, NpcID.SOULBANE_FEAR_REAPER, new WorldPoint(3058, 5230, 0), t("Kill the Fear Reaper."));
 		lookInsideHoles.addSubSteps(killReaper);
 
-		leaveFearRoom = new ObjectStep(this, ObjectID.SOULBANE_FWALL_EXIT_MULTI, new WorldPoint(3046, 5236, 0), "Continue to the next room.");
+		leaveFearRoom = new ObjectStep(this, ObjectID.SOULBANE_FWALL_EXIT_MULTI, new WorldPoint(3046, 5236, 0), t("Continue to the next room."));
 
 		killRealConfusionBeast = new NpcStep(this, NpcID.SOULBANE_CONFU_CREEPER, new WorldPoint(3055, 5199, 0),
-			"Attack the confusion beasts until you find one which takes damage, and kill it. The others will take 8 " +
-				"hits to die.",	true);
+			t("Attack the confusion beasts until you find one which takes damage, and kill it. The others will take 8 hits to die."), true);
 		((NpcStep) killRealConfusionBeast).addAlternateNpcs(NpcID.SOULBANE_CONFU_CREEPER_FAKE1, NpcID.SOULBANE_CONFU_CREEPER_FAKE2,
 			NpcID.SOULBANE_CONFU_CREEPER_FAKE3, NpcID.SOULBANE_CONFU_CREEPER_FAKE4);
 
-		leaveConfusionRoom = new ObjectStep(this, ObjectID.SOULBANE_DOOR_MULTI6, new WorldPoint(3051, 5200, 0), "Leave the room through the confusing door.");
+		leaveConfusionRoom = new ObjectStep(this, ObjectID.SOULBANE_DOOR_MULTI6, new WorldPoint(3051, 5200, 0), t("Leave the room through the confusing door."));
 
-		killHopelessCreatures = new NpcStep(this, NpcID.SOULBANE_HOPE_MONST3, new WorldPoint(3087, 5198, 0), "Kill each hopeless creature 3 times.", true);
+		killHopelessCreatures = new NpcStep(this, NpcID.SOULBANE_HOPE_MONST3, new WorldPoint(3087, 5198, 0), t("Kill each hopeless creature 3 times."), true);
 		killHopelessCreatures.addAlternateNpcs(NpcID.SOULBANE_HOPE_MONST2, NpcID.SOULBANE_HOPE_MONST1, NpcID.SOULBANE_LESS_BEAST3);
 
-		leaveHopelessRoom = new ObjectStep(this, ObjectID.SOUL_BANE_HWALL_VOID_EXIT, new WorldPoint(3021, 5188, 0), "Continue through the exit of the room.");
+		leaveHopelessRoom = new ObjectStep(this, ObjectID.SOUL_BANE_HWALL_VOID_EXIT, new WorldPoint(3021, 5188, 0), t("Continue through the exit of the room."));
 
-		killHeads = new NpcStep(this, NpcID.SOULBANE_FINAL_TOLNA1, new WorldPoint(2984, 5212, 1), "Kill all three of Tolna's heads.", true);
+		killHeads = new NpcStep(this, NpcID.SOULBANE_FINAL_TOLNA1, new WorldPoint(2984, 5212, 1), t("Kill all three of Tolna's heads."), true);
 		killHeads.addAlternateNpcs(NpcID.SOULBANE_FINAL_TOLNA2, NpcID.SOULBANE_FINAL_TOLNA3);
 
-		talkToTolna = new NpcStep(this, NpcID.SOULBANE_TOLNA, new WorldPoint(2984, 5212, 1), "Talk to Tolna.");
+		talkToTolna = new NpcStep(this, NpcID.SOULBANE_TOLNA, new WorldPoint(2984, 5212, 1), t("Talk to Tolna."));
 
-		talkToTolnaAgain = new NpcStep(this, NpcID.SOULBANE_TOLNA_TOP, new WorldPoint(3307, 3454, 0), "Talk to Tolna outside the rift.");
+		talkToTolnaAgain = new NpcStep(this, NpcID.SOULBANE_TOLNA_TOP, new WorldPoint(3307, 3454, 0), t("Talk to Tolna outside the rift."));
 	}
 
 	@Override
@@ -274,7 +273,7 @@ public class ASoulsBane extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Multiple level 40-46 enemies");
+		return Collections.singletonList(t("Multiple level 40-46 enemies"));
 	}
 
 	@Override
@@ -300,29 +299,29 @@ public class ASoulsBane extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("Access to the Dungeon of Tolna"));
+		return Collections.singletonList(new UnlockReward(t("Access to the Dungeon of Tolna")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off",
+		allSteps.add(new PanelDetails(t("Starting off"),
 			Arrays.asList(talkToLauna, useRopeOnRift, enterRift), rope, combatGear));
 
-		allSteps.add(new PanelDetails("Anger room",
+		allSteps.add(new PanelDetails(t("Anger room"),
 			Arrays.asList(takeWeapon, killAnimals, leaveAngerRoom), combatGear));
 
-		allSteps.add(new PanelDetails("Fear room",
+		allSteps.add(new PanelDetails(t("Fear room"),
 			Arrays.asList(lookInsideHoles, leaveFearRoom), combatGear));
 
-		allSteps.add(new PanelDetails("Confusion room",
+		allSteps.add(new PanelDetails(t("Confusion room"),
 			Arrays.asList(killRealConfusionBeast, leaveConfusionRoom), combatGear));
 
-		allSteps.add(new PanelDetails("Hopelessness room",
+		allSteps.add(new PanelDetails(t("Hopelessness room"),
 			Arrays.asList(killHopelessCreatures, leaveHopelessRoom), combatGear));
 
-		allSteps.add(new PanelDetails("Save Tolna",
+		allSteps.add(new PanelDetails(t("Save Tolna"),
 			Arrays.asList(killHeads, talkToTolna, talkToTolnaAgain), combatGear));
 
 		return allSteps;

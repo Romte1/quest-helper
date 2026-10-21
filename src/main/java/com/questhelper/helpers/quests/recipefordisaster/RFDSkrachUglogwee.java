@@ -188,48 +188,48 @@ public class RFDSkrachUglogwee extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		enterDiningRoom = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOUBLEDOORL, new WorldPoint(3213, 3221, 0), "Go inspect Skrach Uglogwee in Lumbridge Castle.");
+		enterDiningRoom = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOUBLEDOORL, new WorldPoint(3213, 3221, 0), t("Go inspect Skrach Uglogwee in Lumbridge Castle."));
 		enterDiningRoom.addTeleport(lumbridgeTeleport);
-		inspectSkrach = new ObjectStep(this, ObjectID.HUNDRED_OGRE_BASE, new WorldPoint(1864, 5329, 0), "Inspect Skrach Uglogwee.");
+		inspectSkrach = new ObjectStep(this, ObjectID.HUNDRED_OGRE_BASE, new WorldPoint(1864, 5329, 0), t("Inspect Skrach Uglogwee."));
 		inspectSkrach.addDialogSteps("Yes, I'm sure I can get some Jubbly Chompy.", "Oh Ok then, I guess I'll talk to Rantz.");
 		inspectSkrach.addSubSteps(enterDiningRoom);
 
-		talkToRantz = new NpcStep(this, NpcID.RANTZ, new WorldPoint(2630, 2984, 0), "Talk to Rantz in Feldip Hills.");
+		talkToRantz = new NpcStep(this, NpcID.RANTZ, new WorldPoint(2630, 2984, 0), t("Talk to Rantz in Feldip Hills."));
 		talkToRantz.addDialogSteps("I'm trying to free Skrach, can you help?", "Ok, I'll do it.");
 		talkToRantz.addTeleport(feldipTeleport);
-		talkToRantzOnCoast = new NpcStep(this, NpcID._100_RANTZ, new WorldPoint(2649, 2964, 0), "Talk to Rantz on the east coast of Feldip Hills.");
+		talkToRantzOnCoast = new NpcStep(this, NpcID._100_RANTZ, new WorldPoint(2649, 2964, 0), t("Talk to Rantz on the east coast of Feldip Hills."));
 		talkToRantzOnCoast.addDialogStep("Ok, here I am...I guess this is the watery place? What now?");
-		useAxeOnTree = new ObjectStep(this, ObjectID._100_JUBBLY_MULTI_PUSH_TREE, new WorldPoint(2655, 2963, 0), "Use an axe on the old tree near Rantz.", axeHighlighted);
+		useAxeOnTree = new ObjectStep(this, ObjectID._100_JUBBLY_MULTI_PUSH_TREE, new WorldPoint(2655, 2963, 0), t("Use an axe on the old tree near Rantz."), axeHighlighted);
 		useAxeOnTree.addIcon(ItemID.RUNE_AXE);
-		useAxeOnTreeAgain = new ObjectStep(this, ObjectID._100_JUBBLY_MULTI_PUSH_TREE, new WorldPoint(2655, 2963, 0), "Use an axe on the old tree near Rantz again.", axeHighlighted);
+		useAxeOnTreeAgain = new ObjectStep(this, ObjectID._100_JUBBLY_MULTI_PUSH_TREE, new WorldPoint(2655, 2963, 0), t("Use an axe on the old tree near Rantz again."), axeHighlighted);
 		useAxeOnTreeAgain.addIcon(ItemID.RUNE_AXE);
-		talkToRantzOnCoastAgain = new NpcStep(this, NpcID._100_RANTZ, new WorldPoint(2649, 2964, 0), "Talk to Rantz again on the east coast of Feldip Hills.");
+		talkToRantzOnCoastAgain = new NpcStep(this, NpcID._100_RANTZ, new WorldPoint(2649, 2964, 0), t("Talk to Rantz again on the east coast of Feldip Hills."));
 		talkToRantzOnCoastAgain.addDialogStep("Ok, the boat's ready, now tell me how to get a Jubbly?");
-		useSpitOnChompy = new DetailedQuestStep(this, "Use an iron spit on a chompy.", ironSpit.highlighted(), chompy.highlighted());
-		lightFire = new DetailedQuestStep(this, new WorldPoint(2760, 3080, 0), "Light a fire on karamja's west coast. Afterwards, use your skewered chompy on it.",
+		useSpitOnChompy = new DetailedQuestStep(this, t("Use an iron spit on a chompy."), ironSpit.highlighted(), chompy.highlighted());
+		lightFire = new DetailedQuestStep(this, new WorldPoint(2760, 3080, 0), t("Light a fire on karamja's west coast. Afterwards, use your skewered chompy on it."),
 			log.highlighted(), tinderbox.highlighted(), chompySpitted);
 		lightFire.addIcon(ItemID.LOGS);
 		lightFire.addTeleport(karamjaTeleport);
-		cookChompy = new ObjectStep(this, ObjectID.FIRE, "Cook the skewered chompy on the fire.", chompySpitted.highlighted());
+		cookChompy = new ObjectStep(this, ObjectID.FIRE, t("Cook the skewered chompy on the fire."), chompySpitted.highlighted());
 		cookChompy.addIcon(ItemID.SPIT_SKEWERED_CHOMPY);
 		lightFire.addSubSteps(cookChompy);
-		talkToRantzAfterReturn = new NpcStep(this, NpcID._100_RANTZ, new WorldPoint(2649, 2964, 0), "Travel back with Rantz's kids and talk to Rantz again.");
+		talkToRantzAfterReturn = new NpcStep(this, NpcID._100_RANTZ, new WorldPoint(2649, 2964, 0), t("Travel back with Rantz's kids and talk to Rantz again."));
 		talkToRantzAfterReturn.addDialogSteps("Yes please, I'll get a lift back with you.", "Ok, now tell me how to get Jubbly!");
-		fillUpBellows = new ObjectStep(this, ObjectID.SWAMPBUBBLES, new WorldPoint(2601, 2967, 0), "Fill some ogre bellows on some swamp bubbles.", ogreBellows);
-		getToad = new NpcStep(this, NpcID.TOAD, new WorldPoint(2601, 2967, 0), "Blow up a toad with the bellows.", ogreBellowsFilled);
+		fillUpBellows = new ObjectStep(this, ObjectID.SWAMPBUBBLES, new WorldPoint(2601, 2967, 0), t("Fill some ogre bellows on some swamp bubbles."), ogreBellows);
+		getToad = new NpcStep(this, NpcID.TOAD, new WorldPoint(2601, 2967, 0), t("Blow up a toad with the bellows."), ogreBellowsFilled);
 		getToad.addSubSteps(fillUpBellows);
-		getRock = new ObjectStep(this, ObjectID.SWAMP_ROCK1, new WorldPoint(2567, 2960, 0), "Mine a pile of rocks near the Feldip Hills Fairy Ring for a rock.", pickaxe);
-		useBellowOnToadInInv = new DetailedQuestStep(this, "Use the bellows on your toad with a ball of wool in your inventory.", ogreBellowsFilled, toad, ballOfWool);
-		dropBalloonToad = new DetailedQuestStep(this, new WorldPoint(2635, 2965, 0), "Drop the balloon toad in the dark area south of Rantz's cave and wait for a Jubbly to arrive.", toadReady, ogreBowAndArrows);
-		killJubbly = new NpcStep(this, NpcID._100_JUBBLY_BIRD, "Kill then pluck jubbly.", ogreBowAndArrows);
-		pickUpRawJubbly = new ItemStep(this, "Pick up the raw jubbly.", rawJubbly);
-		lootJubbly = new NpcStep(this, NpcID._100_JUBBLY_BIRD_DEAD, "Pluck the jubbly's carcass.");
-		cookJubbly = new ObjectStep(this, ObjectID.MULTI_CHOMPYBIRD_SPITROAST_ENTITY, new WorldPoint(2631, 2990, 0), "Cook the raw jubbly on Rantz's spit.", rawJubbly);
+		getRock = new ObjectStep(this, ObjectID.SWAMP_ROCK1, new WorldPoint(2567, 2960, 0), t("Mine a pile of rocks near the Feldip Hills Fairy Ring for a rock."), pickaxe);
+		useBellowOnToadInInv = new DetailedQuestStep(this, t("Use the bellows on your toad with a ball of wool in your inventory."), ogreBellowsFilled, toad, ballOfWool);
+		dropBalloonToad = new DetailedQuestStep(this, new WorldPoint(2635, 2965, 0), t("Drop the balloon toad in the dark area south of Rantz's cave and wait for a Jubbly to arrive."), toadReady, ogreBowAndArrows);
+		killJubbly = new NpcStep(this, NpcID._100_JUBBLY_BIRD, t("Kill then pluck jubbly."), ogreBowAndArrows);
+		pickUpRawJubbly = new ItemStep(this, t("Pick up the raw jubbly."), rawJubbly);
+		lootJubbly = new NpcStep(this, NpcID._100_JUBBLY_BIRD_DEAD, t("Pluck the jubbly's carcass."));
+		cookJubbly = new ObjectStep(this, ObjectID.MULTI_CHOMPYBIRD_SPITROAST_ENTITY, new WorldPoint(2631, 2990, 0), t("Cook the raw jubbly on Rantz's spit."), rawJubbly);
 		cookJubbly.addIcon(ItemID._100_JUBBLY_MEAT_RAW);
 
-		enterDiningRoomAgain = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOOR, new WorldPoint(3207, 3217, 0), "Go give the jubbly to Skrach Uglogwee to finish the quest.", cookedJubbly);
+		enterDiningRoomAgain = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOOR, new WorldPoint(3207, 3217, 0), t("Go give the jubbly to Skrach Uglogwee to finish the quest."), cookedJubbly);
 		enterDiningRoomAgain.addTeleport(lumbridgeTeleport);
-		useJubblyOnSkrach = new ObjectStep(this, ObjectID.HUNDRED_OGRE_BASE, new WorldPoint(1864, 5329, 0), "Give the jubbly to Skrach Uglogwee to finish the quest.", cookedJubblyHighlighted);
+		useJubblyOnSkrach = new ObjectStep(this, ObjectID.HUNDRED_OGRE_BASE, new WorldPoint(1864, 5329, 0), t("Give the jubbly to Skrach Uglogwee to finish the quest."), cookedJubblyHighlighted);
 		useJubblyOnSkrach.addIcon(ItemID._100_JUBBLY_MEAT_COOKED);
 		useJubblyOnSkrach.addSubSteps(enterDiningRoomAgain);
 	}
@@ -249,7 +249,7 @@ public class RFDSkrachUglogwee extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Jubbly (level 9)");
+		return Collections.singletonList(t("Jubbly (level 9)"));
 	}
 
 	@Override
@@ -282,20 +282,20 @@ public class RFDSkrachUglogwee extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("New method of travel between Karamja and Feldip Hills."),
-				new UnlockReward("Increased access to the Culinaromancer's Chest."));
+				new UnlockReward(t("New method of travel between Karamja and Feldip Hills.")),
+				new UnlockReward(t("Increased access to the Culinaromancer's Chest.")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off", Collections.singletonList(inspectSkrach), Collections.singletonList(lumbridgeTeleport)));
-		allSteps.add(new PanelDetails("Help Rantz", Arrays.asList(talkToRantz, talkToRantzOnCoast, useAxeOnTree, useAxeOnTreeAgain,
+		allSteps.add(new PanelDetails(t("Starting off"), Collections.singletonList(inspectSkrach), Collections.singletonList(lumbridgeTeleport)));
+		allSteps.add(new PanelDetails(t("Help Rantz"), Arrays.asList(talkToRantz, talkToRantzOnCoast, useAxeOnTree, useAxeOnTreeAgain,
 			talkToRantzOnCoastAgain, useSpitOnChompy, lightFire, talkToRantzAfterReturn),
 			Arrays.asList(axeHighlighted, log, tinderbox, chompy, ironSpit, ogreBowAndArrows, pickaxe, ogreBellows, ballOfWool),
 			Arrays.asList(feldipTeleport, karamjaTeleport, lumbridgeTeleport)));
-		allSteps.add(new PanelDetails("Save Skrach", Arrays.asList(getToad, getRock, useBellowOnToadInInv,
+		allSteps.add(new PanelDetails(t("Save Skrach"), Arrays.asList(getToad, getRock, useBellowOnToadInInv,
 			dropBalloonToad, killJubbly, lootJubbly, pickUpRawJubbly, cookJubbly, useJubblyOnSkrach),
 			Arrays.asList(ogreBowAndArrows, pickaxe, ogreBellows, ballOfWool),
 			Collections.singletonList(lumbridgeTeleport)));

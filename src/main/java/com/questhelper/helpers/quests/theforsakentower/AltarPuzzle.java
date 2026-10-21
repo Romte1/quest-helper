@@ -290,59 +290,59 @@ public class AltarPuzzle extends DetailedOwnerStep
 		rebalanceC = new ArrayList<>();
 		rebalanceE = new ArrayList<>();
 
-		goUpLadder = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_DUNGEON_EXIT, new WorldPoint(1382, 10229, 0), "Leave the tower's basement.");
-		goUpStairs = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_SPIRAL_STAIRS_M, new WorldPoint(1378, 3825, 0), "Climb up the staircase to the tower's 1st floor.");
-		goUpToSecondFloor = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_LADDER_UP, new WorldPoint(1382, 3827, 1), "Climb up the ladder to the top floor.");
+		goUpLadder = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_DUNGEON_EXIT, new WorldPoint(1382, 10229, 0), getQuestHelper().t("Leave the tower's basement."));
+		goUpStairs = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_SPIRAL_STAIRS_M, new WorldPoint(1378, 3825, 0), getQuestHelper().t("Climb up the staircase to the tower's 1st floor."));
+		goUpToSecondFloor = new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_TOWER_LADDER_UP, new WorldPoint(1382, 3827, 1), getQuestHelper().t("Climb up the ladder to the top floor."));
 		for (int i = 0; i < 10; i++)
 		{
-			rebalanceW.add(new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_PYLON_1, new WorldPoint(1380, 3824, 2), "Rebalance the west pylon."));
-			rebalanceC.add(new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_PYLON_2, new WorldPoint(1382, 3824, 2), "Rebalance the central pylon."));
-			rebalanceE.add(new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_PYLON_3, new WorldPoint(1384, 3824, 2), "Rebalance the east pylon."));
+			rebalanceW.add(new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_PYLON_1, new WorldPoint(1380, 3824, 2), getQuestHelper().t("Rebalance the west pylon.")));
+			rebalanceC.add(new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_PYLON_2, new WorldPoint(1382, 3824, 2), getQuestHelper().t("Rebalance the central pylon.")));
+			rebalanceE.add(new ObjectStep(getQuestHelper(), ObjectID.LOVAQUEST_PYLON_3, new WorldPoint(1384, 3824, 2), getQuestHelper().t("Rebalance the east pylon.")));
 		}
-		m1 = new DetailedQuestStep(getQuestHelper(), "Move a disc from the west pylon to the east pylon.");
+		m1 = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Move a disc from the west pylon to the east pylon."));
 		m1.addSubSteps(rebalanceW.get(0), rebalanceE.get(0));
-		m2 = new DetailedQuestStep(getQuestHelper(), "Move a disc from the west pylon to the centre pylon.");
+		m2 = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Move a disc from the west pylon to the centre pylon."));
 		m2.addSubSteps(rebalanceW.get(1), rebalanceC.get(0));
-		m3 = new DetailedQuestStep(getQuestHelper(), "Move a disc from the east pylon to the centre pylon.");
+		m3 = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Move a disc from the east pylon to the centre pylon."));
 		m3.addSubSteps(rebalanceE.get(1), rebalanceC.get(1));
-		m4 = new DetailedQuestStep(getQuestHelper(), "Move a disc from the west pylon to the east pylon.");
+		m4 = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Move a disc from the west pylon to the east pylon."));
 		m4.addSubSteps(rebalanceW.get(2), rebalanceE.get(2));
-		m5 = new DetailedQuestStep(getQuestHelper(), "Move a disc from the centre pylon to the west pylon.");
+		m5 = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Move a disc from the centre pylon to the west pylon."));
 		m5.addSubSteps(rebalanceC.get(2), rebalanceW.get(3));
-		m6 = new DetailedQuestStep(getQuestHelper(), "Move a disc from the centre pylon to the east pylon.");
+		m6 = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Move a disc from the centre pylon to the east pylon."));
 		m6.addSubSteps(rebalanceC.get(3), rebalanceE.get(3));
-		m7 = new DetailedQuestStep(getQuestHelper(), "Move a disc from the west pylon to the east pylon.");
+		m7 = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Move a disc from the west pylon to the east pylon."));
 		m7.addSubSteps(rebalanceW.get(4), rebalanceE.get(4));
-		m8 = new DetailedQuestStep(getQuestHelper(), "Move a disc from the west pylon to the centre pylon.");
+		m8 = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Move a disc from the west pylon to the centre pylon."));
 		m8.addSubSteps(rebalanceW.get(5), rebalanceC.get(4));
-		m9 = new DetailedQuestStep(getQuestHelper(), "Move a disc from the east pylon to the centre pylon.");
+		m9 = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Move a disc from the east pylon to the centre pylon."));
 		m9.addSubSteps(rebalanceE.get(5), rebalanceC.get(5));
-		m10 = new DetailedQuestStep(getQuestHelper(), "Move a disc from the east pylon to the west pylon.");
+		m10 = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Move a disc from the east pylon to the west pylon."));
 		m10.addSubSteps(rebalanceE.get(6), rebalanceW.get(6));
-		m11 = new DetailedQuestStep(getQuestHelper(), "Move a disc from the centre pylon to the west pylon.");
+		m11 = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Move a disc from the centre pylon to the west pylon."));
 		m11.addSubSteps(rebalanceC.get(6), rebalanceW.get(7));
-		m12 = new DetailedQuestStep(getQuestHelper(), "Move a disc from the east pylon to the centre pylon.");
+		m12 = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Move a disc from the east pylon to the centre pylon."));
 		m12.addSubSteps(rebalanceE.get(7), rebalanceC.get(7));
-		m13 = new DetailedQuestStep(getQuestHelper(), "Move a disc from the west pylon to the east pylon.");
+		m13 = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Move a disc from the west pylon to the east pylon."));
 		m13.addSubSteps(rebalanceW.get(8), rebalanceE.get(8));
-		m14 = new DetailedQuestStep(getQuestHelper(), "Move a disc from the west pylon to the centre pylon.");
+		m14 = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Move a disc from the west pylon to the centre pylon."));
 		m14.addSubSteps(rebalanceW.get(9), rebalanceC.get(8));
-		m15 = new DetailedQuestStep(getQuestHelper(), "Move a disc from the east pylon to the centre pylon.");
+		m15 = new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Move a disc from the east pylon to the centre pylon."));
 		m15.addSubSteps(rebalanceE.get(9), rebalanceC.get(9));
 
 		moves = new ArrayList<>(Arrays.asList(m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14, m15));
-		moves.replaceAll(step -> new PuzzleWrapperStep(getQuestHelper(), step, "Solve the altar puzzle."));
-		rebalanceC.replaceAll(step -> new PuzzleWrapperStep(getQuestHelper(), step, "Solve the altar puzzle."));
-		rebalanceW.replaceAll(step -> new PuzzleWrapperStep(getQuestHelper(), step, "Solve the altar puzzle."));
-		rebalanceE.replaceAll(step -> new PuzzleWrapperStep(getQuestHelper(), step, "Solve the altar puzzle."));
+		moves.replaceAll(step -> new PuzzleWrapperStep(getQuestHelper(), step, getQuestHelper().t("Solve the altar puzzle.")));
+		rebalanceC.replaceAll(step -> new PuzzleWrapperStep(getQuestHelper(), step, getQuestHelper().t("Solve the altar puzzle.")));
+		rebalanceW.replaceAll(step -> new PuzzleWrapperStep(getQuestHelper(), step, getQuestHelper().t("Solve the altar puzzle.")));
+		rebalanceE.replaceAll(step -> new PuzzleWrapperStep(getQuestHelper(), step, getQuestHelper().t("Solve the altar puzzle.")));
 
-		restartStep = new PuzzleWrapperStep(getQuestHelper(), new DetailedQuestStep(getQuestHelper(), "Unknown state. Restart the puzzle to start again."));
+		restartStep = new PuzzleWrapperStep(getQuestHelper(), new DetailedQuestStep(getQuestHelper(), getQuestHelper().t("Unknown state. Restart the puzzle to start again.")));
 	}
 
 	public List<PanelDetails> panelDetails()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		PanelDetails altarPuzzle = new PanelDetails("Altar puzzle",
+		PanelDetails altarPuzzle = new PanelDetails(getQuestHelper().t("Altar puzzle"),
 			new ArrayList<>(List.of(goUpToSecondFloor)));
 		moves.forEach((altarPuzzle::addSteps));
 		altarPuzzle.setLockingStep(this);

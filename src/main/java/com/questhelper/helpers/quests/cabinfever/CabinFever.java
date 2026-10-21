@@ -339,7 +339,7 @@ public class CabinFever extends BasicQuestHelper
 		ropeHighlight = new ItemRequirement("Rope", ItemID.ROPE);
 		ropeHighlight.setHighlightInInventory(true);
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
-		tinderbox.setTooltip("You can get another from the ship's hull");
+		tinderbox.setTooltip(t("You can get another from the ship's hull"));
 		tinderboxHighlight = tinderbox.highlighted();
 		floorTinderbox = new ItemRequirement("Tinderbox", ItemID.FEVER_TINDERBOX);
 		rope3 = new ItemRequirement("Rope", ItemID.ROPE, 3);
@@ -460,162 +460,162 @@ public class CabinFever extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		talkToBill = new NpcStep(this, NpcID.FEVER_TEACH, new WorldPoint(3678, 3494, 0), "Talk to Bill Teach in Port Phasmatys.");
+		talkToBill = new NpcStep(this, NpcID.FEVER_TEACH, new WorldPoint(3678, 3494, 0), t("Talk to Bill Teach in Port Phasmatys."));
 		talkToBill.addDialogSteps("Yes.", "Yes, I've always wanted to be a pirate!", "Yes, I am a woman of my word.", "Yes, I am a man of my word.");
-		goOnBillBoat = new ObjectStep(this, ObjectID.FEVER_GANGPLANK, new WorldPoint(3710, 3496, 0), "Talk to Bill Teach on his boat in Port Phasmatys.");
-		talkToBillOnBoat = new NpcStep(this, NpcID.FEVER_TEACH, new WorldPoint(3714, 3496, 1), "Talk to Bill Teach on his boat in Port Phasmatys.");
+		goOnBillBoat = new ObjectStep(this, ObjectID.FEVER_GANGPLANK, new WorldPoint(3710, 3496, 0), t("Talk to Bill Teach on his boat in Port Phasmatys."));
+		talkToBillOnBoat = new NpcStep(this, NpcID.FEVER_TEACH, new WorldPoint(3714, 3496, 1), t("Talk to Bill Teach on his boat in Port Phasmatys."));
 		talkToBillOnBoat.addDialogStep("Let's go Cap'n!");
 		talkToBillOnBoat.addSubSteps(goOnBillBoat);
 
-		leaveHull = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDER, new WorldPoint(1815, 4836, 0), "Leave the hull.");
-		enterHull = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDERTOP, new WorldPoint(1815, 4836, 1), "Enter the ship's hull.");
-		leaveTop = new ObjectStep(this, ObjectID.FEVER_SHIPLADDER_TOP_ANGLED, new WorldPoint(1813, 4828, 2), "Go back down to the deck.");
-		leaveSail = new ObjectStep(this, ObjectID.FEVER_CLIMB_DOWN_LOCATION, new WorldPoint(1816, 4831, 2), "Climb back down the net.");
-		goUpToSail = new ObjectStep(this, ObjectID.FEVER_CLIMBING_NET, new WorldPoint(1816, 4831, 1), "Climb the climbing net.");
-		leaveEnemyHull = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDER, new WorldPoint(1824, 4829, 0), "Leave the hull.");
-		enterEnemyHull = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDERTOP, new WorldPoint(1824, 4829, 1), "Enter the ship's hull.");
-		leaveEnemyTop = new ObjectStep(this, ObjectID.FEVER_SHIPLADDER_TOP_ANGLED, new WorldPoint(1822, 4837, 2), "Go back down to the deck.");
-		leaveEnemySail = new ObjectStep(this, ObjectID.FEVER_CLIMB_DOWN_LOCATION, new WorldPoint(1823, 4834, 2), "Climb back down the net.");
-		goUpToEnemySail = new ObjectStep(this, ObjectID.FEVER_CLIMBING_NET, new WorldPoint(1823, 4834, 1), "Climb the climbing net.");
+		leaveHull = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDER, new WorldPoint(1815, 4836, 0), t("Leave the hull."));
+		enterHull = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDERTOP, new WorldPoint(1815, 4836, 1), t("Enter the ship's hull."));
+		leaveTop = new ObjectStep(this, ObjectID.FEVER_SHIPLADDER_TOP_ANGLED, new WorldPoint(1813, 4828, 2), t("Go back down to the deck."));
+		leaveSail = new ObjectStep(this, ObjectID.FEVER_CLIMB_DOWN_LOCATION, new WorldPoint(1816, 4831, 2), t("Climb back down the net."));
+		goUpToSail = new ObjectStep(this, ObjectID.FEVER_CLIMBING_NET, new WorldPoint(1816, 4831, 1), t("Climb the climbing net."));
+		leaveEnemyHull = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDER, new WorldPoint(1824, 4829, 0), t("Leave the hull."));
+		enterEnemyHull = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDERTOP, new WorldPoint(1824, 4829, 1), t("Enter the ship's hull."));
+		leaveEnemyTop = new ObjectStep(this, ObjectID.FEVER_SHIPLADDER_TOP_ANGLED, new WorldPoint(1822, 4837, 2), t("Go back down to the deck."));
+		leaveEnemySail = new ObjectStep(this, ObjectID.FEVER_CLIMB_DOWN_LOCATION, new WorldPoint(1823, 4834, 2), t("Climb back down the net."));
+		goUpToEnemySail = new ObjectStep(this, ObjectID.FEVER_CLIMBING_NET, new WorldPoint(1823, 4834, 1), t("Climb the climbing net."));
 
-		pickUpRope = new DetailedQuestStep(this, new WorldPoint(1822, 4827, 1), "Pick up the nearby rope.", floorRope);
+		pickUpRope = new DetailedQuestStep(this, new WorldPoint(1822, 4827, 1), t("Pick up the nearby rope."), floorRope);
 
-		take1Fuse = new ObjectStep(this, ObjectID.FEVER_WEAPONS_LOCKER, new WorldPoint(1816, 4833, 0), "Search the gun locker for 1 fuse.", fuse1);
+		take1Fuse = new ObjectStep(this, ObjectID.FEVER_WEAPONS_LOCKER, new WorldPoint(1816, 4833, 0), t("Search the gun locker for 1 fuse."), fuse1);
 		take1Fuse.addAlternateObjects(ObjectID.FEVER_WEAPONS_LOCKER_OPEN);
-		take4Ropes = new ObjectStep(this, ObjectID.FEVER_REPAIR_LOCKER, new WorldPoint(1814, 4832, 0), "Search the repair locker for 4 ropes.", ropes4);
+		take4Ropes = new ObjectStep(this, ObjectID.FEVER_REPAIR_LOCKER, new WorldPoint(1814, 4832, 0), t("Search the repair locker for 4 ropes."), ropes4);
 		take4Ropes.addAlternateObjects(ObjectID.FEVER_REPAIR_LOCKER_OPEN);
-		takeTinderbox = new DetailedQuestStep(this, new WorldPoint(1814, 4825, 0), "Pick up the tinderbox nearby.", floorTinderbox);
+		takeTinderbox = new DetailedQuestStep(this, new WorldPoint(1814, 4825, 0), t("Pick up the tinderbox nearby."), floorTinderbox);
 
-		leaveHullForSabo = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDER, new WorldPoint(1815, 4836, 0), "Go up to the deck.");
-		climbUpNetForSabo = new ObjectStep(this, ObjectID.FEVER_CLIMBING_NET, new WorldPoint(1816, 4831, 1), "Climb the climbing net.");
-		useRopeOnSailForSabo = new ObjectStep(this, ObjectID.FEVER_SAIL1_HOISTEDL_CLIMB, new WorldPoint(1817, 4830, 2), "Use a rope on the hoisted sail.", ropeHighlight);
+		leaveHullForSabo = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDER, new WorldPoint(1815, 4836, 0), t("Go up to the deck."));
+		climbUpNetForSabo = new ObjectStep(this, ObjectID.FEVER_CLIMBING_NET, new WorldPoint(1816, 4831, 1), t("Climb the climbing net."));
+		useRopeOnSailForSabo = new ObjectStep(this, ObjectID.FEVER_SAIL1_HOISTEDL_CLIMB, new WorldPoint(1817, 4830, 2), t("Use a rope on the hoisted sail."), ropeHighlight);
 		useRopeOnSailForSabo.addIcon(ItemID.ROPE);
 
-		useFuseOnEnemyBarrel = new ObjectStep(this, ObjectID.FEVER_MULTI_GUNPOWDER_BARREL, new WorldPoint(1822, 4831, 1), "Use the fuse on the pirate's powder barrel.", fuseHighlight);
+		useFuseOnEnemyBarrel = new ObjectStep(this, ObjectID.FEVER_MULTI_GUNPOWDER_BARREL, new WorldPoint(1822, 4831, 1), t("Use the fuse on the pirate's powder barrel."), fuseHighlight);
 		useFuseOnEnemyBarrel.addIcon(ItemID.FEVER_FUSE);
 
-		lightEnemyFuse = new ObjectStep(this, ObjectID.FEVER_MULTI_FUSE_2, new WorldPoint(1824, 4831, 1), "Use the tinderbox on the fuse.", tinderboxHighlight);
+		lightEnemyFuse = new ObjectStep(this, ObjectID.FEVER_MULTI_FUSE_2, new WorldPoint(1824, 4831, 1), t("Use the tinderbox on the fuse."), tinderboxHighlight);
 		lightEnemyFuse.addIcon(ItemID.TINDERBOX);
 
-		swingToBoat = new ObjectStep(this, ObjectID.FEVER_SAIL1_HOISTEDL_CLIMB, new WorldPoint(1822, 4835, 2), "Use a rope on the hoisted sail.", ropeHighlight);
+		swingToBoat = new ObjectStep(this, ObjectID.FEVER_SAIL1_HOISTEDL_CLIMB, new WorldPoint(1822, 4835, 2), t("Use a rope on the hoisted sail."), ropeHighlight);
 		swingToBoat.addIcon(ItemID.ROPE);
 
-		swingToEnemyBoat = new ObjectStep(this, ObjectID.FEVER_SAIL1_HOISTEDL_CLIMB, new WorldPoint(1817, 4830, 2), "Use a rope on the hoisted sail.", ropeHighlight);
+		swingToEnemyBoat = new ObjectStep(this, ObjectID.FEVER_SAIL1_HOISTEDL_CLIMB, new WorldPoint(1817, 4830, 2), t("Use a rope on the hoisted sail."), ropeHighlight);
 		swingToEnemyBoat.addIcon(ItemID.ROPE);
 
-		climbEnemyNetAfterSabo = new ObjectStep(this, ObjectID.FEVER_CLIMBING_NET, new WorldPoint(1823, 4834, 1), "Climb the climbing net.");
-		useRopeOnEnemySailAfterSabo = new ObjectStep(this, ObjectID.FEVER_SAIL1_HOISTEDL_CLIMB, new WorldPoint(1822, 4835, 2), "Use a rope on the hoisted sail.", ropeHighlight);
+		climbEnemyNetAfterSabo = new ObjectStep(this, ObjectID.FEVER_CLIMBING_NET, new WorldPoint(1823, 4834, 1), t("Climb the climbing net."));
+		useRopeOnEnemySailAfterSabo = new ObjectStep(this, ObjectID.FEVER_SAIL1_HOISTEDL_CLIMB, new WorldPoint(1822, 4835, 2), t("Use a rope on the hoisted sail."), ropeHighlight);
 		useRopeOnEnemySailAfterSabo.addIcon(ItemID.ROPE);
-		talkToBillAfterSabo = new NpcStep(this, NpcID.FEVER_QUEST_SHIP_TEACH, new WorldPoint(1815, 4834, 1), "Talk to Bill Teach.");
+		talkToBillAfterSabo = new NpcStep(this, NpcID.FEVER_QUEST_SHIP_TEACH, new WorldPoint(1815, 4834, 1), t("Talk to Bill Teach."));
 
-		goDownToFixLeak = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDERTOP, new WorldPoint(1815, 4836, 1), "Enter the ship's hull.");
-		takeHoleItems1 = new ObjectStep(this, ObjectID.FEVER_REPAIR_LOCKER, new WorldPoint(1814, 4832, 0), "Search the repair locker for repair items.", hammer, planks6, tacks30, paste3);
+		goDownToFixLeak = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDERTOP, new WorldPoint(1815, 4836, 1), t("Enter the ship's hull."));
+		takeHoleItems1 = new ObjectStep(this, ObjectID.FEVER_REPAIR_LOCKER, new WorldPoint(1814, 4832, 0), t("Search the repair locker for repair items."), hammer, planks6, tacks30, paste3);
 		takeHoleItems1.addAlternateObjects(ObjectID.FEVER_REPAIR_LOCKER_OPEN);
-		takeHoleItems2 = new ObjectStep(this, ObjectID.FEVER_REPAIR_LOCKER, new WorldPoint(1814, 4832, 0), "Search the repair locker for repair items.", hammer, planks4, tacks20, paste2);
+		takeHoleItems2 = new ObjectStep(this, ObjectID.FEVER_REPAIR_LOCKER, new WorldPoint(1814, 4832, 0), t("Search the repair locker for repair items."), hammer, planks4, tacks20, paste2);
 		takeHoleItems2.addAlternateObjects(ObjectID.FEVER_REPAIR_LOCKER_OPEN);
-		takeHoleItems3 = new ObjectStep(this, ObjectID.FEVER_REPAIR_LOCKER, new WorldPoint(1814, 4832, 0), "Search the repair locker for repair items.", hammer, planks2, tacks10, paste1);
+		takeHoleItems3 = new ObjectStep(this, ObjectID.FEVER_REPAIR_LOCKER, new WorldPoint(1814, 4832, 0), t("Search the repair locker for repair items."), hammer, planks2, tacks10, paste1);
 		takeHoleItems3.addAlternateObjects(ObjectID.FEVER_REPAIR_LOCKER_OPEN);
 
-		takePasteHole1 = new ObjectStep(this, ObjectID.FEVER_REPAIR_LOCKER, new WorldPoint(1814, 4832, 0), "Search the repair locker for repair items.", hammer, planks4, tacks20, paste3);
+		takePasteHole1 = new ObjectStep(this, ObjectID.FEVER_REPAIR_LOCKER, new WorldPoint(1814, 4832, 0), t("Search the repair locker for repair items."), hammer, planks4, tacks20, paste3);
 		takePasteHole1.addAlternateObjects(ObjectID.FEVER_REPAIR_LOCKER_OPEN);
-		takePasteHole2 = new ObjectStep(this, ObjectID.FEVER_REPAIR_LOCKER, new WorldPoint(1814, 4832, 0), "Search the repair locker for repair items.", hammer, planks2, tacks10, paste2);
+		takePasteHole2 = new ObjectStep(this, ObjectID.FEVER_REPAIR_LOCKER, new WorldPoint(1814, 4832, 0), t("Search the repair locker for repair items."), hammer, planks2, tacks10, paste2);
 		takePasteHole2.addAlternateObjects(ObjectID.FEVER_REPAIR_LOCKER_OPEN);
-		takePasteHole3 = new ObjectStep(this, ObjectID.FEVER_REPAIR_LOCKER, new WorldPoint(1814, 4832, 0), "Search the repair locker for repair items.", hammer, paste1);
+		takePasteHole3 = new ObjectStep(this, ObjectID.FEVER_REPAIR_LOCKER, new WorldPoint(1814, 4832, 0), t("Search the repair locker for repair items."), hammer, paste1);
 		takePasteHole3.addAlternateObjects(ObjectID.FEVER_REPAIR_LOCKER_OPEN);
 
 		takeHoleItems1.addSubSteps(takeHoleItems2, takeHoleItems3, takePasteHole1, takePasteHole2, takePasteHole3);
 
-		repairHole1 = new ObjectStep(this, ObjectID.FEVER_MULTI_HOLE_1, new WorldPoint(1817, 4834, 0), "Repair the holes.", hammer, planks2, tacks10);
-		repairHole2 = new ObjectStep(this, ObjectID.FEVER_MULTI_HOLE_2, new WorldPoint(1817, 4832, 0), "Repair the holes.", hammer, planks2, tacks10);
-		repairHole3 = new ObjectStep(this, ObjectID.FEVER_MULTI_HOLE_3, new WorldPoint(1817, 4830, 0), "Repair the holes.", hammer, planks2, tacks10);
+		repairHole1 = new ObjectStep(this, ObjectID.FEVER_MULTI_HOLE_1, new WorldPoint(1817, 4834, 0), t("Repair the holes."), hammer, planks2, tacks10);
+		repairHole2 = new ObjectStep(this, ObjectID.FEVER_MULTI_HOLE_2, new WorldPoint(1817, 4832, 0), t("Repair the holes."), hammer, planks2, tacks10);
+		repairHole3 = new ObjectStep(this, ObjectID.FEVER_MULTI_HOLE_3, new WorldPoint(1817, 4830, 0), t("Repair the holes."), hammer, planks2, tacks10);
 		repairHole1.addSubSteps(repairHole2, repairHole3);
 
-		pasteHole1 = new ObjectStep(this, ObjectID.FEVER_MULTI_HOLE_1, new WorldPoint(1817, 4834, 0), "Waterproof the hole.", paste1);
-		pasteHole2 = new ObjectStep(this, ObjectID.FEVER_MULTI_HOLE_2, new WorldPoint(1817, 4832, 0), "Waterproof the hole.", paste1);
-		pasteHole3 = new ObjectStep(this, ObjectID.FEVER_MULTI_HOLE_3, new WorldPoint(1817, 4830, 0), "Waterproof the hole.", paste1);
+		pasteHole1 = new ObjectStep(this, ObjectID.FEVER_MULTI_HOLE_1, new WorldPoint(1817, 4834, 0), t("Waterproof the hole."), paste1);
+		pasteHole2 = new ObjectStep(this, ObjectID.FEVER_MULTI_HOLE_2, new WorldPoint(1817, 4832, 0), t("Waterproof the hole."), paste1);
+		pasteHole3 = new ObjectStep(this, ObjectID.FEVER_MULTI_HOLE_3, new WorldPoint(1817, 4830, 0), t("Waterproof the hole."), paste1);
 		pasteHole1.addSubSteps(pasteHole2, pasteHole3);
 
-		goUpAfterRepair = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDER, new WorldPoint(1815, 4836, 0), "Go up to the deck.");
-		talkToBillAfterRepair = new NpcStep(this, NpcID.FEVER_QUEST_SHIP_TEACH, new WorldPoint(1815, 4834, 1), "Talk to Bill Teach.");
+		goUpAfterRepair = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDER, new WorldPoint(1815, 4836, 0), t("Go up to the deck."));
+		talkToBillAfterRepair = new NpcStep(this, NpcID.FEVER_QUEST_SHIP_TEACH, new WorldPoint(1815, 4834, 1), t("Talk to Bill Teach."));
 
-		take2Ropes = new ObjectStep(this, ObjectID.FEVER_REPAIR_LOCKER, new WorldPoint(1814, 4832, 0), "Search the repair locker for 2 ropes.", ropes2);
+		take2Ropes = new ObjectStep(this, ObjectID.FEVER_REPAIR_LOCKER, new WorldPoint(1814, 4832, 0), t("Search the repair locker for 2 ropes."), ropes2);
 		take2Ropes.addAlternateObjects(ObjectID.FEVER_REPAIR_LOCKER_OPEN);
 
-		goUpToSailToLoot = new ObjectStep(this, ObjectID.FEVER_CLIMBING_NET, new WorldPoint(1816, 4831, 1), "Climb the climbing net.");
-		useRopeOnSailToLoot = new ObjectStep(this, ObjectID.FEVER_SAIL1_HOISTEDL_CLIMB, new WorldPoint(1817, 4830, 2), "Use a rope on the hoisted sail.", ropeHighlight);
+		goUpToSailToLoot = new ObjectStep(this, ObjectID.FEVER_CLIMBING_NET, new WorldPoint(1816, 4831, 1), t("Climb the climbing net."));
+		useRopeOnSailToLoot = new ObjectStep(this, ObjectID.FEVER_SAIL1_HOISTEDL_CLIMB, new WorldPoint(1817, 4830, 2), t("Use a rope on the hoisted sail."), ropeHighlight);
 		useRopeOnSailToLoot.addIcon(ItemID.ROPE);
 
-		lootEnemyShip = new ObjectStep(this, ObjectID.FEVER_MULTI_CHEST, "Plunder the chest, loot the crate and ransack the barrel for 10 plunder. Switch world after looting to make plunder respawn instantly.", loot10);
+		lootEnemyShip = new ObjectStep(this, ObjectID.FEVER_MULTI_CHEST, t("Plunder the chest, loot the crate and ransack the barrel for 10 plunder. Switch world after looting to make plunder respawn instantly."), loot10);
 		lootEnemyShip.addAlternateObjects(ObjectID.FEVER_MULTI_CRATE, ObjectID.FEVER_MULTI_BARREL);
 
-		hopWorld = new DetailedQuestStep(this, "Hop worlds so that the chest resets.");
+		hopWorld = new DetailedQuestStep(this, t("Hop worlds so that the chest resets."));
 
-		enterEnemyHullForLoot = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDERTOP, new WorldPoint(1824, 4829, 1), "Enter the ship's hull to loot it.");
+		enterEnemyHullForLoot = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDERTOP, new WorldPoint(1824, 4829, 1), t("Enter the ship's hull to loot it."));
 
-		leaveEnemyHullWithLoot = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDER, new WorldPoint(1824, 4829, 0), "Return the plunder to the chest in Bill's hull.", loot10);
-		climbNetWithLoot = new ObjectStep(this, ObjectID.FEVER_CLIMBING_NET, new WorldPoint(1823, 4834, 1), "Return the plunder to the chest in Bill's hull.");
-		useRopeOnSailWithLoot = new ObjectStep(this, ObjectID.FEVER_SAIL1_HOISTEDL_CLIMB, new WorldPoint(1822, 4835, 2), "Return the plunder to the chest in Bill's hull.", ropeHighlight);
+		leaveEnemyHullWithLoot = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDER, new WorldPoint(1824, 4829, 0), t("Return the plunder to the chest in Bill's hull."), loot10);
+		climbNetWithLoot = new ObjectStep(this, ObjectID.FEVER_CLIMBING_NET, new WorldPoint(1823, 4834, 1), t("Return the plunder to the chest in Bill's hull."));
+		useRopeOnSailWithLoot = new ObjectStep(this, ObjectID.FEVER_SAIL1_HOISTEDL_CLIMB, new WorldPoint(1822, 4835, 2), t("Return the plunder to the chest in Bill's hull."), ropeHighlight);
 		useRopeOnSailWithLoot.addIcon(ItemID.ROPE);
-		enterHullWithLoot = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDERTOP, new WorldPoint(1815, 4836, 1), "Return the plunder to the chest in Bill's hull.");
+		enterHullWithLoot = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDERTOP, new WorldPoint(1815, 4836, 1), t("Return the plunder to the chest in Bill's hull."));
 		enterHullWithLoot.addSubSteps(leaveEnemyHullWithLoot, climbNetWithLoot, useRopeOnSailWithLoot);
-		useLootOnChest = new ObjectStep(this, ObjectID.FEVER_PLUNDER_DEPOSIT, new WorldPoint(1815, 4824, 0), "Add the plunder to the plunder storage.", plunderHighlight);
+		useLootOnChest = new ObjectStep(this, ObjectID.FEVER_PLUNDER_DEPOSIT, new WorldPoint(1815, 4824, 0), t("Add the plunder to the plunder storage."), plunderHighlight);
 		useLootOnChest.addIcon(ItemID.FEVER_PLUNDER);
 
-		goUpAfterLoot = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDER, new WorldPoint(1815, 4836, 0), "Go up to the deck.");
+		goUpAfterLoot = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDER, new WorldPoint(1815, 4836, 0), t("Go up to the deck."));
 
-		talkToBillAfterLoot = new NpcStep(this, NpcID.FEVER_QUEST_SHIP_TEACH, new WorldPoint(1815, 4834, 1), "Talk to Bill Teach.");
+		talkToBillAfterLoot = new NpcStep(this, NpcID.FEVER_QUEST_SHIP_TEACH, new WorldPoint(1815, 4834, 1), t("Talk to Bill Teach."));
 
-		goDownForBarrel = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDERTOP, new WorldPoint(1815, 4836, 1), "Search the gun locker for a cannon barrel.");
-		takeBarrel = new ObjectStep(this, ObjectID.FEVER_WEAPONS_LOCKER, new WorldPoint(1816, 4833, 0), "Search the gun locker for a cannon barrel.", barrel);
+		goDownForBarrel = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDERTOP, new WorldPoint(1815, 4836, 1), t("Search the gun locker for a cannon barrel."));
+		takeBarrel = new ObjectStep(this, ObjectID.FEVER_WEAPONS_LOCKER, new WorldPoint(1816, 4833, 0), t("Search the gun locker for a cannon barrel."), barrel);
 		takeBarrel.addAlternateObjects(ObjectID.FEVER_WEAPONS_LOCKER_OPEN);
 		takeBarrel.addSubSteps(goDownForBarrel);
-		goUpWithBarrel = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDER, new WorldPoint(1815, 4836, 0), "Go up to the deck and repair the cannon.");
-		useBarrel = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), "Repair the cannon.", barrel);
-		talkToBillAfterBarrel = new NpcStep(this, NpcID.FEVER_QUEST_SHIP_TEACH, new WorldPoint(1815, 4834, 1), "Talk to Bill Teach.");
+		goUpWithBarrel = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDER, new WorldPoint(1815, 4836, 0), t("Go up to the deck and repair the cannon."));
+		useBarrel = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), t("Repair the cannon."), barrel);
+		talkToBillAfterBarrel = new NpcStep(this, NpcID.FEVER_QUEST_SHIP_TEACH, new WorldPoint(1815, 4834, 1), t("Talk to Bill Teach."));
 
-		goDownForRamrod = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDERTOP, new WorldPoint(1815, 4836, 1), "Search the gun locker for a ram rod, and a few fuses and canisters.");
-		getRamrod = new ObjectStep(this, ObjectID.FEVER_WEAPONS_LOCKER, new WorldPoint(1816, 4833, 0), "Search the gun locker for a ram rod, 3 fuses, and canisters.", ramrod, fuse1, canister);
+		goDownForRamrod = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDERTOP, new WorldPoint(1815, 4836, 1), t("Search the gun locker for a ram rod, and a few fuses and canisters."));
+		getRamrod = new ObjectStep(this, ObjectID.FEVER_WEAPONS_LOCKER, new WorldPoint(1816, 4833, 0), t("Search the gun locker for a ram rod, 3 fuses, and canisters."), ramrod, fuse1, canister);
 		getRamrod.addAlternateObjects(ObjectID.FEVER_WEAPONS_LOCKER_OPEN);
 		getRamrod.addSubSteps(goDownForRamrod);
-		goUpToCannon = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDER, new WorldPoint(1815, 4836, 0), "Go up to the deck to fire the cannon.");
-		usePowder = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), "Use the gunpowder on the cannon.", powderHighlight);
+		goUpToCannon = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDER, new WorldPoint(1815, 4836, 0), t("Go up to the deck to fire the cannon."));
+		usePowder = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), t("Use the gunpowder on the cannon."), powderHighlight);
 		usePowder.addIcon(ItemID.FEVER_GUNPOWDER);
-		useRamrod = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), "Use the ramrod on the cannon.", ramrodHighlight);
+		useRamrod = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), t("Use the ramrod on the cannon."), ramrodHighlight);
 		useRamrod.addIcon(ItemID.FEVER_CANNON_PROD);
-		useCanister = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), "Use the canister on the cannon.", canisterHighlight);
+		useCanister = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), t("Use the canister on the cannon."), canisterHighlight);
 		useCanister.addIcon(ItemID.FEVER_CANNISTER);
-		useFuse = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), "Use the fuse on the cannon.", fuseHighlight);
+		useFuse = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), t("Use the fuse on the cannon."), fuseHighlight);
 		useFuse.addIcon(ItemID.FEVER_FUSE);
-		fireCannon = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), "Fire the cannon!", tinderbox);
-		useRamrodToClean = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), "Use the ramrod on the cannon to clean it.", ramrodHighlight);
+		fireCannon = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), t("Fire the cannon!"), tinderbox);
+		useRamrodToClean = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), t("Use the ramrod on the cannon to clean it."), ramrodHighlight);
 		useRamrodToClean.addIcon(ItemID.FEVER_CANNON_PROD);
 
-		getPowder = new ObjectStep(this, ObjectID.FEVER_YOUR_GUNPOWDER_BARREL, new WorldPoint(1817, 4832, 1), "Get some gunpowder.");
+		getPowder = new ObjectStep(this, ObjectID.FEVER_YOUR_GUNPOWDER_BARREL, new WorldPoint(1817, 4832, 1), t("Get some gunpowder."));
 
-		resetCannon = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), "Right-click empty out the cannon.");
+		resetCannon = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), t("Right-click empty out the cannon."));
 
-		talkToBillAfterCanisterCannon = new NpcStep(this, NpcID.FEVER_QUEST_SHIP_TEACH, new WorldPoint(1815, 4834, 1), "Talk to Bill Teach.");
+		talkToBillAfterCanisterCannon = new NpcStep(this, NpcID.FEVER_QUEST_SHIP_TEACH, new WorldPoint(1815, 4834, 1), t("Talk to Bill Teach."));
 
-		goDownForBalls = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDERTOP, new WorldPoint(1815, 4836, 1), "Search the gun locker for a ram rod, and a few fuses and cannon balls.");
-		getBalls = new ObjectStep(this, ObjectID.FEVER_WEAPONS_LOCKER, new WorldPoint(1816, 4833, 0), "Search the gun locker for a ram rod, 3 fuses, and cannon balls.", ramrod, fuses, cannonball);
+		goDownForBalls = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDERTOP, new WorldPoint(1815, 4836, 1), t("Search the gun locker for a ram rod, and a few fuses and cannon balls."));
+		getBalls = new ObjectStep(this, ObjectID.FEVER_WEAPONS_LOCKER, new WorldPoint(1816, 4833, 0), t("Search the gun locker for a ram rod, 3 fuses, and cannon balls."), ramrod, fuses, cannonball);
 		getBalls.addAlternateObjects(ObjectID.FEVER_WEAPONS_LOCKER_OPEN);
-		goUpToCannonWithBalls = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDER, new WorldPoint(1815, 4836, 0), "Go up to the deck to fire the cannon.");
-		usePowderForBalls = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), "Use the gunpowder on the cannon.", powderHighlight);
+		goUpToCannonWithBalls = new ObjectStep(this, ObjectID.FEVER_SHIP_LADDER, new WorldPoint(1815, 4836, 0), t("Go up to the deck to fire the cannon."));
+		usePowderForBalls = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), t("Use the gunpowder on the cannon."), powderHighlight);
 		usePowderForBalls.addIcon(ItemID.FEVER_GUNPOWDER);
-		useRamrodForBalls = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), "Use the ramrod on the cannon.", ramrodHighlight);
+		useRamrodForBalls = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), t("Use the ramrod on the cannon."), ramrodHighlight);
 		useRamrodForBalls.addIcon(ItemID.FEVER_CANNON_PROD);
-		useBall = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), "Use the cannon ball on the cannon.", cannonballHighlight);
+		useBall = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), t("Use the cannon ball on the cannon."), cannonballHighlight);
 		useBall.addIcon(ItemID.FEVER_CANNON_BALL);
-		useFuseForBalls = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), "Use the fuse on the cannon.", fuseHighlight);
+		useFuseForBalls = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), t("Use the fuse on the cannon."), fuseHighlight);
 		useFuseForBalls.addIcon(ItemID.FEVER_FUSE);
-		fireCannonForBalls = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), "Fire the cannon!", tinderbox);
-		useRamrodToCleanForBalls = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), "Use the ramrod on the cannon to clean it.", ramrodHighlight);
+		fireCannonForBalls = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), t("Fire the cannon!"), tinderbox);
+		useRamrodToCleanForBalls = new ObjectStep(this, ObjectID.FEVER_MULTI_CANNON, new WorldPoint(1817, 4833, 1), t("Use the ramrod on the cannon to clean it."), ramrodHighlight);
 		useRamrodToCleanForBalls.addIcon(ItemID.FEVER_CANNON_PROD);
 
-		getPowderForBalls = new ObjectStep(this, ObjectID.FEVER_YOUR_GUNPOWDER_BARREL, new WorldPoint(1817, 4832, 1), "Get some gunpowder.");
+		getPowderForBalls = new ObjectStep(this, ObjectID.FEVER_YOUR_GUNPOWDER_BARREL, new WorldPoint(1817, 4832, 1), t("Get some gunpowder."));
 
-		repeatCanisterSteps = new DetailedQuestStep(this, "Repeat this 3-4 times until indicated to stop.");
-		repeatBallSteps = new DetailedQuestStep(this, "Keep firing cannonballs until Bill tells you to stop. Quest completed!");
+		repeatCanisterSteps = new DetailedQuestStep(this, t("Repeat this 3-4 times until indicated to stop."));
+		repeatBallSteps = new DetailedQuestStep(this, t("Keep firing cannonballs until Bill tells you to stop. Quest completed!"));
 	}
 
 	@Override
@@ -628,7 +628,7 @@ public class CabinFever extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Collections.singletonList("Able to survive multiple pirates (level 57) attacking you");
+		return Collections.singletonList(t("Able to survive multiple pirates (level 57) attacking you"));
 	}
 
 	@Override
@@ -658,25 +658,25 @@ public class CabinFever extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Access to Mos Le'Harmless"),
-				new UnlockReward("Access to Cave Horrors and the ability to receive them as a Slayer Task."),
-				new UnlockReward("Charter Ship prices are now halved."),
-				new UnlockReward("Ability to play the Trouble Brewing minigame."));
+				new UnlockReward(t("Access to Mos Le'Harmless")),
+				new UnlockReward(t("Access to Cave Horrors and the ability to receive them as a Slayer Task.")),
+				new UnlockReward(t("Charter Ship prices are now halved.")),
+				new UnlockReward(t("Ability to play the Trouble Brewing minigame.")));
 	}
 
 	@Override
 	public List<PanelDetails> getPanels()
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Starting off", Arrays.asList(talkToBill, talkToBillOnBoat)));
-		allSteps.add(new PanelDetails("Sabotage", Arrays.asList(take4Ropes, take1Fuse, takeTinderbox, leaveHullForSabo, climbUpNetForSabo,
+		allSteps.add(new PanelDetails(t("Starting off"), Arrays.asList(talkToBill, talkToBillOnBoat)));
+		allSteps.add(new PanelDetails(t("Sabotage"), Arrays.asList(take4Ropes, take1Fuse, takeTinderbox, leaveHullForSabo, climbUpNetForSabo,
 			useRopeOnSailForSabo, useFuseOnEnemyBarrel, lightEnemyFuse, climbEnemyNetAfterSabo, useRopeOnEnemySailAfterSabo, talkToBillAfterSabo)));
-		allSteps.add(new PanelDetails("Repair", Arrays.asList(goDownToFixLeak, takeHoleItems1, repairHole1, pasteHole1, goUpAfterRepair, talkToBillAfterRepair)));
-		allSteps.add(new PanelDetails("Plunder the pirates", Arrays.asList(goUpToSailToLoot, useRopeOnSailToLoot, enterEnemyHullForLoot, lootEnemyShip,
+		allSteps.add(new PanelDetails(t("Repair"), Arrays.asList(goDownToFixLeak, takeHoleItems1, repairHole1, pasteHole1, goUpAfterRepair, talkToBillAfterRepair)));
+		allSteps.add(new PanelDetails(t("Plunder the pirates"), Arrays.asList(goUpToSailToLoot, useRopeOnSailToLoot, enterEnemyHullForLoot, lootEnemyShip,
 			enterHullWithLoot, useLootOnChest, goUpAfterLoot, talkToBillAfterLoot)));
-		allSteps.add(new PanelDetails("Repair the cannon", Arrays.asList(takeBarrel, goUpWithBarrel, useBarrel, talkToBillAfterBarrel)));
-		allSteps.add(new PanelDetails("Fire canisters", Arrays.asList(getRamrod, goUpToCannon, getPowder, usePowder, useRamrod, useCanister, useFuse, fireCannon, repeatCanisterSteps, talkToBillAfterCanisterCannon)));
-		allSteps.add(new PanelDetails("Fire cannon balls", Arrays.asList(goDownForBalls, getBalls, goUpToCannonWithBalls, getPowderForBalls, usePowderForBalls, useRamrodForBalls, useBall, useFuseForBalls, fireCannonForBalls, repeatBallSteps)));
+		allSteps.add(new PanelDetails(t("Repair the cannon"), Arrays.asList(takeBarrel, goUpWithBarrel, useBarrel, talkToBillAfterBarrel)));
+		allSteps.add(new PanelDetails(t("Fire canisters"), Arrays.asList(getRamrod, goUpToCannon, getPowder, usePowder, useRamrod, useCanister, useFuse, fireCannon, repeatCanisterSteps, talkToBillAfterCanisterCannon)));
+		allSteps.add(new PanelDetails(t("Fire cannon balls"), Arrays.asList(goDownForBalls, getBalls, goUpToCannonWithBalls, getPowderForBalls, usePowderForBalls, useRamrodForBalls, useBall, useFuseForBalls, fireCannonForBalls, repeatBallSteps)));
 		return allSteps;
 	}
 

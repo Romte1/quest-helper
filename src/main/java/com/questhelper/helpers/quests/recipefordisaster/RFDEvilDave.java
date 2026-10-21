@@ -130,34 +130,34 @@ public class RFDEvilDave extends BasicQuestHelper
 	public void setupSteps()
 	{
 		enterDiningRoom = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOUBLEDOORL, new WorldPoint(3213, 3221, 0),
-			"Go inspect Evil Dave in the Lumbridge Banquet room.");
+			t("Go inspect Evil Dave in the Lumbridge Banquet room."));
 		inspectEvilDave = new ObjectStep(this, ObjectID.HUNDRED_DAVE_BASE, new WorldPoint(1865, 5323, 0),
-			"Inspect Evil Dave.");
+			t("Inspect Evil Dave."));
 		inspectEvilDave.addSubSteps(enterDiningRoom);
 
-		talkToDoris = new NpcStep(this, NpcID.HUNDRED_DAVE_MUM, new WorldPoint(3079, 3494, 0), "Talk to Doris.");
+		talkToDoris = new NpcStep(this, NpcID.HUNDRED_DAVE_MUM, new WorldPoint(3079, 3494, 0), t("Talk to Doris."));
 
 		enterBasement = new ObjectStep(this, ObjectID._100_DAVE_CELLER_TRAPDOOR_CLOSED, new WorldPoint(3077, 3493, 0),
-			"Enter Doris's basement in Edgeville.");
+			t("Enter Doris's basement in Edgeville."));
 		((ObjectStep) enterBasement).addAlternateObjects(ObjectID._100_DAVE_CELLER_TRAPDOOR_OPEN);
 
-		talkToEvilDave = new NpcStep(this, NpcID.HUNDRED_EVIL_DAVE, new WorldPoint(3080, 9889, 0), "Talk to Evil Dave.");
+		talkToEvilDave = new NpcStep(this, NpcID.HUNDRED_EVIL_DAVE, new WorldPoint(3080, 9889, 0), t("Talk to Evil Dave."));
 		talkToEvilDave.addDialogSteps("What did you eat at the secret council meeting?",
 			"You've got to tell me because the magic requires it!");
 
 		goUpToDoris = new ObjectStep(this, ObjectID._100_DAVE_CELLER_STAIRS, new WorldPoint(3076, 9893, 0),
-			"Go up to Doris.");
+			t("Go up to Doris."));
 
 		enterBasementAgain = new ObjectStep(this, ObjectID._100_DAVE_CELLER_TRAPDOOR_CLOSED, new WorldPoint(3077, 3493, 0),
-			"Go back down to Evil Dave.");
+			t("Go back down to Evil Dave."));
 		((ObjectStep) enterBasementAgain).addAlternateObjects(ObjectID._100_DAVE_CELLER_TRAPDOOR_OPEN);
 
 		makeStew = new MakeEvilStew(this);
 
 		enterDiningRoomAgain = new ObjectStep(this, ObjectID.HUNDRED_LUMBRIDGE_DOUBLEDOORL, new WorldPoint(3213, 3221, 0),
-			"Go use the stew on Evil Dave in the Lumbridge Banquet room.", evilStew);
+			t("Go use the stew on Evil Dave in the Lumbridge Banquet room."), evilStew);
 		useStewOnEvilDave = new ObjectStep(this, ObjectID.HUNDRED_DAVE_BASE, new WorldPoint(1865, 5323, 0),
-			"Use the stew on Evil Dave.", evilStewHighlighted);
+			t("Use the stew on Evil Dave."), evilStewHighlighted);
 		useStewOnEvilDave.addSubSteps(enterDiningRoomAgain);
 		useStewOnEvilDave.addIcon(ItemID.HUNDRED_DAVE_STEW);
 	}
@@ -202,10 +202,10 @@ public class RFDEvilDave extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Ability to catch Hell Rats"),
-				new UnlockReward("Ability to make spicy stews"),
-				new UnlockReward("Ability to own a hell-cat"),
-				new UnlockReward("Increased access to the Culinaromancer's Chest"));
+				new UnlockReward(t("Ability to catch Hell Rats")),
+				new UnlockReward(t("Ability to make spicy stews")),
+				new UnlockReward(t("Ability to own a hell-cat")),
+				new UnlockReward(t("Increased access to the Culinaromancer's Chest")));
 	}
 
 	@Override
@@ -218,7 +218,7 @@ public class RFDEvilDave extends BasicQuestHelper
 		steps.addAll(makeStew.getSubsteps());
 		steps.add(useStewOnEvilDave);
 
-		allSteps.add(new PanelDetails("Saving Evil Dave", steps, cat, stews));
+		allSteps.add(new PanelDetails(t("Saving Evil Dave"), steps, cat, stews));
 		return allSteps;
 	}
 

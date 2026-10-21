@@ -44,7 +44,7 @@ public class AddCompost extends ObjectStep
 	public AddCompost(QuestHelper questHelper)
 	{
 		super(questHelper, ObjectID.MYARM_FAKEFARMINGPATCH, new WorldPoint(2831, 3696, 0),
-			"Add 7 supercompost on My Arm's soil patch.");
+			questHelper.t("Add 7 supercompost on My Arm's soil patch."));
 		this.addIcon(ItemID.BUCKET_SUPERCOMPOST);
 		compost.setHighlightInInventory(true);
 	}
@@ -60,6 +60,6 @@ public class AddCompost extends ObjectStep
 		int numCompToAdd = 7 - client.getVarbitValue(VarbitID.MYARM_SUPERCOMPOST);
 		compost.setQuantity(numCompToAdd);
 		this.setRequirements(Arrays.asList(compost, spade));
-		this.setText("Add " + numCompToAdd + " supercompost on My Arm's soil patch.");
+		this.setText(questHelper.t("Add " + numCompToAdd + " supercompost on My Arm's soil patch."));
 	}
 }

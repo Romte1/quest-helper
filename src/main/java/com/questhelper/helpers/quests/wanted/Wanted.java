@@ -119,8 +119,8 @@ public class Wanted extends BasicQuestHelper
 		ConditionalStep goToSirAmik = new ConditionalStep(this, climbToWhiteKnightsCastleF1);
 		goToSirAmik.addStep(isInWhiteKnightsCastleF1, climbToWhiteKnightsCastleF2);
 
-		goTalkToSirAmik1 = new ConditionalStep(this, goToSirAmik, "Go tell Sir Amik Varze in the White Knights' " +
-			"Castle you wish to join the White Knights, BUT refuse to be a Squire.");
+		goTalkToSirAmik1 = new ConditionalStep(this, goToSirAmik, t("Go tell Sir Amik Varze in the White Knights' " +
+			"Castle you wish to join the White Knights, BUT refuse to be a Squire."));
 		goTalkToSirAmik1.addStep(isInWhiteKnightsCastleF2, talkToSirAmik1);
 
 		ConditionalStep goDoAmikP1 = new ConditionalStep(this, goTalkToSirAmik1);
@@ -129,7 +129,7 @@ public class Wanted extends BasicQuestHelper
 
 		steps.put(4, talkToSirTiffy2);
 
-		goTalkToSirAmik2 = new ConditionalStep(this, goToSirAmik, "Go back to Sir Amik Varze in the White Knights' Castle.");
+		goTalkToSirAmik2 = new ConditionalStep(this, goToSirAmik, t("Go back to Sir Amik Varze in the White Knights' Castle."));
 		goTalkToSirAmik2.addStep(isInWhiteKnightsCastleF2, talkToSirAmik2);
 		steps.put(5, goTalkToSirAmik2);
 
@@ -252,7 +252,7 @@ public class Wanted extends BasicQuestHelper
 		ItemRequirement enchantedGem = new ItemRequirement("Enchanted gem", ItemID.SLAYER_GEM, 1);
 		ItemRequirement moltenGlass = new ItemRequirement("Molten glass", ItemID.MOLTEN_GLASS, 1);
 		commorbComponents = new ItemRequirements("A law rune, an enchanted gem and some molten glass", lawRune, enchantedGem, moltenGlass);
-		commorbComponents.setTooltip("Alternatively, you can bring 10k gp.");
+		commorbComponents.setTooltip(t("Alternatively, you can bring 10k gp."));
 		tenThousandGp = new ItemRequirement("10k gp", ItemCollections.COINS, 10000);
 		commorbComponentsOrTenThousandGp = new ItemRequirements(LogicType.OR, "A law rune, an enchanted gem and some molten glass OR 10k gp", commorbComponents, tenThousandGp);
 		
@@ -386,106 +386,106 @@ public class Wanted extends BasicQuestHelper
 		WorldPoint locationSirTaffy = new WorldPoint(2997, 3373, 0);
 
 		// Getting started
-		talkToSirTiffy1 = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, locationSirTaffy, "Talk to Sir Tiffy Cashien in Falador Park.");
+		talkToSirTiffy1 = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, locationSirTaffy, t("Talk to Sir Tiffy Cashien in Falador Park."));
 		talkToSirTiffy1.addDialogSteps("Do you have any jobs for me yet?", "Yes, I'm interested.", TEXT_ASK_ABOUT_WANTED_QUEST, "How will all that help?");
 
 		climbToWhiteKnightsCastleF1 = new ObjectStep(this, ObjectID.FAI_FALADOR_CASTLE_SPIRALSTAIRS, new WorldPoint(2955, 3339, 0),
-			"Climb to the second floor of the White Knights' castle.");
+			t("Climb to the second floor of the White Knights' castle."));
 		climbToWhiteKnightsCastleF2 = new ObjectStep(this, ObjectID.FAI_FALADOR_CASTLE_SPIRALSTAIRS, new WorldPoint(2961, 3339, 1),
-			"Climb to the second floor of the White Knights' castle.");
+			t("Climb to the second floor of the White Knights' castle."));
 
-		talkToSirAmik1 = new NpcStep(this, NpcID.SIR_AMIK_VARZE, "Talk to Sir Amik Varze.");
+		talkToSirAmik1 = new NpcStep(this, NpcID.SIR_AMIK_VARZE, t("Talk to Sir Amik Varze."));
 		talkToSirAmik1.addDialogStep("No, not right now...");
 
 		talkToSirTiffyAfterBecomingSquire = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, locationSirTaffy,
-			"Talk to Sir Tiffy Cashien about your new job as a Squire in Falador Park.");
+			t("Talk to Sir Tiffy Cashien about your new job as a Squire in Falador Park."));
 		talkToSirTiffyAfterBecomingSquire.addDialogStep(TEXT_ASK_ABOUT_WANTED_QUEST);
 
-		talkToSirTiffy2 = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, locationSirTaffy, "Return to Sir Tiffy Cashien in Falador Park.");
+		talkToSirTiffy2 = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, locationSirTaffy, t("Return to Sir Tiffy Cashien in Falador Park."));
 		talkToSirTiffy2.addDialogStep(TEXT_ASK_ABOUT_WANTED_QUEST);
 
-		talkToSirAmik2 = new NpcStep(this, NpcID.SIR_AMIK_VARZE, "Talk to Sir Amik Varze again.");
+		talkToSirAmik2 = new NpcStep(this, NpcID.SIR_AMIK_VARZE, t("Talk to Sir Amik Varze again."));
 		talkToSirAmik2.addDialogStep("Sure, I'll help you!");
 
-		talkToSirTiffy3 = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, locationSirTaffy, "Report back to Sir Tiffy Cashien in Falador Park.");
+		talkToSirTiffy3 = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, locationSirTaffy, t("Report back to Sir Tiffy Cashien in Falador Park."));
 		talkToSirTiffy3.addDialogStep(TEXT_ASK_ABOUT_WANTED_QUEST);
 
-		getCommorbWithGp = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, locationSirTaffy, "Get a Commorb from Sir Tiffy Cashien in Falador Park.");
+		getCommorbWithGp = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, locationSirTaffy, t("Get a Commorb from Sir Tiffy Cashien in Falador Park."));
 		getCommorbWithGp.addDialogSteps(TEXT_ASK_ABOUT_WANTED_QUEST, "Buy One", "YES");
 
-		getCommorbWithComponents = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, locationSirTaffy, "Get a Commorb from Sir Tiffy Cashien in Falador Park.");
+		getCommorbWithComponents = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, locationSirTaffy, t("Get a Commorb from Sir Tiffy Cashien in Falador Park."));
 		getCommorbWithComponents.addDialogSteps(TEXT_ASK_ABOUT_WANTED_QUEST, "Have One Made", "YES");
 
-		doNotGetCommorbWithGp = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, locationSirTaffy, "Get a Commorb from Sir Tiffy Cashien in Falador Park.");
+		doNotGetCommorbWithGp = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, locationSirTaffy, t("Get a Commorb from Sir Tiffy Cashien in Falador Park."));
 		doNotGetCommorbWithGp.addDialogSteps(TEXT_ASK_ABOUT_WANTED_QUEST, "NO");
 
-		getCommorbFromSirTiffy = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, locationSirTaffy, "Get a Commorb from Sir Tiffy Cashien in Falador Park.");
+		getCommorbFromSirTiffy = new NpcStep(this, NpcID.RD_TELEPORTER_GUY, locationSirTaffy, t("Get a Commorb from Sir Tiffy Cashien in Falador Park."));
 		getCommorbFromSirTiffy.addDialogSteps(TEXT_ASK_ABOUT_WANTED_QUEST);
 		getCommorbFromSirTiffy.addSubSteps(getCommorbWithGp, getCommorbWithComponents, doNotGetCommorbWithGp);
 
-		talkToSavantAfterGettingCommorb = new DetailedQuestStep(this, "Right-click the Commorb and select 'contact' to contact Savant.", highlightedCommorb);
+		talkToSavantAfterGettingCommorb = new DetailedQuestStep(this, t("Right-click the Commorb and select 'contact' to contact Savant."), highlightedCommorb);
 		talkToSavantAfterGettingCommorb.addDialogStep("Current Assignment");
 
 		// Daquarius and Mage of Zamorak
-		enterTaverleyDungeon = new ObjectStep(this, ObjectID.LADDER_OUTSIDE_TO_UNDERGROUND, new WorldPoint(2884, 3397, 0), "Enter " +
-			"Taverley Dungeon.", combatGear, commorb);
-		talkToLordDaquarius = new NpcStep(this, NpcID.LORD_DAQUARIUS, new WorldPoint(2891, 9681, 0), "Talk to Lord " +
-			"Daquarius in Taverley Dungeon.", commorb);
+		enterTaverleyDungeon = new ObjectStep(this, ObjectID.LADDER_OUTSIDE_TO_UNDERGROUND, new WorldPoint(2884, 3397, 0), t("Enter " +
+			"Taverley Dungeon."), combatGear, commorb);
+		talkToLordDaquarius = new NpcStep(this, NpcID.LORD_DAQUARIUS, new WorldPoint(2891, 9681, 0), t("Talk to Lord " +
+			"Daquarius in Taverley Dungeon."), commorb);
 		talkToLordDaquarius.addSubSteps(enterTaverleyDungeon);
 
-		goToBlackKnightsBase = new DetailedQuestStep(this, new WorldPoint(2896, 9681, 0), "Go to the Black Knights' Base in Taverley Dungeon.");
+		goToBlackKnightsBase = new DetailedQuestStep(this, new WorldPoint(2896, 9681, 0), t("Go to the Black Knights' Base in Taverley Dungeon."));
 		killBlackKnight = new NpcStep(this, NpcID.BLACK_KNIGHT, new WorldPoint(2891, 9681, 0),
-			"Kill a Black Knight near Daquarius.", true, combatGear);
-		talkToIntimidatedLordDaquarius = new NpcStep(this, NpcID.LORD_DAQUARIUS, new WorldPoint(2891, 9681, 0), "Talk to Lord Daquarius in Taverley Dungeon again.");
+			t("Kill a Black Knight near Daquarius."), true, combatGear);
+		talkToIntimidatedLordDaquarius = new NpcStep(this, NpcID.LORD_DAQUARIUS, new WorldPoint(2891, 9681, 0), t("Talk to Lord Daquarius in Taverley Dungeon again."));
 
-		talkToMageOfZamorakInWilderness = new NpcStep(this, NpcID.RCU_ZAMMY_MAGE1A, new WorldPoint(3106, 3558, 0), "Talk to the Mage of Zamorak in the wilderness just north of Edgeville.", commorb);
+		talkToMageOfZamorakInWilderness = new NpcStep(this, NpcID.RCU_ZAMMY_MAGE1A, new WorldPoint(3106, 3558, 0), t("Talk to the Mage of Zamorak in the wilderness just north of Edgeville."), commorb);
 		talkToMageOfZamorak = new NpcStep(this, NpcID.RCU_ZAMMY_MAGE1_EDGEB, new WorldPoint(3258, 3388, 0),
-			"Talk to the Mage of Zamorak in south east Varrock.", commorb);
+			t("Talk to the Mage of Zamorak in south east Varrock."), commorb);
 		talkToMageOfZamorak.addDialogStep("Solus Dellagar");
 		giveEssenceToMageOfZamorak = new NpcStep(this, NpcID.RCU_ZAMMY_MAGE1_EDGEB, new WorldPoint(3258, 3388, 0),
-			"Bring the 20 rune or pure essence to the Mage of Zamorak in Varrock.", commorb, essence);
+			t("Bring the 20 rune or pure essence to the Mage of Zamorak in Varrock."), commorb, essence);
 		giveEssenceToMageOfZamorak.addDialogStep("Solus Dellagar");
 
 		// Hunt for Solus
-		scanWithCommorb = new DetailedQuestStep(this, "Use the 'scan' option on the Commorb.", highlightedCommorb);
-		moveOutOfCanifisAgain = new DetailedQuestStep(this, new WorldPoint(3450, 3488, 0), "Finish the conversation with Savant. Move out of Canifis again first to trigger it again if needed.");
+		scanWithCommorb = new DetailedQuestStep(this, t("Use the 'scan' option on the Commorb."), highlightedCommorb);
+		moveOutOfCanifisAgain = new DetailedQuestStep(this, new WorldPoint(3450, 3488, 0), t("Finish the conversation with Savant. Move out of Canifis again first to trigger it again if needed."));
 
-		chaseToCanifis = new DetailedQuestStep(this, new WorldPoint(3485, 3481, 0), "Go to Canifis. Finish the conversation when Savant calls you. If you accidentally exit this conversation, move away and enter Canifis again.", commorb);
-		enterCanifis = new DetailedQuestStep(this, new WorldPoint(3485, 3481, 0), "Go to Canifis, and scan with your Commorb there until you find Solus.", commorb);
+		chaseToCanifis = new DetailedQuestStep(this, new WorldPoint(3485, 3481, 0), t("Go to Canifis. Finish the conversation when Savant calls you. If you accidentally exit this conversation, move away and enter Canifis again."), commorb);
+		enterCanifis = new DetailedQuestStep(this, new WorldPoint(3485, 3481, 0), t("Go to Canifis, and scan with your Commorb there until you find Solus."), commorb);
 		enterCanifis.addSubSteps(chaseToCanifis, moveOutOfCanifisAgain);
 
-		goToChampionsGuild = new DetailedQuestStep(this, new WorldPoint(3190, 3359, 0), "Go to the Champions' Guild.",
+		goToChampionsGuild = new DetailedQuestStep(this, new WorldPoint(3190, 3359, 0), t("Go to the Champions' Guild."),
 			commorb);
-		goDownToLumbridgeCellar = new ObjectStep(this, ObjectID.QIP_COOK_TRAPDOOR_OPEN, new WorldPoint(3209, 3216, 0), "Go down to the Lumbridge Cellars.", commorb);
-		goToDorgeshKaan = new DetailedQuestStep(this, new WorldPoint(3317, 9612, 0), "Go to the mines near the entrance of Dorgesh Kaan.", commorb);
-		goToMusaPoint = new DetailedQuestStep(this, new WorldPoint(2916, 3160, 0), "Go to Musa Point on Karamja.", commorb);
-		goToDraynorMarket = new DetailedQuestStep(this, new WorldPoint(3082, 3249, 0), "Go to Draynor Market.", commorb);
-		goToGoblinVillage = new DetailedQuestStep(this, new WorldPoint(2956, 3506, 0), "Go to goblin village north of Falador.", commorb);
-		goToArdougneMarket = new DetailedQuestStep(this, new WorldPoint(2662, 3305, 0), "Go to Ardougne market.", commorb);
-		goToGrandTree = new DetailedQuestStep(this, new WorldPoint(2465, 3496, 0), "Go to the Grand Tree.", commorb);
-		goToScorpiusShrine = new DetailedQuestStep(this, new WorldPoint(2465, 3227, 0), "Go to the Shrine of Scorpius north of the Observatory.", commorb);
-		goToAliMorrisane = new DetailedQuestStep(this, new WorldPoint(3304, 3211, 0), "Go to Ali Morrisane in Al Kharid.", commorb);
-		goToWizardsTower = new DetailedQuestStep(this, new WorldPoint(3109, 3164, 0), "Go to the Wizards' Tower.", commorb);
-		goToBrimhavenPub = new DetailedQuestStep(this, new WorldPoint(2795, 3162, 0), "Go to the pub in Brimhaven.", commorb);
-		goToCastleWars = new DetailedQuestStep(this, new WorldPoint(2441, 3090, 0), "Go to Castle Wars.", commorb);
-		goToRellekka = new DetailedQuestStep(this, new WorldPoint(2660, 3657, 0), "Go to Rellekka.", commorb);
-		goToMcGruborsWood = new ObjectStep(this, ObjectID.MCGRUBORLOOSERAILING, new WorldPoint(2662, 3500, 0), "Go to McGrubor's Wood. Fairy ring ALS.", commorb);
-		goToSlayerTower = new DetailedQuestStep(this, new WorldPoint(3428, 3537, 0), "Go to the Slayer Tower in Morytania.", commorb);
-		goToYanillePub = new DetailedQuestStep(this, new WorldPoint(2551, 3081, 0), "Go to the pub in Yanille.", commorb);
-		enterLumbridgeSwampCavesFromTears = new ObjectStep(this, ObjectID.TOG_CAVE_UP, new WorldPoint(3219, 9534, 2), "Enter the Lumbridge Swamp caves.");
+		goDownToLumbridgeCellar = new ObjectStep(this, ObjectID.QIP_COOK_TRAPDOOR_OPEN, new WorldPoint(3209, 3216, 0), t("Go down to the Lumbridge Cellars."), commorb);
+		goToDorgeshKaan = new DetailedQuestStep(this, new WorldPoint(3317, 9612, 0), t("Go to the mines near the entrance of Dorgesh Kaan."), commorb);
+		goToMusaPoint = new DetailedQuestStep(this, new WorldPoint(2916, 3160, 0), t("Go to Musa Point on Karamja."), commorb);
+		goToDraynorMarket = new DetailedQuestStep(this, new WorldPoint(3082, 3249, 0), t("Go to Draynor Market."), commorb);
+		goToGoblinVillage = new DetailedQuestStep(this, new WorldPoint(2956, 3506, 0), t("Go to goblin village north of Falador."), commorb);
+		goToArdougneMarket = new DetailedQuestStep(this, new WorldPoint(2662, 3305, 0), t("Go to Ardougne market."), commorb);
+		goToGrandTree = new DetailedQuestStep(this, new WorldPoint(2465, 3496, 0), t("Go to the Grand Tree."), commorb);
+		goToScorpiusShrine = new DetailedQuestStep(this, new WorldPoint(2465, 3227, 0), t("Go to the Shrine of Scorpius north of the Observatory."), commorb);
+		goToAliMorrisane = new DetailedQuestStep(this, new WorldPoint(3304, 3211, 0), t("Go to Ali Morrisane in Al Kharid."), commorb);
+		goToWizardsTower = new DetailedQuestStep(this, new WorldPoint(3109, 3164, 0), t("Go to the Wizards' Tower."), commorb);
+		goToBrimhavenPub = new DetailedQuestStep(this, new WorldPoint(2795, 3162, 0), t("Go to the pub in Brimhaven."), commorb);
+		goToCastleWars = new DetailedQuestStep(this, new WorldPoint(2441, 3090, 0), t("Go to Castle Wars."), commorb);
+		goToRellekka = new DetailedQuestStep(this, new WorldPoint(2660, 3657, 0), t("Go to Rellekka."), commorb);
+		goToMcGruborsWood = new ObjectStep(this, ObjectID.MCGRUBORLOOSERAILING, new WorldPoint(2662, 3500, 0), t("Go to McGrubor's Wood. Fairy ring ALS."), commorb);
+		goToSlayerTower = new DetailedQuestStep(this, new WorldPoint(3428, 3537, 0), t("Go to the Slayer Tower in Morytania."), commorb);
+		goToYanillePub = new DetailedQuestStep(this, new WorldPoint(2551, 3081, 0), t("Go to the pub in Yanille."), commorb);
+		enterLumbridgeSwampCavesFromTears = new ObjectStep(this, ObjectID.TOG_CAVE_UP, new WorldPoint(3219, 9534, 2), t("Enter the Lumbridge Swamp caves."));
 		goToEndOfLumbridgeSwampCaves = new DetailedQuestStep(this, new WorldPoint(3221, 9550, 0),
-			"Go to the point indicated in the Lumbridge Swamp Caves.", commorb, lightSource, spinyHelmet.equipped());
+			t("Go to the point indicated in the Lumbridge Swamp Caves."), commorb, lightSource, spinyHelmet.equipped());
 		goDownToLumbridgeSwampCaves = new ObjectStep(this, ObjectID.GOBLIN_CAVE_ENTRANCE, new WorldPoint(3169, 3172, 0),
-			"Enter the Lumbridge Swamp Caves. Use a Games Necklace teleport to Tears of Guthix for a faster route.",
+			t("Enter the Lumbridge Swamp Caves. Use a Games Necklace teleport to Tears of Guthix for a faster route."),
 			commorb, lightSource, rope.highlighted(), spinyHelmet);
 		goDownToLumbridgeSwampCaves.addIcon(ItemID.ROPE);
 		goDownToLumbridgeSwampCavesPlacedRope = new ObjectStep(this, ObjectID.GOBLIN_CAVE_ENTRANCE, new WorldPoint(3169, 3172, 0),
-			"Enter the Lumbridge Swamp Caves. Use a Games Necklace teleport to Tears of Guthix for a faster route.",
+			t("Enter the Lumbridge Swamp Caves. Use a Games Necklace teleport to Tears of Guthix for a faster route."),
 			commorb, lightSource, spinyHelmet);
 
-		killBlackKnightFromScan = new NpcStep(this, NpcID.WANTED_SUMMONED_BLACK_KNIGHT, "Kill the Black Knight, or run away.");
+		killBlackKnightFromScan = new NpcStep(this, NpcID.WANTED_SUMMONED_BLACK_KNIGHT, t("Kill the Black Knight, or run away."));
 
-		huntDownSolus = new DetailedQuestStep(this, "Hunt down Solus Dellagar across Gielinor.");
+		huntDownSolus = new DetailedQuestStep(this, t("Hunt down Solus Dellagar across Gielinor."));
 		huntDownSolus.addSubSteps(goToChampionsGuild, goDownToLumbridgeCellar, goToDorgeshKaan, goToMusaPoint,
 			goToDraynorMarket, goToGoblinVillage, goToArdougneMarket, goToGrandTree, goToScorpiusShrine,
 			goToAliMorrisane, goToWizardsTower, goToBrimhavenPub, goToCastleWars, goToRellekka, goToMcGruborsWood,
@@ -493,16 +493,16 @@ public class Wanted extends BasicQuestHelper
 			goToEndOfLumbridgeSwampCaves, enterLumbridgeSwampCavesFromTears, scanWithCommorb);
 
 		// Final battle
-		goToEssenceMine = new NpcStep(this, NpcID.BIM_AUBURY, new WorldPoint(3253, 3402, 0), "Go to the Rune Essence mine by talking to any of the NPCs that can teleport you there.", commorb, combatGear);
-		killSolus = new NpcStep(this, NpcID.WANTED_SOLUS_ATTACKABLE, "Kill Solus Dellagar.", combatGear);
+		goToEssenceMine = new NpcStep(this, NpcID.BIM_AUBURY, new WorldPoint(3253, 3402, 0), t("Go to the Rune Essence mine by talking to any of the NPCs that can teleport you there."), commorb, combatGear);
+		killSolus = new NpcStep(this, NpcID.WANTED_SOLUS_ATTACKABLE, t("Kill Solus Dellagar."), combatGear);
 
 		// Wrapping up
-		QuestStep talkToSirAmikAfterSolusFight = new NpcStep(this, NpcID.SIR_AMIK_VARZE, "Talk to Sir Amik Varze at the White Knights' Castle in Falador.");
-		QuestStep getSolusHatFromSavant = new DetailedQuestStep(this, "Right click the Commorb and select the 'contact' option to get Solus' Hat from Savant.", highlightedCommorb, oneFreeInventorySlot);
+		QuestStep talkToSirAmikAfterSolusFight = new NpcStep(this, NpcID.SIR_AMIK_VARZE, t("Talk to Sir Amik Varze at the White Knights' Castle in Falador."));
+		QuestStep getSolusHatFromSavant = new DetailedQuestStep(this, t("Right click the Commorb and select the 'contact' option to get Solus' Hat from Savant."), highlightedCommorb, oneFreeInventorySlot);
 		getSolusHatFromSavant.addDialogStep("Current Assignment");
 
-		goTalkToSirAmikAfterFinalBattle = new ConditionalStep(this, getSolusHatFromSavant, "Show Solus' Hat to Sir " +
-			"Amik Varze in Falador.", solusHat);
+		goTalkToSirAmikAfterFinalBattle = new ConditionalStep(this, getSolusHatFromSavant, t("Show Solus' Hat to Sir " +
+			"Amik Varze in Falador."), solusHat);
 		((ConditionalStep) goTalkToSirAmikAfterFinalBattle).addStep(new Conditions(solusHat, isInWhiteKnightsCastleF2), talkToSirAmikAfterSolusFight);
 		((ConditionalStep) goTalkToSirAmikAfterFinalBattle).addStep(isInWhiteKnightsCastleF1, climbToWhiteKnightsCastleF2);
 		((ConditionalStep) goTalkToSirAmikAfterFinalBattle).addStep(solusHat, climbToWhiteKnightsCastleF1);
@@ -536,7 +536,7 @@ public class Wanted extends BasicQuestHelper
 	@Override
 	public List<String> getCombatRequirements()
 	{
-		return Arrays.asList("Black Knight (level 33)", "Solus Dellagar (similar strength)");
+		return Arrays.asList(t("Black Knight (level 33)"), t("Solus Dellagar (similar strength)"));
 	}
 
 	@Override
@@ -554,7 +554,7 @@ public class Wanted extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("Access to the White Knight's Armory"));
+		return Collections.singletonList(new UnlockReward(t("Access to the White Knight's Armory")));
 	}
 
 	@Override
@@ -562,18 +562,18 @@ public class Wanted extends BasicQuestHelper
 	{
 		ArrayList<PanelDetails> allSteps = new ArrayList<>();
 
-		allSteps.add(new PanelDetails("Getting started", Arrays.asList(talkToSirTiffy1, goTalkToSirAmik1,
+		allSteps.add(new PanelDetails(t("Getting started"), Arrays.asList(talkToSirTiffy1, goTalkToSirAmik1,
 			talkToSirTiffy2, goTalkToSirAmik2, talkToSirTiffy3,
 			getCommorbFromSirTiffy, talkToSavantAfterGettingCommorb), commorbComponentsOrTenThousandGp));
 
-		allSteps.add(new PanelDetails("Daquarius", Arrays.asList(talkToLordDaquarius, killBlackKnight, talkToIntimidatedLordDaquarius), combatGear, commorb));
+		allSteps.add(new PanelDetails(t("Daquarius"), Arrays.asList(talkToLordDaquarius, killBlackKnight, talkToIntimidatedLordDaquarius), combatGear, commorb));
 
-		allSteps.add(new PanelDetails("Mage of Zamorak", Arrays.asList(talkToMageOfZamorak, giveEssenceToMageOfZamorak), essence, commorb));
+		allSteps.add(new PanelDetails(t("Mage of Zamorak"), Arrays.asList(talkToMageOfZamorak, giveEssenceToMageOfZamorak), essence, commorb));
 
-		allSteps.add(new PanelDetails("The Hunt for Solus", Arrays.asList(enterCanifis, huntDownSolus), lightSource,
+		allSteps.add(new PanelDetails(t("The Hunt for Solus"), Arrays.asList(enterCanifis, huntDownSolus), lightSource,
 			rope.hideConditioned(placedRope), spinyHelmet, commorb));
 
-		allSteps.add(new PanelDetails("Final battle", Arrays.asList(goToEssenceMine, killSolus, goTalkToSirAmikAfterFinalBattle), combatGear, commorb));
+		allSteps.add(new PanelDetails(t("Final battle"), Arrays.asList(goToEssenceMine, killSolus, goTalkToSirAmikAfterFinalBattle), combatGear, commorb));
 
 		return allSteps;
 	}

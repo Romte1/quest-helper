@@ -124,15 +124,15 @@ public class EthicallyAcquiredAntiquities extends BasicQuestHelper
 		varrockTeleport.addAlternates(ItemID.CHRONICLE);
 		civitasIllaFortisTeleport = new TeleportItemRequirement("Civitas Illa Fortis Teleport", ItemID.POH_TABLET_FORTISTELEPORT);
 		coinsForCharter = new ItemRequirement("Coins", ItemID.COINS, 3000);
-		coinsForCharter.setTooltip("Only needed if you charter a ship from Civitas illa Fortis to Port Sarim.");
+		coinsForCharter.setTooltip(t("Only needed if you charter a ship from Civitas illa Fortis to Port Sarim."));
 		staminaPotion = new ItemRequirement("Stamina potion", ItemID._4DOSESTAMINA);
 
 		// Quest items
 		tatteredSail = new ItemRequirement("Tattered sails", ItemID.EAA_TATTERED_SAIL);
-		tatteredSail.setTooltip("You can get another from one of the trader crewmembers in the Fortis Cothon");
+		tatteredSail.setTooltip(t("You can get another from one of the trader crewmembers in the Fortis Cothon"));
 		fixedSail = new ItemRequirement("Sails", ItemID.EAA_FIXED_SAIL);
 		bettysNotes = new ItemRequirement("Betty's Notes", ItemID.EAA_RUNE_ORDER);
-		bettysNotes.setTooltip("Talk to Betty in Port Sarim for them");
+		bettysNotes.setTooltip(t("Talk to Betty in Port Sarim for them"));
 		bettysNotes.setHighlightInInventory(true);
 		storeRoomKey = new ItemRequirement("Key for Storeroom", ItemID.EAA_STORE_ROOM_KEY);
 	}
@@ -149,40 +149,40 @@ public class EthicallyAcquiredAntiquities extends BasicQuestHelper
 
 	public void setupSteps()
 	{
-		inspectEmptyDisplayCase = new ObjectStep(this, ObjectID.CIVITAS_MUSEUM_DISPLAY_DIADEM_EMPTY, new WorldPoint(1721, 3165, 0), "Inspect the empty display case at the " +
-				"Grand Museum in Civitas illa Fortis to start the quest.");
+		inspectEmptyDisplayCase = new ObjectStep(this, ObjectID.CIVITAS_MUSEUM_DISPLAY_DIADEM_EMPTY, new WorldPoint(1721, 3165, 0), t("Inspect the empty display case at the " +
+				"Grand Museum in Civitas illa Fortis to start the quest."));
 		inspectEmptyDisplayCase.addDialogStep("Yes.");
 		inspectEmptyDisplayCase.addTeleport(civitasIllaFortisTeleport);
-		talkToCuratorHerminius = new NpcStep(this, NpcID.FORTIS_MUSEUM_CURATOR, new WorldPoint(1712, 3163, 0), "Speak to Curator Herminius in the centre of the " +
-				"Grand Museum.");
+		talkToCuratorHerminius = new NpcStep(this, NpcID.FORTIS_MUSEUM_CURATOR, new WorldPoint(1712, 3163, 0), t("Speak to Curator Herminius in the centre of the " +
+				"Grand Museum."));
 		talkToCuratorHerminius.addDialogStep("Could you tell me more about that empty display?");
-		investigateToolsBehindDisplayCase = new ObjectStep(this, ObjectID.EAA_TOOLS_INVESTIGATE, new WorldPoint(1722, 3167, 0), "Investigate the tools behind the empty " +
-				"display case.");
-		investigateCaseAgain = new ObjectStep(this, ObjectID.CIVITAS_MUSEUM_DISPLAY_DIADEM_EMPTY, new WorldPoint(1721, 3165, 0), "Inspect the empty display case again.");
-		talkToCitizen = new NpcStep(this, NpcID.VARLAMORE_CITIZEN_NORMAL_M_5, new WorldPoint(1712, 3165, 0), "Talk to any citizen in the room.");
+		investigateToolsBehindDisplayCase = new ObjectStep(this, ObjectID.EAA_TOOLS_INVESTIGATE, new WorldPoint(1722, 3167, 0), t("Investigate the tools behind the empty " +
+				"display case."));
+		investigateCaseAgain = new ObjectStep(this, ObjectID.CIVITAS_MUSEUM_DISPLAY_DIADEM_EMPTY, new WorldPoint(1721, 3165, 0), t("Inspect the empty display case again."));
+		talkToCitizen = new NpcStep(this, NpcID.VARLAMORE_CITIZEN_NORMAL_M_5, new WorldPoint(1712, 3165, 0), t("Talk to any citizen in the room."));
 		((NpcStep) talkToCitizen).addAlternateNpcs(NpcID.VARLAMORE_CITIZEN_RICH_M_1);
-		talkToAcademic = new NpcStep(this, NpcID.FORTIS_ACADEMIC_01, new WorldPoint(1712, 3165, 0), "Talk to any academic in the room.");
+		talkToAcademic = new NpcStep(this, NpcID.FORTIS_ACADEMIC_01, new WorldPoint(1712, 3165, 0), t("Talk to any academic in the room."));
 		((NpcStep) talkToAcademic).addAlternateNpcs(NpcID.FORTIS_ACADEMIC_02, NpcID.FORTIS_ACADEMIC_03, NpcID.FORTIS_ACADEMIC_04);
-		talkToTourist = new NpcStep(this, NpcID.VARLAMORE_TOURIST_M_1, new WorldPoint(1712, 3165, 0), "Talk to any tourist in the room.");
+		talkToTourist = new NpcStep(this, NpcID.VARLAMORE_TOURIST_M_1, new WorldPoint(1712, 3165, 0), t("Talk to any tourist in the room."));
 		((NpcStep) talkToTourist).addAlternateNpcs(NpcID.VARLAMORE_TOURIST_M_2, NpcID.VARLAMORE_TOURIST_M_3, NpcID.VARLAMORE_TOURIST_F_1, NpcID.VARLAMORE_TOURIST_F_2, NpcID.VARLAMORE_TOURIST_F_3);
-		talkToRegulus = new NpcStep(this, NpcID.VMQ2_QUETZAL_KEEPER_FORTIS, new WorldPoint(1701, 3143, 0), "Speak to Regulus Cento south of the Grand Museum.");
+		talkToRegulus = new NpcStep(this, NpcID.VMQ2_QUETZAL_KEEPER_FORTIS, new WorldPoint(1701, 3143, 0), t("Speak to Regulus Cento south of the Grand Museum."));
 		talkToRegulus.addDialogStep("Have you seen anybody suspicious around?");
-		talkToCrewmember = new NpcStep(this, NpcID.SAILING_TRANSPORT_TRADER_STAN_CREW_MAN1_BASE, new WorldPoint(1742, 3135, 0), "Head east to the docks and speak to any Trader " +
-				"Crewmember.");
+		talkToCrewmember = new NpcStep(this, NpcID.SAILING_TRANSPORT_TRADER_STAN_CREW_MAN1_BASE, new WorldPoint(1742, 3135, 0), t("Head east to the docks and speak to any Trader " +
+				"Crewmember."));
 		((NpcStep) talkToCrewmember).addAlternateNpcs(getCrewMembers());
 
 		talkToCrewmember.addDialogSteps("Have you seen a man with a case?", "As long as it is just the one favour...");
-		talkToArtima = new NpcStep(this, NpcID.FORTIS_SHOP_CRAFTING, new WorldPoint(1766, 3101, 0), "Head south of the Fortis Cothon to Artima's crafting store and speak to" +
-				" her.", tatteredSail);
+		talkToArtima = new NpcStep(this, NpcID.FORTIS_SHOP_CRAFTING, new WorldPoint(1766, 3101, 0), t("Head south of the Fortis Cothon to Artima's crafting store and speak to" +
+				" her."), tatteredSail);
 		talkToArtima.addDialogSteps("I was hoping for some help.", "Go on then.");
 		talkToArtima.addDialogStep("So about those sails...");
-		returnToCrewmember = new NpcStep(this, NpcID.SAILING_TRANSPORT_TRADER_STAN_CREW_MAN1_BASE, new WorldPoint(1742, 3135, 0), "Return up north and speak to any Trader Crewmember.",
+		returnToCrewmember = new NpcStep(this, NpcID.SAILING_TRANSPORT_TRADER_STAN_CREW_MAN1_BASE, new WorldPoint(1742, 3135, 0), t("Return up north and speak to any Trader Crewmember."),
 				fixedSail.hideConditioned(new VarbitRequirement(QuestVarbits.QUEST_ETHICALLY_ACQUIRED_ANTIQUITIES.getId(), 14, Operation.GREATER_EQUAL)));
 		((NpcStep) returnToCrewmember).addAlternateNpcs(getCrewMembers());
 
 		returnToCrewmember.addDialogStep("So, about that man with the case.");
-		talkToTraderStan = new NpcStep(this, NpcID.SAILING_TRANSPORT_TRADER_STAN_BASE, new WorldPoint(3036, 3194, 0), "Head to Port Sarim and speak to Trader Stan or any Trader " +
-				"Crewmember on the southern deck. To get to Port Sarim quickly, you can charter a ship.");
+		talkToTraderStan = new NpcStep(this, NpcID.SAILING_TRANSPORT_TRADER_STAN_BASE, new WorldPoint(3036, 3194, 0), t("Head to Port Sarim and speak to Trader Stan or any Trader " +
+				"Crewmember on the southern deck. To get to Port Sarim quickly, you can charter a ship."));
 		((NpcStep) talkToTraderStan).addRecommended(coinsForCharter);
 		talkToTraderStan.addDialogSteps("Port Sarim (wily cats)", "Have you seen a grey-haired man with a case?");
 		((NpcStep) talkToTraderStan).addAlternateNpcs(NpcID.SAILING_TRANSPORT_TRADER_STAN_BRIMHAVEN, NpcID.SAILING_TRANSPORT_TRADER_STAN_CATHERBY, NpcID.SAILING_TRANSPORT_TRADER_STAN_MOSLEHARMLESS, NpcID.SAILING_TRANSPORT_TRADER_STAN_MUSAPOINT,
@@ -190,22 +190,22 @@ public class EthicallyAcquiredAntiquities extends BasicQuestHelper
 				, NpcID.SAILING_TRANSPORT_TRADER_STAN_PORTTYRAS);
 		((NpcStep) talkToTraderStan).addAlternateNpcs(getCrewMembers());
 
-		talkToBetty = new NpcStep(this, NpcID.SARIM_BETTY, new WorldPoint(3011, 3260, 0), "Head to the Rune Shop in north western Port Sarim and speak to Betty" +
-				".");
+		talkToBetty = new NpcStep(this, NpcID.SARIM_BETTY, new WorldPoint(3011, 3260, 0), t("Head to the Rune Shop in north western Port Sarim and speak to Betty" +
+				"."));
 		talkToBetty.addDialogStep("Have you seen a grey-haired man with a case?");
 		// 11206 0->1 is received betty's notes first time
-		readBettysNotes = new DetailedQuestStep(this, "Read Betty's notes.", bettysNotes);
-		pickpocketCuratorHaig = new NpcStep(this, NpcID.CURATOR, new WorldPoint(3257, 3449, 0), "Right-click pickpocket Curator Haig Halen.");
+		readBettysNotes = new DetailedQuestStep(this, t("Read Betty's notes."), bettysNotes);
+		pickpocketCuratorHaig = new NpcStep(this, NpcID.CURATOR, new WorldPoint(3257, 3449, 0), t("Right-click pickpocket Curator Haig Halen."));
 		pickpocketCuratorHaig.addIcon(ItemID.SKILLCAPE_THIEVING);
-		talkToCuratorHaigHalen = new NpcStep(this, NpcID.CURATOR, new WorldPoint(3257, 3449, 0), "Head to Varrock Museum and speak to Curator Haig " +
-				"Halen.");
+		talkToCuratorHaigHalen = new NpcStep(this, NpcID.CURATOR, new WorldPoint(3257, 3449, 0), t("Head to Varrock Museum and speak to Curator Haig " +
+				"Halen."));
 		talkToCuratorHaigHalen.addDialogStep("I'm looking for Xerna's Diadem.");
 		talkToCuratorHaigHalen.addTeleport(varrockTeleport);
-		searchStoreroomCrate = new ObjectStep(this, ObjectID.EAA_LARGE_CRATE, new WorldPoint(3266, 3458, 0), "Open the door to the room in the north east and " +
-				"search the crate.");
-		talkToCuratorBeforeShaming = new NpcStep(this, NpcID.CURATOR, new WorldPoint(3257, 3449, 0), "Go speak to Curator Haig Halen again.");
+		searchStoreroomCrate = new ObjectStep(this, ObjectID.EAA_LARGE_CRATE, new WorldPoint(3266, 3458, 0), t("Open the door to the room in the north east and " +
+				"search the crate."));
+		talkToCuratorBeforeShaming = new NpcStep(this, NpcID.CURATOR, new WorldPoint(3257, 3449, 0), t("Go speak to Curator Haig Halen again."));
 		talkToCuratorBeforeShaming.addDialogStep("I found Xerna's Diadem...");
-		shameCuratorHaigHalen = new NpcStep(this, NpcID.CURATOR, new WorldPoint(3257, 3449, 0), "Shame Curator Haig Halen, get the meter to 100%.")
+		shameCuratorHaigHalen = new NpcStep(this, NpcID.CURATOR, new WorldPoint(3257, 3449, 0), t("Shame Curator Haig Halen, get the meter to 100%."))
 				.addDialogStep("I found Xerna's Diadem...")
 				.addDialogSteps("Aren't you embarrassed to have stolen items in your collection?",
 				"Are you even a real historian, or just a petty criminal?", "Did you know Varlamore sends thieves to the Colosseum?",
@@ -224,11 +224,11 @@ public class EthicallyAcquiredAntiquities extends BasicQuestHelper
 				"Think of the Varlamorian children who won't get to see this artefact.", "You should give Varlamore a chance before stealing their stuff.",
 				"This is stealing! Thieving! Taking what's not yours!", "I thought archaeology was cool. I didn't realise it was just thieving!",
 				"How would you feel if someone came in here and stole all your stuff?", "You're hoarding artefacts, but you should be sharing them!")
-				.puzzleWrapStep("Work out how to shame Curator Haig Halen, get the meter to 100%.");
-		talkToCuratorBeforeCutscene = new NpcStep(this, NpcID.CURATOR, new WorldPoint(3257, 3449, 0), "Speak to Curator before a cutscene.");
-		watchCutscene = new NpcStep(this, NpcID.CURATOR, new WorldPoint(3257, 3449, 0), "Watch cutscene.");
-		returnToCuratorHerminius = new NpcStep(this, NpcID.FORTIS_MUSEUM_CURATOR, new WorldPoint(1712, 3163, 0), "Speak to the Curator in the centre of the Grand " +
-				"Museum to complete the quest.");
+				.puzzleWrapStep(t("Work out how to shame Curator Haig Halen, get the meter to 100%."));
+		talkToCuratorBeforeCutscene = new NpcStep(this, NpcID.CURATOR, new WorldPoint(3257, 3449, 0), t("Speak to Curator before a cutscene."));
+		watchCutscene = new NpcStep(this, NpcID.CURATOR, new WorldPoint(3257, 3449, 0), t("Watch cutscene."));
+		returnToCuratorHerminius = new NpcStep(this, NpcID.FORTIS_MUSEUM_CURATOR, new WorldPoint(1712, 3163, 0), t("Speak to the Curator in the centre of the Grand " +
+				"Museum to complete the quest."));
 		returnToCuratorHerminius.addDialogStep("About that empty display...");
 		returnToCuratorHerminius.addTeleport(civitasIllaFortisTeleport);
 
@@ -299,11 +299,11 @@ public class EthicallyAcquiredAntiquities extends BasicQuestHelper
 	@Override
 	public List<PanelDetails> getPanels() {
 		List<PanelDetails> allSteps = new ArrayList<>();
-		allSteps.add(new PanelDetails("Grand Museum", Arrays.asList(inspectEmptyDisplayCase, talkToCuratorHerminius, investigateToolsBehindDisplayCase, investigateCaseAgain, talkToAcademic, talkToTourist, talkToCitizen), Arrays.asList(civitasIllaFortisTeleport)));
+		allSteps.add(new PanelDetails(t("Grand Museum"), Arrays.asList(inspectEmptyDisplayCase, talkToCuratorHerminius, investigateToolsBehindDisplayCase, investigateCaseAgain, talkToAcademic, talkToTourist, talkToCitizen), Arrays.asList(civitasIllaFortisTeleport)));
 
-		allSteps.add(new PanelDetails("Done with museum visit", Arrays.asList(talkToRegulus, talkToCrewmember, talkToArtima, returnToCrewmember, talkToTraderStan, talkToBetty, readBettysNotes), Arrays.asList(coinsForCharter)));
+		allSteps.add(new PanelDetails(t("Done with museum visit"), Arrays.asList(talkToRegulus, talkToCrewmember, talkToArtima, returnToCrewmember, talkToTraderStan, talkToBetty, readBettysNotes), Arrays.asList(coinsForCharter)));
 
-		allSteps.add(new PanelDetails("Nevermind, another one", Arrays.asList(talkToCuratorHaigHalen, pickpocketCuratorHaig, searchStoreroomCrate, talkToCuratorBeforeShaming,
+		allSteps.add(new PanelDetails(t("Nevermind, another one"), Arrays.asList(talkToCuratorHaigHalen, pickpocketCuratorHaig, searchStoreroomCrate, talkToCuratorBeforeShaming,
 				shameCuratorHaigHalen, talkToCuratorBeforeCutscene, watchCutscene, returnToCuratorHerminius), Arrays.asList(varrockTeleport, civitasIllaFortisTeleport)));
 		return allSteps;
 

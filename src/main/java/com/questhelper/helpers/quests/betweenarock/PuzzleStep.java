@@ -37,7 +37,7 @@ public class PuzzleStep extends DetailedQuestStep
 
 	public PuzzleStep(QuestHelper questHelper, ItemRequirement item)
 	{
-		super(questHelper, "Click the highlighted boxes to move the pieces to the correct spots.", item);
+		super(questHelper, questHelper.t("Click the highlighted boxes to move the pieces to the correct spots."), item);
 
 		pieces[0] = new HashMap<>();
 		pieces[0].put(PIECE_ID, 11);

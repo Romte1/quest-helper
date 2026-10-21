@@ -100,7 +100,7 @@ public class TearsOfGuthix extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		litSapphireLantern = new ItemRequirement("Sapphire lantern", ItemID.TOG_SAPPHIRE_LANTERN_LIT).isNotConsumed();
-		litSapphireLantern.setTooltip("You can make this by using a cut sapphire on a bullseye lantern");
+		litSapphireLantern.setTooltip(t("You can make this by using a cut sapphire on a bullseye lantern"));
 		chisel = new ItemRequirement("Chisel", ItemCollections.CHISEL).isNotConsumed();
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
 		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
@@ -108,7 +108,7 @@ public class TearsOfGuthix extends BasicQuestHelper
 
 
 		litSapphireLanternHighlighted = new ItemRequirement("Sapphire lantern", ItemID.TOG_SAPPHIRE_LANTERN_LIT);
-		litSapphireLanternHighlighted.setTooltip("You can make this by using a cut sapphire on a bullseye lantern");
+		litSapphireLanternHighlighted.setTooltip(t("You can make this by using a cut sapphire on a bullseye lantern"));
 		litSapphireLanternHighlighted.setHighlightInInventory(true);
 		chiselHighlighted = new ItemRequirement("Chisel", ItemCollections.CHISEL);
 		chiselHighlighted.setHighlightInInventory(true);
@@ -138,26 +138,26 @@ public class TearsOfGuthix extends BasicQuestHelper
 	private void setupSteps()
 	{
 		addRope = new ObjectStep(this, ObjectID.GOBLIN_CAVE_ENTRANCE, new WorldPoint(3169, 3172, 0),
-			"Enter the hole to Lumbridge swamp.", ropeHighlighted, litSapphireLantern, chisel, pickaxe, tinderbox);
+			t("Enter the hole to Lumbridge swamp."), ropeHighlighted, litSapphireLantern, chisel, pickaxe, tinderbox);
 		addRope.addIcon(ItemID.ROPE);
 
 		enterSwamp = new ObjectStep(this, ObjectID.GOBLIN_CAVE_ENTRANCE, new WorldPoint(3169, 3172, 0),
-			"Enter the hole to Lumbridge swamp.", litSapphireLantern, chisel, pickaxe, tinderbox);
+			t("Enter the hole to Lumbridge swamp."), litSapphireLantern, chisel, pickaxe, tinderbox);
 		enterSwamp.addSubSteps(addRope);
 
 		enterJunaRoom = new ObjectStep(this, ObjectID.TOG_CAVE_DOWN, new WorldPoint(3226, 9540, 0),
-			"Enter the cave in the south east corner of the swamp.");
+			t("Enter the cave in the south east corner of the swamp."));
 		talkToJuna = new ObjectStep(this, ObjectID.TOG_JUNA, new WorldPoint(3252, 9517, 2),
-			"Talk to Juna.");
+			t("Talk to Juna."));
 		talkToJuna.addDialogStep("Okay...");
 		// TODO: Verify which Light Creature NPC ID is correct
 		useLanternOnLightCreature = new NpcStep(this, new int[]{NpcID.DTTD_CUTSCENE_LIGHT_CREATURE, NpcID.TOG_LIGHT_CREATURE_NOOP, NpcID.TOG_LIGHT_CREATURE_OP, NpcID.TOG_LIGHT_CREATURE_CARRYING, NpcID.TOG_LIGHT_CREATURE_TRANSITION}, new WorldPoint(3228, 9518, 2),
-			"Go back up the rocks and use the lit sapphire lantern on one of the light creatures nearby.", litSapphireLanternHighlighted);
+			t("Go back up the rocks and use the lit sapphire lantern on one of the light creatures nearby."), litSapphireLanternHighlighted);
 		mineRock = new ObjectStep(this, ObjectID.TOG_BLUE_STONE_ROCKS2, new WorldPoint(3229, 9497, 2),
-			"Mine one of the rocks.", pickaxe);
-		useChiselOnRock = new DetailedQuestStep(this, "Use a chisel on the magic stone.", chiselHighlighted, rockHighlighted);
+			t("Mine one of the rocks."), pickaxe);
+		useChiselOnRock = new DetailedQuestStep(this, t("Use a chisel on the magic stone."), chiselHighlighted, rockHighlighted);
 		talkToJunaToFinish = new ObjectStep(this, ObjectID.TOG_JUNA, new WorldPoint(3252, 9517, 2),
-			"Talk to Juna to complete the quest.");
+			t("Talk to Juna to complete the quest."));
 
 	}
 
@@ -193,7 +193,7 @@ public class TearsOfGuthix extends BasicQuestHelper
 	@Override
 	public List<UnlockReward> getUnlockRewards()
 	{
-		return Collections.singletonList(new UnlockReward("Access to Tears of Guthix"));
+		return Collections.singletonList(new UnlockReward(t("Access to Tears of Guthix")));
 	}
 
 	@Override
@@ -201,7 +201,7 @@ public class TearsOfGuthix extends BasicQuestHelper
 	{
 		List<PanelDetails> allSteps = new ArrayList<>();
 
-		allSteps.add(new PanelDetails("Making a bowl", Arrays.asList(enterSwamp, enterJunaRoom, talkToJuna, useLanternOnLightCreature, mineRock, useChiselOnRock, talkToJunaToFinish),
+		allSteps.add(new PanelDetails(t("Making a bowl"), Arrays.asList(enterSwamp, enterJunaRoom, talkToJuna, useLanternOnLightCreature, mineRock, useChiselOnRock, talkToJunaToFinish),
 			rope, litSapphireLantern, tinderbox, chisel, pickaxe));
 
 		return allSteps;

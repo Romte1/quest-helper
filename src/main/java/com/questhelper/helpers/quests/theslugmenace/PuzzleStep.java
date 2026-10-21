@@ -38,7 +38,7 @@ public class PuzzleStep extends QuestStep
 
 	public PuzzleStep(QuestHelper questHelper)
 	{
-		super(questHelper, "Click the highlighted boxes to move the pieces to the correct spots.");
+		super(questHelper, questHelper.t("Click the highlighted boxes to move the pieces to the correct spots."));
 
 		final int SELECT_1_BUTTON = 13;
 		final int SELECT_2_BUTTON = 14;

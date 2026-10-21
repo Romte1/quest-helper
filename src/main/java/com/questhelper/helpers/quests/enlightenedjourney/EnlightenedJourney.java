@@ -131,8 +131,8 @@ public class EnlightenedJourney extends BasicQuestHelper
 		logs10 = new ItemRequirement("Logs", ItemID.LOGS, 10);
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
 		willowBranches12 = new ItemRequirement("Willow branches", ItemID.WILLOW_BRANCH, 12);
-		willowBranches12.setTooltip("You can get these by using secateurs on a willow tree you've grown. Auguste will" +
-			" give you a sapling to grow during the quest if you need one");
+		willowBranches12.setTooltip(t("You can get these by using secateurs on a willow tree you've grown. Auguste will" +
+			" give you a sapling to grow during the quest if you need one"));
 
 		draynorTeleport = new ItemRequirement("Draynor/Port Sarim teleport", ItemID.LUMBRIDGE_RING_HARD);
 		draynorTeleport.addAlternates(ItemID.LUMBRIDGE_RING_ELITE, ItemID.TELETAB_DRAYNOR);
@@ -164,31 +164,31 @@ public class EnlightenedJourney extends BasicQuestHelper
 	public void setupSteps()
 	{
 		travelToEntrana = new NpcStep(this, NpcID.SHIPMONK1_C, new WorldPoint(3047, 3236, 0),
-			"Bank all weapons and armour you have, and go to Port Sarim to get a boat to Entrana.");
+			t("Bank all weapons and armour you have, and go to Port Sarim to get a boat to Entrana."));
 
-		talkToAuguste = new NpcStep(this, NpcID.ZEP_PICCARD, new WorldPoint(2809, 3354, 0), "Talk to Auguste on Entrana 3" +
-			" times.", papyrus3, ballOfWool);
+		talkToAuguste = new NpcStep(this, NpcID.ZEP_PICCARD, new WorldPoint(2809, 3354, 0), t("Talk to Auguste on Entrana 3" +
+			" times."), papyrus3, ballOfWool);
 		talkToAuguste.addDialogSteps("Yes! Sign me up.", "Umm, yes. What's your point?", "Yes.");
 
-		usePapyrusOnWool = new DetailedQuestStep(this, "Use papyrus on a ball of wool.", papyrus.highlighted(),
+		usePapyrusOnWool = new DetailedQuestStep(this, t("Use papyrus on a ball of wool."), papyrus.highlighted(),
 			ballOfWool.highlighted());
 
-		useCandleOnBalloon = new DetailedQuestStep(this, "Use a candle on the balloon.", unlitCandle.highlighted(),
+		useCandleOnBalloon = new DetailedQuestStep(this, t("Use a candle on the balloon."), unlitCandle.highlighted(),
 			balloonStructure.highlighted());
 
-		talkToAugusteAgain = new NpcStep(this, NpcID.ZEP_PICCARD, new WorldPoint(2809, 3354, 0), "Talk to Auguste again.",
+		talkToAugusteAgain = new NpcStep(this, NpcID.ZEP_PICCARD, new WorldPoint(2809, 3354, 0), t("Talk to Auguste again."),
 			origamiBalloon);
 		talkToAugusteAgain.addDialogSteps("Yes, I have them here.");
 
 		talkToAugusteWithPapyrus = new NpcStep(this, NpcID.ZEP_PICCARD, new WorldPoint(2809, 3354, 0),
-			"Talk to Auguste with 2 papyrus and a sack of potatoes.", papyrus2, sackOfPotatoes);
+			t("Talk to Auguste with 2 papyrus and a sack of potatoes."), papyrus2, sackOfPotatoes);
 		talkToAugusteWithPapyrus.addDialogStep("Yes, I have them here.");
 
 		talkToAugusteAfterMob = new NpcStep(this, NpcID.ZEP_PICCARD, new WorldPoint(2809, 3354, 0),
-			"Talk to Auguste after the flash mob.");
+			t("Talk to Auguste after the flash mob."));
 
 		fillSacks = new ObjectStep(this, ObjectID.SANDPIT, new WorldPoint(2817, 3342, 0),
-			"Fill your empty sacks on the sand pit south of Auguste.", emptySack8.highlighted());
+			t("Fill your empty sacks on the sand pit south of Auguste."), emptySack8.highlighted());
 		fillSacks.addIcon(ItemID.SACK_EMPTY);
 
 		talkToAugusteWithDye = new GiveAugusteItems(this);
@@ -196,17 +196,17 @@ public class EnlightenedJourney extends BasicQuestHelper
 			"Bowl.");
 
 		talkToAugusteWithBranches = new ObjectStep(this, ObjectID.ZEP_MULTI_BASKET_ENTRANA, new WorldPoint(2807, 3356, 0),
-			"Get 12 willow branches and use them on the platform next to Auguste to make the basket.", willowBranches12.highlighted());
+			t("Get 12 willow branches and use them on the platform next to Auguste to make the basket."), willowBranches12.highlighted());
 		talkToAugusteWithBranches.addIcon(ItemID.WILLOW_BRANCH);
 
 		talkToAugusteWithLogsAndTinderbox = new NpcStep(this, NpcID.ZEP_PICCARD, new WorldPoint(2809, 3354, 0),
-			"Talk to Auguste to fly.", logs10, tinderbox);
+			t("Talk to Auguste to fly."), logs10, tinderbox);
 		talkToAugusteWithLogsAndTinderbox.addDialogSteps("Okay.");
 
 		doPuzzle = new TaverleyBalloonFlight(this);
 
 		talkToAugusteToFinish = new NpcStep(this, NpcID.ZEP_PICCARD, new WorldPoint(2937, 3421, 0),
-			"Talk to Auguste in Taverley to finish the quest.");
+			t("Talk to Auguste in Taverley to finish the quest."));
 	}
 
 	@Override
@@ -261,8 +261,8 @@ public class EnlightenedJourney extends BasicQuestHelper
 	public List<UnlockReward> getUnlockRewards()
 	{
 		return Arrays.asList(
-				new UnlockReward("Access to the Hot Air Balloon transport system."),
-				new UnlockReward("Ability to make origami balloons."));
+				new UnlockReward(t("Access to the Hot Air Balloon transport system.")),
+				new UnlockReward(t("Ability to make origami balloons.")));
 	}
 
 
@@ -271,13 +271,13 @@ public class EnlightenedJourney extends BasicQuestHelper
 	{
 		ArrayList<PanelDetails> allSteps = new ArrayList<>();
 
-		allSteps.add(new PanelDetails("Making a balloon", Arrays.asList(travelToEntrana, talkToAuguste,
+		allSteps.add(new PanelDetails(t("Making a balloon"), Arrays.asList(travelToEntrana, talkToAuguste,
 			usePapyrusOnWool,
 			useCandleOnBalloon, talkToAugusteAgain, talkToAugusteWithPapyrus, talkToAugusteAfterMob, fillSacks,
 			talkToAugusteWithDye),	papyrus3, ballOfWool, unlitCandle, sackOfPotatoes, emptySack8, yellowDye,redDye,
 			silk10, bowl));
 
-		allSteps.add(new PanelDetails("Flying", Arrays.asList(talkToAugusteWithBranches,
+		allSteps.add(new PanelDetails(t("Flying"), Arrays.asList(talkToAugusteWithBranches,
 			talkToAugusteWithLogsAndTinderbox, doPuzzle, talkToAugusteToFinish),
 			willowBranches12, logs10, tinderbox));
 
