@@ -658,11 +658,11 @@ public class WhileGuthixSleeps extends BasicQuestHelper
 
 		// Recommended items
 		antipoison = new ItemRequirement("Antipoison", ItemCollections.ANTIPOISONS);
-		burthorpeTeleport = new ItemRequirement("Teleport to Burthorpe", ItemCollections.COMBAT_BRACELETS);
+		burthorpeTeleport = new ItemRequirement(t("Teleport to Burthorpe"), ItemCollections.COMBAT_BRACELETS);
 		burthorpeTeleport.addAlternates(ItemCollections.GAMES_NECKLACES);
-		khazardTeleport = new ItemRequirement("Khazard teleports, Ardougne cloak or Spirit tree (3)", ItemCollections.ARDY_CLOAKS);
+		khazardTeleport = new ItemRequirement(t("Khazard teleports, Ardougne cloak or Spirit tree (3)"), ItemCollections.ARDY_CLOAKS);
 		khazardTeleport.addAlternates(ItemID.LUNAR_TABLET_KHAZARD_TELEPORT);
-		feldipHillsTeleport = new ItemRequirement("Feldip hills teleport or Hunter/Max cape", ItemID.TELEPORTSCROLL_FELDIP);
+		feldipHillsTeleport = new ItemRequirement(t("Feldip hills teleport or Hunter/Max cape"), ItemID.TELEPORTSCROLL_FELDIP);
 		feldipHillsTeleport.addAlternates(ItemCollections.FAIRY_STAFF);
 		feldipHillsTeleport.addAlternates(ItemID.SKILLCAPE_HUNTING, ItemID.SKILLCAPE_HUNTING_TRIMMED, ItemID.SKILLCAPE_MAX);
 
@@ -709,7 +709,7 @@ public class WhileGuthixSleeps extends BasicQuestHelper
 		fullDruidPouch = new ItemRequirement("Druid pouch", ItemID.DRUID_POUCH);
 		silverSickleB = new ItemRequirement("Silver sickle (b)", ItemID.SILVER_SICKLE_BLESSED);
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD);
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS);
 
 		// Quest items

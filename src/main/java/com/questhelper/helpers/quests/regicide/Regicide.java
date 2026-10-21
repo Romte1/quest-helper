@@ -216,9 +216,9 @@ public class Regicide extends BasicQuestHelper
 		bucketHighlight.setTooltip(t("You can grab a bucket from the southwest corner of the large dwarf encampment building."));
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
 		tinderboxHighlight = tinderbox.highlighted();
-		combatEquipment = new ItemRequirement("Combat Equipment", -1, -1).isNotConsumed();
+		combatEquipment = new ItemRequirement(t("Combat Equipment"), -1, -1).isNotConsumed();
 		combatEquipment.setDisplayItemId(BankSlotIcons.getCombatGear());
-		food = new ItemRequirement("Food", -1, -1);
+		food = new ItemRequirement(t("Food"), -1, -1);
 		food.setDisplayItemId(ItemID.SHARK);
 		staminaPotions = new ItemRequirement("Stamina Potions", ItemCollections.STAMINA_POTIONS);
 		coins = new ItemRequirement(t("Coins (to buy food, 75 ea)"), ItemCollections.COINS, 750);

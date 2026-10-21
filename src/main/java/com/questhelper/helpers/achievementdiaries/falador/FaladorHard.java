@@ -335,7 +335,7 @@ public class FaladorHard extends ComplexStateQuestHelper
 		req.add(new SkillRequirement(Skill.PRAYER, 70, false));
 		req.add(new ComplexRequirement(LogicType.OR, "56 Runecraft or 42 with Raiments of the Eye set",
 			new SkillRequirement(Skill.RUNECRAFT, 56, true, "56 Runecraft"),
-			new ItemRequirements("42 with Raiments of the Eye set",
+			new ItemRequirements(t("42 with Raiments of the Eye set"),
 				new ItemRequirement("Hat", ItemCollections.EYE_HAT),
 				new ItemRequirement("Top", ItemCollections.EYE_TOP),
 				new ItemRequirement("Bottom", ItemCollections.EYE_BOTTOM),

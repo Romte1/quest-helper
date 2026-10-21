@@ -332,7 +332,7 @@ public class CabinFever extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		fuse1 = new ItemRequirement("Fuse", ItemID.FEVER_FUSE);
 		ropes4 = new ItemRequirement("Rope", ItemID.ROPE, 4);
 		ropes2 = new ItemRequirement("Rope", ItemID.ROPE, 2);
@@ -365,8 +365,8 @@ public class CabinFever extends BasicQuestHelper
 		barrel = new ItemRequirement("Cannon barrel", ItemID.FEVER_CANNON);
 
 		gunpowder = new ItemRequirement("Gunpowder", ItemID.FEVER_GUNPOWDER);
-		canister = new ItemRequirement("A few canister", ItemID.FEVER_CANNISTER);
-		fuses = new ItemRequirement("A few fuses", ItemID.FEVER_FUSE);
+		canister = new ItemRequirement(t("A few canister"), ItemID.FEVER_CANNISTER);
+		fuses = new ItemRequirement(t("A few fuses"), ItemID.FEVER_FUSE);
 		ramrod = new ItemRequirement("Ramrod", ItemID.FEVER_CANNON_PROD);
 
 		powderHighlight = new ItemRequirement("Gunpowder", ItemID.FEVER_GUNPOWDER);
@@ -378,7 +378,7 @@ public class CabinFever extends BasicQuestHelper
 		fuseHighlight = new ItemRequirement("Fuse", ItemID.FEVER_FUSE);
 		fuseHighlight.setHighlightInInventory(true);
 
-		cannonball = new ItemRequirement("A few Cannon balls", ItemID.FEVER_CANNON_BALL);
+		cannonball = new ItemRequirement(t("A few Cannon balls"), ItemID.FEVER_CANNON_BALL);
 
 		cannonballHighlight = new ItemRequirement("Cannon ball", ItemID.FEVER_CANNON_BALL);
 		cannonballHighlight.setHighlightInInventory(true);

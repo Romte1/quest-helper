@@ -201,27 +201,27 @@ public class TheSlugMenace extends BasicQuestHelper
 		essence5 = new ItemRequirement(t("Rune/pure essence, 15 to be safe"), ItemID.BLANKRUNE_HIGH, 5);
 		essence5.addAlternates(ItemID.BLANKRUNE);
 
-		ItemRequirement airTalisman = new ItemRequirement("Access to the Air Altar", ItemCollections.AIR_ALTAR).isNotConsumed();
+		ItemRequirement airTalisman = new ItemRequirement(t("Access to the Air Altar"), ItemCollections.AIR_ALTAR).isNotConsumed();
 		airTalisman.setTooltip(t("Air Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss."));
 
-		ItemRequirement waterTalisman = new ItemRequirement("Access to the Water Altar", ItemCollections.WATER_ALTAR).isNotConsumed();
+		ItemRequirement waterTalisman = new ItemRequirement(t("Access to the Water Altar"), ItemCollections.WATER_ALTAR).isNotConsumed();
 		waterTalisman.setTooltip(t("Water Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss."));
 
-		ItemRequirement earthTalisman = new ItemRequirement("Access to the Earth Altar", ItemCollections.EARTH_ALTAR).isNotConsumed();
+		ItemRequirement earthTalisman = new ItemRequirement(t("Access to the Earth Altar"), ItemCollections.EARTH_ALTAR).isNotConsumed();
 		earthTalisman.setTooltip(t("Earth Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss."));
 
-		ItemRequirement fireTalisman = new ItemRequirement("Access to the Fire Altar", ItemCollections.FIRE_ALTAR).isNotConsumed();
+		ItemRequirement fireTalisman = new ItemRequirement(t("Access to the Fire Altar"), ItemCollections.FIRE_ALTAR).isNotConsumed();
 		fireTalisman.setTooltip(t("Fire Talisman/Tiara, Elemental Talisman/Tiara, RC-skill cape or via Abyss."));
 
-		ItemRequirement mindTalisman = new ItemRequirement("Access to the Mind Altar", ItemCollections.MIND_ALTAR).isNotConsumed();
+		ItemRequirement mindTalisman = new ItemRequirement(t("Access to the Mind Altar"), ItemCollections.MIND_ALTAR).isNotConsumed();
 		mindTalisman.setTooltip(t("Mind Talisman/Tiara, Catalytic Talisman/Tiara, RC-skill cape or via Abyss."));
 
-		accessToAltars = new ItemRequirements("Access to the Air, Water, Earth, Fire, and Mind runecrafting altars",
+		accessToAltars = new ItemRequirements(t("Access to the Air, Water, Earth, Fire, and Mind runecrafting altars"),
 			airTalisman, waterTalisman, earthTalisman, fireTalisman, mindTalisman).isNotConsumed();
 
 		necklaceOfPassage = new ItemRequirement("Necklace of Passage", ItemCollections.NECKLACE_OF_PASSAGES);
 
-		airAltarTeleport = new ItemRequirement("Teleport near Air Altar", ItemCollections.SKILLS_NECKLACES);
+		airAltarTeleport = new ItemRequirement(t("Teleport near Air Altar"), ItemCollections.SKILLS_NECKLACES);
 		airAltarTeleport.addAlternates(ItemID.POH_TABLET_FALADORTELEPORT, ItemID.NZONE_TELETAB_RIMMINGTON);
 		airAltarTeleport.setDisplayMatchedItemName(true);
 		airAltarTeleport.setTooltip(t("The best items for this are (in order):"));
@@ -230,7 +230,7 @@ public class TheSlugMenace extends BasicQuestHelper
 		airAltarTeleport.appendToTooltip("Falador Teleport");
 		airAltarTeleport.appendToTooltip("Rimmington/House Teleport");
 
-		earthAltarTeleport = new ItemRequirement("Teleport near Earth Altar", ItemCollections.DIGSITE_PENDANTS);
+		earthAltarTeleport = new ItemRequirement(t("Teleport near Earth Altar"), ItemCollections.DIGSITE_PENDANTS);
 		earthAltarTeleport.addAlternates(ItemID.POH_TABLET_VARROCKTELEPORT, ItemID.TELEPORTSCROLL_LUMBERYARD, ItemID.TELEPORTSCROLL_DIGSITE);
 		earthAltarTeleport.setDisplayMatchedItemName(true);
 		earthAltarTeleport.setTooltip(t("The best items for this are (in order):"));
@@ -240,19 +240,19 @@ public class TheSlugMenace extends BasicQuestHelper
 		earthAltarTeleport.appendToTooltip("Digsite Teleport");
 		earthAltarTeleport.appendToTooltip("Varrock Teleports");
 
-		fireAltarTeleport = new ItemRequirement("Teleport near Fire Altar", ItemCollections.RING_OF_DUELINGS);
+		fireAltarTeleport = new ItemRequirement(t("Teleport near Fire Altar"), ItemCollections.RING_OF_DUELINGS);
 		fireAltarTeleport.addAlternates(ItemCollections.AMULET_OF_GLORIES);
 		fireAltarTeleport.setTooltip(t("The best items for this are (in order):"));
 		fireAltarTeleport.appendToTooltip("Ring Of The Elements");
 		fireAltarTeleport.appendToTooltip("Ring of Dueling");
 		fireAltarTeleport.appendToTooltip(t("Amulet of Glory (to Al Kharid)"));
 
-		waterAltarTeleport = new ItemRequirement("Teleport near Water Altar", ItemID.POH_TABLET_LUMBRIDGETELEPORT);
+		waterAltarTeleport = new ItemRequirement(t("Teleport near Water Altar"), ItemID.POH_TABLET_LUMBRIDGETELEPORT);
 		waterAltarTeleport.setTooltip(t("The best items for this are (in order):"));
 		waterAltarTeleport.appendToTooltip("Ring Of The Elements");
 		waterAltarTeleport.appendToTooltip("Lumbridge Teleport");
 
-		mindAltarTeleport = new ItemRequirement("Teleport near Mind Altar", ItemID.TELETAB_MIND_ALTAR);
+		mindAltarTeleport = new ItemRequirement(t("Teleport near Mind Altar"), ItemID.TELETAB_MIND_ALTAR);
 		mindAltarTeleport.addAlternates(ItemID.POH_TABLET_FALADORTELEPORT, ItemID.TABLET_LASSAR, ItemID.NZONE_TELETAB_TAVERLEY);
 		mindAltarTeleport.addAlternates(ItemCollections.COMBAT_BRACELETS);
 		mindAltarTeleport.setTooltip(t("The best items for this are (in order):"));

@@ -164,7 +164,7 @@ public class ArdougneElite extends ComplexStateQuestHelper
 		runeBar = new ItemRequirement("Runite bar", ItemID.RUNITE_BAR).showConditioned(notRuneCrossbow);
 		sinew = new ItemRequirement("Sinew", ItemID.XBOWS_SINEW).showConditioned(notRuneCrossbow);
 		root = new ItemRequirement("Root", ItemCollections.NON_MAGIC_TREE_ROOT).showConditioned(notRuneCrossbow);
-		sinewOrRoot = new ItemRequirements(LogicType.OR, t("Sinew or non-magic tree root"), root, sinew)
+		sinewOrRoot = new ItemRequirements(LogicType.OR, "Sinew or non-magic tree root", root, sinew)
 			.showConditioned(notRuneCrossbow);
 		hammer = new ItemRequirement("Hammer", ItemID.HAMMER).showConditioned(notRuneCrossbow).isNotConsumed();
 		knife = new ItemRequirement("Knife", ItemID.KNIFE).showConditioned(notRuneCrossbow).isNotConsumed();

@@ -168,9 +168,9 @@ public class DeathToTheDorgeshuun extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).isNotConsumed();
 		pickaxeHighlighted = pickaxe.highlighted().isNotConsumed();
-		lightSource = new ItemRequirement("A light source", ItemCollections.LIGHT_SOURCES).isNotConsumed();
+		lightSource = new ItemRequirement(t("A light source"), ItemCollections.LIGHT_SOURCES).isNotConsumed();
 		brooch = new ItemRequirement("Brooch", ItemID.LOST_TRIBE_BROOCH);
 		book = new ItemRequirement("Goblin symbol book", ItemID.LOST_TRIBE_BOOK);
 		book.setHighlightInInventory(true);
@@ -211,7 +211,7 @@ public class DeathToTheDorgeshuun extends BasicQuestHelper
 
 		crate = new ItemRequirement("Crate with Zanik", ItemID.DTTD_ZANIK_CRATE, 1, true);
 
-		combatGear = new ItemRequirement("Magic or melee combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Magic or melee combat gear"), -1, -1).isNotConsumed();
 		gamesNecklace = new ItemRequirement(t("Games necklace (requires Tears of Guthix to teleport to Juna)"), ItemID.NECKLACE_OF_MINIGAMES_8);
 	}
 

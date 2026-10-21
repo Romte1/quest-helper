@@ -146,7 +146,7 @@ public class HorrorFromTheDeep extends BasicQuestHelper
 		waterRune = new ItemRequirement("Water rune", ItemID.WATERRUNE);
 		earthRune = new ItemRequirement("Earth rune", ItemID.EARTHRUNE);
 		sword = new ItemRequirement(t("Any sword you're willing to lose"), ItemCollections.SWORDS);
-		arrow = new ItemRequirement("Any arrow", ItemCollections.METAL_ARROWS);
+		arrow = new ItemRequirement(t("Any arrow"), ItemCollections.METAL_ARROWS);
 		moltenGlass = new ItemRequirement("Molten glass", ItemID.MOLTEN_GLASS);
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed();
@@ -156,12 +156,12 @@ public class HorrorFromTheDeep extends BasicQuestHelper
 		swampTar1 = new ItemRequirement("Swamp tar", ItemID.SWAMP_TAR);
 
 
-		magicCombat = new ItemRequirement("Magic combat gear", -1, -1).isNotConsumed();
+		magicCombat = new ItemRequirement(t("Magic combat gear"), -1, -1).isNotConsumed();
 		magicCombat.setDisplayItemId(BankSlotIcons.getMagicCombatGear());
 		combatRunes = new ItemRequirement(t("20+ casts of each element spell"), -1, -1);
 		combatRunes.setDisplayItemId(ItemID.DEATHRUNE);
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS, -1);
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		gamesNecklace = new ItemRequirement("Games necklace", ItemCollections.GAMES_NECKLACES);
 
 		protectFromMissiles = new PrayerRequirement("Protect from Missiles", Prayer.PROTECT_FROM_MISSILES);

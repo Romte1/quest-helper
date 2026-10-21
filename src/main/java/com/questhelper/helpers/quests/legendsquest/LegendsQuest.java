@@ -435,7 +435,7 @@ public class LegendsQuest extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES).isNotConsumed();
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).isNotConsumed();
 		machete = new ItemRequirement("A machete", ItemCollections.MACHETE).isNotConsumed();
 
 		macheteHighlighted = machete.highlighted();
@@ -505,7 +505,7 @@ public class LegendsQuest extends BasicQuestHelper
 		diamondHighlighted = new ItemRequirement("Diamond", ItemID.DIAMOND);
 		diamondHighlighted.setHighlightInInventory(true);
 
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).isNotConsumed();
 
 		bindingBook = new ItemRequirement("Binding book", ItemID.BOOK_OF_BINDING);
 		bindingBookHighlighted = new ItemRequirement("Binding book", ItemID.BOOK_OF_BINDING);

@@ -169,7 +169,7 @@ public class FremennikEasy extends ComplexStateQuestHelper
 		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).showConditioned(notKilledCrabs).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		fremennikTrials = new QuestRequirement(QuestHelperQuest.THE_FREMENNIK_TRIALS, QuestState.FINISHED);
 		giantDwarf = new QuestRequirement(QuestHelperQuest.THE_GIANT_DWARF, QuestState.IN_PROGRESS);
 		trollStronghold = new QuestRequirement(QuestHelperQuest.TROLL_STRONGHOLD, QuestState.FINISHED);

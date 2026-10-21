@@ -172,7 +172,7 @@ public class TroubledTortugans extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		anyAxe = new ItemRequirement("Any axe", ItemCollections.AXES).canBeObtainedDuringQuest();
+		anyAxe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).canBeObtainedDuringQuest();
 		anyAxe.appendToTooltip(t("A bronze axe can be found to the west of The Summer Shore. You need to cut down multiple things, so bring the best woodcutting axe you can use."));
 
 		// NOTE: Haven't tested other hammers
@@ -183,12 +183,12 @@ public class TroubledTortugans extends BasicQuestHelper
 		saw = new ItemRequirement("Saw", ItemCollections.SAW).canBeObtainedDuringQuest();
 		saw.appendToTooltip(t("Can be found inside Elder Raley's house to the south-east."));
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
-		prayer = new ItemRequirement("Prayer restore", ItemCollections.PRAYER_POTIONS, -1);
+		prayer = new ItemRequirement(t("Prayer restore"), ItemCollections.PRAYER_POTIONS, -1);
 
 		seaweed = new ItemRequirement("Seaweed", ItemID.SEAWEED);
 		palmLeaf = new ItemRequirement("Palm leaf", ItemID.PALM_LEAF);

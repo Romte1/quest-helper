@@ -186,10 +186,10 @@ public class RFDPiratePete extends BasicQuestHelper
 		groundCod = new ItemRequirement("Ground cod", ItemID.HUNDRED_PIRATE_GROUND_COD);
 		groundCod.setTooltip(t("You can make this by use a pestle and mortar on a raw cod"));
 		breadcrumbs = new ItemRequirement("Breadcrumbs", ItemID.HUNDRED_PIRATE_BREADCRUMBS);
-		emptySlotsX6 = new ItemRequirement("Empty inventory slots at minimum", -1, 6);
+		emptySlotsX6 = new ItemRequirement(t("Empty inventory slots at minimum"), -1, 6);
 		emptySlotsX6.setTooltip(t("Have an additional empty slot for each additional kelp beyond the minimum of 1"));
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1);
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1);
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 	}
 

@@ -111,7 +111,7 @@ public class RuneMysteries extends BasicQuestHelper
 		notes = new ItemRequirement("Research notes", ItemID.RESEARCH_NOTES);
 		notes.setTooltip(t("You can get another from Aubury if you lost them"));
 		varrockTeleport = new ItemRequirement("Varrock teleport", ItemID.POH_TABLET_VARROCKTELEPORT);
-		wizardTeleport = new ItemRequirement("A teleport to the Wizard's Tower", ItemCollections.NECKLACE_OF_PASSAGES);
+		wizardTeleport = new ItemRequirement(t("A teleport to the Wizard's Tower"), ItemCollections.NECKLACE_OF_PASSAGES);
 	}
 
 	public void setupSteps()

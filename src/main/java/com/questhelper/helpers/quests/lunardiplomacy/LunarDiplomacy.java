@@ -393,7 +393,7 @@ public class LunarDiplomacy extends BasicQuestHelper
 
 		lunarStaff = new ItemRequirement("Lunar staff", ItemID.LUNAR_MOONCLAN_LIMINAL_STAFF);
 
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).isNotConsumed();
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed();
 		needle = new ItemRequirement("Needle", ItemID.NEEDLE).isNotConsumed();
 		thread = new ItemRequirement("Thread", ItemID.THREAD, 2).isNotConsumed();
@@ -401,11 +401,11 @@ public class LunarDiplomacy extends BasicQuestHelper
 		threadNeedle = new ItemRequirements(LogicType.AND, "2 x Thread & a Needle", thread, needle);
 		threadNeedleOrCostumeNeedle = new ItemRequirements(LogicType.OR, "2 x Thread & a Needle (or Costume needle)", threadNeedle, costumeNeedle);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		coins400 = new ItemRequirement("Coins", ItemCollections.COINS, 400);
 
-		combatRunes = new ItemRequirement("Combat runes", -1, -1);
+		combatRunes = new ItemRequirement(t("Combat runes"), -1, -1);
 		combatRunes.setDisplayItemId(ItemID.DEATHRUNE);
 
 		moonClanTeleport = new ItemRequirement("Moonclan Teleport", -1, -1);
@@ -417,7 +417,7 @@ public class LunarDiplomacy extends BasicQuestHelper
 		lunarOre = new ItemRequirement("Lunar ore", ItemID.QUEST_LUNAR_MAGIC_ORE);
 		lunarBar = new ItemRequirement("Lunar bar", ItemID.QUEST_LUNAR_MAGIC_BAR);
 
-		tiara = new ItemRequirement("A special tiara", ItemID.LUNAR_TIARA);
+		tiara = new ItemRequirement(t("A special tiara"), ItemID.LUNAR_TIARA);
 
 		helm = new ItemRequirement("Lunar helm", ItemID.LUNAR_HELMET);
 		amulet = new ItemRequirement("Lunar amulet", ItemID.LUNAR_AMULET);

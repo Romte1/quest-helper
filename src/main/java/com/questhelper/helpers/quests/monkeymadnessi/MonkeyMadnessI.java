@@ -303,7 +303,7 @@ public class MonkeyMadnessI extends BasicQuestHelper
 		talismanHighlight.setHighlightInInventory(true);
 		talismanHighlight.setTooltip(t("You can get another from the monkey child"));
 
-		anyTalisman = new ItemRequirement("Any talisman", ItemID.MM_MONKEY_TALISMAN);
+		anyTalisman = new ItemRequirement(t("Any talisman"), ItemID.MM_MONKEY_TALISMAN);
 		anyTalisman.addAlternates(ItemID.MM_MONKEY_GREEGREE_FOR_NORMAL_MONKEY, ItemID.MM_MONKEY_GREEGREE_FOR_SMALL_NINJA_MONKEY, ItemID.MM_MONKEY_GREEGREE_FOR_MEDIUM_NINJA_MONKEY,
 			ItemID.MM_MONKEY_GREEGREE_FOR_NORMAL_GORILLA, ItemID.MM_MONKEY_GREEGREE_FOR_BEARDED_GORILLA, ItemID.MM_MONKEY_GREEGREE_FOR_SMALL_ZOMBIE_MONKEY, ItemID.MM_MONKEY_GREEGREE_FOR_LARGE_ZOMBIE_MONKEY);
 
@@ -324,11 +324,11 @@ public class MonkeyMadnessI extends BasicQuestHelper
 		sigilEquipped = new ItemRequirement("10th squad sigil", ItemID.MM_SIGIL, 1, true);
 		sigilEquipped.setTooltip(t("You can get another from Waymottin next to Zooknock"));
 
-		combatGear = new ItemRequirement("Combat gear, food and potions", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear, food and potions"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		antipoison = new ItemRequirement("Antipoison", ItemCollections.ANTIPOISONS);
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD);
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS);
 
 		grandTreeTeleport = new ItemRequirement(t("Tree Gnome Stronghold teleport via Spirit Tree (2), Gnome Glider (Ta Quir Priw), or Grand Seed Pod"), ItemID.ALUFT_SEED_POD);

@@ -118,10 +118,10 @@ public class TheKnightsSword extends BasicQuestHelper
 		redberryPie.setTooltip(t("Purchasable from the grand exchange, or for ironmen: 10 cooking to cook one, or 32 cooking and a chef's hat to buy one from the Cooks' Guild."));
 		ironBars = new ItemRequirement("Iron bar", ItemID.IRON_BAR, 2);
 		bluriteOre = new ItemRequirement("Blurite ore", ItemID.BLURITE_ORE);
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).isNotConsumed();
 
-		varrockTeleport = new ItemRequirement("A teleport to Varrock", ItemID.POH_TABLET_VARROCKTELEPORT);
-		faladorTeleports = new ItemRequirement("Teleports to Falador", ItemID.POH_TABLET_FALADORTELEPORT, 3);
+		varrockTeleport = new ItemRequirement(t("A teleport to Varrock"), ItemID.POH_TABLET_VARROCKTELEPORT);
+		faladorTeleports = new ItemRequirement(t("Teleports to Falador"), ItemID.POH_TABLET_FALADORTELEPORT, 3);
 		homeTele = new ItemRequirement(t("A teleport near Mudskipper Point, such as POH teleport or Fairy Ring to AIQ"), ItemID.NZONE_TELETAB_RIMMINGTON, 2);
 
 		bluriteSword = new ItemRequirement("Blurite sword", ItemID.FALADIAN_SWORD);

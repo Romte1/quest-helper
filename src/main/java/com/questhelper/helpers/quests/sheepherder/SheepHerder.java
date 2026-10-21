@@ -134,7 +134,7 @@ public class SheepHerder extends BasicQuestHelper
 
 		coins100 = new ItemRequirement("Coins", ItemCollections.COINS, 100);
 
-		energyRestore = new ItemRequirement("Energy restoring items", ItemCollections.RUN_RESTORE_ITEMS);
+		energyRestore = new ItemRequirement(t("Energy restoring items"), ItemCollections.RUN_RESTORE_ITEMS);
 
 		sheepFeed = new ItemRequirement("Sheep feed", ItemID.POISONED_FEED);
 		sheepFeed.setTooltip(t("You can get more from Halgrive"));

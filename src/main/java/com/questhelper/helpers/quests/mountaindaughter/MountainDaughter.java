@@ -167,20 +167,20 @@ public class MountainDaughter extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		rope = new ItemRequirement("Rope", ItemID.ROPE);
-		pickaxe = new ItemRequirement("Any pickaxe", ItemID.BRONZE_PICKAXE).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemID.BRONZE_PICKAXE).isNotConsumed();
 		pickaxe.addAlternates(ItemCollections.PICKAXES);
 
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES).isNotConsumed();
-		plank = new ItemRequirement("Any plank", ItemID.WOODPLANK).isNotConsumed();
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).isNotConsumed();
+		plank = new ItemRequirement(t("Any plank"), ItemID.WOODPLANK).isNotConsumed();
 		plank.addAlternates(ItemID.PLANK_OAK, ItemID.PLANK_TEAK, ItemID.PLANK_MAHOGANY);
-		pole = new ItemRequirement("A staff or a pole", ItemID.MDAUGHTER_STICK).isNotConsumed();
+		pole = new ItemRequirement(t("A staff or a pole"), ItemID.MDAUGHTER_STICK).isNotConsumed();
 		pole.addAlternates(ItemID.LUNAR_MOONCLAN_LIMINAL_STAFF, ItemID.PLAINSTAFF, ItemID.BATTLESTAFF);
 		pole.addAlternates(ItemCollections.AIR_STAFF);
 		pole.addAlternates(ItemCollections.WATER_STAFF);
 		pole.addAlternates(ItemCollections.EARTH_STAFF);
 		pole.addAlternates(ItemCollections.FIRE_STAFF);
 		pole.setTooltip(t("A Dramen Staff will NOT work. A pole can be obtained from the goat pen north of Hamal's tent."));
-		gloves = new ItemRequirement("Almost any gloves", ItemID.LEATHER_GLOVES).isNotConsumed();
+		gloves = new ItemRequirement(t("Almost any gloves"), ItemID.LEATHER_GLOVES).isNotConsumed();
 		gloves.addAlternates(ItemID.HUNDRED_GAUNTLETS_LEVEL_10, ItemID.HUNDRED_GAUNTLETS_LEVEL_9, ItemID.HUNDRED_GAUNTLETS_LEVEL_8, ItemID.HUNDRED_GAUNTLETS_LEVEL_7, ItemID.HUNDRED_GAUNTLETS_LEVEL_6,
 			ItemID.HUNDRED_GAUNTLETS_LEVEL_5, ItemID.HUNDRED_GAUNTLETS_LEVEL_4, ItemID.HUNDRED_GAUNTLETS_LEVEL_3, ItemID.HUNDRED_GAUNTLETS_LEVEL_2, ItemID.HUNDRED_GAUNTLETS_LEVEL_1,
 			ItemID.FEROCIOUS_GLOVES, ItemID.GRACEFUL_GLOVES, ItemID.GRANITE_GLOVES);

@@ -172,10 +172,10 @@ public class RFDSirAmikVarze extends BasicQuestHelper
 		antifirePotion = new ItemRequirement("Antifire potion", ItemCollections.ANTIFIRE);
 		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		draynorVillageTele = new ItemRequirement(t("Draynor Village teleport"), ItemCollections.AMULET_OF_GLORIES, 1);
+		draynorVillageTele = new ItemRequirement("Draynor Village teleport", ItemCollections.AMULET_OF_GLORIES, 1);
 		draynorVillageTele.setChargedItem(true);
 		draynorVillageTele.showConditioned(new Conditions(LogicType.NOR, inDraynorVillage));
-		lumbridgeTele = new ItemRequirement(t("Lumbridge Teleport"), ItemID.POH_TABLET_LUMBRIDGETELEPORT, 1);
+		lumbridgeTele = new ItemRequirement("Lumbridge Teleport", ItemID.POH_TABLET_LUMBRIDGETELEPORT, 1);
 
 		milkyMixture = new ItemRequirement("Milky mixture", ItemID.CHICKENQUEST_MILKY_MIXTURE);
 		milkyMixture.setHighlightInInventory(true);

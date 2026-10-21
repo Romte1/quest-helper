@@ -123,13 +123,13 @@ public class RovingElves extends BasicQuestHelper
 		spade = new ItemRequirement("Spade", ItemID.SPADE).isNotConsumed();
 		rope = new ItemRequirement("Rope", ItemID.ROPE).isNotConsumed();
 		highlightRope = rope.highlighted();
-		prayerPotions = new ItemRequirement("A few prayer potions", ItemID._4DOSEPRAYERRESTORE);
+		prayerPotions = new ItemRequirement(t("A few prayer potions"), ItemID._4DOSEPRAYERRESTORE);
 		baxTeleport = new ItemRequirement(t("Teleport to Baxtorian Falls. Skills necklace (Fishing Guild [1]), Games necklace (Barbarian Outpost [2])"), ItemCollections.SKILLS_NECKLACES);
 		baxTeleport.addAlternates(ItemCollections.GAMES_NECKLACES);
 
 		elvenForestTeleport =
 			new ItemRequirement(t("Teleport near to Elven Forest. Iorwerth camp teleport, Charter Ship to Port Tyras"), ItemID.TELEPORTSCROLL_ELF);
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
 		superCombatPotion = new ItemRequirement("Super combat potion", ItemCollections.SUPER_COMBAT_POTIONS);
 		antipoison = new ItemRequirement("Antipoison potion", ItemCollections.ANTIPOISONS);

@@ -306,7 +306,7 @@ public class PerseriyaSteps extends ConditionalStep
 		nardahTeleport.addAlternates(ItemID.DESERT_AMULET_HARD, ItemID.TELEPORTSCROLL_NARDAH, ItemID.DESERT_AMULET_MEDIUM);
 		nardahTeleport.addAlternates(ItemCollections.FAIRY_STAFF);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1);
+		combatGear = new ItemRequirement(getQuestHelper().t("Combat gear"), -1, -1);
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		eyeTeleport = new ItemRequirement(getQuestHelper().t("Teleport to Temple of the Eye via minigame teleport or Amulet of the Eye"), ItemID.GOTR_AMULET_OF_THE_EYE_RED);
@@ -315,9 +315,9 @@ public class PerseriyaSteps extends ConditionalStep
 		facemask = new ItemRequirement("Facemask", ItemCollections.SLAYER_HELMETS);
 		facemask.addAlternates(ItemID.SLAYER_FACEMASK, ItemID.GASMASK);
 
-		rangedCombatGear = new ItemRequirement("Ranged combat gear", -1);
+		rangedCombatGear = new ItemRequirement(getQuestHelper().t("Ranged combat gear"), -1);
 		rangedCombatGear.setDisplayItemId(BankSlotIcons.getRangedCombatGear());
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD);
+		food = new ItemRequirement(getQuestHelper().t("Food"), ItemCollections.GOOD_EATING_FOOD);
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS);
 		ancientMagicksActive = new SpellbookRequirement(Spellbook.ANCIENT);
 

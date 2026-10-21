@@ -223,7 +223,7 @@ public class VarrockElite extends ComplexStateQuestHelper
 		reqs.add(new SkillRequirement(Skill.MAGIC, 86, true));
 		reqs.add(new ComplexRequirement(LogicType.OR, "78 Runecraft or 52 with Raiments of the Eye set",
 			new SkillRequirement(Skill.RUNECRAFT, 78, true, "78 Runecraft"),
-			new ItemRequirements("52 with Raiments of the Eye set",
+			new ItemRequirements(t("52 with Raiments of the Eye set"),
 				new ItemRequirement("Hat", ItemCollections.EYE_HAT),
 				new ItemRequirement("Top", ItemCollections.EYE_TOP),
 				new ItemRequirement("Bottom", ItemCollections.EYE_BOTTOM),

@@ -190,14 +190,14 @@ public class TheRedReef extends BasicQuestHelper
 	{
 		rangedCombatGearOrShipWithCannons = new ItemRequirement(t("Ranged/Mage combat gear to skip boat combat, or a boat with cannons to deal with pirates. An upgraded keel helps with survival. (Mithril is more than enough)"), -1, -1).isNotConsumed();
 		rangedCombatGearOrShipWithCannons.setDisplayItemId(BankSlotIcons.getRangedCombatGear());
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getRangedCombatGear());
 		combatGearBethel = new ItemRequirement(t("Combat gear to fight Black Eye Bethel"), -1, -1).isNotConsumed();
 		combatGearBethel.setDisplayItemId(BankSlotIcons.getRangedCombatGear());
 		combatGearLobster = new ItemRequirement(t("Any combat gear to fight a giant lobster"), -1, -1).isNotConsumed();
 		combatGearLobster.setDisplayItemId(BankSlotIcons.getRangedCombatGear());
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS, -1);
 		repairKits = new ItemRequirement("Boat repair kits", ItemCollections.BOAT_REPAIR_KITS, 5);
 

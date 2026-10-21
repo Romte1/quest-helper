@@ -158,7 +158,7 @@ public class WesternEasy extends ComplexStateQuestHelper
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
-		fairyAccess = new ItemRequirement(t("Dramen or Lunar staff"), ItemCollections.FAIRY_STAFF).isNotConsumed();
+		fairyAccess = new ItemRequirement("Dramen or Lunar staff", ItemCollections.FAIRY_STAFF).isNotConsumed();
 
 		inBrimstailCave = new ZoneRequirement(brimstailCave);
 		inPest = new ZoneRequirement(pest);

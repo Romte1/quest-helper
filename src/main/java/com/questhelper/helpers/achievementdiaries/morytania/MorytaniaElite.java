@@ -142,7 +142,7 @@ public class MorytaniaElite extends ComplexStateQuestHelper
 		thread = new ItemRequirement("Thread", ItemID.THREAD).showConditioned(notCraftBlackDhideBody);
 		needleThread = new ItemRequirements(needle, thread);
 		costumeNeedle = new ItemRequirement("Costume needle", ItemID.COSTUMENEEDLE);
-		needleThreadOrCostumeNeedle = new ItemRequirements(LogicType.OR, t("Needle/Thread or Costume needle"), needleThread, costumeNeedle);
+		needleThreadOrCostumeNeedle = new ItemRequirements(LogicType.OR, "Needle/Thread or Costume needle", needleThread, costumeNeedle);
 		needleThreadOrCostumeNeedle.setDisplayMatchedItemName(true);
 
 		ahrimSet = new ItemRequirements("Ahrim Set", new ItemRequirement("Hood", ItemCollections.AHRIM_HOOD),

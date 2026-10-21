@@ -142,7 +142,7 @@ public class ObservatoryQuest extends BasicQuestHelper
 		bronzeBar = new ItemRequirement("Bronze bar", ItemID.BRONZE_BAR);
 		moltenGlass = new ItemRequirement("Molten glass", ItemID.MOLTEN_GLASS);
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		duelingRing = new ItemRequirement("Ring of dueling", ItemCollections.RING_OF_DUELINGS);
 		antipoison = new ItemRequirement(t("Antipoison (there is a spawn of superantipoison near the Observatory)"), ItemCollections.ANTIPOISONS);
 

@@ -215,7 +215,7 @@ public class TheFremennikExiles extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		mirrorShield = new ItemRequirement("Mirror shield", ItemID.SLAYER_MIRROR_SHIELD).isNotConsumed();
 		kegsOfBeer = new ItemRequirement("Kegs of beer", ItemID.KEG_OF_BEER);
@@ -254,7 +254,7 @@ public class TheFremennikExiles extends BasicQuestHelper
 		coins650 = new ItemRequirement("Coins", ItemCollections.COINS, 650);
 		kegs2Or650Coins = new ItemRequirements(LogicType.OR, "2x kegs of beer or 650 coins", kegsOfBeer.quantity(2), coins650);
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		rellekkaTeleport = new ItemRequirement("Rellekka teleports", ItemID.NZONE_TELETAB_RELLEKKA, -1);
 		rellekkaTeleport.addAlternates(ItemCollections.ENCHANTED_LYRE);
 		rellekkaTeleport.addAlternates(ItemCollections.SLAYER_RINGS);

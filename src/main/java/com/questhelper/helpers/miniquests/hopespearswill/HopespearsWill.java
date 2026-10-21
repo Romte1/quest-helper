@@ -151,11 +151,11 @@ public class HopespearsWill extends BasicQuestHelper
 		ringOfVisibility.setTooltip(t("Obtain from Rasolo south of Baxtorian Falls"));
 		goblinPotion = new ItemRequirement("Goblin potion", Arrays.asList(ItemID.LOTG_1DOSEGOBLIN, ItemID.LOTG_2DOSEGOBLIN, ItemID.LOTG_3DOSEGOBLIN, ItemID.LOTG_4DOSEGOBLIN));
 		goblinPotion.setTooltip(t("Made by mixing a toadflax potion (unf) and Pharmakos berries from near the Makeover Mage"));
-		dramenStaff = new ItemRequirement(t("Dramen or lunar staff"), ItemCollections.FAIRY_STAFF);
+		dramenStaff = new ItemRequirement("Dramen or lunar staff", ItemCollections.FAIRY_STAFF);
 		dramenStaff.setTooltip(t("For fairy ring access - not required if Lumbridge Elite is complete"));
 
 		potionsAndFood = new ItemRequirement(t("Food and potions to defeat 5 enemies without armour, weapons, or magic"), -1, -1);
-		plainOfMudSphere = new ItemRequirement(t("Plain of mud sphere or charged Skills necklace"), ItemCollections.SKILLS_NECKLACES);
+		plainOfMudSphere = new ItemRequirement("Plain of mud sphere or charged Skills necklace", ItemCollections.SKILLS_NECKLACES);
 		plainOfMudSphere.addAlternates(ItemID.LOTG_TELEPORT_ARTIFACT);
 		combatLevel = new ItemRequirement(t("90+ combat"), -1, -1);
 

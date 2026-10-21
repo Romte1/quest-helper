@@ -165,9 +165,9 @@ public class AnimalMagnetism extends BasicQuestHelper
 		portPhasmatysTeleport = new ItemRequirement(t("Teleport to Port Phasmatys"), ItemID.ECTOPHIAL);
 		portPhasmatysTeleport.addAlternates(ItemID.TELETAB_FENK);
 
-		pattern = new ItemRequirement("A pattern", ItemID.ANMA_PATTERN);
+		pattern = new ItemRequirement(t("A pattern"), ItemID.ANMA_PATTERN);
 		pattern.setHighlightInInventory(true);
-		container = new ItemRequirement("A container", ItemID.ANMA_CONTAINER);
+		container = new ItemRequirement(t("A container"), ItemID.ANMA_CONTAINER);
 	}
 
 	private void setupConditions()

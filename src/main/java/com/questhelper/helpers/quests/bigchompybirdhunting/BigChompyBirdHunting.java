@@ -141,7 +141,7 @@ public class BigChompyBirdHunting extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES).isNotConsumed();
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).isNotConsumed();
 		feathers = new ItemRequirement("Feathers", ItemID.FEATHER, 100);
 		knife = new ItemRequirement("Knife", ItemID.KNIFE).isNotConsumed();
 		chisel = new ItemRequirement("Chisel", ItemCollections.CHISEL).isNotConsumed();

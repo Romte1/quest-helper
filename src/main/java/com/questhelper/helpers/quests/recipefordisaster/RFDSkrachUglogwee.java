@@ -132,11 +132,11 @@ public class RFDSkrachUglogwee extends BasicQuestHelper
 		rawJubbly = new ItemRequirement("Raw jubbly", ItemID._100_JUBBLY_MEAT_RAW).highlighted();
 		cookedJubbly = new ItemRequirement("Cooked jubbly", ItemID._100_JUBBLY_MEAT_COOKED);
 		cookedJubblyHighlighted = new ItemRequirement("Cooked jubbly", ItemID._100_JUBBLY_MEAT_COOKED).highlighted();
-		axeHighlighted = new ItemRequirement("Any axe", ItemCollections.AXES).isNotConsumed().highlighted();
+		axeHighlighted = new ItemRequirement(t("Any axe"), ItemCollections.AXES).isNotConsumed().highlighted();
 		ironSpit = new ItemRequirement("Iron spit", ItemID.SPIT_IRON).highlighted().isNotConsumed();
 		log = new ItemRequirement(t("Any log to burn"), ItemCollections.LOGS_FOR_FIRE);
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).isNotConsumed();
 		ogreBellows = new ItemRequirement("Ogre bellows", ItemID.EMPTY_OGRE_BELLOWS).isNotConsumed();
 		ogreBellows.addAlternates(ItemID.FILLED_OGRE_BELLOW1, ItemID.FILLED_OGRE_BELLOW2, ItemID.FILLED_OGRE_BELLOW3);
 		ogreBellowsFilled = new ItemRequirement("Ogre bellows", ItemID.FILLED_OGRE_BELLOW1).isNotConsumed();

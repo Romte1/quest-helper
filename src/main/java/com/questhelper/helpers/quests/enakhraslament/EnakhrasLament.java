@@ -217,7 +217,7 @@ public class EnakhrasLament extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).isNotConsumed();
 		chiselHighlighted = new ItemRequirement("Chisel", ItemCollections.CHISEL).isNotConsumed();
 		chiselHighlighted.setHighlightInInventory(true);
 

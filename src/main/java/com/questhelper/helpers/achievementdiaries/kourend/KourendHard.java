@@ -181,8 +181,8 @@ public class KourendHard extends ComplexStateQuestHelper
 		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		antipoison = new ItemRequirement("Anti-poison", ItemCollections.ANTIPOISONS, -1)
 			.showConditioned(notKillLizardmanShaman);
-		dramenStaff = new ItemRequirement(t("Dramen or Lunar staff"), ItemCollections.FAIRY_STAFF, -1).isNotConsumed();
-		kharedstsMemoirs = new ItemRequirement(t("Kharedst's Memoirs or Book of the Dead"),
+		dramenStaff = new ItemRequirement("Dramen or Lunar staff", ItemCollections.FAIRY_STAFF, -1).isNotConsumed();
+		kharedstsMemoirs = new ItemRequirement("Kharedst's Memoirs or Book of the Dead",
 			Arrays.asList(ItemID.BOOK_OF_THE_DEAD, ItemID.VEOS_KHAREDSTS_MEMOIRS), -1).isNotConsumed();
 		radasBlessing = new ItemRequirement("Rada's Blessing", Arrays.asList(ItemID.ZEAH_BLESSING_EASY,
 			ItemID.ZEAH_BLESSING_MEDIUM), -1).showConditioned(notWoodcuttingGuild).isNotConsumed();

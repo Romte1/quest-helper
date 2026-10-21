@@ -47,7 +47,7 @@ public class FillBurghCrate extends DetailedQuestStep
 		crate = new ItemRequirement("Crate", ItemID.BURGH_GENERALSTORE_CRATE);
 		tinderbox3 = new ItemRequirement("Tinderbox", ItemID.TINDERBOX, 3);
 		bronzeAxe10 = new ItemRequirement("Bronze axe", ItemID.BRONZE_AXE, 10);
-		rawSnailsOrMackerel = new ItemRequirement("Raw mackerel or raw snail meat (random for each player)", ItemID.RAW_MACKEREL, 10);
+		rawSnailsOrMackerel = new ItemRequirement("Raw mackerel or raw snail meat", ItemID.RAW_MACKEREL, 10);
 		rawSnailsOrMackerel.addAlternates(ItemID.SNAIL_CORPSE1, ItemID.SNAIL_CORPSE2, ItemID.SNAIL_CORPSE3);
 		rawSnailsOrMackerel.setDisplayMatchedItemName(true);
 	}

@@ -135,15 +135,15 @@ public class OlafsQuest extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		food.setUrlSuffix("Food");
 
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS, -1);
 
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES).isNotConsumed();
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).isNotConsumed();
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
 		spade = new ItemRequirement("Spade", ItemID.SPADE).isNotConsumed();
 

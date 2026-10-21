@@ -393,17 +393,17 @@ public class OneSmallFavour extends BasicQuestHelper
 		hotWaterBowl = new ItemRequirement("Bowl of hot water", ItemID.BOWL_HOT_WATER);
 		hotWaterBowl.setTooltip(t("You can find a bowl in Lumbridge castle. Fill it up, then boil it on the range"));
 
-		draynorVillageTeleports = new ItemRequirement("Draynor Teleport with glory, 2 or more charges", ItemCollections.AMULET_OF_GLORIES);
-		lumbridgeTeleports = new ItemRequirement("Teleports to Lumbridge", ItemID.POH_TABLET_LUMBRIDGETELEPORT, 4);
-		varrockTeleports = new ItemRequirement("Teleports to Varrock", ItemID.POH_TABLET_VARROCKTELEPORT, 2);
-		taverleyOrFaladorTeleports = new ItemRequirement("Teleports to Taverley or Falador", ItemID.NZONE_TELETAB_TAVERLEY, 2);
-		camelotTeleports = new ItemRequirement("Teleports to Camelot or Catherby", ItemID.POH_TABLET_CAMELOTTELEPORT, 2);
+		draynorVillageTeleports = new ItemRequirement(t("Draynor Teleport with glory, 2 or more charges"), ItemCollections.AMULET_OF_GLORIES);
+		lumbridgeTeleports = new ItemRequirement(t("Teleports to Lumbridge"), ItemID.POH_TABLET_LUMBRIDGETELEPORT, 4);
+		varrockTeleports = new ItemRequirement(t("Teleports to Varrock"), ItemID.POH_TABLET_VARROCKTELEPORT, 2);
+		taverleyOrFaladorTeleports = new ItemRequirement(t("Teleports to Taverley or Falador"), ItemID.NZONE_TELETAB_TAVERLEY, 2);
+		camelotTeleports = new ItemRequirement(t("Teleports to Camelot or Catherby"), ItemID.POH_TABLET_CAMELOTTELEPORT, 2);
 		camelotTeleports.addAlternates(ItemID.LUNAR_TABLET_CATHERBY_TELEPORT);
-		fishingGuildAndDwarvenMineTeleports = new ItemRequirement("Fishing and Mining Guild Teleport for Dwarven Mine with skills necklace, 4 or more charges", ItemID.JEWL_NECKLACE_OF_SKILLS_4);
+		fishingGuildAndDwarvenMineTeleports = new ItemRequirement(t("Fishing and Mining Guild Teleport for Dwarven Mine with skills necklace, 4 or more charges"), ItemID.JEWL_NECKLACE_OF_SKILLS_4);
 		fishingGuildAndDwarvenMineTeleports.addAlternates(ItemID.JEWL_NECKLACE_OF_SKILLS_5, ItemID.JEWL_NECKLACE_OF_SKILLS_6);
-		ardougneTeleports = new ItemRequirement("Teleports to Ardougne", ItemID.POH_TABLET_ARDOUGNETELEPORT, 2);
-		khazardTeleports = new ItemRequirement("Teleports to Port Khazard", ItemID.LUNAR_TABLET_KHAZARD_TELEPORT, 2);
-		feldipHillsTeleports = new ItemRequirement("Teleports to Feldip Hills", ItemID.TELEPORTSCROLL_FELDIP, 2);
+		ardougneTeleports = new ItemRequirement(t("Teleports to Ardougne"), ItemID.POH_TABLET_ARDOUGNETELEPORT, 2);
+		khazardTeleports = new ItemRequirement(t("Teleports to Port Khazard"), ItemID.LUNAR_TABLET_KHAZARD_TELEPORT, 2);
+		feldipHillsTeleports = new ItemRequirement(t("Teleports to Feldip Hills"), ItemID.TELEPORTSCROLL_FELDIP, 2);
 
 		pickaxe = new ItemRequirement(t("Any pickaxe to kill Slagilith"), ItemCollections.PICKAXES).isNotConsumed();
 

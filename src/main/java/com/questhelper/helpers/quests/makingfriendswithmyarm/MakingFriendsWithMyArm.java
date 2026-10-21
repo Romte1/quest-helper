@@ -263,7 +263,7 @@ public class MakingFriendsWithMyArm extends BasicQuestHelper
 		varrockTele = new ItemRequirement("Varrock teleport", ItemID.POH_TABLET_VARROCKTELEPORT);
 		draynorTele = new ItemRequirement("Draynor teleport", ItemID.TELETAB_DRAYNOR, 2);
 		draynorTele.addAlternates(ItemCollections.AMULET_OF_GLORIES);
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).isNotConsumed();
 		rope = new ItemRequirement("Rope", ItemID.ROPE);
 		ropeHighlight = new ItemRequirement("Rope", ItemID.ROPE);
 		ropeHighlight.setHighlightInInventory(true);

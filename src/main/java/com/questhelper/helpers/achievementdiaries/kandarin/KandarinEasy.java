@@ -190,7 +190,7 @@ public class KandarinEasy extends ComplexStateQuestHelper
 			.showConditioned(notKillEle).isNotConsumed();
         combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
 		inWorkshop = AchievementDiaryStepManager.getInWorkshop();
 		setupGenericRequirements();

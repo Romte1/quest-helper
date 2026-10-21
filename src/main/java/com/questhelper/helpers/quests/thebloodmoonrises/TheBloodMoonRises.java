@@ -696,19 +696,19 @@ public class TheBloodMoonRises extends BasicQuestHelper
 		vyreNobleOutfit.setTooltip(t("Can be obtained during the quest in the chest next to Ivan"));
 
 		// Recommended items
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		combatGearMelee = new ItemRequirement("Melee combat gear", -1, -1).isNotConsumed();
+		combatGearMelee = new ItemRequirement(t("Melee combat gear"), -1, -1).isNotConsumed();
 		combatGearMelee.setDisplayItemId(BankSlotIcons.getMeleeCombatGear());
-		fastRangedWeapon = new ItemRequirement("Fast ranged weapon", ItemCollections.DARTS, -1).isNotConsumed();
-		food = new ItemRequirement("Good healing food", ItemCollections.GOOD_EATING_FOOD, -1);
+		fastRangedWeapon = new ItemRequirement(t("Fast ranged weapon"), ItemCollections.DARTS, -1).isNotConsumed();
+		food = new ItemRequirement(t("Good healing food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS, -1);
 		// TODO: Are staminas actually necessary?
 		energyRestorePotion = new ItemRequirement("Stamina potion", ItemCollections.STAMINA_POTIONS);
 
 		drakansMedallion = new ItemRequirement("Drakan's medallion", ItemID.DRAKANS_MEDALLION).isNotConsumed();
 
-		anyPickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).canBeObtainedDuringQuest();
+		anyPickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).canBeObtainedDuringQuest();
 
 		freeInvSlots6 = new FreeInventorySlotRequirement(6);
 
@@ -804,7 +804,7 @@ public class TheBloodMoonRises extends BasicQuestHelper
 
 		unlockedAltarHouse = new VarbitRequirement(VarbitID.SANGVESTI_CHAPEL_BACK_DOOR_2, 1);
 
-		anyAxe = new ItemRequirement("Any axe", ItemCollections.AXES);
+		anyAxe = new ItemRequirement(t("Any axe"), ItemCollections.AXES);
 
 		anyNearbyNylocas = or(new NpcRequirement(16236), new NpcRequirement(16237));
 

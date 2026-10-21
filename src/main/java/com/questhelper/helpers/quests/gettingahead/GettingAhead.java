@@ -153,9 +153,9 @@ public class GettingAhead extends BasicQuestHelper
 		itemsTip = new ItemRequirement(t("You can get all the required items during the quest."), -1, -1);
 
 		//Recommended
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		staminaPotions = new ItemRequirement("Stamina Potion", ItemCollections.STAMINA_POTIONS);
 		skillsNeck = new ItemRequirement("Skills Necklace", ItemCollections.SKILLS_NECKLACES);
 
@@ -169,7 +169,7 @@ public class GettingAhead extends BasicQuestHelper
 		softClay.setHighlightInInventory(true);
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed();
 		hammer.canBeObtainedDuringQuest();
-		saw = new ItemRequirement("Any saw", ItemID.POH_SAW).isNotConsumed();
+		saw = new ItemRequirement(t("Any saw"), ItemID.POH_SAW).isNotConsumed();
 		saw.canBeObtainedDuringQuest();
 		saw.addAlternates(ItemID.EYEGLO_CRYSTAL_SAW, ItemID.WEARABLE_SAW);
 		planks = new ItemRequirement("Planks", ItemID.WOODPLANK, 2);
@@ -189,7 +189,7 @@ public class GettingAhead extends BasicQuestHelper
 		needle.canBeObtainedDuringQuest();
 		thread = new ItemRequirement("Thread", ItemID.THREAD, 1);
 		thread.canBeObtainedDuringQuest();
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).isNotConsumed();
 		pickaxe.canBeObtainedDuringQuest();
 		clay = new ItemRequirement("Clay", ItemID.CLAY);
 		clay.canBeObtainedDuringQuest();

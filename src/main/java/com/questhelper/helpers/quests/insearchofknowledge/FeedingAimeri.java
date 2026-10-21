@@ -37,13 +37,20 @@ import net.runelite.client.eventbus.Subscribe;
 
 public class FeedingAimeri extends NpcStep
 {
-	static ItemRequirement food5Highlighted = new ItemRequirement("Food", ItemCollections.FISH_FOOD, 5);
-	static ItemRequirement knife = new ItemRequirement("Knife or slash weapon to cut through a web",ItemID.KNIFE);
+	static ItemRequirement food5Highlighted, knife;
 
 	public FeedingAimeri(QuestHelper questHelper)
 	{
+		this(questHelper, new ItemRequirement(questHelper.t("Food"), ItemCollections.FISH_FOOD, 5),
+			new ItemRequirement(questHelper.t("Knife or slash weapon to cut through a web"), ItemID.KNIFE));
+	}
+
+	private FeedingAimeri(QuestHelper questHelper, ItemRequirement foodRequirement, ItemRequirement knifeRequirement)
+	{
 		super(questHelper, NpcID.HOSDUN_AIMERI_INJURED, new WorldPoint(1840, 9926, 0), questHelper.t("Cut through the web to" +
-				" the south, and use 5 pieces of food on Aimeri there."), food5Highlighted, knife);
+				" the south, and use 5 pieces of food on Aimeri there."), foodRequirement, knifeRequirement);
+		food5Highlighted = foodRequirement;
+		knife = knifeRequirement;
 		food5Highlighted.setHighlightInInventory(true);
 	}
 

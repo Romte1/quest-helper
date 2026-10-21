@@ -189,7 +189,7 @@ public class KaramjaMedium extends BasicQuestHelper
 		notTraveledToKhazard = new VarbitRequirement(VarbitID.ATJUN_MED_KHAZARD, 0);
 		notCharteredFromShipyard = new VarbitRequirement(VarbitID.ATJUN_MED_CHARTER, 0);
 
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES)
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES)
 			.showConditioned(new Conditions(LogicType.OR, notMinedRedRopaz, notEarned100)).isNotConsumed();
 		coins = new ItemRequirement("Coins", ItemCollections.COINS)
 			.showConditioned(new Conditions(LogicType.OR, notClaimedTicket, notUsedCart, notTraveledToKhazard, notCharteredFromShipyard));
@@ -210,7 +210,7 @@ public class KaramjaMedium extends BasicQuestHelper
 		teasingStick.setTooltip(t("You can buy one from the hunter shop in Yanille"));
 		knife = new ItemRequirement("Knife", ItemID.KNIFE).showConditioned(notTrappedGraahk).isNotConsumed();
 		logs = new ItemRequirement("Logs", ItemID.LOGS).showConditioned(notTrappedGraahk);
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES).showConditioned(new Conditions(LogicType.OR,
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).showConditioned(new Conditions(LogicType.OR,
 			notTrappedGraahk, notCrossedLava, notClimbedStairs, notCutVine, notCutTeak, notCutMahog)).isNotConsumed();
 		tradingSticks = new ItemRequirement("Trading sticks", ItemID.VILLAGE_TRADE_STICKS).showConditioned(notExchangedGems);
 		tradingSticks.setTooltip(t("You can get these from villagers when doing Tai Bwo Wannai Cleanup"));
@@ -229,7 +229,7 @@ public class KaramjaMedium extends BasicQuestHelper
 		machete = new ItemRequirement("Machete", ItemID.MACHETTE_REDTOPAZ).showConditioned((notEarned100)).isNotConsumed();
 		machete.addAlternates(ItemID.MACHETTE_JADE, ItemID.MACHETTE_OPAL, ItemID.MACHETTE);
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		antipoison = new ItemRequirement("Antipoison", ItemCollections.ANTIPOISONS, -1);
 
 		spiderOnAStick = new ItemRequirement("Spider on stick", List.of(ItemID.TBW_SPIDER_ON_STICK_RAW, ItemID.TBW_SPIDER_ON_SHAFT_RAW));

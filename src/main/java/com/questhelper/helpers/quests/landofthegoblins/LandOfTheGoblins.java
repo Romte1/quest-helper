@@ -343,7 +343,7 @@ public class LandOfTheGoblins extends BasicQuestHelper
 		huzamogaarbKey = new ItemRequirement("Huzamogaarb key", ItemID.LOTG_KEY_BLACK).alsoCheckBank();
 
 		// ItemRequirements
-		lightSource = new ItemRequirement("Light source", ItemCollections.LIGHT_SOURCES);
+		lightSource = new ItemRequirement(t("Light source"), ItemCollections.LIGHT_SOURCES);
 		toadflaxPotionUnf = new ItemRequirement("Toadflax potion (unf)", ItemID.TOADFLAXVIAL);
 		goblinMail = new ItemRequirement("Goblin mail", ItemID.GOBLIN_ARMOUR).hideConditioned(unlockedDoor);
 		goblinMail.canBeObtainedDuringQuest();
@@ -360,7 +360,7 @@ public class LandOfTheGoblins extends BasicQuestHelper
 		rawSlimyEel = new ItemRequirement("Raw slimy eel", ItemID.MORT_SLIMEY_EEL).hideConditioned(new Conditions(LogicType.OR, unlockedDoor, saragorgakKey));
 		coins = new ItemRequirement("Coins", ItemCollections.COINS, 5).hideConditioned(new Conditions(LogicType.OR, unlockedDoor, saragorgakKey));
 		noPet = new NoFollowerRequirement(t("No pet following you"));
-		combatGear = new ItemRequirement("Combat gear", -1, -1);
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1);
 
 		invSpaceToUnequip = new ItemRequirement(t("Inventory space to unequip all your items"), -1, -1);
 		noEquippedItems = new NoItemRequirement(t("No equipped items"), ItemSlots.ANY_EQUIPPED);

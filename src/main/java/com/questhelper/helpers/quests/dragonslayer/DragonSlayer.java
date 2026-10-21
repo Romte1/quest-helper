@@ -202,7 +202,7 @@ public class DragonSlayer extends BasicQuestHelper
 		chronicle = new ItemRequirement(t("The Chronicle for teleports to Champions' Guild"), ItemID.CHRONICLE).isNotConsumed();
 		antifirePotion = new ItemRequirement(t("Antifire potion for Elvarg"), ItemCollections.ANTIFIRE_POTIONS, -1);
 		edgevilleTeleport = new ItemRequirement(t("Teleports to Edgeville for getting to Oziach"), ItemID.TRAIL_AMULET_OF_GLORY_6, -1);
-		rimmingtonTeleport = new ItemRequirement("Teleports to Port Sarim/Rimmington/Draynor Village area", ItemID.TRAIL_AMULET_OF_GLORY_6, -1);
+		rimmingtonTeleport = new ItemRequirement(t("Teleports to Port Sarim/Rimmington/Draynor Village area"), ItemID.TRAIL_AMULET_OF_GLORY_6, -1);
 
 		mapPart1 = new ItemRequirement("Map part", ItemID.MAPPART3);
 		mapPart2 = new ItemRequirement("Map part", ItemID.MAPPART2);
@@ -215,9 +215,9 @@ public class DragonSlayer extends BasicQuestHelper
 		zombieKey = new ItemRequirement("Key", ItemID.BLUEKEY);
 		melzarKey = new ItemRequirement("Key", ItemID.MAGENTAKEY);
 		demonKey = 	new ItemRequirement("Key", ItemID.GREENKEY);
-		combatGear = new ItemRequirement("Combat equipment", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat equipment"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		antidragonShield = new ItemRequirement("Anti-dragon shield", ItemCollections.ANTIFIRE_SHIELDS);
 		antidragonShieldEquipped = new ItemRequirement("Anti-dragon shield", ItemCollections.ANTIFIRE_SHIELDS, 1, true);
 		planks3 = new ItemRequirement("Planks", ItemID.WOODPLANK, 3);

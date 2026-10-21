@@ -190,11 +190,11 @@ public class InSearchOfTheMyreque extends BasicQuestHelper
 		plank1 = new ItemRequirement("Plank", ItemID.WOODPLANK);
 		steelNails150 = new ItemRequirement("Steel nails", ItemID.NAILS, 150);
 		steelNails75 = new ItemRequirement("Steel nails", ItemID.NAILS, 75);
-		coins10OrCharos = new ItemRequirements(LogicType.OR, t("10 coins or a Ring of Charos (a)"),
+		coins10OrCharos = new ItemRequirements(LogicType.OR, "10 coins or a Ring of Charos (a)",
 			new ItemRequirement("Ring of Charos (a)", ItemID.RING_OF_CHAROS_UNLOCKED),
 			new ItemRequirement("Coins", ItemCollections.COINS, 10));
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		morttonTeleport = new ItemRequirement(t("Teleport to Mort'ton, such as minigame teleport or Barrows Teleport"), ItemID.TELEPORTSCROLL_MORTTON);
 		morttonTeleport.addAlternates(ItemID.TELETAB_BARROWS);

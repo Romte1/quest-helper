@@ -342,7 +342,7 @@ public class DesertTreasureII extends BasicQuestHelper
 
 		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1);
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1);
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		bloodBurstRunes = new ItemRequirements("Blood burst runes",
@@ -374,9 +374,9 @@ public class DesertTreasureII extends BasicQuestHelper
 
 		freezes = new ItemRequirement(t("Freezing spells STRONGLY recommended + reasonable mage accuracy"), -1);
 
-		rangedCombatGear = new ItemRequirement("Ranged combat gear", -1);
+		rangedCombatGear = new ItemRequirement(t("Ranged combat gear"), -1);
 		rangedCombatGear.setDisplayItemId(BankSlotIcons.getRangedCombatGear());
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD);
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS);
 
 		xericTalisman = new ItemRequirement("Xeric's talisman", ItemID.XERIC_TALISMAN);
@@ -390,9 +390,9 @@ public class DesertTreasureII extends BasicQuestHelper
 		arclight = new ItemRequirement("Arclight", ItemID.ARCLIGHT);
 
 		icyBasalt = new ItemRequirement("Icy basalt", ItemID.WEISS_TELEPORT_BASALT);
-		meleeCombatGear = new ItemRequirement("Melee combat gear", -1, -1);
+		meleeCombatGear = new ItemRequirement(t("Melee combat gear"), -1, -1);
 		meleeCombatGear.setDisplayItemId(BankSlotIcons.getMeleeCombatGear());
-		magicCombatGear = new ItemRequirement("Magic combat gear", -1, -1);
+		magicCombatGear = new ItemRequirement(t("Magic combat gear"), -1, -1);
 		magicCombatGear.setDisplayItemId(BankSlotIcons.getMagicCombatGear());
 		lassarTeleport = new ItemRequirement(t("Mind altar or lassar teleport"), ItemID.TELETAB_MIND_ALTAR);
 		lassarTeleport.addAlternates(ItemID.TABLET_LASSAR);

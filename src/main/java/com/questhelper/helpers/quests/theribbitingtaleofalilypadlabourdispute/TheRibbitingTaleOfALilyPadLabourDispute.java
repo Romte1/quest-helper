@@ -99,7 +99,7 @@ public class TheRibbitingTaleOfALilyPadLabourDispute extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES);
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES);
 		axe.canBeObtainedDuringQuest();
 	}
 

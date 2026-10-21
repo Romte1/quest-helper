@@ -147,7 +147,7 @@ public class AnotherSliceOfHam extends BasicQuestHelper
 	{
 		addedRopeToHole = new VarbitRequirement(VarbitID.SWAMP_CAVES_ROPED_ENTRANCE, 1);
 
-		lightSource = new ItemRequirement("A light source", ItemCollections.LIGHT_SOURCES).isNotConsumed();
+		lightSource = new ItemRequirement(t("A light source"), ItemCollections.LIGHT_SOURCES).isNotConsumed();
 
 		lumbridgeTeleports = new ItemRequirement("Lumbridge teleports", ItemID.POH_TABLET_LUMBRIDGETELEPORT, 3);
 
@@ -158,7 +158,7 @@ public class AnotherSliceOfHam extends BasicQuestHelper
 
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
 
-		combatGearRangedMagic = new ItemRequirement("Magic or ranged combat gear", -1, -1).isNotConsumed();
+		combatGearRangedMagic = new ItemRequirement(t("Magic or ranged combat gear"), -1, -1).isNotConsumed();
 		combatGearRangedMagic.setDisplayItemId(BankSlotIcons.getMagicCombatGear());
 
 		trowel = new ItemRequirement("Trowel", ItemID.TROWEL).isNotConsumed();
@@ -179,7 +179,7 @@ public class AnotherSliceOfHam extends BasicQuestHelper
 		swordFragment = new ItemRequirement("Sword fragment", ItemID.SLICE_ARTIFACT_4_CLEAN);
 		mace = new ItemRequirement("Mace", ItemID.SLICE_ARTIFACT_6_CLEAN);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		ancientMace = new ItemRequirement("Ancient mace", ItemID.ANCIENT_GOBLIN_MACE);
 		ancientMace.setTooltip(t("You can get this back from the Goblin Village Generals"));

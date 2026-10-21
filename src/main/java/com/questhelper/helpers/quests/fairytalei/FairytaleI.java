@@ -146,7 +146,7 @@ public class FairytaleI extends BasicQuestHelper
 		lumbridgeTeleport = new ItemRequirement("Lumbridge teleport", ItemID.POH_TABLET_LUMBRIDGETELEPORT);
 		moryTele = new ItemRequirement(t("Teleport to Morytania"), ItemID.TELEPORTSCROLL_MORTTON);
 		moryTele.addAlternates(ItemID.TELETAB_BARROWS, ItemID.ECTOPHIAL);
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
 		symptomsList = new ItemRequirement("Symptoms list", ItemID.FAIRY_SYMPTOMS_LIST);
 		symptomsList.setTooltip(t("You can get another from Fairy Nuff"));

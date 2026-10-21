@@ -179,9 +179,9 @@ public class ShiloVillage extends BasicQuestHelper
 		chisel = new ItemRequirement("Chisel", ItemCollections.CHISEL).isNotConsumed();
 		bones3 = new ItemRequirement("Bones", ItemID.BONES, 3);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		staminas = new ItemRequirement("Stamina potions", ItemCollections.STAMINA_POTIONS, -1);
 		antipoison = new ItemRequirement("Antipoisons", ItemCollections.ANTIPOISONS, -1);
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS, -1);

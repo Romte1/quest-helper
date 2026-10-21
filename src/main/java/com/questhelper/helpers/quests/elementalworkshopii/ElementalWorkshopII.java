@@ -252,7 +252,7 @@ public class ElementalWorkshopII extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).isNotConsumed();
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed();
 		coal = new ItemRequirement("Coal", ItemID.COAL, 8);
 		batteredKey = new KeyringRequirement("Battered Key", KeyringCollection.BATTERED_KEY);

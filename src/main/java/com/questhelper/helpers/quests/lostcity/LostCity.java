@@ -110,7 +110,7 @@ public class LostCity extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		axe = new ItemRequirement("Any axe", ItemID.BRONZE_AXE).isNotConsumed();
+		axe = new ItemRequirement(t("Any axe"), ItemID.BRONZE_AXE).isNotConsumed();
 		axe.addAlternates(ItemCollections.AXES);
 		knife = new ItemRequirement("Knife", ItemID.KNIFE).isNotConsumed();
 

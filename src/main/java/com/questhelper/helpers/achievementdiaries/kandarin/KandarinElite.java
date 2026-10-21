@@ -146,7 +146,7 @@ public class KandarinElite extends ComplexStateQuestHelper
 		seedDib = new ItemRequirement("Seed dibber", ItemID.DIBBER).showConditioned(notPickDwarf).isNotConsumed();
 		spade = new ItemRequirement("Spade", ItemID.SPADE).showConditioned(notPickDwarf).isNotConsumed();
 		rake = new ItemRequirement("Rake", ItemID.RAKE).showConditioned(notPickDwarf).isNotConsumed();
-		compost = new ItemRequirement("Any compost", ItemCollections.COMPOST).showConditioned(notPickDwarf);
+		compost = new ItemRequirement(t("Any compost"), ItemCollections.COMPOST).showConditioned(notPickDwarf);
 		harpoon = new ItemRequirement("Harpoon", ItemCollections.HARPOONS).showConditioned(not5Shark).isNotConsumed();
 		cookingGaunt = new ItemRequirement("Cooking gauntlets", ItemID.GAUNTLETS_OF_COOKING).showConditioned(not5Shark).isNotConsumed();
 		stamPot = new ItemRequirement("Stamina potion (2)", ItemID._2DOSESTAMINA).showConditioned(notStamMix);
@@ -161,13 +161,13 @@ public class KandarinElite extends ComplexStateQuestHelper
 		chewedBone = new ItemRequirement("Chewed bones", ItemID.BRUT_BARBARIAN_BONES).showConditioned(notPyre);
 		chewedBone.setTooltip(t("These are a rare drop from mithril dragons"));
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).showConditioned(notPyre).isNotConsumed();
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES).showConditioned(notPyre).isNotConsumed();
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).showConditioned(notPyre).isNotConsumed();
 		lawRune = new ItemRequirement("Law runes", ItemID.LAWRUNE).showConditioned(notTPCath);
 		astralRune = new ItemRequirement("Astral runes", ItemID.ASTRALRUNE).showConditioned(notTPCath);
 		waterRune = new ItemRequirement("Water runes", ItemID.WATERRUNE).showConditioned(notTPCath);
 		rawShark = new ItemRequirement("Raw shark", ItemID.RAW_SHARK).showConditioned(not5Shark);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).showConditioned(notbarb5).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).showConditioned(notbarb5).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		lunarBook = new SpellbookRequirement(Spellbook.LUNAR);

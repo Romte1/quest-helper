@@ -156,7 +156,7 @@ public class TaleOfTheRighteous extends BasicQuestHelper
 	protected void setupRequirements()
 	{
 		pickaxe = new ItemRequirement("A pickaxe", ItemCollections.PICKAXES).isNotConsumed();
-		rangedWeapon = new ItemRequirement("Any ranged weapon + ammo", -1, -1).isNotConsumed();
+		rangedWeapon = new ItemRequirement(t("Any ranged weapon + ammo"), -1, -1).isNotConsumed();
 		rangedWeapon.setDisplayItemId(BankSlotIcons.getRangedCombatGear());
 		runesForCombat = new ItemRequirement(t("Runes for a few casts of a combat spell"), -1, -1);
 		runesForCombat.setDisplayItemId(ItemID.DEATHRUNE);

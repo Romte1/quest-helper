@@ -158,7 +158,7 @@ public class WildernessElite extends ComplexStateQuestHelper
 
 		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
-		enterGodwars = new ItemRequirement("60 Strength or Agility", -1, -1);
+		enterGodwars = new ItemRequirement(t("60 Strength or Agility"), -1, -1);
 
 		inResource = new ZoneRequirement(resource);
 		inGodWars1 = new ZoneRequirement(godWars1);

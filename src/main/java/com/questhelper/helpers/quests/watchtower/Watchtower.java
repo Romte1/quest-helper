@@ -212,7 +212,7 @@ public class Watchtower extends BasicQuestHelper
 		guamUnf = new ItemRequirement("Guam potion (unf)", ItemID.GUAMVIAL);
 		guamUnf.setHighlightInInventory(true);
 
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).isNotConsumed();
 
 		fingernails = new ItemRequirement("Fingernails", ItemID.FINGERNAILS);
 		rope2 = new ItemRequirement("Rope", ItemID.ROPE, 2);
@@ -245,7 +245,7 @@ public class Watchtower extends BasicQuestHelper
 		skavidMap = new ItemRequirement("Skavid map", ItemID.SKAVIDMAP);
 		skavidMap.setTooltip(t("You can get another from the city guard in south east Gu'Tanoth."));
 
-		lightSource = new ItemRequirement("A light source", ItemCollections.LIGHT_SOURCES).isNotConsumed();
+		lightSource = new ItemRequirement(t("A light source"), ItemCollections.LIGHT_SOURCES).isNotConsumed();
 
 		goldBar = new ItemRequirement("Gold bar", ItemID.GOLD_BAR);
 
@@ -298,7 +298,7 @@ public class Watchtower extends BasicQuestHelper
 		magicPotionHighlight.setTooltip(t("You can make another with a guam unf potion, adding jangerberries then ground bat bones, and having the Watchtower Wizard enchant it"));
 		magicPotionHighlight.setHighlightInInventory(true);
 
-		fireRes = new ItemRequirement("Shields/potions that mitigate dragon's fire", ItemCollections.ANTIFIRE_SHIELDS, -1);
+		fireRes = new ItemRequirement(t("Shields/potions that mitigate dragon's fire"), ItemCollections.ANTIFIRE_SHIELDS, -1);
 		fireRes.addAlternates(ItemCollections.ANTIFIRE_POTIONS);
 	}
 

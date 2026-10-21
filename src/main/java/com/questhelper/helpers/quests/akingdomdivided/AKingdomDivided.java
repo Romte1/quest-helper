@@ -422,7 +422,7 @@ public class AKingdomDivided extends BasicQuestHelper
 		freeInventorySlots = new FreeInventorySlotRequirement(1);
 
 		kharedstsMemoirs = new ItemRequirement(t("Kharedst's Memoirs for teleports"), ItemID.VEOS_KHAREDSTS_MEMOIRS).isNotConsumed();
-		anyAxe = new ItemRequirement("Any axe", ItemCollections.AXES).isNotConsumed();
+		anyAxe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).isNotConsumed();
 		rosesNote2 = new ItemRequirement("Rose's note", ItemID.AKD_ROSE_RIDDLE_2);
 		rosesNote2.setTooltip(t("You can get another from the panel in the Forthos Ruin"));
 		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();

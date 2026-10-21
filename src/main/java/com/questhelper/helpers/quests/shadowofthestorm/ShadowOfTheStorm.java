@@ -175,7 +175,7 @@ public class ShadowOfTheStorm extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		darkItems = new ItemRequirement("pieces of black clothing", ItemID.AGRITH_DESERT_SHIRT_DYED, 3, true).isNotConsumed().doNotAggregate();
+		darkItems = new ItemRequirement(t("pieces of black clothing"), ItemID.AGRITH_DESERT_SHIRT_DYED, 3, true).isNotConsumed().doNotAggregate();
 		darkItems.addAlternates(ItemID.AGRITH_DESERT_ROBE_DYED, ItemID.BLACK_CHAINBODY, ItemID.BLACK_PLATEBODY, ItemID.BLACK_PLATELEGS, ItemID.BLACK_FULL_HELM, ItemID.BLACK_MED_HELM, ItemID.HUNDRED_GAUNTLETS_LEVEL_5, ItemID.PRIEST_GOWN, ItemID.PRIEST_ROBE, ItemID.MYSTIC_HAT_DARK,
 			ItemID.MYSTIC_ROBE_BOTTOM_DARK, ItemID.MYSTIC_ROBE_TOP_DARK, ItemID.SECRET_GHOST_BOOTS, ItemID.SECRET_GHOST_CLOAK, ItemID.SECRET_GHOST_GLOVES, ItemID.SECRET_GHOST_HAT, ItemID.SECRET_GHOST_TOP, ItemID.SECRET_GHOST_BOTTOM, ItemID.BLACKROBEBOTTOM, ItemID.BLACKROBETOP, ItemID.ANTISANTA_BOOTS,
 			ItemID.ANTISANTA_GLOVES, ItemID.ANTISANTA_JACKET, ItemID.ANTISANTA_MASK, ItemID.ANTISANTA_PANTS, ItemID.BLACKWIZHAT, ItemID.BLACK_CAPE, ItemID.BLACK_PARTYHAT, ItemID.HALLOWEENMASK_BLACK, ItemID.DRAGONMASK_BLACK, ItemID.BLACK_UNICORN_MASK, ItemID.BLACK_DEMON_MASK,
@@ -199,9 +199,9 @@ public class ShadowOfTheStorm extends BasicQuestHelper
 		silverlightDyed = new ItemRequirement("Silverlight (dyed)", ItemID.AGRITH_SILVERLIGHT_DYED);
 		silverlightDyedEquipped = new ItemRequirement("Silverlight (dyed)", ItemID.AGRITH_SILVERLIGHT_DYED, 1, true);
 		sigilMould = new ItemRequirement("Demonic sigil mould", ItemID.AGRITH_SIGIL_MOULD);
-		combatGear = new ItemRequirement("Combat gear + potions", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear + potions"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		coinsForCarpet = new ItemRequirement("Coins or more for carpet rides", ItemCollections.COINS, 400);
+		coinsForCarpet = new ItemRequirement(t("Coins or more for carpet rides"), ItemCollections.COINS, 400);
 		sigil = new ItemRequirement("Demonic sigil", ItemID.AGRITH_SIGIL);
 		sigil.setTooltip(t("You can make another if needed with the demonic sigil mould"));
 		sigil2 = new ItemRequirement("Demonic sigil", ItemID.AGRITH_SIGIL, 2);

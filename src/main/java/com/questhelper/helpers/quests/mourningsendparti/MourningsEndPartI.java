@@ -239,7 +239,7 @@ public class MourningsEndPartI extends BasicQuestHelper
 		sieve.setHighlightInInventory(true);
 		sieve.setTooltip(t("You can get another from Elena"));
 		tarnishedKey = new ItemRequirement("Tarnished key", ItemID.MOURNING_GNOME_KEY);
-		fullMourners = new ItemRequirements("Full mourners' outfit", mournerMask, mournerBody, mournerLegs, mournerCloak, mournerBoots, mournerGloves);
+		fullMourners = new ItemRequirements(t("Full mourners' outfit"), mournerMask, mournerBody, mournerLegs, mournerCloak, mournerBoots, mournerGloves);
 
 		equippedMournerBoots = new ItemRequirement("Mourner boots", ItemID.MOURNING_MOURNER_BOOTS, 1, true).isNotConsumed().highlighted();
 		equippedMournerGloves = new ItemRequirement("Mourner gloves", ItemID.MOURNING_MOURNER_GLOVES, 1, true).isNotConsumed().highlighted();

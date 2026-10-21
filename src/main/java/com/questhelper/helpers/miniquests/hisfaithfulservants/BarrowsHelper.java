@@ -166,14 +166,14 @@ public class BarrowsHelper extends ComplexStateQuestHelper
 	protected void setupRequirements()
 	{
 		// Varp 1502 increases is KC. On KC increase, suggest leaving and entering
-		combatGear = new ItemRequirement("Combat gear to kill all 6 Barrows Brothers", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear to kill all 6 Barrows Brothers"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		spade = new ItemRequirement("Spade", ItemID.SPADE);
 		barrowsTeleport = new ItemRequirement("Barrows teleport", ItemID.TELETAB_BARROWS);
 		strangeOldLockpick = new ItemRequirement("Strange old lockpick", ItemID.STRANGE_OLD_LOCKPICK);
 		strangeOldLockpick.addAlternates(ItemID.STRANGE_OLD_LOCKPICK_FULL);
-		ghommalHilt2 = new ItemRequirement("Ghommal's hilt 2 or higher to remove prayer drain in crypts", ItemID.CA_OFFHAND_MEDIUM);
+		ghommalHilt2 = new ItemRequirement(t("Ghommal's hilt 2 or higher to remove prayer drain in crypts"), ItemID.CA_OFFHAND_MEDIUM);
 		ghommalHilt2.addAlternates(ItemID.CA_OFFHAND_HARD, ItemID.CA_OFFHAND_ELITE, ItemID.CA_OFFHAND_MASTER, ItemID.CA_OFFHAND_GRANDMASTER,
 			ItemID.INFERNAL_DEFENDER_GHOMMAL_5, ItemID.INFERNAL_DEFENDER_GHOMMAL_5_TROUVER, ItemID.INFERNAL_DEFENDER_GHOMMAL_6, ItemID.INFERNAL_DEFENDER_GHOMMAL_6_TROUVER);
 	}

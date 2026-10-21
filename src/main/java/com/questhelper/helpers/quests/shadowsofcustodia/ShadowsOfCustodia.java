@@ -187,7 +187,7 @@ public class ShadowsOfCustodia extends BasicQuestHelper
 
 		fourWillowLongbows = new ItemRequirement("Willow longbow", ItemID.WILLOW_LONGBOW, 4).showConditioned(needsToHandInWillowLongbows);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1);
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1);
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		energyOrStaminas = new ItemRequirement("Energy/Stamina potions", ItemCollections.RUN_RESTORE_ITEMS);

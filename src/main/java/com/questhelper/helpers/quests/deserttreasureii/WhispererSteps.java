@@ -274,7 +274,7 @@ public class WhispererSteps extends ConditionalStep
 	protected void setupItemRequirements()
 	{
 		ringOfVisibility = new ItemRequirement("Ring of visibility", ItemID.FD_RING_VISIBILITY);
-		magicCombatGear = new ItemRequirement("Magic combat gear", -1, -1);
+		magicCombatGear = new ItemRequirement(getQuestHelper().t("Magic combat gear"), -1, -1);
 		magicCombatGear.setDisplayItemId(BankSlotIcons.getMagicCombatGear());
 		food = new ItemRequirement(getQuestHelper().t("Food, as much as you can bring"), ItemCollections.GOOD_EATING_FOOD);
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS);

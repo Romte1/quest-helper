@@ -170,7 +170,7 @@ public class BetweenARock extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).isNotConsumed();
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed();
 		coins5 = new ItemRequirement("Coins", ItemCollections.COINS, 5);
 		page1 = new ItemRequirement("Book page 1", ItemID.DWARF_ROCK_PAGE1);
@@ -212,18 +212,18 @@ public class BetweenARock extends BasicQuestHelper
 
 		solvedSchematic = new ItemRequirement("Schematic", ItemID.DWARF_ROCK_SCHEMATIC_ASSEMBLED);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
 		goldOre6 = new ItemRequirement("Gold ores", ItemID.GOLD_ORE, 6);
 
 		goldBars4 = new ItemRequirement("Gold bars", ItemID.GOLD_BAR, 4);
-		coins1000 = new ItemRequirement("Coins for travelling", ItemCollections.COINS, 1000);
+		coins1000 = new ItemRequirement(t("Coins for travelling"), ItemCollections.COINS, 1000);
 
 		// Recommended
-		faladorTeleport = new ItemRequirement("Teleport to Ice Mountain", ItemCollections.COMBAT_BRACELETS);
+		faladorTeleport = new ItemRequirement(t("Teleport to Ice Mountain"), ItemCollections.COMBAT_BRACELETS);
 		faladorTeleport.addAlternates(ItemID.TABLET_LASSAR, ItemID.TELETAB_MIND_ALTAR);
 		faladorTeleport.addAlternates(ItemCollections.AMULET_OF_GLORIES);
 		faladorTeleport.addAlternates(ItemID.POH_TABLET_FALADORTELEPORT);

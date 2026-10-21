@@ -133,7 +133,7 @@ public class ShadesOfMortton extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		tarrominUnf2 = new ItemRequirement("Tarromin potion (unf)", ItemID.TARROMINVIAL, 2);
 		tarrominUnfHighlighted = new ItemRequirement("Tarromin potion (unf)", ItemID.TARROMINVIAL);
@@ -149,7 +149,7 @@ public class ShadesOfMortton extends BasicQuestHelper
 		flamHammer.setTooltip(t("This speeds up the repair section of the quest considerably"));
 		morttonTele = new ItemRequirement("A Mort'ton teleport or Barrows teleport tablet", ItemID.TELEPORTSCROLL_MORTTON);
 		morttonTele.addAlternates(ItemID.TELETAB_BARROWS);
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
 		flamtaerBracelet = new ItemRequirement("Flamtaer bracelet", ItemID.FLAMTAER_BRACELET);
 		flamtaerBracelet.setTooltip(t("This speeds up the repair section of the quest considerably"));

@@ -102,9 +102,9 @@ public class JunglePotion extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		antipoison = new ItemRequirement("Antipoison", ItemCollections.ANTIPOISONS);
-		karaTele = new ItemRequirement("Teleport to Karamja (Glory/house teleport)", ItemID.NZONE_TELETAB_BRIMHAVEN);
+		karaTele = new ItemRequirement(t("Teleport to Karamja (Glory/house teleport)"), ItemID.NZONE_TELETAB_BRIMHAVEN);
 		karaTele.addAlternates(ItemCollections.AMULET_OF_GLORIES);
 
 		grimySnakeWeed = new ItemRequirement("Grimy Snake Weed", ItemID.UNIDENTIFIED_SNAKE_WEED);

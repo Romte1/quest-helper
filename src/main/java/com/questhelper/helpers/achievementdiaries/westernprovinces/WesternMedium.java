@@ -201,7 +201,7 @@ public class WesternMedium extends ComplexStateQuestHelper
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
-		fairyAccess = new ItemRequirement(t("Dramen or Lunar staff"), ItemCollections.FAIRY_STAFF).isNotConsumed();
+		fairyAccess = new ItemRequirement("Dramen or Lunar staff", ItemCollections.FAIRY_STAFF).isNotConsumed();
 		seedPod = new ItemRequirement("Royal seed pod", ItemID.MM2_ROYAL_SEED_POD).isNotConsumed();
 
 		inBrimstailCave = new ZoneRequirement(brimstailCave);

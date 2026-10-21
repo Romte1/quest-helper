@@ -222,7 +222,7 @@ public class RoyalTrouble extends BasicQuestHelper
 		coal1 = new ItemRequirement("Coal", ItemID.COAL, 1);
 		coal1.setHighlightInInventory(true);
 
-		pickaxe = new ItemRequirement("A pickaxe", ItemCollections.PICKAXES).isNotConsumed();
+		pickaxe = new ItemRequirement(t("A pickaxe"), ItemCollections.PICKAXES).isNotConsumed();
 
 		if (client.getRealSkillLevel(Skill.MINING) >= 30)
 		{
@@ -238,11 +238,11 @@ public class RoyalTrouble extends BasicQuestHelper
 			coalOrPickaxe = coal5;
 		}
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS, -1);
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
-		antipoison = new ItemRequirement("Any antipoison", ItemCollections.ANTIPOISONS, 1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
+		antipoison = new ItemRequirement(t("Any antipoison"), ItemCollections.ANTIPOISONS, 1);
 		runRestoreItems = new ItemRequirement(t("Potions/Items to restore run energy"), ItemCollections.RUN_RESTORE_ITEMS, 1);
 		rellekkaTeleport = new ItemRequirement(t("Miscellania teleport (Fairy Ring (CIP), tablet, lyre)"), ItemCollections.FAIRY_STAFF);
 		rellekkaTeleport.addAlternates(ItemID.NZONE_TELETAB_RELLEKKA, ItemID.MAGIC_STRUNG_LYRE_INFINITE, ItemID.MAGIC_STRUNG_LYRE_5, ItemID.MAGIC_STRUNG_LYRE_4, ItemID.MAGIC_STRUNG_LYRE_3, ItemID.MAGIC_STRUNG_LYRE_2, ItemID.MAGIC_STRUNG_LYRE);

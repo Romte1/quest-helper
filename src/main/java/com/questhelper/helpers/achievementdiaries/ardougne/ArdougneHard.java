@@ -182,7 +182,7 @@ public class ArdougneHard extends ComplexStateQuestHelper
 			ItemCollections.DEATH_ALTAR).showConditioned(notDeathRune).isNotConsumed();
 		deathAccess.setTooltip(t("Death Talisman/Tiara, Catalytic Talisman/Tiara, RC-skill cape or via Abyss"));
 		crystalTrink = new ItemRequirement("Crystal Trinket", ItemID.MOURNING_CRYSTAL_TRINKET).showConditioned(notDeathRune).isNotConsumed();
-		highEss = new ItemRequirement(t("Pure or Daeyalt essence"), ItemCollections.ESSENCE_HIGH)
+		highEss = new ItemRequirement("Pure or Daeyalt essence", ItemCollections.ESSENCE_HIGH)
 			.showConditioned(notDeathRune);
 
 		var hasCompletedSOTE = new QuestRequirement(QuestHelperQuest.SONG_OF_THE_ELVES, QuestState.FINISHED);
@@ -208,7 +208,7 @@ public class ArdougneHard extends ComplexStateQuestHelper
 		palmSap = new ItemRequirement("Palm tree sapling", ItemID.PLANTPOT_PALM_SAPLING).showConditioned(notPalmTree);
 		papaya = new ItemRequirement("Papaya fruit", ItemID.PAPAYA).showConditioned(notPalmTree);
 		compost = new ItemRequirement("Compost", ItemCollections.COMPOST).showConditioned(notPalmTree);
-		papayaOrCompost = new ItemRequirements(LogicType.OR, t("15 Papaya fruit or Compost"), papaya.quantity(15), compost)
+		papayaOrCompost = new ItemRequirements(LogicType.OR, "15 Papaya fruit or Compost", papaya.quantity(15), compost)
 			.showConditioned(notPalmTree);
 
 		inCastle = new ZoneRequirement(castle);

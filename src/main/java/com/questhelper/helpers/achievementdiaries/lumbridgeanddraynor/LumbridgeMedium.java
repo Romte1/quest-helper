@@ -175,10 +175,10 @@ public class LumbridgeMedium extends ComplexStateQuestHelper
 		steelArrows = new ItemRequirement("Steel arrows", ItemID.STEEL_ARROW).showConditioned(notUpgradeDevice);
 		coins = new ItemRequirement("999 Coins", ItemCollections.COINS).showConditioned(notUpgradeDevice);
 		avasAttractor = new ItemRequirement("Ava's Attractor", ItemID.ANMA_30_REWARD).showConditioned(notUpgradeDevice);
-		avasAccumulator = new ItemRequirements(LogicType.OR, t("999 Coins or Ava's Attractor"), coins.quantity(999),
+		avasAccumulator = new ItemRequirements(LogicType.OR, "999 Coins or Ava's Attractor", coins.quantity(999),
 			avasAttractor);
 		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).showConditioned(notChopWillow).isNotConsumed();
-		fairyAccess = new ItemRequirement(t("Lunar or Dramen staff"), ItemCollections.FAIRY_STAFF)
+		fairyAccess = new ItemRequirement("Lunar or Dramen staff", ItemCollections.FAIRY_STAFF)
 			.showConditioned(new Conditions(LogicType.OR, notChaeldarTask, notPuroImp, notWizardFairy)).isNotConsumed();
 		butterflyNet = new ItemRequirement("Butterfly net", ItemID.HUNTING_BUTTERFLY_NET).showConditioned(notPuroImp).isNotConsumed();
 		implingJar = new ItemRequirement("Impling jar", ItemID.II_IMPLING_JAR).showConditioned(notPuroImp).isNotConsumed();

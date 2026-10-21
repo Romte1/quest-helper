@@ -214,7 +214,7 @@ public class RagAndBoneManII extends BasicQuestHelper
 		potNeeded = new ItemRequirement("Pot", ItemID.POT_EMPTY, 8).alsoCheckBank().highlighted().isNotConsumed();
 		logs = new ItemRequirement("Logs", ItemID.LOGS);
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
-		lightSource = new ItemRequirement("Light source", ItemCollections.LIGHT_SOURCES).isNotConsumed();
+		lightSource = new ItemRequirement(t("Light source"), ItemCollections.LIGHT_SOURCES).isNotConsumed();
 		dustyKey = new KeyringRequirement("Dusty Key", KeyringCollection.DUSTY_KEY).isNotConsumed();
 		dustyKey.canBeObtainedDuringQuest();
 		mirrorShield = new ItemRequirement("Mirror shield", ItemID.SLAYER_MIRROR_SHIELD).isNotConsumed();
@@ -222,7 +222,7 @@ public class RagAndBoneManII extends BasicQuestHelper
 		iceCooler = new ItemRequirement("Ice coolers", ItemID.SLAYER_ICY_WATER, 10);
 		fishingExplosive = new ItemRequirement("Fishing explosive", ItemID.FISHING_EXPLOSIVE, 10);
 		fishingExplosive.addAlternates(ItemID.SLAYERGUIDE_FISHING_EXPLOSIVE);
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES).isNotConsumed();
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).isNotConsumed();
 
 		// Optional items
 		rope = new ItemRequirement("Rope", ItemID.ROPE);
@@ -246,8 +246,8 @@ public class RagAndBoneManII extends BasicQuestHelper
 		taverleyTeleport.addAlternates(ItemID.POH_TABLET_FALADORTELEPORT);
 		rellekkaTeleport = new ItemRequirement("Rellekka teleport", ItemCollections.ENCHANTED_LYRE);
 		rellekkaTeleport.addAlternates(ItemID.NZONE_TELETAB_RELLEKKA);
-		gnomeTeleport = new ItemRequirement("Teleport to Gnome Stronghold (Spirit tree/Gnome Glider", -1, 1);
-		feldipTeleport = new ItemRequirement("Teleport to Feldip Hills (Gnome Glider or Fairy Ring (AKS))", ItemID.TELEPORTSCROLL_FELDIP);
+		gnomeTeleport = new ItemRequirement(t("Teleport to Gnome Stronghold (Spirit tree/Gnome Glider"), -1, 1);
+		feldipTeleport = new ItemRequirement(t("Teleport to Feldip Hills (Gnome Glider or Fairy Ring (AKS))"), ItemID.TELEPORTSCROLL_FELDIP);
 
 		dramenStaff = new ItemRequirement("Dramen staff", ItemID.DRAMEN_STAFF).isNotConsumed();
 		dramenStaff.addAlternates(ItemID.LUNAR_MOONCLAN_LIMINAL_STAFF);

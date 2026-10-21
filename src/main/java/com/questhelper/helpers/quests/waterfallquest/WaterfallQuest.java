@@ -184,7 +184,7 @@ public class WaterfallQuest extends BasicQuestHelper
 		waterRune = new ItemRequirement("Water rune", ItemID.WATERRUNE);
 
 		gamesNecklace = new ItemRequirement("Games necklace", ItemCollections.GAMES_NECKLACES);
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
 		onDeadTreeIsland = new ZoneRequirement(deadTreeIsland);
 		onHudonIsland = new ZoneRequirement(hudonIsland);

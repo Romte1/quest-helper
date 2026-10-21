@@ -153,7 +153,7 @@ public class PriestInPeril extends BasicQuestHelper
 			new ItemRequirement("Giant pouch", ItemID.RCU_POUCH_GIANT)
 		).isNotConsumed();
 		varrockTeleport = new ItemRequirement("Varrock teleports", ItemID.POH_TABLET_VARROCKTELEPORT, 3);
-		weaponAndArmour = new ItemRequirement("Ranged or melee weapon + armour", -1, -1).isNotConsumed();
+		weaponAndArmour = new ItemRequirement(t("Ranged or melee weapon + armour"), -1, -1).isNotConsumed();
 		weaponAndArmour.setDisplayItemId(BankSlotIcons.getCombatGear());
 		goldenKey = new ItemRequirement("Golden key", ItemID.PIPKEY_GOLD);
 		goldenKeyHighlighted = new ItemRequirement("Golden key", ItemID.PIPKEY_GOLD);

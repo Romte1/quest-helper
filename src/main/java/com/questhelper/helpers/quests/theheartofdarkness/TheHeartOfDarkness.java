@@ -371,9 +371,9 @@ public class TheHeartOfDarkness extends BasicQuestHelper
     protected void setupRequirements()
     {
         // Required items
-        combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+        combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
         combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-        food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, 10);
+        food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, 10);
         coins = new ItemRequirement("Coins", ItemCollections.COINS);
 
         // Recommended items

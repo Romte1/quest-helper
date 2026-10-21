@@ -175,10 +175,10 @@ public class HauntedMine extends BasicQuestHelper
 
 		crystalMineKey = new ItemRequirement("Crystal-mine key", ItemID.HAUNTEDMINE_REWARD_KEY);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 	}
 
 	@Override

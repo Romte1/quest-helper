@@ -98,7 +98,7 @@ public class APorcineOfInterest extends BasicQuestHelper
 		rope = new ItemRequirement("Rope", ItemID.ROPE);
 		rope.setHighlightInInventory(true);
 
-		slashItem = new ItemRequirement("A knife or slash weapon", ItemID.KNIFE).isNotConsumed();
+		slashItem = new ItemRequirement(t("A knife or slash weapon"), ItemID.KNIFE).isNotConsumed();
 		slashItem.setTooltip(t("Except abyssal whip, abyssal tentacle, noxious halberd, or dragon claws."));
 		// This is not intended to be a full list, but rather just a reasonable list of slash weapons a user might bring.
 		// This does not fit super well into an item collection since it's not reusable.
@@ -108,15 +108,15 @@ public class APorcineOfInterest extends BasicQuestHelper
 		reinforcedGoggles = new ItemRequirement("Reinforced goggles", ItemID.SLAYER_REINFORCED_GOGGLES, 1, true).isNotConsumed();
 		reinforcedGoggles.setTooltip(t("You can get another pair from Spria"));
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		hoof = new ItemRequirement("Sourhog foot", ItemID.PORCINE_SOURHOG_TROPHY);
 
 		// Recommended
-		draynorTeleport = new ItemRequirement("Teleport to north Draynor", ItemID.TELETAB_DRAYNOR);
+		draynorTeleport = new ItemRequirement(t("Teleport to north Draynor"), ItemID.TELETAB_DRAYNOR);
 		draynorTeleport.addAlternates(ItemCollections.AMULET_OF_GLORIES);
-		faladorFarmTeleport = new ItemRequirement("Teleport to Falador Farm", ItemCollections.EXPLORERS_RINGS);
+		faladorFarmTeleport = new ItemRequirement(t("Teleport to Falador Farm"), ItemCollections.EXPLORERS_RINGS);
 
 		inCave = new ZoneRequirement(cave);
 	}

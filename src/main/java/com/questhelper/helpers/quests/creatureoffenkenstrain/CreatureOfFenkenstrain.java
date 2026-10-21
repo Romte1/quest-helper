@@ -155,7 +155,7 @@ public class CreatureOfFenkenstrain extends BasicQuestHelper
 		thread = new ItemRequirement("Thread", ItemID.THREAD, 5);
 		thread.setTooltip(t("Costume needle cannot be used as a substitute"));
 		spade = new ItemRequirement("Spade", ItemID.SPADE).isNotConsumed();
-		coins = new ItemRequirement("Coins at least", ItemCollections.COINS, 100);
+		coins = new ItemRequirement(t("Coins at least"), ItemCollections.COINS, 100);
 		pickledBrain = new ItemRequirement("Pickled Brain", ItemID.FENK_BRAIN);
 		obsidianAmulet = new ItemRequirement("Obsidian Amulet", ItemID.FENK_OBSIDIAN_AMULET);
 		marbleAmulet = new ItemRequirement("Marble Amulet", ItemID.FENK_MARBLE_AMULET);

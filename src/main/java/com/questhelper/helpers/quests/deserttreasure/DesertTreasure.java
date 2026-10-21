@@ -316,7 +316,7 @@ public class DesertTreasure extends BasicQuestHelper
 
 		combatGear = new ItemRequirement(t("Decent combat gear"), -1, -1);
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		digTele = new ItemRequirement("Digsite pendant/teleport", ItemCollections.DIGSITE_PENDANTS);
 		digTele.addAlternates(ItemID.TELEPORTSCROLL_DIGSITE);
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS);

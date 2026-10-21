@@ -264,7 +264,7 @@ public class FaladorElite extends ComplexStateQuestHelper
 		req.add(new SkillRequirement(Skill.HERBLORE, 81, true));
 		req.add(new ComplexRequirement(LogicType.OR, "88 Runecraft or 55 with Raiments of the Eye set",
 			new SkillRequirement(Skill.RUNECRAFT, 88, true, "88 Runecraft"),
-			new ItemRequirements("55 with Raiments of the Eye set",
+			new ItemRequirements(t("55 with Raiments of the Eye set"),
 				new ItemRequirement("Hat", ItemCollections.EYE_HAT),
 				new ItemRequirement("Top", ItemCollections.EYE_TOP),
 				new ItemRequirement("Bottom", ItemCollections.EYE_BOTTOM),

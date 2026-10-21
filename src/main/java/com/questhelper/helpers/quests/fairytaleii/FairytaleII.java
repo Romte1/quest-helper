@@ -162,15 +162,15 @@ public class FairytaleII extends BasicQuestHelper
 		farmReq = new SkillRequirement(Skill.FARMING, 49, true);
 		herbReq = new SkillRequirement(Skill.HERBLORE, 57, true);
 
-		dramenOrLunarStaff = new ItemRequirement(t("Dramen or lunar staff"), ItemID.DRAMEN_STAFF).isNotConsumed();
+		dramenOrLunarStaff = new ItemRequirement("Dramen or lunar staff", ItemID.DRAMEN_STAFF).isNotConsumed();
 		dramenOrLunarStaff.addAlternates(ItemID.LUNAR_MOONCLAN_LIMINAL_STAFF);
 		dramenOrLunarStaff.setDisplayMatchedItemName(true);
 		vialOfWater = new ItemRequirement("Vial of water", ItemID.VIAL_WATER);
 		pestleAndMortar = new ItemRequirement("Pestle and mortar", ItemID.PESTLE_AND_MORTAR).isNotConsumed();
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
 		fairyCertificate = new ItemRequirement("Nuff's certificate", ItemID.FAIRYTALE2_NUFFS_CERTIFICATE);
 		fairyCertificate.setTooltip(t("You can get another from Nuff's room in north west Zanaris"));

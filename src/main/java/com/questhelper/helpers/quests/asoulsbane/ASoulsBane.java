@@ -138,7 +138,7 @@ public class ASoulsBane extends BasicQuestHelper
 		angerSpear = new ItemRequirement("Anger spear", ItemID.SOULBANE_ANGER_SPEARQ);
 		angerSword = new ItemRequirement("Anger sword", ItemID.SOULBANE_ANGER_SWORDQ);
 
-		food = new ItemRequirement("Food", -1, -1);
+		food = new ItemRequirement(t("Food"), -1, -1);
 		food.setDisplayItemId(BankSlotIcons.getFood());
 		digsiteTeleport = new ItemRequirement("Digsite Teleport", ItemID.TELEPORTSCROLL_DIGSITE);
 		digsiteTeleport.addAlternates(ItemCollections.DIGSITE_PENDANTS);

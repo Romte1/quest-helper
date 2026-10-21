@@ -428,7 +428,7 @@ public class SinsOfTheFather extends BasicQuestHelper
 		fireStaff = new ItemRequirement("Fire staff", ItemCollections.FIRE_STAFF);
 		cosmicRune = new ItemRequirement("Cosmic rune", ItemID.COSMICRUNE);
 
-		enchantRunes = new ItemRequirements("Ruby enchant runes", new ItemRequirements(LogicType.OR, "3 air runes", fireRune5, fireStaff), cosmicRune);
+		enchantRunes = new ItemRequirements(t("Ruby enchant runes"), new ItemRequirements(LogicType.OR, "3 air runes", fireRune5, fireStaff), cosmicRune);
 		enchantTablet = new ItemRequirement("Ruby enchant tablet", ItemID.POH_TABLET_ENCHANTRUBY);
 		enchantRubyRunesOrTablet = new ItemRequirements(LogicType.OR, t("Runes or tablet for Enchant Ruby"), enchantRunes, enchantTablet);
 

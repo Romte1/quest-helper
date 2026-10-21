@@ -143,11 +143,11 @@ public class SpiritsOfTheElid extends BasicQuestHelper
 		stabWep.setDisplayItemId(ItemID.RUNE_SWORD);
 		slashWep = new ItemRequirement(t("Slash Weapon Style"), -1, 1).isNotConsumed();
 		slashWep.setDisplayItemId(ItemID.RUNE_SCIMITAR);
-		lightSource = new ItemRequirement("Light source", ItemCollections.LIGHT_SOURCES, 1).isNotConsumed();
+		lightSource = new ItemRequirement(t("Light source"), ItemCollections.LIGHT_SOURCES, 1).isNotConsumed();
 		knife = new ItemRequirement("Knife", ItemID.KNIFE).highlighted().isNotConsumed();
 		rope = new ItemRequirement("Rope", ItemID.ROPE).highlighted();
-		pickaxe = new ItemRequirement("Any Pickaxe", ItemCollections.PICKAXES, 1).isNotConsumed();
-		bow = new ItemRequirement("Any bow", ItemCollections.BOWS, 1, true).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any Pickaxe"), ItemCollections.PICKAXES, 1).isNotConsumed();
+		bow = new ItemRequirement(t("Any bow"), ItemCollections.BOWS, 1, true).isNotConsumed();
 		bow.setTooltip(t("Short bow obtainable during quest east of the cave entrance"));
 		arrows = new ItemRequirement(t("Arrows for bow"), ItemCollections.METAL_ARROWS, 1, true);
 		arrows.setTooltip(t("Bronze arrows obtainable during quest south of cave entrance"));
@@ -173,7 +173,7 @@ public class SpiritsOfTheElid extends BasicQuestHelper
 		statuette.setHighlightInInventory(true);
 
 		//Recommended
-		combatGear = new ItemRequirement("Combat Gear", -1, 1);
+		combatGear = new ItemRequirement(t("Combat Gear"), -1, 1);
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		waterskins = new ItemRequirement("Waterskins", ItemID.WATER_SKIN4, -1);
 		waterskins.addAlternates(ItemID.WATER_SKIN3, ItemID.WATER_SKIN2, ItemID.WATER_SKIN1);
@@ -181,7 +181,7 @@ public class SpiritsOfTheElid extends BasicQuestHelper
 		coins = new ItemRequirement(t("Coins for magic carpet"), ItemCollections.COINS, -1);
 		spear = new ItemRequirement(t("Spear or Hasta for the 3 weapon styles"), -1, 1);
 		spear.setDisplayItemId(ItemID.DRAGON_SPEAR);
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		necklaceOfPassage = new ItemRequirement("Necklace of Passage", ItemCollections.NECKLACE_OF_PASSAGES, 1);
 	}
 

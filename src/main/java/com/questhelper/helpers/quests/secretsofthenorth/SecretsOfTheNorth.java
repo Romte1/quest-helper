@@ -275,7 +275,7 @@ public class SecretsOfTheNorth extends BasicQuestHelper
 
 		// Recommended
 		antipoison = new ItemRequirement("Antipoisons", ItemCollections.ANTIPOISONS);
-		ardyCloak = new ItemRequirement("Any Ardougne Cloak", ItemCollections.ARDY_CLOAKS).isNotConsumed();
+		ardyCloak = new ItemRequirement(t("Any Ardougne Cloak"), ItemCollections.ARDY_CLOAKS).isNotConsumed();
 		icyBasalt = new ItemRequirement("Icy Basalt", ItemID.WEISS_TELEPORT_BASALT);
 
 		notTalkedToGuard = new VarbitRequirement(VarbitID.SOTN, 2, Operation.GREATER_EQUAL);

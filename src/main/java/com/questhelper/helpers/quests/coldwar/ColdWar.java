@@ -193,10 +193,10 @@ public class ColdWar extends BasicQuestHelper
 		mahoganyPlank = new ItemRequirement("Mahogany Plank", ItemID.PLANK_MAHOGANY, 1);
 		leather = new ItemRequirement("Leather", ItemID.LEATHER, 1);
 		cowbell = new ItemRequirement("Cowbell", ItemID.PENG_COWBELL, 1);
-		teleportLumbridge2 = new ItemRequirement("Teleports to Lumbridge", ItemID.POH_TABLET_LUMBRIDGETELEPORT, 2);
-		teleportHouse = new ItemRequirement("Teleport to PoH with a clockwork table", ItemID.POH_TABLET_TELEPORTTOHOUSE,
+		teleportLumbridge2 = new ItemRequirement(t("Teleports to Lumbridge"), ItemID.POH_TABLET_LUMBRIDGETELEPORT, 2);
+		teleportHouse = new ItemRequirement(t("Teleport to PoH with a clockwork table"), ItemID.POH_TABLET_TELEPORTTOHOUSE,
 			1);
-		teleportArdougne = new ItemRequirement("Teleport to Ardougne", ItemID.POH_TABLET_ARDOUGNETELEPORT, 4);
+		teleportArdougne = new ItemRequirement(t("Teleport to Ardougne"), ItemID.POH_TABLET_ARDOUGNETELEPORT, 4);
 
 		clockworkBookHighlight = new ItemRequirement("Clockwork book", ItemID.PENG_BOOK);
 		clockworkBookHighlight.setHighlightInInventory(true);
@@ -213,7 +213,7 @@ public class ColdWar extends BasicQuestHelper
 		bongos = new ItemRequirement("Penguin bongos", ItemID.PENG_BONGOS);
 		kgpId = new ItemRequirement("Kgp id card", ItemID.PENG_ID);
 		kgpId.setTooltip(t("You can get another from Noodle"));
-		combatGear = new ItemRequirement("Combat gear and food", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear and food"), -1, -1).isNotConsumed();
 	}
 
 	@Override
@@ -481,7 +481,7 @@ public class ColdWar extends BasicQuestHelper
 	public List<Requirement> getGeneralRecommended()
 	{
 		ArrayList<Requirement> req = new ArrayList<>();
-		req.add(new ItemRequirement("Access to a Crafting Table 3", -1));
+		req.add(new ItemRequirement(t("Access to a Crafting Table 3"), -1));
 		return req;
 	}
 

@@ -193,12 +193,12 @@ public class ThePathOfGlouphrie extends BasicQuestHelper
 		combatGear = new ItemRequirement(t("Combat equipment"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS, -1);
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		freeInventorySlots = new FreeInventorySlotRequirement(11);
 
 		/// Recommended items
 		var lumbridgeEliteComplete = new QuestRequirement(QuestHelperQuest.LUMBRIDGE_ELITE, QuestState.FINISHED);
-		earmuffsOrSlayerHelmet = new ItemRequirement(t("Earmuffs or a Slayer helmet"), ItemCollections.EAR_PROTECTION, 1, true).highlighted();
+		earmuffsOrSlayerHelmet = new ItemRequirement("Earmuffs or a Slayer helmet", ItemCollections.EAR_PROTECTION, 1, true).highlighted();
 		earmuffsOrSlayerHelmet.setTooltip(t("You will take a lot more damage without these"));
 		earmuffsOrSlayerHelmetEquipped = earmuffsOrSlayerHelmet.equipped();
 		fairyRingOrCastleWars = new TeleportItemRequirement(t("Teleport to Castle Wars (Fairy Ring BKP or Ring of Dueling [2])"), ItemCollections.FAIRY_STAFF, 1);

@@ -75,20 +75,20 @@ public class MA2Locator extends ComplexStateQuestHelper
 		saradominStaff = new ItemRequirement("Saradomin staff", ItemID.SARADOMIN_STAFF);
 		saradominStaff.setTooltip("You can buy one from the Chamber Guardian in the Mage Arena Cavern for 80k");
 
-		godStaff = new ItemRequirement("God staff matching boss you're killing", ItemID.SARADOMIN_STAFF);
+		godStaff = new ItemRequirement(t("God staff matching boss you're killing"), ItemID.SARADOMIN_STAFF);
 		godStaff.addAlternates(ItemID.ZAMORAK_STAFF, ItemID.GUTHIX_STAFF);
 		godStaff.setTooltip("You can buy one from the Chamber Guardian in the Mage Arena Cavern for 80k");
 
-		runesForCasts = new ItemRequirements("Runes for 50+ casts of god spells",
+		runesForCasts = new ItemRequirements(t("Runes for 50+ casts of god spells"),
 			new ItemRequirement("Blood runes", ItemID.BLOODRUNE, -1),
 			new ItemRequirement("Air runes", ItemID.AIRRUNE, -1),
 			new ItemRequirement("Fire runes", ItemID.FIRERUNE, -1));
-		magicCombatGear = new ItemRequirement("Magic combat gear", -1, 1);
+		magicCombatGear = new ItemRequirement(t("Magic combat gear"), -1, 1);
 		magicCombatGear.setDisplayItemId(BankSlotIcons.getMagicCombatGear());
-		knife = new ItemRequirement("Knife or sharp weapon to cut through a web", ItemID.KNIFE);
+		knife = new ItemRequirement(t("Knife or sharp weapon to cut through a web"), ItemID.KNIFE);
 		brews =  new ItemRequirement("Saradomin brews", ItemCollections.SARADOMIN_BREWS, -1);
 		restores = new ItemRequirement("Super restores", ItemCollections.SUPER_RESTORE_POTIONS, -1);
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		recoils = new ItemRequirement("Rings of recoil", ItemID.RING_OF_RECOIL);
 
 		enchantedSymbol = new ItemRequirement("Enchanted symbol", ItemID.MA2_SYMBOL);

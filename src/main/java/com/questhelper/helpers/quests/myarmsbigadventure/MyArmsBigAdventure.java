@@ -233,7 +233,7 @@ public class MyArmsBigAdventure extends BasicQuestHelper
 		hardyGout.setTooltip(t("You can get more from Murcaily"));
 		combatGear = new ItemRequirement(t("Combat gear, preferably magic"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS, -1);
 
 		rakeHighlight = rake.highlighted();

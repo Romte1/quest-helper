@@ -168,18 +168,18 @@ public class KourendMedium extends ComplexStateQuestHelper
 		memoirPis = new VarbitRequirement(VarbitID.KOUREND_DIARY_PISC_TELEPORT, Operation.EQUAL, 0, "");
 
 		// Required items
-		dramenStaff = new ItemRequirement(t("Dramen or Lunar staff"), ItemCollections.FAIRY_STAFF, 1, true)
+		dramenStaff = new ItemRequirement("Dramen or Lunar staff", ItemCollections.FAIRY_STAFF, 1, true)
 			.showConditioned(notFairyRing).isNotConsumed();
-		kharedstsMemoirs = new ItemRequirement(t("Kharedst's Memoirs or Book of the Dead"),
+		kharedstsMemoirs = new ItemRequirement("Kharedst's Memoirs or Book of the Dead",
 			Arrays.asList(ItemID.BOOK_OF_THE_DEAD, ItemID.VEOS_KHAREDSTS_MEMOIRS)).showConditioned(notTravelWithMemoirs).isNotConsumed();
 		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).showConditioned(notMineSulphur).isNotConsumed();
-		faceMask = new ItemRequirement(t("Facemask or slayer helmet"), ItemCollections.SLAYER_HELMETS, 1, true)
+		faceMask = new ItemRequirement("Facemask or slayer helmet", ItemCollections.SLAYER_HELMETS, 1, true)
 			.showConditioned(notMineSulphur).isNotConsumed();
 		faceMask.addAlternates(ItemID.SLAYER_FACEMASK, ItemID.GASMASK);
-		hammer = new ItemRequirement(t("A hammer"), ItemCollections.HAMMER).showConditioned(notRepairCrane).isNotConsumed();
+		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).showConditioned(notRepairCrane).isNotConsumed();
 		nails = new ItemRequirement("Nails", ItemCollections.NAILS, 50).showConditioned(notRepairCrane);
 		planks = new ItemRequirement("Plank", ItemID.WOODPLANK, 3).showConditioned(notRepairCrane);
-		kingWorm = new ItemRequirement(t("King worm or fish chunks"), ItemID.KING_WORM).showConditioned(notCatchBluegill);
+		kingWorm = new ItemRequirement("King worm or fish chunks", ItemID.KING_WORM).showConditioned(notCatchBluegill);
 		kingWorm.addAlternates(ItemID.FISH_CHUNKS);
 		kingWorm.setTooltip(t("Obtainable on Molch Island"));
 		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).showConditioned(new Conditions(LogicType.OR,

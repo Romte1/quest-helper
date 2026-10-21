@@ -180,7 +180,7 @@ public class TheTouristTrap extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		desertTop = new ItemRequirement("Desert shirt", ItemID.DESERT_SHIRT);
 		desertBottom = new ItemRequirement("Desert robe", ItemID.DESERT_ROBE);
@@ -231,7 +231,7 @@ public class TheTouristTrap extends BasicQuestHelper
 
 		waterskins = new ItemRequirement("Waterskins", ItemID.WATER_SKIN4, -1);
 		knife = new ItemRequirement("Knife", ItemID.KNIFE).isNotConsumed();
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).isNotConsumed();
 		coins100 = new ItemRequirement("Coins", ItemCollections.COINS, 100);
 	}
 

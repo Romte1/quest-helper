@@ -63,6 +63,8 @@ public class DyeShipSteps extends DetailedOwnerStep
 	{
 		super(questHelper);
 
+		FlagColour.WHITE.getItem().setName(getQuestHelper().t("White"));
+
 		topOfShip = new Zone(new WorldPoint(3616, 3541, 2), new WorldPoint(3622, 3545, 2));
 		deck = new Zone(new WorldPoint(3600, 3541, 1), new WorldPoint(3623, 3545, 1));
 		onTopOfShip = new ZoneRequirement(topOfShip);

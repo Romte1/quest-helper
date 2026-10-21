@@ -130,7 +130,7 @@ public class BelowIceMountain extends BasicQuestHelper
 
 		beer = new ItemRequirement(true, "Asgarnian Ale", ItemID.ASGARNIAN_ALE);
 
-		iceMountainTeleport = new ItemRequirement("A teleport to near Ice Mountain", ItemCollections.AMULET_OF_GLORIES);
+		iceMountainTeleport = new ItemRequirement(t("A teleport to near Ice Mountain"), ItemCollections.AMULET_OF_GLORIES);
 		iceMountainTeleport.addAlternates(ItemCollections.COMBAT_BRACELETS);
 		iceMountainTeleport.addAlternates(ItemID.POH_TABLET_FALADORTELEPORT, ItemID.TABLET_LASSAR);
 		faladorTeleport = new ItemRequirement("Falador teleport", ItemID.POH_TABLET_FALADORTELEPORT);

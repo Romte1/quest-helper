@@ -529,11 +529,11 @@ public class TaiBwoWannaiTrio extends BasicQuestHelper
 		ArrayList<ItemRequirement> reqs = new ArrayList<>();
 		reqs.add(jogreBones);
 		reqs.add(new ItemRequirement(t("Extra Raw Karambwans in case you burn the one given"), ItemID.TBWT_RAW_KARAMBWAN));
-		reqs.add(new ItemRequirement("Any Antipoisons", ItemCollections.ANTIPOISONS));
+		reqs.add(new ItemRequirement(t("Any Antipoisons"), ItemCollections.ANTIPOISONS));
 		reqs.add(new ItemRequirement("Stamina potions", ItemCollections.STAMINA_POTIONS));
 		reqs.add(new ItemRequirement(t("Dramen staff if you have access to fairy rings"), ItemCollections.FAIRY_STAFF));
 		reqs.add(new ItemRequirement(t("Sliced Banana (Use a knife on a banana)"), ItemID.TBWT_SLICED_BANANA));
-		reqs.add(new ItemRequirement("Food", -1, -1));
+		reqs.add(new ItemRequirement(t("Food"), -1, -1));
 		return reqs;
 	}
 

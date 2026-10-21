@@ -125,7 +125,7 @@ public class Contact extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		lightSource = new ItemRequirement("A light source", ItemCollections.LIGHT_SOURCES).isNotConsumed();
+		lightSource = new ItemRequirement(t("A light source"), ItemCollections.LIGHT_SOURCES).isNotConsumed();
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
 		parchment = new ItemRequirement("Parchment", ItemID.CONTACT_KALEEF_SCROLL);
 		parchment.setHighlightInInventory(true);
@@ -133,7 +133,7 @@ public class Contact extends BasicQuestHelper
 		combatGear = new ItemRequirement(t("Combat gear, preferably magic/ranged"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getMagicCombatGear());
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS, -1);
 		antipoison = new ItemRequirement("Antipoisons", ItemCollections.ANTIPOISONS);

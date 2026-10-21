@@ -170,7 +170,7 @@ public class ArdougneMedium extends ComplexStateQuestHelper
 
 		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		fairyAccess = new ItemRequirement(t("Dramen or Lunar staff"), ItemCollections.FAIRY_STAFF)
+		fairyAccess = new ItemRequirement("Dramen or Lunar staff", ItemCollections.FAIRY_STAFF)
 			.showConditioned(new Conditions(LogicType.OR, notNecroTower, notUniPen)).isNotConsumed();
 		skavMap = new ItemRequirement("Skavid map", ItemID.SKAVIDMAP).showConditioned(notCaveNightshade).isNotConsumed();
 		lightSource = new ItemRequirement(t("Any light source"), ItemCollections.LIGHT_SOURCES)
@@ -198,7 +198,7 @@ public class ArdougneMedium extends ComplexStateQuestHelper
 			notCWBallon2));
 		basket = new ItemRequirement("Basket of apples", ItemID.BASKET_APPLE_5).showConditioned(notArdyStraw);
 		compost = new ItemRequirement("Compost", ItemCollections.COMPOST).showConditioned(notArdyStraw);
-		basketOrCompost = new ItemRequirements(LogicType.OR, t("Basket of apples or compost"), compost, basket).showConditioned(notArdyStraw);
+		basketOrCompost = new ItemRequirements(LogicType.OR, "Basket of apples or compost", compost, basket).showConditioned(notArdyStraw);
 		spade = new ItemRequirement("Spade", ItemID.SPADE).showConditioned(notArdyStraw).isNotConsumed();
 
 		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);

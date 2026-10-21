@@ -170,8 +170,8 @@ public class TheLostTribe extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
-		lightSource = new ItemRequirement("A light source", ItemCollections.LIGHT_SOURCES).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).isNotConsumed();
+		lightSource = new ItemRequirement(t("A light source"), ItemCollections.LIGHT_SOURCES).isNotConsumed();
 		brooch = new ItemRequirement("Brooch", ItemID.LOST_TRIBE_BROOCH);
 		book = new ItemRequirement("Goblin symbol book", ItemID.LOST_TRIBE_BOOK);
 		book.setHighlightInInventory(true);

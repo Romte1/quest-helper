@@ -157,7 +157,7 @@ public class SwanSong extends BasicQuestHelper
 		potLid = new ItemRequirement("Pot lid", ItemID.POTLID);
 		airtightPot = new ItemRequirement("Airtight pot", ItemID.FAVOUR_AIRTIGHT_POT);
 		ironBar5 = new ItemRequirement("Iron bar", ItemID.IRON_BAR, 5);
-		log = new ItemRequirement("Any log", ItemID.LOGS);
+		log = new ItemRequirement(t("Any log"), ItemID.LOGS);
 		log.addAlternates(ItemID.OAK_LOGS, ItemID.WILLOW_LOGS, ItemID.MAPLE_LOGS, ItemID.YEW_LOGS, ItemID.MAGIC_LOGS, ItemID.TEAK_LOGS, ItemID.MAHOGANY_LOGS, ItemID.REDWOOD_LOGS);
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
 
@@ -168,7 +168,7 @@ public class SwanSong extends BasicQuestHelper
 		potLidHiglight.setHighlightInInventory(true);
 		ironBar5Higlight = new ItemRequirement("Iron bar", ItemID.IRON_BAR, 5);
 		ironBar5Higlight.setHighlightInInventory(true);
-		logHiglight = new ItemRequirement("Any log", ItemID.LOGS);
+		logHiglight = new ItemRequirement(t("Any log"), ItemID.LOGS);
 		logHiglight.addAlternates(ItemID.OAK_LOGS, ItemID.WILLOW_LOGS, ItemID.MAPLE_LOGS, ItemID.YEW_LOGS, ItemID.MAGIC_LOGS, ItemID.TEAK_LOGS, ItemID.MAHOGANY_LOGS, ItemID.REDWOOD_LOGS);
 		logHiglight.setHighlightInInventory(true);
 		tinderboxHiglight = tinderbox.highlighted();
@@ -176,7 +176,7 @@ public class SwanSong extends BasicQuestHelper
 		// Recommended
 		draynorTeleport = new ItemRequirement(t("Teleport to Draynor Village"), ItemCollections.AMULET_OF_GLORIES);
 		piscTeleport = new ItemRequirement("Piscatoris teleport", ItemID.TELEPORTSCROLL_PISCATORIS);
-		yanilleTeleport = new ItemRequirement(t("Yanille teleport or Nightmare Zone minigame teleport"), ItemID.POH_TABLET_WATCHTOWERTELEPORT);
+		yanilleTeleport = new ItemRequirement("Yanille teleport or Nightmare Zone minigame teleport", ItemID.POH_TABLET_WATCHTOWERTELEPORT);
 		craftingGuildTeleport = new ItemRequirement("Crafting Guild teleport", ItemCollections.SKILLS_NECKLACES);
 		cookingGauntlets = new ItemRequirement(t("Cooking gauntlets for lower burn chance on monkfish"), ItemID.GAUNTLETS_OF_COOKING);
 
@@ -191,7 +191,7 @@ public class SwanSong extends BasicQuestHelper
 		brownApron.setTooltip(t("Malignius will give you one"));
 		monkfish5 = new ItemRequirement("Fresh monkfish", ItemID.SWAN_MONKFISH, 5);
 		rawMonkfish5 = new ItemRequirement("Fresh monkfish", ItemID.SWAN_RAW_MONKFISH, 5);
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		combatGearRanged = new ItemRequirement(t("Ranged or melee combat gear"), -1, -1).isNotConsumed();
 		combatGearRanged.setDisplayItemId(BankSlotIcons.getCombatGear());

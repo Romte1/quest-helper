@@ -207,7 +207,7 @@ public class TwilightsPromise extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		twoCombatStyles = new ItemRequirement("Two combat styles", -1, -1).isNotConsumed();
+		twoCombatStyles = new ItemRequirement(t("Two combat styles"), -1, -1).isNotConsumed();
 		twoCombatStyles.setDisplayItemId(BankSlotIcons.getCombatGear());
 		staminatPotion = new ItemRequirement("Stamina potions", ItemCollections.STAMINA_POTIONS, 3);
 

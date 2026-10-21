@@ -153,7 +153,7 @@ public class TreeGnomeVillage extends BasicQuestHelper
 		handedInOrbs = new VarbitRequirement(VarbitID.BOLREN_GOT_ORBS, 1, Operation.GREATER_EQUAL);
 
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		combatGear = new ItemRequirement(t("Combat gear (magic is best)"), -1, -1);
 		combatGear.setDisplayItemId(BankSlotIcons.getMagicCombatGear());
 

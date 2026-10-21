@@ -259,20 +259,20 @@ public class Wanted extends BasicQuestHelper
 		runeEssence = new ItemRequirement("20 Rune Essence (UNNOTED)", ItemID.BLANKRUNE, 20);
 		pureEssence = new ItemRequirement("20 Pure Essence (UNNOTED)", ItemID.BLANKRUNE_HIGH, 20);
 		essence =  new ItemRequirements(LogicType.OR, "20 Rune or Pure Essence (UNNOTED)", runeEssence, pureEssence);
-		lightSource = new ItemRequirement("A light source", ItemCollections.LIGHT_SOURCES).isNotConsumed();
+		lightSource = new ItemRequirement(t("A light source"), ItemCollections.LIGHT_SOURCES).isNotConsumed();
 		rope = new ItemRequirement("A rope", ItemID.ROPE);
 
 		spinyHelmet = new ItemRequirement("A spiny helmet or slayer helm", ItemID.WALLBEAST_SPIKE_HELMET).isNotConsumed();
 		spinyHelmet.addAlternates(ItemCollections.SLAYER_HELMETS);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		amuletOfGlory = new ItemRequirement("Amulet of glory", ItemCollections.AMULET_OF_GLORIES).isNotConsumed();
 		ringOfDueling = new ItemRequirement("Ring of Dueling", ItemCollections.RING_OF_DUELINGS);
-		faladorTeleport = new ItemRequirement("A teleport to Falador", ItemID.POH_TABLET_FALADORTELEPORT, -1);
-		varrockTeleport = new ItemRequirement("A teleport to Varrock", ItemID.POH_TABLET_VARROCKTELEPORT, -1);
-		canifisTeleport = new ItemRequirement("A teleport to Canifis", ItemID.TELETAB_FENK, -1);
+		faladorTeleport = new ItemRequirement(t("A teleport to Falador"), ItemID.POH_TABLET_FALADORTELEPORT, -1);
+		varrockTeleport = new ItemRequirement(t("A teleport to Varrock"), ItemID.POH_TABLET_VARROCKTELEPORT, -1);
+		canifisTeleport = new ItemRequirement(t("A teleport to Canifis"), ItemID.TELETAB_FENK, -1);
 
 		solusHat = new ItemRequirement("Solus' hat", ItemID.WANTED_SOLUS_TROPHY);
 		commorb = new ItemRequirement("Commorb", ItemID.WANTED_CRYSTAL_BALL);

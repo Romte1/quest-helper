@@ -112,7 +112,7 @@ public class TheGiantDwarf extends BasicQuestHelper
 		sapphires3 = new ItemRequirement("Cut sapphires", ItemID.SAPPHIRE, 3);
 		sapphires3.setTooltip(t("Purchasable during the quest."));
 		sapphires3.setHighlightInInventory(true);
-		oresBars = new ItemRequirement("Various ores and bars", -1, -1);
+		oresBars = new ItemRequirement(t("Various ores and bars"), -1, -1);
 		oresBars.canBeObtainedDuringQuest();
 		redberryPie = new ItemRequirement("Redberry pie", ItemID.REDBERRY_PIE);
 		redberryPie.setTooltip(t("Unless you have previously given Thurgo an extra pie with nothing in return."));
@@ -146,8 +146,8 @@ public class TheGiantDwarf extends BasicQuestHelper
 		mithrilBar10 = new ItemRequirement("Mithril bar", ItemID.MITHRIL_BAR, 10);
 
 		// Extra
-		weightBelow30 = new ItemRequirement("Weight below 30 kg", -1, -1);
-		inventorySpace = new ItemRequirement("Free inventory slot", -1);
+		weightBelow30 = new ItemRequirement(t("Weight below 30 kg"), -1, -1);
+		inventorySpace = new ItemRequirement(t("Free inventory slot"), -1);
 
 		weightBelow30Check = new WeightRequirement("Weight below 30 kg", 30, Operation.LESS_EQUAL);
 		inventorySpaceCheck = new FreeInventorySlotRequirement(1);

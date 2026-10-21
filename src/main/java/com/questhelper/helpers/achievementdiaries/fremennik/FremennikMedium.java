@@ -194,7 +194,7 @@ public class FremennikMedium extends ComplexStateQuestHelper
 		spade = new ItemRequirement("Spade", ItemID.SPADE).showConditioned(notSlayBrineRat).isNotConsumed();
 		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).showConditioned(
 			new Conditions(LogicType.OR, notMineGold, notMineCoal)).isNotConsumed();
-		staff = new TeleportItemRequirement(t("Dramen or Lunar staff"), ItemCollections.FAIRY_STAFF).showConditioned(notTravelMisc).isNotConsumed();
+		staff = new TeleportItemRequirement("Dramen or Lunar staff", ItemCollections.FAIRY_STAFF).showConditioned(notTravelMisc).isNotConsumed();
 		butterFlyJar = new ItemRequirement("Butterfly Jar", ItemID.BUTTERFLY_JAR).showConditioned(notSnowyKnight).isNotConsumed();
 		butterFlyNet = new ItemRequirement("Butterfly Net", ItemID.HUNTING_BUTTERFLY_NET).showConditioned(notSnowyKnight).isNotConsumed();
 		butterFlyNet.addAlternates(ItemID.II_MAGIC_BUTTERFLY_NET);
@@ -212,7 +212,7 @@ public class FremennikMedium extends ComplexStateQuestHelper
 			notSlayBrineRat, notLighthouse)).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		prayerPot = new ItemRequirement("Prayer Potions", ItemCollections.PRAYER_POTIONS, -1);
 		stamPot = new ItemRequirement("Stamina Potions", ItemCollections.STAMINA_POTIONS, -1);
 

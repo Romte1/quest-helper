@@ -178,10 +178,10 @@ public class TempleOfIkov extends BasicQuestHelper
 		bootsOfLightness = new ItemRequirement("Boots of lightness", ItemID.IKOV_BOOTSOFLIGHTNESS).isNotConsumed();
 		bootsOfLightnessEquipped = bootsOfLightness.equipped();
 		limpwurt20 = new ItemRequirement(t("Limpwurt (unnoted)"), ItemID.LIMPWURT_ROOT, 20);
-		yewOrBetterBow = new ItemRequirement(t("Yew, magic, or dark bow"), ItemID.YEW_SHORTBOW).isNotConsumed();
+		yewOrBetterBow = new ItemRequirement("Yew, magic, or dark bow", ItemID.YEW_SHORTBOW).isNotConsumed();
 		yewOrBetterBow.addAlternates(ItemID.YEW_LONGBOW, ItemID.TRAIL_COMPOSITE_BOW_YEW, ItemID.MAGIC_SHORTBOW, ItemID.MAGIC_SHORTBOW_I,
 			ItemID.MAGIC_LONGBOW, ItemID.DARKBOW);
-		throwableWeapon = new ItemRequirement("Throwable Weapon", ItemCollections.THROWING_KNIVES);
+		throwableWeapon = new ItemRequirement(t("Throwable Weapon"), ItemCollections.THROWING_KNIVES);
 		throwableWeapon.addAlternates(ItemCollections.DARTS);
 		throwableWeapon.addAlternates(ItemCollections.THROWING_AXES);
 		yewOrBetterBowOrThrowableWeapon = new ItemRequirements(LogicType.OR, t("Yew, magic, dark bow, or thrown ranged weapons (darts, knives, thrownaxes)"), yewOrBetterBow, throwableWeapon);
@@ -191,8 +191,8 @@ public class TempleOfIkov extends BasicQuestHelper
 		iceArrows20 = new ItemRequirement("Ice arrows", ItemID.ICE_ARROW, 20);
 
 		iceArrows = new ItemRequirement("Ice arrows", ItemID.ICE_ARROW);
-		iceArrowsWithThrowableWeapon = new ItemRequirements(LogicType.AND, "Ice Arrow with Throwable Weapon", iceArrows, throwableWeapon);
-		enoughArrows = new ItemRequirements(LogicType.OR, "Sufficient Arrows", iceArrows20, iceArrowsWithThrowableWeapon);
+		iceArrowsWithThrowableWeapon = new ItemRequirements(LogicType.AND, t("Ice Arrow with Throwable Weapon"), iceArrows, throwableWeapon);
+		enoughArrows = new ItemRequirements(LogicType.OR, t("Sufficient Arrows"), iceArrows20, iceArrowsWithThrowableWeapon);
 		iceArrowsEquipped = new ItemRequirement("Ice arrows", ItemID.ICE_ARROW, 1, true);
 		lever = new ItemRequirement("Lever", ItemID.IKOV_LEVER);
 		lever.setHighlightInInventory(true);

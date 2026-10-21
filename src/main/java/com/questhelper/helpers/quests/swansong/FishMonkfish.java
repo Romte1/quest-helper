@@ -108,7 +108,7 @@ public class FishMonkfish extends DetailedOwnerStep
 	{
 		cookedMonkfish = new ItemRequirement("Fresh monkfish", ItemID.SWAN_MONKFISH, 5);
 		rawMonkfish = new ItemRequirement("Fresh monkfish", ItemID.SWAN_RAW_MONKFISH, 5);
-		combatGear = new ItemRequirement("Combat gear", -1, -1);
+		combatGear = new ItemRequirement(getQuestHelper().t("Combat gear"), -1, -1);
 		smallNet = new ItemRequirement("Small fishing net", ItemID.NET);
 
 		fishMonkfish = new ObjectStep(getQuestHelper(), ObjectID.SWAN_FISH, new WorldPoint(2311, 3696, 0), getQuestHelper().t("Fish at least 5 fresh monkfish. Sea Trolls will appear, and you'll need to kill them."), smallNet, combatGear);

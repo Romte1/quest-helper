@@ -128,7 +128,7 @@ public class VardorvisSteps extends ConditionalStep
 		nardahTeleport.addAlternates(ItemID.DESERT_AMULET_HARD, ItemID.TELEPORTSCROLL_NARDAH, ItemID.DESERT_AMULET_MEDIUM);
 		nardahTeleport.addAlternates(ItemCollections.FAIRY_STAFF);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1);
+		combatGear = new ItemRequirement(getQuestHelper().t("Combat gear"), -1, -1);
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		xericTalisman = new ItemRequirement("Xeric's talisman", ItemID.XERIC_TALISMAN);

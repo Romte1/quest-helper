@@ -135,7 +135,7 @@ public class RFDAwowogei extends BasicQuestHelper
 		zombieGreegree = new ItemRequirement("Zombie greegree", ItemID.MM_MONKEY_GREEGREE_FOR_SMALL_ZOMBIE_MONKEY, 1, true).isNotConsumed();
 		zombieGreegree.setTooltip(t("Kill a zombie monkey under the monkey temple and make a greegree from them"));
 		zombieGreegree.addAlternates(ItemID.MM_MONKEY_GREEGREE_FOR_LARGE_ZOMBIE_MONKEY);
-		greegreeEquipped = new ItemRequirement("Any greegree", ItemCollections.GREEGREES).equipped().isNotConsumed();
+		greegreeEquipped = new ItemRequirement(t("Any greegree"), ItemCollections.GREEGREES).equipped().isNotConsumed();
 		bananaHighlighted = new ItemRequirement("Banana", ItemID.BANANA);
 		bananaHighlighted.setHighlightInInventory(true);
 		monkeyNutsHighlighted = new ItemRequirement("Monkey nuts", ItemID.MM_MONKEY_NUTS);

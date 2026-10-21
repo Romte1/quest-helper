@@ -160,7 +160,7 @@ public class KaramjaHard extends ComplexStateQuestHelper
 		notAssignedTask = new VarbitRequirement(VarbitID.ATJUN_HARD_DURADEL, 0);
 		notKilledDragon = new VarbitRequirement(VarbitID.ATJUN_HARD_DRAGON, 0);
 
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).showConditioned(notKilledDeathwing).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).showConditioned(notKilledDeathwing).isNotConsumed();
 		coins = new ItemRequirement("Coins", ItemCollections.COINS).showConditioned(notKilledDragon);
 		oomlieWrap = new ItemRequirement("Oomlie wrap", ItemID.COOKED_OOMLIE).showConditioned(notEatenWrap);
 		oomlieWrap.setTooltip(t("You can make one by using a palm leaf on a raw oomlie and cooking it. Both are " +
@@ -170,14 +170,14 @@ public class KaramjaHard extends ComplexStateQuestHelper
 			.showConditioned(notCraftedNature).isNotConsumed();
 		natureTalismanOrAbyss.setTooltip(t("Nature Talisman/Tiara, Catalytic Talisman/Tiara, RC-skill cape or via Abyss"));
 		rawKarambwan = new ItemRequirement("Raw karambwan", ItemID.TBWT_RAW_KARAMBWAN).showConditioned(notCookedKarambwan);
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES).showConditioned(new Conditions(LogicType.OR,
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).showConditioned(new Conditions(LogicType.OR,
 			notCollectedLeaves, notKilledDeathwing, notKilledDragon)).isNotConsumed();
-		machete = new ItemRequirement("Any machete", ItemID.MACHETTE).showConditioned(new Conditions(LogicType.OR,
+		machete = new ItemRequirement(t("Any machete"), ItemID.MACHETTE).showConditioned(new Conditions(LogicType.OR,
 			notCollectedLeaves, notKilledDeathwing)).isNotConsumed();
 		machete.addAlternates(ItemID.MACHETTE_OPAL, ItemID.MACHETTE_JADE, ItemID.MACHETTE_REDTOPAZ);
 		lockpick = new ItemRequirement(t("Lockpick, more in case it breaks"), ItemID.LOCKPICK)
 			.showConditioned(notKilledDeathwing).isNotConsumed();
-		crossbow = new ItemRequirement("Any crossbow", ItemID.CROSSBOW).showConditioned(notUsedShortcut).isNotConsumed();
+		crossbow = new ItemRequirement(t("Any crossbow"), ItemID.CROSSBOW).showConditioned(notUsedShortcut).isNotConsumed();
 		crossbow.addAlternates(ItemID.XBOWS_CROSSBOW_BRONZE, ItemID.XBOWS_CROSSBOW_IRON, ItemID.XBOWS_CROSSBOW_STEEL,
 			ItemID.XBOWS_CROSSBOW_MITHRIL, ItemID.XBOWS_CROSSBOW_ADAMANTITE, ItemID.XBOWS_CROSSBOW_RUNITE, ItemID.XBOWS_CROSSBOW_DRAGON,
 			ItemID.XBOWS_CROSSBOW_BLURITE, ItemID.DTTD_BONE_CROSSBOW, ItemID.ACB, ItemID.ZARYTE_XBOW);
@@ -193,7 +193,7 @@ public class KaramjaHard extends ComplexStateQuestHelper
 		fightCaveCombatGear = new ItemRequirement(t("Combat gear to reach wave 31 in the Fight Caves and defeat a " +
 			"Ket-Zek"), -1, -1).isNotConsumed();
 		fightCaveCombatGear.setDisplayItemId(BankSlotIcons.getRangedCombatGear());
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		antipoison = new ItemRequirement("Antipoison", ItemCollections.ANTIPOISONS, -1);
 
 		inCave = new ZoneRequirement(cave);

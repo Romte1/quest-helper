@@ -133,14 +133,14 @@ public class UndergroundPass extends BasicQuestHelper
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
 		tinderbox.canBeObtainedDuringQuest();
 		tinderboxHighlight = tinderbox.highlighted();
-		combatEquipment = new ItemRequirement("Combat Equipment", -1, -1).isNotConsumed();
+		combatEquipment = new ItemRequirement(t("Combat Equipment"), -1, -1).isNotConsumed();
 		combatEquipment.setDisplayItemId(BankSlotIcons.getCombatGear());
-		food = new ItemRequirement("Food", -1, -1);
+		food = new ItemRequirement(t("Food"), -1, -1);
 		food.setDisplayItemId(ItemID.SHARK);
 		staminaPotions = new ItemRequirement("Stamina Potions", ItemCollections.STAMINA_POTIONS);
 		coins = new ItemRequirement(t("Coins (to buy food, 75 ea)"), ItemCollections.COINS, 750);
 		agilityPotions = new ItemRequirement("Agility Potions", ItemCollections.AGILITY_POTIONS);
-		telegrabRunes = new ItemRequirements("Telegrab Runes", new ItemRequirement("Air rune", ItemID.AIRRUNE),
+		telegrabRunes = new ItemRequirements(t("Telegrab Runes"), new ItemRequirement("Air rune", ItemID.AIRRUNE),
 			new ItemRequirement("Law rune", ItemID.LAWRUNE));
 		oilyCloth = new ItemRequirement("Oily Cloth", ItemID.DAMP_CLOTH);
 		oilyCloth.setTooltip(t("You can get another by searching the equipment by the fireplace beside Koftik."));

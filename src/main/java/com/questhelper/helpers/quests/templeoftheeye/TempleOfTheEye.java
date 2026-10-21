@@ -216,8 +216,8 @@ public class TempleOfTheEye extends BasicQuestHelper
 		pickaxe = new ItemRequirement("Pickaxe", ItemCollections.PICKAXES);
 		pickaxe.canBeObtainedDuringQuest();
 
-		varrockTeleport = new ItemRequirement("Teleport to Varrock", ItemID.POH_TABLET_VARROCKTELEPORT);
-		alKharidTeleport = new ItemRequirement("Teleport to Al Kharid", ItemCollections.RING_OF_DUELINGS);
+		varrockTeleport = new ItemRequirement(t("Teleport to Varrock"), ItemID.POH_TABLET_VARROCKTELEPORT);
+		alKharidTeleport = new ItemRequirement(t("Teleport to Al Kharid"), ItemCollections.RING_OF_DUELINGS);
 		alKharidTeleport.addAlternates(ItemCollections.AMULET_OF_GLORIES);
 		alKharidTeleport.addAlternates(ItemID.POH_TABLET_LUMBRIDGETELEPORT);
 

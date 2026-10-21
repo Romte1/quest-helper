@@ -229,11 +229,11 @@ public class IcthlarinsLittleHelper extends BasicQuestHelper
 		bucketOfSap = new ItemRequirement("Bucket of sap", ItemID.ICS_LITTLE_SAP_BUCKET).hideConditioned(givenSap);
 		bucketOfSap.setTooltip(t("You can get this by using a knife on an evergreen tree with a bucket in your inventory"));
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS, -1);
 		antipoison = new ItemRequirement("Antipoison", ItemCollections.ANTIPOISONS, -1);
-		combatGear = new ItemRequirement("Combat equipment", -1, -1);
+		combatGear = new ItemRequirement(t("Combat equipment"), -1, -1);
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		sphinxsToken = new ItemRequirement("Sphinx's token", ItemID.ICS_LITTLE_SPHINXSTATUE);

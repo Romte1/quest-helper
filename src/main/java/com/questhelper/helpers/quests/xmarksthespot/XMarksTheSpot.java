@@ -70,7 +70,7 @@ public class XMarksTheSpot extends BasicQuestHelper
 	{
 		spade = new ItemRequirement("Spade", ItemID.SPADE).isNotConsumed();
 		spade.setTooltip(t("Can be bought from the Lumbridge General Store."));
-		glory = new ItemRequirement("Amulet of Glory for faster teleport to Draynor Village.", ItemCollections.AMULET_OF_GLORIES).isNotConsumed();
+		glory = new ItemRequirement(t("Amulet of Glory for faster teleport to Draynor Village."), ItemCollections.AMULET_OF_GLORIES).isNotConsumed();
 
 		ancientCasket = new ItemRequirement("Ancient casket", ItemID.CLUEQUEST_CASKET);
 	}

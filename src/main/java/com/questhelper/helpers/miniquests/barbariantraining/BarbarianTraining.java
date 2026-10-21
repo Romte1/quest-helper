@@ -304,7 +304,7 @@ public class BarbarianTraining extends BasicQuestHelper
 		fish.addAlternates(ItemID.BRUT_SPAWNING_SALMON, ItemID.BRUT_SPAWNING_TROUT);
 		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		antifireShield = new ItemRequirement(t("Anti-dragon shield or DFS"), ItemCollections.ANTIFIRE_SHIELDS).isNotConsumed();
+		antifireShield = new ItemRequirement("Anti-dragon shield or DFS", ItemCollections.ANTIFIRE_SHIELDS).isNotConsumed();
 		chewedBones = new ItemRequirement("Chewed bones", ItemID.BRUT_BARBARIAN_BONES);
 		bronzeBar = new ItemRequirement("Bronze bar", ItemID.BRONZE_BAR);
 		logs = new ItemRequirement("Logs", ItemID.LOGS);

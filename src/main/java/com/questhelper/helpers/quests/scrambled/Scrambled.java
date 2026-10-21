@@ -228,7 +228,7 @@ public class Scrambled extends BasicQuestHelper
 		acatzinsDamagedAxe = new ItemRequirement("Acatzin's damaged axe", ItemID.SCRAMBLED_AXE_DAMAGED);
 		acatzinsRepairedAxe = new ItemRequirement("Acatzin's axe", ItemID.SCRAMBLED_AXE_REPAIRED);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1);
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1);
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
 		antifireShield = new ItemRequirement("Antifire shield", ItemCollections.ANTIFIRE_SHIELDS);

@@ -253,9 +253,9 @@ public class MonkeyMadnessII extends BasicQuestHelper
 		pestleHighlighted = new ItemRequirement("Pestle and mortar", ItemID.PESTLE_AND_MORTAR);
 		pestleHighlighted.setHighlightInInventory(true);
 
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).isNotConsumed();
 		logs = new ItemRequirement("Logs", ItemID.LOGS);
-		lightSource = new ItemRequirement("A lightsource", ItemCollections.LIGHT_SOURCES).isNotConsumed();
+		lightSource = new ItemRequirement(t("A lightsource"), ItemCollections.LIGHT_SOURCES).isNotConsumed();
 		hammerSidebar = new ItemRequirement(t("Hammer (obtainable in quest)"), ItemCollections.HAMMER).isNotConsumed();
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed();
 		chisel = new ItemRequirement("Chisel", ItemCollections.CHISEL).isNotConsumed();
@@ -275,11 +275,11 @@ public class MonkeyMadnessII extends BasicQuestHelper
 		translationBook.setTooltip(t("If it's not in your bank you can get another from Narnode during the quest"));
 
 		magicLog = new ItemRequirement("Magic logs", ItemID.MAGIC_LOGS);
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		staminaPotions = new ItemRequirement("Stamina potions", ItemCollections.STAMINA_POTIONS, -1);
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS, -1);
 		antidote = new ItemRequirement("Antidote", ItemCollections.ANTIPOISONS, -1);
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		climbingBoots = new ItemRequirement("Climbing boots", ItemCollections.CLIMBING_BOOTS);
 

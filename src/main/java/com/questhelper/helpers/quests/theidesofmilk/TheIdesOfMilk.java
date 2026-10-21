@@ -113,10 +113,10 @@ public class TheIdesOfMilk extends BasicQuestHelper
 		gillieInformed = new VarbitRequirement(VarbitID.COWQUEST_GILLIE_INFORMATION, 1);
 		inLumbridgeCastleF1 = new ZoneRequirement(lumbridgeCastleF1);
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		food = new ItemRequirement("Food", -1, -1);
+		food = new ItemRequirement(t("Food"), -1, -1);
 		food.setDisplayItemId(BankSlotIcons.getFood());
 	}
 

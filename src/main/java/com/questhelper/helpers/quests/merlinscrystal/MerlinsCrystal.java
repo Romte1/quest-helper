@@ -175,9 +175,9 @@ public class MerlinsCrystal extends BasicQuestHelper
 		combatGear = new ItemRequirement(t("Combat gear + food for Sir Mordred (level 39)"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		varrockTeleport = new ItemRequirement("Teleport to Varrock", ItemID.POH_TABLET_VARROCKTELEPORT);
-		camelotTeleport = new ItemRequirement("Teleport to Camelot", ItemID.POH_TABLET_CAMELOTTELEPORT);
-		twoFaladorTeleports = new ItemRequirement("Teleports to Falador", ItemID.POH_TABLET_FALADORTELEPORT, 2);
+		varrockTeleport = new ItemRequirement(t("Teleport to Varrock"), ItemID.POH_TABLET_VARROCKTELEPORT);
+		camelotTeleport = new ItemRequirement(t("Teleport to Camelot"), ItemID.POH_TABLET_CAMELOTTELEPORT);
+		twoFaladorTeleports = new ItemRequirement(t("Teleports to Falador"), ItemID.POH_TABLET_FALADORTELEPORT, 2);
 
 		bucket = new ItemRequirement("Bucket", ItemID.BUCKET_EMPTY);
 		repellent = new ItemRequirement("Insect repellent", ItemID.INSECT_REPELLENT).isNotConsumed();

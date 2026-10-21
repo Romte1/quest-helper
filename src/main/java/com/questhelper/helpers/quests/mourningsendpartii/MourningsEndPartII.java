@@ -396,7 +396,7 @@ public class MourningsEndPartII extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		deathTalisman = new ItemRequirement("Access to the Death Altar", ItemCollections.DEATH_ALTAR).isNotConsumed();
+		deathTalisman = new ItemRequirement(t("Access to the Death Altar"), ItemCollections.DEATH_ALTAR).isNotConsumed();
 		deathTalisman.setTooltip(t("Death Talisman/Tiara, Catalytic Talisman/Tiara or RC-skill cape"));
 		deathTalisman.appendToTooltip(t("or bring the dwarf the 50 items asked later"));
 		deathTalismanHeader = new ItemRequirement(t("Access to the Death Altar or 50 items asked of you by a dwarf"), ItemCollections.DEATH_ALTAR).isNotConsumed();
@@ -423,7 +423,7 @@ public class MourningsEndPartII extends BasicQuestHelper
 		staminaPotions = new ItemRequirement("Stamina potions", ItemCollections.STAMINA_POTIONS);
 		prayerPotions = new ItemRequirement(t("Prayer potions for Protect from Melee"),
 			ItemCollections.PRAYER_POTIONS, -1);
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
 		newKey = new KeyringRequirement("New Key", KeyringCollection.NEW_KEY);
 		newKey.setTooltip(t("You can get another from Essyllt's desk"));

@@ -642,7 +642,7 @@ public class SongOfTheElves extends BasicQuestHelper
 		teleCrystal.addAlternates(ItemID.MOURNING_TELEPORT_CRYSTAL_2, ItemID.MOURNING_TELEPORT_CRYSTAL_3, ItemID.MOURNING_TELEPORT_CRYSTAL_4, ItemID.MOURNING_TELEPORT_CRYSTAL_5);
 		iorwerthCampTeleport = new ItemRequirement("Iorwerth camp teleport", ItemID.TELEPORTSCROLL_ELF);
 		gamesNecklace = new ItemRequirement("Games necklace", ItemCollections.GAMES_NECKLACES);
-		staminaPotions = new ItemRequirement("or more Stamina potions", ItemCollections.STAMINA_POTIONS, 6);
+		staminaPotions = new ItemRequirement(t("or more Stamina potions"), ItemCollections.STAMINA_POTIONS, 6);
 	}
 
 	public void setupConditions()

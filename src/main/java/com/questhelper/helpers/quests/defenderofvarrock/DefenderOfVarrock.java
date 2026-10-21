@@ -236,7 +236,7 @@ public class DefenderOfVarrock extends BasicQuestHelper
 		chaosCore = new ItemRequirement("Chaos core", ItemID.CAMDOZAAL_GOLEM_CORE_CHAOS);
 		imbuedBarronite = new ItemRequirement("Imbued barronite", ItemID.DOV_IMBUED_BARRONITE);
 
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).isNotConsumed();
 		listOfElders = new ItemRequirement("List of elders", ItemID.DOV_NAME_LIST);
 		shieldOfArrav = new ItemRequirement("Shield of arrav", ItemID.DOV_SHIELD_OF_ARRAV);
 		shieldOfArrav.setTooltip(t("You can get another from Rovin upstairs in Varrock Castle"));

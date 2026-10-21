@@ -285,13 +285,13 @@ public class TheFremennikTrials extends BasicQuestHelper
 		rawShark = new ItemRequirement("Raw shark, manta ray or sea turtle", ItemID.RAW_SHARK);
 		rawShark.addAlternates(ItemID.RAW_MANTARAY, ItemID.RAW_SEATURTLE);
 
-		dramenBranch = new ItemRequirement("Dramen branch for Koschei", ItemID.DRAMEN_BRANCH);
-		ringsOfRecoil = new ItemRequirement("Rings of recoil for Koschei", ItemID.RING_OF_RECOIL, -1);
+		dramenBranch = new ItemRequirement(t("Dramen branch for Koschei"), ItemID.DRAMEN_BRANCH);
+		ringsOfRecoil = new ItemRequirement(t("Rings of recoil for Koschei"), ItemID.RING_OF_RECOIL, -1);
 		camelotTeleport = new ItemRequirement("Camelot teleport", ItemID.POH_TABLET_CAMELOTTELEPORT);
-		rellekkaTeleports = new ItemRequirement("Teleports to Rellekka", ItemID.NZONE_TELETAB_RELLEKKA);
+		rellekkaTeleports = new ItemRequirement(t("Teleports to Rellekka"), ItemID.NZONE_TELETAB_RELLEKKA);
 
 		tinderbox = new ItemRequirement("Tinderbox", ItemID.TINDERBOX).isNotConsumed();
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES).isNotConsumed();
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).isNotConsumed();
 		knife = new ItemRequirement("Knife", ItemID.KNIFE).isNotConsumed();
 		potato = new ItemRequirement("Potato", ItemID.POTATO);
 		onion = new ItemRequirement("Onion", ItemID.ONION);
@@ -315,7 +315,7 @@ public class TheFremennikTrials extends BasicQuestHelper
 		alcoholFreeBeer = new ItemRequirement("Low alcohol keg", ItemID.VIKING_LOW_ALCAHOL_BEERKEG);
 		kegOfBeer = new ItemRequirement("Keg of beer", ItemID.VIKING_BEERKEG);
 
-		combatGear = new ItemRequirement("Combat gear + food", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear + food"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		huntersTalisman = new ItemRequirement("Hunters' talisman", ItemID.VIKING_DRAUGEN_TALISMAN_UNCHARGED);
 		chargedHuntersTalisman = new ItemRequirement("Hunters' talisman", ItemID.VIKING_DRAUGEN_TALISMAN);

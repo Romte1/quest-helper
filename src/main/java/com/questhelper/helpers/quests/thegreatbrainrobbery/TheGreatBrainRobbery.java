@@ -241,7 +241,7 @@ public class TheGreatBrainRobbery extends BasicQuestHelper
 			ItemID.WATERMELON_SEED);
 		combatGearForSafespotting = new ItemRequirement(t("Combat gear for safespotting"), -1, -1);
 		combatGearForSafespotting.setDisplayItemId(BankSlotIcons.getMagicCombatGear());
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD);
 		prayerPotions = new ItemRequirement("Prayer potion", ItemCollections.PRAYER_POTIONS);
 
 		// Quest items

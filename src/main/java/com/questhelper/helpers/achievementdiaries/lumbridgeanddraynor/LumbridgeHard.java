@@ -173,7 +173,7 @@ public class LumbridgeHard extends ComplexStateQuestHelper
 		earthRune = new ItemRequirement("Earth runes", ItemID.EARTHRUNE);
 		waterRune = new ItemRequirement("Water rune", ItemID.WATERRUNE, 4).showConditioned(notBonesToPeachesPalace);
 		natureRune = new ItemRequirement("Nature rune", ItemID.NATURERUNE, 2).showConditioned(notBonesToPeachesPalace);
-		fairyAccess = new ItemRequirement(t("Lunar or Dramen staff"), ItemCollections.FAIRY_STAFF)
+		fairyAccess = new ItemRequirement("Lunar or Dramen staff", ItemCollections.FAIRY_STAFF)
 			.showConditioned(new Conditions(LogicType.OR, notCosmics, notJuttingWall)).isNotConsumed();
 		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).showConditioned(notWakaToEdge).isNotConsumed();
 		goldBar = new ItemRequirement("Gold bar", ItemID.GOLD_BAR).showConditioned(notPowerAmmy);
@@ -188,7 +188,7 @@ public class LumbridgeHard extends ComplexStateQuestHelper
 		coins = new ItemRequirement("Coins", ItemCollections.COINS, 130000).showConditioned(notBarrowsGloves);
 		gamesNeck = new ItemRequirement("Games Necklace", ItemCollections.GAMES_NECKLACES).showConditioned(notHundredTears);
 		dorgSphere = new ItemRequirement("Dorgesh-kaan Sphere", ItemID.DORGESH_TELEPORT_ARTIFACT).showConditioned(notTrainToKeld);
-		essence = new ItemRequirement(t("Pure or Daeyalt essence"), ItemCollections.ESSENCE_HIGH, 28).showConditioned(notCosmics);
+		essence = new ItemRequirement("Pure or Daeyalt essence", ItemCollections.ESSENCE_HIGH, 28).showConditioned(notCosmics);
 		cosmicAccessOrAbyss = new ItemRequirement(t("Access to the Cosmic Altar"),
 			ItemCollections.COSMIC_ALTAR).showConditioned(notCosmics).isNotConsumed();
 		cosmicAccessOrAbyss.setTooltip(t("Cosmic Talisman/Tiara, Catalytic Talisman/Tiara, RC-skill cape or via Abyss"));

@@ -204,14 +204,14 @@ public class TheGrandTree extends BasicQuestHelper
 		oneThousandCoins = new ItemRequirement(t("Coins to enter the Stronghold if you didn't help Femi previously"), ItemCollections.COINS, 1000)
 			.hideConditioned(new QuestRequirement(QuestHelperQuest.TREE_GNOME_VILLAGE, QuestState.FINISHED));
 
-		accessToFairyRings = new ItemRequirement("Access to Fairy Rings", ItemCollections.FAIRY_STAFF).isNotConsumed();
+		accessToFairyRings = new ItemRequirement(t("Access to Fairy Rings"), ItemCollections.FAIRY_STAFF).isNotConsumed();
 
-		energyOrStaminaPotions = new ItemRequirement("Energy restoration", ItemCollections.RUN_RESTORE_ITEMS, -1);
+		energyOrStaminaPotions = new ItemRequirement(t("Energy restoration"), ItemCollections.RUN_RESTORE_ITEMS, -1);
 		combatGear = new ItemRequirement(t("Combat gear. Safespotting is possible."), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS, -1);
-		transportToGrandTree = new ItemRequirement("Transport to the Grand Tree", ItemCollections.NECKLACE_OF_PASSAGES);
+		transportToGrandTree = new ItemRequirement(t("Transport to the Grand Tree"), ItemCollections.NECKLACE_OF_PASSAGES);
 
 		translationBook = new ItemRequirement("Translation Book", ItemID.GRANDTREE_TRANSLATIONBOOK);
 		translationBook.setTooltip(t("You can get another from Narnode"));

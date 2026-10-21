@@ -243,7 +243,7 @@ public class TheGolem extends BasicQuestHelper
 		varrockTeleport = new ItemRequirement("Varrock teleport", ItemID.POH_TABLET_VARROCKTELEPORT);
 		digsiteTeleport = new ItemRequirement("Digsite teleport", ItemCollections.DIGSITE_PENDANTS);
 		digsiteTeleport.addAlternates(ItemID.TELEPORTSCROLL_DIGSITE);
-		necklaceOfPassage = new TeleportItemRequirement("Necklace of passage to Eagle's Eyrie", ItemCollections.NECKLACE_OF_PASSAGES, 3);
+		necklaceOfPassage = new TeleportItemRequirement(t("Necklace of passage to Eagle's Eyrie"), ItemCollections.NECKLACE_OF_PASSAGES, 3);
 		waterskins = new ItemRequirement("Waterskins", ItemID.WATER_SKIN4, -1);
 
 		inRuin = new ZoneRequirement(ruin);

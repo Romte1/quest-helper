@@ -296,11 +296,11 @@ public class TheFremennikIsles extends BasicQuestHelper
 		yakTopWorn = new ItemRequirement("Yak-hide armour (top)", ItemID.YAK_HIDE_ARMOUR_BODY, 1, true).isNotConsumed();
 		yakBottomWorn = new ItemRequirement("Yak-hide armour (bottom)", ItemID.YAK_HIDE_ARMOUR_GREAVES, 1, true).isNotConsumed();
 		shieldWorn = new ItemRequirement("Neitiznot shield", ItemID.FREMMENIK_ROUND_SHIELD, 1, true).isNotConsumed();
-		meleeWeapon = new ItemRequirement("Melee gear", -1, -1).isNotConsumed();
+		meleeWeapon = new ItemRequirement(t("Melee gear"), -1, -1).isNotConsumed();
 		meleeWeapon.setDisplayItemId(BankSlotIcons.getCombatGear());
-		food = new ItemRequirement("Food + potions", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food + potions"), ItemCollections.GOOD_EATING_FOOD, -1);
 		tuna = new ItemRequirement("Raw tuna", ItemID.RAW_TUNA);
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES).isNotConsumed();
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).isNotConsumed();
 
 		tuna.setTooltip(t("You can buy some from Flosi in east Jatizso, or fish some from the pier."));
 

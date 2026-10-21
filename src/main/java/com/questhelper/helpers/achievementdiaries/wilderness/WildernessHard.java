@@ -167,7 +167,7 @@ public class WildernessHard extends ComplexStateQuestHelper
 		addyBar = new ItemRequirement("Adamantite bar", ItemID.ADAMANTITE_BAR, 2).showConditioned(notAddyScim);
 		addyOre = new ItemRequirement("Adamantite ore", ItemID.ADAMANTITE_ORE);
 		hammer = new ItemRequirement("Hammer", ItemID.HAMMER).showConditioned(notAddyScim).isNotConsumed();
-		barsOrPick = new ItemRequirements(LogicType.OR, t("2 Adamantite bars or a pickaxe"), addyBar, pickaxe);
+		barsOrPick = new ItemRequirements(LogicType.OR, "2 Adamantite bars or a pickaxe", addyBar, pickaxe);
 		lavaDragonBones = new ItemRequirement("Lava Dragon Bones", ItemID.LAVA_DRAGON_BONES);
 
 		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);

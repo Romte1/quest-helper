@@ -213,17 +213,17 @@ public class InAidOfTheMyreque extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		food = new ItemRequirement("Any food", ItemCollections.GOOD_EATING_FOOD);
+		food = new ItemRequirement(t("Any food"), ItemCollections.GOOD_EATING_FOOD);
 		foodForChest = new ItemRequirement(t("Food to put in a chest, multiple pieces in case a Ghast eats some"),
 			ItemCollections.GOOD_EATING_FOOD);
 		spade = new ItemRequirement("Spade", ItemID.SPADE).isNotConsumed();
 		bucketTo5 = new ItemRequirement(t("buckets (Can use 1 but is much slower)"), ItemID.BUCKET_EMPTY, 5);
 		bucketOrSemiFilledBucket = new ItemRequirement("Bucket", ItemID.BUCKET_EMPTY);
 		bucketOrSemiFilledBucket.addAlternates(ItemID.BURGH_RUBBLE_BUCKET_1, ItemID.BURGH_RUBBLE_BUCKET_2);
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).isNotConsumed();
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed();
 		planks11 = new ItemRequirement("Plank", ItemID.WOODPLANK, 11);
-		nails44 = new ItemRequirement("Any nails", ItemCollections.NAILS, 44);
+		nails44 = new ItemRequirement(t("Any nails"), ItemCollections.NAILS, 44);
 		swampPaste = new ItemRequirement("Swamp paste", ItemID.SWAMPPASTE, 2);
 		snails10 = new ItemRequirement("Raw snail", ItemID.SNAIL_CORPSE1);
 		snails10.addAlternates(ItemID.SNAIL_CORPSE3, ItemID.SNAIL_CORPSE2);

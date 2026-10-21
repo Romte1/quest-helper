@@ -182,10 +182,10 @@ public class BlackKnightFortress extends BasicQuestHelper
 		bronzeMed = new ItemRequirement("Bronze med helm", ItemID.BRONZE_MED_HELM, 1, true).isNotConsumed();
 		bronzeMed.setTooltip(t("You can get one from the helmet shop in Barbarian Village."));
 
-		teleportFalador = new ItemRequirement("Teleport to Falador", ItemID.POH_TABLET_FALADORTELEPORT);
-		armour = new ItemRequirement("Armour", -1, -1).isNotConsumed();
+		teleportFalador = new ItemRequirement(t("Teleport to Falador"), ItemID.POH_TABLET_FALADORTELEPORT);
+		armour = new ItemRequirement(t("Armour"), -1, -1).isNotConsumed();
 		armour.setDisplayItemId(BankSlotIcons.getArmour());
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
 		inFaladorF1 = new ZoneRequirement(whiteKnightsCastleF1);
 		inFaladorF2 = new ZoneRequirement(whiteKnightsCastleF2);

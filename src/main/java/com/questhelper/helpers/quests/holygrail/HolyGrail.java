@@ -223,10 +223,10 @@ public class HolyGrail extends BasicQuestHelper
 		thirtyCoins.appendToTooltip(t("For travel from Ardougne to Brimhaven"));
 		antipoison = new ItemRequirement("Antipoison", ItemCollections.ANTIPOISONS);
 		antipoison.setTooltip(t("If you're below Combat level 41, the poisonous scorpions on Karamja are aggressive"));
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		combatGear = new ItemRequirement(t("A weapon and armour (melee recommended)"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
-		emptyInvSpot = new ItemRequirement("Empty Inventory Spot", -1, 1);
+		emptyInvSpot = new ItemRequirement(t("Empty Inventory Spot"), -1, 1);
 		goldFeather = new ItemRequirement("Magic gold feather", ItemID.MAGIC_GOLDEN_FEATHER);
 		grailBell = new ItemRequirement("Grail Bell", ItemID.GRAIL_BELL);
 		oneMagicWhistle = new ItemRequirement("Magic Whistle", ItemID.MAGIC_WHISTLE);

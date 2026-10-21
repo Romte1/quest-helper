@@ -147,10 +147,10 @@ public class ARuffSituation extends BasicQuestHelper
 		stuffedDog.canBeObtainedDuringQuest();
 		stuffedDog.setTooltip(t("You can make another from grain and fur with a needle and thread."));
 
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		food = new ItemRequirement("Food", -1, -1);
+		food = new ItemRequirement(t("Food"), -1, -1);
 		food.setDisplayItemId(BankSlotIcons.getFood());
 
 		puppy1 = new ItemRequirement("Puppy labrador", ItemID.DOGQ_PUPPY_ONE_OBJECT);

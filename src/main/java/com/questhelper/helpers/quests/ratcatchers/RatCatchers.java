@@ -230,7 +230,7 @@ public class RatCatchers extends BasicQuestHelper
 		vial = new ItemRequirement("Empty vial", ItemID.VIAL_EMPTY);
 		snakeCharm = new ItemRequirement("Snake charm", ItemID.SNAKE_FLUTE).isNotConsumed();
 		snakeCharm.canBeObtainedDuringQuest();
-		fish8 = new ItemRequirement("Fish or more, raw or cooked", ItemCollections.FISH_FOOD, 8);
+		fish8 = new ItemRequirement(t("Fish or more, raw or cooked"), ItemCollections.FISH_FOOD, 8);
 		fish8.addAlternates(ItemCollections.RAW_FISH);
 
 		varrockTeleport = new ItemRequirement("Varrock teleport", ItemID.POH_TABLET_VARROCKTELEPORT);
@@ -240,9 +240,9 @@ public class RatCatchers extends BasicQuestHelper
 		ardougneTeleport = new ItemRequirement("Ardougne teleport", ItemID.POH_TABLET_ARDOUGNETELEPORT);
 		ardougneTeleport.addAlternates(ItemID.ARDY_CAPE_EASY, ItemID.ARDY_CAPE_MEDIUM, ItemID.ARDY_CAPE_HARD,
 			ItemID.ARDY_CAPE_ELITE);
-		keldagrimTeleport = new ItemRequirement("Mine cart access to Keldagrim from the GE", -1, -1);
+		keldagrimTeleport = new ItemRequirement(t("Mine cart access to Keldagrim from the GE"), -1, -1);
 		keldagrimTeleport.setDisplayItemId(ItemID.DWARF_MINECART_TICKET_KELDA_ICE);
-		carpetCoins = new ItemRequirement("Coins for magic carpet travel", ItemCollections.COINS, 1000);
+		carpetCoins = new ItemRequirement(t("Coins for magic carpet travel"), ItemCollections.COINS, 1000);
 
 		directions = new ItemRequirement("Directions", ItemID.RATCATCHERS_PARTY_DIRECTIONS);
 

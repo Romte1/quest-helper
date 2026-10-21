@@ -183,7 +183,7 @@ public class KandarinMedium extends ComplexStateQuestHelper
 		not70Agility = new Conditions(LogicType.NOR, new SkillRequirement(Skill.AGILITY, 70, true));
 
 		mithGrap = new ItemRequirement("Mith grapple", ItemID.XBOWS_GRAPPLE_TIP_BOLT_MITHRIL_ROPE).showConditioned(notGrapOb).isNotConsumed();
-		crossbow = new ItemRequirement("Any crossbow", ItemCollections.CROSSBOWS).showConditioned(notGrapOb).isNotConsumed();
+		crossbow = new ItemRequirement(t("Any crossbow"), ItemCollections.CROSSBOWS).showConditioned(notGrapOb).isNotConsumed();
 		unfIrit = new ItemRequirement("Unfinished irit potion", ItemID.IRITVIAL, 1).showConditioned(notSuperAnti);
 		unicornHorn = new ItemRequirement("Unicorn horn", ItemID.UNICORN_HORN, 1).showConditioned(notSuperAnti);
 		mortarPest = new ItemRequirement("Pestle and mortar", ItemID.PESTLE_AND_MORTAR).showConditioned(notSuperAnti).isNotConsumed();
@@ -213,7 +213,7 @@ public class KandarinMedium extends ComplexStateQuestHelper
 		rope = new ItemRequirement("Rope", ItemID.ROPE).showConditioned(notFireGiant).isNotConsumed();
 		lockpick = new ItemRequirement("Lockpick", ItemID.LOCKPICK).showConditioned(notStealHemen).isNotConsumed();
 		staff = new ItemRequirement("Dramen or Lunar staff", ItemCollections.FAIRY_STAFF).showConditioned(notTravelMcGrubor).isNotConsumed();
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).showConditioned(notMineCoal).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).showConditioned(notMineCoal).isNotConsumed();
 		rawBass = new ItemRequirement("Raw bass", ItemID.RAW_BASS).showConditioned(notCatchCookBass);
 		compost = new ItemRequirement("Compost", ItemCollections.COMPOST).showConditioned(notPickLimp);
 
@@ -221,7 +221,7 @@ public class KandarinMedium extends ComplexStateQuestHelper
 			.showConditioned(new Conditions(LogicType.OR, notFireGiant, notBarbAss)).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 
 		normalBook = new SpellbookRequirement(Spellbook.NORMAL);
 

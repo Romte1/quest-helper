@@ -302,7 +302,7 @@ public class PerilousMoon extends BasicQuestHelper
 		emptyInventory5 = new FreeInventorySlotRequirement(5);
 
 		// Quest
-		buildingSupplies = new ItemRequirement("Building supplies", ItemID.PMOON_CAMP_SUPPLIES);
+		buildingSupplies = new ItemRequirement(t("Building supplies"), ItemID.PMOON_CAMP_SUPPLIES);
 		rawMossLizard = new ItemRequirement("Raw moss lizard", ItemID.RAW_LIZARD);
 		mossLizardTail = new ItemRequirement("Moss lizard tail", ItemID.PMOON_LIZARD_TAIL);
 		bream = new ItemRequirement("Raw bream", ItemID.BREAM_FISH_RAW);

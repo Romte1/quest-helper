@@ -406,15 +406,15 @@ public class DragonSlayerII extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		pickaxe = new ItemRequirement("Any pickaxe", ItemCollections.PICKAXES).isNotConsumed();
+		pickaxe = new ItemRequirement(t("Any pickaxe"), ItemCollections.PICKAXES).isNotConsumed();
 		pickaxeHighlighted = pickaxe.highlighted();
-		axe = new ItemRequirement("Any axe", ItemCollections.AXES).isNotConsumed();
+		axe = new ItemRequirement(t("Any axe"), ItemCollections.AXES).isNotConsumed();
 		oakPlank8 = new ItemRequirement("Oak planks", ItemID.PLANK_OAK, 8);
 		swampPaste10 = new ItemRequirement("Swamp paste", ItemID.SWAMPPASTE, 10);
 		nails12OrMore = new ItemRequirement(t("Nails, bring more in case some break"), ItemCollections.NAILS, 12);
 		hammer = new ItemRequirement("Hammer", ItemCollections.HAMMER).isNotConsumed();
 		hammerHighlighted = hammer.highlighted();
-		machete = new ItemRequirement("Any machete", ItemCollections.MACHETE).isNotConsumed();
+		machete = new ItemRequirement(t("Any machete"), ItemCollections.MACHETE).isNotConsumed();
 		saw = new ItemRequirement("Saw", ItemCollections.SAW).isNotConsumed();
 		catspeakAmulet = new ItemRequirement("Catspeak amulet (e)", ItemID.TWOCATS_AMULETOFCATSPEAK).equipped().isNotConsumed();
 		catspeakAmulet.setTooltip(t("You can get another basic amulet from the Sphinx (bring a cat), and then get it enchanted by Hild in Burthorpe for 5 death runes"));
@@ -438,7 +438,7 @@ public class DragonSlayerII extends BasicQuestHelper
 		fireRune21 = new ItemRequirement("Fire rune", ItemID.FIRERUNE, 21);
 		airRune5 = new ItemRequirement("Air rune", ItemID.AIRRUNE, 5);
 		airRune15 = new ItemRequirement("Air rune", ItemID.AIRRUNE, 15);
-		fireWaveRunes = new ItemRequirements("Fire wave runes", bloodRune1, fireRune7, airRune5);
+		fireWaveRunes = new ItemRequirements(t("Fire wave runes"), bloodRune1, fireRune7, airRune5);
 		fireWave3Runes = new ItemRequirements(t("3 casts of Fire Wave"), bloodRune3, fireRune21, airRune15);
 
 		wrathRune1 = new ItemRequirement("Wrath rune", ItemID.WRATHRUNE);
@@ -447,7 +447,7 @@ public class DragonSlayerII extends BasicQuestHelper
 		fireRune30 = new ItemRequirement("Fire rune", ItemID.FIRERUNE, 30);
 		airRune7 = new ItemRequirement("Air rune", ItemID.AIRRUNE, 7);
 		airRune21 = new ItemRequirement("Air rune", ItemID.AIRRUNE, 21);
-		fireSurgeRunes = new ItemRequirements("Fire Surge runes", wrathRune1, fireRune10, airRune7);
+		fireSurgeRunes = new ItemRequirements(t("Fire Surge runes"), wrathRune1, fireRune10, airRune7);
 		fireSurge3Runes = new ItemRequirements(t("3 casts of Fire Surge"), wrathRune3, fireRune30, airRune21);
 
 		runesForFireWaveOrSurge = new ItemRequirements(LogicType.OR, t("Fire Wave or Fire Surge runes"), fireWaveRunes, fireSurgeRunes);
@@ -456,7 +456,7 @@ public class DragonSlayerII extends BasicQuestHelper
 		combatGear = new ItemRequirement(t("Combat gear, food and potions"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 
-		food = new ItemRequirement("Food", ItemCollections.GOOD_EATING_FOOD, -1);
+		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		lightSource = new ItemRequirement(t("A light source"), ItemCollections.LIGHT_SOURCES).isNotConsumed();
 
 		rangedCombatGear = new ItemRequirement(t("Ranged combat gear"), -1, -1).isNotConsumed();

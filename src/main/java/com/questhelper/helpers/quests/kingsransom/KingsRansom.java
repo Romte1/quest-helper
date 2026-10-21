@@ -212,11 +212,11 @@ public class KingsRansom extends BasicQuestHelper
 		lockpick = new ItemRequirement("Lockpick", ItemID.LOCKPICK);
 
 		telegrab = new ItemRequirements(t("Telegrab runes"), new ItemRequirement("Law rune", ItemID.LAWRUNE),
-			new ItemRequirements(LogicType.OR, t("Air runes or staff"), new ItemRequirement("Air runes", ItemCollections.AIR_RUNE), new ItemRequirement("Air staff", ItemCollections.AIR_STAFF)));
+			new ItemRequirements(LogicType.OR, "Air runes or staff", new ItemRequirement("Air runes", ItemCollections.AIR_RUNE), new ItemRequirement("Air staff", ItemCollections.AIR_STAFF)));
 
 		grabOrLockpick = new ItemRequirements(LogicType.OR, t("Runes for telekinetic grab or a lockpick"), new ItemRequirement("Lockpick", ItemID.LOCKPICK), telegrab);
 
-		hairclipOrLockpick = new ItemRequirement(t("Hair clip or Lockpick"), ItemID.LOCKPICK);
+		hairclipOrLockpick = new ItemRequirement("Hair clip or Lockpick", ItemID.LOCKPICK);
 		hairclipOrLockpick.addAlternates(ItemID.KR_HAIRCLIP);
 
 		holyGrail = new ItemRequirement("Holy grail", ItemID.HOLY_GRAIL);

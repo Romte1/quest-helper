@@ -184,7 +184,7 @@ public class WildernessMedium extends ComplexStateQuestHelper
 		goldBar = new ItemRequirement("Gold bar", ItemID.GOLD_BAR).showConditioned(notGoldHelm);
 		goldOre = new ItemRequirement("Gold ore", ItemID.GOLD_ORE);
 		hammer = new ItemRequirement("Hammer", ItemID.HAMMER).showConditioned(notGoldHelm).isNotConsumed();
-		barsOrPick = new ItemRequirements(LogicType.OR, t("3 gold bars or a pickaxe"), goldBar.quantity(3), pickaxe);
+		barsOrPick = new ItemRequirements(LogicType.OR, "3 gold bars or a pickaxe", goldBar.quantity(3), pickaxe);
 
 		food = new ItemRequirement(t("Food"), ItemCollections.GOOD_EATING_FOOD, -1);
 		burningAmulet = new ItemRequirement("Burning amulet", ItemCollections.BURNING_AMULETS);

@@ -276,11 +276,11 @@ public class BeneathCursedSands extends BasicQuestHelper
 		accessToFairyRings = new ItemRequirement(t("Access to Fairy Rings"), ItemCollections.FAIRY_STAFF).isNotConsumed();
 		pharaohsSceptre = new ItemRequirement("Pharaoh's sceptre", ItemCollections.PHAROAH_SCEPTRE).isNotConsumed();
 		pharaohsSceptre.setTooltip(t("When visiting Necropolis during the quest, you can unlock the direct teleport by using 'Commune' on the Obelisk."));
-		food = new ItemRequirement("Food", -1, -1);
+		food = new ItemRequirement(t("Food"), -1, -1);
 		food.setDisplayItemId(BankSlotIcons.getFood());
-		meleeCombatGear = new ItemRequirement("Melee combat gear", -1, -1).isNotConsumed();
+		meleeCombatGear = new ItemRequirement(t("Melee combat gear"), -1, -1).isNotConsumed();
 		meleeCombatGear.setDisplayItemId(BankSlotIcons.getMeleeCombatGear());
-		rangedCombatGear = new ItemRequirement("Ranged combat gear", -1, -1).isNotConsumed();
+		rangedCombatGear = new ItemRequirement(t("Ranged combat gear"), -1, -1).isNotConsumed();
 		rangedCombatGear.setDisplayItemId(BankSlotIcons.getRangedCombatGear());
 		staminaPotions = new ItemRequirement("Stamina Potions", ItemCollections.STAMINA_POTIONS, -1);
 		nardahTeleport = new ItemRequirement("Nardah Teleport", ItemID.DESERT_AMULET_ELITE);

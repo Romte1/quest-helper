@@ -130,7 +130,7 @@ public class SucellusSteps extends ConditionalStep
 
 	protected void setupItemRequirements()
 	{
-		meleeCombatGear = new ItemRequirement("Melee combat gear", -1, -1);
+		meleeCombatGear = new ItemRequirement(getQuestHelper().t("Melee combat gear"), -1, -1);
 		meleeCombatGear.setDisplayItemId(BankSlotIcons.getMeleeCombatGear());
 		food = new ItemRequirement(getQuestHelper().t("Food, as much as you can bring"), ItemCollections.GOOD_EATING_FOOD);
 		prayerPotions = new ItemRequirement("Prayer potions", ItemCollections.PRAYER_POTIONS);

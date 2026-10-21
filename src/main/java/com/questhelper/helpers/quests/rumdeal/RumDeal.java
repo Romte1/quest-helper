@@ -233,7 +233,7 @@ public class RumDeal extends BasicQuestHelper
 	@Override
 	protected void setupRequirements()
 	{
-		combatGear = new ItemRequirement("Combat gear", -1, -1).isNotConsumed();
+		combatGear = new ItemRequirement(t("Combat gear"), -1, -1).isNotConsumed();
 		combatGear.setDisplayItemId(BankSlotIcons.getCombatGear());
 		slayerGloves = new ItemRequirement("Slayer gloves", ItemID.SLAYERGUIDE_SLAYER_GLOVES).isNotConsumed();
 		slayerGloves.addAlternates(ItemID.DEAL_SLAYER_GLOVES);
